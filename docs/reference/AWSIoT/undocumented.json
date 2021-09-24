@@ -1,3638 +1,3638 @@
 {
   "warnings": [
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoT.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoT.h",
       "line": 28,
       "symbol": "AWSIoTVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoT.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoT.h",
       "line": 39,
       "symbol": "AWSIoTVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTData.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTData.h",
       "line": 28,
       "symbol": "AWSIoTDataVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTData.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTData.h",
       "line": 39,
       "symbol": "AWSIoTDataVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 24,
       "symbol": "AWSIoTMQTTLastWillAndTestament",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 51,
       "symbol": "AWSIoTMQTTConfiguration",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 207,
       "symbol": "AWSIoTDataManager",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 757,
       "symbol": "AWSIoTShadowOperationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 757,
       "symbol": "AWSIoTShadowOperationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 764,
       "symbol": "AWSIoTShadowOperationType.AWSIoTShadowOperationTypeUpdate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 765,
       "symbol": "AWSIoTShadowOperationType.AWSIoTShadowOperationTypeGet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 766,
       "symbol": "AWSIoTShadowOperationType.AWSIoTShadowOperationTypeDelete",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 767,
       "symbol": "AWSIoTShadowOperationType.AWSIoTShadowOperationTypeCount",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 768,
       "symbol": "AWSIoTShadowOperationType.AWSIoTShadowOperationTypeNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 771,
       "symbol": "AWSIoTShadowOperationStatusType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 771,
       "symbol": "AWSIoTShadowOperationStatusType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 778,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeAccepted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 779,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeRejected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 780,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeDelta",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 781,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeDocuments",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 782,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeCount",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 783,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeForeignUpdate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 784,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeTimeout",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 22,
       "symbol": "AWSIoTDataErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 24,
       "symbol": "AWSIoTDataErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 24,
       "symbol": "AWSIoTDataErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 25,
       "symbol": "AWSIoTDataErrorType.AWSIoTDataErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 26,
       "symbol": "AWSIoTDataErrorType.AWSIoTDataErrorConflict",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 27,
       "symbol": "AWSIoTDataErrorType.AWSIoTDataErrorInternalFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 28,
       "symbol": "AWSIoTDataErrorType.AWSIoTDataErrorInvalidRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 29,
       "symbol": "AWSIoTDataErrorType.AWSIoTDataErrorMethodNotAllowed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 30,
       "symbol": "AWSIoTDataErrorType.AWSIoTDataErrorRequestEntityTooLarge",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 31,
       "symbol": "AWSIoTDataErrorType.AWSIoTDataErrorResourceNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 32,
       "symbol": "AWSIoTDataErrorType.AWSIoTDataErrorServiceUnavailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 33,
       "symbol": "AWSIoTDataErrorType.AWSIoTDataErrorThrottling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 34,
       "symbol": "AWSIoTDataErrorType.AWSIoTDataErrorUnauthorized",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 35,
       "symbol": "AWSIoTDataErrorType.AWSIoTDataErrorUnsupportedDocumentEncoding",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataResources.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataResources.h",
       "line": 18,
       "symbol": "AWSIoTDataResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataResources.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataResources.h",
       "line": 20,
       "symbol": "AWSIoTDataResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataResources.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataResources.h",
       "line": 22,
       "symbol": "AWSIoTDataResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTDataService.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTDataService.h",
       "line": 24,
       "symbol": "AWSIoTDataSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 22,
       "symbol": "AWSIoTMQTTStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 22,
       "symbol": "AWSIoTMQTTStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 23,
       "symbol": "AWSIoTMQTTStatus.AWSIoTMQTTStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 24,
       "symbol": "AWSIoTMQTTStatus.AWSIoTMQTTStatusConnecting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 25,
       "symbol": "AWSIoTMQTTStatus.AWSIoTMQTTStatusConnected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 26,
       "symbol": "AWSIoTMQTTStatus.AWSIoTMQTTStatusDisconnected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 27,
       "symbol": "AWSIoTMQTTStatus.AWSIoTMQTTStatusConnectionRefused",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 28,
       "symbol": "AWSIoTMQTTStatus.AWSIoTMQTTStatusConnectionError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 29,
       "symbol": "AWSIoTMQTTStatus.AWSIoTMQTTStatusProtocolError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 32,
       "symbol": "AWSIoTMQTTMessageType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 32,
       "symbol": "AWSIoTMQTTMessageType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 33,
       "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypeConnect",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 34,
       "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypeConnack",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 35,
       "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypePublish",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 36,
       "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypePuback",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 37,
       "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypePubrec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 38,
       "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypePubrel",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 39,
       "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypePubcomp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 40,
       "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypeSubscribe",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 41,
       "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypeSuback",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 42,
       "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypeUnsubscribe",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 43,
       "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypeUnsuback",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 44,
       "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypePingreq",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 45,
       "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypePingresp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 46,
       "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypeDisconnect",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 49,
       "symbol": "AWSIoTMQTTQoS",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 49,
       "symbol": "AWSIoTMQTTQoS",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 50,
       "symbol": "AWSIoTMQTTQoS.AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 51,
       "symbol": "AWSIoTMQTTQoS.AWSIoTMQTTQoSMessageDeliveryAttemptedAtLeastOnce",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 52,
       "symbol": "AWSIoTMQTTQoS.AWSIoTMQTTQoSMessageDeliveryAttemptedExactlyOnce",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 55,
       "symbol": "AWSIoTMQTTNewMessageBlock",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 56,
       "symbol": "AWSIoTMQTTExtendedNewMessageBlock",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 57,
       "symbol": "AWSIoTMQTTFullMessageBlock",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 58,
       "symbol": "AWSIoTMQTTAckBlock",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTManager.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTManager.h",
       "line": 19,
       "symbol": "AWSIoTCreateCertificateResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTManager.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTManager.h",
       "line": 21,
       "symbol": "AWSIoTCreateCertificateResponse.certificateArn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTManager.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTManager.h",
       "line": 22,
       "symbol": "AWSIoTCreateCertificateResponse.certificateId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTManager.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTManager.h",
       "line": 23,
       "symbol": "AWSIoTCreateCertificateResponse.certificatePem",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTManager.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTManager.h",
       "line": 27,
       "symbol": "AWSIoTManager",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMessage.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMessage.h",
       "line": 22,
       "symbol": "AWSIoTMessage",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMessage.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMessage.h",
       "line": 24,
       "symbol": "AWSIoTMessage.type",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMessage.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMessage.h",
       "line": 25,
       "symbol": "AWSIoTMessage.qos",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMessage.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMessage.h",
       "line": 26,
       "symbol": "AWSIoTMessage.retainFlag",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMessage.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMessage.h",
       "line": 27,
       "symbol": "AWSIoTMessage.isDuplicate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMessage.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMessage.h",
       "line": 28,
       "symbol": "AWSIoTMessage.rawData",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMessage.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMessage.h",
       "line": 29,
       "symbol": "AWSIoTMessage.messageData",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMessage.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMessage.h",
       "line": 31,
       "symbol": "AWSIoTMessage.topic",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTMessage.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTMessage.h",
       "line": 32,
       "symbol": "AWSIoTMessage.message",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 22,
       "symbol": "AWSIoTErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 24,
       "symbol": "AWSIoTErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 24,
       "symbol": "AWSIoTErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 25,
       "symbol": "AWSIoTErrorType.AWSIoTErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 26,
       "symbol": "AWSIoTErrorType.AWSIoTErrorCertificateConflict",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 27,
       "symbol": "AWSIoTErrorType.AWSIoTErrorCertificateState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 28,
       "symbol": "AWSIoTErrorType.AWSIoTErrorCertificateValidation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 29,
       "symbol": "AWSIoTErrorType.AWSIoTErrorConflict",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 30,
       "symbol": "AWSIoTErrorType.AWSIoTErrorConflictingResourceUpdate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 31,
       "symbol": "AWSIoTErrorType.AWSIoTErrorDeleteConflict",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 32,
       "symbol": "AWSIoTErrorType.AWSIoTErrorIndexNotReady",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 33,
       "symbol": "AWSIoTErrorType.AWSIoTErrorInternal",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 34,
       "symbol": "AWSIoTErrorType.AWSIoTErrorInternalFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 35,
       "symbol": "AWSIoTErrorType.AWSIoTErrorInvalidAggregation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 36,
       "symbol": "AWSIoTErrorType.AWSIoTErrorInvalidQuery",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 37,
       "symbol": "AWSIoTErrorType.AWSIoTErrorInvalidRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 38,
       "symbol": "AWSIoTErrorType.AWSIoTErrorInvalidResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 39,
       "symbol": "AWSIoTErrorType.AWSIoTErrorInvalidStateTransition",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 40,
       "symbol": "AWSIoTErrorType.AWSIoTErrorLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 41,
       "symbol": "AWSIoTErrorType.AWSIoTErrorMalformedPolicy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 42,
       "symbol": "AWSIoTErrorType.AWSIoTErrorNotConfigured",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 43,
       "symbol": "AWSIoTErrorType.AWSIoTErrorRegistrationCodeValidation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 44,
       "symbol": "AWSIoTErrorType.AWSIoTErrorResourceAlreadyExists",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 45,
       "symbol": "AWSIoTErrorType.AWSIoTErrorResourceNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 46,
       "symbol": "AWSIoTErrorType.AWSIoTErrorResourceRegistrationFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 47,
       "symbol": "AWSIoTErrorType.AWSIoTErrorServiceUnavailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 48,
       "symbol": "AWSIoTErrorType.AWSIoTErrorSqlParse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 49,
       "symbol": "AWSIoTErrorType.AWSIoTErrorTaskAlreadyExists",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 50,
       "symbol": "AWSIoTErrorType.AWSIoTErrorThrottling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 51,
       "symbol": "AWSIoTErrorType.AWSIoTErrorTransferAlreadyCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 52,
       "symbol": "AWSIoTErrorType.AWSIoTErrorTransferConflict",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 53,
       "symbol": "AWSIoTErrorType.AWSIoTErrorUnauthorized",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 54,
       "symbol": "AWSIoTErrorType.AWSIoTErrorVersionConflict",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 55,
       "symbol": "AWSIoTErrorType.AWSIoTErrorVersionsLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 58,
       "symbol": "AWSIoTAbortAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 58,
       "symbol": "AWSIoTAbortAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 59,
       "symbol": "AWSIoTAbortAction.AWSIoTAbortActionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 60,
       "symbol": "AWSIoTAbortAction.AWSIoTAbortActionCancel",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 63,
       "symbol": "AWSIoTActionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 63,
       "symbol": "AWSIoTActionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 64,
       "symbol": "AWSIoTActionType.AWSIoTActionTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 65,
       "symbol": "AWSIoTActionType.AWSIoTActionTypePublish",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 66,
       "symbol": "AWSIoTActionType.AWSIoTActionTypeSubscribe",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 67,
       "symbol": "AWSIoTActionType.AWSIoTActionTypeReceive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 68,
       "symbol": "AWSIoTActionType.AWSIoTActionTypeConnect",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 71,
       "symbol": "AWSIoTAlertTargetType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 71,
       "symbol": "AWSIoTAlertTargetType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 72,
       "symbol": "AWSIoTAlertTargetType.AWSIoTAlertTargetTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 73,
       "symbol": "AWSIoTAlertTargetType.AWSIoTAlertTargetTypeSns",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 76,
       "symbol": "AWSIoTAuditCheckRunStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 76,
       "symbol": "AWSIoTAuditCheckRunStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 77,
       "symbol": "AWSIoTAuditCheckRunStatus.AWSIoTAuditCheckRunStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 78,
       "symbol": "AWSIoTAuditCheckRunStatus.AWSIoTAuditCheckRunStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 79,
       "symbol": "AWSIoTAuditCheckRunStatus.AWSIoTAuditCheckRunStatusWaitingForDataCollection",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 80,
       "symbol": "AWSIoTAuditCheckRunStatus.AWSIoTAuditCheckRunStatusCanceled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 81,
       "symbol": "AWSIoTAuditCheckRunStatus.AWSIoTAuditCheckRunStatusCompletedCompliant",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 82,
       "symbol": "AWSIoTAuditCheckRunStatus.AWSIoTAuditCheckRunStatusCompletedNonCompliant",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 83,
       "symbol": "AWSIoTAuditCheckRunStatus.AWSIoTAuditCheckRunStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 86,
       "symbol": "AWSIoTAuditFindingSeverity",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 86,
       "symbol": "AWSIoTAuditFindingSeverity",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 87,
       "symbol": "AWSIoTAuditFindingSeverity.AWSIoTAuditFindingSeverityUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 88,
       "symbol": "AWSIoTAuditFindingSeverity.AWSIoTAuditFindingSeverityCritical",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 89,
       "symbol": "AWSIoTAuditFindingSeverity.AWSIoTAuditFindingSeverityHigh",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 90,
       "symbol": "AWSIoTAuditFindingSeverity.AWSIoTAuditFindingSeverityMedium",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 91,
       "symbol": "AWSIoTAuditFindingSeverity.AWSIoTAuditFindingSeverityLow",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 94,
       "symbol": "AWSIoTAuditFrequency",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 94,
       "symbol": "AWSIoTAuditFrequency",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 95,
       "symbol": "AWSIoTAuditFrequency.AWSIoTAuditFrequencyUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 96,
       "symbol": "AWSIoTAuditFrequency.AWSIoTAuditFrequencyDaily",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 97,
       "symbol": "AWSIoTAuditFrequency.AWSIoTAuditFrequencyWeekly",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 98,
       "symbol": "AWSIoTAuditFrequency.AWSIoTAuditFrequencyBiweekly",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 99,
       "symbol": "AWSIoTAuditFrequency.AWSIoTAuditFrequencyMonthly",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 102,
       "symbol": "AWSIoTAuditMitigationActionsExecutionStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 102,
       "symbol": "AWSIoTAuditMitigationActionsExecutionStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 103,
       "symbol": "AWSIoTAuditMitigationActionsExecutionStatus.AWSIoTAuditMitigationActionsExecutionStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 104,
       "symbol": "AWSIoTAuditMitigationActionsExecutionStatus.AWSIoTAuditMitigationActionsExecutionStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 105,
       "symbol": "AWSIoTAuditMitigationActionsExecutionStatus.AWSIoTAuditMitigationActionsExecutionStatusCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 106,
       "symbol": "AWSIoTAuditMitigationActionsExecutionStatus.AWSIoTAuditMitigationActionsExecutionStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 107,
       "symbol": "AWSIoTAuditMitigationActionsExecutionStatus.AWSIoTAuditMitigationActionsExecutionStatusCanceled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 108,
       "symbol": "AWSIoTAuditMitigationActionsExecutionStatus.AWSIoTAuditMitigationActionsExecutionStatusSkipped",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 109,
       "symbol": "AWSIoTAuditMitigationActionsExecutionStatus.AWSIoTAuditMitigationActionsExecutionStatusPending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 112,
       "symbol": "AWSIoTAuditMitigationActionsTaskStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 112,
       "symbol": "AWSIoTAuditMitigationActionsTaskStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 113,
       "symbol": "AWSIoTAuditMitigationActionsTaskStatus.AWSIoTAuditMitigationActionsTaskStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 114,
       "symbol": "AWSIoTAuditMitigationActionsTaskStatus.AWSIoTAuditMitigationActionsTaskStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 115,
       "symbol": "AWSIoTAuditMitigationActionsTaskStatus.AWSIoTAuditMitigationActionsTaskStatusCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 116,
       "symbol": "AWSIoTAuditMitigationActionsTaskStatus.AWSIoTAuditMitigationActionsTaskStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 117,
       "symbol": "AWSIoTAuditMitigationActionsTaskStatus.AWSIoTAuditMitigationActionsTaskStatusCanceled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 120,
       "symbol": "AWSIoTAuditNotificationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 120,
       "symbol": "AWSIoTAuditNotificationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 121,
       "symbol": "AWSIoTAuditNotificationType.AWSIoTAuditNotificationTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 122,
       "symbol": "AWSIoTAuditNotificationType.AWSIoTAuditNotificationTypeSns",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 125,
       "symbol": "AWSIoTAuditTaskStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 125,
       "symbol": "AWSIoTAuditTaskStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 126,
       "symbol": "AWSIoTAuditTaskStatus.AWSIoTAuditTaskStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 127,
       "symbol": "AWSIoTAuditTaskStatus.AWSIoTAuditTaskStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 128,
       "symbol": "AWSIoTAuditTaskStatus.AWSIoTAuditTaskStatusCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 129,
       "symbol": "AWSIoTAuditTaskStatus.AWSIoTAuditTaskStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 130,
       "symbol": "AWSIoTAuditTaskStatus.AWSIoTAuditTaskStatusCanceled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 133,
       "symbol": "AWSIoTAuditTaskType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 133,
       "symbol": "AWSIoTAuditTaskType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 134,
       "symbol": "AWSIoTAuditTaskType.AWSIoTAuditTaskTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 135,
       "symbol": "AWSIoTAuditTaskType.AWSIoTAuditTaskTypeOnDemandAuditTask",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 136,
       "symbol": "AWSIoTAuditTaskType.AWSIoTAuditTaskTypeScheduledAuditTask",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 139,
       "symbol": "AWSIoTAuthDecision",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 139,
       "symbol": "AWSIoTAuthDecision",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 140,
       "symbol": "AWSIoTAuthDecision.AWSIoTAuthDecisionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 141,
       "symbol": "AWSIoTAuthDecision.AWSIoTAuthDecisionAllowed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 142,
       "symbol": "AWSIoTAuthDecision.AWSIoTAuthDecisionExplicitDeny",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 143,
       "symbol": "AWSIoTAuthDecision.AWSIoTAuthDecisionImplicitDeny",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 146,
       "symbol": "AWSIoTAuthorizerStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 146,
       "symbol": "AWSIoTAuthorizerStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 147,
       "symbol": "AWSIoTAuthorizerStatus.AWSIoTAuthorizerStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 148,
       "symbol": "AWSIoTAuthorizerStatus.AWSIoTAuthorizerStatusActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 149,
       "symbol": "AWSIoTAuthorizerStatus.AWSIoTAuthorizerStatusInactive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 152,
       "symbol": "AWSIoTAutoRegistrationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 152,
       "symbol": "AWSIoTAutoRegistrationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 153,
       "symbol": "AWSIoTAutoRegistrationStatus.AWSIoTAutoRegistrationStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 154,
       "symbol": "AWSIoTAutoRegistrationStatus.AWSIoTAutoRegistrationStatusEnable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 155,
       "symbol": "AWSIoTAutoRegistrationStatus.AWSIoTAutoRegistrationStatusDisable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 158,
       "symbol": "AWSIoTAwsJobAbortCriteriaAbortAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 158,
       "symbol": "AWSIoTAwsJobAbortCriteriaAbortAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 159,
       "symbol": "AWSIoTAwsJobAbortCriteriaAbortAction.AWSIoTAwsJobAbortCriteriaAbortActionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 160,
       "symbol": "AWSIoTAwsJobAbortCriteriaAbortAction.AWSIoTAwsJobAbortCriteriaAbortActionCancel",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 163,
       "symbol": "AWSIoTAwsJobAbortCriteriaFailureType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 163,
       "symbol": "AWSIoTAwsJobAbortCriteriaFailureType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 164,
       "symbol": "AWSIoTAwsJobAbortCriteriaFailureType.AWSIoTAwsJobAbortCriteriaFailureTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 165,
       "symbol": "AWSIoTAwsJobAbortCriteriaFailureType.AWSIoTAwsJobAbortCriteriaFailureTypeFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 166,
       "symbol": "AWSIoTAwsJobAbortCriteriaFailureType.AWSIoTAwsJobAbortCriteriaFailureTypeRejected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 167,
       "symbol": "AWSIoTAwsJobAbortCriteriaFailureType.AWSIoTAwsJobAbortCriteriaFailureTypeTimedOut",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 168,
       "symbol": "AWSIoTAwsJobAbortCriteriaFailureType.AWSIoTAwsJobAbortCriteriaFailureTypeAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 171,
       "symbol": "AWSIoTBehaviorCriteriaType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 171,
       "symbol": "AWSIoTBehaviorCriteriaType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 172,
       "symbol": "AWSIoTBehaviorCriteriaType.AWSIoTBehaviorCriteriaTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 173,
       "symbol": "AWSIoTBehaviorCriteriaType.AWSIoTBehaviorCriteriaTypeStatic",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 174,
       "symbol": "AWSIoTBehaviorCriteriaType.AWSIoTBehaviorCriteriaTypeStatistical",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 175,
       "symbol": "AWSIoTBehaviorCriteriaType.AWSIoTBehaviorCriteriaTypeMachineLearning",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 178,
       "symbol": "AWSIoTCACertificateStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 178,
       "symbol": "AWSIoTCACertificateStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 179,
       "symbol": "AWSIoTCACertificateStatus.AWSIoTCACertificateStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 180,
       "symbol": "AWSIoTCACertificateStatus.AWSIoTCACertificateStatusActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 181,
       "symbol": "AWSIoTCACertificateStatus.AWSIoTCACertificateStatusInactive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 184,
       "symbol": "AWSIoTCACertificateUpdateAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 184,
       "symbol": "AWSIoTCACertificateUpdateAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 185,
       "symbol": "AWSIoTCACertificateUpdateAction.AWSIoTCACertificateUpdateActionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 186,
       "symbol": "AWSIoTCACertificateUpdateAction.AWSIoTCACertificateUpdateActionDeactivate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 189,
       "symbol": "AWSIoTCannedAccessControlList",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 189,
       "symbol": "AWSIoTCannedAccessControlList",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 190,
       "symbol": "AWSIoTCannedAccessControlList.AWSIoTCannedAccessControlListUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 191,
       "symbol": "AWSIoTCannedAccessControlList.AWSIoTCannedAccessControlListPrivate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 192,
       "symbol": "AWSIoTCannedAccessControlList.AWSIoTCannedAccessControlListPublicRead",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 193,
       "symbol": "AWSIoTCannedAccessControlList.AWSIoTCannedAccessControlListPublicReadWrite",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 194,
       "symbol": "AWSIoTCannedAccessControlList.AWSIoTCannedAccessControlListAwsExecRead",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 195,
       "symbol": "AWSIoTCannedAccessControlList.AWSIoTCannedAccessControlListAuthenticatedRead",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 196,
       "symbol": "AWSIoTCannedAccessControlList.AWSIoTCannedAccessControlListBucketOwnerRead",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 197,
       "symbol": "AWSIoTCannedAccessControlList.AWSIoTCannedAccessControlListBucketOwnerFullControl",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 198,
       "symbol": "AWSIoTCannedAccessControlList.AWSIoTCannedAccessControlListLogDeliveryWrite",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 201,
       "symbol": "AWSIoTCertificateMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 201,
       "symbol": "AWSIoTCertificateMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 202,
       "symbol": "AWSIoTCertificateMode.AWSIoTCertificateModeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 203,
       "symbol": "AWSIoTCertificateMode.AWSIoTCertificateModeDefault",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 204,
       "symbol": "AWSIoTCertificateMode.AWSIoTCertificateModeSniOnly",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 207,
       "symbol": "AWSIoTCertificateStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 207,
       "symbol": "AWSIoTCertificateStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 208,
       "symbol": "AWSIoTCertificateStatus.AWSIoTCertificateStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 209,
       "symbol": "AWSIoTCertificateStatus.AWSIoTCertificateStatusActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 210,
       "symbol": "AWSIoTCertificateStatus.AWSIoTCertificateStatusInactive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 211,
       "symbol": "AWSIoTCertificateStatus.AWSIoTCertificateStatusRevoked",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 212,
       "symbol": "AWSIoTCertificateStatus.AWSIoTCertificateStatusPendingTransfer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 213,
       "symbol": "AWSIoTCertificateStatus.AWSIoTCertificateStatusRegisterInactive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 214,
       "symbol": "AWSIoTCertificateStatus.AWSIoTCertificateStatusPendingActivation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 217,
       "symbol": "AWSIoTComparisonOperator",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 217,
       "symbol": "AWSIoTComparisonOperator",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 218,
       "symbol": "AWSIoTComparisonOperator.AWSIoTComparisonOperatorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 219,
       "symbol": "AWSIoTComparisonOperator.AWSIoTComparisonOperatorLessThan",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 220,
       "symbol": "AWSIoTComparisonOperator.AWSIoTComparisonOperatorLessThanEquals",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 221,
       "symbol": "AWSIoTComparisonOperator.AWSIoTComparisonOperatorGreaterThan",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 222,
       "symbol": "AWSIoTComparisonOperator.AWSIoTComparisonOperatorGreaterThanEquals",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 223,
       "symbol": "AWSIoTComparisonOperator.AWSIoTComparisonOperatorInCidrSet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 224,
       "symbol": "AWSIoTComparisonOperator.AWSIoTComparisonOperatorNotInCidrSet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 225,
       "symbol": "AWSIoTComparisonOperator.AWSIoTComparisonOperatorInPortSet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 226,
       "symbol": "AWSIoTComparisonOperator.AWSIoTComparisonOperatorNotInPortSet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 227,
       "symbol": "AWSIoTComparisonOperator.AWSIoTComparisonOperatorInSet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 228,
       "symbol": "AWSIoTComparisonOperator.AWSIoTComparisonOperatorNotInSet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 231,
       "symbol": "AWSIoTConfidenceLevel",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 231,
       "symbol": "AWSIoTConfidenceLevel",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 232,
       "symbol": "AWSIoTConfidenceLevel.AWSIoTConfidenceLevelUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 233,
       "symbol": "AWSIoTConfidenceLevel.AWSIoTConfidenceLevelLow",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 234,
       "symbol": "AWSIoTConfidenceLevel.AWSIoTConfidenceLevelMedium",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 235,
       "symbol": "AWSIoTConfidenceLevel.AWSIoTConfidenceLevelHigh",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 238,
       "symbol": "AWSIoTCustomMetricType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 238,
       "symbol": "AWSIoTCustomMetricType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 239,
       "symbol": "AWSIoTCustomMetricType.AWSIoTCustomMetricTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 240,
       "symbol": "AWSIoTCustomMetricType.AWSIoTCustomMetricTypeStringList",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 241,
       "symbol": "AWSIoTCustomMetricType.AWSIoTCustomMetricTypeIpAddressList",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 242,
       "symbol": "AWSIoTCustomMetricType.AWSIoTCustomMetricTypeNumberList",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 243,
       "symbol": "AWSIoTCustomMetricType.AWSIoTCustomMetricTypeNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 246,
       "symbol": "AWSIoTDayOfWeek",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 246,
       "symbol": "AWSIoTDayOfWeek",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 247,
       "symbol": "AWSIoTDayOfWeek.AWSIoTDayOfWeekUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 248,
       "symbol": "AWSIoTDayOfWeek.AWSIoTDayOfWeekSun",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 249,
       "symbol": "AWSIoTDayOfWeek.AWSIoTDayOfWeekMon",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 250,
       "symbol": "AWSIoTDayOfWeek.AWSIoTDayOfWeekTue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 251,
       "symbol": "AWSIoTDayOfWeek.AWSIoTDayOfWeekWed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 252,
       "symbol": "AWSIoTDayOfWeek.AWSIoTDayOfWeekThu",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 253,
       "symbol": "AWSIoTDayOfWeek.AWSIoTDayOfWeekFri",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 254,
       "symbol": "AWSIoTDayOfWeek.AWSIoTDayOfWeekSat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 257,
       "symbol": "AWSIoTDetectMitigationActionExecutionStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 257,
       "symbol": "AWSIoTDetectMitigationActionExecutionStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 258,
       "symbol": "AWSIoTDetectMitigationActionExecutionStatus.AWSIoTDetectMitigationActionExecutionStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 259,
       "symbol": "AWSIoTDetectMitigationActionExecutionStatus.AWSIoTDetectMitigationActionExecutionStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 260,
       "symbol": "AWSIoTDetectMitigationActionExecutionStatus.AWSIoTDetectMitigationActionExecutionStatusSuccessful",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 261,
       "symbol": "AWSIoTDetectMitigationActionExecutionStatus.AWSIoTDetectMitigationActionExecutionStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 262,
       "symbol": "AWSIoTDetectMitigationActionExecutionStatus.AWSIoTDetectMitigationActionExecutionStatusSkipped",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 265,
       "symbol": "AWSIoTDetectMitigationActionsTaskStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 265,
       "symbol": "AWSIoTDetectMitigationActionsTaskStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 266,
       "symbol": "AWSIoTDetectMitigationActionsTaskStatus.AWSIoTDetectMitigationActionsTaskStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 267,
       "symbol": "AWSIoTDetectMitigationActionsTaskStatus.AWSIoTDetectMitigationActionsTaskStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 268,
       "symbol": "AWSIoTDetectMitigationActionsTaskStatus.AWSIoTDetectMitigationActionsTaskStatusSuccessful",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 269,
       "symbol": "AWSIoTDetectMitigationActionsTaskStatus.AWSIoTDetectMitigationActionsTaskStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 270,
       "symbol": "AWSIoTDetectMitigationActionsTaskStatus.AWSIoTDetectMitigationActionsTaskStatusCanceled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 273,
       "symbol": "AWSIoTDeviceCertificateUpdateAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 273,
       "symbol": "AWSIoTDeviceCertificateUpdateAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 274,
       "symbol": "AWSIoTDeviceCertificateUpdateAction.AWSIoTDeviceCertificateUpdateActionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 275,
       "symbol": "AWSIoTDeviceCertificateUpdateAction.AWSIoTDeviceCertificateUpdateActionDeactivate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 278,
       "symbol": "AWSIoTDimensionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 278,
       "symbol": "AWSIoTDimensionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 279,
       "symbol": "AWSIoTDimensionType.AWSIoTDimensionTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 280,
       "symbol": "AWSIoTDimensionType.AWSIoTDimensionTypeTopicFilter",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 283,
       "symbol": "AWSIoTDimensionValueOperator",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 283,
       "symbol": "AWSIoTDimensionValueOperator",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 284,
       "symbol": "AWSIoTDimensionValueOperator.AWSIoTDimensionValueOperatorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 285,
       "symbol": "AWSIoTDimensionValueOperator.AWSIoTDimensionValueOperatorIN",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 286,
       "symbol": "AWSIoTDimensionValueOperator.AWSIoTDimensionValueOperatorNotIn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 289,
       "symbol": "AWSIoTDomainConfigurationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 289,
       "symbol": "AWSIoTDomainConfigurationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 290,
       "symbol": "AWSIoTDomainConfigurationStatus.AWSIoTDomainConfigurationStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 291,
       "symbol": "AWSIoTDomainConfigurationStatus.AWSIoTDomainConfigurationStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 292,
       "symbol": "AWSIoTDomainConfigurationStatus.AWSIoTDomainConfigurationStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 295,
       "symbol": "AWSIoTDomainType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 295,
       "symbol": "AWSIoTDomainType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 296,
       "symbol": "AWSIoTDomainType.AWSIoTDomainTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 297,
       "symbol": "AWSIoTDomainType.AWSIoTDomainTypeEndpoint",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 298,
       "symbol": "AWSIoTDomainType.AWSIoTDomainTypeAwsManaged",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 299,
       "symbol": "AWSIoTDomainType.AWSIoTDomainTypeCustomerManaged",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 302,
       "symbol": "AWSIoTDynamicGroupStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 302,
       "symbol": "AWSIoTDynamicGroupStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 303,
       "symbol": "AWSIoTDynamicGroupStatus.AWSIoTDynamicGroupStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 304,
       "symbol": "AWSIoTDynamicGroupStatus.AWSIoTDynamicGroupStatusActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 305,
       "symbol": "AWSIoTDynamicGroupStatus.AWSIoTDynamicGroupStatusBuilding",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 306,
       "symbol": "AWSIoTDynamicGroupStatus.AWSIoTDynamicGroupStatusRebuilding",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 309,
       "symbol": "AWSIoTDynamoKeyType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 309,
       "symbol": "AWSIoTDynamoKeyType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 310,
       "symbol": "AWSIoTDynamoKeyType.AWSIoTDynamoKeyTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 311,
       "symbol": "AWSIoTDynamoKeyType.AWSIoTDynamoKeyTypeString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 312,
       "symbol": "AWSIoTDynamoKeyType.AWSIoTDynamoKeyTypeNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 315,
       "symbol": "AWSIoTEventType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 315,
       "symbol": "AWSIoTEventType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 316,
       "symbol": "AWSIoTEventType.AWSIoTEventTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 317,
       "symbol": "AWSIoTEventType.AWSIoTEventTypeThing",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 318,
       "symbol": "AWSIoTEventType.AWSIoTEventTypeThingGroup",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 319,
       "symbol": "AWSIoTEventType.AWSIoTEventTypeThingType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 320,
       "symbol": "AWSIoTEventType.AWSIoTEventTypeThingGroupMembership",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 321,
       "symbol": "AWSIoTEventType.AWSIoTEventTypeThingGroupHierarchy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 322,
       "symbol": "AWSIoTEventType.AWSIoTEventTypeThingTypeAssociation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 323,
       "symbol": "AWSIoTEventType.AWSIoTEventTypeJob",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 324,
       "symbol": "AWSIoTEventType.AWSIoTEventTypeJobExecution",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 325,
       "symbol": "AWSIoTEventType.AWSIoTEventTypePolicy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 326,
       "symbol": "AWSIoTEventType.AWSIoTEventTypeCertificate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 327,
       "symbol": "AWSIoTEventType.AWSIoTEventTypeCaCertificate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 330,
       "symbol": "AWSIoTFieldType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 330,
       "symbol": "AWSIoTFieldType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 331,
       "symbol": "AWSIoTFieldType.AWSIoTFieldTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 332,
       "symbol": "AWSIoTFieldType.AWSIoTFieldTypeNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 333,
       "symbol": "AWSIoTFieldType.AWSIoTFieldTypeString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 334,
       "symbol": "AWSIoTFieldType.AWSIoTFieldTypeBoolean",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 337,
       "symbol": "AWSIoTIndexStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 337,
       "symbol": "AWSIoTIndexStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 338,
       "symbol": "AWSIoTIndexStatus.AWSIoTIndexStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 339,
       "symbol": "AWSIoTIndexStatus.AWSIoTIndexStatusActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 340,
       "symbol": "AWSIoTIndexStatus.AWSIoTIndexStatusBuilding",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 341,
       "symbol": "AWSIoTIndexStatus.AWSIoTIndexStatusRebuilding",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 344,
       "symbol": "AWSIoTJobExecutionFailureType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 344,
       "symbol": "AWSIoTJobExecutionFailureType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 345,
       "symbol": "AWSIoTJobExecutionFailureType.AWSIoTJobExecutionFailureTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 346,
       "symbol": "AWSIoTJobExecutionFailureType.AWSIoTJobExecutionFailureTypeFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 347,
       "symbol": "AWSIoTJobExecutionFailureType.AWSIoTJobExecutionFailureTypeRejected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 348,
       "symbol": "AWSIoTJobExecutionFailureType.AWSIoTJobExecutionFailureTypeTimedOut",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 349,
       "symbol": "AWSIoTJobExecutionFailureType.AWSIoTJobExecutionFailureTypeAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 352,
       "symbol": "AWSIoTJobExecutionStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 352,
       "symbol": "AWSIoTJobExecutionStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 353,
       "symbol": "AWSIoTJobExecutionStatus.AWSIoTJobExecutionStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 354,
       "symbol": "AWSIoTJobExecutionStatus.AWSIoTJobExecutionStatusQueued",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 355,
       "symbol": "AWSIoTJobExecutionStatus.AWSIoTJobExecutionStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 356,
       "symbol": "AWSIoTJobExecutionStatus.AWSIoTJobExecutionStatusSucceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 357,
       "symbol": "AWSIoTJobExecutionStatus.AWSIoTJobExecutionStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 358,
       "symbol": "AWSIoTJobExecutionStatus.AWSIoTJobExecutionStatusTimedOut",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 359,
       "symbol": "AWSIoTJobExecutionStatus.AWSIoTJobExecutionStatusRejected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 360,
       "symbol": "AWSIoTJobExecutionStatus.AWSIoTJobExecutionStatusRemoved",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 361,
       "symbol": "AWSIoTJobExecutionStatus.AWSIoTJobExecutionStatusCanceled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 364,
       "symbol": "AWSIoTJobStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 364,
       "symbol": "AWSIoTJobStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 365,
       "symbol": "AWSIoTJobStatus.AWSIoTJobStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 366,
       "symbol": "AWSIoTJobStatus.AWSIoTJobStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 367,
       "symbol": "AWSIoTJobStatus.AWSIoTJobStatusCanceled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 368,
       "symbol": "AWSIoTJobStatus.AWSIoTJobStatusCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 369,
       "symbol": "AWSIoTJobStatus.AWSIoTJobStatusDeletionInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 372,
       "symbol": "AWSIoTLogLevel",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 372,
       "symbol": "AWSIoTLogLevel",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 373,
       "symbol": "AWSIoTLogLevel.AWSIoTLogLevelUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 374,
       "symbol": "AWSIoTLogLevel.AWSIoTLogLevelDebug",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 375,
       "symbol": "AWSIoTLogLevel.AWSIoTLogLevelInfo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 376,
       "symbol": "AWSIoTLogLevel.AWSIoTLogLevelError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 377,
       "symbol": "AWSIoTLogLevel.AWSIoTLogLevelWarn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 378,
       "symbol": "AWSIoTLogLevel.AWSIoTLogLevelDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 381,
       "symbol": "AWSIoTLogTargetType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 381,
       "symbol": "AWSIoTLogTargetType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 382,
       "symbol": "AWSIoTLogTargetType.AWSIoTLogTargetTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 383,
       "symbol": "AWSIoTLogTargetType.AWSIoTLogTargetTypeDefault",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 384,
       "symbol": "AWSIoTLogTargetType.AWSIoTLogTargetTypeThingGroup",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 387,
       "symbol": "AWSIoTMessageFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 387,
       "symbol": "AWSIoTMessageFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 388,
       "symbol": "AWSIoTMessageFormat.AWSIoTMessageFormatUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 389,
       "symbol": "AWSIoTMessageFormat.AWSIoTMessageFormatRAW",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 390,
       "symbol": "AWSIoTMessageFormat.AWSIoTMessageFormatJson",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 393,
       "symbol": "AWSIoTMitigationActionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 393,
       "symbol": "AWSIoTMitigationActionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 394,
       "symbol": "AWSIoTMitigationActionType.AWSIoTMitigationActionTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 395,
       "symbol": "AWSIoTMitigationActionType.AWSIoTMitigationActionTypeUpdateDeviceCertificate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 396,
       "symbol": "AWSIoTMitigationActionType.AWSIoTMitigationActionTypeUpdateCaCertificate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 397,
       "symbol": "AWSIoTMitigationActionType.AWSIoTMitigationActionTypeAddThingsToThingGroup",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 398,
       "symbol": "AWSIoTMitigationActionType.AWSIoTMitigationActionTypeReplaceDefaultPolicyVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 399,
       "symbol": "AWSIoTMitigationActionType.AWSIoTMitigationActionTypeEnableIotLogging",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 400,
       "symbol": "AWSIoTMitigationActionType.AWSIoTMitigationActionTypePublishFindingToSns",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 403,
       "symbol": "AWSIoTModelStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 403,
       "symbol": "AWSIoTModelStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 404,
       "symbol": "AWSIoTModelStatus.AWSIoTModelStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 405,
       "symbol": "AWSIoTModelStatus.AWSIoTModelStatusPendingBuild",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 406,
       "symbol": "AWSIoTModelStatus.AWSIoTModelStatusActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 407,
       "symbol": "AWSIoTModelStatus.AWSIoTModelStatusExpired",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 410,
       "symbol": "AWSIoTOTAUpdateStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 410,
       "symbol": "AWSIoTOTAUpdateStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 411,
       "symbol": "AWSIoTOTAUpdateStatus.AWSIoTOTAUpdateStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 412,
       "symbol": "AWSIoTOTAUpdateStatus.AWSIoTOTAUpdateStatusCreatePending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 413,
       "symbol": "AWSIoTOTAUpdateStatus.AWSIoTOTAUpdateStatusCreateInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 414,
       "symbol": "AWSIoTOTAUpdateStatus.AWSIoTOTAUpdateStatusCreateComplete",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 415,
       "symbol": "AWSIoTOTAUpdateStatus.AWSIoTOTAUpdateStatusCreateFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 418,
       "symbol": "AWSIoTPolicyTemplateName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 418,
       "symbol": "AWSIoTPolicyTemplateName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 419,
       "symbol": "AWSIoTPolicyTemplateName.AWSIoTPolicyTemplateNameUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 420,
       "symbol": "AWSIoTPolicyTemplateName.AWSIoTPolicyTemplateNameBlankPolicy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 423,
       "symbol": "AWSIoTProtocols",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 423,
       "symbol": "AWSIoTProtocols",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 424,
       "symbol": "AWSIoTProtocols.AWSIoTProtocolsUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 425,
       "symbol": "AWSIoTProtocols.AWSIoTProtocolsMqtt",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 426,
       "symbol": "AWSIoTProtocols.AWSIoTProtocolsHttp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 429,
       "symbol": "AWSIoTReportType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 429,
       "symbol": "AWSIoTReportType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 430,
       "symbol": "AWSIoTReportType.AWSIoTReportTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 431,
       "symbol": "AWSIoTReportType.AWSIoTReportTypeErrors",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 432,
       "symbol": "AWSIoTReportType.AWSIoTReportTypeResults",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 435,
       "symbol": "AWSIoTResourceType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 435,
       "symbol": "AWSIoTResourceType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 436,
       "symbol": "AWSIoTResourceType.AWSIoTResourceTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 437,
       "symbol": "AWSIoTResourceType.AWSIoTResourceTypeDeviceCertificate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 438,
       "symbol": "AWSIoTResourceType.AWSIoTResourceTypeCaCertificate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 439,
       "symbol": "AWSIoTResourceType.AWSIoTResourceTypeIotPolicy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 440,
       "symbol": "AWSIoTResourceType.AWSIoTResourceTypeCognitoIdentityPool",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 441,
       "symbol": "AWSIoTResourceType.AWSIoTResourceTypeClientId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 442,
       "symbol": "AWSIoTResourceType.AWSIoTResourceTypeAccountSettings",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 443,
       "symbol": "AWSIoTResourceType.AWSIoTResourceTypeRoleAlias",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 444,
       "symbol": "AWSIoTResourceType.AWSIoTResourceTypeIamRole",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 447,
       "symbol": "AWSIoTServerCertificateStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 447,
       "symbol": "AWSIoTServerCertificateStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 448,
       "symbol": "AWSIoTServerCertificateStatus.AWSIoTServerCertificateStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 449,
       "symbol": "AWSIoTServerCertificateStatus.AWSIoTServerCertificateStatusInvalid",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 450,
       "symbol": "AWSIoTServerCertificateStatus.AWSIoTServerCertificateStatusValid",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 453,
       "symbol": "AWSIoTServiceType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 453,
       "symbol": "AWSIoTServiceType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 454,
       "symbol": "AWSIoTServiceType.AWSIoTServiceTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 455,
       "symbol": "AWSIoTServiceType.AWSIoTServiceTypeData",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 456,
       "symbol": "AWSIoTServiceType.AWSIoTServiceTypeCredentialProvider",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 457,
       "symbol": "AWSIoTServiceType.AWSIoTServiceTypeJobs",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 460,
       "symbol": "AWSIoTStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 460,
       "symbol": "AWSIoTStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 461,
       "symbol": "AWSIoTStatus.AWSIoTStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 462,
       "symbol": "AWSIoTStatus.AWSIoTStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 463,
       "symbol": "AWSIoTStatus.AWSIoTStatusCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 464,
       "symbol": "AWSIoTStatus.AWSIoTStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 465,
       "symbol": "AWSIoTStatus.AWSIoTStatusCancelled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 466,
       "symbol": "AWSIoTStatus.AWSIoTStatusCancelling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 469,
       "symbol": "AWSIoTTargetSelection",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 469,
       "symbol": "AWSIoTTargetSelection",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 470,
       "symbol": "AWSIoTTargetSelection.AWSIoTTargetSelectionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 471,
       "symbol": "AWSIoTTargetSelection.AWSIoTTargetSelectionContinuous",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 472,
       "symbol": "AWSIoTTargetSelection.AWSIoTTargetSelectionSnapshot",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 475,
       "symbol": "AWSIoTThingConnectivityIndexingMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 475,
       "symbol": "AWSIoTThingConnectivityIndexingMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 476,
       "symbol": "AWSIoTThingConnectivityIndexingMode.AWSIoTThingConnectivityIndexingModeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 477,
       "symbol": "AWSIoTThingConnectivityIndexingMode.AWSIoTThingConnectivityIndexingModeOff",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 478,
       "symbol": "AWSIoTThingConnectivityIndexingMode.AWSIoTThingConnectivityIndexingModeStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 481,
       "symbol": "AWSIoTThingGroupIndexingMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 481,
       "symbol": "AWSIoTThingGroupIndexingMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 482,
       "symbol": "AWSIoTThingGroupIndexingMode.AWSIoTThingGroupIndexingModeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 483,
       "symbol": "AWSIoTThingGroupIndexingMode.AWSIoTThingGroupIndexingModeOff",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 484,
       "symbol": "AWSIoTThingGroupIndexingMode.AWSIoTThingGroupIndexingModeOn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 487,
       "symbol": "AWSIoTThingIndexingMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 487,
       "symbol": "AWSIoTThingIndexingMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 488,
       "symbol": "AWSIoTThingIndexingMode.AWSIoTThingIndexingModeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 489,
       "symbol": "AWSIoTThingIndexingMode.AWSIoTThingIndexingModeOff",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 490,
       "symbol": "AWSIoTThingIndexingMode.AWSIoTThingIndexingModeRegistry",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 491,
       "symbol": "AWSIoTThingIndexingMode.AWSIoTThingIndexingModeRegistryAndShadow",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 494,
       "symbol": "AWSIoTTopicRuleDestinationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 494,
       "symbol": "AWSIoTTopicRuleDestinationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 495,
       "symbol": "AWSIoTTopicRuleDestinationStatus.AWSIoTTopicRuleDestinationStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 496,
       "symbol": "AWSIoTTopicRuleDestinationStatus.AWSIoTTopicRuleDestinationStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 497,
       "symbol": "AWSIoTTopicRuleDestinationStatus.AWSIoTTopicRuleDestinationStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 498,
       "symbol": "AWSIoTTopicRuleDestinationStatus.AWSIoTTopicRuleDestinationStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 499,
       "symbol": "AWSIoTTopicRuleDestinationStatus.AWSIoTTopicRuleDestinationStatusError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 500,
       "symbol": "AWSIoTTopicRuleDestinationStatus.AWSIoTTopicRuleDestinationStatusDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 503,
       "symbol": "AWSIoTViolationEventType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 503,
       "symbol": "AWSIoTViolationEventType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 504,
       "symbol": "AWSIoTViolationEventType.AWSIoTViolationEventTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 505,
       "symbol": "AWSIoTViolationEventType.AWSIoTViolationEventTypeInAlarm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 506,
       "symbol": "AWSIoTViolationEventType.AWSIoTViolationEventTypeAlarmCleared",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 507,
       "symbol": "AWSIoTViolationEventType.AWSIoTViolationEventTypeAlarmInvalidated",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTResources.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTResources.h",
       "line": 18,
       "symbol": "AWSIoTResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTResources.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTResources.h",
       "line": 20,
       "symbol": "AWSIoTResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTResources.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTResources.h",
       "line": 22,
       "symbol": "AWSIoTResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSIoT/AWSIoTService.h",
+      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSIoT/AWSIoTService.h",
       "line": 24,
       "symbol": "AWSIoTSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/distiller/project"
+  "source_directory": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios"
 }
