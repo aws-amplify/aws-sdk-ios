@@ -17,7 +17,7 @@
     <a title="AWSFMDatabase Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCore 2.25.0 Docs</a> (45% documented)</p>
+        <p><a href="../index.html">AWSCore 2.26.0 Docs</a> (45% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCore.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -1016,10 +1016,10 @@
     <span class="n">NSDateFormatter</span>     <span class="o">*</span><span class="n">_dateFormat</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="c1">///-----------------
-/// @name Properties
-///-----------------
-</span>
+<span class="c1">///-----------------</span>
+<span class="c1">/// @name Properties</span>
+<span class="c1">///-----------------</span>
+
 <span class="cm">/** Whether should trace execution */</span>
 
 <span class="k">@property</span> <span class="p">(</span><span class="n">atomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">traceExecution</span><span class="p">;</span>
@@ -1040,10 +1040,10 @@
 
 <span class="k">@property</span> <span class="p">(</span><span class="n">atomic</span><span class="p">,</span> <span class="n">retain</span><span class="p">)</span> <span class="n">NSMutableDictionary</span> <span class="o">*</span><span class="n">cachedStatements</span><span class="p">;</span>
 
-<span class="c1">///---------------------
-/// @name Initialization
-///---------------------
-</span>
+<span class="c1">///---------------------</span>
+<span class="c1">/// @name Initialization</span>
+<span class="c1">///---------------------</span>
+
 <span class="cm">/** Create a `FMDatabase` object.
  
  An `FMDatabase` is created with a path to a SQLite database file.  This path can be one of these three:
@@ -1101,10 +1101,10 @@
 <span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithPath</span><span class="p">:(</span><span class="n">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">inPath</span><span class="p">;</span>
 
 
-<span class="c1">///-----------------------------------
-/// @name Opening and closing database
-///-----------------------------------
-</span>
+<span class="c1">///-----------------------------------</span>
+<span class="c1">/// @name Opening and closing database</span>
+<span class="c1">///-----------------------------------</span>
+
 <span class="cm">/** Opening a new database connection
  
  The database is opened for reading and writing, and is created if it does not already exist.
@@ -1172,10 +1172,10 @@
 <span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">goodConnection</span><span class="p">;</span>
 
 
-<span class="c1">///----------------------
-/// @name Perform updates
-///----------------------
-</span>
+<span class="c1">///----------------------</span>
+<span class="c1">/// @name Perform updates</span>
+<span class="c1">///----------------------</span>
+
 <span class="cm">/** Execute single update statement
  
  This method executes a single SQL update statement (i.e. any SQL that does not return results, such as `UPDATE`, `INSERT`, or `DELETE`. This method employs [`sqlite3_prepare_v2`](http://sqlite.org/c3ref/prepare.html), [`sqlite3_bind`](http://sqlite.org/c3ref/bind_blob.html) to bind values to `?` placeholders in the SQL with the optional list of parameters, and [`sqlite_step`](http://sqlite.org/c3ref/step.html) to perform the update.
@@ -1379,10 +1379,10 @@
 <span class="k">-</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">changes</span><span class="p">;</span>
 
 
-<span class="c1">///-------------------------
-/// @name Retrieving results
-///-------------------------
-</span>
+<span class="c1">///-------------------------</span>
+<span class="c1">/// @name Retrieving results</span>
+<span class="c1">///-------------------------</span>
+
 <span class="cm">/** Execute select statement
 
  Executing queries returns an `&lt;FMResultSet&gt;` object if successful, and `nil` upon failure.  Like executing updates, there is a variant that accepts an `NSError **` parameter.  Otherwise you should use the `&lt;lastErrorMessage&gt;` and `&lt;lastErrorMessage&gt;` methods to determine why a query failed.
@@ -1473,13 +1473,13 @@
 <span class="k">-</span> <span class="p">(</span><span class="n"><a href="../Classes/AWSFMResultSet.html">AWSFMResultSet</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">executeQuery</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">sql</span> <span class="nf">withParameterDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">arguments</span><span class="p">;</span>
 
 
-<span class="c1">// Documentation forthcoming.
-</span><span class="k">-</span> <span class="p">(</span><span class="n"><a href="../Classes/AWSFMResultSet.html">AWSFMResultSet</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">executeQuery</span><span class="p">:(</span><span class="n">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">sql</span> <span class="nf">withVAList</span><span class="p">:</span> <span class="p">(</span><span class="kt">va_list</span><span class="p">)</span><span class="nv">args</span><span class="p">;</span>
+<span class="c1">// Documentation forthcoming.</span>
+<span class="k">-</span> <span class="p">(</span><span class="n"><a href="../Classes/AWSFMResultSet.html">AWSFMResultSet</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">executeQuery</span><span class="p">:(</span><span class="n">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">sql</span> <span class="nf">withVAList</span><span class="p">:</span> <span class="p">(</span><span class="kt">va_list</span><span class="p">)</span><span class="nv">args</span><span class="p">;</span>
 
-<span class="c1">///-------------------
-/// @name Transactions
-///-------------------
-</span>
+<span class="c1">///-------------------</span>
+<span class="c1">/// @name Transactions</span>
+<span class="c1">///-------------------</span>
+
 <span class="cm">/** Begin a transaction
  
  @return `YES` on success; `NO` on failure. If failed, you can call `&lt;lastError&gt;`, `&lt;lastErrorCode&gt;`, or `&lt;lastErrorMessage&gt;` for diagnostic information regarding the failure.
@@ -1545,10 +1545,10 @@
 <span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">inTransaction</span><span class="p">;</span>
 
 
-<span class="c1">///----------------------------------------
-/// @name Cached statements and result sets
-///----------------------------------------
-</span>
+<span class="c1">///----------------------------------------</span>
+<span class="c1">/// @name Cached statements and result sets</span>
+<span class="c1">///----------------------------------------</span>
+
 <span class="cm">/** Clear cached statements */</span>
 
 <span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">clearCachedStatements</span><span class="p">;</span>
@@ -1579,10 +1579,10 @@
 <span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setShouldCacheStatements</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">value</span><span class="p">;</span>
 
 
-<span class="c1">///-------------------------
-/// @name Encryption methods
-///-------------------------
-</span>
+<span class="c1">///-------------------------</span>
+<span class="c1">/// @name Encryption methods</span>
+<span class="c1">///-------------------------</span>
+
 <span class="cm">/** Set encryption key.
  
  @param key The key to be used.
@@ -1636,10 +1636,10 @@
 <span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">rekeyWithData</span><span class="p">:(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">keyData</span><span class="p">;</span>
 
 
-<span class="c1">///------------------------------
-/// @name General inquiry methods
-///------------------------------
-</span>
+<span class="c1">///------------------------------</span>
+<span class="c1">/// @name General inquiry methods</span>
+<span class="c1">///------------------------------</span>
+
 <span class="cm">/** The path of the database file
  
  @return path of database.
@@ -1657,10 +1657,10 @@
 <span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="n">sqliteHandle</span><span class="p">;</span>
 
 
-<span class="c1">///-----------------------------
-/// @name Retrieving error codes
-///-----------------------------
-</span>
+<span class="c1">///-----------------------------</span>
+<span class="c1">/// @name Retrieving error codes</span>
+<span class="c1">///-----------------------------</span>
+
 <span class="cm">/** Last error message
  
  Returns the English-language text that describes the most recent failed SQLite API call associated with a database connection. If a prior API call failed but the most recent API call succeeded, this return value is undefined.
@@ -1713,15 +1713,15 @@
 <span class="k">-</span> <span class="p">(</span><span class="n">NSError</span><span class="o">*</span><span class="p">)</span><span class="n">lastError</span><span class="p">;</span>
 
 
-<span class="c1">// description forthcoming
-</span><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setMaxBusyRetryTimeInterval</span><span class="p">:(</span><span class="n">NSTimeInterval</span><span class="p">)</span><span class="nv">timeoutInSeconds</span><span class="p">;</span>
+<span class="c1">// description forthcoming</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setMaxBusyRetryTimeInterval</span><span class="p">:(</span><span class="n">NSTimeInterval</span><span class="p">)</span><span class="nv">timeoutInSeconds</span><span class="p">;</span>
 <span class="k">-</span> <span class="p">(</span><span class="n">NSTimeInterval</span><span class="p">)</span><span class="n">maxBusyRetryTimeInterval</span><span class="p">;</span>
 
 
-<span class="c1">///------------------
-/// @name Save points
-///------------------
-</span>
+<span class="c1">///------------------</span>
+<span class="c1">/// @name Save points</span>
+<span class="c1">///------------------</span>
+
 <span class="cm">/** Start save point
  
  @param name Name of save point.
@@ -1780,10 +1780,10 @@
 <span class="k">-</span> <span class="p">(</span><span class="n">NSError</span><span class="o">*</span><span class="p">)</span><span class="nf">inSavePoint</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">BOOL</span> <span class="o">*</span><span class="n">rollback</span><span class="p">))</span><span class="nv">block</span><span class="p">;</span>
 
 
-<span class="c1">///----------------------------
-/// @name SQLite library status
-///----------------------------
-</span>
+<span class="c1">///----------------------------</span>
+<span class="c1">/// @name SQLite library status</span>
+<span class="c1">///----------------------------</span>
+
 <span class="cm">/** Test to see if the library is threadsafe
 
  @return `NO` if and only if SQLite was compiled with mutexing code omitted due to the SQLITE_THREADSAFE compile-time option being set to 0.
@@ -1808,10 +1808,10 @@
 <span class="k">+</span> <span class="p">(</span><span class="n">SInt32</span><span class="p">)</span><span class="n">AWSFMDBVersion</span><span class="p">;</span>
 
 
-<span class="c1">///------------------------
-/// @name Make SQL function
-///------------------------
-</span>
+<span class="c1">///------------------------</span>
+<span class="c1">/// @name Make SQL function</span>
+<span class="c1">///------------------------</span>
+
 <span class="cm">/** Adds SQL functions or aggregates or to redefine the behavior of existing SQL functions or aggregates.
  
  For example:
@@ -1859,10 +1859,10 @@
 <span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">makeFunctionNamed</span><span class="p">:(</span><span class="n">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">name</span> <span class="nf">maximumArguments</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">count</span> <span class="nf">withBlock</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">,</span> <span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">void</span> <span class="o">**</span><span class="n">argv</span><span class="p">))</span><span class="nv">block</span><span class="p">;</span>
 
 
-<span class="c1">///---------------------
-/// @name Date formatter
-///---------------------
-</span>
+<span class="c1">///---------------------</span>
+<span class="c1">/// @name Date formatter</span>
+<span class="c1">///---------------------</span>
+
 <span class="cm">/** Generate an `NSDateFormatter` that won't be broken by permutations of timezones or locales.
  
  Use this method to generate values to set the dateFormat property.
@@ -5765,7 +5765,7 @@
 
     <span class="p">[</span><span class="n">adb</span> <span class="nf">makeFunctionNamed</span><span class="p">:</span><span class="s">@"StringStartsWithH"</span> <span class="nf">maximumArguments</span><span class="p">:</span><span class="mi">1</span> <span class="n">withBlock</span><span class="o">:^</span><span class="p">(</span><span class="n">sqlite3_context</span> <span class="o">*</span><span class="n">context</span><span class="p">,</span> <span class="kt">int</span> <span class="n">aargc</span><span class="p">,</span> <span class="n">sqlite3_value</span> <span class="o">**</span><span class="n">aargv</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">sqlite3_value_type</span><span class="p">(</span><span class="n">aargv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="n">SQLITE_TEXT</span><span class="p">)</span> <span class="p">{</span>
-            <span class="err">@autoreleasepool</span> <span class="p">{</span>
+            <span class="k">@autoreleasepool</span> <span class="p">{</span>
                 <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">sqlite3_value_text</span><span class="p">(</span><span class="n">aargv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
                 <span class="n">NSString</span> <span class="o">*</span><span class="n">s</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="nf">stringWithUTF8String</span><span class="p">:</span><span class="n">c</span><span class="p">];</span>
                 <span class="n">sqlite3_result_int</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="p">[</span><span class="n">s</span> <span class="nf">hasPrefix</span><span class="p">:</span><span class="s">@"h"</span><span class="p">]);</span>
@@ -7354,7 +7354,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-08-25)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-23)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="noopener" rel="external">jazzy ♪♫ v0.14.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="noopener" rel="external">Realm</a> project.</p>
         </section>
       </article>
