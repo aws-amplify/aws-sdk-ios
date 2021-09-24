@@ -17,7 +17,7 @@
     <a title="AWSS3TransferUtility Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSS3 2.25.0 Docs</a> (80% documented)</p>
+        <p><a href="../index.html">AWSS3 2.26.0 Docs</a> (80% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSS3.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -851,6 +851,9 @@
                 <a href="../Classes/AWSS3TransferUtility.html">AWSS3TransferUtility</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSS3TransferUtilityBlocks.html">AWSS3TransferUtilityBlocks</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSS3TransferUtilityConfiguration.html">AWSS3TransferUtilityConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -1222,15 +1225,15 @@
     <span class="n">AWSServiceManager</span><span class="p">.</span><span class="k">default</span><span class="p">().</span><span class="n">defaultServiceConfiguration</span> <span class="o">=</span> <span class="n">configuration</span>
 
     <span class="k">return</span> <span class="nb">true</span>
-<span class="p">}</span>
+<span class="err">}</span>
 </code></pre>
 
 <p><em>Objective-C</em></p>
 <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
      <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                                                     <span class="nf">identityPoolId</span><span class="p">:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+                                                                                                     <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
      <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                          <span class="nf">credentialsProvider</span><span class="p">:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+                                                                          <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
      <span class="p">[</span><span class="n">AWSServiceManager</span> <span class="nf">defaultServiceManager</span><span class="p">].</span><span class="n">defaultServiceConfiguration</span> <span class="o">=</span> <span class="n">configuration</span><span class="p">;</span>
 
      <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
@@ -1257,7 +1260,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="err">`</span><span class="k">default</span><span class="err">`</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="p">`</span><span class="nv">default</span><span class="p">`()</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
 
                         </div>
                       </div>
@@ -1334,7 +1337,7 @@ credentialsProvider:credentialsProvider];
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="err">`</span><span class="k">default</span><span class="err">`</span><span class="p">(</span><span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="p">`</span><span class="nv">default</span><span class="p">`(</span><span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
 
                         </div>
                       </div>
@@ -1388,22 +1391,22 @@ credentialsProvider:credentialsProvider];
     <span class="n">AWSS3TransferUtility</span><span class="p">.</span><span class="k">register</span><span class="p">(</span><span class="n">with</span><span class="o">:</span> <span class="n">configuration</span><span class="o">!</span><span class="p">,</span> <span class="n">forKey</span><span class="o">:</span> <span class="s">"USWest2S3TransferUtility"</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="nb">true</span>
-<span class="p">}</span>
+<span class="err">}</span>
 </code></pre>
 
 <p><em>Objective-C</em></p>
 <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
     <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                                                    <span class="nf">identityPoolId</span><span class="p">:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+                                                                                                    <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
     <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSWest2</span>
-                                                                         <span class="nf">credentialsProvider</span><span class="p">:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+                                                                         <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
 </code></pre>
 
 <p>[AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration forKey:@&ldquo;USWest2S3TransferUtility&rdquo; completionHandler:^(NSError * _Nullable error) {</p>
 
 <p>}];</p>
 <pre class="highlight objective_c"><code>    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="err">}</span>
 </code></pre>
 
 <p>Then call the following to get the service client:</p>
@@ -1620,15 +1623,15 @@ credentialsProvider:credentialsProvider];</li>
 
     <span class="p">}</span>
     <span class="k">return</span> <span class="nb">true</span>
-<span class="p">}</span>
+<span class="err">}</span>
 </code></pre>
 
 <p><em>Objective-C</em></p>
 <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
     <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                                                    <span class="nf">identityPoolId</span><span class="p">:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+                                                                                                    <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
     <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSWest2</span>
-                                                                         <span class="nf">credentialsProvider</span><span class="p">:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+                                                                         <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
 
     <span class="p">[</span><span class="n">AWSS3TransferUtility</span> <span class="nf">registerS3TransferUtilityWithConfiguration</span><span class="p">:</span><span class="n">configuration</span> <span class="nf">transferUtilityConfiguration</span><span class="p">:</span><span class="nb">nil</span> <span class="n">forKey</span><span class="o">:</span><span class="s">@"USWest2S3TransferUtility"</span><span class="p">];</span>
 
@@ -1882,7 +1885,7 @@ credentialsProvider:credentialsProvider];</li>
 </code></pre>
 
 <p>Then call the following to get the service client (the value of the client will be null if the <code>+ registerS3TransferUtilityWithConfiguration:forKey:</code> failed):</p>
-<pre class="highlight objective_c"><code><span class="n">AWSS3TransferUtility</span><span class="p">?</span> <span class="o">*</span><span class="n">S3TransferUtility</span> <span class="o">=</span> <span class="p">[</span><span class="n">AWSS3TransferUtility</span> <span class="nf">S3ForKey</span><span class="p">:</span><span class="s">@"USWest2S3TransferUtility"</span><span class="p">]</span><span class="err">;</span>
+<pre class="highlight objective_c"><code><span class="n">AWSS3TransferUtility</span><span class="p">?</span> <span class="o">*</span><span class="n">S3TransferUtility</span> <span class="o">=</span> <span class="p">[</span><span class="n">AWSS3TransferUtility</span> <span class="nf">S3ForKey</span><span class="p">:</span><span class="s">@"USWest2S3TransferUtility"</span><span class="p">];</span>
 </code></pre>
 
                       </div>
@@ -3400,13 +3403,18 @@ credentialsProvider:credentialsProvider];</li>
                     <code>
                     <a name="/c:objc(cs)AWSS3TransferUtility(im)enumerateToAssignBlocksForUploadTask:downloadTask:"></a>
                     <a name="//apple_ref/objc/Method/-enumerateToAssignBlocksForUploadTask:downloadTask:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSS3TransferUtility(im)enumerateToAssignBlocksForUploadTask:downloadTask:">-enumerateToAssignBlocksForUploadTask:<wbr>downloadTask:<wbr></a>
+                    <a class="token discouraged" href="#/c:objc(cs)AWSS3TransferUtility(im)enumerateToAssignBlocksForUploadTask:downloadTask:">-enumerateToAssignBlocksForUploadTask:<wbr>downloadTask:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
+                      <div class="aside aside-deprecated">
+                        <p class="aside-title">Deprecated</p>
+                        <p>Use enumerateToAssignBlocks: instead.</p>
+
+                      </div>
                       <div class="abstract">
                         <p>Assigns progress feedback and completion handler blocks. This method should be called when the app was suspended while the transfer is still happening.</p>
 
@@ -3476,13 +3484,18 @@ credentialsProvider:credentialsProvider];</li>
                     <code>
                     <a name="/c:objc(cs)AWSS3TransferUtility(im)enumerateToAssignBlocksForUploadTask:multiPartUploadBlocksAssigner:downloadBlocksAssigner:"></a>
                     <a name="//apple_ref/objc/Method/-enumerateToAssignBlocksForUploadTask:multiPartUploadBlocksAssigner:downloadBlocksAssigner:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSS3TransferUtility(im)enumerateToAssignBlocksForUploadTask:multiPartUploadBlocksAssigner:downloadBlocksAssigner:">-enumerateToAssignBlocksForUploadTask:<wbr>multiPartUploadBlocksAssigner:<wbr>downloadBlocksAssigner:<wbr></a>
+                    <a class="token discouraged" href="#/c:objc(cs)AWSS3TransferUtility(im)enumerateToAssignBlocksForUploadTask:multiPartUploadBlocksAssigner:downloadBlocksAssigner:">-enumerateToAssignBlocksForUploadTask:<wbr>multiPartUploadBlocksAssigner:<wbr>downloadBlocksAssigner:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
+                      <div class="aside aside-deprecated">
+                        <p class="aside-title">Deprecated</p>
+                        <p>Use enumerateToAssign(blocks:) instead.</p>
+
+                      </div>
                       <div class="abstract">
                         <p>Assigns progress feedback and completion handler blocks. This method should be called when the app was suspended while the transfer is still happening.</p>
 
@@ -3717,10 +3730,108 @@ credentialsProvider:credentialsProvider];</li>
                 </li>
               </ul>
             </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/EnumerateBlocks"></a>
+                <a name="//apple_ref/objc/Section/EnumerateBlocks" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/EnumerateBlocks"></a>
+                  <h3 class="section-name"><p>EnumerateBlocks</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSS3TransferUtility(im)enumerateToAssignBlocks:"></a>
+                    <a name="//apple_ref/objc/Method/-enumerateToAssignBlocks:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSS3TransferUtility(im)enumerateToAssignBlocks:">-enumerateToAssignBlocks:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Assigns blocks for uploads, multipart uploads and downloads. This method should be called when the app was suspended while the transfer is still happening.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">enumerateToAssignBlocks</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSS3TransferUtilityBlocks.html">AWSS3TransferUtilityBlocks</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">blocks</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">enumerateToAssign</span><span class="p">(</span><span class="nv">blocks</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSS3TransferUtilityBlocks.html">AWSS3TransferUtilityBlocks</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>blocks</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Transfer Utility Blocks for uploads, multipart uploads and downloads</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSS3TransferUtility(im)cancelAll"></a>
+                    <a name="//apple_ref/objc/Method/-cancelAll" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSS3TransferUtility(im)cancelAll">-cancelAll</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Cancels all uploads, multipart uploads and downloads.</p>
+
+<p>This is a convenience function so that the enumerate method is not needed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">cancelAll</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">cancelAll</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-08-25)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-23)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="noopener" rel="external">jazzy ♪♫ v0.14.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="noopener" rel="external">Realm</a> project.</p>
         </section>
       </article>

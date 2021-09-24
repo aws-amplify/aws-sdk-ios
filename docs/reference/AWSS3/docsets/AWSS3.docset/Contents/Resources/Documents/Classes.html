@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSS3 2.25.0 Docs</a> (80% documented)</p>
+        <p><a href="index.html">AWSS3 2.26.0 Docs</a> (80% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSS3.xml"><img src="img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -849,6 +849,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSS3TransferUtility.html">AWSS3TransferUtility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSS3TransferUtilityBlocks.html">AWSS3TransferUtilityBlocks</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSS3TransferUtilityConfiguration.html">AWSS3TransferUtilityConfiguration</a>
@@ -10471,6 +10474,55 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSS3TransferUtilityBlocks"></a>
+                    <a name="//apple_ref/objc/Class/AWSS3TransferUtilityBlocks" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSS3TransferUtilityBlocks">AWSS3TransferUtilityBlocks</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Classes/AWSS3TransferUtilityBlocks.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSS3TransferUtilityBlocks</span> <span class="p">:</span> <span class="nc">NSObject</span>
+
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="Type%20Definitions.html#/c:AWSS3TransferUtilityTasks.h@T@AWSS3TransferUtilityProgressBlock">AWSS3TransferUtilityProgressBlock</a></span> <span class="n">uploadProgressBlock</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="Type%20Definitions.html#/c:AWSS3TransferUtilityTasks.h@T@AWSS3TransferUtilityMultiPartProgressBlock">AWSS3TransferUtilityMultiPartProgressBlock</a></span> <span class="n">multiPartUploadProgressBlock</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="Type%20Definitions.html#/c:AWSS3TransferUtilityTasks.h@T@AWSS3TransferUtilityProgressBlock">AWSS3TransferUtilityProgressBlock</a></span> <span class="n">downloadProgressBlock</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="Type%20Definitions.html#/c:AWSS3TransferUtilityTasks.h@T@AWSS3TransferUtilityUploadCompletionHandlerBlock">AWSS3TransferUtilityUploadCompletionHandlerBlock</a></span> <span class="n">uploadCompletedBlock</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="Type%20Definitions.html#/c:AWSS3TransferUtilityTasks.h@T@AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock">AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock</a></span> <span class="n">multiPartUploadCompletedBlock</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="Type%20Definitions.html#/c:AWSS3TransferUtilityTasks.h@T@AWSS3TransferUtilityDownloadCompletionHandlerBlock">AWSS3TransferUtilityDownloadCompletionHandlerBlock</a></span> <span class="n">downloadCompletedBlock</span><span class="p">;</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithUploadProgress</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="Type%20Definitions.html#/c:AWSS3TransferUtilityTasks.h@T@AWSS3TransferUtilityProgressBlock">AWSS3TransferUtilityProgressBlock</a></span><span class="p">)</span><span class="nv">uploadProgressBlock</span>
+               <span class="nf">multiPartUploadProgress</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="Type%20Definitions.html#/c:AWSS3TransferUtilityTasks.h@T@AWSS3TransferUtilityMultiPartProgressBlock">AWSS3TransferUtilityMultiPartProgressBlock</a></span><span class="p">)</span><span class="nv">multiPartUploadProgressBlock</span>
+                      <span class="nf">downloadProgress</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="Type%20Definitions.html#/c:AWSS3TransferUtilityTasks.h@T@AWSS3TransferUtilityProgressBlock">AWSS3TransferUtilityProgressBlock</a></span><span class="p">)</span><span class="nv">downloadProgressBlock</span>
+                       <span class="nf">uploadCompleted</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="Type%20Definitions.html#/c:AWSS3TransferUtilityTasks.h@T@AWSS3TransferUtilityUploadCompletionHandlerBlock">AWSS3TransferUtilityUploadCompletionHandlerBlock</a></span><span class="p">)</span><span class="nv">uploadCompletedBlock</span>
+              <span class="nf">multiPartUploadCompleted</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="Type%20Definitions.html#/c:AWSS3TransferUtilityTasks.h@T@AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock">AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock</a></span><span class="p">)</span><span class="nv">multiPartUploadCompletedBlock</span>
+                     <span class="nf">downloadCompleted</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="Type%20Definitions.html#/c:AWSS3TransferUtilityTasks.h@T@AWSS3TransferUtilityDownloadCompletionHandlerBlock">AWSS3TransferUtilityDownloadCompletionHandlerBlock</a></span><span class="p">)</span><span class="nv">downloadCompletedBlock</span><span class="p">;</span>
+
+<span class="k">@end</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSS3TransferUtilityBlocks</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
             <div class="task-group">
@@ -10799,7 +10851,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-08-25)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-23)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="noopener" rel="external">jazzy ♪♫ v0.14.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="noopener" rel="external">Realm</a> project.</p>
         </section>
       </article>
