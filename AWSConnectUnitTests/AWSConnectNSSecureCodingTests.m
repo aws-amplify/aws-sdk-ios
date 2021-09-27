@@ -21,6 +21,7 @@
 
 - (void) test_AWSConnectAgentStatus API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAgentStatusSummary API_AVAILABLE(ios(11));
+- (void) test_AWSConnectAnswerMachineDetectionConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateApprovedOriginRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateBotRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateInstanceStorageConfigRequest API_AVAILABLE(ios(11));
@@ -270,6 +271,10 @@
 
 - (void) test_AWSConnectAgentStatusSummary {
     [self validateSecureCodingForClass:[AWSConnectAgentStatusSummary class]];
+}
+
+- (void) test_AWSConnectAnswerMachineDetectionConfig {
+    [self validateSecureCodingForClass:[AWSConnectAnswerMachineDetectionConfig class]];
 }
 
 - (void) test_AWSConnectAssociateApprovedOriginRequest {
