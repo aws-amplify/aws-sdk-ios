@@ -38,7 +38,7 @@ static NSString *const AWSS3TransferUtilityRetryExceeded = @"AWSS3TransferUtilit
 static NSString *const AWSS3TransferUtilityRetrySucceeded = @"AWSS3TransferUtilityRetrySucceeded";
 static NSUInteger const AWSS3TransferUtilityMultiPartSize = 5 * 1024 * 1024;
 static NSString *const AWSS3TransferUtiltityRequestTimeoutErrorCode = @"RequestTimeout";
-static int const AWSS3TransferUtilityMultiPartDefaultConcurrencyLimit = 10;
+static int const AWSS3TransferUtilityMultiPartDefaultConcurrencyLimit = 5;
 
 
 #pragma mark - Private classes
@@ -332,10 +332,10 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                                                                                      recoverState:NO
                                                                                 completionHandler:completionHandler];
     if (s3TransferUtility) {
-        NSAssert(_serviceClients != nil, @"Value is required");
+        NSCAssert(_serviceClients != nil, @"Value is required");
         [_serviceClients setObject:s3TransferUtility
                             forKey:key];
-        NSAssert(_serviceClients.allKeys.count > 0, @"A value must now be set");
+        NSCAssert(_serviceClients.allKeys.count > 0, @"A value must now be set");
         [s3TransferUtility recover:completionHandler];
     }
 }
@@ -1396,21 +1396,20 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                 }
             }
             
-            //Save in Database after the file has been created, so that file can be referenced incase upload is paused and needs to be restarted.
-            [AWSS3TransferUtilityDatabaseHelper insertMultiPartUploadRequestSubTaskInDB:transferUtilityMultiPartUploadTask subTask:subTask databaseQueue:self.databaseQueue];
-            
-            if ( subTaskCreationError) {
+            if (!subTaskCreationError) {
+                //Save in Database after the file has been created, so that file can be referenced incase upload is paused and needs to be restarted.
+                [AWSS3TransferUtilityDatabaseHelper insertMultiPartUploadRequestSubTaskInDB:transferUtilityMultiPartUploadTask subTask:subTask
+            databaseQueue:self.databaseQueue];
+            } else {
                 //Abort the request, so the server can clean up any partials.
                 [self callAbortMultiPartForUploadTask:transferUtilityMultiPartUploadTask];
                 transferUtilityMultiPartUploadTask.status = AWSS3TransferUtilityTransferStatusError;
-
                 //Add it to list of completed Tasks
                 [self.completedTaskDictionary setObject:transferUtilityMultiPartUploadTask forKey:transferUtilityMultiPartUploadTask.transferID];
-                
                 //Clean up.
                 [self cleanupForMultiPartUploadTask:transferUtilityMultiPartUploadTask];
                 return [AWSTask taskWithError:subTaskCreationError];
-            };
+            }
             
         }
         
