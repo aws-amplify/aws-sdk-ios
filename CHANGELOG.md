@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+-Bug Fixes for next release
+
+- **AWSS3**
+  - Saving relative path of files in the DB to avoid issues arising with sandbox path changing after app restarts. [PR #3794](https://github.com/aws-amplify/aws-sdk-ios/pull/3794)
+
 -Features for next release
 
 - **Build**
