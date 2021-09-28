@@ -134,12 +134,13 @@ commands:
 
   configure_aws:
     description: >-
-      Install aws cli and configure android aws release profile
+      Install aws cli and configure release profile
     steps:
       - run:
-          name: Install AWS cli
+          name: Install AWS CLI
           command: |
-            HOMEBREW_NO_AUTO_UPDATE=1 brew install awscli
+            curl -O https://awscli.amazonaws.com/AWSCLIV2.pkg
+            sudo installer -pkg AWSCLIV2.pkg -target /
       - run:
           name: Configure AWS profiles
           command: |
