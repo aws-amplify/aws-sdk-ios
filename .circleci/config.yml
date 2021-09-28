@@ -253,6 +253,7 @@ jobs:
     steps:
       - skip_job_unless_required
       - checkout_with_cache
+      - configure_aws
       - run:
           name: Git GC
           command: git gc
