@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -21,11 +21,16 @@
 
 - (void) test_AWSIoTDataDeleteThingShadowRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDataDeleteThingShadowResponse API_AVAILABLE(ios(11));
+- (void) test_AWSIoTDataGetRetainedMessageRequest API_AVAILABLE(ios(11));
+- (void) test_AWSIoTDataGetRetainedMessageResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDataGetThingShadowRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDataGetThingShadowResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDataListNamedShadowsForThingRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDataListNamedShadowsForThingResponse API_AVAILABLE(ios(11));
+- (void) test_AWSIoTDataListRetainedMessagesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSIoTDataListRetainedMessagesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDataPublishRequest API_AVAILABLE(ios(11));
+- (void) test_AWSIoTDataRetainedMessageSummary API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDataUpdateThingShadowRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDataUpdateThingShadowResponse API_AVAILABLE(ios(11));
 
@@ -39,6 +44,14 @@
 
 - (void) test_AWSIoTDataDeleteThingShadowResponse {
     [self validateClassDoesNotSupportSecureCoding:[AWSIoTDataDeleteThingShadowResponse class]];
+}
+
+- (void) test_AWSIoTDataGetRetainedMessageRequest {
+    [self validateSecureCodingForClass:[AWSIoTDataGetRetainedMessageRequest class]];
+}
+
+- (void) test_AWSIoTDataGetRetainedMessageResponse {
+    [self validateClassDoesNotSupportSecureCoding:[AWSIoTDataGetRetainedMessageResponse class]];
 }
 
 - (void) test_AWSIoTDataGetThingShadowRequest {
@@ -57,8 +70,20 @@
     [self validateSecureCodingForClass:[AWSIoTDataListNamedShadowsForThingResponse class]];
 }
 
+- (void) test_AWSIoTDataListRetainedMessagesRequest {
+    [self validateSecureCodingForClass:[AWSIoTDataListRetainedMessagesRequest class]];
+}
+
+- (void) test_AWSIoTDataListRetainedMessagesResponse {
+    [self validateSecureCodingForClass:[AWSIoTDataListRetainedMessagesResponse class]];
+}
+
 - (void) test_AWSIoTDataPublishRequest {
     [self validateClassDoesNotSupportSecureCoding:[AWSIoTDataPublishRequest class]];
+}
+
+- (void) test_AWSIoTDataRetainedMessageSummary {
+    [self validateSecureCodingForClass:[AWSIoTDataRetainedMessageSummary class]];
 }
 
 - (void) test_AWSIoTDataUpdateThingShadowRequest {
