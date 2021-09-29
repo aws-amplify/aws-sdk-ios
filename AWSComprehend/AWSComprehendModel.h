@@ -217,6 +217,12 @@ typedef NS_ENUM(NSInteger, AWSComprehendSentimentType) {
     AWSComprehendSentimentTypeMixed,
 };
 
+typedef NS_ENUM(NSInteger, AWSComprehendSplit) {
+    AWSComprehendSplitUnknown,
+    AWSComprehendSplitTrain,
+    AWSComprehendSplitTest,
+};
+
 typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
     AWSComprehendSyntaxLanguageCodeUnknown,
     AWSComprehendSyntaxLanguageCodeEn,
@@ -303,6 +309,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendDocumentClassifierInputDataConfig;
 @class AWSComprehendDocumentClassifierOutputDataConfig;
 @class AWSComprehendDocumentClassifierProperties;
+@class AWSComprehendDocumentClassifierSummary;
 @class AWSComprehendDocumentLabel;
 @class AWSComprehendDocumentReaderConfig;
 @class AWSComprehendDominantLanguage;
@@ -323,6 +330,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendEntityRecognizerMetadata;
 @class AWSComprehendEntityRecognizerMetadataEntityTypesListItem;
 @class AWSComprehendEntityRecognizerProperties;
+@class AWSComprehendEntityRecognizerSummary;
 @class AWSComprehendEntityTypesEvaluationMetrics;
 @class AWSComprehendEntityTypesListItem;
 @class AWSComprehendEventsDetectionJobFilter;
@@ -333,6 +341,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendKeyPhrasesDetectionJobProperties;
 @class AWSComprehendListDocumentClassificationJobsRequest;
 @class AWSComprehendListDocumentClassificationJobsResponse;
+@class AWSComprehendListDocumentClassifierSummariesRequest;
+@class AWSComprehendListDocumentClassifierSummariesResponse;
 @class AWSComprehendListDocumentClassifiersRequest;
 @class AWSComprehendListDocumentClassifiersResponse;
 @class AWSComprehendListDominantLanguageDetectionJobsRequest;
@@ -341,6 +351,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendListEndpointsResponse;
 @class AWSComprehendListEntitiesDetectionJobsRequest;
 @class AWSComprehendListEntitiesDetectionJobsResponse;
+@class AWSComprehendListEntityRecognizerSummariesRequest;
+@class AWSComprehendListEntityRecognizerSummariesResponse;
 @class AWSComprehendListEntityRecognizersRequest;
 @class AWSComprehendListEntityRecognizersResponse;
 @class AWSComprehendListEventsDetectionJobsRequest;
@@ -440,6 +452,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>The S3 prefix to the source files (PDFs) that are referred to in the augmented manifest file.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceDocumentsS3Uri;
+
+/**
+ <p>The purpose of the data you've provided in the augmented manifest. You can either train or test this data. If you don't specify, the default is train.</p><p>TRAIN - all of the documents in the manifest will be used for training. If no test documents are provided, Amazon Comprehend will automatically reserve a portion of the training documents for testing.</p><p> TEST - all of the documents in the manifest will be used for testing.</p>
+ */
+@property (nonatomic, assign) AWSComprehendSplit split;
 
 @end
 
@@ -931,6 +948,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) NSArray<AWSComprehendTag *> * _Nullable tags;
 
 /**
+ <p>The version name given to the newly created classifier. Version names can have a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The version name must be unique among all models with the same classifier name in the account/AWS Region.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable versionName;
+
+/**
  <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable volumeKmsKeyId;
@@ -1046,6 +1068,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>Tags to be associated with the entity recognizer being created. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department. </p>
  */
 @property (nonatomic, strong) NSArray<AWSComprehendTag *> * _Nullable tags;
+
+/**
+ <p>The version name given to the newly created recognizer. Version names can be a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The version name must be unique among all models with the same recognizer name in the account/ AWS Region.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable versionName;
 
 /**
  <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
@@ -1738,6 +1765,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 
 /**
+ <p>The name that you assigned to the document classifier</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable documentClassifierName;
+
+/**
  <p>Filters the list of classifiers based on status.</p>
  */
 @property (nonatomic, assign) AWSComprehendModelStatus status;
@@ -1779,6 +1811,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>The Amazon S3 URI for the input data. The S3 bucket must be in the same region as the API endpoint that you are calling. The URI can point to a single input file or it can provide the prefix for a collection of input files.</p><p>For example, if you use the URI <code>S3://bucketName/prefix</code>, if the prefix is a single file, Amazon Comprehend uses that file as input. If more than one file begins with the prefix, Amazon Comprehend uses all of them as input.</p><p>This parameter is required if you set <code>DataFormat</code> to <code>COMPREHEND_CSV</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable s3Uri;
+
+/**
+ <p>The Amazon S3 URI for the input data. The Amazon S3 bucket must be in the same AWS Region as the API endpoint that you are calling. The URI can point to a single input file or it can provide the prefix for a collection of input files. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable testS3Uri;
 
 @end
 
@@ -1877,6 +1914,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) NSDate * _Nullable trainingStartTime;
 
 /**
+ <p>The version name that you assigned to the document classifier.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable versionName;
+
+/**
  <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable volumeKmsKeyId;
@@ -1885,6 +1927,39 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
  */
 @property (nonatomic, strong) AWSComprehendVpcConfig * _Nullable vpcConfig;
+
+@end
+
+/**
+ <p>Describes information about a document classifier and its versions.</p>
+ */
+@interface AWSComprehendDocumentClassifierSummary : AWSModel
+
+
+/**
+ <p>The name that you assigned the document classifier.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable documentClassifierName;
+
+/**
+ <p>The time that the latest document classifier version was submitted for processing.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable latestVersionCreatedAt;
+
+/**
+ <p>The version name you assigned to the latest document classifier version.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable latestVersionName;
+
+/**
+ <p>Provides the status of the latest document classifier version.</p>
+ */
+@property (nonatomic, assign) AWSComprehendModelStatus latestVersionStatus;
+
+/**
+ <p>The number of versions you created.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable numberOfVersions;
 
 @end
 
@@ -2094,9 +2169,19 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) NSString * _Nullable dataAccessRoleArn;
 
 /**
+ <p>Data access role ARN to use in case the new model is encrypted with a customer KMS key.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable desiredDataAccessRoleArn;
+
+/**
  <p>The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable desiredInferenceUnits;
+
+/**
+ <p>ARN of the new model to use for updating an existing endpoint. This ARN is going to be different from the model ARN when the update is in progress</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable desiredModelArn;
 
 /**
  <p>The Amazon Resource Number (ARN) of the endpoint.</p>
@@ -2294,6 +2379,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  */
 @property (nonatomic, strong) NSString * _Nullable s3Uri;
 
+/**
+ <p>This specifies the Amazon S3 location where the test annotations for an entity recognizer are located. The URI must be in the same AWS Region as the API endpoint that you are calling.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable testS3Uri;
+
 @end
 
 /**
@@ -2304,9 +2394,19 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 
 /**
+ <p> Specifies how the text in an input file should be processed. This is optional, and the default is ONE_DOC_PER_LINE. ONE_DOC_PER_FILE - Each file is considered a separate document. Use this option when you are processing large documents, such as newspaper articles or scientific papers. ONE_DOC_PER_LINE - Each line in a file is considered a separate document. Use this option when you are processing many short documents, such as text messages.</p>
+ */
+@property (nonatomic, assign) AWSComprehendInputFormat inputFormat;
+
+/**
  <p> Specifies the Amazon S3 location where the training documents for an entity recognizer are located. The URI must be in the same region as the API endpoint that you are calling.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable s3Uri;
+
+/**
+ <p> Specifies the Amazon S3 location where the test documents for an entity recognizer are located. The URI must be in the same AWS Region as the API endpoint that you are calling.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable testS3Uri;
 
 @end
 
@@ -2352,6 +2452,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  */
 @interface AWSComprehendEntityRecognizerFilter : AWSModel
 
+
+/**
+ <p>The name that you assigned the entity recognizer.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable recognizerName;
 
 /**
  <p>The status of an entity recognizer.</p>
@@ -2527,6 +2632,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) NSDate * _Nullable trainingStartTime;
 
 /**
+ <p>The version name you assigned to the entity recognizer.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable versionName;
+
+/**
  <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable volumeKmsKeyId;
@@ -2535,6 +2645,39 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom entity recognizer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
  */
 @property (nonatomic, strong) AWSComprehendVpcConfig * _Nullable vpcConfig;
+
+@end
+
+/**
+ <p> Describes the information about an entity recognizer and its versions.</p>
+ */
+@interface AWSComprehendEntityRecognizerSummary : AWSModel
+
+
+/**
+ <p> The time that the latest entity recognizer version was submitted for processing.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable latestVersionCreatedAt;
+
+/**
+ <p> The version name you assigned to the latest entity recognizer version.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable latestVersionName;
+
+/**
+ <p> Provides the status of the latest entity recognizer version.</p>
+ */
+@property (nonatomic, assign) AWSComprehendModelStatus latestVersionStatus;
+
+/**
+ <p> The number of versions you created.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable numberOfVersions;
+
+/**
+ <p> The name that you assigned the entity recognizer.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable recognizerName;
 
 @end
 
@@ -2868,6 +3011,42 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 /**
  
  */
+@interface AWSComprehendListDocumentClassifierSummariesRequest : AWSRequest
+
+
+/**
+ <p>The maximum number of results to return on each page. The default is 100.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>Identifies the next page of results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendListDocumentClassifierSummariesResponse : AWSModel
+
+
+/**
+ <p>The list of summaries of document classifiers.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendDocumentClassifierSummary *> * _Nullable documentClassifierSummariesList;
+
+/**
+ <p>Identifies the next page of results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
 @interface AWSComprehendListDocumentClassifiersRequest : AWSRequest
 
 
@@ -3024,6 +3203,42 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 /**
  <p>Identifies the next page of results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendListEntityRecognizerSummariesRequest : AWSRequest
+
+
+/**
+ <p>The maximum number of results to return on each page. The default is 100.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>Identifies the next page of results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendListEntityRecognizerSummariesResponse : AWSModel
+
+
+/**
+ <p>The list entity recognizer summaries.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendEntityRecognizerSummary *> * _Nullable entityRecognizerSummariesList;
+
+/**
+ <p>The list entity recognizer summaries.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -4686,9 +4901,19 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 
 /**
+ <p>Data access role ARN to use in case the new model is encrypted with a customer CMK.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable desiredDataAccessRoleArn;
+
+/**
  <p> The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable desiredInferenceUnits;
+
+/**
+ <p>The ARN of the new model to use when updating an existing endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable desiredModelArn;
 
 /**
  <p>The Amazon Resource Number (ARN) of the endpoint being updated.</p>

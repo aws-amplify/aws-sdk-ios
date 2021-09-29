@@ -95,6 +95,7 @@
 - (void) test_AWSComprehendDocumentClassifierInputDataConfig API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDocumentClassifierOutputDataConfig API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDocumentClassifierProperties API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendDocumentClassifierSummary API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDocumentLabel API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDocumentReaderConfig API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDominantLanguage API_AVAILABLE(ios(11));
@@ -115,6 +116,7 @@
 - (void) test_AWSComprehendEntityRecognizerMetadata API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendEntityRecognizerMetadataEntityTypesListItem API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendEntityRecognizerProperties API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendEntityRecognizerSummary API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendEntityTypesEvaluationMetrics API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendEntityTypesListItem API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendEventsDetectionJobFilter API_AVAILABLE(ios(11));
@@ -125,6 +127,8 @@
 - (void) test_AWSComprehendKeyPhrasesDetectionJobProperties API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendListDocumentClassificationJobsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendListDocumentClassificationJobsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendListDocumentClassifierSummariesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendListDocumentClassifierSummariesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendListDocumentClassifiersRequest API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendListDocumentClassifiersResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendListDominantLanguageDetectionJobsRequest API_AVAILABLE(ios(11));
@@ -133,6 +137,8 @@
 - (void) test_AWSComprehendListEndpointsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendListEntitiesDetectionJobsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendListEntitiesDetectionJobsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendListEntityRecognizerSummariesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendListEntityRecognizerSummariesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendListEntityRecognizersRequest API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendListEntityRecognizersResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendListEventsDetectionJobsRequest API_AVAILABLE(ios(11));
@@ -509,6 +515,10 @@
     [self validateSecureCodingForClass:[AWSComprehendDocumentClassifierProperties class]];
 }
 
+- (void) test_AWSComprehendDocumentClassifierSummary {
+    [self validateSecureCodingForClass:[AWSComprehendDocumentClassifierSummary class]];
+}
+
 - (void) test_AWSComprehendDocumentLabel {
     [self validateSecureCodingForClass:[AWSComprehendDocumentLabel class]];
 }
@@ -589,6 +599,10 @@
     [self validateSecureCodingForClass:[AWSComprehendEntityRecognizerProperties class]];
 }
 
+- (void) test_AWSComprehendEntityRecognizerSummary {
+    [self validateSecureCodingForClass:[AWSComprehendEntityRecognizerSummary class]];
+}
+
 - (void) test_AWSComprehendEntityTypesEvaluationMetrics {
     [self validateSecureCodingForClass:[AWSComprehendEntityTypesEvaluationMetrics class]];
 }
@@ -629,6 +643,14 @@
     [self validateSecureCodingForClass:[AWSComprehendListDocumentClassificationJobsResponse class]];
 }
 
+- (void) test_AWSComprehendListDocumentClassifierSummariesRequest {
+    [self validateSecureCodingForClass:[AWSComprehendListDocumentClassifierSummariesRequest class]];
+}
+
+- (void) test_AWSComprehendListDocumentClassifierSummariesResponse {
+    [self validateSecureCodingForClass:[AWSComprehendListDocumentClassifierSummariesResponse class]];
+}
+
 - (void) test_AWSComprehendListDocumentClassifiersRequest {
     [self validateSecureCodingForClass:[AWSComprehendListDocumentClassifiersRequest class]];
 }
@@ -659,6 +681,14 @@
 
 - (void) test_AWSComprehendListEntitiesDetectionJobsResponse {
     [self validateSecureCodingForClass:[AWSComprehendListEntitiesDetectionJobsResponse class]];
+}
+
+- (void) test_AWSComprehendListEntityRecognizerSummariesRequest {
+    [self validateSecureCodingForClass:[AWSComprehendListEntityRecognizerSummariesRequest class]];
+}
+
+- (void) test_AWSComprehendListEntityRecognizerSummariesResponse {
+    [self validateSecureCodingForClass:[AWSComprehendListEntityRecognizerSummariesResponse class]];
 }
 
 - (void) test_AWSComprehendListEntityRecognizersRequest {

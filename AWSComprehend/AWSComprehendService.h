@@ -950,6 +950,31 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)listDocumentClassificationJobs:(AWSComprehendListDocumentClassificationJobsRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendListDocumentClassificationJobsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Gets a list of summaries of the document classifiers that you have created</p>
+ 
+ @param request A container for the necessary parameters to execute the ListDocumentClassifierSummaries service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendListDocumentClassifierSummariesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendListDocumentClassifierSummariesRequest
+ @see AWSComprehendListDocumentClassifierSummariesResponse
+ */
+- (AWSTask<AWSComprehendListDocumentClassifierSummariesResponse *> *)listDocumentClassifierSummaries:(AWSComprehendListDocumentClassifierSummariesRequest *)request;
+
+/**
+ <p>Gets a list of summaries of the document classifiers that you have created</p>
+ 
+ @param request A container for the necessary parameters to execute the ListDocumentClassifierSummaries service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendListDocumentClassifierSummariesRequest
+ @see AWSComprehendListDocumentClassifierSummariesResponse
+ */
+- (void)listDocumentClassifierSummaries:(AWSComprehendListDocumentClassifierSummariesRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendListDocumentClassifierSummariesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Gets a list of the document classifiers that you have created.</p>
  
  @param request A container for the necessary parameters to execute the ListDocumentClassifiers service method.
@@ -1048,6 +1073,31 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  @see AWSComprehendListEntitiesDetectionJobsResponse
  */
 - (void)listEntitiesDetectionJobs:(AWSComprehendListEntitiesDetectionJobsRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendListEntitiesDetectionJobsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Gets a list of summaries for the entity recognizers that you have created.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListEntityRecognizerSummaries service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendListEntityRecognizerSummariesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendListEntityRecognizerSummariesRequest
+ @see AWSComprehendListEntityRecognizerSummariesResponse
+ */
+- (AWSTask<AWSComprehendListEntityRecognizerSummariesResponse *> *)listEntityRecognizerSummaries:(AWSComprehendListEntityRecognizerSummariesRequest *)request;
+
+/**
+ <p>Gets a list of summaries for the entity recognizers that you have created.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListEntityRecognizerSummaries service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendListEntityRecognizerSummariesRequest
+ @see AWSComprehendListEntityRecognizerSummariesResponse
+ */
+- (void)listEntityRecognizerSummaries:(AWSComprehendListEntityRecognizerSummariesRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendListEntityRecognizerSummariesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Gets a list of the properties of all entity recognizers that you created, including recognizers currently in training. Allows you to filter the list of recognizers based on criteria such as status and submission time. This call returns up to 500 entity recognizers in the list, with a default number of 100 recognizers in the list.</p><p>The results of this list are not in any particular order. Please get the list and sort locally if needed.</p>
