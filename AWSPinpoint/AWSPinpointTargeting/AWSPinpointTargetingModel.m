@@ -6519,6 +6519,412 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingInAppMessageButton
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"android" : @"Android",
+             @"defaultConfig" : @"DefaultConfig",
+             @"IOS" : @"IOS",
+             @"web" : @"Web",
+             };
+}
+
++ (NSValueTransformer *)androidJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingOverrideButtonConfiguration class]];
+}
+
++ (NSValueTransformer *)defaultConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingDefaultButtonConfiguration class]];
+}
+
++ (NSValueTransformer *)IOSJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingOverrideButtonConfiguration class]];
+}
+
++ (NSValueTransformer *)webJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingOverrideButtonConfiguration class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingInAppMessageCampaign
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"campaignId" : @"CampaignId",
+             @"dailyCap" : @"DailyCap",
+             @"inAppMessage" : @"InAppMessage",
+             @"priority" : @"Priority",
+             @"schedule" : @"Schedule",
+             @"sessionCap" : @"SessionCap",
+             @"totalCap" : @"TotalCap",
+             @"treatmentId" : @"TreatmentId",
+             };
+}
+
++ (NSValueTransformer *)inAppMessageJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingInAppMessage class]];
+}
+
++ (NSValueTransformer *)scheduleJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingInAppCampaignSchedule class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingInAppMessageContent
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"backgroundColor" : @"BackgroundColor",
+             @"bodyConfig" : @"BodyConfig",
+             @"headerConfig" : @"HeaderConfig",
+             @"imageUrl" : @"ImageUrl",
+             @"primaryBtn" : @"PrimaryBtn",
+             @"secondaryBtn" : @"SecondaryBtn",
+             };
+}
+
++ (NSValueTransformer *)bodyConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingInAppMessageBodyConfig class]];
+}
+
++ (NSValueTransformer *)headerConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingInAppMessageHeaderConfig class]];
+}
+
++ (NSValueTransformer *)primaryBtnJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingInAppMessageButton class]];
+}
+
++ (NSValueTransformer *)secondaryBtnJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingInAppMessageButton class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingInAppMessageHeaderConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"alignment" : @"Alignment",
+             @"header" : @"Header",
+             @"textColor" : @"TextColor",
+             };
+}
+
++ (NSValueTransformer *)alignmentJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"LEFT"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingAlignmentLeft);
+        }
+        if ([value caseInsensitiveCompare:@"CENTER"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingAlignmentCenter);
+        }
+        if ([value caseInsensitiveCompare:@"RIGHT"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingAlignmentRight);
+        }
+        return @(AWSPinpointTargetingAlignmentUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPinpointTargetingAlignmentLeft:
+                return @"LEFT";
+            case AWSPinpointTargetingAlignmentCenter:
+                return @"CENTER";
+            case AWSPinpointTargetingAlignmentRight:
+                return @"RIGHT";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSPinpointTargetingInAppMessagesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"inAppMessageCampaigns" : @"InAppMessageCampaigns",
+             };
+}
+
++ (NSValueTransformer *)inAppMessageCampaignsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingInAppMessageCampaign class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingInAppTemplateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"content" : @"Content",
+             @"customConfig" : @"CustomConfig",
+             @"layout" : @"Layout",
+             @"templateDescription" : @"TemplateDescription",
+             @"tags" : @"tags",
+             };
+}
+
++ (NSValueTransformer *)contentJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingInAppMessageContent class]];
+}
+
++ (NSValueTransformer *)layoutJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"BOTTOM_BANNER"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingLayoutBottomBanner);
+        }
+        if ([value caseInsensitiveCompare:@"TOP_BANNER"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingLayoutTopBanner);
+        }
+        if ([value caseInsensitiveCompare:@"OVERLAYS"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingLayoutOverlays);
+        }
+        if ([value caseInsensitiveCompare:@"MOBILE_FEED"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingLayoutMobileFeed);
+        }
+        if ([value caseInsensitiveCompare:@"MIDDLE_BANNER"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingLayoutMiddleBanner);
+        }
+        if ([value caseInsensitiveCompare:@"CAROUSEL"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingLayoutCarousel);
+        }
+        return @(AWSPinpointTargetingLayoutUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPinpointTargetingLayoutBottomBanner:
+                return @"BOTTOM_BANNER";
+            case AWSPinpointTargetingLayoutTopBanner:
+                return @"TOP_BANNER";
+            case AWSPinpointTargetingLayoutOverlays:
+                return @"OVERLAYS";
+            case AWSPinpointTargetingLayoutMobileFeed:
+                return @"MOBILE_FEED";
+            case AWSPinpointTargetingLayoutMiddleBanner:
+                return @"MIDDLE_BANNER";
+            case AWSPinpointTargetingLayoutCarousel:
+                return @"CAROUSEL";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSPinpointTargetingInAppTemplateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"Arn",
+             @"content" : @"Content",
+             @"creationDate" : @"CreationDate",
+             @"customConfig" : @"CustomConfig",
+             @"lastModifiedDate" : @"LastModifiedDate",
+             @"layout" : @"Layout",
+             @"templateDescription" : @"TemplateDescription",
+             @"templateName" : @"TemplateName",
+             @"templateType" : @"TemplateType",
+             @"version" : @"Version",
+             @"tags" : @"tags",
+             };
+}
+
++ (NSValueTransformer *)contentJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingInAppMessageContent class]];
+}
+
++ (NSValueTransformer *)layoutJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"BOTTOM_BANNER"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingLayoutBottomBanner);
+        }
+        if ([value caseInsensitiveCompare:@"TOP_BANNER"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingLayoutTopBanner);
+        }
+        if ([value caseInsensitiveCompare:@"OVERLAYS"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingLayoutOverlays);
+        }
+        if ([value caseInsensitiveCompare:@"MOBILE_FEED"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingLayoutMobileFeed);
+        }
+        if ([value caseInsensitiveCompare:@"MIDDLE_BANNER"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingLayoutMiddleBanner);
+        }
+        if ([value caseInsensitiveCompare:@"CAROUSEL"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingLayoutCarousel);
+        }
+        return @(AWSPinpointTargetingLayoutUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPinpointTargetingLayoutBottomBanner:
+                return @"BOTTOM_BANNER";
+            case AWSPinpointTargetingLayoutTopBanner:
+                return @"TOP_BANNER";
+            case AWSPinpointTargetingLayoutOverlays:
+                return @"OVERLAYS";
+            case AWSPinpointTargetingLayoutMobileFeed:
+                return @"MOBILE_FEED";
+            case AWSPinpointTargetingLayoutMiddleBanner:
+                return @"MIDDLE_BANNER";
+            case AWSPinpointTargetingLayoutCarousel:
+                return @"CAROUSEL";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)templateTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"EMAIL"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingTemplateTypeEmail);
+        }
+        if ([value caseInsensitiveCompare:@"SMS"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingTemplateTypeSms);
+        }
+        if ([value caseInsensitiveCompare:@"VOICE"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingTemplateTypeVoice);
+        }
+        if ([value caseInsensitiveCompare:@"PUSH"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingTemplateTypePush);
+        }
+        if ([value caseInsensitiveCompare:@"INAPP"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingTemplateTypeInapp);
+        }
+        return @(AWSPinpointTargetingTemplateTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPinpointTargetingTemplateTypeEmail:
+                return @"EMAIL";
+            case AWSPinpointTargetingTemplateTypeSms:
+                return @"SMS";
+            case AWSPinpointTargetingTemplateTypeVoice:
+                return @"VOICE";
+            case AWSPinpointTargetingTemplateTypePush:
+                return @"PUSH";
+            case AWSPinpointTargetingTemplateTypeInapp:
+                return @"INAPP";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSPinpointTargetingItemResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"endpointItemResponse" : @"EndpointItemResponse",
+             @"eventsItemResponse" : @"EventsItemResponse",
+             };
+}
+
++ (NSValueTransformer *)endpointItemResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingEndpointItemResponse class]];
+}
+
++ (NSValueTransformer *)eventsItemResponseJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSPinpointTargetingEventItemResponse class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
+}
+
+@end
+
+@implementation AWSPinpointTargetingJourneyCustomMessage
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"data" : @"Data",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingJourneyDateRangeKpiResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applicationId" : @"ApplicationId",
+             @"endTime" : @"EndTime",
+             @"journeyId" : @"JourneyId",
+             @"kpiName" : @"KpiName",
+             @"kpiResult" : @"KpiResult",
+             @"nextToken" : @"NextToken",
+             @"startTime" : @"StartTime",
+             };
+}
+
++ (NSValueTransformer *)endTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)kpiResultJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingBaseKpiResult class]];
+}
+
++ (NSValueTransformer *)startTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
 @implementation AWSPinpointTargetingJourneyEmailMessage
 
 + (BOOL)supportsSecureCoding {
