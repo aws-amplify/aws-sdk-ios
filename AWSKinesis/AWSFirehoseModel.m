@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -546,6 +546,25 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 @end
 
+@implementation AWSFirehoseDynamicPartitioningConfiguration
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"enabled" : @"Enabled",
+             @"retryOptions" : @"RetryOptions",
+             };
+}
+
++ (NSValueTransformer *)retryOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseRetryOptions class]];
+}
+
+@end
+
 @implementation AWSFirehoseElasticsearchBufferingHints
 
 + (BOOL)supportsSecureCoding {
@@ -917,6 +936,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"cloudWatchLoggingOptions" : @"CloudWatchLoggingOptions",
              @"compressionFormat" : @"CompressionFormat",
              @"dataFormatConversionConfiguration" : @"DataFormatConversionConfiguration",
+             @"dynamicPartitioningConfiguration" : @"DynamicPartitioningConfiguration",
              @"encryptionConfiguration" : @"EncryptionConfiguration",
              @"errorOutputPrefix" : @"ErrorOutputPrefix",
              @"prefix" : @"Prefix",
@@ -975,6 +995,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseDataFormatConversionConfiguration class]];
 }
 
++ (NSValueTransformer *)dynamicPartitioningConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseDynamicPartitioningConfiguration class]];
+}
+
 + (NSValueTransformer *)encryptionConfigurationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseEncryptionConfiguration class]];
 }
@@ -1023,6 +1047,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"cloudWatchLoggingOptions" : @"CloudWatchLoggingOptions",
              @"compressionFormat" : @"CompressionFormat",
              @"dataFormatConversionConfiguration" : @"DataFormatConversionConfiguration",
+             @"dynamicPartitioningConfiguration" : @"DynamicPartitioningConfiguration",
              @"encryptionConfiguration" : @"EncryptionConfiguration",
              @"errorOutputPrefix" : @"ErrorOutputPrefix",
              @"prefix" : @"Prefix",
@@ -1081,6 +1106,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseDataFormatConversionConfiguration class]];
 }
 
++ (NSValueTransformer *)dynamicPartitioningConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseDynamicPartitioningConfiguration class]];
+}
+
 + (NSValueTransformer *)encryptionConfigurationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseEncryptionConfiguration class]];
 }
@@ -1129,6 +1158,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"cloudWatchLoggingOptions" : @"CloudWatchLoggingOptions",
              @"compressionFormat" : @"CompressionFormat",
              @"dataFormatConversionConfiguration" : @"DataFormatConversionConfiguration",
+             @"dynamicPartitioningConfiguration" : @"DynamicPartitioningConfiguration",
              @"encryptionConfiguration" : @"EncryptionConfiguration",
              @"errorOutputPrefix" : @"ErrorOutputPrefix",
              @"prefix" : @"Prefix",
@@ -1185,6 +1215,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSValueTransformer *)dataFormatConversionConfigurationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseDataFormatConversionConfiguration class]];
+}
+
++ (NSValueTransformer *)dynamicPartitioningConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseDynamicPartitioningConfiguration class]];
 }
 
 + (NSValueTransformer *)encryptionConfigurationJSONTransformer {
@@ -2031,14 +2065,29 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSValueTransformer *)typesJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"RecordDeAggregation"] == NSOrderedSame) {
+            return @(AWSFirehoseProcessorTypeRecordDeAggregation);
+        }
         if ([value caseInsensitiveCompare:@"Lambda"] == NSOrderedSame) {
             return @(AWSFirehoseProcessorTypeLambda);
+        }
+        if ([value caseInsensitiveCompare:@"MetadataExtraction"] == NSOrderedSame) {
+            return @(AWSFirehoseProcessorTypeMetadataExtraction);
+        }
+        if ([value caseInsensitiveCompare:@"AppendDelimiterToRecord"] == NSOrderedSame) {
+            return @(AWSFirehoseProcessorTypeAppendDelimiterToRecord);
         }
         return @(AWSFirehoseProcessorTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
+            case AWSFirehoseProcessorTypeRecordDeAggregation:
+                return @"RecordDeAggregation";
             case AWSFirehoseProcessorTypeLambda:
                 return @"Lambda";
+            case AWSFirehoseProcessorTypeMetadataExtraction:
+                return @"MetadataExtraction";
+            case AWSFirehoseProcessorTypeAppendDelimiterToRecord:
+                return @"AppendDelimiterToRecord";
             default:
                 return nil;
         }
@@ -2068,6 +2117,12 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
         if ([value caseInsensitiveCompare:@"NumberOfRetries"] == NSOrderedSame) {
             return @(AWSFirehoseProcessorParameterNameNumberOfRetries);
         }
+        if ([value caseInsensitiveCompare:@"MetadataExtractionQuery"] == NSOrderedSame) {
+            return @(AWSFirehoseProcessorParameterNameMetadataExtractionQuery);
+        }
+        if ([value caseInsensitiveCompare:@"JsonParsingEngine"] == NSOrderedSame) {
+            return @(AWSFirehoseProcessorParameterNameJsonParsingEngine);
+        }
         if ([value caseInsensitiveCompare:@"RoleArn"] == NSOrderedSame) {
             return @(AWSFirehoseProcessorParameterNameRoleArn);
         }
@@ -2077,6 +2132,12 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
         if ([value caseInsensitiveCompare:@"BufferIntervalInSeconds"] == NSOrderedSame) {
             return @(AWSFirehoseProcessorParameterNameBufferIntervalInSeconds);
         }
+        if ([value caseInsensitiveCompare:@"SubRecordType"] == NSOrderedSame) {
+            return @(AWSFirehoseProcessorParameterNameSubRecordType);
+        }
+        if ([value caseInsensitiveCompare:@"Delimiter"] == NSOrderedSame) {
+            return @(AWSFirehoseProcessorParameterNameDelimiter);
+        }
         return @(AWSFirehoseProcessorParameterNameUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2084,12 +2145,20 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
                 return @"LambdaArn";
             case AWSFirehoseProcessorParameterNameNumberOfRetries:
                 return @"NumberOfRetries";
+            case AWSFirehoseProcessorParameterNameMetadataExtractionQuery:
+                return @"MetadataExtractionQuery";
+            case AWSFirehoseProcessorParameterNameJsonParsingEngine:
+                return @"JsonParsingEngine";
             case AWSFirehoseProcessorParameterNameRoleArn:
                 return @"RoleArn";
             case AWSFirehoseProcessorParameterNameBufferSizeInMBs:
                 return @"BufferSizeInMBs";
             case AWSFirehoseProcessorParameterNameBufferIntervalInSeconds:
                 return @"BufferIntervalInSeconds";
+            case AWSFirehoseProcessorParameterNameSubRecordType:
+                return @"SubRecordType";
+            case AWSFirehoseProcessorParameterNameDelimiter:
+                return @"Delimiter";
             default:
                 return nil;
         }
@@ -2408,6 +2477,20 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 @end
 
 @implementation AWSFirehoseRedshiftRetryOptions
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"durationInSeconds" : @"DurationInSeconds",
+             };
+}
+
+@end
+
+@implementation AWSFirehoseRetryOptions
 
 + (BOOL)supportsSecureCoding {
     return YES;

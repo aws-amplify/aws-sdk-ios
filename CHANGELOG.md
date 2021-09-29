@@ -4,8 +4,14 @@
 
 -Features for next release
 
-## 2.26.0
+- **Build**
+  - Defines NS_BLOCK_ASSERTIONS and NDEBUG for Release builds 
 
+- **AWSS3**
+  - Rewrite of method which creates partial files for multipart upload process
+  - Adds test coverage for new code
+
+## 2.26.0
 
 ### New Features
 

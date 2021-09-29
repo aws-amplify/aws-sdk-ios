@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -42,6 +42,37 @@ NSString *const AWSIoTDataErrorDomain = @"com.amazonaws.AWSIoTDataErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"payload" : @"payload",
+             };
+}
+
+@end
+
+@implementation AWSIoTDataGetRetainedMessageRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"topic" : @"topic",
+             };
+}
+
+@end
+
+@implementation AWSIoTDataGetRetainedMessageResponse
+
++ (BOOL)supportsSecureCoding {
+    return NO;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"lastModifiedTime" : @"lastModifiedTime",
+             @"payload" : @"payload",
+             @"qos" : @"qos",
+             @"topic" : @"topic",
              };
 }
 
@@ -108,6 +139,40 @@ NSString *const AWSIoTDataErrorDomain = @"com.amazonaws.AWSIoTDataErrorDomain";
 
 @end
 
+@implementation AWSIoTDataListRetainedMessagesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxResults" : @"maxResults",
+             @"nextToken" : @"nextToken",
+             };
+}
+
+@end
+
+@implementation AWSIoTDataListRetainedMessagesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"nextToken",
+             @"retainedTopics" : @"retainedTopics",
+             };
+}
+
++ (NSValueTransformer *)retainedTopicsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTDataRetainedMessageSummary class]];
+}
+
+@end
+
 @implementation AWSIoTDataPublishRequest
 
 + (BOOL)supportsSecureCoding {
@@ -117,6 +182,24 @@ NSString *const AWSIoTDataErrorDomain = @"com.amazonaws.AWSIoTDataErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"payload" : @"payload",
+             @"qos" : @"qos",
+             @"retainValue" : @"retain",
+             @"topic" : @"topic",
+             };
+}
+
+@end
+
+@implementation AWSIoTDataRetainedMessageSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"lastModifiedTime" : @"lastModifiedTime",
+             @"payloadSize" : @"payloadSize",
              @"qos" : @"qos",
              @"topic" : @"topic",
              };

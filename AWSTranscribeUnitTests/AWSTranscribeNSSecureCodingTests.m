@@ -76,6 +76,8 @@
 - (void) test_AWSTranscribeListMedicalTranscriptionJobsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeListMedicalVocabulariesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeListMedicalVocabulariesResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeListTagsForResourceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeListTagsForResourceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeListTranscriptionJobsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeListTranscriptionJobsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeListVocabulariesRequest API_AVAILABLE(ios(11));
@@ -99,10 +101,15 @@
 - (void) test_AWSTranscribeStartMedicalTranscriptionJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeStartTranscriptionJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeStartTranscriptionJobResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeTag API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeTagResourceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeTagResourceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeTranscript API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeTranscriptFilter API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeTranscriptionJob API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeTranscriptionJobSummary API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeUntagResourceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeUntagResourceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeUpdateCallAnalyticsCategoryRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeUpdateCallAnalyticsCategoryResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeUpdateMedicalVocabularyRequest API_AVAILABLE(ios(11));
@@ -346,6 +353,14 @@
     [self validateSecureCodingForClass:[AWSTranscribeListMedicalVocabulariesResponse class]];
 }
 
+- (void) test_AWSTranscribeListTagsForResourceRequest {
+    [self validateSecureCodingForClass:[AWSTranscribeListTagsForResourceRequest class]];
+}
+
+- (void) test_AWSTranscribeListTagsForResourceResponse {
+    [self validateSecureCodingForClass:[AWSTranscribeListTagsForResourceResponse class]];
+}
+
 - (void) test_AWSTranscribeListTranscriptionJobsRequest {
     [self validateSecureCodingForClass:[AWSTranscribeListTranscriptionJobsRequest class]];
 }
@@ -438,6 +453,18 @@
     [self validateSecureCodingForClass:[AWSTranscribeStartTranscriptionJobResponse class]];
 }
 
+- (void) test_AWSTranscribeTag {
+    [self validateSecureCodingForClass:[AWSTranscribeTag class]];
+}
+
+- (void) test_AWSTranscribeTagResourceRequest {
+    [self validateSecureCodingForClass:[AWSTranscribeTagResourceRequest class]];
+}
+
+- (void) test_AWSTranscribeTagResourceResponse {
+    [self validateSecureCodingForClass:[AWSTranscribeTagResourceResponse class]];
+}
+
 - (void) test_AWSTranscribeTranscript {
     [self validateSecureCodingForClass:[AWSTranscribeTranscript class]];
 }
@@ -452,6 +479,14 @@
 
 - (void) test_AWSTranscribeTranscriptionJobSummary {
     [self validateSecureCodingForClass:[AWSTranscribeTranscriptionJobSummary class]];
+}
+
+- (void) test_AWSTranscribeUntagResourceRequest {
+    [self validateSecureCodingForClass:[AWSTranscribeUntagResourceRequest class]];
+}
+
+- (void) test_AWSTranscribeUntagResourceResponse {
+    [self validateSecureCodingForClass:[AWSTranscribeUntagResourceResponse class]];
 }
 
 - (void) test_AWSTranscribeUpdateCallAnalyticsCategoryRequest {

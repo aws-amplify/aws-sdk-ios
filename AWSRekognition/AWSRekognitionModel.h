@@ -105,6 +105,12 @@ typedef NS_ENUM(NSInteger, AWSRekognitionGenderType) {
     AWSRekognitionGenderTypeFemale,
 };
 
+typedef NS_ENUM(NSInteger, AWSRekognitionKnownGenderType) {
+    AWSRekognitionKnownGenderTypeUnknown,
+    AWSRekognitionKnownGenderTypeMale,
+    AWSRekognitionKnownGenderTypeFemale,
+};
+
 typedef NS_ENUM(NSInteger, AWSRekognitionLabelDetectionSortBy) {
     AWSRekognitionLabelDetectionSortByUnknown,
     AWSRekognitionLabelDetectionSortByName,
@@ -350,6 +356,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionInstance;
 @class AWSRekognitionKinesisDataStream;
 @class AWSRekognitionKinesisVideoStream;
+@class AWSRekognitionKnownGender;
 @class AWSRekognitionLabel;
 @class AWSRekognitionLabelDetection;
 @class AWSRekognitionLandmark;
@@ -580,6 +587,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
+ <p>The known gender identity for the celebrity that matches the provided ID.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionKnownGender * _Nullable knownGender;
+
+/**
  <p>The confidence, in percentage, that Amazon Rekognition has that the recognized face is the celebrity.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable matchConfidence;
@@ -748,6 +760,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable confidence;
 
 /**
+ <p> The emotions that appear to be expressed on the face, and the confidence level in the determination. Valid values include "Happy", "Sad", "Angry", "Confused", "Disgusted", "Surprised", "Calm", "Unknown", and "Fear". </p>
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionEmotion *> * _Nullable emotions;
+
+/**
  <p>An array of facial landmarks.</p>
  */
 @property (nonatomic, strong) NSArray<AWSRekognitionLandmark *> * _Nullable landmarks;
@@ -761,6 +778,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Identifies face image brightness and sharpness. </p>
  */
 @property (nonatomic, strong) AWSRekognitionImageQuality * _Nullable quality;
+
+/**
+ <p> Indicates whether or not the face is smiling, and the confidence level in the determination. </p>
+ */
+@property (nonatomic, strong) AWSRekognitionSmile * _Nullable smile;
 
 @end
 
@@ -1356,7 +1378,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with a confidence lower than this specified value. If you specify a value of 0, all labels are return, regardless of the default thresholds that the model version applies.</p>
+ <p>Specifies the minimum confidence level for the labels to return. <code>DetectCustomLabels</code> doesn't return any labels with a confidence value that's lower than this specified value. If you specify a value of 0, <code>DetectCustomLabels</code> returns all labels, regardless of the assumed threshold applied to each label. If you don't specify a value for <code>MinConfidence</code>, <code>DetectCustomLabels</code> returns labels based on the assumed threshold of each label.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable minConfidence;
 
@@ -1968,6 +1990,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  */
 @interface AWSRekognitionGetCelebrityInfoResponse : AWSModel
 
+
+/**
+ <p>Retrieves the known gender for the celebrity.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionKnownGender * _Nullable knownGender;
 
 /**
  <p>The name of the celebrity.</p>
@@ -2699,6 +2726,19 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
+ <p>The known gender identity for the celebrity that matches the provided ID.</p>
+ */
+@interface AWSRekognitionKnownGender : AWSModel
+
+
+/**
+ <p>A string value of the KnownGender info about the Celebrity.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionKnownGenderType types;
+
+@end
+
+/**
  <p>Structure containing details about the detected label, including the name, detected instances, parent labels, and level of confidence.</p><p></p>
  */
 @interface AWSRekognitionLabel : AWSModel
@@ -3339,12 +3379,12 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>Details about each celebrity found in the image. Amazon Rekognition can detect a maximum of 64 celebrities in an image.</p>
+ <p>Details about each celebrity found in the image. Amazon Rekognition can detect a maximum of 64 celebrities in an image. Each celebrity object includes the following attributes: <code>Face</code>, <code>Confidence</code>, <code>Emotions</code>, <code>Landmarks</code>, <code>Pose</code>, <code>Quality</code>, <code>Smile</code>, <code>Id</code>, <code>KnownGender</code>, <code>MatchConfidence</code>, <code>Name</code>, <code>Urls</code>.</p>
  */
 @property (nonatomic, strong) NSArray<AWSRekognitionCelebrity *> * _Nullable celebrityFaces;
 
 /**
- <p>The orientation of the input image (counterclockwise direction). If your application displays the image, you can use this value to correct the orientation. The bounding box coordinates returned in <code>CelebrityFaces</code> and <code>UnrecognizedFaces</code> represent face locations before the image orientation is corrected. </p><note><p>If the input image is in .jpeg format, it might contain exchangeable image (Exif) metadata that includes the image's orientation. If so, and the Exif metadata for the input image populates the orientation field, the value of <code>OrientationCorrection</code> is null. The <code>CelebrityFaces</code> and <code>UnrecognizedFaces</code> bounding box coordinates represent face locations after Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata. </p></note>
+ <note><p>Support for estimating image orientation using the the OrientationCorrection field has ceased as of August 2021. Any returned values for this field included in an API response will always be NULL.</p></note><p>The orientation of the input image (counterclockwise direction). If your application displays the image, you can use this value to correct the orientation. The bounding box coordinates returned in <code>CelebrityFaces</code> and <code>UnrecognizedFaces</code> represent face locations before the image orientation is corrected. </p><note><p>If the input image is in .jpeg format, it might contain exchangeable image (Exif) metadata that includes the image's orientation. If so, and the Exif metadata for the input image populates the orientation field, the value of <code>OrientationCorrection</code> is null. The <code>CelebrityFaces</code> and <code>UnrecognizedFaces</code> bounding box coordinates represent face locations after Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata. </p></note>
  */
 @property (nonatomic, assign) AWSRekognitionOrientationCorrection orientationCorrection;
 

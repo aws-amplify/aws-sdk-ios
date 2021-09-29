@@ -129,6 +129,21 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectAnswerMachineDetectionConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"awaitAnswerMachinePrompt" : @"AwaitAnswerMachinePrompt",
+             @"enableAnswerMachineDetection" : @"EnableAnswerMachineDetection",
+             };
+}
+
+@end
+
 @implementation AWSConnectAssociateApprovedOriginRequest
 
 + (BOOL)supportsSecureCoding {
@@ -833,11 +848,31 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"EVENT"] == NSOrderedSame) {
             return @(AWSConnectIntegrationTypeEvent);
         }
+        if ([value caseInsensitiveCompare:@"VOICE_ID"] == NSOrderedSame) {
+            return @(AWSConnectIntegrationTypeVoiceId);
+        }
+        if ([value caseInsensitiveCompare:@"PINPOINT_APP"] == NSOrderedSame) {
+            return @(AWSConnectIntegrationTypePinpointApp);
+        }
+        if ([value caseInsensitiveCompare:@"WISDOM_ASSISTANT"] == NSOrderedSame) {
+            return @(AWSConnectIntegrationTypeWisdomAssistant);
+        }
+        if ([value caseInsensitiveCompare:@"WISDOM_KNOWLEDGE_BASE"] == NSOrderedSame) {
+            return @(AWSConnectIntegrationTypeWisdomKnowledgeBase);
+        }
         return @(AWSConnectIntegrationTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSConnectIntegrationTypeEvent:
                 return @"EVENT";
+            case AWSConnectIntegrationTypeVoiceId:
+                return @"VOICE_ID";
+            case AWSConnectIntegrationTypePinpointApp:
+                return @"PINPOINT_APP";
+            case AWSConnectIntegrationTypeWisdomAssistant:
+                return @"WISDOM_ASSISTANT";
+            case AWSConnectIntegrationTypeWisdomKnowledgeBase:
+                return @"WISDOM_KNOWLEDGE_BASE";
             default:
                 return nil;
         }
@@ -1022,11 +1057,16 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"RULES_EVALUATION"] == NSOrderedSame) {
             return @(AWSConnectUseCaseTypeRulesEvaluation);
         }
+        if ([value caseInsensitiveCompare:@"CONNECT_CAMPAIGNS"] == NSOrderedSame) {
+            return @(AWSConnectUseCaseTypeConnectCampaigns);
+        }
         return @(AWSConnectUseCaseTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSConnectUseCaseTypeRulesEvaluation:
                 return @"RULES_EVALUATION";
+            case AWSConnectUseCaseTypeConnectCampaigns:
+                return @"CONNECT_CAMPAIGNS";
             default:
                 return nil;
         }
@@ -3186,11 +3226,31 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"EVENT"] == NSOrderedSame) {
             return @(AWSConnectIntegrationTypeEvent);
         }
+        if ([value caseInsensitiveCompare:@"VOICE_ID"] == NSOrderedSame) {
+            return @(AWSConnectIntegrationTypeVoiceId);
+        }
+        if ([value caseInsensitiveCompare:@"PINPOINT_APP"] == NSOrderedSame) {
+            return @(AWSConnectIntegrationTypePinpointApp);
+        }
+        if ([value caseInsensitiveCompare:@"WISDOM_ASSISTANT"] == NSOrderedSame) {
+            return @(AWSConnectIntegrationTypeWisdomAssistant);
+        }
+        if ([value caseInsensitiveCompare:@"WISDOM_KNOWLEDGE_BASE"] == NSOrderedSame) {
+            return @(AWSConnectIntegrationTypeWisdomKnowledgeBase);
+        }
         return @(AWSConnectIntegrationTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSConnectIntegrationTypeEvent:
                 return @"EVENT";
+            case AWSConnectIntegrationTypeVoiceId:
+                return @"VOICE_ID";
+            case AWSConnectIntegrationTypePinpointApp:
+                return @"PINPOINT_APP";
+            case AWSConnectIntegrationTypeWisdomAssistant:
+                return @"WISDOM_ASSISTANT";
+            case AWSConnectIntegrationTypeWisdomKnowledgeBase:
+                return @"WISDOM_KNOWLEDGE_BASE";
             default:
                 return nil;
         }
@@ -3670,9 +3730,46 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"instanceId" : @"InstanceId",
+             @"integrationType" : @"IntegrationType",
              @"maxResults" : @"MaxResults",
              @"nextToken" : @"NextToken",
              };
+}
+
++ (NSValueTransformer *)integrationTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"EVENT"] == NSOrderedSame) {
+            return @(AWSConnectIntegrationTypeEvent);
+        }
+        if ([value caseInsensitiveCompare:@"VOICE_ID"] == NSOrderedSame) {
+            return @(AWSConnectIntegrationTypeVoiceId);
+        }
+        if ([value caseInsensitiveCompare:@"PINPOINT_APP"] == NSOrderedSame) {
+            return @(AWSConnectIntegrationTypePinpointApp);
+        }
+        if ([value caseInsensitiveCompare:@"WISDOM_ASSISTANT"] == NSOrderedSame) {
+            return @(AWSConnectIntegrationTypeWisdomAssistant);
+        }
+        if ([value caseInsensitiveCompare:@"WISDOM_KNOWLEDGE_BASE"] == NSOrderedSame) {
+            return @(AWSConnectIntegrationTypeWisdomKnowledgeBase);
+        }
+        return @(AWSConnectIntegrationTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectIntegrationTypeEvent:
+                return @"EVENT";
+            case AWSConnectIntegrationTypeVoiceId:
+                return @"VOICE_ID";
+            case AWSConnectIntegrationTypePinpointApp:
+                return @"PINPOINT_APP";
+            case AWSConnectIntegrationTypeWisdomAssistant:
+                return @"WISDOM_ASSISTANT";
+            case AWSConnectIntegrationTypeWisdomKnowledgeBase:
+                return @"WISDOM_KNOWLEDGE_BASE";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -6145,14 +6242,42 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"answerMachineDetectionConfig" : @"AnswerMachineDetectionConfig",
              @"attributes" : @"Attributes",
+             @"campaignId" : @"CampaignId",
              @"clientToken" : @"ClientToken",
              @"contactFlowId" : @"ContactFlowId",
              @"destinationPhoneNumber" : @"DestinationPhoneNumber",
              @"instanceId" : @"InstanceId",
              @"queueId" : @"QueueId",
              @"sourcePhoneNumber" : @"SourcePhoneNumber",
+             @"trafficType" : @"TrafficType",
              };
+}
+
++ (NSValueTransformer *)answerMachineDetectionConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectAnswerMachineDetectionConfig class]];
+}
+
++ (NSValueTransformer *)trafficTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"GENERAL"] == NSOrderedSame) {
+            return @(AWSConnectTrafficTypeGeneral);
+        }
+        if ([value caseInsensitiveCompare:@"CAMPAIGN"] == NSOrderedSame) {
+            return @(AWSConnectTrafficTypeCampaign);
+        }
+        return @(AWSConnectTrafficTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectTrafficTypeGeneral:
+                return @"GENERAL";
+            case AWSConnectTrafficTypeCampaign:
+                return @"CAMPAIGN";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -6949,11 +7074,16 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"RULES_EVALUATION"] == NSOrderedSame) {
             return @(AWSConnectUseCaseTypeRulesEvaluation);
         }
+        if ([value caseInsensitiveCompare:@"CONNECT_CAMPAIGNS"] == NSOrderedSame) {
+            return @(AWSConnectUseCaseTypeConnectCampaigns);
+        }
         return @(AWSConnectUseCaseTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSConnectUseCaseTypeRulesEvaluation:
                 return @"RULES_EVALUATION";
+            case AWSConnectUseCaseTypeConnectCampaigns:
+                return @"CONNECT_CAMPAIGNS";
             default:
                 return nil;
         }

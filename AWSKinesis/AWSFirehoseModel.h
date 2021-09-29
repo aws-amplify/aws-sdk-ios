@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -159,14 +159,21 @@ typedef NS_ENUM(NSInteger, AWSFirehoseProcessorParameterName) {
     AWSFirehoseProcessorParameterNameUnknown,
     AWSFirehoseProcessorParameterNameLambdaArn,
     AWSFirehoseProcessorParameterNameNumberOfRetries,
+    AWSFirehoseProcessorParameterNameMetadataExtractionQuery,
+    AWSFirehoseProcessorParameterNameJsonParsingEngine,
     AWSFirehoseProcessorParameterNameRoleArn,
     AWSFirehoseProcessorParameterNameBufferSizeInMBs,
     AWSFirehoseProcessorParameterNameBufferIntervalInSeconds,
+    AWSFirehoseProcessorParameterNameSubRecordType,
+    AWSFirehoseProcessorParameterNameDelimiter,
 };
 
 typedef NS_ENUM(NSInteger, AWSFirehoseProcessorType) {
     AWSFirehoseProcessorTypeUnknown,
+    AWSFirehoseProcessorTypeRecordDeAggregation,
     AWSFirehoseProcessorTypeLambda,
+    AWSFirehoseProcessorTypeMetadataExtraction,
+    AWSFirehoseProcessorTypeAppendDelimiterToRecord,
 };
 
 typedef NS_ENUM(NSInteger, AWSFirehoseRedshiftS3BackupMode) {
@@ -202,6 +209,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @class AWSFirehoseDescribeDeliveryStreamOutput;
 @class AWSFirehoseDeserializer;
 @class AWSFirehoseDestinationDescription;
+@class AWSFirehoseDynamicPartitioningConfiguration;
 @class AWSFirehoseElasticsearchBufferingHints;
 @class AWSFirehoseElasticsearchDestinationConfiguration;
 @class AWSFirehoseElasticsearchDestinationDescription;
@@ -247,6 +255,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @class AWSFirehoseRedshiftDestinationDescription;
 @class AWSFirehoseRedshiftDestinationUpdate;
 @class AWSFirehoseRedshiftRetryOptions;
+@class AWSFirehoseRetryOptions;
 @class AWSFirehoseS3DestinationConfiguration;
 @class AWSFirehoseS3DestinationDescription;
 @class AWSFirehoseS3DestinationUpdate;
@@ -681,6 +690,24 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @end
 
 /**
+ <p>The configuration of the dynamic partitioning mechanism that creates smaller data sets from the streaming data by partitioning it based on partition keys. Currently, dynamic partitioning is only supported for Amazon S3 destinations. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html">https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html</a></p>
+ */
+@interface AWSFirehoseDynamicPartitioningConfiguration : AWSModel
+
+
+/**
+ <p>Specifies that the dynamic partitioning is enabled for this Kinesis Data Firehose delivery stream.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+/**
+ <p>The retry behavior in case Kinesis Data Firehose is unable to deliver data to an Amazon S3 prefix.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseRetryOptions * _Nullable retryOptions;
+
+@end
+
+/**
  <p>Describes the buffering to perform before delivering data to the Amazon ES destination.</p>
  */
 @interface AWSFirehoseElasticsearchBufferingHints : AWSModel
@@ -972,6 +999,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) AWSFirehoseDataFormatConversionConfiguration * _Nullable dataFormatConversionConfiguration;
 
 /**
+ <p>The configuration of the dynamic partitioning mechanism that creates smaller data sets from the streaming data by partitioning it based on partition keys. Currently, dynamic partitioning is only supported for Amazon S3 destinations. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html">https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html</a></p>
+ */
+@property (nonatomic, strong) AWSFirehoseDynamicPartitioningConfiguration * _Nullable dynamicPartitioningConfiguration;
+
+/**
  <p>The encryption configuration. If no value is specified, the default is no encryption.</p>
  */
 @property (nonatomic, strong) AWSFirehoseEncryptionConfiguration * _Nullable encryptionConfiguration;
@@ -1041,6 +1073,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) AWSFirehoseDataFormatConversionConfiguration * _Nullable dataFormatConversionConfiguration;
 
 /**
+ <p>The configuration of the dynamic partitioning mechanism that creates smaller data sets from the streaming data by partitioning it based on partition keys. Currently, dynamic partitioning is only supported for Amazon S3 destinations. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html">https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html</a></p>
+ */
+@property (nonatomic, strong) AWSFirehoseDynamicPartitioningConfiguration * _Nullable dynamicPartitioningConfiguration;
+
+/**
  <p>The encryption configuration. If no value is specified, the default is no encryption.</p>
  */
 @property (nonatomic, strong) AWSFirehoseEncryptionConfiguration * _Nullable encryptionConfiguration;
@@ -1107,6 +1144,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  <p>The serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3.</p>
  */
 @property (nonatomic, strong) AWSFirehoseDataFormatConversionConfiguration * _Nullable dataFormatConversionConfiguration;
+
+/**
+ <p>The configuration of the dynamic partitioning mechanism that creates smaller data sets from the streaming data by partitioning it based on partition keys. Currently, dynamic partitioning is only supported for Amazon S3 destinations. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html">https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html</a></p>
+ */
+@property (nonatomic, strong) AWSFirehoseDynamicPartitioningConfiguration * _Nullable dynamicPartitioningConfiguration;
 
 /**
  <p>The encryption configuration. If no value is specified, the default is no encryption.</p>
@@ -1232,7 +1274,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>The URL of the HTTP endpoint selected as the destination.</p>
+ <p>The URL of the HTTP endpoint selected as the destination.</p><important><p>If you choose an HTTP endpoint as your destination, review and follow the instructions in the <a href="https://docs.aws.amazon.com/firehose/latest/dev/httpdeliveryrequestresponse.html">Appendix - HTTP Endpoint Delivery Request and Response Specifications</a>.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable url;
 
@@ -2100,6 +2142,19 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @end
 
 /**
+ <p> The retry behavior in case Kinesis Data Firehose is unable to deliver data to an Amazon S3 prefix.</p>
+ */
+@interface AWSFirehoseRetryOptions : AWSModel
+
+
+/**
+ <p>The period of time during which Kinesis Data Firehose retries to deliver data to the specified Amazon S3 prefix.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable durationInSeconds;
+
+@end
+
+/**
  <p>Describes the configuration of a destination in Amazon S3.</p>
  Required parameters: [RoleARN, BucketARN]
  */
@@ -2257,7 +2312,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) NSString * _Nullable catalogId;
 
 /**
- <p>Specifies the name of the AWS Glue database that contains the schema for the output data.</p>
+ <p>Specifies the name of the AWS Glue database that contains the schema for the output data.</p><important><p>If the <code>SchemaConfiguration</code> request parameter is used as part of invoking the <code>CreateDeliveryStream</code> API, then the <code>DatabaseName</code> property is required and its value must be specified.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable databaseName;
 
@@ -2267,12 +2322,12 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) NSString * _Nullable region;
 
 /**
- <p>The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.</p>
+ <p>The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.</p><important><p>If the <code>SchemaConfiguration</code> request parameter is used as part of invoking the <code>CreateDeliveryStream</code> API, then the <code>RoleARN</code> property is required and its value must be specified.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable roleARN;
 
 /**
- <p>Specifies the AWS Glue table that contains the column information that constitutes your data schema.</p>
+ <p>Specifies the AWS Glue table that contains the column information that constitutes your data schema.</p><important><p>If the <code>SchemaConfiguration</code> request parameter is used as part of invoking the <code>CreateDeliveryStream</code> API, then the <code>TableName</code> property is required and its value must be specified.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 

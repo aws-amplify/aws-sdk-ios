@@ -4,10 +4,21 @@
 
 #import "AWSS3TransferUtility.h"
 
+
 @interface AWSS3TransferUtility (UnitTests)
 
 @property (strong, nonatomic) AWSSynchronizedMutableDictionary *taskDictionary;
 @property (strong, nonatomic) AWSSynchronizedMutableDictionary *completedTaskDictionary;
+
+NS_ASSUME_NONNULL_BEGIN
+
+- (nullable NSURL *)createPartialFile:(NSURL *)fileURL
+                               offset:(NSUInteger)offset
+                               length:(NSUInteger)length
+                              baseURL:(NSURL *)baseURL
+                                error:(NSError * _Nullable *)error;
+
+NS_ASSUME_NONNULL_END
 
 @end
 

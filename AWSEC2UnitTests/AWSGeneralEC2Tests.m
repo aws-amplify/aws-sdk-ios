@@ -17109,6 +17109,102 @@ static id mockNetworking = nil;
     [AWSEC2 removeEC2ForKey:key];
 }
 
+- (void)testGetVpnConnectionDeviceSampleConfiguration {
+    NSString *key = @"testGetVpnConnectionDeviceSampleConfiguration";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSEC2 registerEC2WithConfiguration:configuration forKey:key];
+
+    AWSEC2 *awsClient = [AWSEC2 EC2ForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSEC2 EC2ForKey:key] getVpnConnectionDeviceSampleConfiguration:[AWSEC2GetVpnConnectionDeviceSampleConfigurationRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSEC2 removeEC2ForKey:key];
+}
+
+- (void)testGetVpnConnectionDeviceSampleConfigurationCompletionHandler {
+    NSString *key = @"testGetVpnConnectionDeviceSampleConfiguration";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSEC2 registerEC2WithConfiguration:configuration forKey:key];
+
+    AWSEC2 *awsClient = [AWSEC2 EC2ForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSEC2 EC2ForKey:key] getVpnConnectionDeviceSampleConfiguration:[AWSEC2GetVpnConnectionDeviceSampleConfigurationRequest new] completionHandler:^(AWSEC2GetVpnConnectionDeviceSampleConfigurationResult* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSEC2 removeEC2ForKey:key];
+}
+
+- (void)testGetVpnConnectionDeviceTypes {
+    NSString *key = @"testGetVpnConnectionDeviceTypes";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSEC2 registerEC2WithConfiguration:configuration forKey:key];
+
+    AWSEC2 *awsClient = [AWSEC2 EC2ForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSEC2 EC2ForKey:key] getVpnConnectionDeviceTypes:[AWSEC2GetVpnConnectionDeviceTypesRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSEC2 removeEC2ForKey:key];
+}
+
+- (void)testGetVpnConnectionDeviceTypesCompletionHandler {
+    NSString *key = @"testGetVpnConnectionDeviceTypes";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSEC2 registerEC2WithConfiguration:configuration forKey:key];
+
+    AWSEC2 *awsClient = [AWSEC2 EC2ForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSEC2 EC2ForKey:key] getVpnConnectionDeviceTypes:[AWSEC2GetVpnConnectionDeviceTypesRequest new] completionHandler:^(AWSEC2GetVpnConnectionDeviceTypesResult* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSEC2 removeEC2ForKey:key];
+}
+
 - (void)testImportClientVpnClientCertificateRevocationList {
     NSString *key = @"testImportClientVpnClientCertificateRevocationList";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];

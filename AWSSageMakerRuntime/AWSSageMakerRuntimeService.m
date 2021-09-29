@@ -302,6 +302,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSSageMakerRuntimeInvokeEndpointAsyncOutput *> *)invokeEndpointAsync:(AWSSageMakerRuntimeInvokeEndpointAsyncInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/endpoints/{EndpointName}/async-invocations"
+                  targetPrefix:@""
+                 operationName:@"InvokeEndpointAsync"
+                   outputClass:[AWSSageMakerRuntimeInvokeEndpointAsyncOutput class]];
+}
+
+- (void)invokeEndpointAsync:(AWSSageMakerRuntimeInvokeEndpointAsyncInput *)request
+     completionHandler:(void (^)(AWSSageMakerRuntimeInvokeEndpointAsyncOutput *response, NSError *error))completionHandler {
+    [[self invokeEndpointAsync:request] continueWithBlock:^id _Nullable(AWSTask<AWSSageMakerRuntimeInvokeEndpointAsyncOutput *> * _Nonnull task) {
+        AWSSageMakerRuntimeInvokeEndpointAsyncOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 #pragma mark -
 
 @end
