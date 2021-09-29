@@ -150,6 +150,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
     AWSLambdaRuntimePython36,
     AWSLambdaRuntimePython37,
     AWSLambdaRuntimePython38,
+    AWSLambdaRuntimePython39,
     AWSLambdaRuntimeDotnetcore10,
     AWSLambdaRuntimeDotnetcore20,
     AWSLambdaRuntimeDotnetcore21,
@@ -2511,7 +2512,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable marker;
 
 /**
- <p>For Lambda@Edge functions, the Region of the master function. For example, <code>us-east-1</code> filters the list of functions to only include Lambda@Edge functions replicated from a master function in US East (N. Virginia). If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</p>
+ <p>For Lambda@Edge functions, the Amazon Web Services Region of the master function. For example, <code>us-east-1</code> filters the list of functions to only include Lambda@Edge functions replicated from a master function in US East (N. Virginia). If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable masterRegion;
 
