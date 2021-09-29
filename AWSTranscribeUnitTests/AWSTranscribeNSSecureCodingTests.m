@@ -101,6 +101,8 @@
 - (void) test_AWSTranscribeStartMedicalTranscriptionJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeStartTranscriptionJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeStartTranscriptionJobResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeSubtitles API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeSubtitlesOutput API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeTag API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeTagResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeTagResourceResponse API_AVAILABLE(ios(11));
@@ -451,6 +453,14 @@
 
 - (void) test_AWSTranscribeStartTranscriptionJobResponse {
     [self validateSecureCodingForClass:[AWSTranscribeStartTranscriptionJobResponse class]];
+}
+
+- (void) test_AWSTranscribeSubtitles {
+    [self validateSecureCodingForClass:[AWSTranscribeSubtitles class]];
+}
+
+- (void) test_AWSTranscribeSubtitlesOutput {
+    [self validateSecureCodingForClass:[AWSTranscribeSubtitlesOutput class]];
 }
 
 - (void) test_AWSTranscribeTag {
