@@ -96,6 +96,7 @@
 - (void) test_AWSComprehendDocumentClassifierOutputDataConfig API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDocumentClassifierProperties API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDocumentLabel API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendDocumentReaderConfig API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDominantLanguage API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDominantLanguageDetectionJobFilter API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDominantLanguageDetectionJobProperties API_AVAILABLE(ios(11));
@@ -510,6 +511,10 @@
 
 - (void) test_AWSComprehendDocumentLabel {
     [self validateSecureCodingForClass:[AWSComprehendDocumentLabel class]];
+}
+
+- (void) test_AWSComprehendDocumentReaderConfig {
+    [self validateSecureCodingForClass:[AWSComprehendDocumentReaderConfig class]];
 }
 
 - (void) test_AWSComprehendDominantLanguage {
