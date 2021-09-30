@@ -62,6 +62,7 @@
 - (void) test_AWSPinpointTargetingChannelsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingCondition API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingConditionalSplitActivity API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingContactCenterActivity API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingCreateAppRequest API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingCreateAppResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingCreateApplicationRequest API_AVAILABLE(ios(11));
@@ -293,6 +294,7 @@
 - (void) test_AWSPinpointTargetingJourneyExecutionMetricsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingJourneyLimits API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingJourneyPushMessage API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingJourneyChannelSettings API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingJourneyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingJourneySMSMessage API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingJourneySchedule API_AVAILABLE(ios(11));
@@ -619,6 +621,10 @@
 
 - (void) test_AWSPinpointTargetingConditionalSplitActivity {
     [self validateSecureCodingForClass:[AWSPinpointTargetingConditionalSplitActivity class]];
+}
+
+- (void) test_AWSPinpointTargetingContactCenterActivity {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingContactCenterActivity class]];
 }
 
 - (void) test_AWSPinpointTargetingCreateAppRequest {
@@ -1543,6 +1549,10 @@
 
 - (void) test_AWSPinpointTargetingJourneyPushMessage {
     [self validateSecureCodingForClass:[AWSPinpointTargetingJourneyPushMessage class]];
+}
+
+- (void) test_AWSPinpointTargetingJourneyChannelSettings {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingJourneyChannelSettings class]];
 }
 
 - (void) test_AWSPinpointTargetingJourneyResponse {

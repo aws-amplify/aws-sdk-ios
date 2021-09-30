@@ -428,6 +428,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 	return @{
              @"CUSTOM" : @"CUSTOM",
              @"conditionalSplit" : @"ConditionalSplit",
+             @"contactCenter" : @"ContactCenter",
              @"detail" : @"Description",
              @"EMAIL" : @"EMAIL",
              @"holdout" : @"Holdout",
@@ -445,6 +446,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 + (NSValueTransformer *)conditionalSplitJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingConditionalSplitActivity class]];
+}
+
++ (NSValueTransformer *)contactCenterJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingContactCenterActivity class]];
 }
 
 + (NSValueTransformer *)EMAILJSONTransformer {
@@ -1465,6 +1470,20 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 + (NSValueTransformer *)evaluationWaitTimeJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingWaitTime class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingContactCenterActivity
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextActivity" : @"NextActivity",
+             };
 }
 
 @end
@@ -6581,6 +6600,21 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingJourneyChannelSettings
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"connectCampaignArn" : @"ConnectCampaignArn",
+             @"connectCampaignExecutionRoleArn" : @"ConnectCampaignExecutionRoleArn",
+             };
+}
+
+@end
+
 @implementation AWSPinpointTargetingJourneyResponse
 
 + (BOOL)supportsSecureCoding {
@@ -6593,6 +6627,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
              @"applicationId" : @"ApplicationId",
              @"creationDate" : @"CreationDate",
              @"identifier" : @"Id",
+             @"journeyChannelSettings" : @"JourneyChannelSettings",
              @"lastModifiedDate" : @"LastModifiedDate",
              @"limits" : @"Limits",
              @"localTime" : @"LocalTime",
@@ -6615,6 +6650,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
     } reverseBlock:^id(id mapMTLDictionary) {
         return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
     }];
+}
+
++ (NSValueTransformer *)journeyChannelSettingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingJourneyChannelSettings class]];
 }
 
 + (NSValueTransformer *)limitsJSONTransformer {

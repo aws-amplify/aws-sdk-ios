@@ -294,6 +294,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @class AWSPinpointTargetingChannelsResponse;
 @class AWSPinpointTargetingCondition;
 @class AWSPinpointTargetingConditionalSplitActivity;
+@class AWSPinpointTargetingContactCenterActivity;
 @class AWSPinpointTargetingCreateAppRequest;
 @class AWSPinpointTargetingCreateAppResponse;
 @class AWSPinpointTargetingCreateApplicationRequest;
@@ -525,6 +526,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @class AWSPinpointTargetingJourneyExecutionMetricsResponse;
 @class AWSPinpointTargetingJourneyLimits;
 @class AWSPinpointTargetingJourneyPushMessage;
+@class AWSPinpointTargetingJourneyChannelSettings;
 @class AWSPinpointTargetingJourneyResponse;
 @class AWSPinpointTargetingJourneySMSMessage;
 @class AWSPinpointTargetingJourneySchedule;
@@ -1491,6 +1493,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
  <p>The settings for a yes/no split activity. This type of activity sends participants down one of two paths in a journey, based on conditions that you specify.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingConditionalSplitActivity * _Nullable conditionalSplit;
+
+/**
+ <p>The settings for a connect activity. This type of activity initiates a contact center call to participants.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingContactCenterActivity * _Nullable contactCenter;
 
 /**
  <p>The custom description of the activity.</p>
@@ -2544,6 +2551,19 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
  <p>The unique identifier for the activity to perform if the conditions are met.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable trueActivity;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingContactCenterActivity : AWSModel
+
+
+/**
+ <p>The unique identifier for the next activity to perform after the this activity.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextActivity;
 
 @end
 
@@ -7495,6 +7515,24 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @end
 
 /**
+ <p>The channel-specific configurations for the journey.</p>
+ */
+@interface AWSPinpointTargetingJourneyChannelSettings : AWSModel
+
+
+/**
+ <p>Amazon Resource Name (ARN) of the Connect Campaign.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable connectCampaignArn;
+
+/**
+ <p>IAM role ARN to be assumed when invoking Connect campaign execution APIs for dialing.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable connectCampaignExecutionRoleArn;
+
+@end
+
+/**
  <p>Provides information about the status, configuration, and other settings for a journey.</p>
  Required parameters: [Name, Id, ApplicationId]
  */
@@ -7520,6 +7558,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
  <p>The unique identifier for the journey.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The channel-specific configurations for the journey.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingJourneyChannelSettings * _Nullable journeyChannelSettings;
 
 /**
  <p>The date, in ISO 8601 format, when the journey was last modified.</p>
