@@ -16,15 +16,16 @@
 
 - Model updates for the following services
   - AWSChimeSDKMessaging
-  - AWSPinpoint
-  - AWSConnect
-  - AWSElasticLoadBalancingv2
-  - AWSLambda
   - AWSCloudWatchLogs
-  - AWSSageMakerRuntime
   - AWSComprehend
-  - AWSIoTDataPlane
+  - AWSConnect
   - AWSEC2
+  - AWSElasticLoadBalancingv2
+  - AWSIoTDataPlane
+  - AWSLambda
+  - AWSPinpoint
+  - AWSSageMakerRuntime
+  - AWSTranscribe
   
 ## 2.26.0
 
