@@ -17,7 +17,7 @@
     <a title="AWSKMSGetPublicKeyResponse Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSKMS 2.26.0 Docs</a> (72% documented)</p>
+        <p><a href="../index.html">AWSKMS 2.26.1 Docs</a> (71% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKMS.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -369,6 +369,9 @@
                 <a href="../Enums/AWSKMSKeyManagerType.html">AWSKMSKeyManagerType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSKMSKeySpec.html">AWSKMSKeySpec</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSKMSKeyState.html">AWSKMSKeyState</a>
               </li>
               <li class="nav-group-task">
@@ -427,7 +430,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The type of the of the public key that was downloaded.</p>
+                        <p>Instead, use the <code>KeySpec</code> field in the <code>GetPublicKey</code> response.</p><p>The <code>KeySpec</code> and <code>CustomerMasterKeySpec</code> fields have the same value. We recommend that you use the <code>KeySpec</code> field in your code. However, to avoid breaking changes, KMS will support both fields.</p>
 
                       </div>
                       <div class="declaration">
@@ -459,7 +462,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The encryption algorithms that AWS KMS supports for this key. </p><p>This information is critical. If a public key encrypts data outside of AWS KMS by using an unsupported encryption algorithm, the ciphertext cannot be decrypted. </p><p>This field appears in the response only when the <code>KeyUsage</code> of the public key is <code>ENCRYPT_DECRYPT</code>.</p>
+                        <p>The encryption algorithms that KMS supports for this key. </p><p>This information is critical. If a public key encrypts data outside of KMS by using an unsupported encryption algorithm, the ciphertext cannot be decrypted. </p><p>This field appears in the response only when the <code>KeyUsage</code> of the public key is <code>ENCRYPT_DECRYPT</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -491,7 +494,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric CMK from which the public key was downloaded.</p>
+                        <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric KMS key from which the public key was downloaded.</p>
 
                       </div>
                       <div class="declaration">
@@ -513,6 +516,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSKMSGetPublicKeyResponse(py)keySpec"></a>
+                    <a name="//apple_ref/objc/Property/keySpec" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSGetPublicKeyResponse(py)keySpec">keySpec</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type of the of the public key that was downloaded.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSKMSKeySpec.html">AWSKMSKeySpec</a></span> <span class="n">keySpec</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">keySpec</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSKMSKeySpec.html">AWSKMSKeySpec</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSKMSGetPublicKeyResponse(py)keyUsage"></a>
                     <a name="//apple_ref/objc/Property/keyUsage" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSKMSGetPublicKeyResponse(py)keyUsage">keyUsage</a>
@@ -523,7 +558,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The permitted use of the public key. Valid values are <code>ENCRYPT_DECRYPT</code> or <code>SIGN_VERIFY</code>. </p><p>This information is critical. If a public key with <code>SIGN_VERIFY</code> key usage encrypts data outside of AWS KMS, the ciphertext cannot be decrypted. </p>
+                        <p>The permitted use of the public key. Valid values are <code>ENCRYPT_DECRYPT</code> or <code>SIGN_VERIFY</code>. </p><p>This information is critical. If a public key with <code>SIGN_VERIFY</code> key usage encrypts data outside of KMS, the ciphertext cannot be decrypted. </p>
 
                       </div>
                       <div class="declaration">
@@ -555,7 +590,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>The exported public key. </p><p>The value is a DER-encoded X.509 public key, also known as <code>SubjectPublicKeyInfo</code> (SPKI), as defined in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p><p/></p>
+                        <p><p>The exported public key. </p><p>The value is a DER-encoded X.509 public key, also known as <code>SubjectPublicKeyInfo</code> (SPKI), as defined in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p><p/></p>
 
                       </div>
                       <div class="declaration">
@@ -587,7 +622,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The signing algorithms that AWS KMS supports for this key.</p><p>This field appears in the response only when the <code>KeyUsage</code> of the public key is <code>SIGN_VERIFY</code>.</p>
+                        <p>The signing algorithms that KMS supports for this key.</p><p>This field appears in the response only when the <code>KeyUsage</code> of the public key is <code>SIGN_VERIFY</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -611,7 +646,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-23)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-30)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="noopener" rel="external">jazzy ♪♫ v0.14.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="noopener" rel="external">Realm</a> project.</p>
         </section>
       </article>

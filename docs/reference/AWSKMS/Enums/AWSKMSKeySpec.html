@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSKMSGenerateDataKeyPairResponse Class Reference</title>
+    <title>AWSKMSKeySpec Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSKMSGenerateDataKeyPairResponse" class="dashAnchor"></a>
-    <a title="AWSKMSGenerateDataKeyPairResponse Class Reference"></a>
+    <a name="//apple_ref/objc/Enum/AWSKMSKeySpec" class="dashAnchor"></a>
+    <a title="AWSKMSKeySpec Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSKMS 2.26.1 Docs</a> (71% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSKMS Reference</a>
         <img id="carat" src="../img/carat.png" />
-        AWSKMSGenerateDataKeyPairResponse Class Reference
+        AWSKMSKeySpec Enumeration Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -399,20 +399,31 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSKMSGenerateDataKeyPairResponse</h1>
+            <h1>AWSKMSKeySpec</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSKMSGenerateDataKeyPairResponse</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSKMSKeySpec</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSKMSKeySpecUnknown</span><span class="p">,</span>
+    <span class="n">AWSKMSKeySpecRsa2048</span><span class="p">,</span>
+    <span class="n">AWSKMSKeySpecRsa3072</span><span class="p">,</span>
+    <span class="n">AWSKMSKeySpecRsa4096</span><span class="p">,</span>
+    <span class="n">AWSKMSKeySpecEccNistP256</span><span class="p">,</span>
+    <span class="n">AWSKMSKeySpecEccNistP384</span><span class="p">,</span>
+    <span class="n">AWSKMSKeySpecEccNistP521</span><span class="p">,</span>
+    <span class="n">AWSKMSKeySpecEccSecgP256k1</span><span class="p">,</span>
+    <span class="n">AWSKMSKeySpecSymmetricDefault</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSKMSGenerateDataKeyPairResponse</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSKMSKeySpec</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                 </div>
               </div>
-            
+            <p>Undocumented</p>
+
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -420,9 +431,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSKMSGenerateDataKeyPairResponse(py)keyId"></a>
-                    <a name="//apple_ref/objc/Property/keyId" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSKMSGenerateDataKeyPairResponse(py)keyId">keyId</a>
+                    <a name="/c:@E@AWSKMSKeySpec@AWSKMSKeySpecUnknown"></a>
+                    <a name="//apple_ref/objc/Case/AWSKMSKeySpecUnknown" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSKMSKeySpec@AWSKMSKeySpecUnknown">AWSKMSKeySpecUnknown</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -430,19 +441,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that encrypted the private key.</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">keyId</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSKMSKeySpecUnknown</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">keyId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unknown</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
 
                         </div>
                       </div>
@@ -452,9 +463,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSKMSGenerateDataKeyPairResponse(py)keyPairSpec"></a>
-                    <a name="//apple_ref/objc/Property/keyPairSpec" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSKMSGenerateDataKeyPairResponse(py)keyPairSpec">keyPairSpec</a>
+                    <a name="/c:@E@AWSKMSKeySpec@AWSKMSKeySpecRsa2048"></a>
+                    <a name="//apple_ref/objc/Case/AWSKMSKeySpecRsa2048" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSKMSKeySpec@AWSKMSKeySpecRsa2048">AWSKMSKeySpecRsa2048</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -462,19 +473,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The type of data key pair that was generated.</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSKMSDataKeyPairSpec.html">AWSKMSDataKeyPairSpec</a></span> <span class="n">keyPairSpec</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSKMSKeySpecRsa2048</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">keyPairSpec</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSKMSDataKeyPairSpec.html">AWSKMSDataKeyPairSpec</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">rsa2048</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
 
                         </div>
                       </div>
@@ -484,9 +495,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSKMSGenerateDataKeyPairResponse(py)privateKeyCiphertextBlob"></a>
-                    <a name="//apple_ref/objc/Property/privateKeyCiphertextBlob" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSKMSGenerateDataKeyPairResponse(py)privateKeyCiphertextBlob">privateKeyCiphertextBlob</a>
+                    <a name="/c:@E@AWSKMSKeySpec@AWSKMSKeySpecRsa3072"></a>
+                    <a name="//apple_ref/objc/Case/AWSKMSKeySpecRsa3072" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSKMSKeySpec@AWSKMSKeySpecRsa3072">AWSKMSKeySpecRsa3072</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -494,19 +505,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The encrypted copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSData</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">privateKeyCiphertextBlob</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSKMSKeySpecRsa3072</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">privateKeyCiphertextBlob</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">rsa3072</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
 
                         </div>
                       </div>
@@ -516,9 +527,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSKMSGenerateDataKeyPairResponse(py)privateKeyPlaintext"></a>
-                    <a name="//apple_ref/objc/Property/privateKeyPlaintext" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSKMSGenerateDataKeyPairResponse(py)privateKeyPlaintext">privateKeyPlaintext</a>
+                    <a name="/c:@E@AWSKMSKeySpec@AWSKMSKeySpecRsa4096"></a>
+                    <a name="//apple_ref/objc/Case/AWSKMSKeySpecRsa4096" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSKMSKeySpec@AWSKMSKeySpecRsa4096">AWSKMSKeySpecRsa4096</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -526,19 +537,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The plaintext copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSData</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">privateKeyPlaintext</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSKMSKeySpecRsa4096</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">privateKeyPlaintext</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">rsa4096</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
 
                         </div>
                       </div>
@@ -548,9 +559,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSKMSGenerateDataKeyPairResponse(py)publicKey"></a>
-                    <a name="//apple_ref/objc/Property/publicKey" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSKMSGenerateDataKeyPairResponse(py)publicKey">publicKey</a>
+                    <a name="/c:@E@AWSKMSKeySpec@AWSKMSKeySpecEccNistP256"></a>
+                    <a name="//apple_ref/objc/Case/AWSKMSKeySpecEccNistP256" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSKMSKeySpec@AWSKMSKeySpecEccNistP256">AWSKMSKeySpecEccNistP256</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -558,19 +569,147 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The public key (in plaintext).</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSData</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">publicKey</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSKMSKeySpecEccNistP256</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">publicKey</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">eccNistP256</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSKMSKeySpec@AWSKMSKeySpecEccNistP384"></a>
+                    <a name="//apple_ref/objc/Case/AWSKMSKeySpecEccNistP384" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSKMSKeySpec@AWSKMSKeySpecEccNistP384">AWSKMSKeySpecEccNistP384</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSKMSKeySpecEccNistP384</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">eccNistP384</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSKMSKeySpec@AWSKMSKeySpecEccNistP521"></a>
+                    <a name="//apple_ref/objc/Case/AWSKMSKeySpecEccNistP521" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSKMSKeySpec@AWSKMSKeySpecEccNistP521">AWSKMSKeySpecEccNistP521</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSKMSKeySpecEccNistP521</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">eccNistP521</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSKMSKeySpec@AWSKMSKeySpecEccSecgP256k1"></a>
+                    <a name="//apple_ref/objc/Case/AWSKMSKeySpecEccSecgP256k1" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSKMSKeySpec@AWSKMSKeySpecEccSecgP256k1">AWSKMSKeySpecEccSecgP256k1</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSKMSKeySpecEccSecgP256k1</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">eccSecgP256k1</span> <span class="o">=</span> <span class="mi">7</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSKMSKeySpec@AWSKMSKeySpecSymmetricDefault"></a>
+                    <a name="//apple_ref/objc/Case/AWSKMSKeySpecSymmetricDefault" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSKMSKeySpec@AWSKMSKeySpecSymmetricDefault">AWSKMSKeySpecSymmetricDefault</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSKMSKeySpecSymmetricDefault</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">symmetricDefault</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
 
                         </div>
                       </div>
