@@ -25,10 +25,14 @@
   - AWSConnect
   - AWSEC2
   - AWSElasticLoadBalancingv2
+  - AWSFirehose
   - AWSIoTDataPlane
+  - AWSKMS
   - AWSLambda
   - AWSPinpoint
+  - AWSPolly
   - AWSSageMakerRuntime
+  - AWSS!S
   - AWSTranscribe
   
 ## 2.26.0
