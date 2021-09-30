@@ -4,6 +4,10 @@
 
 -Features for next release
 
+## 2.26.1
+
+-Features for next release
+
 ### Bug Fixes
 
 - **Core**
