@@ -17,7 +17,7 @@
     <a title="AWSRekognitionRecognizeCelebritiesResponse Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSRekognition 2.26.0 Docs</a> (79% documented)</p>
+        <p><a href="../index.html">AWSRekognition 2.26.1 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSRekognition.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -339,6 +339,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionKinesisVideoStream.html">AWSRekognitionKinesisVideoStream</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionKnownGender.html">AWSRekognitionKnownGender</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionLabel.html">AWSRekognitionLabel</a>
@@ -663,6 +666,9 @@
                 <a href="../Enums/AWSRekognitionGenderType.html">AWSRekognitionGenderType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionKnownGenderType.html">AWSRekognitionKnownGenderType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSRekognitionLabelDetectionSortBy.html">AWSRekognitionLabelDetectionSortBy</a>
               </li>
               <li class="nav-group-task">
@@ -745,7 +751,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Details about each celebrity found in the image. Amazon Rekognition can detect a maximum of 64 celebrities in an image.</p>
+                        <p>Details about each celebrity found in the image. Amazon Rekognition can detect a maximum of 64 celebrities in an image. Each celebrity object includes the following attributes: <code>Face</code>, <code>Confidence</code>, <code>Emotions</code>, <code>Landmarks</code>, <code>Pose</code>, <code>Quality</code>, <code>Smile</code>, <code>Id</code>, <code>KnownGender</code>, <code>MatchConfidence</code>, <code>Name</code>, <code>Urls</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -777,7 +783,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>The orientation of the input image (counterclockwise direction). If your application displays the image, you can use this value to correct the orientation. The bounding box coordinates returned in <code>CelebrityFaces</code> and <code>UnrecognizedFaces</code> represent face locations before the image orientation is corrected. </p><note><p>If the input image is in .jpeg format, it might contain exchangeable image (Exif) metadata that includes the image&rsquo;s orientation. If so, and the Exif metadata for the input image populates the orientation field, the value of <code>OrientationCorrection</code> is null. The <code>CelebrityFaces</code> and <code>UnrecognizedFaces</code> bounding box coordinates represent face locations after Exif metadata is used to correct the image orientation. Images in .png format don&rsquo;t contain Exif metadata. </p></note></p>
+                        <p><note><p>Support for estimating image orientation using the the OrientationCorrection field has ceased as of August 2021. Any returned values for this field included in an API response will always be NULL.</p></note><p>The orientation of the input image (counterclockwise direction). If your application displays the image, you can use this value to correct the orientation. The bounding box coordinates returned in <code>CelebrityFaces</code> and <code>UnrecognizedFaces</code> represent face locations before the image orientation is corrected. </p><note><p>If the input image is in .jpeg format, it might contain exchangeable image (Exif) metadata that includes the image&rsquo;s orientation. If so, and the Exif metadata for the input image populates the orientation field, the value of <code>OrientationCorrection</code> is null. The <code>CelebrityFaces</code> and <code>UnrecognizedFaces</code> bounding box coordinates represent face locations after Exif metadata is used to correct the image orientation. Images in .png format don&rsquo;t contain Exif metadata. </p></note></p>
 
                       </div>
                       <div class="declaration">
@@ -833,7 +839,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-23)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-30)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="noopener" rel="external">jazzy ♪♫ v0.14.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="noopener" rel="external">Realm</a> project.</p>
         </section>
       </article>
