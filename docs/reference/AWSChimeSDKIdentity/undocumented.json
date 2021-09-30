@@ -1,257 +1,257 @@
 {
   "warnings": [
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentity.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentity.h",
       "line": 28,
       "symbol": "AWSChimeSDKIdentityVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentity.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentity.h",
       "line": 39,
       "symbol": "AWSChimeSDKIdentityVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 22,
       "symbol": "AWSChimeSDKIdentityErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 24,
       "symbol": "AWSChimeSDKIdentityErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 24,
       "symbol": "AWSChimeSDKIdentityErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 25,
       "symbol": "AWSChimeSDKIdentityErrorType.AWSChimeSDKIdentityErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 26,
       "symbol": "AWSChimeSDKIdentityErrorType.AWSChimeSDKIdentityErrorBadRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 27,
       "symbol": "AWSChimeSDKIdentityErrorType.AWSChimeSDKIdentityErrorConflict",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 28,
       "symbol": "AWSChimeSDKIdentityErrorType.AWSChimeSDKIdentityErrorForbidden",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 29,
       "symbol": "AWSChimeSDKIdentityErrorType.AWSChimeSDKIdentityErrorResourceLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 30,
       "symbol": "AWSChimeSDKIdentityErrorType.AWSChimeSDKIdentityErrorServiceFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 31,
       "symbol": "AWSChimeSDKIdentityErrorType.AWSChimeSDKIdentityErrorServiceUnavailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 32,
       "symbol": "AWSChimeSDKIdentityErrorType.AWSChimeSDKIdentityErrorThrottledClient",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 33,
       "symbol": "AWSChimeSDKIdentityErrorType.AWSChimeSDKIdentityErrorUnauthorizedClient",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 36,
       "symbol": "AWSChimeSDKIdentityErrorCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 36,
       "symbol": "AWSChimeSDKIdentityErrorCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 37,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 38,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeBadRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 39,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeConflict",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 40,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeForbidden",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 41,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 42,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodePreconditionFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 43,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeResourceLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 44,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeServiceFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 45,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeAccessDenied",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 46,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeServiceUnavailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 47,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeThrottled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 48,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeThrottling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 49,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeUnauthorized",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 50,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeUnprocessable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 51,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeVoiceConnectorGroupAssociationsExist",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 52,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodePhoneNumberAssociationsExist",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityResources.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityResources.h",
       "line": 18,
       "symbol": "AWSChimeSDKIdentityResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityResources.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityResources.h",
       "line": 20,
       "symbol": "AWSChimeSDKIdentityResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityResources.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityResources.h",
       "line": 22,
       "symbol": "AWSChimeSDKIdentityResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKIdentity/AWSChimeSDKIdentityService.h",
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityService.h",
       "line": 24,
       "symbol": "AWSChimeSDKIdentitySDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios"
+  "source_directory": "/Users/distiller/project"
 }
