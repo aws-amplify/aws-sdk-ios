@@ -17,7 +17,7 @@
     <a title="AWSTranscribeTranscriptionJob Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTranscribe 2.26.0 Docs</a> (77% documented)</p>
+        <p><a href="../index.html">AWSTranscribe 2.26.1 Docs</a> (77% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTranscribe.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -215,6 +215,12 @@
                 <a href="../Classes/AWSTranscribeListMedicalVocabulariesResponse.html">AWSTranscribeListMedicalVocabulariesResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeListTagsForResourceRequest.html">AWSTranscribeListTagsForResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeListTagsForResourceResponse.html">AWSTranscribeListTagsForResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeListTranscriptionJobsRequest.html">AWSTranscribeListTranscriptionJobsRequest</a>
               </li>
               <li class="nav-group-task">
@@ -287,6 +293,21 @@
                 <a href="../Classes/AWSTranscribeStartTranscriptionJobResponse.html">AWSTranscribeStartTranscriptionJobResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeSubtitles.html">AWSTranscribeSubtitles</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeSubtitlesOutput.html">AWSTranscribeSubtitlesOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeTag.html">AWSTranscribeTag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeTagResourceRequest.html">AWSTranscribeTagResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSTranscribeTagResourceResponse">AWSTranscribeTagResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeTranscript.html">AWSTranscribeTranscript</a>
               </li>
               <li class="nav-group-task">
@@ -297,6 +318,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeTranscriptionJobSummary.html">AWSTranscribeTranscriptionJobSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeUntagResourceRequest.html">AWSTranscribeUntagResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSTranscribeUntagResourceResponse">AWSTranscribeUntagResourceResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeUpdateCallAnalyticsCategoryRequest.html">AWSTranscribeUpdateCallAnalyticsCategoryRequest</a>
@@ -393,6 +420,9 @@
                 <a href="../Enums/AWSTranscribeSpecialty.html">AWSTranscribeSpecialty</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeSubtitleFormat.html">AWSTranscribeSubtitleFormat</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSTranscribeTranscriptFilterType.html">AWSTranscribeTranscriptFilterType</a>
               </li>
               <li class="nav-group-task">
@@ -446,7 +476,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A timestamp that shows when the job was completed.</p>
+                        <p>A timestamp that shows when the job completed.</p>
 
                       </div>
                       <div class="declaration">
@@ -542,7 +572,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, this field contains information about why the job failed.</p><p>The <code>FailureReason</code> field can contain one of the following values:</p><ul><li><p><code>Unsupported media format</code> - The media format specified in the <code>MediaFormat</code> field of the request isn&rsquo;t valid. See the description of the <code>MediaFormat</code> field for a list of valid values.</p></li><li><p><code>The media format provided does not match the detected media format</code> - The media format of the audio file doesn&rsquo;t match the format specified in the <code>MediaFormat</code> field in the request. Check the media format of your media file and make sure that the two values match.</p></li><li><p><code>Invalid sample rate for audio file</code> - The sample rate specified in the <code>MediaSampleRateHertz</code> of the request isn&rsquo;t valid. The sample rate must be between 8000 and 48000 Hertz.</p></li><li><p><code>The sample rate provided does not match the detected sample rate</code> - The sample rate in the audio file doesn&rsquo;t match the sample rate specified in the <code>MediaSampleRateHertz</code> field in the request. Check the sample rate of your media file and make sure that the two values match.</p></li><li><p><code>Invalid file size: file size too large</code> - The size of your audio file is larger than Amazon Transcribe can process. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits">Limits</a> in the <i>Amazon Transcribe Developer Guide</i>.</p></li><li><p><code>Invalid number of channels: number of channels too large</code> - Your audio contains more channels than Amazon Transcribe is configured to process. To request additional channels, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits-amazon-transcribe">Amazon Transcribe Limits</a> in the <i>Amazon Web Services General Reference</i>.</p></li></ul></p>
+                        <p><p>If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, this field contains information about why the job failed.</p><p>The <code>FailureReason</code> field can contain one of the following values:</p><ul><li><p><code>Unsupported media format</code> - The media format specified in the <code>MediaFormat</code> field of the request isn&rsquo;t valid. See the description of the <code>MediaFormat</code> field for a list of valid values.</p></li><li><p><code>The media format provided does not match the detected media format</code> - The media format of the audio file doesn&rsquo;t match the format specified in the <code>MediaFormat</code> field in the request. Check the media format of your media file and make sure that the two values match.</p></li><li><p><code>Invalid sample rate for audio file</code> - The sample rate specified in the <code>MediaSampleRateHertz</code> of the request isn&rsquo;t valid. The sample rate must be between 8,000 and 48,000 Hertz.</p></li><li><p><code>The sample rate provided does not match the detected sample rate</code> - The sample rate in the audio file doesn&rsquo;t match the sample rate specified in the <code>MediaSampleRateHertz</code> field in the request. Check the sample rate of your media file and make sure that the two values match.</p></li><li><p><code>Invalid file size: file size too large</code> - The size of your audio file is larger than Amazon Transcribe can process. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits">Limits</a> in the <i>Amazon Transcribe Developer Guide</i>.</p></li><li><p><code>Invalid number of channels: number of channels too large</code> - Your audio contains more channels than Amazon Transcribe is configured to process. To request additional channels, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits-amazon-transcribe">Amazon Transcribe Limits</a> in the <i>Amazon Web Services General Reference</i>.</p></li></ul></p>
 
                       </div>
                       <div class="declaration">
@@ -894,7 +924,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A timestamp that shows with the job was started processing.</p>
+                        <p>A timestamp that shows when the job started processing.</p>
 
                       </div>
                       <div class="declaration">
@@ -907,6 +937,70 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">startTime</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeTranscriptionJob(py)subtitles"></a>
+                    <a name="//apple_ref/objc/Property/subtitles" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeTranscriptionJob(py)subtitles">subtitles</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Generate subtitles for your batch transcription job.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSTranscribeSubtitlesOutput.html">AWSTranscribeSubtitlesOutput</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">subtitles</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">subtitles</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeSubtitlesOutput.html">AWSTranscribeSubtitlesOutput</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeTranscriptionJob(py)tags"></a>
+                    <a name="//apple_ref/objc/Property/tags" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeTranscriptionJob(py)tags">tags</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A key:value pair assigned to a given transcription job.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/AWSTranscribeTag.html">AWSTranscribeTag</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">tags</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">tags</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/AWSTranscribeTag.html">AWSTranscribeTag</a></span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -1014,7 +1108,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-23)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-30)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="noopener" rel="external">jazzy ♪♫ v0.14.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="noopener" rel="external">Realm</a> project.</p>
         </section>
       </article>

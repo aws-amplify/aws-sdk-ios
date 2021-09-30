@@ -17,7 +17,7 @@
     <a title="AWSTranscribeCallAnalyticsJobSettings Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTranscribe 2.26.0 Docs</a> (77% documented)</p>
+        <p><a href="../index.html">AWSTranscribe 2.26.1 Docs</a> (77% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTranscribe.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -215,6 +215,12 @@
                 <a href="../Classes/AWSTranscribeListMedicalVocabulariesResponse.html">AWSTranscribeListMedicalVocabulariesResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeListTagsForResourceRequest.html">AWSTranscribeListTagsForResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeListTagsForResourceResponse.html">AWSTranscribeListTagsForResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeListTranscriptionJobsRequest.html">AWSTranscribeListTranscriptionJobsRequest</a>
               </li>
               <li class="nav-group-task">
@@ -287,6 +293,21 @@
                 <a href="../Classes/AWSTranscribeStartTranscriptionJobResponse.html">AWSTranscribeStartTranscriptionJobResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeSubtitles.html">AWSTranscribeSubtitles</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeSubtitlesOutput.html">AWSTranscribeSubtitlesOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeTag.html">AWSTranscribeTag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeTagResourceRequest.html">AWSTranscribeTagResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSTranscribeTagResourceResponse">AWSTranscribeTagResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeTranscript.html">AWSTranscribeTranscript</a>
               </li>
               <li class="nav-group-task">
@@ -297,6 +318,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeTranscriptionJobSummary.html">AWSTranscribeTranscriptionJobSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeUntagResourceRequest.html">AWSTranscribeUntagResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSTranscribeUntagResourceResponse">AWSTranscribeUntagResourceResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeUpdateCallAnalyticsCategoryRequest.html">AWSTranscribeUpdateCallAnalyticsCategoryRequest</a>
@@ -391,6 +418,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSTranscribeSpecialty.html">AWSTranscribeSpecialty</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeSubtitleFormat.html">AWSTranscribeSubtitleFormat</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSTranscribeTranscriptFilterType.html">AWSTranscribeTranscriptFilterType</a>
@@ -510,7 +540,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>When you run a call analytics job, you can specify the language spoken in the audio, or you can have Amazon Transcribe identify the language for you.</p><p>To specify a language, specify an array with one language code. If you don&rsquo;t know the language, you can leave this field blank and Amazon Transcribe will use machine learning to identify the language for you. To improve the ability of Amazon Transcribe to correctly identify the language, you can provide an array of the languages that can be present in the audio.</p><p>The following list shows the supported languages and corresponding language codes for call analytics jobs:</p><ul><li><p>Gulf Arabic (ar-AE)</p></li><li><p>Mandarin Chinese, Mainland (zh-CN)</p></li><li><p>Australian English (en-AU)</p></li><li><p>British English (en-GB)</p></li><li><p>Indian English (en-IN)</p></li><li><p>Irish English (en-IE)</p></li><li><p>Scottish English (en-AB)</p></li><li><p>US English (en-US)</p></li><li><p>Welsh English (en-WL)</p></li><li><p>Spanish (es-ES)</p></li><li><p>US Spanish (es-US)</p></li><li><p>French (fr-FR)</p></li><li><p>Canadian French (fr-CA)</p></li><li><p>German (de-DE)</p></li><li><p>Swiss German (de-CH)</p></li><li><p>Indian Hindi (hi-IN)</p></li><li><p>Italian (it-IT)</p></li><li><p>Japanese (ja-JP)</p></li><li><p>Korean (ko-KR)</p></li><li><p>Portuguese (pt-PT)</p></li><li><p>Brazilian Portuguese (pt-BR)</p></li></ul></p>
+                        <p>When you run a call analytics job, you can specify the language spoken in the audio, or you can have Amazon Transcribe identify the language for you.</p><p>To specify a language, specify an array with one language code. If you don&rsquo;t know the language, you can leave this field blank and Amazon Transcribe will use machine learning to identify the language for you. To improve the ability of Amazon Transcribe to correctly identify the language, you can provide an array of the languages that can be present in the audio. Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html">Supported languages and language-specific features</a> for additional information.</p>
 
                       </div>
                       <div class="declaration">
@@ -630,7 +660,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-23)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-30)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="noopener" rel="external">jazzy ♪♫ v0.14.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="noopener" rel="external">Realm</a> project.</p>
         </section>
       </article>
