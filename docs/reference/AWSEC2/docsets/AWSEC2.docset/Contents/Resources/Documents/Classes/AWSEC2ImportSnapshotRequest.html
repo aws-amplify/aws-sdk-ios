@@ -17,7 +17,7 @@
     <a title="AWSEC2ImportSnapshotRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSEC2 2.26.0 Docs</a> (80% documented)</p>
+        <p><a href="../index.html">AWSEC2 2.26.1 Docs</a> (80% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -2510,6 +2510,18 @@
                 <a href="../Classes/AWSEC2GetTransitGatewayRouteTablePropagationsResult.html">AWSEC2GetTransitGatewayRouteTablePropagationsResult</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSEC2GetVpnConnectionDeviceSampleConfigurationRequest.html">AWSEC2GetVpnConnectionDeviceSampleConfigurationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2GetVpnConnectionDeviceSampleConfigurationResult.html">AWSEC2GetVpnConnectionDeviceSampleConfigurationResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2GetVpnConnectionDeviceTypesRequest.html">AWSEC2GetVpnConnectionDeviceTypesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2GetVpnConnectionDeviceTypesResult.html">AWSEC2GetVpnConnectionDeviceTypesResult</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSEC2GpuDeviceInfo.html">AWSEC2GpuDeviceInfo</a>
               </li>
               <li class="nav-group-task">
@@ -4295,6 +4307,9 @@
                 <a href="../Classes/AWSEC2VpnConnection.html">AWSEC2VpnConnection</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSEC2VpnConnectionDeviceType.html">AWSEC2VpnConnectionDeviceType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSEC2VpnConnectionOptions.html">AWSEC2VpnConnectionOptions</a>
               </li>
               <li class="nav-group-task">
@@ -4644,6 +4659,9 @@
                 <a href="../Enums/AWSEC2InstanceMetadataOptionsState.html">AWSEC2InstanceMetadataOptionsState</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSEC2InstanceMetadataProtocolState.html">AWSEC2InstanceMetadataProtocolState</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSEC2InstanceStateName.html">AWSEC2InstanceStateName</a>
               </li>
               <li class="nav-group-task">
@@ -4662,6 +4680,9 @@
                 <a href="../Enums/AWSEC2Ipv6SupportValue.html">AWSEC2Ipv6SupportValue</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSEC2KeyType.html">AWSEC2KeyType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSEC2LaunchTemplateErrorCode.html">AWSEC2LaunchTemplateErrorCode</a>
               </li>
               <li class="nav-group-task">
@@ -4672,6 +4693,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSEC2LaunchTemplateInstanceMetadataOptionsState.html">AWSEC2LaunchTemplateInstanceMetadataOptionsState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSEC2LaunchTemplateInstanceMetadataProtocolIpv6.html">AWSEC2LaunchTemplateInstanceMetadataProtocolIpv6</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSEC2ListingState.html">AWSEC2ListingState</a>
@@ -5219,7 +5243,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies whether the destination snapshot of the imported image should be encrypted. The default CMK for EBS is used unless you specify a non-default AWS Key Management Service (AWS KMS) CMK using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+                        <p>Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5251,7 +5275,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is specified, the <code>Encrypted</code> flag must also be set. </p><p>The CMK identifier may be provided in any of the following formats: </p><ul><li><p>Key ID</p></li><li><p>Key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p></li><li><p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS account ID of the CMK owner, the <code>key</code> namespace, and then the CMK ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p></li><li><p>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p></li></ul><p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the action you call may appear to complete even though you provided an invalid identifier. This action will eventually report failure. </p><p>The specified CMK must exist in the Region that the snapshot is being copied to.</p><p>Amazon EBS does not support asymmetric CMKs.</p>
+                        <p>An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a <code>KmsKeyId</code> is specified, the <code>Encrypted</code> flag must also be set. </p><p>The KMS key identifier may be provided in any of the following formats: </p><ul><li><p>Key ID</p></li><li><p>Key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p></li><li><p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>key</code> namespace, and then the key ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p></li><li><p>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p></li></ul><p>Amazon Web Services parses <code>KmsKeyId</code> asynchronously, meaning that the action you call may appear to complete even though you provided an invalid identifier. This action will eventually report failure. </p><p>The specified KMS key must exist in the Region that the snapshot is being copied to.</p><p>Amazon EBS does not support asymmetric KMS keys.</p>
 
                       </div>
                       <div class="declaration">
@@ -5339,7 +5363,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-23)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-30)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="noopener" rel="external">jazzy ♪♫ v0.14.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="noopener" rel="external">Realm</a> project.</p>
         </section>
       </article>

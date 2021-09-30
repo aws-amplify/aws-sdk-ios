@@ -17,7 +17,7 @@
     <a title="AWSEC2ResourceType Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSEC2 2.26.0 Docs</a> (80% documented)</p>
+        <p><a href="../index.html">AWSEC2 2.26.1 Docs</a> (80% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -2510,6 +2510,18 @@
                 <a href="../Classes/AWSEC2GetTransitGatewayRouteTablePropagationsResult.html">AWSEC2GetTransitGatewayRouteTablePropagationsResult</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSEC2GetVpnConnectionDeviceSampleConfigurationRequest.html">AWSEC2GetVpnConnectionDeviceSampleConfigurationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2GetVpnConnectionDeviceSampleConfigurationResult.html">AWSEC2GetVpnConnectionDeviceSampleConfigurationResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2GetVpnConnectionDeviceTypesRequest.html">AWSEC2GetVpnConnectionDeviceTypesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2GetVpnConnectionDeviceTypesResult.html">AWSEC2GetVpnConnectionDeviceTypesResult</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSEC2GpuDeviceInfo.html">AWSEC2GpuDeviceInfo</a>
               </li>
               <li class="nav-group-task">
@@ -4295,6 +4307,9 @@
                 <a href="../Classes/AWSEC2VpnConnection.html">AWSEC2VpnConnection</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSEC2VpnConnectionDeviceType.html">AWSEC2VpnConnectionDeviceType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSEC2VpnConnectionOptions.html">AWSEC2VpnConnectionOptions</a>
               </li>
               <li class="nav-group-task">
@@ -4644,6 +4659,9 @@
                 <a href="../Enums/AWSEC2InstanceMetadataOptionsState.html">AWSEC2InstanceMetadataOptionsState</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSEC2InstanceMetadataProtocolState.html">AWSEC2InstanceMetadataProtocolState</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSEC2InstanceStateName.html">AWSEC2InstanceStateName</a>
               </li>
               <li class="nav-group-task">
@@ -4662,6 +4680,9 @@
                 <a href="../Enums/AWSEC2Ipv6SupportValue.html">AWSEC2Ipv6SupportValue</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSEC2KeyType.html">AWSEC2KeyType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSEC2LaunchTemplateErrorCode.html">AWSEC2LaunchTemplateErrorCode</a>
               </li>
               <li class="nav-group-task">
@@ -4672,6 +4693,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSEC2LaunchTemplateInstanceMetadataOptionsState.html">AWSEC2LaunchTemplateInstanceMetadataOptionsState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSEC2LaunchTemplateInstanceMetadataProtocolIpv6.html">AWSEC2LaunchTemplateInstanceMetadataProtocolIpv6</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSEC2ListingState.html">AWSEC2ListingState</a>
@@ -5034,8 +5058,10 @@
                   <p class="aside-title">Objective-C</p>
                   <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSEC2ResourceType</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">AWSEC2ResourceTypeUnknown</span><span class="p">,</span>
+    <span class="n">AWSEC2ResourceTypeCapacityReservation</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeClientVpnEndpoint</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeCustomerGateway</span><span class="p">,</span>
+    <span class="n">AWSEC2ResourceTypeCarrierGateway</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeDedicatedHost</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeDHCPOptions</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeEgressOnlyInternetGateway</span><span class="p">,</span>
@@ -5052,15 +5078,24 @@
     <span class="n">AWSEC2ResourceTypeInstance</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeInstanceEventWindow</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeInternetGateway</span><span class="p">,</span>
+    <span class="n">AWSEC2ResourceTypeIpv4poolEc2</span><span class="p">,</span>
+    <span class="n">AWSEC2ResourceTypeIpv6poolEc2</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeKeyPair</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeLaunchTemplate</span><span class="p">,</span>
+    <span class="n">AWSEC2ResourceTypeLocalGateway</span><span class="p">,</span>
+    <span class="n">AWSEC2ResourceTypeLocalGatewayRouteTable</span><span class="p">,</span>
+    <span class="n">AWSEC2ResourceTypeLocalGatewayVirtualInterface</span><span class="p">,</span>
+    <span class="n">AWSEC2ResourceTypeLocalGatewayVirtualInterfaceGroup</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeLocalGatewayRouteTableVpcAssociation</span><span class="p">,</span>
+    <span class="n">AWSEC2ResourceTypeLocalGatewayRouteTableVirtualInterfaceGroupAssociation</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeNatgateway</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeNetworkACL</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeNetworkInterface</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeNetworkInsightsAnalysis</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeNetworkInsightsPath</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypePlacementGroup</span><span class="p">,</span>
+    <span class="n">AWSEC2ResourceTypePrefixList</span><span class="p">,</span>
+    <span class="n">AWSEC2ResourceTypeReplaceRootVolumeTask</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeReservedInstances</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeRouteTable</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeSecurityGroup</span><span class="p">,</span>
@@ -5079,6 +5114,8 @@
     <span class="n">AWSEC2ResourceTypeTransitGatewayRouteTable</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeVolume</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeVPC</span><span class="p">,</span>
+    <span class="n">AWSEC2ResourceTypeVpcEndpoint</span><span class="p">,</span>
+    <span class="n">AWSEC2ResourceTypeVpcEndpointService</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeVpcPeeringConnection</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeVpnConnection</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeVpnGateway</span><span class="p">,</span>
@@ -5133,6 +5170,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypeCapacityReservation"></a>
+                    <a name="//apple_ref/objc/Case/AWSEC2ResourceTypeCapacityReservation" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypeCapacityReservation">AWSEC2ResourceTypeCapacityReservation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSEC2ResourceTypeCapacityReservation</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">capacityReservation</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypeClientVpnEndpoint"></a>
                     <a name="//apple_ref/objc/Case/AWSEC2ResourceTypeClientVpnEndpoint" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypeClientVpnEndpoint">AWSEC2ResourceTypeClientVpnEndpoint</a>
@@ -5155,7 +5224,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">clientVpnEndpoint</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">clientVpnEndpoint</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
 
                         </div>
                       </div>
@@ -5187,7 +5256,39 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">customerGateway</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">customerGateway</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypeCarrierGateway"></a>
+                    <a name="//apple_ref/objc/Case/AWSEC2ResourceTypeCarrierGateway" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypeCarrierGateway">AWSEC2ResourceTypeCarrierGateway</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSEC2ResourceTypeCarrierGateway</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">carrierGateway</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
 
                         </div>
                       </div>
@@ -5219,7 +5320,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">dedicatedHost</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">dedicatedHost</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
 
                         </div>
                       </div>
@@ -5251,7 +5352,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">dhcpOptions</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">dhcpOptions</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
 
                         </div>
                       </div>
@@ -5283,7 +5384,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">egressOnlyInternetGateway</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">egressOnlyInternetGateway</span> <span class="o">=</span> <span class="mi">7</span></code></pre>
 
                         </div>
                       </div>
@@ -5315,7 +5416,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">elasticIp</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">elasticIp</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
 
                         </div>
                       </div>
@@ -5347,7 +5448,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">elasticGpu</span> <span class="o">=</span> <span class="mi">7</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">elasticGpu</span> <span class="o">=</span> <span class="mi">9</span></code></pre>
 
                         </div>
                       </div>
@@ -5379,7 +5480,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">exportImageTask</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">exportImageTask</span> <span class="o">=</span> <span class="mi">10</span></code></pre>
 
                         </div>
                       </div>
@@ -5411,7 +5512,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">exportInstanceTask</span> <span class="o">=</span> <span class="mi">9</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">exportInstanceTask</span> <span class="o">=</span> <span class="mi">11</span></code></pre>
 
                         </div>
                       </div>
@@ -5443,7 +5544,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">fleet</span> <span class="o">=</span> <span class="mi">10</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">fleet</span> <span class="o">=</span> <span class="mi">12</span></code></pre>
 
                         </div>
                       </div>
@@ -5475,7 +5576,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">fpgaImage</span> <span class="o">=</span> <span class="mi">11</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">fpgaImage</span> <span class="o">=</span> <span class="mi">13</span></code></pre>
 
                         </div>
                       </div>
@@ -5507,7 +5608,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">hostReservation</span> <span class="o">=</span> <span class="mi">12</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">hostReservation</span> <span class="o">=</span> <span class="mi">14</span></code></pre>
 
                         </div>
                       </div>
@@ -5539,7 +5640,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">image</span> <span class="o">=</span> <span class="mi">13</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">image</span> <span class="o">=</span> <span class="mi">15</span></code></pre>
 
                         </div>
                       </div>
@@ -5571,7 +5672,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">importImageTask</span> <span class="o">=</span> <span class="mi">14</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">importImageTask</span> <span class="o">=</span> <span class="mi">16</span></code></pre>
 
                         </div>
                       </div>
@@ -5603,7 +5704,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">importSnapshotTask</span> <span class="o">=</span> <span class="mi">15</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">importSnapshotTask</span> <span class="o">=</span> <span class="mi">17</span></code></pre>
 
                         </div>
                       </div>
@@ -5635,7 +5736,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">instance</span> <span class="o">=</span> <span class="mi">16</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">instance</span> <span class="o">=</span> <span class="mi">18</span></code></pre>
 
                         </div>
                       </div>
@@ -5667,7 +5768,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">instanceEventWindow</span> <span class="o">=</span> <span class="mi">17</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">instanceEventWindow</span> <span class="o">=</span> <span class="mi">19</span></code></pre>
 
                         </div>
                       </div>
@@ -5699,7 +5800,71 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">internetGateway</span> <span class="o">=</span> <span class="mi">18</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">internetGateway</span> <span class="o">=</span> <span class="mi">20</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypeIpv4poolEc2"></a>
+                    <a name="//apple_ref/objc/Case/AWSEC2ResourceTypeIpv4poolEc2" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypeIpv4poolEc2">AWSEC2ResourceTypeIpv4poolEc2</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSEC2ResourceTypeIpv4poolEc2</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">ipv4poolEc2</span> <span class="o">=</span> <span class="mi">21</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypeIpv6poolEc2"></a>
+                    <a name="//apple_ref/objc/Case/AWSEC2ResourceTypeIpv6poolEc2" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypeIpv6poolEc2">AWSEC2ResourceTypeIpv6poolEc2</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSEC2ResourceTypeIpv6poolEc2</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">ipv6poolEc2</span> <span class="o">=</span> <span class="mi">22</span></code></pre>
 
                         </div>
                       </div>
@@ -5731,7 +5896,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">keyPair</span> <span class="o">=</span> <span class="mi">19</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">keyPair</span> <span class="o">=</span> <span class="mi">23</span></code></pre>
 
                         </div>
                       </div>
@@ -5763,7 +5928,135 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">launchTemplate</span> <span class="o">=</span> <span class="mi">20</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">launchTemplate</span> <span class="o">=</span> <span class="mi">24</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypeLocalGateway"></a>
+                    <a name="//apple_ref/objc/Case/AWSEC2ResourceTypeLocalGateway" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypeLocalGateway">AWSEC2ResourceTypeLocalGateway</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSEC2ResourceTypeLocalGateway</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">localGateway</span> <span class="o">=</span> <span class="mi">25</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypeLocalGatewayRouteTable"></a>
+                    <a name="//apple_ref/objc/Case/AWSEC2ResourceTypeLocalGatewayRouteTable" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypeLocalGatewayRouteTable">AWSEC2ResourceTypeLocalGatewayRouteTable</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSEC2ResourceTypeLocalGatewayRouteTable</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">localGatewayRouteTable</span> <span class="o">=</span> <span class="mi">26</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypeLocalGatewayVirtualInterface"></a>
+                    <a name="//apple_ref/objc/Case/AWSEC2ResourceTypeLocalGatewayVirtualInterface" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypeLocalGatewayVirtualInterface">AWSEC2ResourceTypeLocalGatewayVirtualInterface</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSEC2ResourceTypeLocalGatewayVirtualInterface</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">localGatewayVirtualInterface</span> <span class="o">=</span> <span class="mi">27</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypeLocalGatewayVirtualInterfaceGroup"></a>
+                    <a name="//apple_ref/objc/Case/AWSEC2ResourceTypeLocalGatewayVirtualInterfaceGroup" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypeLocalGatewayVirtualInterfaceGroup">AWSEC2ResourceTypeLocalGatewayVirtualInterfaceGroup</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSEC2ResourceTypeLocalGatewayVirtualInterfaceGroup</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">localGatewayVirtualInterfaceGroup</span> <span class="o">=</span> <span class="mi">28</span></code></pre>
 
                         </div>
                       </div>
@@ -5795,7 +6088,39 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">localGatewayRouteTableVpcAssociation</span> <span class="o">=</span> <span class="mi">21</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">localGatewayRouteTableVpcAssociation</span> <span class="o">=</span> <span class="mi">29</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypeLocalGatewayRouteTableVirtualInterfaceGroupAssociation"></a>
+                    <a name="//apple_ref/objc/Case/AWSEC2ResourceTypeLocalGatewayRouteTableVirtualInterfaceGroupAssociation" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypeLocalGatewayRouteTableVirtualInterfaceGroupAssociation">AWSEC2ResourceTypeLocalGatewayRouteTableVirtualInterfaceGroupAssociation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSEC2ResourceTypeLocalGatewayRouteTableVirtualInterfaceGroupAssociation</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">localGatewayRouteTableVirtualInterfaceGroupAssociation</span> <span class="o">=</span> <span class="mi">30</span></code></pre>
 
                         </div>
                       </div>
@@ -5827,7 +6152,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">natgateway</span> <span class="o">=</span> <span class="mi">22</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">natgateway</span> <span class="o">=</span> <span class="mi">31</span></code></pre>
 
                         </div>
                       </div>
@@ -5859,7 +6184,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">networkACL</span> <span class="o">=</span> <span class="mi">23</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">networkACL</span> <span class="o">=</span> <span class="mi">32</span></code></pre>
 
                         </div>
                       </div>
@@ -5891,7 +6216,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">networkInterface</span> <span class="o">=</span> <span class="mi">24</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">networkInterface</span> <span class="o">=</span> <span class="mi">33</span></code></pre>
 
                         </div>
                       </div>
@@ -5923,7 +6248,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">networkInsightsAnalysis</span> <span class="o">=</span> <span class="mi">25</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">networkInsightsAnalysis</span> <span class="o">=</span> <span class="mi">34</span></code></pre>
 
                         </div>
                       </div>
@@ -5955,7 +6280,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">networkInsightsPath</span> <span class="o">=</span> <span class="mi">26</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">networkInsightsPath</span> <span class="o">=</span> <span class="mi">35</span></code></pre>
 
                         </div>
                       </div>
@@ -5987,7 +6312,71 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">placementGroup</span> <span class="o">=</span> <span class="mi">27</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">placementGroup</span> <span class="o">=</span> <span class="mi">36</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypePrefixList"></a>
+                    <a name="//apple_ref/objc/Case/AWSEC2ResourceTypePrefixList" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypePrefixList">AWSEC2ResourceTypePrefixList</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSEC2ResourceTypePrefixList</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">prefixList</span> <span class="o">=</span> <span class="mi">37</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypeReplaceRootVolumeTask"></a>
+                    <a name="//apple_ref/objc/Case/AWSEC2ResourceTypeReplaceRootVolumeTask" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypeReplaceRootVolumeTask">AWSEC2ResourceTypeReplaceRootVolumeTask</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSEC2ResourceTypeReplaceRootVolumeTask</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">replaceRootVolumeTask</span> <span class="o">=</span> <span class="mi">38</span></code></pre>
 
                         </div>
                       </div>
@@ -6019,7 +6408,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">reservedInstances</span> <span class="o">=</span> <span class="mi">28</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">reservedInstances</span> <span class="o">=</span> <span class="mi">39</span></code></pre>
 
                         </div>
                       </div>
@@ -6051,7 +6440,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">routeTable</span> <span class="o">=</span> <span class="mi">29</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">routeTable</span> <span class="o">=</span> <span class="mi">40</span></code></pre>
 
                         </div>
                       </div>
@@ -6083,7 +6472,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">securityGroup</span> <span class="o">=</span> <span class="mi">30</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">securityGroup</span> <span class="o">=</span> <span class="mi">41</span></code></pre>
 
                         </div>
                       </div>
@@ -6115,7 +6504,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">securityGroupRule</span> <span class="o">=</span> <span class="mi">31</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">securityGroupRule</span> <span class="o">=</span> <span class="mi">42</span></code></pre>
 
                         </div>
                       </div>
@@ -6147,7 +6536,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">snapshot</span> <span class="o">=</span> <span class="mi">32</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">snapshot</span> <span class="o">=</span> <span class="mi">43</span></code></pre>
 
                         </div>
                       </div>
@@ -6179,7 +6568,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">spotFleetRequest</span> <span class="o">=</span> <span class="mi">33</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">spotFleetRequest</span> <span class="o">=</span> <span class="mi">44</span></code></pre>
 
                         </div>
                       </div>
@@ -6211,7 +6600,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">spotInstancesRequest</span> <span class="o">=</span> <span class="mi">34</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">spotInstancesRequest</span> <span class="o">=</span> <span class="mi">45</span></code></pre>
 
                         </div>
                       </div>
@@ -6243,7 +6632,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">subnet</span> <span class="o">=</span> <span class="mi">35</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">subnet</span> <span class="o">=</span> <span class="mi">46</span></code></pre>
 
                         </div>
                       </div>
@@ -6275,7 +6664,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">trafficMirrorFilter</span> <span class="o">=</span> <span class="mi">36</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">trafficMirrorFilter</span> <span class="o">=</span> <span class="mi">47</span></code></pre>
 
                         </div>
                       </div>
@@ -6307,7 +6696,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">trafficMirrorSession</span> <span class="o">=</span> <span class="mi">37</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">trafficMirrorSession</span> <span class="o">=</span> <span class="mi">48</span></code></pre>
 
                         </div>
                       </div>
@@ -6339,7 +6728,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">trafficMirrorTarget</span> <span class="o">=</span> <span class="mi">38</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">trafficMirrorTarget</span> <span class="o">=</span> <span class="mi">49</span></code></pre>
 
                         </div>
                       </div>
@@ -6371,7 +6760,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">transitGateway</span> <span class="o">=</span> <span class="mi">39</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">transitGateway</span> <span class="o">=</span> <span class="mi">50</span></code></pre>
 
                         </div>
                       </div>
@@ -6403,7 +6792,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">transitGatewayAttachment</span> <span class="o">=</span> <span class="mi">40</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">transitGatewayAttachment</span> <span class="o">=</span> <span class="mi">51</span></code></pre>
 
                         </div>
                       </div>
@@ -6435,7 +6824,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">transitGatewayConnectPeer</span> <span class="o">=</span> <span class="mi">41</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">transitGatewayConnectPeer</span> <span class="o">=</span> <span class="mi">52</span></code></pre>
 
                         </div>
                       </div>
@@ -6467,7 +6856,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">transitGatewayMulticastDomain</span> <span class="o">=</span> <span class="mi">42</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">transitGatewayMulticastDomain</span> <span class="o">=</span> <span class="mi">53</span></code></pre>
 
                         </div>
                       </div>
@@ -6499,7 +6888,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">transitGatewayRouteTable</span> <span class="o">=</span> <span class="mi">43</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">transitGatewayRouteTable</span> <span class="o">=</span> <span class="mi">54</span></code></pre>
 
                         </div>
                       </div>
@@ -6531,7 +6920,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">volume</span> <span class="o">=</span> <span class="mi">44</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">volume</span> <span class="o">=</span> <span class="mi">55</span></code></pre>
 
                         </div>
                       </div>
@@ -6563,7 +6952,71 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">VPC</span> <span class="o">=</span> <span class="mi">45</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">VPC</span> <span class="o">=</span> <span class="mi">56</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypeVpcEndpoint"></a>
+                    <a name="//apple_ref/objc/Case/AWSEC2ResourceTypeVpcEndpoint" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypeVpcEndpoint">AWSEC2ResourceTypeVpcEndpoint</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSEC2ResourceTypeVpcEndpoint</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">vpcEndpoint</span> <span class="o">=</span> <span class="mi">57</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypeVpcEndpointService"></a>
+                    <a name="//apple_ref/objc/Case/AWSEC2ResourceTypeVpcEndpointService" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSEC2ResourceType@AWSEC2ResourceTypeVpcEndpointService">AWSEC2ResourceTypeVpcEndpointService</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSEC2ResourceTypeVpcEndpointService</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">vpcEndpointService</span> <span class="o">=</span> <span class="mi">58</span></code></pre>
 
                         </div>
                       </div>
@@ -6595,7 +7048,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">vpcPeeringConnection</span> <span class="o">=</span> <span class="mi">46</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">vpcPeeringConnection</span> <span class="o">=</span> <span class="mi">59</span></code></pre>
 
                         </div>
                       </div>
@@ -6627,7 +7080,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">vpnConnection</span> <span class="o">=</span> <span class="mi">47</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">vpnConnection</span> <span class="o">=</span> <span class="mi">60</span></code></pre>
 
                         </div>
                       </div>
@@ -6659,7 +7112,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">vpnGateway</span> <span class="o">=</span> <span class="mi">48</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">vpnGateway</span> <span class="o">=</span> <span class="mi">61</span></code></pre>
 
                         </div>
                       </div>
@@ -6691,7 +7144,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">vpcFlowLog</span> <span class="o">=</span> <span class="mi">49</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">vpcFlowLog</span> <span class="o">=</span> <span class="mi">62</span></code></pre>
 
                         </div>
                       </div>
@@ -6703,7 +7156,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-23)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-30)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="noopener" rel="external">jazzy ♪♫ v0.14.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="noopener" rel="external">Realm</a> project.</p>
         </section>
       </article>

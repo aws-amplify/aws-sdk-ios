@@ -17,7 +17,7 @@
     <a title="AWSEC2RequestLaunchTemplateData Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSEC2 2.26.0 Docs</a> (80% documented)</p>
+        <p><a href="../index.html">AWSEC2 2.26.1 Docs</a> (80% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -2510,6 +2510,18 @@
                 <a href="../Classes/AWSEC2GetTransitGatewayRouteTablePropagationsResult.html">AWSEC2GetTransitGatewayRouteTablePropagationsResult</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSEC2GetVpnConnectionDeviceSampleConfigurationRequest.html">AWSEC2GetVpnConnectionDeviceSampleConfigurationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2GetVpnConnectionDeviceSampleConfigurationResult.html">AWSEC2GetVpnConnectionDeviceSampleConfigurationResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2GetVpnConnectionDeviceTypesRequest.html">AWSEC2GetVpnConnectionDeviceTypesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2GetVpnConnectionDeviceTypesResult.html">AWSEC2GetVpnConnectionDeviceTypesResult</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSEC2GpuDeviceInfo.html">AWSEC2GpuDeviceInfo</a>
               </li>
               <li class="nav-group-task">
@@ -4295,6 +4307,9 @@
                 <a href="../Classes/AWSEC2VpnConnection.html">AWSEC2VpnConnection</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSEC2VpnConnectionDeviceType.html">AWSEC2VpnConnectionDeviceType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSEC2VpnConnectionOptions.html">AWSEC2VpnConnectionOptions</a>
               </li>
               <li class="nav-group-task">
@@ -4644,6 +4659,9 @@
                 <a href="../Enums/AWSEC2InstanceMetadataOptionsState.html">AWSEC2InstanceMetadataOptionsState</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSEC2InstanceMetadataProtocolState.html">AWSEC2InstanceMetadataProtocolState</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSEC2InstanceStateName.html">AWSEC2InstanceStateName</a>
               </li>
               <li class="nav-group-task">
@@ -4662,6 +4680,9 @@
                 <a href="../Enums/AWSEC2Ipv6SupportValue.html">AWSEC2Ipv6SupportValue</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSEC2KeyType.html">AWSEC2KeyType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSEC2LaunchTemplateErrorCode.html">AWSEC2LaunchTemplateErrorCode</a>
               </li>
               <li class="nav-group-task">
@@ -4672,6 +4693,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSEC2LaunchTemplateInstanceMetadataOptionsState.html">AWSEC2LaunchTemplateInstanceMetadataOptionsState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSEC2LaunchTemplateInstanceMetadataProtocolIpv6.html">AWSEC2LaunchTemplateInstanceMetadataProtocolIpv6</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSEC2ListingState.html">AWSEC2ListingState</a>
@@ -5892,7 +5916,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The Base64-encoded user data to make available to the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Running Commands on Your Linux Instance at Launch</a> (Linux) and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data">Adding User Data</a> (Windows).</p>
+                        <p>The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Running Commands on Your Linux Instance at Launch</a> (Linux) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data">Adding User Data</a> (Windows).</p><p>If you are creating the launch template for use with Batch, the user data must be provided in the <a href="https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive"> MIME multi-part archive format</a>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html">Amazon EC2 user data in launch templates</a> in the <i>Batch User Guide</i>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5916,7 +5940,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-23)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-30)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="noopener" rel="external">jazzy ♪♫ v0.14.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="noopener" rel="external">Realm</a> project.</p>
         </section>
       </article>

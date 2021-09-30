@@ -17,7 +17,7 @@
     <a title="AWSEC2DescribeReservedInstancesRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSEC2 2.26.0 Docs</a> (80% documented)</p>
+        <p><a href="../index.html">AWSEC2 2.26.1 Docs</a> (80% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -2510,6 +2510,18 @@
                 <a href="../Classes/AWSEC2GetTransitGatewayRouteTablePropagationsResult.html">AWSEC2GetTransitGatewayRouteTablePropagationsResult</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSEC2GetVpnConnectionDeviceSampleConfigurationRequest.html">AWSEC2GetVpnConnectionDeviceSampleConfigurationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2GetVpnConnectionDeviceSampleConfigurationResult.html">AWSEC2GetVpnConnectionDeviceSampleConfigurationResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2GetVpnConnectionDeviceTypesRequest.html">AWSEC2GetVpnConnectionDeviceTypesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2GetVpnConnectionDeviceTypesResult.html">AWSEC2GetVpnConnectionDeviceTypesResult</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSEC2GpuDeviceInfo.html">AWSEC2GpuDeviceInfo</a>
               </li>
               <li class="nav-group-task">
@@ -4295,6 +4307,9 @@
                 <a href="../Classes/AWSEC2VpnConnection.html">AWSEC2VpnConnection</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSEC2VpnConnectionDeviceType.html">AWSEC2VpnConnectionDeviceType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSEC2VpnConnectionOptions.html">AWSEC2VpnConnectionOptions</a>
               </li>
               <li class="nav-group-task">
@@ -4644,6 +4659,9 @@
                 <a href="../Enums/AWSEC2InstanceMetadataOptionsState.html">AWSEC2InstanceMetadataOptionsState</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSEC2InstanceMetadataProtocolState.html">AWSEC2InstanceMetadataProtocolState</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSEC2InstanceStateName.html">AWSEC2InstanceStateName</a>
               </li>
               <li class="nav-group-task">
@@ -4662,6 +4680,9 @@
                 <a href="../Enums/AWSEC2Ipv6SupportValue.html">AWSEC2Ipv6SupportValue</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSEC2KeyType.html">AWSEC2KeyType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSEC2LaunchTemplateErrorCode.html">AWSEC2LaunchTemplateErrorCode</a>
               </li>
               <li class="nav-group-task">
@@ -4672,6 +4693,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSEC2LaunchTemplateInstanceMetadataOptionsState.html">AWSEC2LaunchTemplateInstanceMetadataOptionsState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSEC2LaunchTemplateInstanceMetadataProtocolIpv6.html">AWSEC2LaunchTemplateInstanceMetadataProtocolIpv6</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSEC2ListingState.html">AWSEC2ListingState</a>
@@ -5092,7 +5116,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>One or more filters.</p><ul><li><p><code>availability-zone</code> - The Availability Zone where the Reserved Instance can be used.</p></li><li><p><code>duration</code> - The duration of the Reserved Instance (one year or three years), in seconds (<code>31536000</code> | <code>94608000</code>).</p></li><li><p><code>end</code> - The time when the Reserved Instance expires (for example, 2015-08-07T11:54:42.000Z).</p></li><li><p><code>fixed-price</code> - The purchase price of the Reserved Instance (for example, 9800.0).</p></li><li><p><code>instance-type</code> - The instance type that is covered by the reservation.</p></li><li><p><code>scope</code> - The scope of the Reserved Instance (<code>Region</code> or <code>Availability Zone</code>).</p></li><li><p><code>product-description</code> - The Reserved Instance product platform description. Instances that include <code>(Amazon VPC)</code> in the product platform description will only be displayed to EC2-Classic account holders and are for use with Amazon VPC (<code>Linux/UNIX</code> | <code>Linux/UNIX (Amazon VPC)</code> | <code>SUSE Linux</code> | <code>SUSE Linux (Amazon VPC)</code> | <code>Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux (Amazon VPC)</code> | <code>Red Hat Enterprise Linux with HA (Amazon VPC)</code> | <code>Windows</code> | <code>Windows (Amazon VPC)</code> | <code>Windows with SQL Server Standard</code> | <code>Windows with SQL Server Standard (Amazon VPC)</code> | <code>Windows with SQL Server Web</code> | <code>Windows with SQL Server Web (Amazon VPC)</code> | <code>Windows with SQL Server Enterprise</code> | <code>Windows with SQL Server Enterprise (Amazon VPC)</code>).</p></li><li><p><code>reserved-instances-id</code> - The ID of the Reserved Instance.</p></li><li><p><code>start</code> - The time at which the Reserved Instance purchase request was placed (for example, 2014-08-07T11:54:42.000Z).</p></li><li><p><code>state</code> - The state of the Reserved Instance (<code>payment-pending</code> | <code>active</code> | <code>payment-failed</code> | <code>retired</code>).</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>usage-price</code> - The usage price of the Reserved Instance, per hour (for example, 0.84).</p></li></ul></p>
+                        <p><p>One or more filters.</p><ul><li><p><code>availability-zone</code> - The Availability Zone where the Reserved Instance can be used.</p></li><li><p><code>duration</code> - The duration of the Reserved Instance (one year or three years), in seconds (<code>31536000</code> | <code>94608000</code>).</p></li><li><p><code>end</code> - The time when the Reserved Instance expires (for example, 2015-08-07T11:54:42.000Z).</p></li><li><p><code>fixed-price</code> - The purchase price of the Reserved Instance (for example, 9800.0).</p></li><li><p><code>instance-type</code> - The instance type that is covered by the reservation.</p></li><li><p><code>scope</code> - The scope of the Reserved Instance (<code>Region</code> or <code>Availability Zone</code>).</p></li><li><p><code>product-description</code> - The Reserved Instance product platform description. Instances that include <code>(Amazon VPC)</code> in the product platform description will only be displayed to EC2-Classic account holders and are for use with Amazon VPC (<code>Linux/UNIX</code> | <code>Linux/UNIX (Amazon VPC)</code> | <code>SUSE Linux</code> | <code>SUSE Linux (Amazon VPC)</code> | <code>Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux (Amazon VPC)</code> | <code>Red Hat Enterprise Linux with HA (Amazon VPC)</code> | <code>Windows</code> | <code>Windows (Amazon VPC)</code> | <code>Windows with SQL Server Standard</code> | <code>Windows with SQL Server Standard (Amazon VPC)</code> | <code>Windows with SQL Server Web</code> | <code>Windows with SQL Server Web (Amazon VPC)</code> | <code>Windows with SQL Server Enterprise</code> | <code>Windows with SQL Server Enterprise (Amazon VPC)</code>).</p></li><li><p><code>reserved-instances-id</code> - The ID of the Reserved Instance.</p></li><li><p><code>start</code> - The time at which the Reserved Instance purchase request was placed (for example, 2014-08-07T11:54:42.000Z).</p></li><li><p><code>state</code> - The state of the Reserved Instance (<code>payment-pending</code> | <code>active</code> | <code>payment-failed</code> | <code>retired</code>).</p></li><li><p><code>tag:&lt;key&gt;</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>usage-price</code> - The usage price of the Reserved Instance, per hour (for example, 0.84).</p></li></ul></p>
 
                       </div>
                       <div class="declaration">
@@ -5212,7 +5236,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-23)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-30)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="noopener" rel="external">jazzy ♪♫ v0.14.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="noopener" rel="external">Realm</a> project.</p>
         </section>
       </article>

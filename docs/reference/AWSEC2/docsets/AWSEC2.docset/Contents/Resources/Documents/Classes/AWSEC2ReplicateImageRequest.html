@@ -17,7 +17,7 @@
     <a title="AWSEC2ReplicateImageRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSEC2 2.26.0 Docs</a> (80% documented)</p>
+        <p><a href="../index.html">AWSEC2 2.26.1 Docs</a> (80% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -2510,6 +2510,18 @@
                 <a href="../Classes/AWSEC2GetTransitGatewayRouteTablePropagationsResult.html">AWSEC2GetTransitGatewayRouteTablePropagationsResult</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSEC2GetVpnConnectionDeviceSampleConfigurationRequest.html">AWSEC2GetVpnConnectionDeviceSampleConfigurationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2GetVpnConnectionDeviceSampleConfigurationResult.html">AWSEC2GetVpnConnectionDeviceSampleConfigurationResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2GetVpnConnectionDeviceTypesRequest.html">AWSEC2GetVpnConnectionDeviceTypesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2GetVpnConnectionDeviceTypesResult.html">AWSEC2GetVpnConnectionDeviceTypesResult</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSEC2GpuDeviceInfo.html">AWSEC2GpuDeviceInfo</a>
               </li>
               <li class="nav-group-task">
@@ -4295,6 +4307,9 @@
                 <a href="../Classes/AWSEC2VpnConnection.html">AWSEC2VpnConnection</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSEC2VpnConnectionDeviceType.html">AWSEC2VpnConnectionDeviceType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSEC2VpnConnectionOptions.html">AWSEC2VpnConnectionOptions</a>
               </li>
               <li class="nav-group-task">
@@ -4644,6 +4659,9 @@
                 <a href="../Enums/AWSEC2InstanceMetadataOptionsState.html">AWSEC2InstanceMetadataOptionsState</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSEC2InstanceMetadataProtocolState.html">AWSEC2InstanceMetadataProtocolState</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSEC2InstanceStateName.html">AWSEC2InstanceStateName</a>
               </li>
               <li class="nav-group-task">
@@ -4662,6 +4680,9 @@
                 <a href="../Enums/AWSEC2Ipv6SupportValue.html">AWSEC2Ipv6SupportValue</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSEC2KeyType.html">AWSEC2KeyType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSEC2LaunchTemplateErrorCode.html">AWSEC2LaunchTemplateErrorCode</a>
               </li>
               <li class="nav-group-task">
@@ -4672,6 +4693,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSEC2LaunchTemplateInstanceMetadataOptionsState.html">AWSEC2LaunchTemplateInstanceMetadataOptionsState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSEC2LaunchTemplateInstanceMetadataProtocolIpv6.html">AWSEC2LaunchTemplateInstanceMetadataProtocolIpv6</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSEC2ListingState.html">AWSEC2ListingState</a>
@@ -5126,7 +5150,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI. Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost. You cannot copy an AMI from an Outpost to a Region, from one Outpost to another, or within the same Outpost.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis"> Copying AMIs from an AWS Region to an Outpost</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+                        <p>The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI. Only specify this parameter when copying an AMI from an Amazon Web Services Region to an Outpost. The AMI must be in the Region of the destination Outpost. You cannot copy an AMI from an Outpost to a Region, from one Outpost to another, or within the same Outpost.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis"> Copying AMIs from an Amazon Web Services Region to an Outpost</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5190,7 +5214,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies whether the destination snapshots of the copied image should be encrypted. You can encrypt a copy of an unencrypted snapshot, but you cannot create an unencrypted copy of an encrypted snapshot. The default CMK for EBS is used unless you specify a non-default AWS Key Management Service (AWS KMS) CMK using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+                        <p>Specifies whether the destination snapshots of the copied image should be encrypted. You can encrypt a copy of an unencrypted snapshot, but you cannot create an unencrypted copy of an encrypted snapshot. The default KMS key for Amazon EBS is used unless you specify a non-default Key Management Service (KMS) KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5222,7 +5246,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The identifier of the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating encrypted volumes. If this parameter is not specified, your AWS managed CMK for EBS is used. If you specify a CMK, you must also set the encrypted state to <code>true</code>.</p><p>You can specify a CMK using any of the following:</p><ul><li><p>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</p></li><li><p>Key alias. For example, alias/ExampleAlias.</p></li><li><p>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</p></li><li><p>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</p></li></ul><p>AWS authenticates the CMK asynchronously. Therefore, if you specify an identifier that is not valid, the action can appear to complete, but eventually fails.</p><p>The specified CMK must exist in the destination Region.</p><p>Amazon EBS does not support asymmetric CMKs.</p>
+                        <p>The identifier of the symmetric Key Management Service (KMS) KMS key to use when creating encrypted volumes. If this parameter is not specified, your Amazon Web Services managed KMS key for Amazon EBS is used. If you specify a KMS key, you must also set the encrypted state to <code>true</code>.</p><p>You can specify a KMS key using any of the following:</p><ul><li><p>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</p></li><li><p>Key alias. For example, alias/ExampleAlias.</p></li><li><p>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</p></li><li><p>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</p></li></ul><p>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify an identifier that is not valid, the action can appear to complete, but eventually fails.</p><p>The specified KMS key must exist in the destination Region.</p><p>Amazon EBS does not support asymmetric KMS keys.</p>
 
                       </div>
                       <div class="declaration">
@@ -5342,7 +5366,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-23)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-30)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="noopener" rel="external">jazzy ♪♫ v0.14.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="noopener" rel="external">Realm</a> project.</p>
         </section>
       </article>
