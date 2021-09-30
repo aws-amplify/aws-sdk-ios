@@ -4,6 +4,10 @@
 
 -Features for next release
 
+## 2.26.1
+
+-Features for next release
+
 ### Bug Fixes
 
 - **Core**
@@ -21,10 +25,14 @@
   - AWSConnect
   - AWSEC2
   - AWSElasticLoadBalancingv2
+  - AWSFirehose
   - AWSIoTDataPlane
+  - AWSKMS
   - AWSLambda
   - AWSPinpoint
+  - AWSPolly
   - AWSSageMakerRuntime
+  - AWSS!S
   - AWSTranscribe
   
 ## 2.26.0
