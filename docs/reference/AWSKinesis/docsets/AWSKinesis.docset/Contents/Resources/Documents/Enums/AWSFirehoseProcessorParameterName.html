@@ -17,7 +17,7 @@
     <a title="AWSFirehoseProcessorParameterName Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSKinesis 2.26.0 Docs</a> (76% documented)</p>
+        <p><a href="../index.html">AWSKinesis 2.26.1 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKinesis.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -87,6 +87,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSFirehoseDestinationDescription.html">AWSFirehoseDestinationDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseDynamicPartitioningConfiguration.html">AWSFirehoseDynamicPartitioningConfiguration</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSFirehoseElasticsearchBufferingHints.html">AWSFirehoseElasticsearchBufferingHints</a>
@@ -231,6 +234,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSFirehoseResources.html">AWSFirehoseResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseRetryOptions.html">AWSFirehoseRetryOptions</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSFirehoseS3DestinationConfiguration.html">AWSFirehoseS3DestinationConfiguration</a>
@@ -602,9 +608,13 @@
     <span class="n">AWSFirehoseProcessorParameterNameUnknown</span><span class="p">,</span>
     <span class="n">AWSFirehoseProcessorParameterNameLambdaArn</span><span class="p">,</span>
     <span class="n">AWSFirehoseProcessorParameterNameNumberOfRetries</span><span class="p">,</span>
+    <span class="n">AWSFirehoseProcessorParameterNameMetadataExtractionQuery</span><span class="p">,</span>
+    <span class="n">AWSFirehoseProcessorParameterNameJsonParsingEngine</span><span class="p">,</span>
     <span class="n">AWSFirehoseProcessorParameterNameRoleArn</span><span class="p">,</span>
     <span class="n">AWSFirehoseProcessorParameterNameBufferSizeInMBs</span><span class="p">,</span>
     <span class="n">AWSFirehoseProcessorParameterNameBufferIntervalInSeconds</span><span class="p">,</span>
+    <span class="n">AWSFirehoseProcessorParameterNameSubRecordType</span><span class="p">,</span>
+    <span class="n">AWSFirehoseProcessorParameterNameDelimiter</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                 </div>
@@ -719,6 +729,70 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@AWSFirehoseProcessorParameterName@AWSFirehoseProcessorParameterNameMetadataExtractionQuery"></a>
+                    <a name="//apple_ref/objc/Case/AWSFirehoseProcessorParameterNameMetadataExtractionQuery" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSFirehoseProcessorParameterName@AWSFirehoseProcessorParameterNameMetadataExtractionQuery">AWSFirehoseProcessorParameterNameMetadataExtractionQuery</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSFirehoseProcessorParameterNameMetadataExtractionQuery</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">metadataExtractionQuery</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSFirehoseProcessorParameterName@AWSFirehoseProcessorParameterNameJsonParsingEngine"></a>
+                    <a name="//apple_ref/objc/Case/AWSFirehoseProcessorParameterNameJsonParsingEngine" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSFirehoseProcessorParameterName@AWSFirehoseProcessorParameterNameJsonParsingEngine">AWSFirehoseProcessorParameterNameJsonParsingEngine</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSFirehoseProcessorParameterNameJsonParsingEngine</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">jsonParsingEngine</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@AWSFirehoseProcessorParameterName@AWSFirehoseProcessorParameterNameRoleArn"></a>
                     <a name="//apple_ref/objc/Case/AWSFirehoseProcessorParameterNameRoleArn" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@AWSFirehoseProcessorParameterName@AWSFirehoseProcessorParameterNameRoleArn">AWSFirehoseProcessorParameterNameRoleArn</a>
@@ -741,7 +815,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">roleArn</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">roleArn</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
 
                         </div>
                       </div>
@@ -773,7 +847,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">bufferSizeInMBs</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">bufferSizeInMBs</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
 
                         </div>
                       </div>
@@ -805,7 +879,71 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">bufferIntervalInSeconds</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">bufferIntervalInSeconds</span> <span class="o">=</span> <span class="mi">7</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSFirehoseProcessorParameterName@AWSFirehoseProcessorParameterNameSubRecordType"></a>
+                    <a name="//apple_ref/objc/Case/AWSFirehoseProcessorParameterNameSubRecordType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSFirehoseProcessorParameterName@AWSFirehoseProcessorParameterNameSubRecordType">AWSFirehoseProcessorParameterNameSubRecordType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSFirehoseProcessorParameterNameSubRecordType</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">subRecordType</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSFirehoseProcessorParameterName@AWSFirehoseProcessorParameterNameDelimiter"></a>
+                    <a name="//apple_ref/objc/Case/AWSFirehoseProcessorParameterNameDelimiter" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSFirehoseProcessorParameterName@AWSFirehoseProcessorParameterNameDelimiter">AWSFirehoseProcessorParameterNameDelimiter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSFirehoseProcessorParameterNameDelimiter</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="mi">9</span></code></pre>
 
                         </div>
                       </div>
@@ -817,7 +955,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-23)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-30)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="noopener" rel="external">jazzy ♪♫ v0.14.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="noopener" rel="external">Realm</a> project.</p>
         </section>
       </article>
