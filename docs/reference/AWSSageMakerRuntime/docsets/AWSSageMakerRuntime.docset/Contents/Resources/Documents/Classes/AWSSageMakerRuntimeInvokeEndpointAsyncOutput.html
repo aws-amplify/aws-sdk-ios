@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSSageMakerRuntimeResources Class Reference</title>
+    <title>AWSSageMakerRuntimeInvokeEndpointAsyncOutput Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSSageMakerRuntimeResources" class="dashAnchor"></a>
-    <a title="AWSSageMakerRuntimeResources Class Reference"></a>
+    <a name="//apple_ref/objc/Class/AWSSageMakerRuntimeInvokeEndpointAsyncOutput" class="dashAnchor"></a>
+    <a title="AWSSageMakerRuntimeInvokeEndpointAsyncOutput Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSSageMakerRuntime 2.26.1 Docs</a> (72% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSSageMakerRuntime Reference</a>
         <img id="carat" src="../img/carat.png" />
-        AWSSageMakerRuntimeResources Class Reference
+        AWSSageMakerRuntimeInvokeEndpointAsyncOutput Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -90,27 +90,20 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSSageMakerRuntimeResources</h1>
+            <h1>AWSSageMakerRuntimeInvokeEndpointAsyncOutput</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSSageMakerRuntimeResources</span> <span class="p">:</span> <span class="nc">NSObject</span>
-
-<span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">sharedInstance</span><span class="p">;</span>
-
-<span class="k">-</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">JSONObject</span><span class="p">;</span>
-
-<span class="k">@end</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSSageMakerRuntimeInvokeEndpointAsyncOutput</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSSageMakerRuntimeResources</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSSageMakerRuntimeInvokeEndpointAsyncOutput</span></code></pre>
 
                 </div>
               </div>
-            <p>Undocumented</p>
-
+            
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -118,9 +111,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSSageMakerRuntimeResources(cm)sharedInstance"></a>
-                    <a name="//apple_ref/objc/Method/+sharedInstance" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSSageMakerRuntimeResources(cm)sharedInstance">+sharedInstance</a>
+                    <a name="/c:objc(cs)AWSSageMakerRuntimeInvokeEndpointAsyncOutput(py)inferenceId"></a>
+                    <a name="//apple_ref/objc/Property/inferenceId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSSageMakerRuntimeInvokeEndpointAsyncOutput(py)inferenceId">inferenceId</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -128,19 +121,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Identifier for an inference request. This will be the same as the <code>InferenceId</code> specified in the input. Amazon SageMaker will generate an identifier for you if you do not specify one.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">sharedInstance</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">inferenceId</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">sharedInstance</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="k">Self</span><span class="o">!</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">inferenceId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -150,9 +143,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSSageMakerRuntimeResources(im)JSONObject"></a>
-                    <a name="//apple_ref/objc/Method/-JSONObject" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSSageMakerRuntimeResources(im)JSONObject">-JSONObject</a>
+                    <a name="/c:objc(cs)AWSSageMakerRuntimeInvokeEndpointAsyncOutput(py)outputLocation"></a>
+                    <a name="//apple_ref/objc/Property/outputLocation" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSSageMakerRuntimeInvokeEndpointAsyncOutput(py)outputLocation">outputLocation</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -160,19 +153,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The Amazon S3 URI where the inference response payload is stored.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">JSONObject</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">outputLocation</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">jsonObject</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span><span class="o">!</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">outputLocation</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
