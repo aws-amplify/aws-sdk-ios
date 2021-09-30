@@ -1,474 +1,474 @@
 {
   "warnings": [
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessaging.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessaging.h",
       "line": 28,
       "symbol": "AWSChimeSDKMessagingVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessaging.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessaging.h",
       "line": 39,
       "symbol": "AWSChimeSDKMessagingVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 22,
       "symbol": "AWSChimeSDKMessagingErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 24,
       "symbol": "AWSChimeSDKMessagingErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 24,
       "symbol": "AWSChimeSDKMessagingErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 25,
       "symbol": "AWSChimeSDKMessagingErrorType.AWSChimeSDKMessagingErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 26,
       "symbol": "AWSChimeSDKMessagingErrorType.AWSChimeSDKMessagingErrorBadRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 27,
       "symbol": "AWSChimeSDKMessagingErrorType.AWSChimeSDKMessagingErrorConflict",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 28,
       "symbol": "AWSChimeSDKMessagingErrorType.AWSChimeSDKMessagingErrorForbidden",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 29,
       "symbol": "AWSChimeSDKMessagingErrorType.AWSChimeSDKMessagingErrorNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 30,
       "symbol": "AWSChimeSDKMessagingErrorType.AWSChimeSDKMessagingErrorResourceLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 31,
       "symbol": "AWSChimeSDKMessagingErrorType.AWSChimeSDKMessagingErrorServiceFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 32,
       "symbol": "AWSChimeSDKMessagingErrorType.AWSChimeSDKMessagingErrorServiceUnavailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 33,
       "symbol": "AWSChimeSDKMessagingErrorType.AWSChimeSDKMessagingErrorThrottledClient",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 34,
       "symbol": "AWSChimeSDKMessagingErrorType.AWSChimeSDKMessagingErrorUnauthorizedClient",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 37,
       "symbol": "AWSChimeSDKMessagingChannelMembershipType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 37,
       "symbol": "AWSChimeSDKMessagingChannelMembershipType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 38,
       "symbol": "AWSChimeSDKMessagingChannelMembershipType.AWSChimeSDKMessagingChannelMembershipTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 39,
       "symbol": "AWSChimeSDKMessagingChannelMembershipType.AWSChimeSDKMessagingChannelMembershipTypeDefault",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 40,
       "symbol": "AWSChimeSDKMessagingChannelMembershipType.AWSChimeSDKMessagingChannelMembershipTypeHidden",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 43,
       "symbol": "AWSChimeSDKMessagingChannelMessagePersistenceType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 43,
       "symbol": "AWSChimeSDKMessagingChannelMessagePersistenceType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 44,
       "symbol": "AWSChimeSDKMessagingChannelMessagePersistenceType.AWSChimeSDKMessagingChannelMessagePersistenceTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 45,
       "symbol": "AWSChimeSDKMessagingChannelMessagePersistenceType.AWSChimeSDKMessagingChannelMessagePersistenceTypePersistent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 46,
       "symbol": "AWSChimeSDKMessagingChannelMessagePersistenceType.AWSChimeSDKMessagingChannelMessagePersistenceTypeNonPersistent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 49,
       "symbol": "AWSChimeSDKMessagingChannelMessageType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 49,
       "symbol": "AWSChimeSDKMessagingChannelMessageType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 50,
       "symbol": "AWSChimeSDKMessagingChannelMessageType.AWSChimeSDKMessagingChannelMessageTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 51,
       "symbol": "AWSChimeSDKMessagingChannelMessageType.AWSChimeSDKMessagingChannelMessageTypeStandard",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 52,
       "symbol": "AWSChimeSDKMessagingChannelMessageType.AWSChimeSDKMessagingChannelMessageTypeControl",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 55,
       "symbol": "AWSChimeSDKMessagingChannelMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 55,
       "symbol": "AWSChimeSDKMessagingChannelMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 56,
       "symbol": "AWSChimeSDKMessagingChannelMode.AWSChimeSDKMessagingChannelModeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 57,
       "symbol": "AWSChimeSDKMessagingChannelMode.AWSChimeSDKMessagingChannelModeUnrestricted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 58,
       "symbol": "AWSChimeSDKMessagingChannelMode.AWSChimeSDKMessagingChannelModeRestricted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 61,
       "symbol": "AWSChimeSDKMessagingChannelPrivacy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 61,
       "symbol": "AWSChimeSDKMessagingChannelPrivacy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 62,
       "symbol": "AWSChimeSDKMessagingChannelPrivacy.AWSChimeSDKMessagingChannelPrivacyUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 63,
       "symbol": "AWSChimeSDKMessagingChannelPrivacy.AWSChimeSDKMessagingChannelPrivacyPublic",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 64,
       "symbol": "AWSChimeSDKMessagingChannelPrivacy.AWSChimeSDKMessagingChannelPrivacyPrivate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 67,
       "symbol": "AWSChimeSDKMessagingErrorCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 67,
       "symbol": "AWSChimeSDKMessagingErrorCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 68,
       "symbol": "AWSChimeSDKMessagingErrorCode.AWSChimeSDKMessagingErrorCodeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 69,
       "symbol": "AWSChimeSDKMessagingErrorCode.AWSChimeSDKMessagingErrorCodeBadRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 70,
       "symbol": "AWSChimeSDKMessagingErrorCode.AWSChimeSDKMessagingErrorCodeConflict",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 71,
       "symbol": "AWSChimeSDKMessagingErrorCode.AWSChimeSDKMessagingErrorCodeForbidden",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 72,
       "symbol": "AWSChimeSDKMessagingErrorCode.AWSChimeSDKMessagingErrorCodeNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 73,
       "symbol": "AWSChimeSDKMessagingErrorCode.AWSChimeSDKMessagingErrorCodePreconditionFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 74,
       "symbol": "AWSChimeSDKMessagingErrorCode.AWSChimeSDKMessagingErrorCodeResourceLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 75,
       "symbol": "AWSChimeSDKMessagingErrorCode.AWSChimeSDKMessagingErrorCodeServiceFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 76,
       "symbol": "AWSChimeSDKMessagingErrorCode.AWSChimeSDKMessagingErrorCodeAccessDenied",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 77,
       "symbol": "AWSChimeSDKMessagingErrorCode.AWSChimeSDKMessagingErrorCodeServiceUnavailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 78,
       "symbol": "AWSChimeSDKMessagingErrorCode.AWSChimeSDKMessagingErrorCodeThrottled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 79,
       "symbol": "AWSChimeSDKMessagingErrorCode.AWSChimeSDKMessagingErrorCodeThrottling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 80,
       "symbol": "AWSChimeSDKMessagingErrorCode.AWSChimeSDKMessagingErrorCodeUnauthorized",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 81,
       "symbol": "AWSChimeSDKMessagingErrorCode.AWSChimeSDKMessagingErrorCodeUnprocessable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 82,
       "symbol": "AWSChimeSDKMessagingErrorCode.AWSChimeSDKMessagingErrorCodeVoiceConnectorGroupAssociationsExist",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 83,
       "symbol": "AWSChimeSDKMessagingErrorCode.AWSChimeSDKMessagingErrorCodePhoneNumberAssociationsExist",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 86,
       "symbol": "AWSChimeSDKMessagingSortOrder",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 86,
       "symbol": "AWSChimeSDKMessagingSortOrder",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 87,
       "symbol": "AWSChimeSDKMessagingSortOrder.AWSChimeSDKMessagingSortOrderUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 88,
       "symbol": "AWSChimeSDKMessagingSortOrder.AWSChimeSDKMessagingSortOrderAscending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingModel.h",
       "line": 89,
       "symbol": "AWSChimeSDKMessagingSortOrder.AWSChimeSDKMessagingSortOrderDescending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingResources.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingResources.h",
       "line": 18,
       "symbol": "AWSChimeSDKMessagingResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingResources.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingResources.h",
       "line": 20,
       "symbol": "AWSChimeSDKMessagingResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingResources.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingResources.h",
       "line": 22,
       "symbol": "AWSChimeSDKMessagingResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios/AWSChimeSDKMessaging/AWSChimeSDKMessagingService.h",
+      "file": "/Users/distiller/project/AWSChimeSDKMessaging/AWSChimeSDKMessagingService.h",
       "line": 24,
       "symbol": "AWSChimeSDKMessagingSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/stehlib/Documents/GitHub/Amplify/WIP/Release/aws-sdk-ios"
+  "source_directory": "/Users/distiller/project"
 }
