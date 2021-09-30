@@ -4,13 +4,29 @@
 
 -Features for next release
 
-- **Build**
-  - Defines NS_BLOCK_ASSERTIONS and NDEBUG for Release builds 
+### Bug Fixes
+
+- **Core**
+  - Defines NS_BLOCK_ASSERTIONS and NDEBUG for Release builds  ([PR #3787](https://github.com/aws-amplify/aws-sdk-ios/pull/3787))
 
 - **AWSS3**
-  - Rewrite of method which creates partial files for multipart upload process
-  - Adds test coverage for new code
+  - Rewrite of method which creates partial files for multipart upload process, add test coverage for new code ([PR #3786](https://github.com/aws-amplify/aws-sdk-ios/pull/3786))
 
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSChimeSDKMessaging
+  - AWSCloudWatchLogs
+  - AWSComprehend
+  - AWSConnect
+  - AWSEC2
+  - AWSElasticLoadBalancingv2
+  - AWSIoTDataPlane
+  - AWSLambda
+  - AWSPinpoint
+  - AWSSageMakerRuntime
+  - AWSTranscribe
+  
 ## 2.26.0
 
 ### New Features
