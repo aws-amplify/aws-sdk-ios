@@ -14,6 +14,7 @@
 //
 
 import XCTest
+import CoreLocation
 @testable import AWSLocation
 
 class EmitLocationsOperationTests: XCTestCase {
