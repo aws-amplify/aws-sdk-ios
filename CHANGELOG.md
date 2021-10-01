@@ -6,8 +6,6 @@
 
 ## 2.26.1
 
--Features for next release
-
 ### Bug Fixes
 
 - **Core**
@@ -32,7 +30,7 @@
   - AWSPinpoint
   - AWSPolly
   - AWSSageMakerRuntime
-  - AWSS!S
+  - AWSSQS
   - AWSTranscribe
   
 ## 2.26.0
