@@ -47,7 +47,7 @@ class SigV4Tests: XCTestCase {
             with: originalRequest,
             credentialProvider: testCase.credentialsProvider,
             regionName: SigV4TestCredentials.regionName,
-            serviceName: SigV4TestCredentials.serviceName,
+            serviceName: testCase.serviceName,
             date: SigV4TestCredentials.testDate,
             expireDuration: SigV4TestCredentials.expiry,
             signBody: testCase.shouldSignBody,

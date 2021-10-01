@@ -2,7 +2,10 @@
 
 ## Unreleased
 
--Features for next release
+### Bug Fixes
+
+- **AWSCore**
+  - Handle special characters in AWSSignatureV4Signer (See [PR #3763](https://github.com/aws-amplify/aws-sdk-ios/pull/3763))
 
 ## 2.26.1
 
