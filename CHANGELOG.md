@@ -9,7 +9,9 @@
 
 ## 2.26.1
 
--Features for next release
+### Misc. Updates
+
+- Support Xcode 13.0.0 for CircleCI build ([PR #3803](https://github.com/aws-amplify/aws-sdk-ios/pull/3803))
 
 ### Bug Fixes
 
