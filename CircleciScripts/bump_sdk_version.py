@@ -18,6 +18,7 @@ class VersionBumper:
         "AWSCloudWatch",
         "AWSCognitoAuth",
         "AWSCognitoIdentityProvider",
+        "AWSCognitoIdentityProviderASF",
         "AWSComprehend",
         "AWSConnect",
         "AWSConnectParticipant",
@@ -147,6 +148,7 @@ class VersionBumper:
             [
                 "AWSAPIGateway/AWSAPIGatewayClient.m",
                 "AWSCognitoAuth/AWSCognitoAuth.m",
+                "AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.m",
                 "AWSCore/Service/AWSService.m",
                 "AWSIoT/AWSIoTDataService.m",
                 "AWSKinesis/AWSFirehoseService.m",
