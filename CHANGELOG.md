@@ -6,6 +6,9 @@
 
 - **AWSCore**
   - Handle special characters in AWSSignatureV4Signer (See [PR #3763](https://github.com/aws-amplify/aws-sdk-ios/pull/3763))
+  
+- **AWSS3**
+  - Saving relative path of files in the DB to avoid issues arising with sandbox path changing after app restarts. [PR #3794](https://github.com/aws-amplify/aws-sdk-ios/pull/3794)
 
 ## 2.26.1
 
