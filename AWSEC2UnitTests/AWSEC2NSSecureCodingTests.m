@@ -847,6 +847,10 @@
 - (void) test_AWSEC2GetTransitGatewayRouteTableAssociationsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetTransitGatewayRouteTablePropagationsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetTransitGatewayRouteTablePropagationsResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetVpnConnectionDeviceSampleConfigurationRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetVpnConnectionDeviceSampleConfigurationResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetVpnConnectionDeviceTypesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetVpnConnectionDeviceTypesResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GpuDeviceInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GpuDeviceMemoryInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GpuInfo API_AVAILABLE(ios(11));
@@ -1435,6 +1439,7 @@
 - (void) test_AWSEC2VpcPeeringConnectionStateReason API_AVAILABLE(ios(11));
 - (void) test_AWSEC2VpcPeeringConnectionVpcInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2VpnConnection API_AVAILABLE(ios(11));
+- (void) test_AWSEC2VpnConnectionDeviceType API_AVAILABLE(ios(11));
 - (void) test_AWSEC2VpnConnectionOptions API_AVAILABLE(ios(11));
 - (void) test_AWSEC2VpnConnectionOptionsSpecification API_AVAILABLE(ios(11));
 - (void) test_AWSEC2VpnGateway API_AVAILABLE(ios(11));
@@ -4759,6 +4764,22 @@
     [self validateSecureCodingForClass:[AWSEC2GetTransitGatewayRouteTablePropagationsResult class]];
 }
 
+- (void) test_AWSEC2GetVpnConnectionDeviceSampleConfigurationRequest {
+    [self validateSecureCodingForClass:[AWSEC2GetVpnConnectionDeviceSampleConfigurationRequest class]];
+}
+
+- (void) test_AWSEC2GetVpnConnectionDeviceSampleConfigurationResult {
+    [self validateSecureCodingForClass:[AWSEC2GetVpnConnectionDeviceSampleConfigurationResult class]];
+}
+
+- (void) test_AWSEC2GetVpnConnectionDeviceTypesRequest {
+    [self validateSecureCodingForClass:[AWSEC2GetVpnConnectionDeviceTypesRequest class]];
+}
+
+- (void) test_AWSEC2GetVpnConnectionDeviceTypesResult {
+    [self validateSecureCodingForClass:[AWSEC2GetVpnConnectionDeviceTypesResult class]];
+}
+
 - (void) test_AWSEC2GpuDeviceInfo {
     [self validateSecureCodingForClass:[AWSEC2GpuDeviceInfo class]];
 }
@@ -7109,6 +7130,10 @@
 
 - (void) test_AWSEC2VpnConnection {
     [self validateSecureCodingForClass:[AWSEC2VpnConnection class]];
+}
+
+- (void) test_AWSEC2VpnConnectionDeviceType {
+    [self validateSecureCodingForClass:[AWSEC2VpnConnectionDeviceType class]];
 }
 
 - (void) test_AWSEC2VpnConnectionOptions {

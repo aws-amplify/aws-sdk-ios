@@ -2,20 +2,47 @@
 
 ## Unreleased
 
--Bug Fixes for next release
+### Bug Fixes
 
+- **AWSCore**
+  - Handle special characters in AWSSignatureV4Signer (See [PR #3763](https://github.com/aws-amplify/aws-sdk-ios/pull/3763))
+  
 - **AWSS3**
   - Saving relative path of files in the DB to avoid issues arising with sandbox path changing after app restarts. [PR #3794](https://github.com/aws-amplify/aws-sdk-ios/pull/3794)
 
--Features for next release
+## 2.26.1
 
-- **Build**
-  - Defines NS_BLOCK_ASSERTIONS and NDEBUG for Release builds 
+### Misc. Updates
+
+- Support Xcode 13.0.0 for CircleCI build ([PR #3803](https://github.com/aws-amplify/aws-sdk-ios/pull/3803))
+
+### Bug Fixes
+
+- **Core**
+  - Defines NS_BLOCK_ASSERTIONS and NDEBUG for Release builds  ([PR #3787](https://github.com/aws-amplify/aws-sdk-ios/pull/3787))
 
 - **AWSS3**
-  - Rewrite of method which creates partial files for multipart upload process
-  - Adds test coverage for new code
+  - Rewrite of method which creates partial files for multipart upload process, add test coverage for new code ([PR #3786](https://github.com/aws-amplify/aws-sdk-ios/pull/3786))
 
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSChimeSDKMessaging
+  - AWSCloudWatchLogs
+  - AWSComprehend
+  - AWSConnect
+  - AWSEC2
+  - AWSElasticLoadBalancingv2
+  - AWSFirehose
+  - AWSIoTDataPlane
+  - AWSKMS
+  - AWSLambda
+  - AWSPinpoint
+  - AWSPolly
+  - AWSSageMakerRuntime
+  - AWSS!S
+  - AWSTranscribe
+  
 ## 2.26.0
 
 ### New Features
