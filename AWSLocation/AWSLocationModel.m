@@ -981,11 +981,33 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 	return @{
              @"detail" : @"Description",
              @"kmsKeyId" : @"KmsKeyId",
+             @"positionFiltering" : @"PositionFiltering",
              @"pricingPlan" : @"PricingPlan",
              @"pricingPlanDataSource" : @"PricingPlanDataSource",
              @"tags" : @"Tags",
              @"trackerName" : @"TrackerName",
              };
+}
+
++ (NSValueTransformer *)positionFilteringJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"TimeBased"] == NSOrderedSame) {
+            return @(AWSLocationPositionFilteringTimeBased);
+        }
+        if ([value caseInsensitiveCompare:@"DistanceBased"] == NSOrderedSame) {
+            return @(AWSLocationPositionFilteringDistanceBased);
+        }
+        return @(AWSLocationPositionFilteringUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLocationPositionFilteringTimeBased:
+                return @"TimeBased";
+            case AWSLocationPositionFilteringDistanceBased:
+                return @"DistanceBased";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)pricingPlanJSONTransformer {
@@ -1529,6 +1551,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
              @"createTime" : @"CreateTime",
              @"detail" : @"Description",
              @"kmsKeyId" : @"KmsKeyId",
+             @"positionFiltering" : @"PositionFiltering",
              @"pricingPlan" : @"PricingPlan",
              @"pricingPlanDataSource" : @"PricingPlanDataSource",
              @"tags" : @"Tags",
@@ -1543,6 +1566,27 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)positionFilteringJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"TimeBased"] == NSOrderedSame) {
+            return @(AWSLocationPositionFilteringTimeBased);
+        }
+        if ([value caseInsensitiveCompare:@"DistanceBased"] == NSOrderedSame) {
+            return @(AWSLocationPositionFilteringDistanceBased);
+        }
+        return @(AWSLocationPositionFilteringUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLocationPositionFilteringTimeBased:
+                return @"TimeBased";
+            case AWSLocationPositionFilteringDistanceBased:
+                return @"DistanceBased";
+            default:
+                return nil;
+        }
     }];
 }
 
@@ -3335,10 +3379,32 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"detail" : @"Description",
+             @"positionFiltering" : @"PositionFiltering",
              @"pricingPlan" : @"PricingPlan",
              @"pricingPlanDataSource" : @"PricingPlanDataSource",
              @"trackerName" : @"TrackerName",
              };
+}
+
++ (NSValueTransformer *)positionFilteringJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"TimeBased"] == NSOrderedSame) {
+            return @(AWSLocationPositionFilteringTimeBased);
+        }
+        if ([value caseInsensitiveCompare:@"DistanceBased"] == NSOrderedSame) {
+            return @(AWSLocationPositionFilteringDistanceBased);
+        }
+        return @(AWSLocationPositionFilteringUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLocationPositionFilteringTimeBased:
+                return @"TimeBased";
+            case AWSLocationPositionFilteringDistanceBased:
+                return @"DistanceBased";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)pricingPlanJSONTransformer {
