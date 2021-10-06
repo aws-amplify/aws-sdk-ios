@@ -16,8 +16,6 @@
 #import "AWSCognitoIdentityProviderASF.h"
 #import "AWSCognitoIdentityASF.h"
 
-NSString *const AWSCognitoIdentityProviderASFSDKVersion = @"2.26.1";
-
 @implementation AWSCognitoIdentityProviderASF
 
 + (NSString *)userContextData: (NSString*) userPoolId username: (NSString * _Nullable) username deviceId: ( NSString * _Nullable ) deviceId userPoolClientId: (NSString *) userPoolClientId {
