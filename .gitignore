@@ -50,3 +50,5 @@ credentials-mc.json
 
 .env
 amplify-ci-support
+xcframeworks
+aws-sdk-ios-spm
