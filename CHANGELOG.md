@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+** AWSIoT **
+
+Adds support to read settings from `awsconfiguration.json` [PR #3815](https://github.com/aws-amplify/aws-sdk-ios/pull/3815)
+
 ### Bug Fixes
 
 - **AWSCore**
