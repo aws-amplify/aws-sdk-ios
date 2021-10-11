@@ -27,6 +27,7 @@
 static NSString *const AWSInfoIoT = @"IoT";
 NSString *const AWSIoTSDKVersion = @"2.26.1";
 
+static NSString *const AWSIoTEndpoint = @"Endpoint";
 
 @interface AWSIoTResponseSerializer : AWSJSONResponseSerializer
 
@@ -183,7 +184,19 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     dispatch_once(&onceToken, ^{
         AWSServiceConfiguration *serviceConfiguration = nil;
         AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] defaultServiceInfo:AWSInfoIoT];
-        if (serviceInfo) {
+
+        AWSEndpoint *endpoint = nil;
+        NSString *endpointURLString = [serviceInfo.infoDictionary objectForKey:AWSIoTEndpoint];
+        if (endpointURLString) {
+            endpoint = [[AWSEndpoint alloc] initWithURLString:endpointURLString];
+        }
+
+        if (serviceInfo && endpoint) {
+            serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
+                                                                          endpoint:endpoint
+                                                               credentialsProvider:serviceInfo.cognitoCredentialsProvider];
+        } else if (serviceInfo) {
+
             serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
                                                                credentialsProvider:serviceInfo.cognitoCredentialsProvider];
         }
