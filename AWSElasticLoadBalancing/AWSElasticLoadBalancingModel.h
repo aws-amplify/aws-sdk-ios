@@ -129,6 +129,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingRedirectActionStatusCodeEnum) 
     AWSElasticLoadBalancingRedirectActionStatusCodeEnumHttp302,
 };
 
+typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum) {
+    AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumUnknown,
+    AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv4,
+    AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv6,
+};
+
 typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetHealthReasonEnum) {
     AWSElasticLoadBalancingTargetHealthReasonEnumUnknown,
     AWSElasticLoadBalancingTargetHealthReasonEnumElbRegistrationInProgress,
@@ -770,6 +776,11 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
  <p>The number of consecutive health checks successes required before considering an unhealthy target healthy. For target groups with a protocol of HTTP or HTTPS, the default is 5. For target groups with a protocol of TCP, TLS, or GENEVE, the default is 3. If the target type is <code>lambda</code>, the default is 5.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable healthyThresholdCount;
+
+/**
+ <p>The type of IP address used for this target group. The possible values are <code>ipv4</code> and <code>ipv6</code>. This is an optional parameter. If not specified, the IP address type defaults to <code>ipv4</code>.</p>
+ */
+@property (nonatomic, assign) AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum ipAddressType;
 
 /**
  <p>[HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target.</p>
@@ -1647,7 +1658,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @end
 
 /**
- <p>The codes to use when checking for a successful response from a target. If the protocol version is gRPC, these are gRPC codes. Otherwise, these are HTTP codes.</p>
+ <p>The codes to use when checking for a successful response from a target. If the protocol version is gRPC, these are gRPC codes. Otherwise, these are HTTP codes. </p>
  */
 @interface AWSElasticLoadBalancingMatcher : AWSModel
 
@@ -1658,7 +1669,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSString * _Nullable grpcCode;
 
 /**
- <p>For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").</p><p>For Network Load Balancers and Gateway Load Balancers, this must be "200–399".</p>
+ <p>For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").</p><p>For Network Load Balancers and Gateway Load Balancers, this must be "200–399".</p><p>Note that when using shorthand syntax, some values such as commas need to be escaped.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable httpCode;
 
@@ -2448,6 +2459,11 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
  <p>The number of consecutive health checks successes required before considering an unhealthy target healthy.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable healthyThresholdCount;
+
+/**
+ <p>The type of IP address used for this target group. The possible values are <code>ipv4</code> and <code>ipv6</code>. This is an optional parameter. If not specified, the IP address type defaults to <code>ipv4</code>.</p>
+ */
+@property (nonatomic, assign) AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum ipAddressType;
 
 /**
  <p>The Amazon Resource Names (ARN) of the load balancers that route traffic to this target group.</p>

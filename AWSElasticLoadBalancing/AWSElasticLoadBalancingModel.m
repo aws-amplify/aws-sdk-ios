@@ -584,6 +584,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
              @"healthCheckProtocol" : @"HealthCheckProtocol",
              @"healthCheckTimeoutSeconds" : @"HealthCheckTimeoutSeconds",
              @"healthyThresholdCount" : @"HealthyThresholdCount",
+             @"ipAddressType" : @"IpAddressType",
              @"matcher" : @"Matcher",
              @"name" : @"Name",
              @"port" : @"Port",
@@ -636,6 +637,27 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
                 return @"TCP_UDP";
             case AWSElasticLoadBalancingProtocolEnumGeneve:
                 return @"GENEVE";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)ipAddressTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ipv4"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv4);
+        }
+        if ([value caseInsensitiveCompare:@"ipv6"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv6);
+        }
+        return @(AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv4:
+                return @"ipv4";
+            case AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv6:
+                return @"ipv6";
             default:
                 return nil;
         }
@@ -2502,6 +2524,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"healthCheckProtocol" : @"HealthCheckProtocol",
              @"healthCheckTimeoutSeconds" : @"HealthCheckTimeoutSeconds",
              @"healthyThresholdCount" : @"HealthyThresholdCount",
+             @"ipAddressType" : @"IpAddressType",
              @"loadBalancerArns" : @"LoadBalancerArns",
              @"matcher" : @"Matcher",
              @"port" : @"Port",
@@ -2555,6 +2578,27 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"TCP_UDP";
             case AWSElasticLoadBalancingProtocolEnumGeneve:
                 return @"GENEVE";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)ipAddressTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ipv4"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv4);
+        }
+        if ([value caseInsensitiveCompare:@"ipv6"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv6);
+        }
+        return @(AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv4:
+                return @"ipv4";
+            case AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv6:
+                return @"ipv6";
             default:
                 return nil;
         }
