@@ -321,7 +321,7 @@ NSString *const AWSS3TransferUtilityDatabaseName = @"transfer_utility_database";
                                           @"part_number": partNumber,
                                           @"multi_part_id": multiPartID,
                                           @"etag": eTag,
-                                          @"file": file,
+                                          @"file": [AWSS3TransferUtilityDatabaseHelper relativePathFromAbsolutePath:file],
                                           @"temporary_file_created": tempFileCreated,
                                           @"content_length": contentLength,
                                           @"status": [AWSS3TransferUtilityDatabaseHelper getStringRepresentation:status],
@@ -363,7 +363,7 @@ NSString *const AWSS3TransferUtilityDatabaseName = @"transfer_utility_database";
             [transfer setObject:@([rs intForColumn:@"part_number"]) forKey:@"part_number"];
             [transfer setObject:[rs stringForColumn:@"multi_part_id"] forKey:@"multi_part_id"];
             [transfer setObject:[rs stringForColumn:@"etag"] forKey:@"etag"];
-            [transfer setObject:[rs stringForColumn:@"file"] forKey:@"file"];
+            [transfer setObject:[AWSS3TransferUtilityDatabaseHelper absolutePathFromRelativePath:[rs stringForColumn:@"file"]] forKey:@"file"];
             [transfer setObject:@([rs intForColumn:@"temporary_file_created"]) forKey:@"temporary_file_created"];
             [transfer setObject:@([rs intForColumn:@"content_length"]) forKey:@"content_length"];
             [transfer setObject:@([rs intForColumn:@"retry_count"]) forKey:@"retry_count"];
@@ -433,5 +433,19 @@ NSString *const AWSS3TransferUtilityDatabaseName = @"transfer_utility_database";
     }
     return AWSS3TransferUtilityTransferStatusUnknown;
 }
+
++ (NSString*)absolutePathFromRelativePath:(NSString*)relativePath
+{
+    if (relativePath.length == 0) {
+        return  relativePath;
+    }
+    return [NSHomeDirectory() stringByAppendingPathComponent:relativePath];
+}
+
++ (NSString*)relativePathFromAbsolutePath:(NSString*)absolutePath
+{
+    return [absolutePath stringByReplacingOccurrencesOfString:NSHomeDirectory() withString:@""];
+}
+
 @end
 

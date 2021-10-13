@@ -160,6 +160,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
     AWSElasticLoadBalancingTargetTypeEnumInstance,
     AWSElasticLoadBalancingTargetTypeEnumIp,
     AWSElasticLoadBalancingTargetTypeEnumLambda,
+    AWSElasticLoadBalancingTargetTypeEnumAlb,
 };
 
 @class AWSElasticLoadBalancingAction;
@@ -736,7 +737,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 
 
 /**
- <p>Indicates whether health checks are enabled. If the target type is <code>lambda</code>, health checks are disabled by default but can be enabled. If the target type is <code>instance</code> or <code>ip</code>, health checks are always enabled and cannot be disabled.</p>
+ <p>Indicates whether health checks are enabled. If the target type is <code>lambda</code>, health checks are disabled by default but can be enabled. If the target type is <code>instance</code>, <code>ip</code>, or <code>alb</code>, health checks are always enabled and cannot be disabled.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable healthCheckEnabled;
 
@@ -801,7 +802,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingTag *> * _Nullable tags;
 
 /**
- <p>The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type.</p><ul><li><p><code>instance</code> - Register targets by instance ID. This is the default value.</p></li><li><p><code>ip</code> - Register targets by IP address. You can specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.</p></li><li><p><code>lambda</code> - Register a single Lambda function as a target.</p></li></ul>
+ <p>The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type.</p><ul><li><p><code>instance</code> - Register targets by instance ID. This is the default value.</p></li><li><p><code>ip</code> - Register targets by IP address. You can specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.</p></li><li><p><code>lambda</code> - Register a single Lambda function as a target.</p></li><li><p><code>alb</code> - Register a single Application Load Balancer as a target.</p></li></ul>
  */
 @property (nonatomic, assign) AWSElasticLoadBalancingTargetTypeEnum targetType;
 
@@ -2391,17 +2392,17 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 
 
 /**
- <p>An Availability Zone or <code>all</code>. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.</p><p>This parameter is not supported if the target type of the target group is <code>instance</code>.</p><p>If the target type is <code>ip</code> and the IP address is in a subnet of the VPC for the target group, the Availability Zone is automatically detected and this parameter is optional. If the IP address is outside the VPC, this parameter is required.</p><p>With an Application Load Balancer, if the target type is <code>ip</code> and the IP address is outside the VPC for the target group, the only supported value is <code>all</code>.</p><p>If the target type is <code>lambda</code>, this parameter is optional and the only supported value is <code>all</code>.</p>
+ <p>An Availability Zone or <code>all</code>. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.</p><p>This parameter is not supported if the target type of the target group is <code>instance</code> or <code>alb</code>.</p><p>If the target type is <code>ip</code> and the IP address is in a subnet of the VPC for the target group, the Availability Zone is automatically detected and this parameter is optional. If the IP address is outside the VPC, this parameter is required.</p><p>With an Application Load Balancer, if the target type is <code>ip</code> and the IP address is outside the VPC for the target group, the only supported value is <code>all</code>.</p><p>If the target type is <code>lambda</code>, this parameter is optional and the only supported value is <code>all</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable availabilityZone;
 
 /**
- <p>The ID of the target. If the target type of the target group is <code>instance</code>, specify an instance ID. If the target type is <code>ip</code>, specify an IP address. If the target type is <code>lambda</code>, specify the ARN of the Lambda function.</p>
+ <p>The ID of the target. If the target type of the target group is <code>instance</code>, specify an instance ID. If the target type is <code>ip</code>, specify an IP address. If the target type is <code>lambda</code>, specify the ARN of the Lambda function. If the target type is <code>alb</code>, specify the ARN of the Application Load Balancer target. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
- <p>The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. Not used if the target is a Lambda function.</p>
+ <p>The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is <code>alb</code>, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable port;
 
@@ -2484,7 +2485,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSString * _Nullable targetGroupName;
 
 /**
- <p>The type of target that you must specify when registering targets with this target group. The possible values are <code>instance</code> (register targets by instance ID), <code>ip</code> (register targets by IP address), or <code>lambda</code> (register a single Lambda function as a target).</p>
+ <p>The type of target that you must specify when registering targets with this target group. The possible values are <code>instance</code> (register targets by instance ID), <code>ip</code> (register targets by IP address), <code>lambda</code> (register a single Lambda function as a target), or <code>alb</code> (register a single Application Load Balancer as a target).</p>
  */
 @property (nonatomic, assign) AWSElasticLoadBalancingTargetTypeEnum targetType;
 

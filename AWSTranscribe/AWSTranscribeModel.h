@@ -156,6 +156,12 @@ typedef NS_ENUM(NSInteger, AWSTranscribeSpecialty) {
     AWSTranscribeSpecialtyPrimarycare,
 };
 
+typedef NS_ENUM(NSInteger, AWSTranscribeSubtitleFormat) {
+    AWSTranscribeSubtitleFormatUnknown,
+    AWSTranscribeSubtitleFormatVtt,
+    AWSTranscribeSubtitleFormatSrt,
+};
+
 typedef NS_ENUM(NSInteger, AWSTranscribeTranscriptFilterType) {
     AWSTranscribeTranscriptFilterTypeUnknown,
     AWSTranscribeTranscriptFilterTypeExact,
@@ -271,6 +277,8 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @class AWSTranscribeStartMedicalTranscriptionJobResponse;
 @class AWSTranscribeStartTranscriptionJobRequest;
 @class AWSTranscribeStartTranscriptionJobResponse;
+@class AWSTranscribeSubtitles;
+@class AWSTranscribeSubtitlesOutput;
 @class AWSTranscribeTag;
 @class AWSTranscribeTagResourceRequest;
 @class AWSTranscribeTagResourceResponse;
@@ -1285,7 +1293,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 
 /**
- <p>Indicates whether a job should be queued by Amazon Transcribe when the concurrent execution limit is exceeded. When the <code>AllowDeferredExecution</code> field is true, jobs are queued and executed when the number of executing jobs falls below the concurrent execution limit. If the field is false, Amazon Transcribe returns a <code>LimitExceededException</code> exception.</p><p>If you specify the <code>AllowDeferredExecution</code> field, you must specify the <code>DataAccessRoleArn</code> field.</p>
+ <p>Indicates whether a job should be queued by Amazon Transcribe when the concurrent execution limit is exceeded. When the <code>AllowDeferredExecution</code> field is true, jobs are queued and executed when the number of executing jobs falls below the concurrent execution limit. If the field is false, Amazon Transcribe returns a <code>LimitExceededException</code> exception.</p><p>Note that job queuing is enabled by default for call analytics jobs.</p><p>If you specify the <code>AllowDeferredExecution</code> field, you must specify the <code>DataAccessRoleArn</code> field.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable allowDeferredExecution;
 
@@ -2225,6 +2233,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, assign) AWSTranscribeMedicalContentIdentificationType contentIdentificationType;
 
 /**
+ <p>A map of plain text, non-secret key:value pairs, known as encryption context pairs, that provide an added layer of security for your data.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable KMSEncryptionContext;
+
+/**
  <p>The language code for the language spoken in the input media file. US English (en-US) is the valid value for medical transcription jobs. Any other value you enter for language code results in a <code>BadRequestException</code> error.</p>
  */
 @property (nonatomic, assign) AWSTranscribeLanguageCode languageCode;
@@ -2321,6 +2334,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) AWSTranscribeJobExecutionSettings * _Nullable jobExecutionSettings;
 
 /**
+ <p>A map of plain text, non-secret key:value pairs, known as encryption context pairs, that provide an added layer of security for your data.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable KMSEncryptionContext;
+
+/**
  <p>The language code for the language used in the input media file.</p><p>To transcribe speech in Modern Standard Arabic (ar-SA), your audio or video file must be encoded at a sample rate of 16,000 Hz or higher.</p>
  */
 @property (nonatomic, assign) AWSTranscribeLanguageCode languageCode;
@@ -2371,6 +2389,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) AWSTranscribeSettings * _Nullable settings;
 
 /**
+ <p>Add subtitles to your batch transcription job.</p>
+ */
+@property (nonatomic, strong) AWSTranscribeSubtitles * _Nullable subtitles;
+
+/**
  <p>Add tags to an Amazon Transcribe transcription job.</p>
  */
 @property (nonatomic, strong) NSArray<AWSTranscribeTag *> * _Nullable tags;
@@ -2392,6 +2415,37 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
  <p>An object containing details of the asynchronous transcription job.</p>
  */
 @property (nonatomic, strong) AWSTranscribeTranscriptionJob * _Nullable transcriptionJob;
+
+@end
+
+/**
+ <p>Generate subtitles for your batch transcription job.</p>
+ */
+@interface AWSTranscribeSubtitles : AWSModel
+
+
+/**
+ <p>Specify the output format for your subtitle file.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable formats;
+
+@end
+
+/**
+ <p>Specify the output format for your subtitle file.</p>
+ */
+@interface AWSTranscribeSubtitlesOutput : AWSModel
+
+
+/**
+ <p>Specify the output format for your subtitle file; if you select both SRT and VTT formats, two output files are genereated.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable formats;
+
+/**
+ <p>Choose the output location for your subtitle file. This location must be an S3 bucket.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable subtitleFileUris;
 
 @end
 
@@ -2577,6 +2631,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
  <p>A timestamp that shows when the job started processing.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable startTime;
+
+/**
+ <p>Generate subtitles for your batch transcription job.</p>
+ */
+@property (nonatomic, strong) AWSTranscribeSubtitlesOutput * _Nullable subtitles;
 
 /**
  <p>A key:value pair assigned to a given transcription job.</p>

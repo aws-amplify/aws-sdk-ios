@@ -26,7 +26,7 @@
 #import "AWSEC2Serializer.h"
 
 static NSString *const AWSInfoEC2 = @"EC2";
-NSString *const AWSEC2SDKVersion = @"2.26.0";
+NSString *const AWSEC2SDKVersion = @"2.26.1";
 
 
 @interface AWSEC2ResponseSerializer : AWSXMLResponseSerializer
@@ -8413,6 +8413,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2GetTransitGatewayRouteTablePropagationsResult *response, NSError *error))completionHandler {
     [[self getTransitGatewayRouteTablePropagations:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetTransitGatewayRouteTablePropagationsResult *> * _Nonnull task) {
         AWSEC2GetTransitGatewayRouteTablePropagationsResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2GetVpnConnectionDeviceSampleConfigurationResult *> *)getVpnConnectionDeviceSampleConfiguration:(AWSEC2GetVpnConnectionDeviceSampleConfigurationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetVpnConnectionDeviceSampleConfiguration"
+                   outputClass:[AWSEC2GetVpnConnectionDeviceSampleConfigurationResult class]];
+}
+
+- (void)getVpnConnectionDeviceSampleConfiguration:(AWSEC2GetVpnConnectionDeviceSampleConfigurationRequest *)request
+     completionHandler:(void (^)(AWSEC2GetVpnConnectionDeviceSampleConfigurationResult *response, NSError *error))completionHandler {
+    [[self getVpnConnectionDeviceSampleConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetVpnConnectionDeviceSampleConfigurationResult *> * _Nonnull task) {
+        AWSEC2GetVpnConnectionDeviceSampleConfigurationResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2GetVpnConnectionDeviceTypesResult *> *)getVpnConnectionDeviceTypes:(AWSEC2GetVpnConnectionDeviceTypesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetVpnConnectionDeviceTypes"
+                   outputClass:[AWSEC2GetVpnConnectionDeviceTypesResult class]];
+}
+
+- (void)getVpnConnectionDeviceTypes:(AWSEC2GetVpnConnectionDeviceTypesRequest *)request
+     completionHandler:(void (^)(AWSEC2GetVpnConnectionDeviceTypesResult *response, NSError *error))completionHandler {
+    [[self getVpnConnectionDeviceTypes:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetVpnConnectionDeviceTypesResult *> * _Nonnull task) {
+        AWSEC2GetVpnConnectionDeviceTypesResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

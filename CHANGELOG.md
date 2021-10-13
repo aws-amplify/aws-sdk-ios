@@ -2,16 +2,51 @@
 
 ## Unreleased
 
--Features for next release
+### Bug Fixes
 
-- **Build**
-  - Defines NS_BLOCK_ASSERTIONS and NDEBUG for Release builds 
+- **AWSCore**
+  - Handle special characters in AWSSignatureV4Signer (See [PR #3763](https://github.com/aws-amplify/aws-sdk-ios/pull/3763))
+  
+- **AWSS3**
+  - Saving relative path of files in the DB to avoid issues arising with sandbox path changing after app restarts. [PR #3794](https://github.com/aws-amplify/aws-sdk-ios/pull/3794)
+  - Makes `propagateHeaderInformation:requestHeaders:` function public [PR #3720](https://github.com/aws-amplify/aws-sdk-ios/pull/3720)
+  - Makes transferUtilityConfiguration public as read-only so properties like bucket can be accessed [PR #3789](https://github.com/aws-amplify/aws-sdk-ios/pull/3789)
+
+## 2.26.1
+
+### Misc. Updates
+
+- Support Xcode 13.0.0 for CircleCI build ([PR #3803](https://github.com/aws-amplify/aws-sdk-ios/pull/3803))
+
+### Bug Fixes
+
+- **Core**
+  - Defines NS_BLOCK_ASSERTIONS and NDEBUG for Release builds  ([PR #3787](https://github.com/aws-amplify/aws-sdk-ios/pull/3787))
 
 - **AWSS3**
-  - Makes transferUtilityConfiguration public as read-only so properties like bucket can be accessed.
+  
   - Rewrite of method which creates partial files for multipart upload process
   - Adds test coverage for new code
 
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSChimeSDKMessaging
+  - AWSCloudWatchLogs
+  - AWSComprehend
+  - AWSConnect
+  - AWSEC2
+  - AWSElasticLoadBalancingv2
+  - AWSFirehose
+  - AWSIoTDataPlane
+  - AWSKMS
+  - AWSLambda
+  - AWSPinpoint
+  - AWSPolly
+  - AWSSageMakerRuntime
+  - AWSS!S
+  - AWSTranscribe
+  
 ## 2.26.0
 
 ### New Features
