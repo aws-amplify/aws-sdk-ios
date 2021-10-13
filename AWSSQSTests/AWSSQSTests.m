@@ -74,11 +74,11 @@
     attributesRequest.queueUrl = @""; //queueURL is empty
     
     [[[sqs getQueueAttributes:attributesRequest] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error, @"expected InvalidAddress Error but got nil");
+        XCTAssertNotNil(task.error, @"expected AWSSQSErrorQueueDoesNotExist Error but got nil");
         XCTAssertEqualObjects(task.error.domain, AWSSQSErrorDomain);
-        XCTAssertEqual(task.error.code, AWSSQSErrorUnknown);
-        XCTAssertTrue([@"InvalidAddress" isEqualToString:task.error.userInfo[@"Code"]]);
-        XCTAssertTrue([@"The address  is not valid for this endpoint." isEqualToString:task.error.userInfo[@"Message"]]);
+        XCTAssertEqual(task.error.code, AWSSQSErrorQueueDoesNotExist);
+        XCTAssertTrue([@"AWS.SimpleQueueService.NonExistentQueue" isEqualToString:task.error.userInfo[@"Code"]]);
+        XCTAssertTrue([@"The specified queue does not exist for this wsdl version." isEqualToString:task.error.userInfo[@"Message"]]);
         return nil;
     }] waitUntilFinished];
 }

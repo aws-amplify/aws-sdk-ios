@@ -28,6 +28,7 @@ struct SigV4TestCase {
     let credentialsProvider: AWSCredentialsProvider
     let shouldSignBody: Bool
     let shouldSignSecurityToken: Bool
+    let serviceName: String
 
     // When we presign this original request
     let originalRequest: String
@@ -40,6 +41,18 @@ struct SigV4TestCase {
     let stringToSign: String
     let signature: String
 
+    internal init(testCaseName: String, credentialsProvider: AWSCredentialsProvider, shouldSignBody: Bool = false, shouldSignSecurityToken: Bool = false, serviceName: String = "service", originalRequest: String, expectedPresignedURL: String, canonicalRequest: String, stringToSign: String, signature: String) {
+        self.testCaseName = testCaseName
+        self.credentialsProvider = credentialsProvider
+        self.shouldSignBody = shouldSignBody
+        self.shouldSignSecurityToken = shouldSignSecurityToken
+        self.serviceName = serviceName
+        self.originalRequest = originalRequest
+        self.expectedPresignedURL = expectedPresignedURL
+        self.canonicalRequest = canonicalRequest
+        self.stringToSign = stringToSign
+        self.signature = signature
+    }
 }
 
 extension SigV4TestCase {

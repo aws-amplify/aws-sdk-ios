@@ -707,6 +707,9 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
         if ([value caseInsensitiveCompare:@"lambda"] == NSOrderedSame) {
             return @(AWSElasticLoadBalancingTargetTypeEnumLambda);
         }
+        if ([value caseInsensitiveCompare:@"alb"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingTargetTypeEnumAlb);
+        }
         return @(AWSElasticLoadBalancingTargetTypeEnumUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -716,6 +719,8 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
                 return @"ip";
             case AWSElasticLoadBalancingTargetTypeEnumLambda:
                 return @"lambda";
+            case AWSElasticLoadBalancingTargetTypeEnumAlb:
+                return @"alb";
             default:
                 return nil;
         }
@@ -2617,6 +2622,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"lambda"] == NSOrderedSame) {
             return @(AWSElasticLoadBalancingTargetTypeEnumLambda);
         }
+        if ([value caseInsensitiveCompare:@"alb"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingTargetTypeEnumAlb);
+        }
         return @(AWSElasticLoadBalancingTargetTypeEnumUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2626,6 +2634,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"ip";
             case AWSElasticLoadBalancingTargetTypeEnumLambda:
                 return @"lambda";
+            case AWSElasticLoadBalancingTargetTypeEnumAlb:
+                return @"alb";
             default:
                 return nil;
         }

@@ -5535,6 +5535,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"contentIdentificationType" : @"ContentIdentificationType",
+             @"KMSEncryptionContext" : @"KMSEncryptionContext",
              @"languageCode" : @"LanguageCode",
              @"media" : @"Media",
              @"mediaFormat" : @"MediaFormat",
@@ -5903,6 +5904,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
              @"contentRedaction" : @"ContentRedaction",
              @"identifyLanguage" : @"IdentifyLanguage",
              @"jobExecutionSettings" : @"JobExecutionSettings",
+             @"KMSEncryptionContext" : @"KMSEncryptionContext",
              @"languageCode" : @"LanguageCode",
              @"languageOptions" : @"LanguageOptions",
              @"media" : @"Media",
@@ -5913,6 +5915,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
              @"outputEncryptionKMSKeyId" : @"OutputEncryptionKMSKeyId",
              @"outputKey" : @"OutputKey",
              @"settings" : @"Settings",
+             @"subtitles" : @"Subtitles",
              @"tags" : @"Tags",
              @"transcriptionJobName" : @"TranscriptionJobName",
              };
@@ -6195,6 +6198,10 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranscribeSettings class]];
 }
 
++ (NSValueTransformer *)subtitlesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranscribeSubtitles class]];
+}
+
 + (NSValueTransformer *)tagsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTranscribeTag class]];
 }
@@ -6215,6 +6222,35 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 
 + (NSValueTransformer *)transcriptionJobJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranscribeTranscriptionJob class]];
+}
+
+@end
+
+@implementation AWSTranscribeSubtitles
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"formats" : @"Formats",
+             };
+}
+
+@end
+
+@implementation AWSTranscribeSubtitlesOutput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"formats" : @"Formats",
+             @"subtitleFileUris" : @"SubtitleFileUris",
+             };
 }
 
 @end
@@ -6363,6 +6399,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
              @"modelSettings" : @"ModelSettings",
              @"settings" : @"Settings",
              @"startTime" : @"StartTime",
+             @"subtitles" : @"Subtitles",
              @"tags" : @"Tags",
              @"transcript" : @"Transcript",
              @"transcriptionJobName" : @"TranscriptionJobName",
@@ -6669,6 +6706,10 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
++ (NSValueTransformer *)subtitlesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranscribeSubtitlesOutput class]];
 }
 
 + (NSValueTransformer *)tagsJSONTransformer {
