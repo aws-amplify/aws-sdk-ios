@@ -9,6 +9,7 @@
   
 - **AWSS3**
   - Saving relative path of files in the DB to avoid issues arising with sandbox path changing after app restarts. [PR #3794](https://github.com/aws-amplify/aws-sdk-ios/pull/3794)
+  - Makes `propagateHeaderInformation:requestHeaders:` function public [PR #3720](https://github.com/aws-amplify/aws-sdk-ios/pull/3720)
 
 ## 2.26.1
 
