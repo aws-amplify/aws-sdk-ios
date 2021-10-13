@@ -835,6 +835,21 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
             }
             break;
         }
+
+        // move suspended tasks from in progress to waiting to allow multipart upload process to run properly
+        NSMutableArray *inProgressAndSuspendedTasks = @[].mutableCopy;
+
+        for (AWSS3TransferUtilityUploadSubTask *aSubTask in multiPartUploadTask.inProgressPartsDictionary.allValues) {
+            if (aSubTask.sessionTask.state == NSURLSessionTaskStateSuspended) {
+                AWSDDLogDebug(@"Subtask for multipart upload is suspended: %ld", aSubTask.taskIdentifier);
+                [inProgressAndSuspendedTasks addObject:aSubTask];
+            }
+        }
+
+        for (AWSS3TransferUtilityUploadSubTask *aSubTask in inProgressAndSuspendedTasks) {
+            [multiPartUploadTask.inProgressPartsDictionary removeObjectForKey:@(aSubTask.taskIdentifier)];
+            [multiPartUploadTask.waitingPartsDictionary setObject:aSubTask forKey:@(aSubTask.taskIdentifier)];
+        }
     }
 }
 
