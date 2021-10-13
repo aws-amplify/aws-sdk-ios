@@ -9,6 +9,7 @@
   
 - **AWSS3**
   - Saving relative path of files in the DB to avoid issues arising with sandbox path changing after app restarts. [PR #3794](https://github.com/aws-amplify/aws-sdk-ios/pull/3794)
+  - Moves suspended tasks from in progress dictionary to waiting dictionary during recovery process [PR #3818](https://github.com/aws-amplify/aws-sdk-ios/pull/3818)
 
 ## 2.26.1
 
