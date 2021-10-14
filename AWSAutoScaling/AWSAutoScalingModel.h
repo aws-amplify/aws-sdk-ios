@@ -691,6 +691,11 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable autoScalingGroupNames;
 
 /**
+ <p>One or more filters to limit the results based on specific tags. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSAutoScalingFilter *> * _Nullable filters;
+
+/**
  <p>The maximum number of items to return with this call. The default value is <code>50</code> and the maximum value is <code>100</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxRecords;
@@ -1129,7 +1134,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable classicLinkVPCSecurityGroups;
 
 /**
- <p>Specifies whether the launch configuration is optimized for EBS I/O (<code>true</code>) or not (<code>false</code>). The optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization is not available with all instance types. Additional fees are incurred when you enable EBS optimization for an instance type that is not EBS-optimized by default. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon EBS-Optimized Instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p><p>The default value is <code>false</code>.</p>
+ <p>Specifies whether the launch configuration is optimized for EBS I/O (<code>true</code>) or not (<code>false</code>). The optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization is not available with all instance types. Additional fees are incurred when you enable EBS optimization for an instance type that is not EBS-optimized by default. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon EBS-optimized instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p><p>The default value is <code>false</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable ebsOptimized;
 
@@ -2019,7 +2024,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable deleteOnTermination;
 
 /**
- <p>Specifies whether the volume should be encrypted. Encrypted EBS volumes can only be attached to instances that support Amazon EBS encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported Instance Types</a>. If your AMI uses encrypted volumes, you can also only launch it on supported instance types.</p><note><p>If you are creating a volume from a snapshot, you cannot specify an encryption value. Volumes that are created from encrypted snapshots are automatically encrypted, and volumes that are created from unencrypted snapshots are automatically unencrypted. By default, encrypted snapshots use the Amazon Web Services managed CMK that is used for EBS encryption, but you can specify a custom CMK when you create the snapshot. The ability to encrypt a snapshot during copying also allows you to apply a new CMK to an already-encrypted snapshot. Volumes restored from the resulting copy are only accessible using the new CMK.</p><p>Enabling <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default">encryption by default</a> results in all EBS volumes being encrypted with the Amazon Web Services managed CMK or a customer managed CMK, whether or not the snapshot was encrypted.</p></note><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Using Encryption with EBS-Backed AMIs</a> in the <i>Amazon EC2 User Guide for Linux Instances</i> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/key-policy-requirements-EBS-encryption.html">Required CMK key policy for use with encrypted volumes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Specifies whether the volume should be encrypted. Encrypted EBS volumes can only be attached to instances that support Amazon EBS encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported instance types</a>. If your AMI uses encrypted volumes, you can also only launch it on supported instance types.</p><note><p>If you are creating a volume from a snapshot, you cannot create an unencrypted volume from an encrypted snapshot. Also, you cannot specify a KMS key ID when using a launch configuration.</p><p>If you enable encryption by default, the EBS volumes that you create are always encrypted, either using the Amazon Web Services managed KMS key or a customer-managed KMS key, regardless of whether the snapshot was encrypted. </p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-data-protection.html#encryption">Using Amazon Web Services KMS keys to encrypt Amazon EBS volumes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p></note>
  */
 @property (nonatomic, strong) NSNumber * _Nullable encrypted;
 
@@ -2044,7 +2049,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable volumeSize;
 
 /**
- <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p><p>Valid Values: <code>standard</code> | <code>io1</code> | <code>gp2</code> | <code>st1</code> | <code>sc1</code> | <code>gp3</code></p>
+ <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p><p>Valid Values: <code>standard</code> | <code>io1</code> | <code>gp2</code> | <code>st1</code> | <code>sc1</code> | <code>gp3</code></p>
  */
 @property (nonatomic, strong) NSString * _Nullable volumeType;
 
@@ -2216,18 +2221,18 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @end
 
 /**
- <p>Describes a filter that is used to return a more specific list of results when describing tags.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html">Tagging Auto Scaling groups and instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Describes a filter that is used to return a more specific list of results from a describe operation.</p><p>If you specify multiple filters, the filters are joined with an <code>AND</code>, and the request returns only results that match all of the specified filters. </p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html">Tagging Auto Scaling groups and instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
 @interface AWSAutoScalingFilter : AWSModel
 
 
 /**
- <p>The name of the filter. The valid values are: <code>auto-scaling-group</code>, <code>key</code>, <code>value</code>, and <code>propagate-at-launch</code>.</p>
+ <p>The name of the filter.</p><p>The valid values for <code>Name</code> depend on the API operation that you are including the filter in, <a>DescribeAutoScalingGroups</a> or <a>DescribeTags</a>.</p><p><b>DescribeAutoScalingGroups</b></p><p>Valid values for <code>Name</code> include the following: </p><ul><li><p><code>tag-key</code> - Accepts tag keys. The results will only include information about the Auto Scaling groups associated with these tag keys. </p></li><li><p><code>tag-value</code> - Accepts tag values. The results will only include information about the Auto Scaling groups associated with these tag values. </p></li><li><p><code>tag:&lt;key&gt;</code> - Accepts the key/value combination of the tag. Use the tag key in the filter name and the tag value as the filter value. The results will only include information about the Auto Scaling groups associated with the specified key/value combination. </p></li></ul><p><b>DescribeTags</b></p><p>Valid values for <code>Name</code> include the following: </p><ul><li><p><code>auto-scaling-group</code> - Accepts the names of Auto Scaling groups. The results will only include information about the tags associated with these Auto Scaling groups. </p></li><li><p><code>key</code> - Accepts tag keys. The results will only include information about the tags associated with these tag keys. </p></li><li><p><code>value</code> - Accepts tag values. The results will only include information about the tags associated with these tag values. </p></li><li><p><code>propagate-at-launch</code> - Accepts a boolean value, which specifies whether tags propagate to instances at launch. The results will only include information about the tags associated with the specified boolean value. </p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>One or more filter values. Filter values are case-sensitive.</p>
+ <p>One or more filter values. Filter values are case-sensitive. </p><p>If you specify multiple values for a filter, the values are joined with an <code>OR</code>, and the request returns all results that match any of the specified values. For example, specify "tag:environment" for the filter name and "production,development" for the filter values to find Auto Scaling groups with the tag "environment=production" or "environment=development".</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable values;
 
