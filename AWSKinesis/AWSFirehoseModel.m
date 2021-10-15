@@ -18,6 +18,329 @@
 
 NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain";
 
+@implementation AWSFirehoseAmazonopensearchserviceBufferingHints
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"intervalInSeconds" : @"IntervalInSeconds",
+             @"sizeInMBs" : @"SizeInMBs",
+             };
+}
+
+@end
+
+@implementation AWSFirehoseAmazonopensearchserviceDestinationConfiguration
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"bufferingHints" : @"BufferingHints",
+             @"cloudWatchLoggingOptions" : @"CloudWatchLoggingOptions",
+             @"clusterEndpoint" : @"ClusterEndpoint",
+             @"domainARN" : @"DomainARN",
+             @"indexName" : @"IndexName",
+             @"indexRotationPeriod" : @"IndexRotationPeriod",
+             @"processingConfiguration" : @"ProcessingConfiguration",
+             @"retryOptions" : @"RetryOptions",
+             @"roleARN" : @"RoleARN",
+             @"s3BackupMode" : @"S3BackupMode",
+             @"s3Configuration" : @"S3Configuration",
+             @"typeName" : @"TypeName",
+             @"vpcConfiguration" : @"VpcConfiguration",
+             };
+}
+
++ (NSValueTransformer *)bufferingHintsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseAmazonopensearchserviceBufferingHints class]];
+}
+
++ (NSValueTransformer *)cloudWatchLoggingOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseCloudWatchLoggingOptions class]];
+}
+
++ (NSValueTransformer *)indexRotationPeriodJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"NoRotation"] == NSOrderedSame) {
+            return @(AWSFirehoseAmazonopensearchserviceIndexRotationPeriodNoRotation);
+        }
+        if ([value caseInsensitiveCompare:@"OneHour"] == NSOrderedSame) {
+            return @(AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneHour);
+        }
+        if ([value caseInsensitiveCompare:@"OneDay"] == NSOrderedSame) {
+            return @(AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneDay);
+        }
+        if ([value caseInsensitiveCompare:@"OneWeek"] == NSOrderedSame) {
+            return @(AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneWeek);
+        }
+        if ([value caseInsensitiveCompare:@"OneMonth"] == NSOrderedSame) {
+            return @(AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneMonth);
+        }
+        return @(AWSFirehoseAmazonopensearchserviceIndexRotationPeriodUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSFirehoseAmazonopensearchserviceIndexRotationPeriodNoRotation:
+                return @"NoRotation";
+            case AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneHour:
+                return @"OneHour";
+            case AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneDay:
+                return @"OneDay";
+            case AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneWeek:
+                return @"OneWeek";
+            case AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneMonth:
+                return @"OneMonth";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)processingConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseProcessingConfiguration class]];
+}
+
++ (NSValueTransformer *)retryOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseAmazonopensearchserviceRetryOptions class]];
+}
+
++ (NSValueTransformer *)s3BackupModeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"FailedDocumentsOnly"] == NSOrderedSame) {
+            return @(AWSFirehoseAmazonopensearchserviceS3BackupModeFailedDocumentsOnly);
+        }
+        if ([value caseInsensitiveCompare:@"AllDocuments"] == NSOrderedSame) {
+            return @(AWSFirehoseAmazonopensearchserviceS3BackupModeAllDocuments);
+        }
+        return @(AWSFirehoseAmazonopensearchserviceS3BackupModeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSFirehoseAmazonopensearchserviceS3BackupModeFailedDocumentsOnly:
+                return @"FailedDocumentsOnly";
+            case AWSFirehoseAmazonopensearchserviceS3BackupModeAllDocuments:
+                return @"AllDocuments";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)s3ConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseS3DestinationConfiguration class]];
+}
+
++ (NSValueTransformer *)vpcConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseVpcConfiguration class]];
+}
+
+@end
+
+@implementation AWSFirehoseAmazonopensearchserviceDestinationDescription
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"bufferingHints" : @"BufferingHints",
+             @"cloudWatchLoggingOptions" : @"CloudWatchLoggingOptions",
+             @"clusterEndpoint" : @"ClusterEndpoint",
+             @"domainARN" : @"DomainARN",
+             @"indexName" : @"IndexName",
+             @"indexRotationPeriod" : @"IndexRotationPeriod",
+             @"processingConfiguration" : @"ProcessingConfiguration",
+             @"retryOptions" : @"RetryOptions",
+             @"roleARN" : @"RoleARN",
+             @"s3BackupMode" : @"S3BackupMode",
+             @"s3DestinationDescription" : @"S3DestinationDescription",
+             @"typeName" : @"TypeName",
+             @"vpcConfigurationDescription" : @"VpcConfigurationDescription",
+             };
+}
+
++ (NSValueTransformer *)bufferingHintsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseAmazonopensearchserviceBufferingHints class]];
+}
+
++ (NSValueTransformer *)cloudWatchLoggingOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseCloudWatchLoggingOptions class]];
+}
+
++ (NSValueTransformer *)indexRotationPeriodJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"NoRotation"] == NSOrderedSame) {
+            return @(AWSFirehoseAmazonopensearchserviceIndexRotationPeriodNoRotation);
+        }
+        if ([value caseInsensitiveCompare:@"OneHour"] == NSOrderedSame) {
+            return @(AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneHour);
+        }
+        if ([value caseInsensitiveCompare:@"OneDay"] == NSOrderedSame) {
+            return @(AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneDay);
+        }
+        if ([value caseInsensitiveCompare:@"OneWeek"] == NSOrderedSame) {
+            return @(AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneWeek);
+        }
+        if ([value caseInsensitiveCompare:@"OneMonth"] == NSOrderedSame) {
+            return @(AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneMonth);
+        }
+        return @(AWSFirehoseAmazonopensearchserviceIndexRotationPeriodUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSFirehoseAmazonopensearchserviceIndexRotationPeriodNoRotation:
+                return @"NoRotation";
+            case AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneHour:
+                return @"OneHour";
+            case AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneDay:
+                return @"OneDay";
+            case AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneWeek:
+                return @"OneWeek";
+            case AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneMonth:
+                return @"OneMonth";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)processingConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseProcessingConfiguration class]];
+}
+
++ (NSValueTransformer *)retryOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseAmazonopensearchserviceRetryOptions class]];
+}
+
++ (NSValueTransformer *)s3BackupModeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"FailedDocumentsOnly"] == NSOrderedSame) {
+            return @(AWSFirehoseAmazonopensearchserviceS3BackupModeFailedDocumentsOnly);
+        }
+        if ([value caseInsensitiveCompare:@"AllDocuments"] == NSOrderedSame) {
+            return @(AWSFirehoseAmazonopensearchserviceS3BackupModeAllDocuments);
+        }
+        return @(AWSFirehoseAmazonopensearchserviceS3BackupModeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSFirehoseAmazonopensearchserviceS3BackupModeFailedDocumentsOnly:
+                return @"FailedDocumentsOnly";
+            case AWSFirehoseAmazonopensearchserviceS3BackupModeAllDocuments:
+                return @"AllDocuments";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)s3DestinationDescriptionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseS3DestinationDescription class]];
+}
+
++ (NSValueTransformer *)vpcConfigurationDescriptionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseVpcConfigurationDescription class]];
+}
+
+@end
+
+@implementation AWSFirehoseAmazonopensearchserviceDestinationUpdate
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"bufferingHints" : @"BufferingHints",
+             @"cloudWatchLoggingOptions" : @"CloudWatchLoggingOptions",
+             @"clusterEndpoint" : @"ClusterEndpoint",
+             @"domainARN" : @"DomainARN",
+             @"indexName" : @"IndexName",
+             @"indexRotationPeriod" : @"IndexRotationPeriod",
+             @"processingConfiguration" : @"ProcessingConfiguration",
+             @"retryOptions" : @"RetryOptions",
+             @"roleARN" : @"RoleARN",
+             @"s3Update" : @"S3Update",
+             @"typeName" : @"TypeName",
+             };
+}
+
++ (NSValueTransformer *)bufferingHintsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseAmazonopensearchserviceBufferingHints class]];
+}
+
++ (NSValueTransformer *)cloudWatchLoggingOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseCloudWatchLoggingOptions class]];
+}
+
++ (NSValueTransformer *)indexRotationPeriodJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"NoRotation"] == NSOrderedSame) {
+            return @(AWSFirehoseAmazonopensearchserviceIndexRotationPeriodNoRotation);
+        }
+        if ([value caseInsensitiveCompare:@"OneHour"] == NSOrderedSame) {
+            return @(AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneHour);
+        }
+        if ([value caseInsensitiveCompare:@"OneDay"] == NSOrderedSame) {
+            return @(AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneDay);
+        }
+        if ([value caseInsensitiveCompare:@"OneWeek"] == NSOrderedSame) {
+            return @(AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneWeek);
+        }
+        if ([value caseInsensitiveCompare:@"OneMonth"] == NSOrderedSame) {
+            return @(AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneMonth);
+        }
+        return @(AWSFirehoseAmazonopensearchserviceIndexRotationPeriodUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSFirehoseAmazonopensearchserviceIndexRotationPeriodNoRotation:
+                return @"NoRotation";
+            case AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneHour:
+                return @"OneHour";
+            case AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneDay:
+                return @"OneDay";
+            case AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneWeek:
+                return @"OneWeek";
+            case AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneMonth:
+                return @"OneMonth";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)processingConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseProcessingConfiguration class]];
+}
+
++ (NSValueTransformer *)retryOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseAmazonopensearchserviceRetryOptions class]];
+}
+
++ (NSValueTransformer *)s3UpdateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseS3DestinationUpdate class]];
+}
+
+@end
+
+@implementation AWSFirehoseAmazonopensearchserviceRetryOptions
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"durationInSeconds" : @"DurationInSeconds",
+             };
+}
+
+@end
+
 @implementation AWSFirehoseBufferingHints
 
 + (BOOL)supportsSecureCoding {
@@ -73,6 +396,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"amazonopensearchserviceDestinationConfiguration" : @"AmazonopensearchserviceDestinationConfiguration",
              @"deliveryStreamEncryptionConfigurationInput" : @"DeliveryStreamEncryptionConfigurationInput",
              @"deliveryStreamName" : @"DeliveryStreamName",
              @"deliveryStreamType" : @"DeliveryStreamType",
@@ -85,6 +409,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"splunkDestinationConfiguration" : @"SplunkDestinationConfiguration",
              @"tags" : @"Tags",
              };
+}
+
++ (NSValueTransformer *)amazonopensearchserviceDestinationConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseAmazonopensearchserviceDestinationConfiguration class]];
 }
 
 + (NSValueTransformer *)deliveryStreamEncryptionConfigurationInputJSONTransformer {
@@ -510,6 +838,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"amazonopensearchserviceDestinationDescription" : @"AmazonopensearchserviceDestinationDescription",
              @"destinationId" : @"DestinationId",
              @"elasticsearchDestinationDescription" : @"ElasticsearchDestinationDescription",
              @"extendedS3DestinationDescription" : @"ExtendedS3DestinationDescription",
@@ -518,6 +847,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"s3DestinationDescription" : @"S3DestinationDescription",
              @"splunkDestinationDescription" : @"SplunkDestinationDescription",
              };
+}
+
++ (NSValueTransformer *)amazonopensearchserviceDestinationDescriptionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseAmazonopensearchserviceDestinationDescription class]];
 }
 
 + (NSValueTransformer *)elasticsearchDestinationDescriptionJSONTransformer {
@@ -3147,6 +3480,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"amazonopensearchserviceDestinationUpdate" : @"AmazonopensearchserviceDestinationUpdate",
              @"currentDeliveryStreamVersionId" : @"CurrentDeliveryStreamVersionId",
              @"deliveryStreamName" : @"DeliveryStreamName",
              @"destinationId" : @"DestinationId",
@@ -3157,6 +3491,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"s3DestinationUpdate" : @"S3DestinationUpdate",
              @"splunkDestinationUpdate" : @"SplunkDestinationUpdate",
              };
+}
+
++ (NSValueTransformer *)amazonopensearchserviceDestinationUpdateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseAmazonopensearchserviceDestinationUpdate class]];
 }
 
 + (NSValueTransformer *)elasticsearchDestinationUpdateJSONTransformer {
