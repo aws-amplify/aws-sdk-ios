@@ -2,9 +2,7 @@
 
 ## Unreleased
 
-** AWSIoT **
 
-- Adds support to read settings from `awsconfiguration.json` [PR #3815](https://github.com/aws-amplify/aws-sdk-ios/pull/3815)
 
 ### Bug Fixes
 
@@ -17,14 +15,17 @@
   - Makes transferUtilityConfiguration public as read-only so properties like bucket can be accessed [PR #3789](https://github.com/aws-amplify/aws-sdk-ios/pull/3789)
   - Moves suspended tasks from in progress dictionary to waiting dictionary during recovery process [PR #3818](https://github.com/aws-amplify/aws-sdk-ios/pull/3818)
 
-- ** AWSIoT **
+- **AWSIoT**
   - Fixes crash caused by a race condition in IoT [PR #3823](https://github.com/aws-amplify/aws-sdk-ios/pull/3823)
-
-## 2.26.1
 
 ### Misc. Updates
 
 - Support Xcode 13.0.0 for CircleCI build ([PR #3803](https://github.com/aws-amplify/aws-sdk-ios/pull/3803))
+
+- **AWSIoT**
+  - Adds support to read settings from `awsconfiguration.json` [PR #3815](https://github.com/aws-amplify/aws-sdk-ios/pull/3815)
+
+## 2.26.1
 
 ### Bug Fixes
 
