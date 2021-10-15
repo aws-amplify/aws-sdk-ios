@@ -1615,6 +1615,10 @@
         \"PageSize\":{\
           \"shape\":\"PageSize\",\
           \"documentation\":\"<p>The maximum number of results to return with this call.</p>\"\
+        },\
+        \"LoadBalancerType\":{\
+          \"shape\":\"LoadBalancerTypeEnum\",\
+          \"documentation\":\"<p> The type of load balancer. The default lists the SSL policies for all load balancers.</p>\"\
         }\
       }\
     },\
@@ -2932,6 +2936,10 @@
         \"Name\":{\
           \"shape\":\"SslPolicyName\",\
           \"documentation\":\"<p>The name of the policy.</p>\"\
+        },\
+        \"SupportedLoadBalancerTypes\":{\
+          \"shape\":\"ListOfString\",\
+          \"documentation\":\"<p> The supported load balancers. </p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about a policy used for SSL negotiation.</p>\"\

@@ -1200,6 +1200,11 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 
 
 /**
+ <p> The type of load balancer. The default lists the SSL policies for all load balancers.</p>
+ */
+@property (nonatomic, assign) AWSElasticLoadBalancingLoadBalancerTypeEnum loadBalancerType;
+
+/**
  <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
  */
 @property (nonatomic, strong) NSString * _Nullable marker;
@@ -2327,6 +2332,11 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
  <p>The protocols.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable sslProtocols;
+
+/**
+ <p> The supported load balancers. </p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable supportedLoadBalancerTypes;
 
 @end
 

@@ -1101,10 +1101,37 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"loadBalancerType" : @"LoadBalancerType",
              @"marker" : @"Marker",
              @"names" : @"Names",
              @"pageSize" : @"PageSize",
              };
+}
+
++ (NSValueTransformer *)loadBalancerTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"application"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingLoadBalancerTypeEnumApplication);
+        }
+        if ([value caseInsensitiveCompare:@"network"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingLoadBalancerTypeEnumNetwork);
+        }
+        if ([value caseInsensitiveCompare:@"gateway"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingLoadBalancerTypeEnumGateway);
+        }
+        return @(AWSElasticLoadBalancingLoadBalancerTypeEnumUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSElasticLoadBalancingLoadBalancerTypeEnumApplication:
+                return @"application";
+            case AWSElasticLoadBalancingLoadBalancerTypeEnumNetwork:
+                return @"network";
+            case AWSElasticLoadBalancingLoadBalancerTypeEnumGateway:
+                return @"gateway";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -2433,6 +2460,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"ciphers" : @"Ciphers",
              @"name" : @"Name",
              @"sslProtocols" : @"SslProtocols",
+             @"supportedLoadBalancerTypes" : @"SupportedLoadBalancerTypes",
              };
 }
 
