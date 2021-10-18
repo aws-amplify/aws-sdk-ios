@@ -58,7 +58,7 @@
   - AWSPinpoint
   - AWSPolly
   - AWSSageMakerRuntime
-  - AWSS!S
+  - AWSSQS
   - AWSTranscribe
   
 ## 2.26.0
