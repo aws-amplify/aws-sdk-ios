@@ -20,6 +20,8 @@
 
 static NSString *const AWSInfoIoTManager = @"IoTManager";
 
+static NSString *const AWSIoTEndpoint = @"Endpoint";
+
 @interface AWSIoT()
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration;
@@ -50,7 +52,18 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     dispatch_once(&onceToken, ^{
         AWSServiceConfiguration *serviceConfiguration = nil;
         AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] defaultServiceInfo:AWSInfoIoTManager];
-        if (serviceInfo) {
+
+        AWSEndpoint *endpoint = nil;
+        NSString *endpointURLString = [serviceInfo.infoDictionary objectForKey:AWSIoTEndpoint];
+        if (endpointURLString) {
+            endpoint = [[AWSEndpoint alloc] initWithURLString:endpointURLString];
+        }
+
+        if (serviceInfo && endpoint) {
+            serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
+                                                                          endpoint:endpoint
+                                                               credentialsProvider:serviceInfo.cognitoCredentialsProvider];
+        } else if (serviceInfo) {
             serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
                                                                credentialsProvider:serviceInfo.cognitoCredentialsProvider];
         }

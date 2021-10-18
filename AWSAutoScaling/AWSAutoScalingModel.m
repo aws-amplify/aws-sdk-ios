@@ -346,9 +346,14 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingGroupNames" : @"AutoScalingGroupNames",
+             @"filters" : @"Filters",
              @"maxRecords" : @"MaxRecords",
              @"nextToken" : @"NextToken",
              };
+}
+
++ (NSValueTransformer *)filtersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAutoScalingFilter class]];
 }
 
 @end
