@@ -32,6 +32,21 @@ typedef NS_ENUM(NSInteger, AWSFirehoseErrorType) {
     AWSFirehoseErrorServiceUnavailable,
 };
 
+typedef NS_ENUM(NSInteger, AWSFirehoseAmazonopensearchserviceIndexRotationPeriod) {
+    AWSFirehoseAmazonopensearchserviceIndexRotationPeriodUnknown,
+    AWSFirehoseAmazonopensearchserviceIndexRotationPeriodNoRotation,
+    AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneHour,
+    AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneDay,
+    AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneWeek,
+    AWSFirehoseAmazonopensearchserviceIndexRotationPeriodOneMonth,
+};
+
+typedef NS_ENUM(NSInteger, AWSFirehoseAmazonopensearchserviceS3BackupMode) {
+    AWSFirehoseAmazonopensearchserviceS3BackupModeUnknown,
+    AWSFirehoseAmazonopensearchserviceS3BackupModeFailedDocumentsOnly,
+    AWSFirehoseAmazonopensearchserviceS3BackupModeAllDocuments,
+};
+
 typedef NS_ENUM(NSInteger, AWSFirehoseCompressionFormat) {
     AWSFirehoseCompressionFormatUnknown,
     AWSFirehoseCompressionFormatUncompressed,
@@ -194,6 +209,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
     AWSFirehoseSplunkS3BackupModeAllEvents,
 };
 
+@class AWSFirehoseAmazonopensearchserviceBufferingHints;
+@class AWSFirehoseAmazonopensearchserviceDestinationConfiguration;
+@class AWSFirehoseAmazonopensearchserviceDestinationDescription;
+@class AWSFirehoseAmazonopensearchserviceDestinationUpdate;
+@class AWSFirehoseAmazonopensearchserviceRetryOptions;
 @class AWSFirehoseBufferingHints;
 @class AWSFirehoseCloudWatchLoggingOptions;
 @class AWSFirehoseReplicateCommand;
@@ -281,6 +301,246 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @class AWSFirehoseVpcConfigurationDescription;
 
 /**
+ 
+ */
+@interface AWSFirehoseAmazonopensearchserviceBufferingHints : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable intervalInSeconds;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable sizeInMBs;
+
+@end
+
+/**
+ 
+ */
+@interface AWSFirehoseAmazonopensearchserviceDestinationConfiguration : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSFirehoseAmazonopensearchserviceBufferingHints * _Nullable bufferingHints;
+
+/**
+ <p>Describes the Amazon CloudWatch logging options for your delivery stream.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions * _Nullable cloudWatchLoggingOptions;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable clusterEndpoint;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable domainARN;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSFirehoseAmazonopensearchserviceIndexRotationPeriod indexRotationPeriod;
+
+/**
+ <p>Describes a data processing configuration.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseProcessingConfiguration * _Nullable processingConfiguration;
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSFirehoseAmazonopensearchserviceRetryOptions * _Nullable retryOptions;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable roleARN;
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSFirehoseAmazonopensearchserviceS3BackupMode s3BackupMode;
+
+/**
+ <p>Describes the configuration of a destination in Amazon S3.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseS3DestinationConfiguration * _Nullable s3Configuration;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable typeName;
+
+/**
+ <p>The details of the VPC of the Amazon ES destination.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseVpcConfiguration * _Nullable vpcConfiguration;
+
+@end
+
+/**
+ 
+ */
+@interface AWSFirehoseAmazonopensearchserviceDestinationDescription : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSFirehoseAmazonopensearchserviceBufferingHints * _Nullable bufferingHints;
+
+/**
+ <p>Describes the Amazon CloudWatch logging options for your delivery stream.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions * _Nullable cloudWatchLoggingOptions;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable clusterEndpoint;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable domainARN;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSFirehoseAmazonopensearchserviceIndexRotationPeriod indexRotationPeriod;
+
+/**
+ <p>Describes a data processing configuration.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseProcessingConfiguration * _Nullable processingConfiguration;
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSFirehoseAmazonopensearchserviceRetryOptions * _Nullable retryOptions;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable roleARN;
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSFirehoseAmazonopensearchserviceS3BackupMode s3BackupMode;
+
+/**
+ <p>Describes a destination in Amazon S3.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseS3DestinationDescription * _Nullable s3DestinationDescription;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable typeName;
+
+/**
+ <p>The details of the VPC of the Amazon ES destination.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseVpcConfigurationDescription * _Nullable vpcConfigurationDescription;
+
+@end
+
+/**
+ 
+ */
+@interface AWSFirehoseAmazonopensearchserviceDestinationUpdate : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSFirehoseAmazonopensearchserviceBufferingHints * _Nullable bufferingHints;
+
+/**
+ <p>Describes the Amazon CloudWatch logging options for your delivery stream.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions * _Nullable cloudWatchLoggingOptions;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable clusterEndpoint;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable domainARN;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSFirehoseAmazonopensearchserviceIndexRotationPeriod indexRotationPeriod;
+
+/**
+ <p>Describes a data processing configuration.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseProcessingConfiguration * _Nullable processingConfiguration;
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSFirehoseAmazonopensearchserviceRetryOptions * _Nullable retryOptions;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable roleARN;
+
+/**
+ <p>Describes an update for a destination in Amazon S3.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseS3DestinationUpdate * _Nullable s3Update;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable typeName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSFirehoseAmazonopensearchserviceRetryOptions : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable durationInSeconds;
+
+@end
+
+/**
  <p>Describes hints for the buffering to perform before delivering data to the destination. These options are treated as hints, and therefore Kinesis Data Firehose might choose to use different values when it is optimal. The <code>SizeInMBs</code> and <code>IntervalInSeconds</code> parameters are optional. However, if specify a value for one of them, you must also provide a value for the other.</p>
  */
 @interface AWSFirehoseBufferingHints : AWSModel
@@ -350,6 +610,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  */
 @interface AWSFirehoseCreateDeliveryStreamInput : AWSRequest
 
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSFirehoseAmazonopensearchserviceDestinationConfiguration * _Nullable amazonopensearchserviceDestinationConfiguration;
 
 /**
  <p>Used to specify the type and Amazon Resource Name (ARN) of the KMS key needed for Server-Side Encryption (SSE).</p>
@@ -651,6 +916,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  */
 @interface AWSFirehoseDestinationDescription : AWSModel
 
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSFirehoseAmazonopensearchserviceDestinationDescription * _Nullable amazonopensearchserviceDestinationDescription;
 
 /**
  <p>The ID of the destination.</p>
@@ -2665,6 +2935,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  */
 @interface AWSFirehoseUpdateDestinationInput : AWSRequest
 
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSFirehoseAmazonopensearchserviceDestinationUpdate * _Nullable amazonopensearchserviceDestinationUpdate;
 
 /**
  <p>Obtain this value from the <code>VersionId</code> result of <a>DeliveryStreamDescription</a>. This value is required, and helps the service perform conditional operations. For example, if there is an interleaving update and this value is null, then the update destination fails. After the update is successful, the <code>VersionId</code> value is updated. The service then performs a merge of the old configuration with the new configuration.</p>

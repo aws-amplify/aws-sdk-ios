@@ -18,6 +18,7 @@
 #import "AWSS3Service.h"
 #import "AWSS3TransferUtilityDatabaseHelper.h"
 #import "AWSS3TransferUtilityTasks.h"
+#import "AWSS3CreateMultipartUploadRequest+RequestHeaders.h"
 
 #import <AWSCore/AWSFMDB.h>
 #import <AWSCore/AWSSynchronizedMutableDictionary.h>
@@ -228,9 +229,6 @@ static int const AWSS3TransferUtilityMultiPartDefaultConcurrencyLimit = 5;
 @end
 
 @interface AWSS3TransferUtility (HeaderHelper)
--(void) propagateHeaderInformation: (AWSS3CreateMultipartUploadRequest *) uploadRequest
-                        expression: (AWSS3TransferUtilityMultiPartUploadExpression *) expression;
-
 -(void) filterAndAssignHeaders:(NSDictionary<NSString *, NSString *> *) requestHeaders
         getPresignedURLRequest:(AWSS3GetPreSignedURLRequest *) getPresignedURLRequest
                     URLRequest: (NSMutableURLRequest *) URLRequest;
@@ -835,6 +833,21 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
             }
             break;
         }
+
+        // move suspended tasks from in progress to waiting to allow multipart upload process to run properly
+        NSMutableArray *inProgressAndSuspendedTasks = @[].mutableCopy;
+
+        for (AWSS3TransferUtilityUploadSubTask *aSubTask in multiPartUploadTask.inProgressPartsDictionary.allValues) {
+            if (aSubTask.sessionTask.state == NSURLSessionTaskStateSuspended) {
+                AWSDDLogDebug(@"Subtask for multipart upload is suspended: %ld", aSubTask.taskIdentifier);
+                [inProgressAndSuspendedTasks addObject:aSubTask];
+            }
+        }
+
+        for (AWSS3TransferUtilityUploadSubTask *aSubTask in inProgressAndSuspendedTasks) {
+            [multiPartUploadTask.inProgressPartsDictionary removeObjectForKey:@(aSubTask.taskIdentifier)];
+            [multiPartUploadTask.waitingPartsDictionary setObject:aSubTask forKey:@(aSubTask.taskIdentifier)];
+        }
     }
 }
 
@@ -1327,7 +1340,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     uploadRequest.bucket = bucket;
     uploadRequest.key = key;
 
-    [self propagateHeaderInformation:uploadRequest expression:transferUtilityMultiPartUploadTask.expression];
+    [AWSS3CreateMultipartUploadRequest propagateHeaderInformation:uploadRequest requestHeaders:transferUtilityMultiPartUploadTask.expression.requestHeaders];
     
     //Initiate the multi part
     return [[self.s3 createMultipartUpload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
@@ -1600,7 +1613,8 @@ internalDictionaryToAddSubTaskTo: (NSMutableDictionary *) internalDictionaryToAd
 
     [[[self.preSignedURLBuilder getPreSignedURL:request] continueWithBlock:^id(AWSTask *task) {
         error = task.error;
-        if ( error ) {
+        if (error) {
+            AWSDDLogError(@"Error: %@", error);
             return nil;
         }
 

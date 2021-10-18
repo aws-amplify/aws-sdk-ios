@@ -1,11 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSKMS
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -17,12 +9,28 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   
 - **AWSS3**
   - Saving relative path of files in the DB to avoid issues arising with sandbox path changing after app restarts. [PR #3794](https://github.com/aws-amplify/aws-sdk-ios/pull/3794)
+  - Makes `propagateHeaderInformation:requestHeaders:` function public [PR #3720](https://github.com/aws-amplify/aws-sdk-ios/pull/3720)
+  - Makes transferUtilityConfiguration public as read-only so properties like bucket can be accessed [PR #3789](https://github.com/aws-amplify/aws-sdk-ios/pull/3789)
+  - Moves suspended tasks from in progress dictionary to waiting dictionary during recovery process [PR #3818](https://github.com/aws-amplify/aws-sdk-ios/pull/3818)
 
-## 2.26.1
+- **AWSIoT**
+  - Fixes crash caused by a race condition in IoT [PR #3823](https://github.com/aws-amplify/aws-sdk-ios/pull/3823)
 
 ### Misc. Updates
 
 - Support Xcode 13.0.0 for CircleCI build ([PR #3803](https://github.com/aws-amplify/aws-sdk-ios/pull/3803))
+
+- **AWSIoT**
+  - Adds support to read settings from `awsconfiguration.json` [PR #3815](https://github.com/aws-amplify/aws-sdk-ios/pull/3815)
+
+- Model updates for the following services
+  - AWSFirehose
+  - AWSElasticLoadBalancingv2
+  - AWSAutoScaling
+  - AWSLocation
+  - AWSKMS
+
+## 2.26.1
 
 ### Bug Fixes
 
@@ -30,7 +38,9 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - Defines NS_BLOCK_ASSERTIONS and NDEBUG for Release builds  ([PR #3787](https://github.com/aws-amplify/aws-sdk-ios/pull/3787))
 
 - **AWSS3**
-  - Rewrite of method which creates partial files for multipart upload process, add test coverage for new code ([PR #3786](https://github.com/aws-amplify/aws-sdk-ios/pull/3786))
+  
+  - Rewrite of method which creates partial files for multipart upload process
+  - Adds test coverage for new code
 
 ### Misc. Updates
 

@@ -18,6 +18,7 @@ class VersionBumper:
         "AWSCloudWatch",
         "AWSCognitoAuth",
         "AWSCognitoIdentityProvider",
+        "AWSCognitoIdentityProviderASF",
         "AWSComprehend",
         "AWSConnect",
         "AWSConnectParticipant",
