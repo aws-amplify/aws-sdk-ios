@@ -1,17 +1,6 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSElasticLoadBalancingv2
----AWSAutoScaling
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
-
-
 
 ### Bug Fixes
 
@@ -33,6 +22,11 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 
 - **AWSIoT**
   - Adds support to read settings from `awsconfiguration.json` [PR #3815](https://github.com/aws-amplify/aws-sdk-ios/pull/3815)
+
+- Model updates for the following services
+  - AWSFirehose
+  - AWSElasticLoadBalancingv2
+  - AWSAutoScaling
 
 ## 2.26.1
 
