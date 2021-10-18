@@ -1,11 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSLocation
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -35,6 +27,8 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSFirehose
   - AWSElasticLoadBalancingv2
   - AWSAutoScaling
+  - AWSLocation
+  - AWSKMS
 
 ## 2.26.1
 
