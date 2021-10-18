@@ -1317,6 +1317,10 @@
         \"Tags\":{\
           \"shape\":\"TagList\",\
           \"documentation\":\"<p>The tags to assign to the target group.</p>\"\
+        },\
+        \"IpAddressType\":{\
+          \"shape\":\"TargetGroupIpAddressTypeEnum\",\
+          \"documentation\":\"<p>The type of IP address used for this target group. The possible values are <code>ipv4</code> and <code>ipv6</code>. This is an optional parameter. If not specified, the IP address type defaults to <code>ipv4</code>.</p>\"\
         }\
       }\
     },\
@@ -1611,6 +1615,10 @@
         \"PageSize\":{\
           \"shape\":\"PageSize\",\
           \"documentation\":\"<p>The maximum number of results to return with this call.</p>\"\
+        },\
+        \"LoadBalancerType\":{\
+          \"shape\":\"LoadBalancerTypeEnum\",\
+          \"documentation\":\"<p> The type of load balancer. The default lists the SSL policies for all load balancers.</p>\"\
         }\
       }\
     },\
@@ -2244,14 +2252,14 @@
       \"members\":{\
         \"HttpCode\":{\
           \"shape\":\"HttpCode\",\
-          \"documentation\":\"<p>For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, \\\"200,202\\\") or a range of values (for example, \\\"200-299\\\").</p> <p>For Network Load Balancers and Gateway Load Balancers, this must be \\\"200â399\\\".</p>\"\
+          \"documentation\":\"<p>For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, \\\"200,202\\\") or a range of values (for example, \\\"200-299\\\").</p> <p>For Network Load Balancers and Gateway Load Balancers, this must be \\\"200â399\\\".</p> <p>Note that when using shorthand syntax, some values such as commas need to be escaped.</p>\"\
         },\
         \"GrpcCode\":{\
           \"shape\":\"GrpcCode\",\
           \"documentation\":\"<p>You can specify values between 0 and 99. You can specify multiple values (for example, \\\"0,1\\\") or a range of values (for example, \\\"0-5\\\"). The default value is 12.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>The codes to use when checking for a successful response from a target. If the protocol version is gRPC, these are gRPC codes. Otherwise, these are HTTP codes.</p>\"\
+      \"documentation\":\"<p>The codes to use when checking for a successful response from a target. If the protocol version is gRPC, these are gRPC codes. Otherwise, these are HTTP codes. </p>\"\
     },\
     \"Max\":{\"type\":\"string\"},\
     \"ModifyListenerInput\":{\
@@ -2928,6 +2936,10 @@
         \"Name\":{\
           \"shape\":\"SslPolicyName\",\
           \"documentation\":\"<p>The name of the policy.</p>\"\
+        },\
+        \"SupportedLoadBalancerTypes\":{\
+          \"shape\":\"ListOfString\",\
+          \"documentation\":\"<p> The supported load balancers. </p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about a policy used for SSL negotiation.</p>\"\
@@ -3135,6 +3147,10 @@
         \"ProtocolVersion\":{\
           \"shape\":\"ProtocolVersion\",\
           \"documentation\":\"<p>[HTTP/HTTPS protocol] The protocol version. The possible values are <code>GRPC</code>, <code>HTTP1</code>, and <code>HTTP2</code>.</p>\"\
+        },\
+        \"IpAddressType\":{\
+          \"shape\":\"TargetGroupIpAddressTypeEnum\",\
+          \"documentation\":\"<p>The type of IP address used for this target group. The possible values are <code>ipv4</code> and <code>ipv6</code>. This is an optional parameter. If not specified, the IP address type defaults to <code>ipv4</code>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about a target group.</p>\"\
@@ -3179,6 +3195,13 @@
     \"TargetGroupAttributes\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"TargetGroupAttribute\"}\
+    },\
+    \"TargetGroupIpAddressTypeEnum\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"ipv4\",\
+        \"ipv6\"\
+      ]\
     },\
     \"TargetGroupList\":{\
       \"type\":\"list\",\

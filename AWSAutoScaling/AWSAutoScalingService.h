@@ -595,7 +595,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)deleteWarmPool:(AWSAutoScalingDeleteWarmPoolType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingDeleteWarmPoolAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes the current Amazon EC2 Auto Scaling resource quotas for your account.</p><p>When you establish an account, the account has initial quotas on the maximum number of Auto Scaling groups and launch configurations that you can create in a given Region. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Amazon EC2 Auto Scaling service quotas</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Describes the current Amazon EC2 Auto Scaling resource quotas for your account.</p><p>When you establish an Amazon Web Services account, the account has initial quotas on the maximum number of Auto Scaling groups and launch configurations that you can create in a given Region. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Amazon EC2 Auto Scaling service quotas</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeAccountLimits service method.
 
@@ -607,7 +607,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask<AWSAutoScalingDescribeAccountLimitsAnswer *> *)describeAccountLimits:(AWSRequest *)request;
 
 /**
- <p>Describes the current Amazon EC2 Auto Scaling resource quotas for your account.</p><p>When you establish an account, the account has initial quotas on the maximum number of Auto Scaling groups and launch configurations that you can create in a given Region. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Amazon EC2 Auto Scaling service quotas</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Describes the current Amazon EC2 Auto Scaling resource quotas for your account.</p><p>When you establish an Amazon Web Services account, the account has initial quotas on the maximum number of Auto Scaling groups and launch configurations that you can create in a given Region. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Amazon EC2 Auto Scaling service quotas</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeAccountLimits service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -645,7 +645,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)describeAdjustmentTypes:(AWSRequest *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingDescribeAdjustmentTypesAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets information about the Auto Scaling groups in the account and Region.</p><p>This operation returns information about instances in Auto Scaling groups. To retrieve information about the instances in a warm pool, you must call the <a>DescribeWarmPool</a> API. </p>
+ <p>Gets information about the Auto Scaling groups in the account and Region.</p><p>If you specify Auto Scaling group names, the output includes information for only the specified Auto Scaling groups. If you specify filters, the output includes information for only those Auto Scaling groups that meet the filter criteria. If you do not specify group names or filters, the output includes information for all Auto Scaling groups. </p><p>This operation also returns information about instances in Auto Scaling groups. To retrieve information about the instances in a warm pool, you must call the <a>DescribeWarmPool</a> API. </p>
  
  @param request A container for the necessary parameters to execute the DescribeAutoScalingGroups service method.
 
@@ -657,7 +657,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask<AWSAutoScalingAutoScalingGroupsType *> *)describeAutoScalingGroups:(AWSAutoScalingAutoScalingGroupNamesType *)request;
 
 /**
- <p>Gets information about the Auto Scaling groups in the account and Region.</p><p>This operation returns information about instances in Auto Scaling groups. To retrieve information about the instances in a warm pool, you must call the <a>DescribeWarmPool</a> API. </p>
+ <p>Gets information about the Auto Scaling groups in the account and Region.</p><p>If you specify Auto Scaling group names, the output includes information for only the specified Auto Scaling groups. If you specify filters, the output includes information for only those Auto Scaling groups that meet the filter criteria. If you do not specify group names or filters, the output includes information for all Auto Scaling groups. </p><p>This operation also returns information about instances in Auto Scaling groups. To retrieve information about the instances in a warm pool, you must call the <a>DescribeWarmPool</a> API. </p>
  
  @param request A container for the necessary parameters to execute the DescribeAutoScalingGroups service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -824,7 +824,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
  
  @param request A container for the necessary parameters to execute the DescribeLoadBalancerTargetGroups service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDescribeLoadBalancerTargetGroupsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDescribeLoadBalancerTargetGroupsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`, `AWSAutoScalingErrorInvalidNextToken`.
  
  @see AWSAutoScalingDescribeLoadBalancerTargetGroupsRequest
  @see AWSAutoScalingDescribeLoadBalancerTargetGroupsResponse
@@ -837,7 +837,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
  @param request A container for the necessary parameters to execute the DescribeLoadBalancerTargetGroups service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`, `AWSAutoScalingErrorInvalidNextToken`.
  
  @see AWSAutoScalingDescribeLoadBalancerTargetGroupsRequest
  @see AWSAutoScalingDescribeLoadBalancerTargetGroupsResponse
@@ -849,7 +849,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
  
  @param request A container for the necessary parameters to execute the DescribeLoadBalancers service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDescribeLoadBalancersResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDescribeLoadBalancersResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`, `AWSAutoScalingErrorInvalidNextToken`.
  
  @see AWSAutoScalingDescribeLoadBalancersRequest
  @see AWSAutoScalingDescribeLoadBalancersResponse
@@ -862,7 +862,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
  @param request A container for the necessary parameters to execute the DescribeLoadBalancers service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`, `AWSAutoScalingErrorInvalidNextToken`.
  
  @see AWSAutoScalingDescribeLoadBalancersRequest
  @see AWSAutoScalingDescribeLoadBalancersResponse

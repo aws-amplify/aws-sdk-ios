@@ -18,6 +18,7 @@
 #import "AWSS3Service.h"
 #import "AWSS3TransferUtilityDatabaseHelper.h"
 #import "AWSS3TransferUtilityTasks.h"
+#import "AWSS3CreateMultipartUploadRequest+RequestHeaders.h"
 
 #import <AWSCore/AWSFMDB.h>
 #import <AWSCore/AWSSynchronizedMutableDictionary.h>
@@ -67,7 +68,7 @@ static int const AWSS3TransferUtilityMultiPartDefaultConcurrencyLimit = 5;
 @property (strong, nonatomic) AWSS3 *s3;
 @property (strong, nonatomic) NSURLSession *session;
 @property (strong, nonatomic) NSString *sessionIdentifier;
-@property (strong, nonatomic) NSString *cacheDirectoryPath;
+@property (strong, nonatomic, readonly) NSString *cacheDirectoryPath;
 @property (strong, nonatomic) AWSSynchronizedMutableDictionary *taskDictionary;
 @property (strong, nonatomic) AWSSynchronizedMutableDictionary *completedTaskDictionary;
 @property (copy, nonatomic) void (^backgroundURLSessionCompletionHandler)(void);
@@ -228,9 +229,6 @@ static int const AWSS3TransferUtilityMultiPartDefaultConcurrencyLimit = 5;
 @end
 
 @interface AWSS3TransferUtility (HeaderHelper)
--(void) propagateHeaderInformation: (AWSS3CreateMultipartUploadRequest *) uploadRequest
-                        expression: (AWSS3TransferUtilityMultiPartUploadExpression *) expression;
-
 -(void) filterAndAssignHeaders:(NSDictionary<NSString *, NSString *> *) requestHeaders
         getPresignedURLRequest:(AWSS3GetPreSignedURLRequest *) getPresignedURLRequest
                     URLRequest: (NSMutableURLRequest *) URLRequest;
@@ -244,6 +242,13 @@ static int const AWSS3TransferUtilityMultiPartDefaultConcurrencyLimit = 5;
 
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
+
+- (NSString *)cacheDirectoryPath {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cachePath = [paths objectAtIndex:0];
+    [cachePath stringByAppendingPathComponent:AWSInfoS3TransferUtility];
+    return cachePath;
+}
 
 #pragma mark - Initialization methods
 
@@ -325,8 +330,10 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                                                                                      recoverState:NO
                                                                                 completionHandler:completionHandler];
     if (s3TransferUtility) {
+        NSCAssert(_serviceClients != nil, @"Value is required");
         [_serviceClients setObject:s3TransferUtility
                             forKey:key];
+        NSCAssert(_serviceClients.allKeys.count > 0, @"A value must now be set");
         [s3TransferUtility recover:completionHandler];
     }
 }
@@ -407,13 +414,8 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     if (self = [super init]) {
         
         // Create a temporary directory for data uploads in the caches directory
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-        NSString *cachePath = [paths objectAtIndex:0];
-        
-        _cacheDirectoryPath = [cachePath stringByAppendingPathComponent:AWSInfoS3TransferUtility];
-        AWSDDLogDebug(@"Temporary dir Path is %@", _cacheDirectoryPath);
-        
-        NSURL *directoryURL = [NSURL fileURLWithPath:_cacheDirectoryPath];
+        AWSDDLogDebug(@"Temporary dir Path is %@", self.cacheDirectoryPath);
+        NSURL *directoryURL = [NSURL fileURLWithPath:self.cacheDirectoryPath];
         NSError *error = nil;
         BOOL result = [[NSFileManager defaultManager] createDirectoryAtURL:directoryURL
                                                withIntermediateDirectories:YES
@@ -484,7 +486,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         _completedTaskDictionary = [AWSSynchronizedMutableDictionary new];
         
         //Instantiate the Database Helper
-        self.databaseQueue = [AWSS3TransferUtilityDatabaseHelper createDatabase:_cacheDirectoryPath];
+        self.databaseQueue = [AWSS3TransferUtilityDatabaseHelper createDatabase:self.cacheDirectoryPath];
 
         if (recoverState) {
             //Recover the state from the previous time this was instantiated
@@ -830,6 +832,21 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                 continue;
             }
             break;
+        }
+
+        // move suspended tasks from in progress to waiting to allow multipart upload process to run properly
+        NSMutableArray *inProgressAndSuspendedTasks = @[].mutableCopy;
+
+        for (AWSS3TransferUtilityUploadSubTask *aSubTask in multiPartUploadTask.inProgressPartsDictionary.allValues) {
+            if (aSubTask.sessionTask.state == NSURLSessionTaskStateSuspended) {
+                AWSDDLogDebug(@"Subtask for multipart upload is suspended: %ld", aSubTask.taskIdentifier);
+                [inProgressAndSuspendedTasks addObject:aSubTask];
+            }
+        }
+
+        for (AWSS3TransferUtilityUploadSubTask *aSubTask in inProgressAndSuspendedTasks) {
+            [multiPartUploadTask.inProgressPartsDictionary removeObjectForKey:@(aSubTask.taskIdentifier)];
+            [multiPartUploadTask.waitingPartsDictionary setObject:aSubTask forKey:@(aSubTask.taskIdentifier)];
         }
     }
 }
@@ -1323,7 +1340,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     uploadRequest.bucket = bucket;
     uploadRequest.key = key;
 
-    [self propagateHeaderInformation:uploadRequest expression:transferUtilityMultiPartUploadTask.expression];
+    [AWSS3CreateMultipartUploadRequest propagateHeaderInformation:uploadRequest requestHeaders:transferUtilityMultiPartUploadTask.expression.requestHeaders];
     
     //Initiate the multi part
     return [[self.s3 createMultipartUpload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
@@ -1374,9 +1391,6 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
             subTask.file = @"";
             subTask.eTag = @"";
             
-            //Save in Database
-            [AWSS3TransferUtilityDatabaseHelper insertMultiPartUploadRequestSubTaskInDB:transferUtilityMultiPartUploadTask subTask:subTask databaseQueue:self.databaseQueue];
-            
             NSError *subTaskCreationError;
             
             //Move to inProgress or Waiting based on concurrency limit
@@ -1395,18 +1409,20 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                 }
             }
             
-            if ( subTaskCreationError) {
+            if (!subTaskCreationError) {
+                //Save in Database after the file has been created, so that file can be referenced incase upload is paused and needs to be restarted.
+                [AWSS3TransferUtilityDatabaseHelper insertMultiPartUploadRequestSubTaskInDB:transferUtilityMultiPartUploadTask subTask:subTask
+            databaseQueue:self.databaseQueue];
+            } else {
                 //Abort the request, so the server can clean up any partials.
                 [self callAbortMultiPartForUploadTask:transferUtilityMultiPartUploadTask];
                 transferUtilityMultiPartUploadTask.status = AWSS3TransferUtilityTransferStatusError;
-
                 //Add it to list of completed Tasks
                 [self.completedTaskDictionary setObject:transferUtilityMultiPartUploadTask forKey:transferUtilityMultiPartUploadTask.transferID];
-                
                 //Clean up.
                 [self cleanupForMultiPartUploadTask:transferUtilityMultiPartUploadTask];
                 return [AWSTask taskWithError:subTaskCreationError];
-            };
+            }
             
         }
         
@@ -1597,7 +1613,8 @@ internalDictionaryToAddSubTaskTo: (NSMutableDictionary *) internalDictionaryToAd
 
     [[[self.preSignedURLBuilder getPreSignedURL:request] continueWithBlock:^id(AWSTask *task) {
         error = task.error;
-        if ( error ) {
+        if (error) {
+            AWSDDLogError(@"Error: %@", error);
             return nil;
         }
 

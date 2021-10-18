@@ -19,6 +19,11 @@
 
 @interface AWSFirehoseNSSecureCodingTests : AWSNSSecureCodingTest
 
+- (void) test_AWSFirehoseAmazonopensearchserviceBufferingHints API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseAmazonopensearchserviceDestinationConfiguration API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseAmazonopensearchserviceDestinationDescription API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseAmazonopensearchserviceDestinationUpdate API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseAmazonopensearchserviceRetryOptions API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseBufferingHints API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseCloudWatchLoggingOptions API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseReplicateCommand API_AVAILABLE(ios(11));
@@ -108,6 +113,26 @@
 @end
 
 @implementation AWSFirehoseNSSecureCodingTests
+
+- (void) test_AWSFirehoseAmazonopensearchserviceBufferingHints {
+    [self validateSecureCodingForClass:[AWSFirehoseAmazonopensearchserviceBufferingHints class]];
+}
+
+- (void) test_AWSFirehoseAmazonopensearchserviceDestinationConfiguration {
+    [self validateSecureCodingForClass:[AWSFirehoseAmazonopensearchserviceDestinationConfiguration class]];
+}
+
+- (void) test_AWSFirehoseAmazonopensearchserviceDestinationDescription {
+    [self validateSecureCodingForClass:[AWSFirehoseAmazonopensearchserviceDestinationDescription class]];
+}
+
+- (void) test_AWSFirehoseAmazonopensearchserviceDestinationUpdate {
+    [self validateSecureCodingForClass:[AWSFirehoseAmazonopensearchserviceDestinationUpdate class]];
+}
+
+- (void) test_AWSFirehoseAmazonopensearchserviceRetryOptions {
+    [self validateSecureCodingForClass:[AWSFirehoseAmazonopensearchserviceRetryOptions class]];
+}
 
 - (void) test_AWSFirehoseBufferingHints {
     [self validateSecureCodingForClass:[AWSFirehoseBufferingHints class]];

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -13,20 +13,15 @@
 // permissions and limitations under the License.
 //
 
-#import <XCTest/XCTest.h>
+#import <AWSS3/AWSS3.h>
 
-@interface AWSLocationTests : XCTestCase
+NS_ASSUME_NONNULL_BEGIN
 
-@end
+@interface AWSS3CreateMultipartUploadRequest (RequestHeaders)
 
-@implementation AWSLocationTests
-
-- (void)setUp {
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-}
-
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-}
++ (void)propagateHeaderInformation:(AWSS3CreateMultipartUploadRequest *)uploadRequest
+                    requestHeaders:(NSDictionary<NSString *, NSString *> *)requestHeaders;
 
 @end
+
+NS_ASSUME_NONNULL_END
