@@ -17,20 +17,20 @@
     <a title="AWSCognitoIdentityProvider Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCognitoIdentityProvider 2.26.1 Docs</a> (77% documented)</p>
-        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
-        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoIdentityProvider.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
-        <p class="header-right">
+        <p><a href="../index.html">AWSCognitoIdentityProvider 2.26.2 Docs</a> (77% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoIdentityProvider.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
+        <div class="header-right">
           <form role="search" action="../search.json">
             <input type="text" placeholder="Search documentation" data-typeahead>
           </form>
-        </p>
+        </div>
       </div>
     </header>
     <div class="content-wrapper">
       <p id="breadcrumbs">
         <a href="../index.html">AWSCognitoIdentityProvider Reference</a>
-        <img id="carat" src="../img/carat.png" />
+        <img id="carat" src="../img/carat.png" alt=""/>
         AWSCognitoIdentityProvider Class Reference
       </p>
     </div>
@@ -1156,11 +1156,6 @@
                           <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">configuration</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -1196,9 +1191,9 @@
 <p><em>Objective-C</em></p>
 <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
      <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                                                     <span class="nf">identityPoolId</span><span class="p">:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+                                                                                                     <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
      <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                          <span class="nf">credentialsProvider</span><span class="p">:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+                                                                          <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
      <span class="p">[</span><span class="n">AWSServiceManager</span> <span class="nf">defaultServiceManager</span><span class="p">].</span><span class="n">defaultServiceConfiguration</span> <span class="o">=</span> <span class="n">configuration</span><span class="p">;</span>
 
      <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
@@ -1225,7 +1220,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="err">`</span><span class="k">default</span><span class="err">`</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="p">`</span><span class="nv">default</span><span class="p">`()</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
 
                         </div>
                       </div>
@@ -1267,9 +1262,9 @@
 <p><em>Objective-C</em></p>
 <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
     <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                                                    <span class="nf">identityPoolId</span><span class="p">:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+                                                                                                    <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
     <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSWest2</span>
-                                                                         <span class="nf">credentialsProvider</span><span class="p">:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+                                                                         <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
 
     <span class="p">[</span><span class="n">AWSCognitoIdentityProvider</span> <span class="nf">registerCognitoIdentityProviderWithConfiguration</span><span class="p">:</span><span class="n">configuration</span> <span class="nf">forKey</span><span class="p">:</span><span class="s">@"USWest2CognitoIdentityProvider"</span><span class="p">];</span>
 
@@ -1373,9 +1368,9 @@
 <p><em>Objective-C</em></p>
 <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
     <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                                                    <span class="nf">identityPoolId</span><span class="p">:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+                                                                                                    <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
     <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSWest2</span>
-                                                                         <span class="nf">credentialsProvider</span><span class="p">:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+                                                                         <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
 
     <span class="p">[</span><span class="n">AWSCognitoIdentityProvider</span> <span class="nf">registerCognitoIdentityProviderWithConfiguration</span><span class="p">:</span><span class="n">configuration</span> <span class="nf">forKey</span><span class="p">:</span><span class="s">@"USWest2CognitoIdentityProvider"</span><span class="p">];</span>
 
@@ -1403,7 +1398,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1594,7 +1589,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">addCustomAttributes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAddCustomAttributesRequest.html">AWSCognitoIdentityProviderAddCustomAttributesRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAddCustomAttributesResponse">AWSCognitoIdentityProviderAddCustomAttributesResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">addCustomAttributes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAddCustomAttributesRequest.html">AWSCognitoIdentityProviderAddCustomAttributesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAddCustomAttributesResponse">AWSCognitoIdentityProviderAddCustomAttributesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1729,7 +1724,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminAddUser</span><span class="p">(</span><span class="n">toGroup</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminAddUserToGroupRequest.html">AWSCognitoIdentityProviderAdminAddUserToGroupRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminAddUser</span><span class="p">(</span><span class="n">toGroup</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminAddUserToGroupRequest.html">AWSCognitoIdentityProviderAdminAddUserToGroupRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -1873,7 +1868,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminConfirmSignUp</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminConfirmSignUpRequest.html">AWSCognitoIdentityProviderAdminConfirmSignUpRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminConfirmSignUpResponse">AWSCognitoIdentityProviderAdminConfirmSignUpResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminConfirmSignUp</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminConfirmSignUpRequest.html">AWSCognitoIdentityProviderAdminConfirmSignUpRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminConfirmSignUpResponse">AWSCognitoIdentityProviderAdminConfirmSignUpResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2017,7 +2012,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminCreateUser</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminCreateUserRequest.html">AWSCognitoIdentityProviderAdminCreateUserRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminCreateUserResponse.html">AWSCognitoIdentityProviderAdminCreateUserResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminCreateUser</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminCreateUserRequest.html">AWSCognitoIdentityProviderAdminCreateUserRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminCreateUserResponse.html">AWSCognitoIdentityProviderAdminCreateUserResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2151,7 +2146,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminDeleteUser</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminDeleteUserRequest.html">AWSCognitoIdentityProviderAdminDeleteUserRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminDeleteUser</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminDeleteUserRequest.html">AWSCognitoIdentityProviderAdminDeleteUserRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -2298,7 +2293,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminDeleteUserAttributes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminDeleteUserAttributesRequest.html">AWSCognitoIdentityProviderAdminDeleteUserAttributesRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminDeleteUserAttributesResponse">AWSCognitoIdentityProviderAdminDeleteUserAttributesResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminDeleteUserAttributes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminDeleteUserAttributesRequest.html">AWSCognitoIdentityProviderAdminDeleteUserAttributesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminDeleteUserAttributesResponse">AWSCognitoIdentityProviderAdminDeleteUserAttributesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2446,7 +2441,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminDisableProvider</span><span class="p">(</span><span class="n">forUser</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminDisableProviderForUserRequest.html">AWSCognitoIdentityProviderAdminDisableProviderForUserRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminDisableProviderForUserResponse">AWSCognitoIdentityProviderAdminDisableProviderForUserResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminDisableProvider</span><span class="p">(</span><span class="n">forUser</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminDisableProviderForUserRequest.html">AWSCognitoIdentityProviderAdminDisableProviderForUserRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminDisableProviderForUserResponse">AWSCognitoIdentityProviderAdminDisableProviderForUserResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2590,7 +2585,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminDisableUser</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminDisableUserRequest.html">AWSCognitoIdentityProviderAdminDisableUserRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminDisableUserResponse">AWSCognitoIdentityProviderAdminDisableUserResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminDisableUser</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminDisableUserRequest.html">AWSCognitoIdentityProviderAdminDisableUserRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminDisableUserResponse">AWSCognitoIdentityProviderAdminDisableUserResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2734,7 +2729,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminEnableUser</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminEnableUserRequest.html">AWSCognitoIdentityProviderAdminEnableUserRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminEnableUserResponse">AWSCognitoIdentityProviderAdminEnableUserResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminEnableUser</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminEnableUserRequest.html">AWSCognitoIdentityProviderAdminEnableUserRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminEnableUserResponse">AWSCognitoIdentityProviderAdminEnableUserResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2868,7 +2863,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminForgetDevice</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminForgetDeviceRequest.html">AWSCognitoIdentityProviderAdminForgetDeviceRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminForgetDevice</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminForgetDeviceRequest.html">AWSCognitoIdentityProviderAdminForgetDeviceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -3011,7 +3006,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminGetDevice</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminGetDeviceRequest.html">AWSCognitoIdentityProviderAdminGetDeviceRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminGetDeviceResponse.html">AWSCognitoIdentityProviderAdminGetDeviceResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminGetDevice</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminGetDeviceRequest.html">AWSCognitoIdentityProviderAdminGetDeviceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminGetDeviceResponse.html">AWSCognitoIdentityProviderAdminGetDeviceResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3155,7 +3150,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminGetUser</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminGetUserRequest.html">AWSCognitoIdentityProviderAdminGetUserRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminGetUserResponse.html">AWSCognitoIdentityProviderAdminGetUserResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminGetUser</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminGetUserRequest.html">AWSCognitoIdentityProviderAdminGetUserRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminGetUserResponse.html">AWSCognitoIdentityProviderAdminGetUserResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3300,7 +3295,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminInitiateAuth</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminInitiateAuthRequest.html">AWSCognitoIdentityProviderAdminInitiateAuthRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminInitiateAuthResponse.html">AWSCognitoIdentityProviderAdminInitiateAuthResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminInitiateAuth</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminInitiateAuthRequest.html">AWSCognitoIdentityProviderAdminInitiateAuthRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminInitiateAuthResponse.html">AWSCognitoIdentityProviderAdminInitiateAuthResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3448,7 +3443,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminLinkProvider</span><span class="p">(</span><span class="n">forUser</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminLinkProviderForUserRequest.html">AWSCognitoIdentityProviderAdminLinkProviderForUserRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminLinkProviderForUserResponse">AWSCognitoIdentityProviderAdminLinkProviderForUserResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminLinkProvider</span><span class="p">(</span><span class="n">forUser</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminLinkProviderForUserRequest.html">AWSCognitoIdentityProviderAdminLinkProviderForUserRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminLinkProviderForUserResponse">AWSCognitoIdentityProviderAdminLinkProviderForUserResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3592,7 +3587,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminListDevices</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminListDevicesRequest.html">AWSCognitoIdentityProviderAdminListDevicesRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminListDevicesResponse.html">AWSCognitoIdentityProviderAdminListDevicesResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminListDevices</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminListDevicesRequest.html">AWSCognitoIdentityProviderAdminListDevicesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminListDevicesResponse.html">AWSCognitoIdentityProviderAdminListDevicesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3738,7 +3733,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminListGroups</span><span class="p">(</span><span class="n">forUser</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminListGroupsForUserRequest.html">AWSCognitoIdentityProviderAdminListGroupsForUserRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminListGroupsForUserResponse.html">AWSCognitoIdentityProviderAdminListGroupsForUserResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminListGroups</span><span class="p">(</span><span class="n">forUser</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminListGroupsForUserRequest.html">AWSCognitoIdentityProviderAdminListGroupsForUserRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminListGroupsForUserResponse.html">AWSCognitoIdentityProviderAdminListGroupsForUserResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3884,7 +3879,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminListUserAuthEvents</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminListUserAuthEventsRequest.html">AWSCognitoIdentityProviderAdminListUserAuthEventsRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminListUserAuthEventsResponse.html">AWSCognitoIdentityProviderAdminListUserAuthEventsResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminListUserAuthEvents</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminListUserAuthEventsRequest.html">AWSCognitoIdentityProviderAdminListUserAuthEventsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminListUserAuthEventsResponse.html">AWSCognitoIdentityProviderAdminListUserAuthEventsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4021,7 +4016,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminRemoveUser</span><span class="p">(</span><span class="n">fromGroup</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminRemoveUserFromGroupRequest.html">AWSCognitoIdentityProviderAdminRemoveUserFromGroupRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminRemoveUser</span><span class="p">(</span><span class="n">fromGroup</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminRemoveUserFromGroupRequest.html">AWSCognitoIdentityProviderAdminRemoveUserFromGroupRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -4166,7 +4161,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminResetUserPassword</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminResetUserPasswordRequest.html">AWSCognitoIdentityProviderAdminResetUserPasswordRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminResetUserPasswordResponse">AWSCognitoIdentityProviderAdminResetUserPasswordResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminResetUserPassword</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminResetUserPasswordRequest.html">AWSCognitoIdentityProviderAdminResetUserPasswordRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminResetUserPasswordResponse">AWSCognitoIdentityProviderAdminResetUserPasswordResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4314,7 +4309,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminRespond</span><span class="p">(</span><span class="n">toAuthChallenge</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminRespondToAuthChallengeRequest.html">AWSCognitoIdentityProviderAdminRespondToAuthChallengeRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminRespondToAuthChallengeResponse.html">AWSCognitoIdentityProviderAdminRespondToAuthChallengeResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminRespond</span><span class="p">(</span><span class="n">toAuthChallenge</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminRespondToAuthChallengeRequest.html">AWSCognitoIdentityProviderAdminRespondToAuthChallengeRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminRespondToAuthChallengeResponse.html">AWSCognitoIdentityProviderAdminRespondToAuthChallengeResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4462,7 +4457,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminSetUserMFAPreference</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest.html">AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminSetUserMFAPreferenceResponse">AWSCognitoIdentityProviderAdminSetUserMFAPreferenceResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminSetUserMFAPreference</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest.html">AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminSetUserMFAPreferenceResponse">AWSCognitoIdentityProviderAdminSetUserMFAPreferenceResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4608,7 +4603,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminSetUserPassword</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminSetUserPasswordRequest.html">AWSCognitoIdentityProviderAdminSetUserPasswordRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminSetUserPasswordResponse">AWSCognitoIdentityProviderAdminSetUserPasswordResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminSetUserPassword</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminSetUserPasswordRequest.html">AWSCognitoIdentityProviderAdminSetUserPasswordRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminSetUserPasswordResponse">AWSCognitoIdentityProviderAdminSetUserPasswordResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4754,7 +4749,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminSetUserSettings</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminSetUserSettingsRequest.html">AWSCognitoIdentityProviderAdminSetUserSettingsRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminSetUserSettingsResponse">AWSCognitoIdentityProviderAdminSetUserSettingsResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminSetUserSettings</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminSetUserSettingsRequest.html">AWSCognitoIdentityProviderAdminSetUserSettingsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminSetUserSettingsResponse">AWSCognitoIdentityProviderAdminSetUserSettingsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4902,7 +4897,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminUpdateAuthEventFeedback</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackRequest.html">AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackResponse">AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminUpdateAuthEventFeedback</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackRequest.html">AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackResponse">AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5048,7 +5043,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminUpdateDeviceStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminUpdateDeviceStatusRequest.html">AWSCognitoIdentityProviderAdminUpdateDeviceStatusRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminUpdateDeviceStatusResponse">AWSCognitoIdentityProviderAdminUpdateDeviceStatusResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminUpdateDeviceStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminUpdateDeviceStatusRequest.html">AWSCognitoIdentityProviderAdminUpdateDeviceStatusRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminUpdateDeviceStatusResponse">AWSCognitoIdentityProviderAdminUpdateDeviceStatusResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5196,7 +5191,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminUpdateUserAttributes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminUpdateUserAttributesRequest.html">AWSCognitoIdentityProviderAdminUpdateUserAttributesRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminUpdateUserAttributesResponse">AWSCognitoIdentityProviderAdminUpdateUserAttributesResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminUpdateUserAttributes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminUpdateUserAttributesRequest.html">AWSCognitoIdentityProviderAdminUpdateUserAttributesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminUpdateUserAttributesResponse">AWSCognitoIdentityProviderAdminUpdateUserAttributesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5342,7 +5337,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminUserGlobalSignOut</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminUserGlobalSignOutRequest.html">AWSCognitoIdentityProviderAdminUserGlobalSignOutRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminUserGlobalSignOutResponse">AWSCognitoIdentityProviderAdminUserGlobalSignOutResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">adminUserGlobalSignOut</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAdminUserGlobalSignOutRequest.html">AWSCognitoIdentityProviderAdminUserGlobalSignOutRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminUserGlobalSignOutResponse">AWSCognitoIdentityProviderAdminUserGlobalSignOutResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5488,7 +5483,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">associateSoftwareToken</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAssociateSoftwareTokenRequest.html">AWSCognitoIdentityProviderAssociateSoftwareTokenRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAssociateSoftwareTokenResponse.html">AWSCognitoIdentityProviderAssociateSoftwareTokenResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">associateSoftwareToken</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAssociateSoftwareTokenRequest.html">AWSCognitoIdentityProviderAssociateSoftwareTokenRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderAssociateSoftwareTokenResponse.html">AWSCognitoIdentityProviderAssociateSoftwareTokenResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5632,7 +5627,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">changePassword</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderChangePasswordRequest.html">AWSCognitoIdentityProviderChangePasswordRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderChangePasswordResponse">AWSCognitoIdentityProviderChangePasswordResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">changePassword</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderChangePasswordRequest.html">AWSCognitoIdentityProviderChangePasswordRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderChangePasswordResponse">AWSCognitoIdentityProviderChangePasswordResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5776,7 +5771,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">confirmDevice</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderConfirmDeviceRequest.html">AWSCognitoIdentityProviderConfirmDeviceRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderConfirmDeviceResponse.html">AWSCognitoIdentityProviderConfirmDeviceResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">confirmDevice</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderConfirmDeviceRequest.html">AWSCognitoIdentityProviderConfirmDeviceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderConfirmDeviceResponse.html">AWSCognitoIdentityProviderConfirmDeviceResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5922,7 +5917,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">confirmForgotPassword</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderConfirmForgotPasswordRequest.html">AWSCognitoIdentityProviderConfirmForgotPasswordRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderConfirmForgotPasswordResponse">AWSCognitoIdentityProviderConfirmForgotPasswordResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">confirmForgotPassword</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderConfirmForgotPasswordRequest.html">AWSCognitoIdentityProviderConfirmForgotPasswordRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderConfirmForgotPasswordResponse">AWSCognitoIdentityProviderConfirmForgotPasswordResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6066,7 +6061,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">confirmSignUp</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderConfirmSignUpRequest.html">AWSCognitoIdentityProviderConfirmSignUpRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderConfirmSignUpResponse">AWSCognitoIdentityProviderConfirmSignUpResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">confirmSignUp</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderConfirmSignUpRequest.html">AWSCognitoIdentityProviderConfirmSignUpRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderConfirmSignUpResponse">AWSCognitoIdentityProviderConfirmSignUpResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6210,7 +6205,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createGroup</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateGroupRequest.html">AWSCognitoIdentityProviderCreateGroupRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateGroupResponse.html">AWSCognitoIdentityProviderCreateGroupResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createGroup</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateGroupRequest.html">AWSCognitoIdentityProviderCreateGroupRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateGroupResponse.html">AWSCognitoIdentityProviderCreateGroupResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6356,7 +6351,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createIdentityProvider</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateIdentityProviderRequest.html">AWSCognitoIdentityProviderCreateIdentityProviderRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateIdentityProviderResponse.html">AWSCognitoIdentityProviderCreateIdentityProviderResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createIdentityProvider</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateIdentityProviderRequest.html">AWSCognitoIdentityProviderCreateIdentityProviderRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateIdentityProviderResponse.html">AWSCognitoIdentityProviderCreateIdentityProviderResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6502,7 +6497,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createResourceServer</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateResourceServerRequest.html">AWSCognitoIdentityProviderCreateResourceServerRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateResourceServerResponse.html">AWSCognitoIdentityProviderCreateResourceServerResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createResourceServer</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateResourceServerRequest.html">AWSCognitoIdentityProviderCreateResourceServerRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateResourceServerResponse.html">AWSCognitoIdentityProviderCreateResourceServerResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6647,7 +6642,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createUserImportJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateUserImportJobRequest.html">AWSCognitoIdentityProviderCreateUserImportJobRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateUserImportJobResponse.html">AWSCognitoIdentityProviderCreateUserImportJobResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createUserImportJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateUserImportJobRequest.html">AWSCognitoIdentityProviderCreateUserImportJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateUserImportJobResponse.html">AWSCognitoIdentityProviderCreateUserImportJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6791,7 +6786,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createUserPool</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateUserPoolRequest.html">AWSCognitoIdentityProviderCreateUserPoolRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateUserPoolResponse.html">AWSCognitoIdentityProviderCreateUserPoolResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createUserPool</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateUserPoolRequest.html">AWSCognitoIdentityProviderCreateUserPoolRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateUserPoolResponse.html">AWSCognitoIdentityProviderCreateUserPoolResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6937,7 +6932,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createUserPoolClient</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateUserPoolClientRequest.html">AWSCognitoIdentityProviderCreateUserPoolClientRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateUserPoolClientResponse.html">AWSCognitoIdentityProviderCreateUserPoolClientResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createUserPoolClient</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateUserPoolClientRequest.html">AWSCognitoIdentityProviderCreateUserPoolClientRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateUserPoolClientResponse.html">AWSCognitoIdentityProviderCreateUserPoolClientResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7083,7 +7078,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createUserPoolDomain</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateUserPoolDomainRequest.html">AWSCognitoIdentityProviderCreateUserPoolDomainRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateUserPoolDomainResponse.html">AWSCognitoIdentityProviderCreateUserPoolDomainResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createUserPoolDomain</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateUserPoolDomainRequest.html">AWSCognitoIdentityProviderCreateUserPoolDomainRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderCreateUserPoolDomainResponse.html">AWSCognitoIdentityProviderCreateUserPoolDomainResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7216,7 +7211,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteGroup</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDeleteGroupRequest.html">AWSCognitoIdentityProviderDeleteGroupRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteGroup</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDeleteGroupRequest.html">AWSCognitoIdentityProviderDeleteGroupRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -7350,7 +7345,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">delete</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDeleteIdentityProviderRequest.html">AWSCognitoIdentityProviderDeleteIdentityProviderRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">delete</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDeleteIdentityProviderRequest.html">AWSCognitoIdentityProviderDeleteIdentityProviderRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -7484,7 +7479,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteResourceServer</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDeleteResourceServerRequest.html">AWSCognitoIdentityProviderDeleteResourceServerRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteResourceServer</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDeleteResourceServerRequest.html">AWSCognitoIdentityProviderDeleteResourceServerRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -7615,7 +7610,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteUser</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDeleteUserRequest.html">AWSCognitoIdentityProviderDeleteUserRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteUser</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDeleteUserRequest.html">AWSCognitoIdentityProviderDeleteUserRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -7760,7 +7755,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteUserAttributes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDeleteUserAttributesRequest.html">AWSCognitoIdentityProviderDeleteUserAttributesRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderDeleteUserAttributesResponse">AWSCognitoIdentityProviderDeleteUserAttributesResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteUserAttributes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDeleteUserAttributesRequest.html">AWSCognitoIdentityProviderDeleteUserAttributesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderDeleteUserAttributesResponse">AWSCognitoIdentityProviderDeleteUserAttributesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7893,7 +7888,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteUserPool</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDeleteUserPoolRequest.html">AWSCognitoIdentityProviderDeleteUserPoolRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteUserPool</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDeleteUserPoolRequest.html">AWSCognitoIdentityProviderDeleteUserPoolRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -8027,7 +8022,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteUserPoolClient</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDeleteUserPoolClientRequest.html">AWSCognitoIdentityProviderDeleteUserPoolClientRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteUserPoolClient</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDeleteUserPoolClientRequest.html">AWSCognitoIdentityProviderDeleteUserPoolClientRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -8172,7 +8167,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteUserPoolDomain</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDeleteUserPoolDomainRequest.html">AWSCognitoIdentityProviderDeleteUserPoolDomainRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderDeleteUserPoolDomainResponse">AWSCognitoIdentityProviderDeleteUserPoolDomainResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteUserPoolDomain</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDeleteUserPoolDomainRequest.html">AWSCognitoIdentityProviderDeleteUserPoolDomainRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderDeleteUserPoolDomainResponse">AWSCognitoIdentityProviderDeleteUserPoolDomainResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8320,7 +8315,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describe</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeIdentityProviderRequest.html">AWSCognitoIdentityProviderDescribeIdentityProviderRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeIdentityProviderResponse.html">AWSCognitoIdentityProviderDescribeIdentityProviderResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describe</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeIdentityProviderRequest.html">AWSCognitoIdentityProviderDescribeIdentityProviderRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeIdentityProviderResponse.html">AWSCognitoIdentityProviderDescribeIdentityProviderResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8466,7 +8461,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeResourceServer</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeResourceServerRequest.html">AWSCognitoIdentityProviderDescribeResourceServerRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeResourceServerResponse.html">AWSCognitoIdentityProviderDescribeResourceServerResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeResourceServer</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeResourceServerRequest.html">AWSCognitoIdentityProviderDescribeResourceServerRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeResourceServerResponse.html">AWSCognitoIdentityProviderDescribeResourceServerResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8614,7 +8609,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeRiskConfiguration</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeRiskConfigurationRequest.html">AWSCognitoIdentityProviderDescribeRiskConfigurationRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeRiskConfigurationResponse.html">AWSCognitoIdentityProviderDescribeRiskConfigurationResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeRiskConfiguration</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeRiskConfigurationRequest.html">AWSCognitoIdentityProviderDescribeRiskConfigurationRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeRiskConfigurationResponse.html">AWSCognitoIdentityProviderDescribeRiskConfigurationResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8760,7 +8755,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeUserImportJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeUserImportJobRequest.html">AWSCognitoIdentityProviderDescribeUserImportJobRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeUserImportJobResponse.html">AWSCognitoIdentityProviderDescribeUserImportJobResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeUserImportJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeUserImportJobRequest.html">AWSCognitoIdentityProviderDescribeUserImportJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeUserImportJobResponse.html">AWSCognitoIdentityProviderDescribeUserImportJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8904,7 +8899,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeUserPool</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeUserPoolRequest.html">AWSCognitoIdentityProviderDescribeUserPoolRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeUserPoolResponse.html">AWSCognitoIdentityProviderDescribeUserPoolResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeUserPool</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeUserPoolRequest.html">AWSCognitoIdentityProviderDescribeUserPoolRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeUserPoolResponse.html">AWSCognitoIdentityProviderDescribeUserPoolResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -9050,7 +9045,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeUserPoolClient</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeUserPoolClientRequest.html">AWSCognitoIdentityProviderDescribeUserPoolClientRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeUserPoolClientResponse.html">AWSCognitoIdentityProviderDescribeUserPoolClientResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeUserPoolClient</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeUserPoolClientRequest.html">AWSCognitoIdentityProviderDescribeUserPoolClientRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeUserPoolClientResponse.html">AWSCognitoIdentityProviderDescribeUserPoolClientResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -9196,7 +9191,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeUserPoolDomain</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeUserPoolDomainRequest.html">AWSCognitoIdentityProviderDescribeUserPoolDomainRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeUserPoolDomainResponse.html">AWSCognitoIdentityProviderDescribeUserPoolDomainResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeUserPoolDomain</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeUserPoolDomainRequest.html">AWSCognitoIdentityProviderDescribeUserPoolDomainRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderDescribeUserPoolDomainResponse.html">AWSCognitoIdentityProviderDescribeUserPoolDomainResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -9329,7 +9324,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">forgetDevice</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderForgetDeviceRequest.html">AWSCognitoIdentityProviderForgetDeviceRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">forgetDevice</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderForgetDeviceRequest.html">AWSCognitoIdentityProviderForgetDeviceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -9472,7 +9467,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">forgotPassword</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderForgotPasswordRequest.html">AWSCognitoIdentityProviderForgotPasswordRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderForgotPasswordResponse.html">AWSCognitoIdentityProviderForgotPasswordResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">forgotPassword</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderForgotPasswordRequest.html">AWSCognitoIdentityProviderForgotPasswordRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderForgotPasswordResponse.html">AWSCognitoIdentityProviderForgotPasswordResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -9616,7 +9611,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getCSVHeader</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetCSVHeaderRequest.html">AWSCognitoIdentityProviderGetCSVHeaderRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetCSVHeaderResponse.html">AWSCognitoIdentityProviderGetCSVHeaderResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">csvHeader</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetCSVHeaderRequest.html">AWSCognitoIdentityProviderGetCSVHeaderRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetCSVHeaderResponse.html">AWSCognitoIdentityProviderGetCSVHeaderResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -9758,7 +9753,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getDevice</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetDeviceRequest.html">AWSCognitoIdentityProviderGetDeviceRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetDeviceResponse.html">AWSCognitoIdentityProviderGetDeviceResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">device</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetDeviceRequest.html">AWSCognitoIdentityProviderGetDeviceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetDeviceResponse.html">AWSCognitoIdentityProviderGetDeviceResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -9899,7 +9894,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getGroup</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetGroupRequest.html">AWSCognitoIdentityProviderGetGroupRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetGroupResponse.html">AWSCognitoIdentityProviderGetGroupResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">group</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetGroupRequest.html">AWSCognitoIdentityProviderGetGroupRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetGroupResponse.html">AWSCognitoIdentityProviderGetGroupResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -10048,7 +10043,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getByIdentifier</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetIdentityProviderByIdentifierRequest.html">AWSCognitoIdentityProviderGetIdentityProviderByIdentifierRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse.html">AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">byIdentifier</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetIdentityProviderByIdentifierRequest.html">AWSCognitoIdentityProviderGetIdentityProviderByIdentifierRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse.html">AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -10194,7 +10189,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getSigningCertificate</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetSigningCertificateRequest.html">AWSCognitoIdentityProviderGetSigningCertificateRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetSigningCertificateResponse.html">AWSCognitoIdentityProviderGetSigningCertificateResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">signingCertificate</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetSigningCertificateRequest.html">AWSCognitoIdentityProviderGetSigningCertificateRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetSigningCertificateResponse.html">AWSCognitoIdentityProviderGetSigningCertificateResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -10339,7 +10334,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getUICustomization</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetUICustomizationRequest.html">AWSCognitoIdentityProviderGetUICustomizationRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetUICustomizationResponse.html">AWSCognitoIdentityProviderGetUICustomizationResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">uiCustomization</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetUICustomizationRequest.html">AWSCognitoIdentityProviderGetUICustomizationRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetUICustomizationResponse.html">AWSCognitoIdentityProviderGetUICustomizationResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -10480,7 +10475,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getUser</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetUserRequest.html">AWSCognitoIdentityProviderGetUserRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetUserResponse.html">AWSCognitoIdentityProviderGetUserResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">user</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetUserRequest.html">AWSCognitoIdentityProviderGetUserRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetUserResponse.html">AWSCognitoIdentityProviderGetUserResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -10629,7 +10624,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getUserAttributeVerificationCode</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetUserAttributeVerificationCodeRequest.html">AWSCognitoIdentityProviderGetUserAttributeVerificationCodeRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetUserAttributeVerificationCodeResponse.html">AWSCognitoIdentityProviderGetUserAttributeVerificationCodeResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">userAttributeVerificationCode</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetUserAttributeVerificationCodeRequest.html">AWSCognitoIdentityProviderGetUserAttributeVerificationCodeRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetUserAttributeVerificationCodeResponse.html">AWSCognitoIdentityProviderGetUserAttributeVerificationCodeResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -10775,7 +10770,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getUserPoolMfaConfig</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetUserPoolMfaConfigRequest.html">AWSCognitoIdentityProviderGetUserPoolMfaConfigRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse.html">AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">userPoolMfaConfig</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetUserPoolMfaConfigRequest.html">AWSCognitoIdentityProviderGetUserPoolMfaConfigRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse.html">AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -10919,7 +10914,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">globalSignOut</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGlobalSignOutRequest.html">AWSCognitoIdentityProviderGlobalSignOutRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderGlobalSignOutResponse">AWSCognitoIdentityProviderGlobalSignOutResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">globalSignOut</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderGlobalSignOutRequest.html">AWSCognitoIdentityProviderGlobalSignOutRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderGlobalSignOutResponse">AWSCognitoIdentityProviderGlobalSignOutResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -11063,7 +11058,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">initiateAuth</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderInitiateAuthRequest.html">AWSCognitoIdentityProviderInitiateAuthRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderInitiateAuthResponse.html">AWSCognitoIdentityProviderInitiateAuthResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">initiateAuth</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderInitiateAuthRequest.html">AWSCognitoIdentityProviderInitiateAuthRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderInitiateAuthResponse.html">AWSCognitoIdentityProviderInitiateAuthResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -11207,7 +11202,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listDevices</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListDevicesRequest.html">AWSCognitoIdentityProviderListDevicesRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListDevicesResponse.html">AWSCognitoIdentityProviderListDevicesResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listDevices</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListDevicesRequest.html">AWSCognitoIdentityProviderListDevicesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListDevicesResponse.html">AWSCognitoIdentityProviderListDevicesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -11350,7 +11345,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listGroups</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListGroupsRequest.html">AWSCognitoIdentityProviderListGroupsRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListGroupsResponse.html">AWSCognitoIdentityProviderListGroupsResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listGroups</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListGroupsRequest.html">AWSCognitoIdentityProviderListGroupsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListGroupsResponse.html">AWSCognitoIdentityProviderListGroupsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -11496,7 +11491,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listIdentityProviders</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListIdentityProvidersRequest.html">AWSCognitoIdentityProviderListIdentityProvidersRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListIdentityProvidersResponse.html">AWSCognitoIdentityProviderListIdentityProvidersResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listIdentityProviders</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListIdentityProvidersRequest.html">AWSCognitoIdentityProviderListIdentityProvidersRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListIdentityProvidersResponse.html">AWSCognitoIdentityProviderListIdentityProvidersResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -11641,7 +11636,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listResourceServers</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListResourceServersRequest.html">AWSCognitoIdentityProviderListResourceServersRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListResourceServersResponse.html">AWSCognitoIdentityProviderListResourceServersResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listResourceServers</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListResourceServersRequest.html">AWSCognitoIdentityProviderListResourceServersRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListResourceServersResponse.html">AWSCognitoIdentityProviderListResourceServersResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -11786,7 +11781,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTags</span><span class="p">(</span><span class="n">forResource</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListTagsForResourceRequest.html">AWSCognitoIdentityProviderListTagsForResourceRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListTagsForResourceResponse.html">AWSCognitoIdentityProviderListTagsForResourceResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTags</span><span class="p">(</span><span class="n">forResource</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListTagsForResourceRequest.html">AWSCognitoIdentityProviderListTagsForResourceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListTagsForResourceResponse.html">AWSCognitoIdentityProviderListTagsForResourceResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -11931,7 +11926,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listUserImportJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListUserImportJobsRequest.html">AWSCognitoIdentityProviderListUserImportJobsRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListUserImportJobsResponse.html">AWSCognitoIdentityProviderListUserImportJobsResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listUserImportJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListUserImportJobsRequest.html">AWSCognitoIdentityProviderListUserImportJobsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListUserImportJobsResponse.html">AWSCognitoIdentityProviderListUserImportJobsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -12076,7 +12071,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listUserPoolClients</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListUserPoolClientsRequest.html">AWSCognitoIdentityProviderListUserPoolClientsRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListUserPoolClientsResponse.html">AWSCognitoIdentityProviderListUserPoolClientsResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listUserPoolClients</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListUserPoolClientsRequest.html">AWSCognitoIdentityProviderListUserPoolClientsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListUserPoolClientsResponse.html">AWSCognitoIdentityProviderListUserPoolClientsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -12220,7 +12215,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listUserPools</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListUserPoolsRequest.html">AWSCognitoIdentityProviderListUserPoolsRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListUserPoolsResponse.html">AWSCognitoIdentityProviderListUserPoolsResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listUserPools</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListUserPoolsRequest.html">AWSCognitoIdentityProviderListUserPoolsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListUserPoolsResponse.html">AWSCognitoIdentityProviderListUserPoolsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -12362,7 +12357,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listUsers</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListUsersRequest.html">AWSCognitoIdentityProviderListUsersRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListUsersResponse.html">AWSCognitoIdentityProviderListUsersResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listUsers</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListUsersRequest.html">AWSCognitoIdentityProviderListUsersRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListUsersResponse.html">AWSCognitoIdentityProviderListUsersResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -12506,7 +12501,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listUsers</span><span class="p">(</span><span class="n">inGroup</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListUsersInGroupRequest.html">AWSCognitoIdentityProviderListUsersInGroupRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListUsersInGroupResponse.html">AWSCognitoIdentityProviderListUsersInGroupResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listUsers</span><span class="p">(</span><span class="n">inGroup</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListUsersInGroupRequest.html">AWSCognitoIdentityProviderListUsersInGroupRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderListUsersInGroupResponse.html">AWSCognitoIdentityProviderListUsersInGroupResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -12652,7 +12647,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">resendConfirmationCode</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderResendConfirmationCodeRequest.html">AWSCognitoIdentityProviderResendConfirmationCodeRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderResendConfirmationCodeResponse.html">AWSCognitoIdentityProviderResendConfirmationCodeResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">resendConfirmationCode</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderResendConfirmationCodeRequest.html">AWSCognitoIdentityProviderResendConfirmationCodeRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderResendConfirmationCodeResponse.html">AWSCognitoIdentityProviderResendConfirmationCodeResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -12798,7 +12793,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">respond</span><span class="p">(</span><span class="n">toAuthChallenge</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderRespondToAuthChallengeRequest.html">AWSCognitoIdentityProviderRespondToAuthChallengeRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderRespondToAuthChallengeResponse.html">AWSCognitoIdentityProviderRespondToAuthChallengeResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">respond</span><span class="p">(</span><span class="n">toAuthChallenge</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderRespondToAuthChallengeRequest.html">AWSCognitoIdentityProviderRespondToAuthChallengeRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderRespondToAuthChallengeResponse.html">AWSCognitoIdentityProviderRespondToAuthChallengeResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -12942,7 +12937,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">revokeToken</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderRevokeTokenRequest.html">AWSCognitoIdentityProviderRevokeTokenRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderRevokeTokenResponse">AWSCognitoIdentityProviderRevokeTokenResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">revokeToken</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderRevokeTokenRequest.html">AWSCognitoIdentityProviderRevokeTokenRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderRevokeTokenResponse">AWSCognitoIdentityProviderRevokeTokenResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -13088,7 +13083,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setRiskConfiguration</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderSetRiskConfigurationRequest.html">AWSCognitoIdentityProviderSetRiskConfigurationRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderSetRiskConfigurationResponse.html">AWSCognitoIdentityProviderSetRiskConfigurationResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setRiskConfiguration</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderSetRiskConfigurationRequest.html">AWSCognitoIdentityProviderSetRiskConfigurationRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderSetRiskConfigurationResponse.html">AWSCognitoIdentityProviderSetRiskConfigurationResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -13233,7 +13228,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setUICustomization</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderSetUICustomizationRequest.html">AWSCognitoIdentityProviderSetUICustomizationRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderSetUICustomizationResponse.html">AWSCognitoIdentityProviderSetUICustomizationResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setUICustomization</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderSetUICustomizationRequest.html">AWSCognitoIdentityProviderSetUICustomizationRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderSetUICustomizationResponse.html">AWSCognitoIdentityProviderSetUICustomizationResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -13379,7 +13374,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setUserMFAPreference</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderSetUserMFAPreferenceRequest.html">AWSCognitoIdentityProviderSetUserMFAPreferenceRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderSetUserMFAPreferenceResponse">AWSCognitoIdentityProviderSetUserMFAPreferenceResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setUserMFAPreference</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderSetUserMFAPreferenceRequest.html">AWSCognitoIdentityProviderSetUserMFAPreferenceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderSetUserMFAPreferenceResponse">AWSCognitoIdentityProviderSetUserMFAPreferenceResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -13525,7 +13520,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setUserPoolMfaConfig</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderSetUserPoolMfaConfigRequest.html">AWSCognitoIdentityProviderSetUserPoolMfaConfigRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderSetUserPoolMfaConfigResponse.html">AWSCognitoIdentityProviderSetUserPoolMfaConfigResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setUserPoolMfaConfig</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderSetUserPoolMfaConfigRequest.html">AWSCognitoIdentityProviderSetUserPoolMfaConfigRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderSetUserPoolMfaConfigResponse.html">AWSCognitoIdentityProviderSetUserPoolMfaConfigResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -13669,7 +13664,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setUserSettings</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderSetUserSettingsRequest.html">AWSCognitoIdentityProviderSetUserSettingsRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderSetUserSettingsResponse">AWSCognitoIdentityProviderSetUserSettingsResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setUserSettings</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderSetUserSettingsRequest.html">AWSCognitoIdentityProviderSetUserSettingsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderSetUserSettingsResponse">AWSCognitoIdentityProviderSetUserSettingsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -13810,7 +13805,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">signUp</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderSignUpRequest.html">AWSCognitoIdentityProviderSignUpRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderSignUpResponse.html">AWSCognitoIdentityProviderSignUpResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">signUp</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderSignUpRequest.html">AWSCognitoIdentityProviderSignUpRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderSignUpResponse.html">AWSCognitoIdentityProviderSignUpResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -13955,7 +13950,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startUserImportJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderStartUserImportJobRequest.html">AWSCognitoIdentityProviderStartUserImportJobRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderStartUserImportJobResponse.html">AWSCognitoIdentityProviderStartUserImportJobResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startUserImportJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderStartUserImportJobRequest.html">AWSCognitoIdentityProviderStartUserImportJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderStartUserImportJobResponse.html">AWSCognitoIdentityProviderStartUserImportJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -14100,7 +14095,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopUserImportJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderStopUserImportJobRequest.html">AWSCognitoIdentityProviderStopUserImportJobRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderStopUserImportJobResponse.html">AWSCognitoIdentityProviderStopUserImportJobResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopUserImportJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderStopUserImportJobRequest.html">AWSCognitoIdentityProviderStopUserImportJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderStopUserImportJobResponse.html">AWSCognitoIdentityProviderStopUserImportJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -14244,7 +14239,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">tagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderTagResourceRequest.html">AWSCognitoIdentityProviderTagResourceRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderTagResourceResponse">AWSCognitoIdentityProviderTagResourceResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">tagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderTagResourceRequest.html">AWSCognitoIdentityProviderTagResourceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderTagResourceResponse">AWSCognitoIdentityProviderTagResourceResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -14388,7 +14383,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">untagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUntagResourceRequest.html">AWSCognitoIdentityProviderUntagResourceRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderUntagResourceResponse">AWSCognitoIdentityProviderUntagResourceResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">untagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUntagResourceRequest.html">AWSCognitoIdentityProviderUntagResourceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderUntagResourceResponse">AWSCognitoIdentityProviderUntagResourceResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -14534,7 +14529,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateAuthEventFeedback</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateAuthEventFeedbackRequest.html">AWSCognitoIdentityProviderUpdateAuthEventFeedbackRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderUpdateAuthEventFeedbackResponse">AWSCognitoIdentityProviderUpdateAuthEventFeedbackResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateAuthEventFeedback</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateAuthEventFeedbackRequest.html">AWSCognitoIdentityProviderUpdateAuthEventFeedbackRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderUpdateAuthEventFeedbackResponse">AWSCognitoIdentityProviderUpdateAuthEventFeedbackResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -14679,7 +14674,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateDeviceStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateDeviceStatusRequest.html">AWSCognitoIdentityProviderUpdateDeviceStatusRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderUpdateDeviceStatusResponse">AWSCognitoIdentityProviderUpdateDeviceStatusResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateDeviceStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateDeviceStatusRequest.html">AWSCognitoIdentityProviderUpdateDeviceStatusRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderUpdateDeviceStatusResponse">AWSCognitoIdentityProviderUpdateDeviceStatusResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -14823,7 +14818,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateGroup</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateGroupRequest.html">AWSCognitoIdentityProviderUpdateGroupRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateGroupResponse.html">AWSCognitoIdentityProviderUpdateGroupResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateGroup</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateGroupRequest.html">AWSCognitoIdentityProviderUpdateGroupRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateGroupResponse.html">AWSCognitoIdentityProviderUpdateGroupResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -14969,7 +14964,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">update</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateIdentityProviderRequest.html">AWSCognitoIdentityProviderUpdateIdentityProviderRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateIdentityProviderResponse.html">AWSCognitoIdentityProviderUpdateIdentityProviderResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">update</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateIdentityProviderRequest.html">AWSCognitoIdentityProviderUpdateIdentityProviderRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateIdentityProviderResponse.html">AWSCognitoIdentityProviderUpdateIdentityProviderResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -15115,7 +15110,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateResourceServer</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateResourceServerRequest.html">AWSCognitoIdentityProviderUpdateResourceServerRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateResourceServerResponse.html">AWSCognitoIdentityProviderUpdateResourceServerResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateResourceServer</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateResourceServerRequest.html">AWSCognitoIdentityProviderUpdateResourceServerRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateResourceServerResponse.html">AWSCognitoIdentityProviderUpdateResourceServerResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -15261,7 +15256,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateUserAttributes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateUserAttributesRequest.html">AWSCognitoIdentityProviderUpdateUserAttributesRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateUserAttributesResponse.html">AWSCognitoIdentityProviderUpdateUserAttributesResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateUserAttributes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateUserAttributesRequest.html">AWSCognitoIdentityProviderUpdateUserAttributesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateUserAttributesResponse.html">AWSCognitoIdentityProviderUpdateUserAttributesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -15405,7 +15400,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateUserPool</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateUserPoolRequest.html">AWSCognitoIdentityProviderUpdateUserPoolRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderUpdateUserPoolResponse">AWSCognitoIdentityProviderUpdateUserPoolResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateUserPool</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateUserPoolRequest.html">AWSCognitoIdentityProviderUpdateUserPoolRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderUpdateUserPoolResponse">AWSCognitoIdentityProviderUpdateUserPoolResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -15551,7 +15546,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateUserPoolClient</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateUserPoolClientRequest.html">AWSCognitoIdentityProviderUpdateUserPoolClientRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateUserPoolClientResponse.html">AWSCognitoIdentityProviderUpdateUserPoolClientResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateUserPoolClient</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateUserPoolClientRequest.html">AWSCognitoIdentityProviderUpdateUserPoolClientRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateUserPoolClientResponse.html">AWSCognitoIdentityProviderUpdateUserPoolClientResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -15697,7 +15692,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateUserPoolDomain</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateUserPoolDomainRequest.html">AWSCognitoIdentityProviderUpdateUserPoolDomainRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateUserPoolDomainResponse.html">AWSCognitoIdentityProviderUpdateUserPoolDomainResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateUserPoolDomain</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateUserPoolDomainRequest.html">AWSCognitoIdentityProviderUpdateUserPoolDomainRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderUpdateUserPoolDomainResponse.html">AWSCognitoIdentityProviderUpdateUserPoolDomainResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -15842,7 +15837,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">verifySoftwareToken</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderVerifySoftwareTokenRequest.html">AWSCognitoIdentityProviderVerifySoftwareTokenRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSCognitoIdentityProviderVerifySoftwareTokenResponse.html">AWSCognitoIdentityProviderVerifySoftwareTokenResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">verifySoftwareToken</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderVerifySoftwareTokenRequest.html">AWSCognitoIdentityProviderVerifySoftwareTokenRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderVerifySoftwareTokenResponse.html">AWSCognitoIdentityProviderVerifySoftwareTokenResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -15987,7 +15982,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">verifyUserAttribute</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderVerifyUserAttributeRequest.html">AWSCognitoIdentityProviderVerifyUserAttributeRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderVerifyUserAttributeResponse">AWSCognitoIdentityProviderVerifyUserAttributeResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">verifyUserAttribute</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderVerifyUserAttributeRequest.html">AWSCognitoIdentityProviderVerifyUserAttributeRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderVerifyUserAttributeResponse">AWSCognitoIdentityProviderVerifyUserAttributeResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -16032,11 +16027,10 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-30)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="noopener" rel="external">jazzy ♪♫ v0.14.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="noopener" rel="external">Realm</a> project.</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-10-19)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>
   </body>
-</div>
 </html>
