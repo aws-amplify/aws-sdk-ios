@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSElasticLoadBalancingQueryStringConditionConfig Class Reference</title>
+    <title>AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSElasticLoadBalancingQueryStringConditionConfig" class="dashAnchor"></a>
-    <a title="AWSElasticLoadBalancingQueryStringConditionConfig Class Reference"></a>
+    <a name="//apple_ref/objc/Enum/AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum" class="dashAnchor"></a>
+    <a title="AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSElasticLoadBalancing 2.26.2 Docs</a> (77% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSElasticLoadBalancing Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        AWSElasticLoadBalancingQueryStringConditionConfig Class Reference
+        AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum Enumeration Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -432,20 +432,24 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSElasticLoadBalancingQueryStringConditionConfig</h1>
+            <h1>AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSElasticLoadBalancingQueryStringConditionConfig</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumUnknown</span><span class="p">,</span>
+    <span class="n">AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv4</span><span class="p">,</span>
+    <span class="n">AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv6</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSElasticLoadBalancingQueryStringConditionConfig</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                 </div>
               </div>
-            <p>Information about a query string condition.</p><p>The query string component of a URI starts after the first &lsquo;?&rsquo; character and is terminated by either a &lsquo;#&rsquo; character or the end of the URI. A typical query string contains key/value pairs separated by &lsquo;&amp;&rsquo; characters. The allowed characters are specified by RFC 3986. Any character can be percentage encoded.</p>
+            <p>Undocumented</p>
 
           </section>
           <section class="section task-group-section">
@@ -454,9 +458,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSElasticLoadBalancingQueryStringConditionConfig(py)values"></a>
-                    <a name="//apple_ref/objc/Property/values" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSElasticLoadBalancingQueryStringConditionConfig(py)values">values</a>
+                    <a name="/c:@E@AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum@AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumUnknown"></a>
+                    <a name="//apple_ref/objc/Case/AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumUnknown" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum@AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumUnknown">AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumUnknown</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -464,19 +468,83 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>One or more key/value pairs or values to find in the query string. The maximum size of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal &lsquo;*&rsquo; or &lsquo;?&rsquo; character in a query string, you must escape these characters in <code>Values</code> using a &lsquo;' character.</p><p>If you specify multiple key/value pairs or values, the condition is satisfied if one of them is found in the query string.</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/AWSElasticLoadBalancingQueryStringKeyValuePair.html">AWSElasticLoadBalancingQueryStringKeyValuePair</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">values</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumUnknown</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">values</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/AWSElasticLoadBalancingQueryStringKeyValuePair.html">AWSElasticLoadBalancingQueryStringKeyValuePair</a></span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unknown</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum@AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv4"></a>
+                    <a name="//apple_ref/objc/Case/AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv4" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum@AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv4">AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv4</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv4</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">ipv4</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum@AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv6"></a>
+                    <a name="//apple_ref/objc/Case/AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv6" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum@AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv6">AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv6</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv6</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">ipv6</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
 
                         </div>
                       </div>

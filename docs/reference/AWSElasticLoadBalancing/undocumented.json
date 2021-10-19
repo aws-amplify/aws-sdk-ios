@@ -710,216 +710,251 @@
     {
       "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 132,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum",
+      "symbol": "AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 132,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum",
+      "symbol": "AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 133,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumUnknown",
+      "symbol": "AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum.AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 134,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumElbRegistrationInProgress",
+      "symbol": "AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum.AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv4",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 135,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumElbInitialHealthChecking",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 136,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetResponseCodeMismatch",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 137,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetTimeout",
+      "symbol": "AWSElasticLoadBalancingTargetGroupIpAddressTypeEnum.AWSElasticLoadBalancingTargetGroupIpAddressTypeEnumIpv6",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 138,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetFailedHealthChecks",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 138,
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 139,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetNotRegistered",
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 140,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetNotInUse",
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumElbRegistrationInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 141,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetDeregistrationInProgress",
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumElbInitialHealthChecking",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 142,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetInvalidState",
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetResponseCodeMismatch",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 143,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetIpUnusable",
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetTimeout",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 144,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetHealthCheckDisabled",
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetFailedHealthChecks",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 145,
-      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumElbInternalError",
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetNotRegistered",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 146,
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetNotInUse",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 147,
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetDeregistrationInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 148,
-      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 148,
-      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetInvalidState",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 149,
-      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumUnknown",
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetIpUnusable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 150,
-      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumInitial",
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumTargetHealthCheckDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 151,
-      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumHealthy",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 152,
-      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumUnhealthy",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 153,
-      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumUnused",
+      "symbol": "AWSElasticLoadBalancingTargetHealthReasonEnum.AWSElasticLoadBalancingTargetHealthReasonEnumElbInternalError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 154,
-      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumDraining",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 155,
-      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumUnavailable",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 158,
-      "symbol": "AWSElasticLoadBalancingTargetTypeEnum",
+      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 158,
-      "symbol": "AWSElasticLoadBalancingTargetTypeEnum",
+      "line": 154,
+      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 155,
+      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 156,
+      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumInitial",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 157,
+      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumHealthy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 158,
+      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumUnhealthy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 159,
-      "symbol": "AWSElasticLoadBalancingTargetTypeEnum.AWSElasticLoadBalancingTargetTypeEnumUnknown",
+      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumUnused",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 160,
-      "symbol": "AWSElasticLoadBalancingTargetTypeEnum.AWSElasticLoadBalancingTargetTypeEnumInstance",
+      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumDraining",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 161,
+      "symbol": "AWSElasticLoadBalancingTargetHealthStateEnum.AWSElasticLoadBalancingTargetHealthStateEnumUnavailable",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 164,
+      "symbol": "AWSElasticLoadBalancingTargetTypeEnum",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 164,
+      "symbol": "AWSElasticLoadBalancingTargetTypeEnum",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 165,
+      "symbol": "AWSElasticLoadBalancingTargetTypeEnum.AWSElasticLoadBalancingTargetTypeEnumUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 166,
+      "symbol": "AWSElasticLoadBalancingTargetTypeEnum.AWSElasticLoadBalancingTargetTypeEnumInstance",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "line": 167,
       "symbol": "AWSElasticLoadBalancingTargetTypeEnum.AWSElasticLoadBalancingTargetTypeEnumIp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 162,
+      "line": 168,
       "symbol": "AWSElasticLoadBalancingTargetTypeEnum.AWSElasticLoadBalancingTargetTypeEnumLambda",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
-      "line": 163,
+      "line": 169,
       "symbol": "AWSElasticLoadBalancingTargetTypeEnum.AWSElasticLoadBalancingTargetTypeEnumAlb",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
