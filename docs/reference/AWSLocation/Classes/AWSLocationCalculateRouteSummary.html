@@ -17,20 +17,20 @@
     <a title="AWSLocationCalculateRouteSummary Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLocation 2.26.1 Docs</a> (90% documented)</p>
-        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
-        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLocation.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
-        <p class="header-right">
+        <p><a href="../index.html">AWSLocation 2.26.2 Docs</a> (89% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLocation.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
+        <div class="header-right">
           <form role="search" action="../search.json">
             <input type="text" placeholder="Search documentation" data-typeahead>
           </form>
-        </p>
+        </div>
       </div>
     </header>
     <div class="content-wrapper">
       <p id="breadcrumbs">
         <a href="../index.html">AWSLocation Reference</a>
-        <img id="carat" src="../img/carat.png" />
+        <img id="carat" src="../img/carat.png" alt=""/>
         AWSLocationCalculateRouteSummary Class Reference
       </p>
     </div>
@@ -492,6 +492,9 @@
                 <a href="../Enums/AWSLocationIntendedUse.html">AWSLocationIntendedUse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSLocationPositionFiltering.html">AWSLocationPositionFiltering</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSLocationPricingPlan.html">AWSLocationPricingPlan</a>
               </li>
               <li class="nav-group-task">
@@ -576,7 +579,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>The total distance covered by the route. The sum of the distance travelled between every stop on the route.</p><note><p>The route <code>distance</code> can&rsquo;t be greater than 250 km. If the route exceeds 250 km, the response returns a <code>400 RoutesValidationException</code> error.</p></note></p>
+                        <p><p>The total distance covered by the route. The sum of the distance travelled between every stop on the route.</p><note><p>If Esri is the data source for the route calculator, the route distance can’t be greater than 400 km. If the route exceeds 400 km, the response is a <code>400 RoutesValidationException</code> error.</p></note></p>
 
                       </div>
                       <div class="declaration">
@@ -672,7 +675,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Specifies a geographical box surrounding a route. Used to zoom into a route when displaying it in a map. For example, <code>[min x, min y, max x, max y]</code>.</p><p>The first 2 <code>bbox</code> parameters describe the lower southwest corner: </p><ul><li><p>The first <code>bbox</code> position is the X coordinate or longitude of the lower southwest corner. </p></li><li><p>The second <code>bbox</code> position is the Y coordinate or latitude of the lower southwest corner. </p></li></ul><p>The next 2 <code>bbox</code> parameters describe the upper northeast corner: </p><ul><li><p>The third <code>bbox</code> position is the X coordinate, or longitude of the upper northeast corner. </p></li><li><p>The fourth <code>bbox</code> position is the Y coordinate, or longitude of the upper northeast corner. </p></li></ul></p>
+                        <p><p>Specifies a geographical box surrounding a route. Used to zoom into a route when displaying it in a map. For example, <code>[min x, min y, max x, max y]</code>.</p><p>The first 2 <code>bbox</code> parameters describe the lower southwest corner: </p><ul><li><p>The first <code>bbox</code> position is the X coordinate or longitude of the lower southwest corner. </p></li><li><p>The second <code>bbox</code> position is the Y coordinate or latitude of the lower southwest corner. </p></li></ul><p>The next 2 <code>bbox</code> parameters describe the upper northeast corner: </p><ul><li><p>The third <code>bbox</code> position is the X coordinate, or longitude of the upper northeast corner. </p></li><li><p>The fourth <code>bbox</code> position is the Y coordinate, or latitude of the upper northeast corner. </p></li></ul></p>
 
                       </div>
                       <div class="declaration">
@@ -696,11 +699,10 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-30)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="noopener" rel="external">jazzy ♪♫ v0.14.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="noopener" rel="external">Realm</a> project.</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-10-19)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>
   </body>
-</div>
 </html>

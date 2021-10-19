@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSLocationDeleteTrackerRequest Class Reference</title>
+    <title>AWSLocationPositionFiltering Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSLocationDeleteTrackerRequest" class="dashAnchor"></a>
-    <a title="AWSLocationDeleteTrackerRequest Class Reference"></a>
+    <a name="//apple_ref/objc/Enum/AWSLocationPositionFiltering" class="dashAnchor"></a>
+    <a title="AWSLocationPositionFiltering Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSLocation 2.26.2 Docs</a> (89% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSLocation Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        AWSLocationDeleteTrackerRequest Class Reference
+        AWSLocationPositionFiltering Enumeration Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -513,20 +513,25 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSLocationDeleteTrackerRequest</h1>
+            <h1>AWSLocationPositionFiltering</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationDeleteTrackerRequest</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSLocationPositionFiltering</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSLocationPositionFilteringUnknown</span><span class="p">,</span>
+    <span class="n">AWSLocationPositionFilteringTimeBased</span><span class="p">,</span>
+    <span class="n">AWSLocationPositionFilteringDistanceBased</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationDeleteTrackerRequest</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSLocationPositionFiltering</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                 </div>
               </div>
-            
+            <p>Undocumented</p>
+
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -534,9 +539,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSLocationDeleteTrackerRequest(py)trackerName"></a>
-                    <a name="//apple_ref/objc/Property/trackerName" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLocationDeleteTrackerRequest(py)trackerName">trackerName</a>
+                    <a name="/c:@E@AWSLocationPositionFiltering@AWSLocationPositionFilteringUnknown"></a>
+                    <a name="//apple_ref/objc/Case/AWSLocationPositionFilteringUnknown" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSLocationPositionFiltering@AWSLocationPositionFilteringUnknown">AWSLocationPositionFilteringUnknown</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -544,19 +549,83 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The name of the tracker resource to be deleted.</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">trackerName</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSLocationPositionFilteringUnknown</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">trackerName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unknown</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSLocationPositionFiltering@AWSLocationPositionFilteringTimeBased"></a>
+                    <a name="//apple_ref/objc/Case/AWSLocationPositionFilteringTimeBased" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSLocationPositionFiltering@AWSLocationPositionFilteringTimeBased">AWSLocationPositionFilteringTimeBased</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSLocationPositionFilteringTimeBased</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">timeBased</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSLocationPositionFiltering@AWSLocationPositionFilteringDistanceBased"></a>
+                    <a name="//apple_ref/objc/Case/AWSLocationPositionFilteringDistanceBased" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSLocationPositionFiltering@AWSLocationPositionFilteringDistanceBased">AWSLocationPositionFilteringDistanceBased</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSLocationPositionFilteringDistanceBased</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">distanceBased</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
 
                         </div>
                       </div>
