@@ -17,20 +17,20 @@
     <a title="AWSMachineLearning Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSMachineLearning 2.26.1 Docs</a> (81% documented)</p>
-        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
-        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSMachineLearning.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
-        <p class="header-right">
+        <p><a href="../index.html">AWSMachineLearning 2.26.2 Docs</a> (81% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSMachineLearning.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
+        <div class="header-right">
           <form role="search" action="../search.json">
             <input type="text" placeholder="Search documentation" data-typeahead>
           </form>
-        </p>
+        </div>
       </div>
     </header>
     <div class="content-wrapper">
       <p id="breadcrumbs">
         <a href="../index.html">AWSMachineLearning Reference</a>
-        <img id="carat" src="../img/carat.png" />
+        <img id="carat" src="../img/carat.png" alt=""/>
         AWSMachineLearning Class Reference
       </p>
     </div>
@@ -377,11 +377,6 @@
                           <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">configuration</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -417,9 +412,9 @@
 <p><em>Objective-C</em></p>
 <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
      <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                                                     <span class="nf">identityPoolId</span><span class="p">:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+                                                                                                     <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
      <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                          <span class="nf">credentialsProvider</span><span class="p">:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+                                                                          <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
      <span class="p">[</span><span class="n">AWSServiceManager</span> <span class="nf">defaultServiceManager</span><span class="p">].</span><span class="n">defaultServiceConfiguration</span> <span class="o">=</span> <span class="n">configuration</span><span class="p">;</span>
 
      <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
@@ -446,7 +441,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="err">`</span><span class="k">default</span><span class="err">`</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="p">`</span><span class="nv">default</span><span class="p">`()</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
 
                         </div>
                       </div>
@@ -488,9 +483,9 @@
 <p><em>Objective-C</em></p>
 <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
     <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                                                    <span class="nf">identityPoolId</span><span class="p">:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+                                                                                                    <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
     <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSWest2</span>
-                                                                         <span class="nf">credentialsProvider</span><span class="p">:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+                                                                         <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
 
     <span class="p">[</span><span class="n">AWSMachineLearning</span> <span class="nf">registerMachineLearningWithConfiguration</span><span class="p">:</span><span class="n">configuration</span> <span class="nf">forKey</span><span class="p">:</span><span class="s">@"USWest2MachineLearning"</span><span class="p">];</span>
 
@@ -593,9 +588,9 @@
 <p><em>Objective-C</em></p>
 <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
     <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                                                    <span class="nf">identityPoolId</span><span class="p">:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+                                                                                                    <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
     <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSWest2</span>
-                                                                         <span class="nf">credentialsProvider</span><span class="p">:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+                                                                         <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
 
     <span class="p">[</span><span class="n">AWSMachineLearning</span> <span class="nf">registerMachineLearningWithConfiguration</span><span class="p">:</span><span class="n">configuration</span> <span class="nf">forKey</span><span class="p">:</span><span class="s">@"USWest2MachineLearning"</span><span class="p">];</span>
 
@@ -623,7 +618,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -810,7 +805,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">addTags</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningAddTagsInput.html">AWSMachineLearningAddTagsInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningAddTagsOutput.html">AWSMachineLearningAddTagsOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">addTags</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningAddTagsInput.html">AWSMachineLearningAddTagsInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningAddTagsOutput.html">AWSMachineLearningAddTagsOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -954,7 +949,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createBatchPrediction</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningCreateBatchPredictionInput.html">AWSMachineLearningCreateBatchPredictionInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningCreateBatchPredictionOutput.html">AWSMachineLearningCreateBatchPredictionOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createBatchPrediction</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningCreateBatchPredictionInput.html">AWSMachineLearningCreateBatchPredictionInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningCreateBatchPredictionOutput.html">AWSMachineLearningCreateBatchPredictionOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1099,7 +1094,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createDataSource</span><span class="p">(</span><span class="n">fromRDS</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningCreateDataSourceFromRDSInput.html">AWSMachineLearningCreateDataSourceFromRDSInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningCreateDataSourceFromRDSOutput.html">AWSMachineLearningCreateDataSourceFromRDSOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createDataSource</span><span class="p">(</span><span class="n">fromRDS</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningCreateDataSourceFromRDSInput.html">AWSMachineLearningCreateDataSourceFromRDSInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningCreateDataSourceFromRDSOutput.html">AWSMachineLearningCreateDataSourceFromRDSOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1245,7 +1240,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createDataSource</span><span class="p">(</span><span class="n">fromRedshift</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningCreateDataSourceFromRedshiftInput.html">AWSMachineLearningCreateDataSourceFromRedshiftInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningCreateDataSourceFromRedshiftOutput.html">AWSMachineLearningCreateDataSourceFromRedshiftOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createDataSource</span><span class="p">(</span><span class="n">fromRedshift</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningCreateDataSourceFromRedshiftInput.html">AWSMachineLearningCreateDataSourceFromRedshiftInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningCreateDataSourceFromRedshiftOutput.html">AWSMachineLearningCreateDataSourceFromRedshiftOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1389,7 +1384,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createDataSource</span><span class="p">(</span><span class="n">fromS3</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningCreateDataSourceFromS3Input.html">AWSMachineLearningCreateDataSourceFromS3Input</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningCreateDataSourceFromS3Output.html">AWSMachineLearningCreateDataSourceFromS3Output</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createDataSource</span><span class="p">(</span><span class="n">fromS3</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningCreateDataSourceFromS3Input.html">AWSMachineLearningCreateDataSourceFromS3Input</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningCreateDataSourceFromS3Output.html">AWSMachineLearningCreateDataSourceFromS3Output</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1532,7 +1527,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createEvaluation</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningCreateEvaluationInput.html">AWSMachineLearningCreateEvaluationInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningCreateEvaluationOutput.html">AWSMachineLearningCreateEvaluationOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createEvaluation</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningCreateEvaluationInput.html">AWSMachineLearningCreateEvaluationInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningCreateEvaluationOutput.html">AWSMachineLearningCreateEvaluationOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1673,7 +1668,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createMLModel</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningCreateMLModelInput.html">AWSMachineLearningCreateMLModelInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningCreateMLModelOutput.html">AWSMachineLearningCreateMLModelOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createMLModel</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningCreateMLModelInput.html">AWSMachineLearningCreateMLModelInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningCreateMLModelOutput.html">AWSMachineLearningCreateMLModelOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1817,7 +1812,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createRealtimeEndpoint</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningCreateRealtimeEndpointInput.html">AWSMachineLearningCreateRealtimeEndpointInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningCreateRealtimeEndpointOutput.html">AWSMachineLearningCreateRealtimeEndpointOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createRealtimeEndpoint</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningCreateRealtimeEndpointInput.html">AWSMachineLearningCreateRealtimeEndpointInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningCreateRealtimeEndpointOutput.html">AWSMachineLearningCreateRealtimeEndpointOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1961,7 +1956,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteBatchPrediction</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningDeleteBatchPredictionInput.html">AWSMachineLearningDeleteBatchPredictionInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningDeleteBatchPredictionOutput.html">AWSMachineLearningDeleteBatchPredictionOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteBatchPrediction</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningDeleteBatchPredictionInput.html">AWSMachineLearningDeleteBatchPredictionInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningDeleteBatchPredictionOutput.html">AWSMachineLearningDeleteBatchPredictionOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2104,7 +2099,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteDataSource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningDeleteDataSourceInput.html">AWSMachineLearningDeleteDataSourceInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningDeleteDataSourceOutput.html">AWSMachineLearningDeleteDataSourceOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteDataSource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningDeleteDataSourceInput.html">AWSMachineLearningDeleteDataSourceInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningDeleteDataSourceOutput.html">AWSMachineLearningDeleteDataSourceOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2247,7 +2242,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteEvaluation</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningDeleteEvaluationInput.html">AWSMachineLearningDeleteEvaluationInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningDeleteEvaluationOutput.html">AWSMachineLearningDeleteEvaluationOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteEvaluation</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningDeleteEvaluationInput.html">AWSMachineLearningDeleteEvaluationInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningDeleteEvaluationOutput.html">AWSMachineLearningDeleteEvaluationOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2388,7 +2383,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteMLModel</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningDeleteMLModelInput.html">AWSMachineLearningDeleteMLModelInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningDeleteMLModelOutput.html">AWSMachineLearningDeleteMLModelOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteMLModel</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningDeleteMLModelInput.html">AWSMachineLearningDeleteMLModelInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningDeleteMLModelOutput.html">AWSMachineLearningDeleteMLModelOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2532,7 +2527,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteRealtimeEndpoint</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningDeleteRealtimeEndpointInput.html">AWSMachineLearningDeleteRealtimeEndpointInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningDeleteRealtimeEndpointOutput.html">AWSMachineLearningDeleteRealtimeEndpointOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteRealtimeEndpoint</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningDeleteRealtimeEndpointInput.html">AWSMachineLearningDeleteRealtimeEndpointInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningDeleteRealtimeEndpointOutput.html">AWSMachineLearningDeleteRealtimeEndpointOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2673,7 +2668,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteTags</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningDeleteTagsInput.html">AWSMachineLearningDeleteTagsInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningDeleteTagsOutput.html">AWSMachineLearningDeleteTagsOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteTags</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningDeleteTagsInput.html">AWSMachineLearningDeleteTagsInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningDeleteTagsOutput.html">AWSMachineLearningDeleteTagsOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2818,7 +2813,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeBatchPredictions</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningDescribeBatchPredictionsInput.html">AWSMachineLearningDescribeBatchPredictionsInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningDescribeBatchPredictionsOutput.html">AWSMachineLearningDescribeBatchPredictionsOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeBatchPredictions</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningDescribeBatchPredictionsInput.html">AWSMachineLearningDescribeBatchPredictionsInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningDescribeBatchPredictionsOutput.html">AWSMachineLearningDescribeBatchPredictionsOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2962,7 +2957,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeDataSources</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningDescribeDataSourcesInput.html">AWSMachineLearningDescribeDataSourcesInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningDescribeDataSourcesOutput.html">AWSMachineLearningDescribeDataSourcesOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeDataSources</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningDescribeDataSourcesInput.html">AWSMachineLearningDescribeDataSourcesInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningDescribeDataSourcesOutput.html">AWSMachineLearningDescribeDataSourcesOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3106,7 +3101,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeEvaluations</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningDescribeEvaluationsInput.html">AWSMachineLearningDescribeEvaluationsInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningDescribeEvaluationsOutput.html">AWSMachineLearningDescribeEvaluationsOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeEvaluations</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningDescribeEvaluationsInput.html">AWSMachineLearningDescribeEvaluationsInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningDescribeEvaluationsOutput.html">AWSMachineLearningDescribeEvaluationsOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3249,7 +3244,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeMLModels</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningDescribeMLModelsInput.html">AWSMachineLearningDescribeMLModelsInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningDescribeMLModelsOutput.html">AWSMachineLearningDescribeMLModelsOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeMLModels</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningDescribeMLModelsInput.html">AWSMachineLearningDescribeMLModelsInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningDescribeMLModelsOutput.html">AWSMachineLearningDescribeMLModelsOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3390,7 +3385,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeTags</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningDescribeTagsInput.html">AWSMachineLearningDescribeTagsInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningDescribeTagsOutput.html">AWSMachineLearningDescribeTagsOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeTags</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningDescribeTagsInput.html">AWSMachineLearningDescribeTagsInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningDescribeTagsOutput.html">AWSMachineLearningDescribeTagsOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3534,7 +3529,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getBatchPrediction</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningGetBatchPredictionInput.html">AWSMachineLearningGetBatchPredictionInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningGetBatchPredictionOutput.html">AWSMachineLearningGetBatchPredictionOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchPrediction</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningGetBatchPredictionInput.html">AWSMachineLearningGetBatchPredictionInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningGetBatchPredictionOutput.html">AWSMachineLearningGetBatchPredictionOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3675,7 +3670,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getDataSource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningGetDataSourceInput.html">AWSMachineLearningGetDataSourceInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningGetDataSourceOutput.html">AWSMachineLearningGetDataSourceOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">dataSource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningGetDataSourceInput.html">AWSMachineLearningGetDataSourceInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningGetDataSourceOutput.html">AWSMachineLearningGetDataSourceOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3816,7 +3811,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getEvaluation</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningGetEvaluationInput.html">AWSMachineLearningGetEvaluationInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningGetEvaluationOutput.html">AWSMachineLearningGetEvaluationOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">evaluation</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningGetEvaluationInput.html">AWSMachineLearningGetEvaluationInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningGetEvaluationOutput.html">AWSMachineLearningGetEvaluationOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3957,7 +3952,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getMLModel</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningGetMLModelInput.html">AWSMachineLearningGetMLModelInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningGetMLModelOutput.html">AWSMachineLearningGetMLModelOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">mlModel</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningGetMLModelInput.html">AWSMachineLearningGetMLModelInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningGetMLModelOutput.html">AWSMachineLearningGetMLModelOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4098,7 +4093,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">predict</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningPredictInput.html">AWSMachineLearningPredictInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningPredictOutput.html">AWSMachineLearningPredictOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">predict</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningPredictInput.html">AWSMachineLearningPredictInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningPredictOutput.html">AWSMachineLearningPredictOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4242,7 +4237,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateBatchPrediction</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningUpdateBatchPredictionInput.html">AWSMachineLearningUpdateBatchPredictionInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningUpdateBatchPredictionOutput.html">AWSMachineLearningUpdateBatchPredictionOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateBatchPrediction</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningUpdateBatchPredictionInput.html">AWSMachineLearningUpdateBatchPredictionInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningUpdateBatchPredictionOutput.html">AWSMachineLearningUpdateBatchPredictionOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4385,7 +4380,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateDataSource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningUpdateDataSourceInput.html">AWSMachineLearningUpdateDataSourceInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningUpdateDataSourceOutput.html">AWSMachineLearningUpdateDataSourceOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateDataSource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningUpdateDataSourceInput.html">AWSMachineLearningUpdateDataSourceInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningUpdateDataSourceOutput.html">AWSMachineLearningUpdateDataSourceOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4528,7 +4523,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateEvaluation</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningUpdateEvaluationInput.html">AWSMachineLearningUpdateEvaluationInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningUpdateEvaluationOutput.html">AWSMachineLearningUpdateEvaluationOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateEvaluation</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningUpdateEvaluationInput.html">AWSMachineLearningUpdateEvaluationInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningUpdateEvaluationOutput.html">AWSMachineLearningUpdateEvaluationOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4669,7 +4664,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateMLModel</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningUpdateMLModelInput.html">AWSMachineLearningUpdateMLModelInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSMachineLearningUpdateMLModelOutput.html">AWSMachineLearningUpdateMLModelOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateMLModel</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningUpdateMLModelInput.html">AWSMachineLearningUpdateMLModelInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSMachineLearningUpdateMLModelOutput.html">AWSMachineLearningUpdateMLModelOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4714,11 +4709,10 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-30)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="noopener" rel="external">jazzy ♪♫ v0.14.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="noopener" rel="external">Realm</a> project.</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-10-19)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>
   </body>
-</div>
 </html>
