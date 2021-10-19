@@ -17,20 +17,20 @@
     <a title="AWSMobileClient Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSMobileClient 2.26.1 Docs</a> (52% documented)</p>
-        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
-        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSMobileClient.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
-        <p class="header-right">
+        <p><a href="../index.html">AWSMobileClient 2.26.2 Docs</a> (52% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSMobileClient.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
+        <div class="header-right">
           <form role="search" action="../search.json">
             <input type="text" placeholder="Search documentation" data-typeahead>
           </form>
-        </p>
+        </div>
       </div>
     </header>
     <div class="content-wrapper">
       <p id="breadcrumbs">
         <a href="../index.html">AWSMobileClient Reference</a>
-        <img id="carat" src="../img/carat.png" />
+        <img id="carat" src="../img/carat.png" alt=""/>
         AWSMobileClient Class Reference
       </p>
     </div>
@@ -152,7 +152,7 @@
                 <a name="//apple_ref/swift/Section/Public API variables" class="dashAnchor"></a>
                 <div class="section-name-container">
                   <a class="section-name-link" href="#/Public%20API%20variables"></a>
-                  <h3 class="section-name"><p>Public API variables</p>
+                  <h3 class="section-name"><span>Public API variables</span>
 </h3>
                 </div>
               </div>
@@ -344,7 +344,7 @@ Note that the value stored may vary depending on how sign-in was performed.
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, renamed: "default")</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">,</span> <span class="nv">renamed</span><span class="p">:</span> <span class="s">"default"</span><span class="p">)</span>
 <span class="kd">@objc</span>
 <span class="k">override</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">sharedInstance</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AWSMobileClient</span></code></pre>
 
@@ -387,7 +387,7 @@ all instances will have the same configuration reference.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@objc</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="err">`</span><span class="k">default</span><span class="err">`</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AWSMobileClient</span></code></pre>
+<span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="p">`</span><span class="nv">default</span><span class="p">`()</span> <span class="o">-&gt;</span> <span class="kt">AWSMobileClient</span></code></pre>
 
                         </div>
                       </div>
@@ -595,10 +595,10 @@ all instances will have the same configuration reference.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(iOS 13, *)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="n">iOS</span> <span class="mi">13</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">showSignIn</span><span class="p">(</span><span class="nv">presentationAnchor</span><span class="p">:</span> <span class="kt">ASPresentationAnchor</span><span class="p">,</span>
                        <span class="nv">hostedUIOptions</span><span class="p">:</span> <span class="kt"><a href="../Structs/HostedUIOptions.html">HostedUIOptions</a></span><span class="p">,</span>
-                       <span class="n">_</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping(UserState?, Error?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                       <span class="n">_</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span><span class="p">(</span><span class="kt"><a href="../Enums/UserState.html">UserState</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -671,7 +671,7 @@ all instances will have the same configuration reference.</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">showSignIn</span><span class="p">(</span><span class="nv">navigationController</span><span class="p">:</span> <span class="kt">UINavigationController</span><span class="p">,</span>
                        <span class="nv">signInUIOptions</span><span class="p">:</span> <span class="kt"><a href="../Classes/SignInUIOptions.html">SignInUIOptions</a></span> <span class="o">=</span> <span class="kt"><a href="../Classes/SignInUIOptions.html">SignInUIOptions</a></span><span class="p">(),</span>
                        <span class="nv">hostedUIOptions</span><span class="p">:</span> <span class="kt"><a href="../Structs/HostedUIOptions.html">HostedUIOptions</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
-                       <span class="n">_</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping(UserState?, Error?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                       <span class="n">_</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span><span class="p">(</span><span class="kt"><a href="../Enums/UserState.html">UserState</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -741,7 +741,7 @@ all instances will have the same configuration reference.</p>
                 <a name="//apple_ref/swift/Section/Inherited methods from AWSCognitoCredentialsProvider" class="dashAnchor"></a>
                 <div class="section-name-container">
                   <a class="section-name-link" href="#/Inherited%20methods%20from%20AWSCognitoCredentialsProvider"></a>
-                  <h3 class="section-name"><p>Inherited methods from AWSCognitoCredentialsProvider</p>
+                  <h3 class="section-name"><span>Inherited methods from AWSCognitoCredentialsProvider</span>
 </h3>
                 </div>
               </div>
@@ -930,7 +930,7 @@ all instances will have the same configuration reference.</p>
                 <a name="//apple_ref/swift/Section/`AWSIdentityProviderManager` protocol methods" class="dashAnchor"></a>
                 <div class="section-name-container">
                   <a class="section-name-link" href="#/%60AWSIdentityProviderManager%60%20protocol%20methods"></a>
-                  <h3 class="section-name"><p><code>AWSIdentityProviderManager</code> protocol methods</p>
+                  <h3 class="section-name"><span><code>AWSIdentityProviderManager</code> protocol methods</span>
 </h3>
                 </div>
               </div>
@@ -970,7 +970,7 @@ all instances will have the same configuration reference.</p>
                 <a name="//apple_ref/swift/Section/UserPool and Federated sign in methods" class="dashAnchor"></a>
                 <div class="section-name-container">
                   <a class="section-name-link" href="#/UserPool%20and%20Federated%20sign%20in%20methods"></a>
-                  <h3 class="section-name"><p>UserPool and Federated sign in methods</p>
+                  <h3 class="section-name"><span>UserPool and Federated sign in methods</span>
 </h3>
                 </div>
               </div>
@@ -1612,7 +1612,7 @@ custom workflows that this action triggers.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(iOS 13, *)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="n">iOS</span> <span class="mi">13</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">signOut</span><span class="p">(</span><span class="nv">presentationAnchor</span><span class="p">:</span> <span class="kt">ASPresentationAnchor</span><span class="p">,</span>
                     <span class="nv">options</span><span class="p">:</span> <span class="kt"><a href="../Structs/SignOutOptions.html">SignOutOptions</a></span> <span class="o">=</span> <span class="kt"><a href="../Structs/SignOutOptions.html">SignOutOptions</a></span><span class="p">(),</span>
                     <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
@@ -2039,7 +2039,7 @@ The call to wait will be synchronized so that if multiple threads call this meth
                 <a name="//apple_ref/swift/Section/Extension to hold user attribute operations" class="dashAnchor"></a>
                 <div class="section-name-container">
                   <a class="section-name-link" href="#/Extension%20to%20hold%20user%20attribute%20operations"></a>
-                  <h3 class="section-name"><p>Extension to hold user attribute operations</p>
+                  <h3 class="section-name"><span>Extension to hold user attribute operations</span>
 </h3>
                 </div>
               </div>
@@ -2394,7 +2394,7 @@ custom workflows that this action triggers.</p>
                 <a name="//apple_ref/swift/Section/Extension to hold the keychain methods" class="dashAnchor"></a>
                 <div class="section-name-container">
                   <a class="section-name-link" href="#/Extension%20to%20hold%20the%20keychain%20methods"></a>
-                  <h3 class="section-name"><p>Extension to hold the keychain methods</p>
+                  <h3 class="section-name"><span>Extension to hold the keychain methods</span>
 </h3>
                 </div>
               </div>
@@ -2458,11 +2458,10 @@ custom workflows that this action triggers.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-30)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="noopener" rel="external">jazzy ♪♫ v0.14.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="noopener" rel="external">Realm</a> project.</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-10-19)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>
   </body>
-</div>
 </html>
