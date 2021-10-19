@@ -17,20 +17,20 @@
     <a title="AWSNSCodingUtilities Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCore 2.26.1 Docs</a> (45% documented)</p>
-        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
-        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCore.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
-        <p class="header-right">
+        <p><a href="../index.html">AWSCore 2.26.2 Docs</a> (45% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCore.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
+        <div class="header-right">
           <form role="search" action="../search.json">
             <input type="text" placeholder="Search documentation" data-typeahead>
           </form>
-        </p>
+        </div>
       </div>
     </header>
     <div class="content-wrapper">
       <p id="breadcrumbs">
         <a href="../index.html">AWSCore Reference</a>
-        <img id="carat" src="../img/carat.png" />
+        <img id="carat" src="../img/carat.png" alt=""/>
         AWSNSCodingUtilities Class Reference
       </p>
     </div>
@@ -1000,34 +1000,34 @@
 
 <span class="cp">#pragma mark - Archive
 </span>
-<span class="c1">/// On iOS 11 and greater, uses `+[NSKeyedArchiver
-/// archivedDataWithRootObject:requiringSecureCoding:error:]` to archive data, otherwise uses
-/// `+[NSKeyedArchiver archivedDataWithRootObject:]`
-</span><span class="k">+</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nf">versionSafeArchivedDataWithRootObject</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">obj</span>
+<span class="c1">/// On iOS 11 and greater, uses `+[NSKeyedArchiver</span>
+<span class="c1">/// archivedDataWithRootObject:requiringSecureCoding:error:]` to archive data, otherwise uses</span>
+<span class="c1">/// `+[NSKeyedArchiver archivedDataWithRootObject:]`</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nf">versionSafeArchivedDataWithRootObject</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">obj</span>
                                      <span class="nf">requiringSecureCoding</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">requireSecureCoding</span>
                                                      <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">__autoreleasing</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
 
 <span class="cp">#pragma mark - Unarchive
 </span>
-<span class="c1">/// On iOS 11 and greater, uses `+[NSKeyedUnarchiver
-/// unarchivedObjectOfClass:fromData:error:]` to unarchive data, otherwise uses
-/// `+[NSKeyedUnarchiver unarchiveObjectWithData:]`
-</span><span class="k">+</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">id</span><span class="p">)</span><span class="nf">versionSafeUnarchivedObjectOfClass</span><span class="p">:(</span><span class="n">Class</span><span class="p">)</span><span class="nv">cls</span>
+<span class="c1">/// On iOS 11 and greater, uses `+[NSKeyedUnarchiver</span>
+<span class="c1">/// unarchivedObjectOfClass:fromData:error:]` to unarchive data, otherwise uses</span>
+<span class="c1">/// `+[NSKeyedUnarchiver unarchiveObjectWithData:]`</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">id</span><span class="p">)</span><span class="nf">versionSafeUnarchivedObjectOfClass</span><span class="p">:(</span><span class="n">Class</span><span class="p">)</span><span class="nv">cls</span>
                                          <span class="nf">fromData</span><span class="p">:(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">data</span>
                                             <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">__autoreleasing</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
 
-<span class="c1">/// On iOS 11 and greater, uses `+[NSKeyedUnarchiver
-/// unarchivedObjectOfClasses:fromData:error:]` to unarchive data, otherwise uses
-/// `+[NSKeyedUnarchiver unarchiveObjectWithData:]`
-</span><span class="k">+</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">id</span><span class="p">)</span><span class="nf">versionSafeUnarchivedObjectOfClasses</span><span class="p">:(</span><span class="n">NSSet</span><span class="o">&lt;</span><span class="n">Class</span><span class="o">&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">classes</span>
+<span class="c1">/// On iOS 11 and greater, uses `+[NSKeyedUnarchiver</span>
+<span class="c1">/// unarchivedObjectOfClasses:fromData:error:]` to unarchive data, otherwise uses</span>
+<span class="c1">/// `+[NSKeyedUnarchiver unarchiveObjectWithData:]`</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">id</span><span class="p">)</span><span class="nf">versionSafeUnarchivedObjectOfClasses</span><span class="p">:(</span><span class="n">NSSet</span><span class="o">&lt;</span><span class="n">Class</span><span class="o">&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">classes</span>
                                            <span class="nf">fromData</span><span class="p">:(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">data</span>
                                               <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">__autoreleasing</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
 
-<span class="c1">/// On iOS 11 and greater, uses `+[NSKeyedUnarchiver
-/// unarchivedObjectOfClasses:fromData:error:]` to unarchive data into a mutable
-/// dictionary that allows NSDictionary and NSMutableString in its allowed class
-/// set, otherwise uses `+[NSKeyedUnarchiver unarchiveObjectWithData:]`
-</span><span class="k">+</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">NSMutableDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nf">versionSafeMutableDictionaryFromData</span><span class="p">:(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">data</span>
+<span class="c1">/// On iOS 11 and greater, uses `+[NSKeyedUnarchiver</span>
+<span class="c1">/// unarchivedObjectOfClasses:fromData:error:]` to unarchive data into a mutable</span>
+<span class="c1">/// dictionary that allows NSDictionary and NSMutableString in its allowed class</span>
+<span class="c1">/// set, otherwise uses `+[NSKeyedUnarchiver unarchiveObjectWithData:]`</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">NSMutableDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nf">versionSafeMutableDictionaryFromData</span><span class="p">:(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">data</span>
                                                                  <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">__autoreleasing</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
 
 <span class="k">@end</span></code></pre>
@@ -1049,7 +1049,7 @@
                 <a name="//apple_ref/objc/Section/Archive" class="dashAnchor"></a>
                 <div class="section-name-container">
                   <a class="section-name-link" href="#/Archive"></a>
-                  <h3 class="section-name"><p>Archive</p>
+                  <h3 class="section-name"><span>Archive</span>
 </h3>
                 </div>
               </div>
@@ -1099,7 +1099,7 @@ archivedDataWithRootObject:requiringSecureCoding:error:]</code> to archive data,
                 <a name="//apple_ref/objc/Section/Unarchive" class="dashAnchor"></a>
                 <div class="section-name-container">
                   <a class="section-name-link" href="#/Unarchive"></a>
-                  <h3 class="section-name"><p>Unarchive</p>
+                  <h3 class="section-name"><span>Unarchive</span>
 </h3>
                 </div>
               </div>
@@ -1220,11 +1220,10 @@ set, otherwise uses <code>+[NSKeyedUnarchiver unarchiveObjectWithData:]</code></
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-30)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="noopener" rel="external">jazzy ♪♫ v0.14.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="noopener" rel="external">Realm</a> project.</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-10-19)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>
   </body>
-</div>
 </html>
