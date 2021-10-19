@@ -15,6 +15,20 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/distiller/project/AWSS3/AWSS3CreateMultipartUploadRequest+RequestHeaders.h",
+      "line": 20,
+      "symbol": "AWSS3CreateMultipartUploadRequest(RequestHeaders)",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.category",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSS3/AWSS3CreateMultipartUploadRequest+RequestHeaders.h",
+      "line": 22,
+      "symbol": "AWSS3CreateMultipartUploadRequest.+propagateHeaderInformation:requestHeaders:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
       "line": 22,
       "symbol": "AWSS3ErrorDomain",
@@ -2655,42 +2669,42 @@
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferUtility.h",
-      "line": 679,
+      "line": 684,
       "symbol": "AWSS3TransferUtilityConfiguration",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferUtility.h",
-      "line": 681,
+      "line": 686,
       "symbol": "AWSS3TransferUtilityConfiguration.accelerateModeEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferUtility.h",
-      "line": 683,
+      "line": 688,
       "symbol": "AWSS3TransferUtilityConfiguration.bucket",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferUtility.h",
-      "line": 685,
+      "line": 690,
       "symbol": "AWSS3TransferUtilityConfiguration.retryLimit",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferUtility.h",
-      "line": 687,
+      "line": 692,
       "symbol": "AWSS3TransferUtilityConfiguration.multiPartConcurrencyLimit",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferUtility.h",
-      "line": 689,
+      "line": 694,
       "symbol": "AWSS3TransferUtilityConfiguration.timeoutIntervalForResource",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
