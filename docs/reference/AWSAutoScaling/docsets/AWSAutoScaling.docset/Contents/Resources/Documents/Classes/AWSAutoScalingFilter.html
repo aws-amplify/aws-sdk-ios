@@ -17,20 +17,20 @@
     <a title="AWSAutoScalingFilter Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSAutoScaling 2.26.1 Docs</a> (85% documented)</p>
-        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
-        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSAutoScaling.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
-        <p class="header-right">
+        <p><a href="../index.html">AWSAutoScaling 2.26.2 Docs</a> (85% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSAutoScaling.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
+        <div class="header-right">
           <form role="search" action="../search.json">
             <input type="text" placeholder="Search documentation" data-typeahead>
           </form>
-        </p>
+        </div>
       </div>
     </header>
     <div class="content-wrapper">
       <p id="breadcrumbs">
         <a href="../index.html">AWSAutoScaling Reference</a>
-        <img id="carat" src="../img/carat.png" />
+        <img id="carat" src="../img/carat.png" alt=""/>
         AWSAutoScalingFilter Class Reference
       </p>
     </div>
@@ -574,7 +574,7 @@
 
                 </div>
               </div>
-            <p>Describes a filter that is used to return a more specific list of results when describing tags.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html">Tagging Auto Scaling groups and instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+            <p>Describes a filter that is used to return a more specific list of results from a describe operation.</p><p>If you specify multiple filters, the filters are joined with an <code>AND</code>, and the request returns only results that match all of the specified filters. </p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html">Tagging Auto Scaling groups and instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
           </section>
           <section class="section task-group-section">
@@ -593,7 +593,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The name of the filter. The valid values are: <code>auto-scaling-group</code>, <code>key</code>, <code>value</code>, and <code>propagate-at-launch</code>.</p>
+                        <p><p>The name of the filter.</p><p>The valid values for <code>Name</code> depend on the API operation that you are including the filter in, <a>DescribeAutoScalingGroups</a> or <a>DescribeTags</a>.</p><p><b>DescribeAutoScalingGroups</b></p><p>Valid values for <code>Name</code> include the following: </p><ul><li><p><code>tag-key</code> - Accepts tag keys. The results will only include information about the Auto Scaling groups associated with these tag keys. </p></li><li><p><code>tag-value</code> - Accepts tag values. The results will only include information about the Auto Scaling groups associated with these tag values. </p></li><li><p><code>tag:&lt;key&gt;</code> - Accepts the key/value combination of the tag. Use the tag key in the filter name and the tag value as the filter value. The results will only include information about the Auto Scaling groups associated with the specified key/value combination. </p></li></ul><p><b>DescribeTags</b></p><p>Valid values for <code>Name</code> include the following: </p><ul><li><p><code>auto-scaling-group</code> - Accepts the names of Auto Scaling groups. The results will only include information about the tags associated with these Auto Scaling groups. </p></li><li><p><code>key</code> - Accepts tag keys. The results will only include information about the tags associated with these tag keys. </p></li><li><p><code>value</code> - Accepts tag values. The results will only include information about the tags associated with these tag values. </p></li><li><p><code>propagate-at-launch</code> - Accepts a boolean value, which specifies whether tags propagate to instances at launch. The results will only include information about the tags associated with the specified boolean value. </p></li></ul></p>
 
                       </div>
                       <div class="declaration">
@@ -625,7 +625,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>One or more filter values. Filter values are case-sensitive.</p>
+                        <p>One or more filter values. Filter values are case-sensitive. </p><p>If you specify multiple values for a filter, the values are joined with an <code>OR</code>, and the request returns all results that match any of the specified values. For example, specify &ldquo;tag:environment&rdquo; for the filter name and &ldquo;production,development&rdquo; for the filter values to find Auto Scaling groups with the tag &ldquo;environment=production&rdquo; or &ldquo;environment=development&rdquo;.</p>
 
                       </div>
                       <div class="declaration">
@@ -649,11 +649,10 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-09-30)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="noopener" rel="external">jazzy ♪♫ v0.14.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="noopener" rel="external">Realm</a> project.</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-10-19)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>
   </body>
-</div>
 </html>
