@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.vendored_libraries = 'AWSLex/Bluefront/libBlueAudioSourceiOS.a'
   s.resource_bundle = { 'AWSLex' => 'AWSLex/Media.xcassets' }
   
-  # Exclude arm64 when building for simulator on Xcode 12
-  s.pod_target_xcconfig = {'EXCLUDED_ARCHS[sdk=iphonesimulator14*]' => 'arm64'}
+  # Exclude arm64 when building for simulator on Xcode 12+
+  s.pod_target_xcconfig = {'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'}
 
 end
