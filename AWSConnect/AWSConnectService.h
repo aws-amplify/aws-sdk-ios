@@ -407,7 +407,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)createContactFlow:(AWSConnectCreateContactFlowRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateContactFlowResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Creates hours of operation. </p>
+ <p>Creates hours of operation. </p>
  
  @param request A container for the necessary parameters to execute the CreateHoursOfOperation service method.
 
@@ -419,7 +419,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectCreateHoursOfOperationResponse *> *)createHoursOfOperation:(AWSConnectCreateHoursOfOperationRequest *)request;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Creates hours of operation. </p>
+ <p>Creates hours of operation. </p>
  
  @param request A container for the necessary parameters to execute the CreateHoursOfOperation service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -632,7 +632,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)createUserHierarchyGroup:(AWSConnectCreateUserHierarchyGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateUserHierarchyGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Deletes an hours of operation.</p>
+ <p>Deletes an hours of operation.</p>
  
  @param request A container for the necessary parameters to execute the DeleteHoursOfOperation service method.
 
@@ -643,7 +643,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask *)deleteHoursOfOperation:(AWSConnectDeleteHoursOfOperationRequest *)request;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Deletes an hours of operation.</p>
+ <p>Deletes an hours of operation.</p>
  
  @param request A container for the necessary parameters to execute the DeleteHoursOfOperation service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -836,7 +836,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)describeContactFlow:(AWSConnectDescribeContactFlowRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDescribeContactFlowResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Describes the hours of operation.</p>
+ <p>Describes the hours of operation.</p>
  
  @param request A container for the necessary parameters to execute the DescribeHoursOfOperation service method.
 
@@ -848,7 +848,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectDescribeHoursOfOperationResponse *> *)describeHoursOfOperation:(AWSConnectDescribeHoursOfOperationRequest *)request;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Describes the hours of operation.</p>
+ <p>Describes the hours of operation.</p>
  
  @param request A container for the necessary parameters to execute the DescribeHoursOfOperation service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2297,7 +2297,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)updateContactFlowName:(AWSConnectUpdateContactFlowNameRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates the hours of operation.</p>
+ <p>Updates the hours of operation.</p>
  
  @param request A container for the necessary parameters to execute the UpdateHoursOfOperation service method.
 
@@ -2308,7 +2308,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask *)updateHoursOfOperation:(AWSConnectUpdateHoursOfOperationRequest *)request;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates the hours of operation.</p>
+ <p>Updates the hours of operation.</p>
  
  @param request A container for the necessary parameters to execute the UpdateHoursOfOperation service method.
  @param completionHandler The completion handler to call when the load request is complete.

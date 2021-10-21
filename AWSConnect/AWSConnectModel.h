@@ -3087,12 +3087,12 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectHoursOfOperationDays day;
 
 /**
- <p>The end time that your contact center is closes.</p>
+ <p>The end time that your contact center closes.</p>
  */
 @property (nonatomic, strong) AWSConnectHoursOfOperationTimeSlice * _Nullable endTime;
 
 /**
- <p>The start time that your contact center is open.</p>
+ <p>The start time that your contact center opens.</p>
  */
 @property (nonatomic, strong) AWSConnectHoursOfOperationTimeSlice * _Nullable startTime;
 
@@ -3894,7 +3894,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The maximum number of results to return per page.</p>
+ <p>The maximum number of results to return per page. If no value is specified, the default is 10. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
