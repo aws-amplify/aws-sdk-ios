@@ -19,6 +19,7 @@
 #import "AWSS3TransferUtilityDatabaseHelper.h"
 #import "AWSS3TransferUtilityTasks.h"
 #import "AWSS3CreateMultipartUploadRequest+RequestHeaders.h"
+#import "AWSS3TransferUtilityTasks+Completion.h"
 
 #import <AWSCore/AWSFMDB.h>
 #import <AWSCore/AWSSynchronizedMutableDictionary.h>
@@ -1178,14 +1179,11 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     if (![[NSFileManager defaultManager] fileExistsAtPath:transferUtilityUploadTask.file]) {
         NSDictionary *userInfo = [NSDictionary dictionaryWithObject:@"Local file not found"
                                                              forKey:@"Message"];
-        
         NSError *error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
                                                           code:AWSS3TransferUtilityErrorLocalFileNotFound
                                                       userInfo:userInfo];
-        
-        if (transferUtilityUploadTask.expression.completionHandler) {
-            transferUtilityUploadTask.expression.completionHandler(transferUtilityUploadTask, error);
-        }
+        transferUtilityUploadTask.error = error;
+        [self completeTask:transferUtilityUploadTask];
     }
     else {
         //This will update the AWSS3TransferUtilityUploadTask passed into it with a new URL Session
@@ -1705,11 +1703,9 @@ internalDictionaryToAddSubTaskTo: (NSMutableDictionary *) internalDictionaryToAd
         //cancel the multipart transfer
         [transferUtilityMultiPartUploadTask cancel];
         transferUtilityMultiPartUploadTask.status = AWSS3TransferUtilityTransferStatusError;
-        
+        transferUtilityMultiPartUploadTask.error = subTaskCreationError;
         //Call the completion handler if one was present
-        if (transferUtilityMultiPartUploadTask.expression.completionHandler) {
-            transferUtilityMultiPartUploadTask.expression.completionHandler(transferUtilityMultiPartUploadTask, subTaskCreationError);
-        }
+        [self completeTask:transferUtilityMultiPartUploadTask];
     }
 }
 
@@ -2210,10 +2206,8 @@ didCompleteWithError:(NSError *)error {
             }
 
             [self cleanupForUploadTask:uploadTask];
-            
-            if(uploadTask.expression.completionHandler) {
-                uploadTask.expression.completionHandler(uploadTask,uploadTask.error);
-            }
+
+            [self completeTask:uploadTask];
             return;
         }
         else if ([transferUtilityTask isKindOfClass:[AWSS3TransferUtilityMultiPartUploadTask class]]) {
@@ -2278,10 +2272,8 @@ didCompleteWithError:(NSError *)error {
                 transferUtilityMultiPartUploadTask.status = AWSS3TransferUtilityTransferStatusError;
                 
                 //Execute call back if provided.
-                if(transferUtilityMultiPartUploadTask.expression.completionHandler) {
-                    transferUtilityMultiPartUploadTask.expression.completionHandler(transferUtilityMultiPartUploadTask, transferUtilityMultiPartUploadTask.error);
-                }
-                
+                [self completeTask:transferUtilityMultiPartUploadTask];
+
                 //Make sure all other parts that are in progress are canceled.
                 for (NSNumber *key in [transferUtilityMultiPartUploadTask.inProgressPartsDictionary allKeys]) {
                     AWSS3TransferUtilityUploadSubTask *subTask = [transferUtilityMultiPartUploadTask.inProgressPartsDictionary objectForKey:key];
@@ -2364,10 +2356,8 @@ didCompleteWithError:(NSError *)error {
                                              userInfo:userInfo];
                     
                     //Execute call back if provided.
-                    if(transferUtilityMultiPartUploadTask.expression.completionHandler) {
-                        transferUtilityMultiPartUploadTask.expression.completionHandler(transferUtilityMultiPartUploadTask, transferUtilityMultiPartUploadTask.error);
-                    }
-                    
+                    [self completeTask:transferUtilityMultiPartUploadTask];
+
                     //Abort the request, so the server can clean up any partials.
                     [self callAbortMultiPartForUploadTask:transferUtilityMultiPartUploadTask];
                     
@@ -2402,9 +2392,7 @@ didCompleteWithError:(NSError *)error {
                     [self cleanupForMultiPartUploadTask:transferUtilityMultiPartUploadTask];
                     
                     //Call the callback function is specified.
-                    if(transferUtilityMultiPartUploadTask.expression.completionHandler) {
-                        transferUtilityMultiPartUploadTask.expression.completionHandler(transferUtilityMultiPartUploadTask,error);
-                    }
+                    [self completeTask:transferUtilityMultiPartUploadTask];
                     return nil;
                 }];
             }
@@ -2463,12 +2451,7 @@ didCompleteWithError:(NSError *)error {
                 downloadTask.expression.progressBlock(downloadTask, downloadTask.progress);
             }
         }
-        if (downloadTask.expression.completionHandler) {
-            downloadTask.expression.completionHandler(downloadTask,
-                                                      downloadTask.location,
-                                                      downloadTask.data,
-                                                      downloadTask.error);
-        }
+        [self completeTask:downloadTask];
         [self.completedTaskDictionary setObject:downloadTask forKey:downloadTask.transferID];
         [self.taskDictionary removeObjectForKey:@(downloadTask.sessionTask.taskIdentifier)];
         [AWSS3TransferUtilityDatabaseHelper deleteTransferRequestFromDB:downloadTask.transferID databaseQueue:_databaseQueue];
@@ -2538,6 +2521,12 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
 }
 
 #pragma mark - Helper methods
+
+- (void)completeTask:(AWSS3TransferUtilityTask *)task {
+    [task complete];
+    // complete task before removing from dictionary
+    [self.completedTaskDictionary removeObjectForKey:task.transferID];
+}
 
 - (void) cleanupForMultiPartUploadTask: (AWSS3TransferUtilityMultiPartUploadTask *) task  {
     
