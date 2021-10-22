@@ -4,6 +4,11 @@
 
 -Features for next release
 
+### Bug Fixes
+
+- **AWSS3**
+  - Removes tasks from completed dictionary and clears progress and completion handlers [PR #3833](https://github.com/aws-amplify/aws-sdk-ios/pull/3833)
+
 ## 2.26.2
 
 ### Bug Fixes
