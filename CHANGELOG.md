@@ -1,30 +1,27 @@
 ---
 
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSChimeSDKIdentity
----AWSChimeSDKMessaging
 # AWS Mobile SDK for iOS CHANGELOG
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
 
 ## Unreleased
 
 ### Misc. Updates
 
+- **AWSChime**
+  - feat(AWSChimeSDKIdentity): update models to latest ([PR #3834](https://github.com/aws-amplify/aws-sdk-ios/pull/3834))
+  - feat(AWSChimeSDKMessaging): update models to latest ([PR #3835](https://github.com/aws-amplify/aws-sdk-ios/pull/3835))
+
+- **AWSConnect**
+  - feat(AWSConnect): update models to latest ([PR #3831](https://github.com/aws-amplify/aws-sdk-ios/pull/3831))
+
 - **AWSIoT**
-  - feat(AWSIoT): update models to latest [(PR #3782](https://github.com/aws-amplify/aws-sdk-ios/pull/3782))
-
-### Misc. Updates
-
- - Model updates for the following services
-   - AWSConnect
+  - feat(AWSIoT): update models to latest ([PR #3782](https://github.com/aws-amplify/aws-sdk-ios/pull/3782))
 
 ### Bug Fixes
 
 - **AWSS3**
-  - Removes tasks from completed dictionary and clears progress and completion handlers [PR #3833](https://github.com/aws-amplify/aws-sdk-ios/pull/3833)
+  - Removes tasks from completed dictionary and clears progress and completion handlers ([PR #3833](https://github.com/aws-amplify/aws-sdk-ios/pull/3833))
 
 ## 2.26.2
 
