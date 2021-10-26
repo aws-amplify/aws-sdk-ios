@@ -166,6 +166,170 @@ NSString *const AWSChimeSDKIdentityErrorDomain = @"com.amazonaws.AWSChimeSDKIden
 
 @end
 
+@implementation AWSChimeSDKIdentityAppInstanceUserEndpoint
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"allowMessages" : @"AllowMessages",
+             @"appInstanceUserArn" : @"AppInstanceUserArn",
+             @"createdTimestamp" : @"CreatedTimestamp",
+             @"endpointAttributes" : @"EndpointAttributes",
+             @"endpointId" : @"EndpointId",
+             @"endpointState" : @"EndpointState",
+             @"lastUpdatedTimestamp" : @"LastUpdatedTimestamp",
+             @"name" : @"Name",
+             @"resourceArn" : @"ResourceArn",
+             @"types" : @"Type",
+             };
+}
+
++ (NSValueTransformer *)allowMessagesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ALL"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityAllowMessagesAll);
+        }
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityAllowMessagesNone);
+        }
+        return @(AWSChimeSDKIdentityAllowMessagesUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSChimeSDKIdentityAllowMessagesAll:
+                return @"ALL";
+            case AWSChimeSDKIdentityAllowMessagesNone:
+                return @"NONE";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)createdTimestampJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)endpointAttributesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKIdentityEndpointAttributes class]];
+}
+
++ (NSValueTransformer *)endpointStateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKIdentityEndpointState class]];
+}
+
++ (NSValueTransformer *)lastUpdatedTimestampJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)typesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"APNS"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityAppInstanceUserEndpointTypeApns);
+        }
+        if ([value caseInsensitiveCompare:@"APNS_SANDBOX"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityAppInstanceUserEndpointTypeApnsSandbox);
+        }
+        if ([value caseInsensitiveCompare:@"GCM"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityAppInstanceUserEndpointTypeGcm);
+        }
+        return @(AWSChimeSDKIdentityAppInstanceUserEndpointTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSChimeSDKIdentityAppInstanceUserEndpointTypeApns:
+                return @"APNS";
+            case AWSChimeSDKIdentityAppInstanceUserEndpointTypeApnsSandbox:
+                return @"APNS_SANDBOX";
+            case AWSChimeSDKIdentityAppInstanceUserEndpointTypeGcm:
+                return @"GCM";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSChimeSDKIdentityAppInstanceUserEndpointSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"allowMessages" : @"AllowMessages",
+             @"appInstanceUserArn" : @"AppInstanceUserArn",
+             @"endpointId" : @"EndpointId",
+             @"endpointState" : @"EndpointState",
+             @"name" : @"Name",
+             @"types" : @"Type",
+             };
+}
+
++ (NSValueTransformer *)allowMessagesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ALL"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityAllowMessagesAll);
+        }
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityAllowMessagesNone);
+        }
+        return @(AWSChimeSDKIdentityAllowMessagesUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSChimeSDKIdentityAllowMessagesAll:
+                return @"ALL";
+            case AWSChimeSDKIdentityAllowMessagesNone:
+                return @"NONE";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)endpointStateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKIdentityEndpointState class]];
+}
+
++ (NSValueTransformer *)typesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"APNS"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityAppInstanceUserEndpointTypeApns);
+        }
+        if ([value caseInsensitiveCompare:@"APNS_SANDBOX"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityAppInstanceUserEndpointTypeApnsSandbox);
+        }
+        if ([value caseInsensitiveCompare:@"GCM"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityAppInstanceUserEndpointTypeGcm);
+        }
+        return @(AWSChimeSDKIdentityAppInstanceUserEndpointTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSChimeSDKIdentityAppInstanceUserEndpointTypeApns:
+                return @"APNS";
+            case AWSChimeSDKIdentityAppInstanceUserEndpointTypeApnsSandbox:
+                return @"APNS_SANDBOX";
+            case AWSChimeSDKIdentityAppInstanceUserEndpointTypeGcm:
+                return @"GCM";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSChimeSDKIdentityAppInstanceUserSummary
 
 + (BOOL)supportsSecureCoding {
@@ -345,6 +509,21 @@ NSString *const AWSChimeSDKIdentityErrorDomain = @"com.amazonaws.AWSChimeSDKIden
 
 @end
 
+@implementation AWSChimeSDKIdentityDeregisterAppInstanceUserEndpointRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"appInstanceUserArn" : @"AppInstanceUserArn",
+             @"endpointId" : @"EndpointId",
+             };
+}
+
+@end
+
 @implementation AWSChimeSDKIdentityDescribeAppInstanceAdminRequest
 
 + (BOOL)supportsSecureCoding {
@@ -410,6 +589,39 @@ NSString *const AWSChimeSDKIdentityErrorDomain = @"com.amazonaws.AWSChimeSDKIden
 
 @end
 
+@implementation AWSChimeSDKIdentityDescribeAppInstanceUserEndpointRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"appInstanceUserArn" : @"AppInstanceUserArn",
+             @"endpointId" : @"EndpointId",
+             };
+}
+
+@end
+
+@implementation AWSChimeSDKIdentityDescribeAppInstanceUserEndpointResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"appInstanceUserEndpoint" : @"AppInstanceUserEndpoint",
+             };
+}
+
++ (NSValueTransformer *)appInstanceUserEndpointJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKIdentityAppInstanceUserEndpoint class]];
+}
+
+@end
+
 @implementation AWSChimeSDKIdentityDescribeAppInstanceUserRequest
 
 + (BOOL)supportsSecureCoding {
@@ -438,6 +650,78 @@ NSString *const AWSChimeSDKIdentityErrorDomain = @"com.amazonaws.AWSChimeSDKIden
 
 + (NSValueTransformer *)appInstanceUserJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKIdentityAppInstanceUser class]];
+}
+
+@end
+
+@implementation AWSChimeSDKIdentityEndpointAttributes
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"deviceToken" : @"DeviceToken",
+             @"voipDeviceToken" : @"VoipDeviceToken",
+             };
+}
+
+@end
+
+@implementation AWSChimeSDKIdentityEndpointState
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"status" : @"Status",
+             @"statusReason" : @"StatusReason",
+             };
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityEndpointStatusActive);
+        }
+        if ([value caseInsensitiveCompare:@"INACTIVE"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityEndpointStatusInactive);
+        }
+        return @(AWSChimeSDKIdentityEndpointStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSChimeSDKIdentityEndpointStatusActive:
+                return @"ACTIVE";
+            case AWSChimeSDKIdentityEndpointStatusInactive:
+                return @"INACTIVE";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)statusReasonJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"INVALID_DEVICE_TOKEN"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityEndpointStatusReasonInvalidDeviceToken);
+        }
+        if ([value caseInsensitiveCompare:@"INVALID_PINPOINT_ARN"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityEndpointStatusReasonInvalidPinpointArn);
+        }
+        return @(AWSChimeSDKIdentityEndpointStatusReasonUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSChimeSDKIdentityEndpointStatusReasonInvalidDeviceToken:
+                return @"INVALID_DEVICE_TOKEN";
+            case AWSChimeSDKIdentityEndpointStatusReasonInvalidPinpointArn:
+                return @"INVALID_PINPOINT_ARN";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -534,6 +818,41 @@ NSString *const AWSChimeSDKIdentityErrorDomain = @"com.amazonaws.AWSChimeSDKIden
 
 @end
 
+@implementation AWSChimeSDKIdentityListAppInstanceUserEndpointsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"appInstanceUserArn" : @"AppInstanceUserArn",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
+@end
+
+@implementation AWSChimeSDKIdentityListAppInstanceUserEndpointsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"appInstanceUserEndpoints" : @"AppInstanceUserEndpoints",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)appInstanceUserEndpointsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSChimeSDKIdentityAppInstanceUserEndpointSummary class]];
+}
+
+@end
+
 @implementation AWSChimeSDKIdentityListAppInstanceUsersRequest
 
 + (BOOL)supportsSecureCoding {
@@ -604,6 +923,38 @@ NSString *const AWSChimeSDKIdentityErrorDomain = @"com.amazonaws.AWSChimeSDKIden
 
 @end
 
+@implementation AWSChimeSDKIdentityListTagsForResourceRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceARN" : @"ResourceARN",
+             };
+}
+
+@end
+
+@implementation AWSChimeSDKIdentityListTagsForResourceResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSChimeSDKIdentityTag class]];
+}
+
+@end
+
 @implementation AWSChimeSDKIdentityPutAppInstanceRetentionSettingsRequest
 
 + (BOOL)supportsSecureCoding {
@@ -650,6 +1001,92 @@ NSString *const AWSChimeSDKIdentityErrorDomain = @"com.amazonaws.AWSChimeSDKIden
 
 @end
 
+@implementation AWSChimeSDKIdentityRegisterAppInstanceUserEndpointRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"allowMessages" : @"AllowMessages",
+             @"appInstanceUserArn" : @"AppInstanceUserArn",
+             @"clientRequestToken" : @"ClientRequestToken",
+             @"endpointAttributes" : @"EndpointAttributes",
+             @"name" : @"Name",
+             @"resourceArn" : @"ResourceArn",
+             @"types" : @"Type",
+             };
+}
+
++ (NSValueTransformer *)allowMessagesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ALL"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityAllowMessagesAll);
+        }
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityAllowMessagesNone);
+        }
+        return @(AWSChimeSDKIdentityAllowMessagesUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSChimeSDKIdentityAllowMessagesAll:
+                return @"ALL";
+            case AWSChimeSDKIdentityAllowMessagesNone:
+                return @"NONE";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)endpointAttributesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKIdentityEndpointAttributes class]];
+}
+
++ (NSValueTransformer *)typesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"APNS"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityAppInstanceUserEndpointTypeApns);
+        }
+        if ([value caseInsensitiveCompare:@"APNS_SANDBOX"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityAppInstanceUserEndpointTypeApnsSandbox);
+        }
+        if ([value caseInsensitiveCompare:@"GCM"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityAppInstanceUserEndpointTypeGcm);
+        }
+        return @(AWSChimeSDKIdentityAppInstanceUserEndpointTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSChimeSDKIdentityAppInstanceUserEndpointTypeApns:
+                return @"APNS";
+            case AWSChimeSDKIdentityAppInstanceUserEndpointTypeApnsSandbox:
+                return @"APNS_SANDBOX";
+            case AWSChimeSDKIdentityAppInstanceUserEndpointTypeGcm:
+                return @"GCM";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSChimeSDKIdentityRegisterAppInstanceUserEndpointResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"appInstanceUserArn" : @"AppInstanceUserArn",
+             @"endpointId" : @"EndpointId",
+             };
+}
+
+@end
+
 @implementation AWSChimeSDKIdentityTag
 
 + (BOOL)supportsSecureCoding {
@@ -660,6 +1097,40 @@ NSString *const AWSChimeSDKIdentityErrorDomain = @"com.amazonaws.AWSChimeSDKIden
 	return @{
              @"key" : @"Key",
              @"value" : @"Value",
+             };
+}
+
+@end
+
+@implementation AWSChimeSDKIdentityTagResourceRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceARN" : @"ResourceARN",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSChimeSDKIdentityTag class]];
+}
+
+@end
+
+@implementation AWSChimeSDKIdentityUntagResourceRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceARN" : @"ResourceARN",
+             @"tagKeys" : @"TagKeys",
              };
 }
 
@@ -690,6 +1161,59 @@ NSString *const AWSChimeSDKIdentityErrorDomain = @"com.amazonaws.AWSChimeSDKIden
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"appInstanceArn" : @"AppInstanceArn",
+             };
+}
+
+@end
+
+@implementation AWSChimeSDKIdentityUpdateAppInstanceUserEndpointRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"allowMessages" : @"AllowMessages",
+             @"appInstanceUserArn" : @"AppInstanceUserArn",
+             @"endpointId" : @"EndpointId",
+             @"name" : @"Name",
+             };
+}
+
++ (NSValueTransformer *)allowMessagesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ALL"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityAllowMessagesAll);
+        }
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
+            return @(AWSChimeSDKIdentityAllowMessagesNone);
+        }
+        return @(AWSChimeSDKIdentityAllowMessagesUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSChimeSDKIdentityAllowMessagesAll:
+                return @"ALL";
+            case AWSChimeSDKIdentityAllowMessagesNone:
+                return @"NONE";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSChimeSDKIdentityUpdateAppInstanceUserEndpointResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"appInstanceUserArn" : @"AppInstanceUserArn",
+             @"endpointId" : @"EndpointId",
              };
 }
 
