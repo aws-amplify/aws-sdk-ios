@@ -16,6 +16,11 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 - **AWSIoT**
   - feat(AWSIoT): update models to latest [(PR #3782](https://github.com/aws-amplify/aws-sdk-ios/pull/3782))
 
+### Misc. Updates
+
+ - Model updates for the following services
+   - AWSConnect
+
 ## 2.26.2
 
 ### Bug Fixes

@@ -269,7 +269,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Creates hours of operation. </p>\"\
+      \"documentation\":\"<p>Creates hours of operation. </p>\"\
     },\
     \"CreateInstance\":{\
       \"name\":\"CreateInstance\",\
@@ -431,7 +431,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Deletes an hours of operation.</p>\"\
+      \"documentation\":\"<p>Deletes an hours of operation.</p>\"\
     },\
     \"DeleteInstance\":{\
       \"name\":\"DeleteInstance\",\
@@ -576,7 +576,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Describes the hours of operation.</p>\"\
+      \"documentation\":\"<p>Describes the hours of operation.</p>\"\
     },\
     \"DescribeInstance\":{\
       \"name\":\"DescribeInstance\",\
@@ -1572,7 +1572,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Updates the hours of operation.</p>\"\
+      \"documentation\":\"<p>Updates the hours of operation.</p>\"\
     },\
     \"UpdateInstanceAttribute\":{\
       \"name\":\"UpdateInstanceAttribute\",\
@@ -4398,11 +4398,11 @@
         },\
         \"StartTime\":{\
           \"shape\":\"HoursOfOperationTimeSlice\",\
-          \"documentation\":\"<p>The start time that your contact center is open.</p>\"\
+          \"documentation\":\"<p>The start time that your contact center opens.</p>\"\
         },\
         \"EndTime\":{\
           \"shape\":\"HoursOfOperationTimeSlice\",\
-          \"documentation\":\"<p>The end time that your contact center is closes.</p>\"\
+          \"documentation\":\"<p>The end time that your contact center closes.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about the hours of operation.</p>\"\
@@ -5299,7 +5299,7 @@
         },\
         \"MaxResults\":{\
           \"shape\":\"MaxResult25\",\
-          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"documentation\":\"<p>The maximum number of results to return per page. If no value is specified, the default is 10. </p>\",\
           \"box\":true,\
           \"location\":\"querystring\",\
           \"locationName\":\"maxResults\"\
