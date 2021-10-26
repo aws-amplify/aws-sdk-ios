@@ -316,6 +316,28 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKIdentitySDKVersion;
 - (void)deleteAppInstanceUser:(AWSChimeSDKIdentityDeleteAppInstanceUserRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Deregisters an <code>AppInstanceUserEndpoint</code>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeregisterAppInstanceUserEndpoint service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityDeregisterAppInstanceUserEndpointRequest
+ */
+- (AWSTask *)deregisterAppInstanceUserEndpoint:(AWSChimeSDKIdentityDeregisterAppInstanceUserEndpointRequest *)request;
+
+/**
+ <p>Deregisters an <code>AppInstanceUserEndpoint</code>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeregisterAppInstanceUserEndpoint service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityDeregisterAppInstanceUserEndpointRequest
+ */
+- (void)deregisterAppInstanceUserEndpoint:(AWSChimeSDKIdentityDeregisterAppInstanceUserEndpointRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
  <p>Returns the full details of an <code>AppInstance</code>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeAppInstance service method.
@@ -391,6 +413,31 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKIdentitySDKVersion;
 - (void)describeAppInstanceUser:(AWSChimeSDKIdentityDescribeAppInstanceUserRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKIdentityDescribeAppInstanceUserResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Returns the full details of an <code>AppInstanceUserEndpoint</code>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeAppInstanceUserEndpoint service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKIdentityDescribeAppInstanceUserEndpointResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityDescribeAppInstanceUserEndpointRequest
+ @see AWSChimeSDKIdentityDescribeAppInstanceUserEndpointResponse
+ */
+- (AWSTask<AWSChimeSDKIdentityDescribeAppInstanceUserEndpointResponse *> *)describeAppInstanceUserEndpoint:(AWSChimeSDKIdentityDescribeAppInstanceUserEndpointRequest *)request;
+
+/**
+ <p>Returns the full details of an <code>AppInstanceUserEndpoint</code>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeAppInstanceUserEndpoint service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityDescribeAppInstanceUserEndpointRequest
+ @see AWSChimeSDKIdentityDescribeAppInstanceUserEndpointResponse
+ */
+- (void)describeAppInstanceUserEndpoint:(AWSChimeSDKIdentityDescribeAppInstanceUserEndpointRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKIdentityDescribeAppInstanceUserEndpointResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Gets the retention settings for an <code>AppInstance</code>.</p>
  
  @param request A container for the necessary parameters to execute the GetAppInstanceRetentionSettings service method.
@@ -439,6 +486,31 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKIdentitySDKVersion;
  @see AWSChimeSDKIdentityListAppInstanceAdminsResponse
  */
 - (void)listAppInstanceAdmins:(AWSChimeSDKIdentityListAppInstanceAdminsRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKIdentityListAppInstanceAdminsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Lists all the <code>AppInstanceUserEndpoints</code> created under a single <code>AppInstanceUser</code>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListAppInstanceUserEndpoints service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKIdentityListAppInstanceUserEndpointsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityListAppInstanceUserEndpointsRequest
+ @see AWSChimeSDKIdentityListAppInstanceUserEndpointsResponse
+ */
+- (AWSTask<AWSChimeSDKIdentityListAppInstanceUserEndpointsResponse *> *)listAppInstanceUserEndpoints:(AWSChimeSDKIdentityListAppInstanceUserEndpointsRequest *)request;
+
+/**
+ <p>Lists all the <code>AppInstanceUserEndpoints</code> created under a single <code>AppInstanceUser</code>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListAppInstanceUserEndpoints service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityListAppInstanceUserEndpointsRequest
+ @see AWSChimeSDKIdentityListAppInstanceUserEndpointsResponse
+ */
+- (void)listAppInstanceUserEndpoints:(AWSChimeSDKIdentityListAppInstanceUserEndpointsRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKIdentityListAppInstanceUserEndpointsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>List all <code>AppInstanceUsers</code> created under a single <code>AppInstance</code>.</p>
@@ -491,6 +563,31 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKIdentitySDKVersion;
 - (void)listAppInstances:(AWSChimeSDKIdentityListAppInstancesRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKIdentityListAppInstancesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Lists the tags applied to an Amazon Chime SDK identity resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListTagsForResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKIdentityListTagsForResourceResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityListTagsForResourceRequest
+ @see AWSChimeSDKIdentityListTagsForResourceResponse
+ */
+- (AWSTask<AWSChimeSDKIdentityListTagsForResourceResponse *> *)listTagsForResource:(AWSChimeSDKIdentityListTagsForResourceRequest *)request;
+
+/**
+ <p>Lists the tags applied to an Amazon Chime SDK identity resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListTagsForResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityListTagsForResourceRequest
+ @see AWSChimeSDKIdentityListTagsForResourceResponse
+ */
+- (void)listTagsForResource:(AWSChimeSDKIdentityListTagsForResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKIdentityListTagsForResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Sets the amount of time in days that a given <code>AppInstance</code> retains data.</p>
  
  @param request A container for the necessary parameters to execute the PutAppInstanceRetentionSettings service method.
@@ -514,6 +611,75 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKIdentitySDKVersion;
  @see AWSChimeSDKIdentityPutAppInstanceRetentionSettingsResponse
  */
 - (void)putAppInstanceRetentionSettings:(AWSChimeSDKIdentityPutAppInstanceRetentionSettingsRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKIdentityPutAppInstanceRetentionSettingsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Registers an endpoint under an Amazon Chime <code>AppInstanceUser</code>. The endpoint receives messages for a user. For push notifications, the endpoint is a mobile device used to receive mobile push notifications for a user.</p>
+ 
+ @param request A container for the necessary parameters to execute the RegisterAppInstanceUserEndpoint service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKIdentityRegisterAppInstanceUserEndpointResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorConflict`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorResourceLimitExceeded`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityRegisterAppInstanceUserEndpointRequest
+ @see AWSChimeSDKIdentityRegisterAppInstanceUserEndpointResponse
+ */
+- (AWSTask<AWSChimeSDKIdentityRegisterAppInstanceUserEndpointResponse *> *)registerAppInstanceUserEndpoint:(AWSChimeSDKIdentityRegisterAppInstanceUserEndpointRequest *)request;
+
+/**
+ <p>Registers an endpoint under an Amazon Chime <code>AppInstanceUser</code>. The endpoint receives messages for a user. For push notifications, the endpoint is a mobile device used to receive mobile push notifications for a user.</p>
+ 
+ @param request A container for the necessary parameters to execute the RegisterAppInstanceUserEndpoint service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorConflict`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorResourceLimitExceeded`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityRegisterAppInstanceUserEndpointRequest
+ @see AWSChimeSDKIdentityRegisterAppInstanceUserEndpointResponse
+ */
+- (void)registerAppInstanceUserEndpoint:(AWSChimeSDKIdentityRegisterAppInstanceUserEndpointRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKIdentityRegisterAppInstanceUserEndpointResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Applies the specified tags to the specified Amazon Chime SDK identity resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the TagResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorResourceLimitExceeded`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityTagResourceRequest
+ */
+- (AWSTask *)tagResource:(AWSChimeSDKIdentityTagResourceRequest *)request;
+
+/**
+ <p>Applies the specified tags to the specified Amazon Chime SDK identity resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the TagResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorResourceLimitExceeded`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityTagResourceRequest
+ */
+- (void)tagResource:(AWSChimeSDKIdentityTagResourceRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Removes the specified tags from the specified Amazon Chime SDK identity resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the UntagResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityUntagResourceRequest
+ */
+- (AWSTask *)untagResource:(AWSChimeSDKIdentityUntagResourceRequest *)request;
+
+/**
+ <p>Removes the specified tags from the specified Amazon Chime SDK identity resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the UntagResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityUntagResourceRequest
+ */
+- (void)untagResource:(AWSChimeSDKIdentityUntagResourceRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
  <p>Updates <code>AppInstance</code> metadata.</p>
@@ -564,6 +730,31 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKIdentitySDKVersion;
  @see AWSChimeSDKIdentityUpdateAppInstanceUserResponse
  */
 - (void)updateAppInstanceUser:(AWSChimeSDKIdentityUpdateAppInstanceUserRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKIdentityUpdateAppInstanceUserResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Updates the details of an <code>AppInstanceUserEndpoint</code>. You can update the name and <code>AllowMessage</code> values.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateAppInstanceUserEndpoint service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKIdentityUpdateAppInstanceUserEndpointResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorConflict`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityUpdateAppInstanceUserEndpointRequest
+ @see AWSChimeSDKIdentityUpdateAppInstanceUserEndpointResponse
+ */
+- (AWSTask<AWSChimeSDKIdentityUpdateAppInstanceUserEndpointResponse *> *)updateAppInstanceUserEndpoint:(AWSChimeSDKIdentityUpdateAppInstanceUserEndpointRequest *)request;
+
+/**
+ <p>Updates the details of an <code>AppInstanceUserEndpoint</code>. You can update the name and <code>AllowMessage</code> values.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateAppInstanceUserEndpoint service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKIdentityErrorDomain` domain and the following error code: `AWSChimeSDKIdentityErrorBadRequest`, `AWSChimeSDKIdentityErrorConflict`, `AWSChimeSDKIdentityErrorForbidden`, `AWSChimeSDKIdentityErrorThrottledClient`, `AWSChimeSDKIdentityErrorUnauthorizedClient`, `AWSChimeSDKIdentityErrorServiceUnavailable`, `AWSChimeSDKIdentityErrorServiceFailure`.
+ 
+ @see AWSChimeSDKIdentityUpdateAppInstanceUserEndpointRequest
+ @see AWSChimeSDKIdentityUpdateAppInstanceUserEndpointResponse
+ */
+- (void)updateAppInstanceUserEndpoint:(AWSChimeSDKIdentityUpdateAppInstanceUserEndpointRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKIdentityUpdateAppInstanceUserEndpointResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 @end
 
