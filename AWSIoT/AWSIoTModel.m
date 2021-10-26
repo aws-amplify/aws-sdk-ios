@@ -137,6 +137,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"kafka" : @"kafka",
              @"kinesis" : @"kinesis",
              @"lambda" : @"lambda",
+             @"openSearch" : @"openSearch",
              @"republish" : @"republish",
              @"s3" : @"s3",
              @"salesforce" : @"salesforce",
@@ -203,6 +204,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTLambdaAction class]];
 }
 
++ (NSValueTransformer *)openSearchJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTOpenSearchAction class]];
+}
+
 + (NSValueTransformer *)republishJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTRepublishAction class]];
 }
@@ -246,6 +251,8 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"lastViolationValue" : @"lastViolationValue",
              @"securityProfileName" : @"securityProfileName",
              @"thingName" : @"thingName",
+             @"verificationState" : @"verificationState",
+             @"verificationStateDescription" : @"verificationStateDescription",
              @"violationEventAdditionalInfo" : @"violationEventAdditionalInfo",
              @"violationId" : @"violationId",
              @"violationStartTime" : @"violationStartTime",
@@ -266,6 +273,37 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSValueTransformer *)lastViolationValueJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTMetricValue class]];
+}
+
++ (NSValueTransformer *)verificationStateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"FALSE_POSITIVE"] == NSOrderedSame) {
+            return @(AWSIoTVerificationStateFalsePositive);
+        }
+        if ([value caseInsensitiveCompare:@"BENIGN_POSITIVE"] == NSOrderedSame) {
+            return @(AWSIoTVerificationStateBenignPositive);
+        }
+        if ([value caseInsensitiveCompare:@"TRUE_POSITIVE"] == NSOrderedSame) {
+            return @(AWSIoTVerificationStateTruePositive);
+        }
+        if ([value caseInsensitiveCompare:@"UNKNOWN"] == NSOrderedSame) {
+            return @(AWSIoTVerificationStateUnknown);
+        }
+        return @(AWSIoTVerificationStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTVerificationStateFalsePositive:
+                return @"FALSE_POSITIVE";
+            case AWSIoTVerificationStateBenignPositive:
+                return @"BENIGN_POSITIVE";
+            case AWSIoTVerificationStateTruePositive:
+                return @"TRUE_POSITIVE";
+            case AWSIoTVerificationStateUnknown:
+                return @"UNKNOWN";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)violationEventAdditionalInfoJSONTransformer {
@@ -344,6 +382,47 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"overrideDynamicGroups" : @"overrideDynamicGroups",
              @"thingGroupNames" : @"thingGroupNames",
              };
+}
+
+@end
+
+@implementation AWSIoTAggregationType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"name" : @"name",
+             @"values" : @"values",
+             };
+}
+
++ (NSValueTransformer *)nameJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Statistics"] == NSOrderedSame) {
+            return @(AWSIoTAggregationTypeNameStatistics);
+        }
+        if ([value caseInsensitiveCompare:@"Percentiles"] == NSOrderedSame) {
+            return @(AWSIoTAggregationTypeNamePercentiles);
+        }
+        if ([value caseInsensitiveCompare:@"Cardinality"] == NSOrderedSame) {
+            return @(AWSIoTAggregationTypeNameCardinality);
+        }
+        return @(AWSIoTAggregationTypeNameUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTAggregationTypeNameStatistics:
+                return @"Statistics";
+            case AWSIoTAggregationTypeNamePercentiles:
+                return @"Percentiles";
+            case AWSIoTAggregationTypeNameCardinality:
+                return @"Cardinality";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -1550,6 +1629,39 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTBucket
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"count" : @"count",
+             @"keyValue" : @"keyValue",
+             };
+}
+
+@end
+
+@implementation AWSIoTBucketsAggregationType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"termsAggregation" : @"termsAggregation",
+             };
+}
+
++ (NSValueTransformer *)termsAggregationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTTermsAggregation class]];
+}
+
+@end
+
 @implementation AWSIoTCACertificate
 
 + (BOOL)supportsSecureCoding {
@@ -2602,6 +2714,198 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"thingGroupArn" : @"thingGroupArn",
              @"thingGroupId" : @"thingGroupId",
              @"thingGroupName" : @"thingGroupName",
+             };
+}
+
+@end
+
+@implementation AWSIoTCreateFleetMetricRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"aggregationField" : @"aggregationField",
+             @"aggregationType" : @"aggregationType",
+             @"detail" : @"description",
+             @"indexName" : @"indexName",
+             @"metricName" : @"metricName",
+             @"period" : @"period",
+             @"queryString" : @"queryString",
+             @"queryVersion" : @"queryVersion",
+             @"tags" : @"tags",
+             @"unit" : @"unit",
+             };
+}
+
++ (NSValueTransformer *)aggregationTypeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTAggregationType class]];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTTag class]];
+}
+
++ (NSValueTransformer *)unitJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Seconds"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitSeconds);
+        }
+        if ([value caseInsensitiveCompare:@"Microseconds"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitMicroseconds);
+        }
+        if ([value caseInsensitiveCompare:@"Milliseconds"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitMilliseconds);
+        }
+        if ([value caseInsensitiveCompare:@"Bytes"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitBytes);
+        }
+        if ([value caseInsensitiveCompare:@"Kilobytes"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitKilobytes);
+        }
+        if ([value caseInsensitiveCompare:@"Megabytes"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitMegabytes);
+        }
+        if ([value caseInsensitiveCompare:@"Gigabytes"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitGigabytes);
+        }
+        if ([value caseInsensitiveCompare:@"Terabytes"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitTerabytes);
+        }
+        if ([value caseInsensitiveCompare:@"Bits"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitBits);
+        }
+        if ([value caseInsensitiveCompare:@"Kilobits"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitKilobits);
+        }
+        if ([value caseInsensitiveCompare:@"Megabits"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitMegabits);
+        }
+        if ([value caseInsensitiveCompare:@"Gigabits"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitGigabits);
+        }
+        if ([value caseInsensitiveCompare:@"Terabits"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitTerabits);
+        }
+        if ([value caseInsensitiveCompare:@"Percent"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitPercent);
+        }
+        if ([value caseInsensitiveCompare:@"Count"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitCount);
+        }
+        if ([value caseInsensitiveCompare:@"Bytes/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitBytesSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Kilobytes/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitKilobytesSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Megabytes/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitMegabytesSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Gigabytes/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitGigabytesSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Terabytes/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitTerabytesSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Bits/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitBitsSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Kilobits/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitKilobitsSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Megabits/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitMegabitsSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Gigabits/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitGigabitsSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Terabits/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitTerabitsSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Count/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitCountSecond);
+        }
+        if ([value caseInsensitiveCompare:@"None"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitNone);
+        }
+        return @(AWSIoTFleetMetricUnitUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTFleetMetricUnitSeconds:
+                return @"Seconds";
+            case AWSIoTFleetMetricUnitMicroseconds:
+                return @"Microseconds";
+            case AWSIoTFleetMetricUnitMilliseconds:
+                return @"Milliseconds";
+            case AWSIoTFleetMetricUnitBytes:
+                return @"Bytes";
+            case AWSIoTFleetMetricUnitKilobytes:
+                return @"Kilobytes";
+            case AWSIoTFleetMetricUnitMegabytes:
+                return @"Megabytes";
+            case AWSIoTFleetMetricUnitGigabytes:
+                return @"Gigabytes";
+            case AWSIoTFleetMetricUnitTerabytes:
+                return @"Terabytes";
+            case AWSIoTFleetMetricUnitBits:
+                return @"Bits";
+            case AWSIoTFleetMetricUnitKilobits:
+                return @"Kilobits";
+            case AWSIoTFleetMetricUnitMegabits:
+                return @"Megabits";
+            case AWSIoTFleetMetricUnitGigabits:
+                return @"Gigabits";
+            case AWSIoTFleetMetricUnitTerabits:
+                return @"Terabits";
+            case AWSIoTFleetMetricUnitPercent:
+                return @"Percent";
+            case AWSIoTFleetMetricUnitCount:
+                return @"Count";
+            case AWSIoTFleetMetricUnitBytesSecond:
+                return @"Bytes/Second";
+            case AWSIoTFleetMetricUnitKilobytesSecond:
+                return @"Kilobytes/Second";
+            case AWSIoTFleetMetricUnitMegabytesSecond:
+                return @"Megabytes/Second";
+            case AWSIoTFleetMetricUnitGigabytesSecond:
+                return @"Gigabytes/Second";
+            case AWSIoTFleetMetricUnitTerabytesSecond:
+                return @"Terabytes/Second";
+            case AWSIoTFleetMetricUnitBitsSecond:
+                return @"Bits/Second";
+            case AWSIoTFleetMetricUnitKilobitsSecond:
+                return @"Kilobits/Second";
+            case AWSIoTFleetMetricUnitMegabitsSecond:
+                return @"Megabits/Second";
+            case AWSIoTFleetMetricUnitGigabitsSecond:
+                return @"Gigabits/Second";
+            case AWSIoTFleetMetricUnitTerabitsSecond:
+                return @"Terabits/Second";
+            case AWSIoTFleetMetricUnitCountSecond:
+                return @"Count/Second";
+            case AWSIoTFleetMetricUnitNone:
+                return @"None";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSIoTCreateFleetMetricResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"metricArn" : @"metricArn",
+             @"metricName" : @"metricName",
              };
 }
 
@@ -3796,6 +4100,21 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (BOOL)supportsSecureCoding {
     return YES;
+}
+
+@end
+
+@implementation AWSIoTDeleteFleetMetricRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"expectedVersion" : @"expectedVersion",
+             @"metricName" : @"metricName",
+             };
 }
 
 @end
@@ -5123,6 +5442,212 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSIoTDescribeFleetMetricRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"metricName" : @"metricName",
+             };
+}
+
+@end
+
+@implementation AWSIoTDescribeFleetMetricResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"aggregationField" : @"aggregationField",
+             @"aggregationType" : @"aggregationType",
+             @"creationDate" : @"creationDate",
+             @"detail" : @"description",
+             @"indexName" : @"indexName",
+             @"lastModifiedDate" : @"lastModifiedDate",
+             @"metricArn" : @"metricArn",
+             @"metricName" : @"metricName",
+             @"period" : @"period",
+             @"queryString" : @"queryString",
+             @"queryVersion" : @"queryVersion",
+             @"unit" : @"unit",
+             @"version" : @"version",
+             };
+}
+
++ (NSValueTransformer *)aggregationTypeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTAggregationType class]];
+}
+
++ (NSValueTransformer *)creationDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)lastModifiedDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)unitJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Seconds"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitSeconds);
+        }
+        if ([value caseInsensitiveCompare:@"Microseconds"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitMicroseconds);
+        }
+        if ([value caseInsensitiveCompare:@"Milliseconds"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitMilliseconds);
+        }
+        if ([value caseInsensitiveCompare:@"Bytes"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitBytes);
+        }
+        if ([value caseInsensitiveCompare:@"Kilobytes"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitKilobytes);
+        }
+        if ([value caseInsensitiveCompare:@"Megabytes"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitMegabytes);
+        }
+        if ([value caseInsensitiveCompare:@"Gigabytes"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitGigabytes);
+        }
+        if ([value caseInsensitiveCompare:@"Terabytes"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitTerabytes);
+        }
+        if ([value caseInsensitiveCompare:@"Bits"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitBits);
+        }
+        if ([value caseInsensitiveCompare:@"Kilobits"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitKilobits);
+        }
+        if ([value caseInsensitiveCompare:@"Megabits"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitMegabits);
+        }
+        if ([value caseInsensitiveCompare:@"Gigabits"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitGigabits);
+        }
+        if ([value caseInsensitiveCompare:@"Terabits"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitTerabits);
+        }
+        if ([value caseInsensitiveCompare:@"Percent"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitPercent);
+        }
+        if ([value caseInsensitiveCompare:@"Count"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitCount);
+        }
+        if ([value caseInsensitiveCompare:@"Bytes/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitBytesSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Kilobytes/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitKilobytesSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Megabytes/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitMegabytesSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Gigabytes/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitGigabytesSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Terabytes/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitTerabytesSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Bits/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitBitsSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Kilobits/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitKilobitsSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Megabits/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitMegabitsSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Gigabits/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitGigabitsSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Terabits/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitTerabitsSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Count/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitCountSecond);
+        }
+        if ([value caseInsensitiveCompare:@"None"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitNone);
+        }
+        return @(AWSIoTFleetMetricUnitUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTFleetMetricUnitSeconds:
+                return @"Seconds";
+            case AWSIoTFleetMetricUnitMicroseconds:
+                return @"Microseconds";
+            case AWSIoTFleetMetricUnitMilliseconds:
+                return @"Milliseconds";
+            case AWSIoTFleetMetricUnitBytes:
+                return @"Bytes";
+            case AWSIoTFleetMetricUnitKilobytes:
+                return @"Kilobytes";
+            case AWSIoTFleetMetricUnitMegabytes:
+                return @"Megabytes";
+            case AWSIoTFleetMetricUnitGigabytes:
+                return @"Gigabytes";
+            case AWSIoTFleetMetricUnitTerabytes:
+                return @"Terabytes";
+            case AWSIoTFleetMetricUnitBits:
+                return @"Bits";
+            case AWSIoTFleetMetricUnitKilobits:
+                return @"Kilobits";
+            case AWSIoTFleetMetricUnitMegabits:
+                return @"Megabits";
+            case AWSIoTFleetMetricUnitGigabits:
+                return @"Gigabits";
+            case AWSIoTFleetMetricUnitTerabits:
+                return @"Terabits";
+            case AWSIoTFleetMetricUnitPercent:
+                return @"Percent";
+            case AWSIoTFleetMetricUnitCount:
+                return @"Count";
+            case AWSIoTFleetMetricUnitBytesSecond:
+                return @"Bytes/Second";
+            case AWSIoTFleetMetricUnitKilobytesSecond:
+                return @"Kilobytes/Second";
+            case AWSIoTFleetMetricUnitMegabytesSecond:
+                return @"Megabytes/Second";
+            case AWSIoTFleetMetricUnitGigabytesSecond:
+                return @"Gigabytes/Second";
+            case AWSIoTFleetMetricUnitTerabytesSecond:
+                return @"Terabytes/Second";
+            case AWSIoTFleetMetricUnitBitsSecond:
+                return @"Bits/Second";
+            case AWSIoTFleetMetricUnitKilobitsSecond:
+                return @"Kilobits/Second";
+            case AWSIoTFleetMetricUnitMegabitsSecond:
+                return @"Megabits/Second";
+            case AWSIoTFleetMetricUnitGigabitsSecond:
+                return @"Gigabits/Second";
+            case AWSIoTFleetMetricUnitTerabitsSecond:
+                return @"Terabits/Second";
+            case AWSIoTFleetMetricUnitCountSecond:
+                return @"Count/Second";
+            case AWSIoTFleetMetricUnitNone:
+                return @"None";
+            default:
+                return nil;
+        }
     }];
 }
 
@@ -6639,6 +7164,21 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTFleetMetricNameAndArn
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"metricArn" : @"metricArn",
+             @"metricName" : @"metricName",
+             };
+}
+
+@end
+
 @implementation AWSIoTGetBehaviorModelTrainingSummariesRequest
 
 + (BOOL)supportsSecureCoding {
@@ -6670,6 +7210,47 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSValueTransformer *)summariesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTBehaviorModelTrainingSummary class]];
+}
+
+@end
+
+@implementation AWSIoTGetBucketsAggregationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"aggregationField" : @"aggregationField",
+             @"bucketsAggregationType" : @"bucketsAggregationType",
+             @"indexName" : @"indexName",
+             @"queryString" : @"queryString",
+             @"queryVersion" : @"queryVersion",
+             };
+}
+
++ (NSValueTransformer *)bucketsAggregationTypeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTBucketsAggregationType class]];
+}
+
+@end
+
+@implementation AWSIoTGetBucketsAggregationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"buckets" : @"buckets",
+             @"totalCount" : @"totalCount",
+             };
+}
+
++ (NSValueTransformer *)bucketsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTBucket class]];
 }
 
 @end
@@ -8026,6 +8607,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"nextToken" : @"nextToken",
              @"securityProfileName" : @"securityProfileName",
              @"thingName" : @"thingName",
+             @"verificationState" : @"verificationState",
              };
 }
 
@@ -8049,6 +8631,37 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
                 return @"STATISTICAL";
             case AWSIoTBehaviorCriteriaTypeMachineLearning:
                 return @"MACHINE_LEARNING";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)verificationStateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"FALSE_POSITIVE"] == NSOrderedSame) {
+            return @(AWSIoTVerificationStateFalsePositive);
+        }
+        if ([value caseInsensitiveCompare:@"BENIGN_POSITIVE"] == NSOrderedSame) {
+            return @(AWSIoTVerificationStateBenignPositive);
+        }
+        if ([value caseInsensitiveCompare:@"TRUE_POSITIVE"] == NSOrderedSame) {
+            return @(AWSIoTVerificationStateTruePositive);
+        }
+        if ([value caseInsensitiveCompare:@"UNKNOWN"] == NSOrderedSame) {
+            return @(AWSIoTVerificationStateUnknown);
+        }
+        return @(AWSIoTVerificationStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTVerificationStateFalsePositive:
+                return @"FALSE_POSITIVE";
+            case AWSIoTVerificationStateBenignPositive:
+                return @"BENIGN_POSITIVE";
+            case AWSIoTVerificationStateTruePositive:
+                return @"TRUE_POSITIVE";
+            case AWSIoTVerificationStateUnknown:
+                return @"UNKNOWN";
             default:
                 return nil;
         }
@@ -8905,6 +9518,40 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSValueTransformer *)domainConfigurationsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTDomainConfigurationSummary class]];
+}
+
+@end
+
+@implementation AWSIoTListFleetMetricsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxResults" : @"maxResults",
+             @"nextToken" : @"nextToken",
+             };
+}
+
+@end
+
+@implementation AWSIoTListFleetMetricsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"fleetMetrics" : @"fleetMetrics",
+             @"nextToken" : @"nextToken",
+             };
+}
+
++ (NSValueTransformer *)fleetMetricsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTFleetMetricNameAndArn class]];
 }
 
 @end
@@ -10446,6 +11093,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"securityProfileName" : @"securityProfileName",
              @"startTime" : @"startTime",
              @"thingName" : @"thingName",
+             @"verificationState" : @"verificationState",
              };
 }
 
@@ -10488,6 +11136,37 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)verificationStateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"FALSE_POSITIVE"] == NSOrderedSame) {
+            return @(AWSIoTVerificationStateFalsePositive);
+        }
+        if ([value caseInsensitiveCompare:@"BENIGN_POSITIVE"] == NSOrderedSame) {
+            return @(AWSIoTVerificationStateBenignPositive);
+        }
+        if ([value caseInsensitiveCompare:@"TRUE_POSITIVE"] == NSOrderedSame) {
+            return @(AWSIoTVerificationStateTruePositive);
+        }
+        if ([value caseInsensitiveCompare:@"UNKNOWN"] == NSOrderedSame) {
+            return @(AWSIoTVerificationStateUnknown);
+        }
+        return @(AWSIoTVerificationStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTVerificationStateFalsePositive:
+                return @"FALSE_POSITIVE";
+            case AWSIoTVerificationStateBenignPositive:
+                return @"BENIGN_POSITIVE";
+            case AWSIoTVerificationStateTruePositive:
+                return @"TRUE_POSITIVE";
+            case AWSIoTVerificationStateUnknown:
+                return @"UNKNOWN";
+            default:
+                return nil;
+        }
     }];
 }
 
@@ -11107,6 +11786,24 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTOpenSearchAction
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"endpoint" : @"endpoint",
+             @"identifier" : @"id",
+             @"index" : @"index",
+             @"roleArn" : @"roleArn",
+             @"types" : @"type",
+             };
+}
+
+@end
+
 @implementation AWSIoTOutgoingCertificate
 
 + (BOOL)supportsSecureCoding {
@@ -11346,6 +12043,61 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 	return @{
              @"tableName" : @"tableName",
              };
+}
+
+@end
+
+@implementation AWSIoTPutVerificationStateOnViolationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"verificationState" : @"verificationState",
+             @"verificationStateDescription" : @"verificationStateDescription",
+             @"violationId" : @"violationId",
+             };
+}
+
++ (NSValueTransformer *)verificationStateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"FALSE_POSITIVE"] == NSOrderedSame) {
+            return @(AWSIoTVerificationStateFalsePositive);
+        }
+        if ([value caseInsensitiveCompare:@"BENIGN_POSITIVE"] == NSOrderedSame) {
+            return @(AWSIoTVerificationStateBenignPositive);
+        }
+        if ([value caseInsensitiveCompare:@"TRUE_POSITIVE"] == NSOrderedSame) {
+            return @(AWSIoTVerificationStateTruePositive);
+        }
+        if ([value caseInsensitiveCompare:@"UNKNOWN"] == NSOrderedSame) {
+            return @(AWSIoTVerificationStateUnknown);
+        }
+        return @(AWSIoTVerificationStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTVerificationStateFalsePositive:
+                return @"FALSE_POSITIVE";
+            case AWSIoTVerificationStateBenignPositive:
+                return @"BENIGN_POSITIVE";
+            case AWSIoTVerificationStateTruePositive:
+                return @"TRUE_POSITIVE";
+            case AWSIoTVerificationStateUnknown:
+                return @"UNKNOWN";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSIoTPutVerificationStateOnViolationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
 }
 
 @end
@@ -12857,6 +13609,20 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTTermsAggregation
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxBuckets" : @"maxBuckets",
+             };
+}
+
+@end
+
 @implementation AWSIoTTestAuthorizationRequest
 
 + (BOOL)supportsSecureCoding {
@@ -12974,6 +13740,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"connected" : @"connected",
+             @"disconnectReason" : @"disconnectReason",
              @"timestamp" : @"timestamp",
              };
 }
@@ -14327,6 +15094,179 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTUpdateFleetMetricRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"aggregationField" : @"aggregationField",
+             @"aggregationType" : @"aggregationType",
+             @"detail" : @"description",
+             @"expectedVersion" : @"expectedVersion",
+             @"indexName" : @"indexName",
+             @"metricName" : @"metricName",
+             @"period" : @"period",
+             @"queryString" : @"queryString",
+             @"queryVersion" : @"queryVersion",
+             @"unit" : @"unit",
+             };
+}
+
++ (NSValueTransformer *)aggregationTypeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTAggregationType class]];
+}
+
++ (NSValueTransformer *)unitJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Seconds"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitSeconds);
+        }
+        if ([value caseInsensitiveCompare:@"Microseconds"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitMicroseconds);
+        }
+        if ([value caseInsensitiveCompare:@"Milliseconds"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitMilliseconds);
+        }
+        if ([value caseInsensitiveCompare:@"Bytes"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitBytes);
+        }
+        if ([value caseInsensitiveCompare:@"Kilobytes"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitKilobytes);
+        }
+        if ([value caseInsensitiveCompare:@"Megabytes"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitMegabytes);
+        }
+        if ([value caseInsensitiveCompare:@"Gigabytes"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitGigabytes);
+        }
+        if ([value caseInsensitiveCompare:@"Terabytes"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitTerabytes);
+        }
+        if ([value caseInsensitiveCompare:@"Bits"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitBits);
+        }
+        if ([value caseInsensitiveCompare:@"Kilobits"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitKilobits);
+        }
+        if ([value caseInsensitiveCompare:@"Megabits"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitMegabits);
+        }
+        if ([value caseInsensitiveCompare:@"Gigabits"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitGigabits);
+        }
+        if ([value caseInsensitiveCompare:@"Terabits"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitTerabits);
+        }
+        if ([value caseInsensitiveCompare:@"Percent"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitPercent);
+        }
+        if ([value caseInsensitiveCompare:@"Count"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitCount);
+        }
+        if ([value caseInsensitiveCompare:@"Bytes/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitBytesSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Kilobytes/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitKilobytesSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Megabytes/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitMegabytesSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Gigabytes/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitGigabytesSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Terabytes/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitTerabytesSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Bits/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitBitsSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Kilobits/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitKilobitsSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Megabits/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitMegabitsSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Gigabits/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitGigabitsSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Terabits/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitTerabitsSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Count/Second"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitCountSecond);
+        }
+        if ([value caseInsensitiveCompare:@"None"] == NSOrderedSame) {
+            return @(AWSIoTFleetMetricUnitNone);
+        }
+        return @(AWSIoTFleetMetricUnitUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTFleetMetricUnitSeconds:
+                return @"Seconds";
+            case AWSIoTFleetMetricUnitMicroseconds:
+                return @"Microseconds";
+            case AWSIoTFleetMetricUnitMilliseconds:
+                return @"Milliseconds";
+            case AWSIoTFleetMetricUnitBytes:
+                return @"Bytes";
+            case AWSIoTFleetMetricUnitKilobytes:
+                return @"Kilobytes";
+            case AWSIoTFleetMetricUnitMegabytes:
+                return @"Megabytes";
+            case AWSIoTFleetMetricUnitGigabytes:
+                return @"Gigabytes";
+            case AWSIoTFleetMetricUnitTerabytes:
+                return @"Terabytes";
+            case AWSIoTFleetMetricUnitBits:
+                return @"Bits";
+            case AWSIoTFleetMetricUnitKilobits:
+                return @"Kilobits";
+            case AWSIoTFleetMetricUnitMegabits:
+                return @"Megabits";
+            case AWSIoTFleetMetricUnitGigabits:
+                return @"Gigabits";
+            case AWSIoTFleetMetricUnitTerabits:
+                return @"Terabits";
+            case AWSIoTFleetMetricUnitPercent:
+                return @"Percent";
+            case AWSIoTFleetMetricUnitCount:
+                return @"Count";
+            case AWSIoTFleetMetricUnitBytesSecond:
+                return @"Bytes/Second";
+            case AWSIoTFleetMetricUnitKilobytesSecond:
+                return @"Kilobytes/Second";
+            case AWSIoTFleetMetricUnitMegabytesSecond:
+                return @"Megabytes/Second";
+            case AWSIoTFleetMetricUnitGigabytesSecond:
+                return @"Gigabytes/Second";
+            case AWSIoTFleetMetricUnitTerabytesSecond:
+                return @"Terabytes/Second";
+            case AWSIoTFleetMetricUnitBitsSecond:
+                return @"Bits/Second";
+            case AWSIoTFleetMetricUnitKilobitsSecond:
+                return @"Kilobits/Second";
+            case AWSIoTFleetMetricUnitMegabitsSecond:
+                return @"Megabits/Second";
+            case AWSIoTFleetMetricUnitGigabitsSecond:
+                return @"Gigabits/Second";
+            case AWSIoTFleetMetricUnitTerabitsSecond:
+                return @"Terabits/Second";
+            case AWSIoTFleetMetricUnitCountSecond:
+                return @"Count/Second";
+            case AWSIoTFleetMetricUnitNone:
+                return @"None";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSIoTUpdateIndexingConfigurationRequest
 
 + (BOOL)supportsSecureCoding {
@@ -14944,6 +15884,8 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"metricValue" : @"metricValue",
              @"securityProfileName" : @"securityProfileName",
              @"thingName" : @"thingName",
+             @"verificationState" : @"verificationState",
+             @"verificationStateDescription" : @"verificationStateDescription",
              @"violationEventAdditionalInfo" : @"violationEventAdditionalInfo",
              @"violationEventTime" : @"violationEventTime",
              @"violationEventType" : @"violationEventType",
@@ -14957,6 +15899,37 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSValueTransformer *)metricValueJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTMetricValue class]];
+}
+
++ (NSValueTransformer *)verificationStateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"FALSE_POSITIVE"] == NSOrderedSame) {
+            return @(AWSIoTVerificationStateFalsePositive);
+        }
+        if ([value caseInsensitiveCompare:@"BENIGN_POSITIVE"] == NSOrderedSame) {
+            return @(AWSIoTVerificationStateBenignPositive);
+        }
+        if ([value caseInsensitiveCompare:@"TRUE_POSITIVE"] == NSOrderedSame) {
+            return @(AWSIoTVerificationStateTruePositive);
+        }
+        if ([value caseInsensitiveCompare:@"UNKNOWN"] == NSOrderedSame) {
+            return @(AWSIoTVerificationStateUnknown);
+        }
+        return @(AWSIoTVerificationStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTVerificationStateFalsePositive:
+                return @"FALSE_POSITIVE";
+            case AWSIoTVerificationStateBenignPositive:
+                return @"BENIGN_POSITIVE";
+            case AWSIoTVerificationStateTruePositive:
+                return @"TRUE_POSITIVE";
+            case AWSIoTVerificationStateUnknown:
+                return @"UNKNOWN";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)violationEventAdditionalInfoJSONTransformer {
