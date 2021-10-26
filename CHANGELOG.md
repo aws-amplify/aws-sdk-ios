@@ -4,6 +4,11 @@
 
 -Features for next release
 
+### Misc. Updates
+
+ - Model updates for the following services
+   - AWSConnect
+
 ## 2.26.2
 
 ### Bug Fixes
