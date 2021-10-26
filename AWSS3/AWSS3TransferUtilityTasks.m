@@ -19,6 +19,7 @@
 #import "AWSS3PreSignedURL.h"
 #import <AWSCore/AWSFMDB.h>
 
+#import "AWSS3TransferUtilityTasks+Completion.h"
 
 @interface AWSS3TransferUtilityExpression()
 @property (strong, nonatomic) NSMutableDictionary<NSString *, NSString *> *internalRequestHeaders;
@@ -219,13 +220,10 @@
 -(void) setCompletionHandler:(AWSS3TransferUtilityUploadCompletionHandlerBlock)completionHandler {
     
     self.expression.completionHandler = completionHandler;
-    //If the task has already completed successfully, call the completion handler
-    if (self.status == AWSS3TransferUtilityTransferStatusCompleted ) {
-        _expression.completionHandler(self, nil);
-    }
-    //If the task has completed with error, call the completion handler
-    else if (self.error) {
-        _expression.completionHandler(self, self.error);
+    //If the task has already completed successfully
+    //Or the task has completed with error, complete the task
+    if (self.status == AWSS3TransferUtilityTransferStatusCompleted || self.error) {
+        [self complete];
     }
 }
 
@@ -239,7 +237,6 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        _progress = [NSProgress new];
         _waitingPartsDictionary = [NSMutableDictionary new];
         _inProgressPartsDictionary = [NSMutableDictionary new];
         _completedPartsSet = [NSMutableSet new];
@@ -267,7 +264,7 @@
         [subTask.sessionTask cancel];
     }
 
-    [AWSS3TransferUtilityDatabaseHelper deleteTransferRequestFromDB:_transferID databaseQueue:self.databaseQueue];
+    [AWSS3TransferUtilityDatabaseHelper deleteTransferRequestFromDB:self.transferID databaseQueue:self.databaseQueue];
 }
 
 - (void)resume {
@@ -332,13 +329,10 @@
 -(void) setCompletionHandler:(AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock)completionHandler {
     
     self.expression.completionHandler = completionHandler;
-    //If the task has already completed successfully, call the completion handler
-    if (self.status == AWSS3TransferUtilityTransferStatusCompleted) {
-        _expression.completionHandler(self, nil);
-    }
-    //If the task has completed with error, call the completion handler
-    else if (self.error ) {
-        _expression.completionHandler(self, self.error);
+    //If the task has already completed successfully
+    //Or the task has completed with error, complete the task
+    if (self.status == AWSS3TransferUtilityTransferStatusCompleted || self.error) {
+        [self complete];
     }
 }
 
@@ -367,13 +361,10 @@
 -(void) setCompletionHandler:(AWSS3TransferUtilityDownloadCompletionHandlerBlock)completionHandler {
     
     self.expression.completionHandler = completionHandler;
-    //If the task has already completed successfully, call the completion handler
-    if (self.status == AWSS3TransferUtilityTransferStatusCompleted) {
-        _expression.completionHandler(self, self.location, self.data, nil);
-    }
-    //If the task has completed with error, call the completion handler
-    else if (self.error ) {
-        _expression.completionHandler(self, self.location, self.data, self.error);
+    //If the task has already completed successfully
+    //Or the task has completed with error, complete the task
+    if (self.status == AWSS3TransferUtilityTransferStatusCompleted || self.error) {
+        [self complete];
     }
 }
 
