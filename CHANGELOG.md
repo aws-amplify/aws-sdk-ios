@@ -2,7 +2,10 @@
 
 ## Unreleased
 
--Features for next release
+### Misc. Updates
+
+- **AWSIoT**
+  - feat(AWSIoT): update models to latest [(PR #3782](https://github.com/aws-amplify/aws-sdk-ios/pull/3782))
 
 ## 2.26.0
 
