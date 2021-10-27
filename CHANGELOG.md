@@ -1,5 +1,14 @@
 ---
 
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSAutoScaling
+---AWSTextract
+---
+
 # AWS Mobile SDK for iOS CHANGELOG
 
 MOVE THIS SECTION TO THE CORRECT LOCATION
