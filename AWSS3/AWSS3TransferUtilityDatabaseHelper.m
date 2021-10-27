@@ -17,50 +17,11 @@
 #import "AWSS3TransferUtilityDatabaseHelper.h"
 #import "AWSS3TransferUtility.h"
 #import "AWSS3TransferUtilityTasks.h"
+#import "AWSS3TransferUtility_private.h"
 
 //Constants for DB
 NSString *const AWSS3TransferUtilityDatabaseDirectory = @"/com/amazonaws/AWSS3TransferUtility/";
 NSString *const AWSS3TransferUtilityDatabaseName = @"transfer_utility_database";
-
-@interface AWSS3TransferUtilityTask()
-@property NSString *nsURLSessionID;
-@property NSString *file;
-@property int retryCount;
-@property NSString *transferType;
-@property (strong, nonatomic) NSString *transferID;
-@end
-
-@interface AWSS3TransferUtilityUploadTask()
-@property (strong, nonatomic) AWSS3TransferUtilityUploadExpression *expression;
-@property BOOL temporaryFileCreated;
-@property NSString *transferType;
-@property NSUInteger taskIdentifier;
-@end
-
-@interface AWSS3TransferUtilityMultiPartUploadTask()
-@property (strong, nonatomic) AWSS3TransferUtilityMultiPartUploadExpression *expression;
-@property NSString *nsURLSessionID;
-@property NSString * uploadID;
-@property NSString *file;
-@property BOOL temporaryFileCreated;
-@property NSNumber *contentLength;
-@property int retryCount;
-@property NSString *transferType;
-@end
-
-@interface AWSS3TransferUtilityDownloadTask()
-@property (strong, nonatomic) AWSS3TransferUtilityDownloadExpression *expression;
-@property NSUInteger taskIdentifier;
-@end
-
-@interface AWSS3TransferUtilityUploadSubTask()
-@property NSUInteger taskIdentifier;
-@property (strong, nonatomic) NSNumber *partNumber;
-@property NSString *file;
-@property int64_t totalBytesExpectedToSend;
-@property AWSS3TransferUtilityTransferStatusType status;
-@property NSString *transferType;
-@end
 
 #pragma mark - AWSS3 Transfer Utility Database Functions
 

@@ -22,6 +22,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 
 - **AWSS3**
   - Removes tasks from completed dictionary and clears progress and completion handlers ([PR #3833](https://github.com/aws-amplify/aws-sdk-ios/pull/3833))
+  - Fixes for a regression found with integration tests on main branch ([PR #3838](https://github.com/aws-amplify/aws-sdk-ios/pull/3838))
 
 ## 2.26.2
 
