@@ -2654,14 +2654,12 @@ didFinishDownloadingToURL:(NSURL *)location {
                 transferUtilityTask.error = error;
             }
         }
-        //[self completeTask:transferUtilityTask];
     } else {
         NSError *error = nil;
         transferUtilityTask.data = [NSData dataWithContentsOfFile:location.path options:NSDataReadingMappedIfSafe error:&error];
         if (!transferUtilityTask.data) {
             transferUtilityTask.error = error;
         }
-        //[self completeTask:transferUtilityTask];
     }
 }
 
