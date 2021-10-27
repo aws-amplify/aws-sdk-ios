@@ -65,6 +65,11 @@ FOUNDATION_EXPORT NSString *const AWSS3TransferUtilityURLSessionDidBecomeInvalid
 @property (readonly) AWSS3TransferUtilityConfiguration *transferUtilityConfiguration;
 
 /**
+ Indicates if completed tasks should be removed. Off by default.
+ */
+@property (assign) BOOL removeCompletedTasks;
+
+/**
  Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with `defaultServiceConfiguration` from `[AWSServiceManager defaultServiceManager]`. The reference to this object is maintained by the SDK, and you do not need to retain it manually.
 
  For example, set the default service configuration in `- application:didFinishLaunchingWithOptions:`

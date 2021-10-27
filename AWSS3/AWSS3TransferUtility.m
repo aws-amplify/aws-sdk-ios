@@ -2218,6 +2218,10 @@ didCompleteWithError:(NSError *)error {
                 AWSDDLogDebug(@"Unable to find information for task %lu in taskDictionary", (unsigned long)task.taskIdentifier);
                 return;
             }
+
+            if (!transferUtilityMultiPartUploadTask.sessionTask) {
+                transferUtilityMultiPartUploadTask.sessionTask = task;
+            }
             
             AWSS3TransferUtilityUploadSubTask *subTask = [transferUtilityMultiPartUploadTask.waitingPartsDictionary objectForKey:@(task.taskIdentifier)];
             if (subTask) {
@@ -2523,9 +2527,18 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
 #pragma mark - Helper methods
 
 - (void)completeTask:(AWSS3TransferUtilityTask *)task {
+    [self completeTask:task removeCompletedTask:self.removeCompletedTasks];
+}
+
+- (void)completeTask:(AWSS3TransferUtilityTask *)task removeCompletedTask:(BOOL)removeCompletedTask {
     [task complete];
-    // complete task before removing from dictionary
-    [self.completedTaskDictionary removeObjectForKey:task.transferID];
+
+    if (removeCompletedTask) {
+        // complete task before removing from dictionaries
+        [self.completedTaskDictionary removeObjectForKey:task.transferID];
+        [self.taskDictionary removeObjectForKey:@(task.taskIdentifier)];
+    }
+
 }
 
 - (void) cleanupForMultiPartUploadTask: (AWSS3TransferUtilityMultiPartUploadTask *) task  {
@@ -2546,7 +2559,6 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
     
     //Remove data from the Database.
     [AWSS3TransferUtilityDatabaseHelper deleteTransferRequestFromDB:task.transferID databaseQueue:_databaseQueue];
-    
 }
 
 - (void) cleanupForUploadTask: (AWSS3TransferUtilityUploadTask *) uploadTask {
@@ -2626,6 +2638,7 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
       downloadTask:(NSURLSessionDownloadTask *)downloadTask
 didFinishDownloadingToURL:(NSURL *)location {
     AWSDDLogDebug(@"didFinishDownloadingToURL called for Download task %lu", (unsigned long)downloadTask.taskIdentifier);
+
     AWSS3TransferUtilityDownloadTask *transferUtilityTask = [self.taskDictionary objectForKey:@(downloadTask.taskIdentifier)];
     if (!transferUtilityTask) {
         AWSDDLogDebug(@"Unable to find information for task %lu in taskDictionary", (unsigned long)downloadTask.taskIdentifier);
@@ -2641,12 +2654,14 @@ didFinishDownloadingToURL:(NSURL *)location {
                 transferUtilityTask.error = error;
             }
         }
+        //[self completeTask:transferUtilityTask];
     } else {
         NSError *error = nil;
         transferUtilityTask.data = [NSData dataWithContentsOfFile:location.path options:NSDataReadingMappedIfSafe error:&error];
         if (!transferUtilityTask.data) {
             transferUtilityTask.error = error;
         }
+        //[self completeTask:transferUtilityTask];
     }
 }
 

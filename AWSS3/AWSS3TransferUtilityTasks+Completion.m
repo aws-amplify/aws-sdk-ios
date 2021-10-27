@@ -51,9 +51,8 @@
 - (void)completeWithError:(NSError * _Nullable)error {
     if (self.expression.completionHandler) {
         self.expression.completionHandler(self, error);
-        // release handlers
-        self.expression.completionHandler = nil;
-        self.expression.progressBlock = nil;
+        // release expression
+        self.expression = nil;
     }
 }
 
@@ -81,9 +80,8 @@
                        error:(NSError * _Nullable)error {
     if (self.expression.completionHandler) {
         self.expression.completionHandler(self, location, data, error);
-        // release handlers
-        self.expression.completionHandler = nil;
-        self.expression.progressBlock = nil;
+        // release expression
+        self.expression = nil;
     }
 }
 
@@ -107,9 +105,8 @@
 - (void)completeWithError:(NSError * _Nullable)error {
     if (self.expression.completionHandler) {
         self.expression.completionHandler(self, error);
-        // release handlers
-        self.expression.completionHandler = nil;
-        self.expression.progressBlock = nil;
+        // release expression
+        self.expression = nil;
     }
 }
 
