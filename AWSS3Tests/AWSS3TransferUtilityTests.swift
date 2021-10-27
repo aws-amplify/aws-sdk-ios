@@ -2679,7 +2679,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
 
         let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: key)
         XCTAssertNotNil(transferUtility)
-        transferUtility?.removeCompletedTasks = true
+        transferUtility?.shouldRemoveCompletedTasks = true
         let uploadExpression = AWSS3TransferUtilityUploadExpression()
 
         uploadExpression.progressBlock = { _, _ in }

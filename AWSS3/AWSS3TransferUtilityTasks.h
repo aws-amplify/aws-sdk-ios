@@ -15,11 +15,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-
-
 @class AWSS3TransferUtilityTask;
 @class AWSS3TransferUtilityUploadTask;
 @class AWSS3TransferUtilityMultiPartUploadTask;
+@class AWSS3TransferUtilityUploadSubTask;
 @class AWSS3TransferUtilityDownloadTask;
 @class AWSS3TransferUtilityExpression;
 @class AWSS3TransferUtilityUploadExpression;
