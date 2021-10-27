@@ -6,6 +6,10 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 
 ## Unreleased
 
+-Features for next release
+
+## 2.26.3
+
 ### Misc. Updates
 
 - **AWSChime**
