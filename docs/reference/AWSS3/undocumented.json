@@ -2662,49 +2662,49 @@
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferUtility.h",
-      "line": 36,
+      "line": 34,
       "symbol": "AWSS3TransferUtilityURLSessionDidBecomeInvalidNotification",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferUtility.h",
-      "line": 684,
+      "line": 687,
       "symbol": "AWSS3TransferUtilityConfiguration",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferUtility.h",
-      "line": 686,
+      "line": 689,
       "symbol": "AWSS3TransferUtilityConfiguration.accelerateModeEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferUtility.h",
-      "line": 688,
+      "line": 691,
       "symbol": "AWSS3TransferUtilityConfiguration.bucket",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferUtility.h",
-      "line": 690,
+      "line": 693,
       "symbol": "AWSS3TransferUtilityConfiguration.retryLimit",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferUtility.h",
-      "line": 692,
+      "line": 695,
       "symbol": "AWSS3TransferUtilityConfiguration.multiPartConcurrencyLimit",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferUtility.h",
-      "line": 694,
+      "line": 697,
       "symbol": "AWSS3TransferUtilityConfiguration.timeoutIntervalForResource",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
@@ -2767,70 +2767,70 @@
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferUtilityTasks.h",
-      "line": 29,
+      "line": 28,
       "symbol": "AWSS3TransferUtilityTransferStatusType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferUtilityTasks.h",
-      "line": 29,
+      "line": 28,
       "symbol": "AWSS3TransferUtilityTransferStatusType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferUtilityTasks.h",
-      "line": 30,
+      "line": 29,
       "symbol": "AWSS3TransferUtilityTransferStatusType.AWSS3TransferUtilityTransferStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferUtilityTasks.h",
-      "line": 31,
+      "line": 30,
       "symbol": "AWSS3TransferUtilityTransferStatusType.AWSS3TransferUtilityTransferStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferUtilityTasks.h",
-      "line": 32,
+      "line": 31,
       "symbol": "AWSS3TransferUtilityTransferStatusType.AWSS3TransferUtilityTransferStatusPaused",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferUtilityTasks.h",
-      "line": 33,
+      "line": 32,
       "symbol": "AWSS3TransferUtilityTransferStatusType.AWSS3TransferUtilityTransferStatusCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferUtilityTasks.h",
-      "line": 34,
+      "line": 33,
       "symbol": "AWSS3TransferUtilityTransferStatusType.AWSS3TransferUtilityTransferStatusWaiting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferUtilityTasks.h",
-      "line": 35,
+      "line": 34,
       "symbol": "AWSS3TransferUtilityTransferStatusType.AWSS3TransferUtilityTransferStatusError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferUtilityTasks.h",
-      "line": 36,
+      "line": 35,
       "symbol": "AWSS3TransferUtilityTransferStatusType.AWSS3TransferUtilityTransferStatusCancelled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferUtilityTasks.h",
-      "line": 255,
+      "line": 213,
       "symbol": "AWSS3TransferUtilityUploadSubTask",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
