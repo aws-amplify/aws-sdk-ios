@@ -101,125 +101,272 @@
     {
       "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 36,
-      "symbol": "AWSChimeSDKIdentityErrorCode",
+      "symbol": "AWSChimeSDKIdentityAllowMessages",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 36,
-      "symbol": "AWSChimeSDKIdentityErrorCode",
+      "symbol": "AWSChimeSDKIdentityAllowMessages",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 37,
-      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeUnknown",
+      "symbol": "AWSChimeSDKIdentityAllowMessages.AWSChimeSDKIdentityAllowMessagesUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 38,
-      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeBadRequest",
+      "symbol": "AWSChimeSDKIdentityAllowMessages.AWSChimeSDKIdentityAllowMessagesAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 39,
-      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeConflict",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
-      "line": 40,
-      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeForbidden",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
-      "line": 41,
-      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeNotFound",
+      "symbol": "AWSChimeSDKIdentityAllowMessages.AWSChimeSDKIdentityAllowMessagesNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 42,
-      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodePreconditionFailed",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSChimeSDKIdentityAppInstanceUserEndpointType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "line": 42,
+      "symbol": "AWSChimeSDKIdentityAppInstanceUserEndpointType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 43,
-      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeResourceLimitExceeded",
+      "symbol": "AWSChimeSDKIdentityAppInstanceUserEndpointType.AWSChimeSDKIdentityAppInstanceUserEndpointTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 44,
-      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeServiceFailure",
+      "symbol": "AWSChimeSDKIdentityAppInstanceUserEndpointType.AWSChimeSDKIdentityAppInstanceUserEndpointTypeApns",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 45,
-      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeAccessDenied",
+      "symbol": "AWSChimeSDKIdentityAppInstanceUserEndpointType.AWSChimeSDKIdentityAppInstanceUserEndpointTypeApnsSandbox",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 46,
-      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeServiceUnavailable",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
-      "line": 47,
-      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeThrottled",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
-      "line": 48,
-      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeThrottling",
+      "symbol": "AWSChimeSDKIdentityAppInstanceUserEndpointType.AWSChimeSDKIdentityAppInstanceUserEndpointTypeGcm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 49,
-      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeUnauthorized",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSChimeSDKIdentityEndpointStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "line": 49,
+      "symbol": "AWSChimeSDKIdentityEndpointStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 50,
-      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeUnprocessable",
+      "symbol": "AWSChimeSDKIdentityEndpointStatus.AWSChimeSDKIdentityEndpointStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 51,
-      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeVoiceConnectorGroupAssociationsExist",
+      "symbol": "AWSChimeSDKIdentityEndpointStatus.AWSChimeSDKIdentityEndpointStatusActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
       "line": 52,
+      "symbol": "AWSChimeSDKIdentityEndpointStatus.AWSChimeSDKIdentityEndpointStatusInactive",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "line": 55,
+      "symbol": "AWSChimeSDKIdentityEndpointStatusReason",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "line": 55,
+      "symbol": "AWSChimeSDKIdentityEndpointStatusReason",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "line": 56,
+      "symbol": "AWSChimeSDKIdentityEndpointStatusReason.AWSChimeSDKIdentityEndpointStatusReasonUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "line": 57,
+      "symbol": "AWSChimeSDKIdentityEndpointStatusReason.AWSChimeSDKIdentityEndpointStatusReasonInvalidDeviceToken",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "line": 58,
+      "symbol": "AWSChimeSDKIdentityEndpointStatusReason.AWSChimeSDKIdentityEndpointStatusReasonInvalidPinpointArn",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "line": 61,
+      "symbol": "AWSChimeSDKIdentityErrorCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "line": 61,
+      "symbol": "AWSChimeSDKIdentityErrorCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "line": 62,
+      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "line": 63,
+      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeBadRequest",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "line": 64,
+      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeConflict",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "line": 65,
+      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeForbidden",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "line": 66,
+      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "line": 67,
+      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodePreconditionFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "line": 68,
+      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeResourceLimitExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "line": 69,
+      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeServiceFailure",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "line": 70,
+      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeAccessDenied",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "line": 71,
+      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeServiceUnavailable",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "line": 72,
+      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeThrottled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "line": 73,
+      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeThrottling",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "line": 74,
+      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeUnauthorized",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "line": 75,
+      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeUnprocessable",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "line": 76,
+      "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodeVoiceConnectorGroupAssociationsExist",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSChimeSDKIdentity/AWSChimeSDKIdentityModel.h",
+      "line": 77,
       "symbol": "AWSChimeSDKIdentityErrorCode.AWSChimeSDKIdentityErrorCodePhoneNumberAssociationsExist",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
