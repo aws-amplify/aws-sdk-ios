@@ -1373,6 +1373,23 @@
       ],\
       \"documentation\":\"<p>Starts recording the contact when the agent joins the call. StartContactRecording is a one-time action. For example, if you use StopContactRecording to stop recording an ongoing call, you can't use StartContactRecording to restart it. For scenarios where the recording has started and you want to suspend and resume it, such as when collecting sensitive information (for example, a credit card number), use SuspendContactRecording and ResumeContactRecording.</p> <p>You can use this API to override the recording behavior configured in the <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/set-recording-behavior.html\\\">Set recording behavior</a> block.</p> <p>Only voice recordings are supported at this time.</p>\"\
     },\
+    \"StartContactStreaming\":{\
+      \"name\":\"StartContactStreaming\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/contact/start-streaming\"\
+      },\
+      \"input\":{\"shape\":\"StartContactStreamingRequest\"},\
+      \"output\":{\"shape\":\"StartContactStreamingResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"LimitExceededException\"}\
+      ],\
+      \"documentation\":\"<p> Initiates real-time message streaming for a new chat contact.</p> <p> For more information about message streaming, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html\\\">Enable real-time chat message streaming</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
+    },\
     \"StartOutboundVoiceContact\":{\
       \"name\":\"StartOutboundVoiceContact\",\
       \"http\":{\
@@ -1441,6 +1458,22 @@
         {\"shape\":\"InternalServiceException\"}\
       ],\
       \"documentation\":\"<p>Stops recording a call when a contact is being recorded. StopContactRecording is a one-time action. If you use StopContactRecording to stop recording an ongoing call, you can't use StartContactRecording to restart it. For scenarios where the recording has started and you want to suspend it for sensitive information (for example, to collect a credit card number), and then restart it, use SuspendContactRecording and ResumeContactRecording.</p> <p>Only voice recordings are supported at this time.</p>\"\
+    },\
+    \"StopContactStreaming\":{\
+      \"name\":\"StopContactStreaming\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/contact/stop-streaming\"\
+      },\
+      \"input\":{\"shape\":\"StopContactStreamingRequest\"},\
+      \"output\":{\"shape\":\"StopContactStreamingResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p> Ends message streaming on a specified contact. To restart message streaming on that contact, call the <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html\\\">StartContactStreaming</a> API. </p>\"\
     },\
     \"SuspendContactRecording\":{\
       \"name\":\"SuspendContactRecording\",\
@@ -2291,7 +2324,7 @@
     \"Channels\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"Channel\"},\
-      \"max\":1\
+      \"max\":3\
     },\
     \"ChatContent\":{\
       \"type\":\"string\",\
@@ -2305,10 +2338,6 @@
     },\
     \"ChatMessage\":{\
       \"type\":\"structure\",\
-      \"required\":[\
-        \"ContentType\",\
-        \"Content\"\
-      ],\
       \"members\":{\
         \"ContentType\":{\
           \"shape\":\"ChatContentType\",\
@@ -2320,6 +2349,22 @@
         }\
       },\
       \"documentation\":\"<p>A chat message.</p>\"\
+    },\
+    \"ChatStreamingConfiguration\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"StreamingEndpointArn\"],\
+      \"members\":{\
+        \"StreamingEndpointArn\":{\
+          \"shape\":\"ChatStreamingEndpointARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the standard Amazon SNS topic. The Amazon Resource Name (ARN) of the streaming endpoint that is used to publish real-time message streaming for chat conversations.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The streaming configuration, such as the Amazon SNS streaming endpoint.</p>\"\
+    },\
+    \"ChatStreamingEndpointARN\":{\
+      \"type\":\"string\",\
+      \"max\":350,\
+      \"min\":1\
     },\
     \"ClientToken\":{\
       \"type\":\"string\",\
@@ -3635,6 +3680,14 @@
         \"Channel\":{\
           \"shape\":\"Channel\",\
           \"documentation\":\"<p>The channel used for grouping and filters.</p>\"\
+        },\
+        \"RoutingProfile\":{\
+          \"shape\":\"RoutingProfileReference\",\
+          \"documentation\":\"<p>The routing profile.</p>\"\
+        },\
+        \"InstanceReference\":{\
+          \"shape\":\"InstanceReference\",\
+          \"documentation\":\"<p>The instance reference.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about the dimensions for a set of metrics.</p>\"\
@@ -3893,6 +3946,10 @@
           \"shape\":\"Queues\",\
           \"documentation\":\"<p>The queues to use to filter the metrics. You can specify up to 100 queues per request.</p>\"\
         },\
+        \"RoutingProfiles\":{\
+          \"shape\":\"RoutingProfiles\",\
+          \"documentation\":\"<p>The filters used to sort routing profiles. </p>\"\
+        },\
         \"Channels\":{\
           \"shape\":\"Channels\",\
           \"documentation\":\"<p>The channel to use to filter the metrics.</p>\"\
@@ -4078,7 +4135,9 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"QUEUE\",\
-        \"CHANNEL\"\
+        \"CHANNEL\",\
+        \"ROUTING_PROFILE\",\
+        \"INSTANCE\"\
       ]\
     },\
     \"Groupings\":{\
@@ -4303,6 +4362,8 @@
         \"CONTACTS_TRANSFERRED_OUT\",\
         \"CONTACTS_TRANSFERRED_IN_FROM_QUEUE\",\
         \"CONTACTS_TRANSFERRED_OUT_FROM_QUEUE\",\
+        \"CONTACTS_TRANSFERRED_IN_BY_AGENT\",\
+        \"CONTACTS_TRANSFERRED_OUT_BY_AGENT\",\
         \"CONTACTS_MISSED\",\
         \"CALLBACK_CONTACTS_HANDLED\",\
         \"API_CONTACTS_HANDLED\",\
@@ -4540,8 +4601,22 @@
     },\
     \"InstanceId\":{\
       \"type\":\"string\",\
-      \"max\":100,\
+      \"max\":256,\
       \"min\":1\
+    },\
+    \"InstanceReference\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Id\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the instance reference.</p>\"\
+        },\
+        \"Arn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the instance reference.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The instance reference.</p>\"\
     },\
     \"InstanceStatus\":{\
       \"type\":\"string\",\
@@ -5982,7 +6057,8 @@
     },\
     \"Password\":{\
       \"type\":\"string\",\
-      \"pattern\":\"/^(?=.*[a-z])(?=.*[A-Z])(?=.*\\\\d)[a-zA-Z\\\\d\\\\S]{8,64}$/\"\
+      \"pattern\":\"/^(?=.*[a-z])(?=.*[A-Z])(?=.*\\\\d)[a-zA-Z\\\\d\\\\S]{8,64}$/\",\
+      \"sensitive\":true\
     },\
     \"PhoneNumber\":{\"type\":\"string\"},\
     \"PhoneNumberCountryCode\":{\
@@ -6442,6 +6518,10 @@
         \"Arn\":{\
           \"shape\":\"ARN\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) of the queue.</p>\"\
+        },\
+        \"QueueType\":{\
+          \"shape\":\"QueueType\",\
+          \"documentation\":\"<p>The type of queue.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a queue resource for which metrics are returned.</p>\"\
@@ -6631,7 +6711,14 @@
     },\
     \"ReferenceType\":{\
       \"type\":\"string\",\
-      \"enum\":[\"URL\"]\
+      \"enum\":[\
+        \"URL\",\
+        \"ATTACHMENT\",\
+        \"NUMBER\",\
+        \"STRING\",\
+        \"DATE\",\
+        \"EMAIL\"\
+      ]\
     },\
     \"ReferenceValue\":{\
       \"type\":\"string\",\
@@ -6859,6 +6946,20 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"RoutingProfileQueueReference\"}\
     },\
+    \"RoutingProfileReference\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Id\":{\
+          \"shape\":\"RoutingProfileId\",\
+          \"documentation\":\"<p>The identifier of the routing profile reference.</p>\"\
+        },\
+        \"Arn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the routing profile reference.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The routing profile reference.</p>\"\
+    },\
     \"RoutingProfileSummary\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -6880,6 +6981,12 @@
     \"RoutingProfileSummaryList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"RoutingProfileSummary\"}\
+    },\
+    \"RoutingProfiles\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"RoutingProfileId\"},\
+      \"max\":100,\
+      \"min\":1\
     },\
     \"S3Config\":{\
       \"type\":\"structure\",\
@@ -7065,6 +7172,44 @@
       \"members\":{\
       }\
     },\
+    \"StartContactStreamingRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"ContactId\",\
+        \"ChatStreamingConfiguration\",\
+        \"ClientToken\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\"\
+        },\
+        \"ContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>\"\
+        },\
+        \"ChatStreamingConfiguration\":{\
+          \"shape\":\"ChatStreamingConfiguration\",\
+          \"documentation\":\"<p>The streaming configuration, such as the Amazon SNS streaming endpoint.</p>\"\
+        },\
+        \"ClientToken\":{\
+          \"shape\":\"ClientToken\",\
+          \"documentation\":\"<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>\",\
+          \"idempotencyToken\":true\
+        }\
+      }\
+    },\
+    \"StartContactStreamingResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"StreamingId\"],\
+      \"members\":{\
+        \"StreamingId\":{\
+          \"shape\":\"StreamingId\",\
+          \"documentation\":\"<p>The identifier of the streaming configuration enabled. </p>\"\
+        }\
+      }\
+    },\
     \"StartOutboundVoiceContactRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -7234,6 +7379,33 @@
       \"members\":{\
       }\
     },\
+    \"StopContactStreamingRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"ContactId\",\
+        \"StreamingId\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\"\
+        },\
+        \"ContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact. This is the identifier of the contact that is associated with the first interaction with the contact center.</p>\"\
+        },\
+        \"StreamingId\":{\
+          \"shape\":\"StreamingId\",\
+          \"documentation\":\"<p>The identifier of the streaming configuration enabled. </p>\"\
+        }\
+      }\
+    },\
+    \"StopContactStreamingResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
     \"StorageType\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -7242,6 +7414,11 @@
         \"KINESIS_STREAM\",\
         \"KINESIS_FIREHOSE\"\
       ]\
+    },\
+    \"StreamingId\":{\
+      \"type\":\"string\",\
+      \"max\":100,\
+      \"min\":1\
     },\
     \"String\":{\"type\":\"string\"},\
     \"SuspendContactRecordingRequest\":{\
@@ -7356,6 +7533,7 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"SECONDS\",\
+        \"MILLISECONDS\",\
         \"COUNT\",\
         \"PERCENT\"\
       ]\

@@ -2041,6 +2041,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectStartContactStreamingResponse *> *)startContactStreaming:(AWSConnectStartContactStreamingRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/contact/start-streaming"
+                  targetPrefix:@""
+                 operationName:@"StartContactStreaming"
+                   outputClass:[AWSConnectStartContactStreamingResponse class]];
+}
+
+- (void)startContactStreaming:(AWSConnectStartContactStreamingRequest *)request
+     completionHandler:(void (^)(AWSConnectStartContactStreamingResponse *response, NSError *error))completionHandler {
+    [[self startContactStreaming:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectStartContactStreamingResponse *> * _Nonnull task) {
+        AWSConnectStartContactStreamingResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectStartOutboundVoiceContactResponse *> *)startOutboundVoiceContact:(AWSConnectStartOutboundVoiceContactRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -2123,6 +2146,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectStopContactRecordingResponse *response, NSError *error))completionHandler {
     [[self stopContactRecording:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectStopContactRecordingResponse *> * _Nonnull task) {
         AWSConnectStopContactRecordingResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectStopContactStreamingResponse *> *)stopContactStreaming:(AWSConnectStopContactStreamingRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/contact/stop-streaming"
+                  targetPrefix:@""
+                 operationName:@"StopContactStreaming"
+                   outputClass:[AWSConnectStopContactStreamingResponse class]];
+}
+
+- (void)stopContactStreaming:(AWSConnectStopContactStreamingRequest *)request
+     completionHandler:(void (^)(AWSConnectStopContactStreamingResponse *response, NSError *error))completionHandler {
+    [[self stopContactStreaming:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectStopContactStreamingResponse *> * _Nonnull task) {
+        AWSConnectStopContactStreamingResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
