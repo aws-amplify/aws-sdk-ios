@@ -65,6 +65,7 @@
 - (void) test_AWSTranscribeInputDataConfig API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeInterruptionFilter API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeJobExecutionSettings API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeLanguageIdSettings API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeLanguageModel API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeListCallAnalyticsCategoriesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeListCallAnalyticsCategoriesResponse API_AVAILABLE(ios(11));
@@ -309,6 +310,10 @@
 
 - (void) test_AWSTranscribeJobExecutionSettings {
     [self validateSecureCodingForClass:[AWSTranscribeJobExecutionSettings class]];
+}
+
+- (void) test_AWSTranscribeLanguageIdSettings {
+    [self validateSecureCodingForClass:[AWSTranscribeLanguageIdSettings class]];
 }
 
 - (void) test_AWSTranscribeLanguageModel {
