@@ -9,7 +9,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 -Features for next release
 
 - **AWSIoT**
-  - feat(AWSIoT): adds back Message type ([PR #3852](https://github.com/aws-amplify/aws-sdk-ios/pull/3852))
+  - fix(AWSIoT): adds back Message type ([PR #3852](https://github.com/aws-amplify/aws-sdk-ios/pull/3852))
 
 ## 2.26.3
 
