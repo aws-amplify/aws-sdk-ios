@@ -4,6 +4,11 @@
 
 -Features for next release
 
+### Bug Fixes
+
+- **AWSMobileClient**
+  - Clears old keychain if the configuration changes (See [PR #3853](https://github.com/aws-amplify/aws-sdk-ios/pull/3853))
+
 ### Misc. Updates
 
 - Model updates for the following services
@@ -16,6 +21,7 @@
   - AWSTextract
   - AWSTranslate
   - AWSAutoScaling
+
 
 ## 2.27.1
 
