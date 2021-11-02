@@ -433,6 +433,20 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectChatStreamingConfiguration
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"streamingEndpointArn" : @"StreamingEndpointArn",
+             };
+}
+
+@end
+
 @implementation AWSConnectContactFlow
 
 + (BOOL)supportsSecureCoding {
@@ -6234,6 +6248,41 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectStartContactStreamingRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"chatStreamingConfiguration" : @"ChatStreamingConfiguration",
+             @"clientToken" : @"ClientToken",
+             @"contactId" : @"ContactId",
+             @"instanceId" : @"InstanceId",
+             };
+}
+
++ (NSValueTransformer *)chatStreamingConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectChatStreamingConfiguration class]];
+}
+
+@end
+
+@implementation AWSConnectStartContactStreamingResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"streamingId" : @"StreamingId",
+             };
+}
+
+@end
+
 @implementation AWSConnectStartOutboundVoiceContactRequest
 
 + (BOOL)supportsSecureCoding {
@@ -6379,6 +6428,30 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 @end
 
 @implementation AWSConnectStopContactResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
+@implementation AWSConnectStopContactStreamingRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"contactId" : @"ContactId",
+             @"instanceId" : @"InstanceId",
+             @"streamingId" : @"StreamingId",
+             };
+}
+
+@end
+
+@implementation AWSConnectStopContactStreamingResponse
 
 + (BOOL)supportsSecureCoding {
     return YES;

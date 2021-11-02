@@ -547,6 +547,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectAssociateSecurityKeyResponse;
 @class AWSConnectAttribute;
 @class AWSConnectChatMessage;
+@class AWSConnectChatStreamingConfiguration;
 @class AWSConnectContactFlow;
 @class AWSConnectContactFlowSummary;
 @class AWSConnectCreateAgentStatusRequest;
@@ -727,6 +728,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectStartChatContactResponse;
 @class AWSConnectStartContactRecordingRequest;
 @class AWSConnectStartContactRecordingResponse;
+@class AWSConnectStartContactStreamingRequest;
+@class AWSConnectStartContactStreamingResponse;
 @class AWSConnectStartOutboundVoiceContactRequest;
 @class AWSConnectStartOutboundVoiceContactResponse;
 @class AWSConnectStartTaskContactRequest;
@@ -735,6 +738,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectStopContactRecordingResponse;
 @class AWSConnectStopContactRequest;
 @class AWSConnectStopContactResponse;
+@class AWSConnectStopContactStreamingRequest;
+@class AWSConnectStopContactStreamingResponse;
 @class AWSConnectSuspendContactRecordingRequest;
 @class AWSConnectSuspendContactRecordingResponse;
 @class AWSConnectTagResourceRequest;
@@ -1092,6 +1097,20 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The type of the content. Supported types are text and plain.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable contentType;
+
+@end
+
+/**
+ <p>The streaming configuration, such as the Amazon SNS streaming endpoint.</p>
+ Required parameters: [StreamingEndpointArn]
+ */
+@interface AWSConnectChatStreamingConfiguration : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the standard Amazon SNS topic. The Amazon Resource Name (ARN) of the streaming endpoint that is used to publish real-time message streaming for chat conversations.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamingEndpointArn;
 
 @end
 
@@ -5202,6 +5221,47 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectStartContactStreamingRequest : AWSRequest
+
+
+/**
+ <p>The streaming configuration, such as the Amazon SNS streaming endpoint.</p>
+ */
+@property (nonatomic, strong) AWSConnectChatStreamingConfiguration * _Nullable chatStreamingConfiguration;
+
+/**
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectStartContactStreamingResponse : AWSModel
+
+
+/**
+ <p>The identifier of the streaming configuration enabled. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamingId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectStartOutboundVoiceContactRequest : AWSRequest
 
 
@@ -5384,6 +5444,37 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  
  */
 @interface AWSConnectStopContactResponse : AWSModel
+
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectStopContactStreamingRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the contact. This is the identifier of the contact that is associated with the first interaction with the contact center.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier of the streaming configuration enabled. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamingId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectStopContactStreamingResponse : AWSModel
 
 
 @end
