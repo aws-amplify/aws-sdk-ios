@@ -68,6 +68,14 @@ framework_map = map_framework_to_project(xcframeworks)
 
 # Archive all the frameworks.
 for framework in xcframeworks:
+    xcframework = f"{XCFRAMEWORK_PATH}{framework}.xcframework"
+
+    if os.path.exists(xcframework):
+        log(f"skipping {framework}...")
+        continue
+    
+    log(f"Creating archives for {framework}")
+
     create_archive(framework=framework, project_file=framework_map[framework], build_for_device=True)
     create_archive(framework=framework, project_file=framework_map[framework], build_for_device=False)
 
@@ -78,26 +86,33 @@ for framework in xcframeworks:
     ios_simulator_framework = f"{IOS_SIMULATOR_ARCHIVE_PATH}{framework}.xcarchive/Products/Library/Frameworks/{framework}.framework"
     ios_simulator_debug_symbols = f"{IOS_SIMULATOR_ARCHIVE_PATH}{framework}.xcarchive/dSYMs/{framework}.framework.dSYM"
     xcframework = f"{XCFRAMEWORK_PATH}{framework}.xcframework"
-    cmd = [
-            "xcodebuild",
-            "-create-xcframework",
-            "-framework",
-            ios_device_framework,
-            "-debug-symbols",
-            ios_device_debug_symbols,
-             "-framework",
-            ios_simulator_framework,
-            "-debug-symbols",
-            ios_simulator_debug_symbols,
-            "-output",
-            xcframework
-        ] 
-    (exit_code, out, err) = run_command(cmd, keepalive_interval=300, timeout=7200)
-    if exit_code == 0:
-        log(f"Created XCFramework for {framework}")
+    if os.path.exists(xcframework):
+        log(f"skipping {framework}...")
     else:
-        log(f"Could not create XCFramework: {framework} output: {out}; error: {err}")
-        sys.exit(exit_code)
-    
-shutil.rmtree(IOS_DEVICE_ARCHIVE_PATH)
-shutil.rmtree(IOS_SIMULATOR_ARCHIVE_PATH)
+        log(f"Creating XCF for {framework}")
+        
+        cmd = [
+                "xcodebuild",
+                "-create-xcframework",
+                "-framework",
+                ios_device_framework,
+                "-debug-symbols",
+                ios_device_debug_symbols,
+                "-framework",
+                ios_simulator_framework,
+                "-debug-symbols",
+                ios_simulator_debug_symbols,
+                "-output",
+                xcframework
+            ] 
+        (exit_code, out, err) = run_command(cmd, keepalive_interval=300, timeout=7200)
+        if exit_code == 0:
+            log(f"Created XCFramework for {framework}")
+        else:
+            log(f"Could not create XCFramework: {framework} output: {out}; error: {err}")
+            sys.exit(exit_code)
+
+if os.path.exists(IOS_DEVICE_ARCHIVE_PATH):
+    shutil.rmtree(IOS_DEVICE_ARCHIVE_PATH)
+if os.path.exists(IOS_SIMULATOR_ARCHIVE_PATH):
+    shutil.rmtree(IOS_SIMULATOR_ARCHIVE_PATH)
