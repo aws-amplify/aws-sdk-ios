@@ -23,6 +23,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSConnectErrorType) {
     AWSConnectErrorUnknown,
+    AWSConnectErrorAccessDenied,
     AWSConnectErrorContactFlowNotPublished,
     AWSConnectErrorContactNotFound,
     AWSConnectErrorDestinationNotAllowed,
@@ -547,6 +548,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectAssociateSecurityKeyResponse;
 @class AWSConnectAttribute;
 @class AWSConnectChatMessage;
+@class AWSConnectChatStreamingConfiguration;
 @class AWSConnectContactFlow;
 @class AWSConnectContactFlowSummary;
 @class AWSConnectCreateAgentStatusRequest;
@@ -565,6 +567,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectCreateQuickConnectResponse;
 @class AWSConnectCreateRoutingProfileRequest;
 @class AWSConnectCreateRoutingProfileResponse;
+@class AWSConnectCreateSecurityProfileRequest;
+@class AWSConnectCreateSecurityProfileResponse;
 @class AWSConnectCreateUseCaseRequest;
 @class AWSConnectCreateUseCaseResponse;
 @class AWSConnectCreateUserHierarchyGroupRequest;
@@ -579,6 +583,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDeleteInstanceRequest;
 @class AWSConnectDeleteIntegrationAssociationRequest;
 @class AWSConnectDeleteQuickConnectRequest;
+@class AWSConnectDeleteSecurityProfileRequest;
 @class AWSConnectDeleteUseCaseRequest;
 @class AWSConnectDeleteUserHierarchyGroupRequest;
 @class AWSConnectDeleteUserRequest;
@@ -600,6 +605,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDescribeQuickConnectResponse;
 @class AWSConnectDescribeRoutingProfileRequest;
 @class AWSConnectDescribeRoutingProfileResponse;
+@class AWSConnectDescribeSecurityProfileRequest;
+@class AWSConnectDescribeSecurityProfileResponse;
 @class AWSConnectDescribeUserHierarchyGroupRequest;
 @class AWSConnectDescribeUserHierarchyGroupResponse;
 @class AWSConnectDescribeUserHierarchyStructureRequest;
@@ -688,6 +695,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectListRoutingProfilesResponse;
 @class AWSConnectListSecurityKeysRequest;
 @class AWSConnectListSecurityKeysResponse;
+@class AWSConnectListSecurityProfilePermissionsRequest;
+@class AWSConnectListSecurityProfilePermissionsResponse;
 @class AWSConnectListSecurityProfilesRequest;
 @class AWSConnectListSecurityProfilesResponse;
 @class AWSConnectListTagsForResourceRequest;
@@ -722,11 +731,14 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectRoutingProfileSummary;
 @class AWSConnectS3Config;
 @class AWSConnectSecurityKey;
+@class AWSConnectSecurityProfile;
 @class AWSConnectSecurityProfileSummary;
 @class AWSConnectStartChatContactRequest;
 @class AWSConnectStartChatContactResponse;
 @class AWSConnectStartContactRecordingRequest;
 @class AWSConnectStartContactRecordingResponse;
+@class AWSConnectStartContactStreamingRequest;
+@class AWSConnectStartContactStreamingResponse;
 @class AWSConnectStartOutboundVoiceContactRequest;
 @class AWSConnectStartOutboundVoiceContactResponse;
 @class AWSConnectStartTaskContactRequest;
@@ -735,6 +747,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectStopContactRecordingResponse;
 @class AWSConnectStopContactRequest;
 @class AWSConnectStopContactResponse;
+@class AWSConnectStopContactStreamingRequest;
+@class AWSConnectStopContactStreamingResponse;
 @class AWSConnectSuspendContactRecordingRequest;
 @class AWSConnectSuspendContactRecordingResponse;
 @class AWSConnectTagResourceRequest;
@@ -759,6 +773,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectUpdateRoutingProfileDefaultOutboundQueueRequest;
 @class AWSConnectUpdateRoutingProfileNameRequest;
 @class AWSConnectUpdateRoutingProfileQueuesRequest;
+@class AWSConnectUpdateSecurityProfileRequest;
 @class AWSConnectUpdateUserHierarchyGroupNameRequest;
 @class AWSConnectUpdateUserHierarchyRequest;
 @class AWSConnectUpdateUserHierarchyStructureRequest;
@@ -811,7 +826,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectAgentStatusState state;
 
 /**
- <p>One or more tags.</p>
+ <p>The tags used to organize, track, or control access for this resource.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -1096,6 +1111,20 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>The streaming configuration, such as the Amazon SNS streaming endpoint.</p>
+ Required parameters: [StreamingEndpointArn]
+ */
+@interface AWSConnectChatStreamingConfiguration : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the standard Amazon SNS topic. The Amazon Resource Name (ARN) of the streaming endpoint that is used to publish real-time message streaming for chat conversations.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamingEndpointArn;
+
+@end
+
+/**
  <p>Contains information about a contact flow.</p>
  */
 @interface AWSConnectContactFlow : AWSModel
@@ -1198,7 +1227,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectAgentStatusState state;
 
 /**
- <p>One or more tags.</p>
+ <p>The tags used to organize, track, or control access for this resource.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -1305,7 +1334,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>One or more tags.</p>
+ <p>The tags used to organize, track, or control access for this resource.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -1427,7 +1456,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectSourceType sourceType;
 
 /**
- <p>One or more tags.</p>
+ <p>The tags used to organize, track, or control access for this resource.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -1493,7 +1522,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable quickConnectIds;
 
 /**
- <p>One or more tags.</p>
+ <p>The tags used to organize, track, or control access for this resource.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -1544,7 +1573,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) AWSConnectQuickConnectConfig * _Nullable quickConnectConfig;
 
 /**
- <p>One or more tags.</p>
+ <p>The tags used to organize, track, or control access for this resource.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -1632,6 +1661,57 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectCreateSecurityProfileRequest : AWSRequest
+
+
+/**
+ <p>The description of the security profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>Permissions assigned to the security profile.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable permissions;
+
+/**
+ <p>The name of the security profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable securityProfileName;
+
+/**
+ <p>The tags used to organize, track, or control access for this resource.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectCreateSecurityProfileResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) for the security profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable securityProfileArn;
+
+/**
+ <p>The identifier for the security profle.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable securityProfileId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectCreateUseCaseRequest : AWSRequest
 
 
@@ -1646,7 +1726,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable integrationAssociationId;
 
 /**
- <p>One or more tags.</p>
+ <p>The tags used to organize, track, or control access for this resource.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -1938,6 +2018,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The identifier for the quick connect.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable quickConnectId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDeleteSecurityProfileRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier for the security profle.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable securityProfileId;
 
 @end
 
@@ -2276,6 +2374,37 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The routing profile.</p>
  */
 @property (nonatomic, strong) AWSConnectRoutingProfile * _Nullable routingProfile;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDescribeSecurityProfileRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier for the security profle.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable securityProfileId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDescribeSecurityProfileResponse : AWSModel
+
+
+/**
+ <p>The security profile.</p>
+ */
+@property (nonatomic, strong) AWSConnectSecurityProfile * _Nullable securityProfile;
 
 @end
 
@@ -3063,7 +3192,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>One or more tags.</p>
+ <p>The tags used to organize, track, or control access for this resource.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -3807,7 +3936,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p/>
+ <p>The type of integration.</p>
  */
 @property (nonatomic, assign) AWSConnectIntegrationType integrationType;
 
@@ -3871,7 +4000,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The Lambdafunction ARNs associated with the specified instance.</p>
+ <p>The Lambda function ARNs associated with the specified instance.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable lambdaFunctions;
 
@@ -4284,6 +4413,52 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectListSecurityProfilePermissionsRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The identifier for the security profle.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable securityProfileId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListSecurityProfilePermissionsResponse : AWSModel
+
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The permissions granted to the security profile.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable permissions;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectListSecurityProfilesRequest : AWSRequest
 
 
@@ -4663,7 +4838,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectQueueStatus status;
 
 /**
- <p>One or more tags.</p>
+ <p>The tags used to organize, track, or control access for this resource.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -4766,7 +4941,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable quickConnectId;
 
 /**
- <p>One or more tags.</p>
+ <p>The tags used to organize, track, or control access for this resource.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -5082,6 +5257,44 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  <p>Contains information about a security profile.</p>
  */
+@interface AWSConnectSecurityProfile : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) for the secruity profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
+ <p>The description of the security profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier for the security profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The organization resource identifier for the security profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable organizationResourceId;
+
+/**
+ <p>The name for the security profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable securityProfileName;
+
+/**
+ <p>The tags used to organize, track, or control access for this resource.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ <p>Contains information about a security profile.</p>
+ */
 @interface AWSConnectSecurityProfileSummary : AWSModel
 
 
@@ -5196,6 +5409,47 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  */
 @interface AWSConnectStartContactRecordingResponse : AWSModel
 
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectStartContactStreamingRequest : AWSRequest
+
+
+/**
+ <p>The streaming configuration, such as the Amazon SNS streaming endpoint.</p>
+ */
+@property (nonatomic, strong) AWSConnectChatStreamingConfiguration * _Nullable chatStreamingConfiguration;
+
+/**
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectStartContactStreamingResponse : AWSModel
+
+
+/**
+ <p>The identifier of the streaming configuration enabled. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamingId;
 
 @end
 
@@ -5384,6 +5638,37 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  
  */
 @interface AWSConnectStopContactResponse : AWSModel
+
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectStopContactStreamingRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the contact. This is the identifier of the contact that is associated with the first interaction with the contact center.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier of the streaming configuration enabled. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamingId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectStopContactStreamingResponse : AWSModel
 
 
 @end
@@ -5643,7 +5928,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The type of attribute.</p><note><p>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature, contact AWS Support for allowlisting.</p></note>
+ <p>The type of attribute.</p><note><p>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature, contact Amazon Web Services Support for allowlisting.</p></note>
  */
 @property (nonatomic, assign) AWSConnectInstanceAttributeType attributeType;
 
@@ -5952,6 +6237,34 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The identifier of the routing profile.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable routingProfileId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateSecurityProfileRequest : AWSRequest
+
+
+/**
+ <p>The description of the security profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The permissions granted to a security profile.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable permissions;
+
+/**
+ <p>The identifier for the security profle.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable securityProfileId;
 
 @end
 
