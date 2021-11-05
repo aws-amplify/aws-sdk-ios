@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -14,7 +14,6 @@
 //
 
 #import "AWSKinesisVideoArchivedMediaService.h"
-#import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSCategory.h>
 #import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSSignature.h>
@@ -43,6 +42,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"ClientLimitExceededException" : @(AWSKinesisVideoArchivedMediaErrorClientLimitExceeded),
                             @"InvalidArgumentException" : @(AWSKinesisVideoArchivedMediaErrorInvalidArgument),
                             @"InvalidCodecPrivateDataException" : @(AWSKinesisVideoArchivedMediaErrorInvalidCodecPrivateData),
+                            @"InvalidMediaFrameException" : @(AWSKinesisVideoArchivedMediaErrorInvalidMediaFrame),
                             @"MissingCodecPrivateDataException" : @(AWSKinesisVideoArchivedMediaErrorMissingCodecPrivateData),
                             @"NoDataRetentionException" : @(AWSKinesisVideoArchivedMediaErrorNoDataRetention),
                             @"NotAuthorizedException" : @(AWSKinesisVideoArchivedMediaErrorNotAuthorized),
@@ -283,6 +283,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 #pragma mark - Service method
+
+- (AWSTask<AWSKinesisVideoArchivedMediaGetClipOutput *> *)getClip:(AWSKinesisVideoArchivedMediaGetClipInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/getClip"
+                  targetPrefix:@""
+                 operationName:@"GetClip"
+                   outputClass:[AWSKinesisVideoArchivedMediaGetClipOutput class]];
+}
+
+- (void)getClip:(AWSKinesisVideoArchivedMediaGetClipInput *)request
+     completionHandler:(void (^)(AWSKinesisVideoArchivedMediaGetClipOutput *response, NSError *error))completionHandler {
+    [[self getClip:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisVideoArchivedMediaGetClipOutput *> * _Nonnull task) {
+        AWSKinesisVideoArchivedMediaGetClipOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSKinesisVideoArchivedMediaGetDASHStreamingSessionURLOutput *> *)getDASHStreamingSessionURL:(AWSKinesisVideoArchivedMediaGetDASHStreamingSessionURLInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/getDASHStreamingSessionURL"
+                  targetPrefix:@""
+                 operationName:@"GetDASHStreamingSessionURL"
+                   outputClass:[AWSKinesisVideoArchivedMediaGetDASHStreamingSessionURLOutput class]];
+}
+
+- (void)getDASHStreamingSessionURL:(AWSKinesisVideoArchivedMediaGetDASHStreamingSessionURLInput *)request
+     completionHandler:(void (^)(AWSKinesisVideoArchivedMediaGetDASHStreamingSessionURLOutput *response, NSError *error))completionHandler {
+    [[self getDASHStreamingSessionURL:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisVideoArchivedMediaGetDASHStreamingSessionURLOutput *> * _Nonnull task) {
+        AWSKinesisVideoArchivedMediaGetDASHStreamingSessionURLOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
 
 - (AWSTask<AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput *> *)getHLSStreamingSessionURL:(AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLInput *)request {
     return [self invokeRequest:request
