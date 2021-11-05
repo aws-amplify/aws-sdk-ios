@@ -1,5 +1,13 @@
 ---
 
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSIoT
+---
+
 # AWS Mobile SDK for iOS CHANGELOG
 
 MOVE THIS SECTION TO THE CORRECT LOCATION
