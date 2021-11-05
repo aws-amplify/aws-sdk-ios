@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -306,7 +306,7 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @property (nonatomic, strong) AWSTranslateParallelDataDataLocation * _Nullable auxiliaryDataLocation;
 
 /**
- <p>The location of the most recent parallel data input file that was successfully imported into Amazon Translate. The location is returned as a presigned URL that has a 30 minute expiration.</p>
+ <p>The Amazon S3 location of the most recent parallel data input file that was successfully imported into Amazon Translate. The location is returned as a presigned URL that has a 30 minute expiration.</p><important><p>Amazon Translate doesn't scan parallel data input files for the risk of CSV injection attacks. </p><p>CSV injection occurs when a .csv or .tsv file is altered so that a record contains malicious code. The record begins with a special character, such as =, +, -, or @. When the file is opened in a spreadsheet program, the program might interpret the record as a formula and run the code within it.</p><p>Before you download a parallel data input file from Amazon S3, ensure that you recognize the file and trust its creator.</p></important>
  */
 @property (nonatomic, strong) AWSTranslateParallelDataDataLocation * _Nullable dataLocation;
 
@@ -412,7 +412,7 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 
 
 /**
- <p>Describes the format of the data that you submit to Amazon Translate as input. You can specify one of the following multipurpose internet mail extension (MIME) types:</p><ul><li><p><code>text/html</code>: The input data consists of one or more HTML files. Amazon Translate translates only the text that resides in the <code>html</code> element in each file.</p></li><li><p><code>text/plain</code>: The input data consists of one or more unformatted text files. Amazon Translate translates every character in this type of input.</p></li><li><p><code>application/vnd.openxmlformats-officedocument.wordprocessingml.document</code>: The input data consists of one or more Word documents (.docx).</p></li><li><p><code>application/vnd.openxmlformats-officedocument.presentationml.presentation</code>: The input data consists of one or more PowerPoint Presentation files (.pptx).</p></li><li><p><code>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</code>: The input data consists of one or more Excel Workbook files (.xlsx).</p></li></ul><important><p>If you structure your input data as HTML, ensure that you set this parameter to <code>text/html</code>. By doing so, you cut costs by limiting the translation to the contents of the <code>html</code> element in each file. Otherwise, if you set this parameter to <code>text/plain</code>, your costs will cover the translation of every character.</p></important>
+ <p>Describes the format of the data that you submit to Amazon Translate as input. You can specify one of the following multipurpose internet mail extension (MIME) types:</p><ul><li><p><code>text/html</code>: The input data consists of one or more HTML files. Amazon Translate translates only the text that resides in the <code>html</code> element in each file.</p></li><li><p><code>text/plain</code>: The input data consists of one or more unformatted text files. Amazon Translate translates every character in this type of input.</p></li><li><p><code>application/vnd.openxmlformats-officedocument.wordprocessingml.document</code>: The input data consists of one or more Word documents (.docx).</p></li><li><p><code>application/vnd.openxmlformats-officedocument.presentationml.presentation</code>: The input data consists of one or more PowerPoint Presentation files (.pptx).</p></li><li><p><code>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</code>: The input data consists of one or more Excel Workbook files (.xlsx).</p></li><li><p><code>application/x-xliff+xml</code>: The input data consists of one or more XML Localization Interchange File Format (XLIFF) files (.xlf). Amazon Translate supports only XLIFF version 1.2.</p></li></ul><important><p>If you structure your input data as HTML, ensure that you set this parameter to <code>text/html</code>. By doing so, you cut costs by limiting the translation to the contents of the <code>html</code> element in each file. Otherwise, if you set this parameter to <code>text/plain</code>, your costs will cover the translation of every character.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable contentType;
 
@@ -548,7 +548,7 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 
 
 /**
- <p>The token to use to retreive the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -565,6 +565,11 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
  */
 @interface AWSTranslateOutputDataConfig : AWSModel
 
+
+/**
+ <p>The encryption key used to encrypt this object.</p>
+ */
+@property (nonatomic, strong) AWSTranslateEncryptionKey * _Nullable encryptionKey;
 
 /**
  <p>The URI of the S3 folder that contains a translation job's output file. The folder must be in the same Region as the API endpoint that you are calling.</p>
@@ -600,7 +605,7 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 
 
 /**
- <p>The Amazon S3 location of the parallel data input file. The location is returned as a presigned URL to that has a 30 minute expiration.</p>
+ <p>The Amazon S3 location of the parallel data input file. The location is returned as a presigned URL to that has a 30 minute expiration.</p><important><p>Amazon Translate doesn't scan parallel data input files for the risk of CSV injection attacks. </p><p>CSV injection occurs when a .csv or .tsv file is altered so that a record contains malicious code. The record begins with a special character, such as =, +, -, or @. When the file is opened in a spreadsheet program, the program might interpret the record as a formula and run the code within it.</p><p>Before you download a parallel data input file from Amazon S3, ensure that you recognize the file and trust its creator.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable location;
 
@@ -716,7 +721,7 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
 /**
- <p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role that grants Amazon Translate read access to your input data. For more nformation, see <a>identity-and-access-management</a>.</p>
+ <p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role that grants Amazon Translate read access to your input data. For more information, see <a>identity-and-access-management</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable dataAccessRoleArn;
 
@@ -736,7 +741,7 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @property (nonatomic, strong) AWSTranslateOutputDataConfig * _Nullable outputDataConfig;
 
 /**
- <p>The names of the parallel data resources to use in the batch translation job. For a list of available parallel data resources, use the <a>ListParallelData</a> operation.</p>
+ <p>The name of a parallel data resource to add to the translation job. This resource consists of examples that show how you want segments of text to be translated. When you add parallel data to a translation job, you create an <i>Active Custom Translation</i> job. </p><p>This parameter accepts only one parallel data resource.</p><note><p>Active Custom Translation jobs are priced at a higher rate than other jobs that don't use parallel data. For more information, see <a href="http://aws.amazon.com/translate/pricing/">Amazon Translate pricing</a>.</p></note><p>For a list of available parallel data resources, use the <a>ListParallelData</a> operation.</p><p>For more information, see <a>customizing-translations-parallel-data</a>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable parallelDataNames;
 
@@ -751,7 +756,7 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable targetLanguageCodes;
 
 /**
- <p>The name of the terminology to use in the batch translation job. For a list of available terminologies, use the <a>ListTerminologies</a> operation.</p>
+ <p>The name of a custom terminology resource to add to the translation job. This resource lists examples source terms and the desired translation for each term.</p><p>This parameter accepts only one custom terminology resource.</p><p>For a list of available custom terminology resources, use the <a>ListTerminologies</a> operation.</p><p>For more information, see <a>how-custom-terminology</a>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable terminologyNames;
 
@@ -990,7 +995,7 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @property (nonatomic, assign) AWSTranslateJobStatus jobStatus;
 
 /**
- <p>An explanation of any errors that may have occured during the translation job.</p>
+ <p>An explanation of any errors that may have occurred during the translation job.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable message;
 
