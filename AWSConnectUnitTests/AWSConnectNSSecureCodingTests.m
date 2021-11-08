@@ -53,6 +53,8 @@
 - (void) test_AWSConnectCreateQuickConnectResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateRoutingProfileRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateRoutingProfileResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectCreateSecurityProfileRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectCreateSecurityProfileResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateUseCaseRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateUseCaseResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateUserHierarchyGroupRequest API_AVAILABLE(ios(11));
@@ -67,6 +69,7 @@
 - (void) test_AWSConnectDeleteInstanceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteIntegrationAssociationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteQuickConnectRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDeleteSecurityProfileRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteUseCaseRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteUserHierarchyGroupRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteUserRequest API_AVAILABLE(ios(11));
@@ -88,6 +91,8 @@
 - (void) test_AWSConnectDescribeQuickConnectResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeRoutingProfileRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeRoutingProfileResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDescribeSecurityProfileRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDescribeSecurityProfileResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeUserHierarchyGroupRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeUserHierarchyGroupResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeUserHierarchyStructureRequest API_AVAILABLE(ios(11));
@@ -177,6 +182,8 @@
 - (void) test_AWSConnectListRoutingProfilesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListSecurityKeysRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListSecurityKeysResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectListSecurityProfilePermissionsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectListSecurityProfilePermissionsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListSecurityProfilesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListSecurityProfilesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListTagsForResourceRequest API_AVAILABLE(ios(11));
@@ -212,6 +219,7 @@
 - (void) test_AWSConnectRoutingProfileSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectS3Config API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSecurityKey API_AVAILABLE(ios(11));
+- (void) test_AWSConnectSecurityProfile API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSecurityProfileSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectStartChatContactRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectStartChatContactResponse API_AVAILABLE(ios(11));
@@ -253,6 +261,7 @@
 - (void) test_AWSConnectUpdateRoutingProfileDefaultOutboundQueueRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateRoutingProfileNameRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateRoutingProfileQueuesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUpdateSecurityProfileRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateUserHierarchyGroupNameRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateUserHierarchyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateUserHierarchyStructureRequest API_AVAILABLE(ios(11));
@@ -408,6 +417,14 @@
     [self validateSecureCodingForClass:[AWSConnectCreateRoutingProfileResponse class]];
 }
 
+- (void) test_AWSConnectCreateSecurityProfileRequest {
+    [self validateSecureCodingForClass:[AWSConnectCreateSecurityProfileRequest class]];
+}
+
+- (void) test_AWSConnectCreateSecurityProfileResponse {
+    [self validateSecureCodingForClass:[AWSConnectCreateSecurityProfileResponse class]];
+}
+
 - (void) test_AWSConnectCreateUseCaseRequest {
     [self validateSecureCodingForClass:[AWSConnectCreateUseCaseRequest class]];
 }
@@ -462,6 +479,10 @@
 
 - (void) test_AWSConnectDeleteQuickConnectRequest {
     [self validateSecureCodingForClass:[AWSConnectDeleteQuickConnectRequest class]];
+}
+
+- (void) test_AWSConnectDeleteSecurityProfileRequest {
+    [self validateSecureCodingForClass:[AWSConnectDeleteSecurityProfileRequest class]];
 }
 
 - (void) test_AWSConnectDeleteUseCaseRequest {
@@ -546,6 +567,14 @@
 
 - (void) test_AWSConnectDescribeRoutingProfileResponse {
     [self validateSecureCodingForClass:[AWSConnectDescribeRoutingProfileResponse class]];
+}
+
+- (void) test_AWSConnectDescribeSecurityProfileRequest {
+    [self validateSecureCodingForClass:[AWSConnectDescribeSecurityProfileRequest class]];
+}
+
+- (void) test_AWSConnectDescribeSecurityProfileResponse {
+    [self validateSecureCodingForClass:[AWSConnectDescribeSecurityProfileResponse class]];
 }
 
 - (void) test_AWSConnectDescribeUserHierarchyGroupRequest {
@@ -904,6 +933,14 @@
     [self validateSecureCodingForClass:[AWSConnectListSecurityKeysResponse class]];
 }
 
+- (void) test_AWSConnectListSecurityProfilePermissionsRequest {
+    [self validateSecureCodingForClass:[AWSConnectListSecurityProfilePermissionsRequest class]];
+}
+
+- (void) test_AWSConnectListSecurityProfilePermissionsResponse {
+    [self validateSecureCodingForClass:[AWSConnectListSecurityProfilePermissionsResponse class]];
+}
+
 - (void) test_AWSConnectListSecurityProfilesRequest {
     [self validateSecureCodingForClass:[AWSConnectListSecurityProfilesRequest class]];
 }
@@ -1042,6 +1079,10 @@
 
 - (void) test_AWSConnectSecurityKey {
     [self validateSecureCodingForClass:[AWSConnectSecurityKey class]];
+}
+
+- (void) test_AWSConnectSecurityProfile {
+    [self validateSecureCodingForClass:[AWSConnectSecurityProfile class]];
 }
 
 - (void) test_AWSConnectSecurityProfileSummary {
@@ -1206,6 +1247,10 @@
 
 - (void) test_AWSConnectUpdateRoutingProfileQueuesRequest {
     [self validateSecureCodingForClass:[AWSConnectUpdateRoutingProfileQueuesRequest class]];
+}
+
+- (void) test_AWSConnectUpdateSecurityProfileRequest {
+    [self validateSecureCodingForClass:[AWSConnectUpdateSecurityProfileRequest class]];
 }
 
 - (void) test_AWSConnectUpdateUserHierarchyGroupNameRequest {

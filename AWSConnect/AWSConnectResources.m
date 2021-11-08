@@ -303,7 +303,7 @@
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Creates an AWS resource association with an Amazon Connect instance.</p>\"\
+      \"documentation\":\"<p>Creates an Amazon Web Services resource association with an Amazon Connect instance.</p>\"\
     },\
     \"CreateQueue\":{\
       \"name\":\"CreateQueue\",\
@@ -361,6 +361,25 @@
         {\"shape\":\"InternalServiceException\"}\
       ],\
       \"documentation\":\"<p>Creates a new routing profile.</p>\"\
+    },\
+    \"CreateSecurityProfile\":{\
+      \"name\":\"CreateSecurityProfile\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/security-profiles/{InstanceId}\"\
+      },\
+      \"input\":{\"shape\":\"CreateSecurityProfileRequest\"},\
+      \"output\":{\"shape\":\"CreateSecurityProfileResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"LimitExceededException\"},\
+        {\"shape\":\"DuplicateResourceException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Creates a security profile.</p>\"\
     },\
     \"CreateUseCase\":{\
       \"name\":\"CreateUseCase\",\
@@ -460,7 +479,7 @@
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Deletes an AWS resource association from an Amazon Connect instance. The association must not have any use cases associated with it.</p>\"\
+      \"documentation\":\"<p>Deletes an Amazon Web Services resource association from an Amazon Connect instance. The association must not have any use cases associated with it.</p>\"\
     },\
     \"DeleteQuickConnect\":{\
       \"name\":\"DeleteQuickConnect\",\
@@ -477,6 +496,24 @@
         {\"shape\":\"InternalServiceException\"}\
       ],\
       \"documentation\":\"<p>Deletes a quick connect.</p>\"\
+    },\
+    \"DeleteSecurityProfile\":{\
+      \"name\":\"DeleteSecurityProfile\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/security-profiles/{InstanceId}/{SecurityProfileId}\"\
+      },\
+      \"input\":{\"shape\":\"DeleteSecurityProfileRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"ResourceInUseException\"}\
+      ],\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Deletes a security profile.</p>\"\
     },\
     \"DeleteUseCase\":{\
       \"name\":\"DeleteUseCase\",\
@@ -677,6 +714,23 @@
         {\"shape\":\"InternalServiceException\"}\
       ],\
       \"documentation\":\"<p>Describes the specified routing profile.</p>\"\
+    },\
+    \"DescribeSecurityProfile\":{\
+      \"name\":\"DescribeSecurityProfile\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/security-profiles/{InstanceId}/{SecurityProfileId}\"\
+      },\
+      \"input\":{\"shape\":\"DescribeSecurityProfileRequest\"},\
+      \"output\":{\"shape\":\"DescribeSecurityProfileResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Gets basic information about the security profle.</p>\"\
     },\
     \"DescribeUser\":{\
       \"name\":\"DescribeUser\",\
@@ -1069,7 +1123,7 @@
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Provides summary information about the AWS resource associations for the specified Amazon Connect instance.</p>\"\
+      \"documentation\":\"<p>Provides summary information about the Amazon Web Services resource associations for the specified Amazon Connect instance.</p>\"\
     },\
     \"ListLambdaFunctions\":{\
       \"name\":\"ListLambdaFunctions\",\
@@ -1241,6 +1295,23 @@
       ],\
       \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Returns a paginated list of all security keys associated with the instance.</p>\"\
     },\
+    \"ListSecurityProfilePermissions\":{\
+      \"name\":\"ListSecurityProfilePermissions\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/security-profiles-permissions/{InstanceId}/{SecurityProfileId}\"\
+      },\
+      \"input\":{\"shape\":\"ListSecurityProfilePermissionsRequest\"},\
+      \"output\":{\"shape\":\"ListSecurityProfilePermissionsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Lists the permissions granted to a security profile.</p>\"\
+    },\
     \"ListSecurityProfiles\":{\
       \"name\":\"ListSecurityProfiles\",\
       \"http\":{\
@@ -1256,7 +1327,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Provides summary information about the security profiles for the specified Amazon Connect instance.</p> <p>For more information about security profiles, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html\\\">Security Profiles</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Provides summary information about the security profiles for the specified Amazon Connect instance.</p> <p>For more information about security profiles, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html\\\">Security Profiles</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
     },\
     \"ListTagsForResource\":{\
       \"name\":\"ListTagsForResource\",\
@@ -1817,6 +1888,22 @@
       ],\
       \"documentation\":\"<p>Updates the properties associated with a set of queues for a routing profile.</p>\"\
     },\
+    \"UpdateSecurityProfile\":{\
+      \"name\":\"UpdateSecurityProfile\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/security-profiles/{InstanceId}/{SecurityProfileId}\"\
+      },\
+      \"input\":{\"shape\":\"UpdateSecurityProfileRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Updates a security profile.</p>\"\
+    },\
     \"UpdateUserHierarchy\":{\
       \"name\":\"UpdateUserHierarchy\",\
       \"http\":{\
@@ -1934,6 +2021,15 @@
   },\
   \"shapes\":{\
     \"ARN\":{\"type\":\"string\"},\
+    \"AccessDeniedException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Message\":{\"shape\":\"Message\"}\
+      },\
+      \"documentation\":\"<p>You do not have sufficient access to perform this action.</p>\",\
+      \"error\":{\"httpStatusCode\":403},\
+      \"exception\":true\
+    },\
     \"AfterContactWorkTimeLimit\":{\
       \"type\":\"integer\",\
       \"min\":0\
@@ -1981,7 +2077,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>One or more tags.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about an agent status.</p>\"\
@@ -2537,7 +2633,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>One or more tags.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
         }\
       }\
     },\
@@ -2637,7 +2733,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>One or more tags.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
         }\
       }\
     },\
@@ -2737,7 +2833,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>One or more tags.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
         }\
       }\
     },\
@@ -2795,7 +2891,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>One or more tags.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
         }\
       }\
     },\
@@ -2840,7 +2936,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>One or more tags.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
         }\
       }\
     },\
@@ -2912,6 +3008,50 @@
         }\
       }\
     },\
+    \"CreateSecurityProfileRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"SecurityProfileName\",\
+        \"InstanceId\"\
+      ],\
+      \"members\":{\
+        \"SecurityProfileName\":{\
+          \"shape\":\"SecurityProfileName\",\
+          \"documentation\":\"<p>The name of the security profile.</p>\"\
+        },\
+        \"Description\":{\
+          \"shape\":\"SecurityProfileDescription\",\
+          \"documentation\":\"<p>The description of the security profile.</p>\"\
+        },\
+        \"Permissions\":{\
+          \"shape\":\"PermissionsList\",\
+          \"documentation\":\"<p>Permissions assigned to the security profile.</p>\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagMap\",\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateSecurityProfileResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"SecurityProfileId\":{\
+          \"shape\":\"SecurityProfileId\",\
+          \"documentation\":\"<p>The identifier for the security profle.</p>\"\
+        },\
+        \"SecurityProfileArn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for the security profile.</p>\"\
+        }\
+      }\
+    },\
     \"CreateUseCaseRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -2938,7 +3078,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>One or more tags.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
         }\
       }\
     },\
@@ -3231,6 +3371,27 @@
           \"documentation\":\"<p>The identifier for the quick connect.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"QuickConnectId\"\
+        }\
+      }\
+    },\
+    \"DeleteSecurityProfileRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"SecurityProfileId\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"SecurityProfileId\":{\
+          \"shape\":\"SecurityProfileId\",\
+          \"documentation\":\"<p>The identifier for the security profle.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"SecurityProfileId\"\
         }\
       }\
     },\
@@ -3569,6 +3730,36 @@
         \"RoutingProfile\":{\
           \"shape\":\"RoutingProfile\",\
           \"documentation\":\"<p>The routing profile.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeSecurityProfileRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"SecurityProfileId\",\
+        \"InstanceId\"\
+      ],\
+      \"members\":{\
+        \"SecurityProfileId\":{\
+          \"shape\":\"SecurityProfileId\",\
+          \"documentation\":\"<p>The identifier for the security profle.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"SecurityProfileId\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        }\
+      }\
+    },\
+    \"DescribeSecurityProfileResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"SecurityProfile\":{\
+          \"shape\":\"SecurityProfile\",\
+          \"documentation\":\"<p>The security profile.</p>\"\
         }\
       }\
     },\
@@ -4440,7 +4631,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>One or more tags.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about of the hours of operation.</p>\"\
@@ -5286,7 +5477,7 @@
         },\
         \"IntegrationType\":{\
           \"shape\":\"IntegrationType\",\
-          \"documentation\":\"<p/>\",\
+          \"documentation\":\"<p>The type of integration.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"integrationType\"\
         },\
@@ -5348,7 +5539,7 @@
       \"members\":{\
         \"LambdaFunctions\":{\
           \"shape\":\"FunctionArnsList\",\
-          \"documentation\":\"<p>The Lambdafunction ARNs associated with the specified instance.</p>\"\
+          \"documentation\":\"<p>The Lambda function ARNs associated with the specified instance.</p>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"NextToken\",\
@@ -5738,6 +5929,53 @@
         }\
       }\
     },\
+    \"ListSecurityProfilePermissionsRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"SecurityProfileId\",\
+        \"InstanceId\"\
+      ],\
+      \"members\":{\
+        \"SecurityProfileId\":{\
+          \"shape\":\"SecurityProfileId\",\
+          \"documentation\":\"<p>The identifier for the security profle.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"SecurityProfileId\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"nextToken\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResult1000\",\
+          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"box\":true,\
+          \"location\":\"querystring\",\
+          \"locationName\":\"maxResults\"\
+        }\
+      }\
+    },\
+    \"ListSecurityProfilePermissionsResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Permissions\":{\
+          \"shape\":\"PermissionsList\",\
+          \"documentation\":\"<p>The permissions granted to the security profile.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>If there are additional results, this is the token for the next set of results.</p>\"\
+        }\
+      }\
+    },\
     \"ListSecurityProfilesRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"InstanceId\"],\
@@ -6059,6 +6297,11 @@
       \"type\":\"string\",\
       \"pattern\":\"/^(?=.*[a-z])(?=.*[A-Z])(?=.*\\\\d)[a-zA-Z\\\\d\\\\S]{8,64}$/\",\
       \"sensitive\":true\
+    },\
+    \"PermissionsList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"SecurityProfilePermission\"},\
+      \"max\":500\
     },\
     \"PhoneNumber\":{\"type\":\"string\"},\
     \"PhoneNumberCountryCode\":{\
@@ -6470,7 +6713,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>One or more tags.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a queue.</p>\"\
@@ -6602,7 +6845,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>One or more tags.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a quick connect.</p>\"\
@@ -7032,6 +7275,40 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"SecurityKey\"}\
     },\
+    \"SecurityProfile\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Id\":{\
+          \"shape\":\"SecurityProfileId\",\
+          \"documentation\":\"<p>The identifier for the security profile.</p>\"\
+        },\
+        \"OrganizationResourceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The organization resource identifier for the security profile.</p>\"\
+        },\
+        \"Arn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for the secruity profile.</p>\"\
+        },\
+        \"SecurityProfileName\":{\
+          \"shape\":\"SecurityProfileName\",\
+          \"documentation\":\"<p>The name for the security profile.</p>\"\
+        },\
+        \"Description\":{\
+          \"shape\":\"SecurityProfileDescription\",\
+          \"documentation\":\"<p>The description of the security profile.</p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagMap\",\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Contains information about a security profile.</p>\"\
+    },\
+    \"SecurityProfileDescription\":{\
+      \"type\":\"string\",\
+      \"max\":250\
+    },\
     \"SecurityProfileId\":{\"type\":\"string\"},\
     \"SecurityProfileIds\":{\
       \"type\":\"list\",\
@@ -7040,6 +7317,11 @@
       \"min\":1\
     },\
     \"SecurityProfileName\":{\"type\":\"string\"},\
+    \"SecurityProfilePermission\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1\
+    },\
     \"SecurityProfileSummary\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -7746,7 +8028,7 @@
         },\
         \"AttributeType\":{\
           \"shape\":\"InstanceAttributeType\",\
-          \"documentation\":\"<p>The type of attribute.</p> <note> <p>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature, contact AWS Support for allowlisting.</p> </note>\",\
+          \"documentation\":\"<p>The type of attribute.</p> <note> <p>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature, contact Amazon Web Services Support for allowlisting.</p> </note>\",\
           \"location\":\"uri\",\
           \"locationName\":\"AttributeType\"\
         },\
@@ -8083,6 +8365,35 @@
         \"QueueConfigs\":{\
           \"shape\":\"RoutingProfileQueueConfigList\",\
           \"documentation\":\"<p>The queues to be updated for this routing profile. Queues must first be associated to the routing profile. You can do this using AssociateRoutingProfileQueues.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateSecurityProfileRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"SecurityProfileId\",\
+        \"InstanceId\"\
+      ],\
+      \"members\":{\
+        \"Description\":{\
+          \"shape\":\"SecurityProfileDescription\",\
+          \"documentation\":\"<p>The description of the security profile.</p>\"\
+        },\
+        \"Permissions\":{\
+          \"shape\":\"PermissionsList\",\
+          \"documentation\":\"<p>The permissions granted to a security profile.</p>\"\
+        },\
+        \"SecurityProfileId\":{\
+          \"shape\":\"SecurityProfileId\",\
+          \"documentation\":\"<p>The identifier for the security profle.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"SecurityProfileId\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
         }\
       }\
     },\
@@ -8452,7 +8763,7 @@
     },\
     \"timestamp\":{\"type\":\"timestamp\"}\
   },\
-  \"documentation\":\"<p>Amazon Connect is a cloud-based contact center solution that you use to set up and manage a customer contact center and provide reliable customer engagement at any scale.</p> <p>Amazon Connect provides metrics and real-time reporting that enable you to optimize contact routing. You can also resolve customer issues more efficiently by getting customers in touch with the appropriate agents.</p> <p>There are limits to the number of Amazon Connect resources that you can create. There are also limits to the number of requests that you can make per second. For more information, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html\\\">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p> <p>You can connect programmatically to an AWS service by using an endpoint. For a list of Amazon Connect endpoints, see <a href=\\\"https://docs.aws.amazon.com/general/latest/gr/connect_region.html\\\">Amazon Connect Endpoints</a>.</p> <note> <p>Working with contact flows? Check out the <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html\\\">Amazon Connect Flow language</a>.</p> </note>\"\
+  \"documentation\":\"<p>Amazon Connect is a cloud-based contact center solution that you use to set up and manage a customer contact center and provide reliable customer engagement at any scale.</p> <p>Amazon Connect provides metrics and real-time reporting that enable you to optimize contact routing. You can also resolve customer issues more efficiently by getting customers in touch with the appropriate agents.</p> <p>There are limits to the number of Amazon Connect resources that you can create. There are also limits to the number of requests that you can make per second. For more information, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html\\\">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p> <p>You can connect programmatically to an Amazon Web Services service by using an endpoint. For a list of Amazon Connect endpoints, see <a href=\\\"https://docs.aws.amazon.com/general/latest/gr/connect_region.html\\\">Amazon Connect Endpoints</a>.</p> <note> <p>Working with contact flows? Check out the <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html\\\">Amazon Connect Flow language</a>.</p> </note>\"\
 }\
 ";
 }
