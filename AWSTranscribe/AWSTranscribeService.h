@@ -982,7 +982,7 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
 - (void)startTranscriptionJob:(AWSTranscribeStartTranscriptionJobRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeStartTranscriptionJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Tags a Amazon Transcribe resource with the given list of tags.</p>
+ <p>Tags an Amazon Transcribe resource with the given list of tags.</p>
  
  @param request A container for the necessary parameters to execute the TagResource service method.
 
@@ -994,7 +994,7 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
 - (AWSTask<AWSTranscribeTagResourceResponse *> *)tagResource:(AWSTranscribeTagResourceRequest *)request;
 
 /**
- <p>Tags a Amazon Transcribe resource with the given list of tags.</p>
+ <p>Tags an Amazon Transcribe resource with the given list of tags.</p>
  
  @param request A container for the necessary parameters to execute the TagResource service method.
  @param completionHandler The completion handler to call when the load request is complete.
