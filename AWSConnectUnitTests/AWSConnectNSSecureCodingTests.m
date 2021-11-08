@@ -34,6 +34,7 @@
 - (void) test_AWSConnectAssociateSecurityKeyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAttribute API_AVAILABLE(ios(11));
 - (void) test_AWSConnectChatMessage API_AVAILABLE(ios(11));
+- (void) test_AWSConnectChatStreamingConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSConnectContactFlow API_AVAILABLE(ios(11));
 - (void) test_AWSConnectContactFlowSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateAgentStatusRequest API_AVAILABLE(ios(11));
@@ -127,6 +128,7 @@
 - (void) test_AWSConnectHoursOfOperationSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectHoursOfOperationTimeSlice API_AVAILABLE(ios(11));
 - (void) test_AWSConnectInstance API_AVAILABLE(ios(11));
+- (void) test_AWSConnectInstanceReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectInstanceStatusReason API_AVAILABLE(ios(11));
 - (void) test_AWSConnectInstanceStorageConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectInstanceSummary API_AVAILABLE(ios(11));
@@ -206,6 +208,7 @@
 - (void) test_AWSConnectRoutingProfileQueueConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectRoutingProfileQueueConfigSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectRoutingProfileQueueReference API_AVAILABLE(ios(11));
+- (void) test_AWSConnectRoutingProfileReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectRoutingProfileSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectS3Config API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSecurityKey API_AVAILABLE(ios(11));
@@ -214,6 +217,8 @@
 - (void) test_AWSConnectStartChatContactResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectStartContactRecordingRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectStartContactRecordingResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectStartContactStreamingRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectStartContactStreamingResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectStartOutboundVoiceContactRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectStartOutboundVoiceContactResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectStartTaskContactRequest API_AVAILABLE(ios(11));
@@ -222,6 +227,8 @@
 - (void) test_AWSConnectStopContactRecordingResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectStopContactRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectStopContactResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectStopContactStreamingRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectStopContactStreamingResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSuspendContactRecordingRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSuspendContactRecordingResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectTagResourceRequest API_AVAILABLE(ios(11));
@@ -323,6 +330,10 @@
 
 - (void) test_AWSConnectChatMessage {
     [self validateSecureCodingForClass:[AWSConnectChatMessage class]];
+}
+
+- (void) test_AWSConnectChatStreamingConfiguration {
+    [self validateSecureCodingForClass:[AWSConnectChatStreamingConfiguration class]];
 }
 
 - (void) test_AWSConnectContactFlow {
@@ -697,6 +708,10 @@
     [self validateSecureCodingForClass:[AWSConnectInstance class]];
 }
 
+- (void) test_AWSConnectInstanceReference {
+    [self validateSecureCodingForClass:[AWSConnectInstanceReference class]];
+}
+
 - (void) test_AWSConnectInstanceStatusReason {
     [self validateSecureCodingForClass:[AWSConnectInstanceStatusReason class]];
 }
@@ -1013,6 +1028,10 @@
     [self validateSecureCodingForClass:[AWSConnectRoutingProfileQueueReference class]];
 }
 
+- (void) test_AWSConnectRoutingProfileReference {
+    [self validateSecureCodingForClass:[AWSConnectRoutingProfileReference class]];
+}
+
 - (void) test_AWSConnectRoutingProfileSummary {
     [self validateSecureCodingForClass:[AWSConnectRoutingProfileSummary class]];
 }
@@ -1045,6 +1064,14 @@
     [self validateSecureCodingForClass:[AWSConnectStartContactRecordingResponse class]];
 }
 
+- (void) test_AWSConnectStartContactStreamingRequest {
+    [self validateSecureCodingForClass:[AWSConnectStartContactStreamingRequest class]];
+}
+
+- (void) test_AWSConnectStartContactStreamingResponse {
+    [self validateSecureCodingForClass:[AWSConnectStartContactStreamingResponse class]];
+}
+
 - (void) test_AWSConnectStartOutboundVoiceContactRequest {
     [self validateSecureCodingForClass:[AWSConnectStartOutboundVoiceContactRequest class]];
 }
@@ -1075,6 +1102,14 @@
 
 - (void) test_AWSConnectStopContactResponse {
     [self validateSecureCodingForClass:[AWSConnectStopContactResponse class]];
+}
+
+- (void) test_AWSConnectStopContactStreamingRequest {
+    [self validateSecureCodingForClass:[AWSConnectStopContactStreamingRequest class]];
+}
+
+- (void) test_AWSConnectStopContactStreamingResponse {
+    [self validateSecureCodingForClass:[AWSConnectStopContactStreamingResponse class]];
 }
 
 - (void) test_AWSConnectSuspendContactRecordingRequest {
