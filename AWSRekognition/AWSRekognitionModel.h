@@ -635,6 +635,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
+ <p>Retrieves the known gender for the celebrity.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionKnownGender * _Nullable knownGender;
+
+/**
  <p>The name of the celebrity.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;

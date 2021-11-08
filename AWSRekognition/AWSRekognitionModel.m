@@ -154,6 +154,7 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
              @"confidence" : @"Confidence",
              @"face" : @"Face",
              @"identifier" : @"Id",
+             @"knownGender" : @"KnownGender",
              @"name" : @"Name",
              @"urls" : @"Urls",
              };
@@ -165,6 +166,10 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSValueTransformer *)faceJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionFaceDetail class]];
+}
+
++ (NSValueTransformer *)knownGenderJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionKnownGender class]];
 }
 
 @end
