@@ -39,6 +39,8 @@
 - (void) test_AWSTextractGetDocumentAnalysisResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTextractGetDocumentTextDetectionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTextractGetDocumentTextDetectionResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTextractGetExpenseAnalysisRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTextractGetExpenseAnalysisResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTextractHumanLoopActivationOutput API_AVAILABLE(ios(11));
 - (void) test_AWSTextractHumanLoopConfig API_AVAILABLE(ios(11));
 - (void) test_AWSTextractHumanLoopDataAttributes API_AVAILABLE(ios(11));
@@ -53,6 +55,8 @@
 - (void) test_AWSTextractStartDocumentAnalysisResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTextractStartDocumentTextDetectionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTextractStartDocumentTextDetectionResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTextractStartExpenseAnalysisRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTextractStartExpenseAnalysisResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTextractWarning API_AVAILABLE(ios(11));
 
 @end
@@ -139,6 +143,14 @@
     [self validateSecureCodingForClass:[AWSTextractGetDocumentTextDetectionResponse class]];
 }
 
+- (void) test_AWSTextractGetExpenseAnalysisRequest {
+    [self validateSecureCodingForClass:[AWSTextractGetExpenseAnalysisRequest class]];
+}
+
+- (void) test_AWSTextractGetExpenseAnalysisResponse {
+    [self validateSecureCodingForClass:[AWSTextractGetExpenseAnalysisResponse class]];
+}
+
 - (void) test_AWSTextractHumanLoopActivationOutput {
     [self validateSecureCodingForClass:[AWSTextractHumanLoopActivationOutput class]];
 }
@@ -193,6 +205,14 @@
 
 - (void) test_AWSTextractStartDocumentTextDetectionResponse {
     [self validateSecureCodingForClass:[AWSTextractStartDocumentTextDetectionResponse class]];
+}
+
+- (void) test_AWSTextractStartExpenseAnalysisRequest {
+    [self validateSecureCodingForClass:[AWSTextractStartExpenseAnalysisRequest class]];
+}
+
+- (void) test_AWSTextractStartExpenseAnalysisResponse {
+    [self validateSecureCodingForClass:[AWSTextractStartExpenseAnalysisResponse class]];
 }
 
 - (void) test_AWSTextractWarning {

@@ -115,6 +115,8 @@ typedef NS_ENUM(NSInteger, AWSTextractTextType) {
 @class AWSTextractGetDocumentAnalysisResponse;
 @class AWSTextractGetDocumentTextDetectionRequest;
 @class AWSTextractGetDocumentTextDetectionResponse;
+@class AWSTextractGetExpenseAnalysisRequest;
+@class AWSTextractGetExpenseAnalysisResponse;
 @class AWSTextractHumanLoopActivationOutput;
 @class AWSTextractHumanLoopConfig;
 @class AWSTextractHumanLoopDataAttributes;
@@ -129,6 +131,8 @@ typedef NS_ENUM(NSInteger, AWSTextractTextType) {
 @class AWSTextractStartDocumentAnalysisResponse;
 @class AWSTextractStartDocumentTextDetectionRequest;
 @class AWSTextractStartDocumentTextDetectionResponse;
+@class AWSTextractStartExpenseAnalysisRequest;
+@class AWSTextractStartExpenseAnalysisResponse;
 @class AWSTextractWarning;
 
 /**
@@ -255,7 +259,7 @@ typedef NS_ENUM(NSInteger, AWSTextractTextType) {
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
- <p>The page on which a block was detected. <code>Page</code> is returned by asynchronous operations. Page values greater than 1 are only returned for multipage documents that are in PDF format. A scanned image (JPEG/PNG), even if it contains multiple document pages, is considered to be a single-page document. The value of <code>Page</code> is always 1. Synchronous operations don't return <code>Page</code> because every input document is considered to be a single-page document.</p>
+ <p>The page on which a block was detected. <code>Page</code> is returned by asynchronous operations. Page values greater than 1 are only returned for multipage documents that are in PDF or TIFF format. A scanned image (JPEG/PNG), even if it contains multiple document pages, is considered to be a single-page document. The value of <code>Page</code> is always 1. Synchronous operations don't return <code>Page</code> because every input document is considered to be a single-page document.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable page;
 
@@ -642,6 +646,72 @@ typedef NS_ENUM(NSInteger, AWSTextractTextType) {
 @end
 
 /**
+ 
+ */
+@interface AWSTextractGetExpenseAnalysisRequest : AWSRequest
+
+
+/**
+ <p>A unique identifier for the text detection job. The <code>JobId</code> is returned from <code>StartExpenseAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
+ <p>The maximum number of results to return per paginated call. The largest value you can specify is 20. If you specify a value greater than 20, a maximum of 20 results is returned. The default value is 20.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>If the previous response was incomplete (because there are more blocks to retrieve), Amazon Textract returns a pagination token in the response. You can use this pagination token to retrieve the next set of blocks.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTextractGetExpenseAnalysisResponse : AWSModel
+
+
+/**
+ <p>The current model version of AnalyzeExpense.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable analyzeExpenseModelVersion;
+
+/**
+ <p>Information about a document that Amazon Textract processed. <code>DocumentMetadata</code> is returned in every page of paginated responses from an Amazon Textract operation.</p>
+ */
+@property (nonatomic, strong) AWSTextractDocumentMetadata * _Nullable documentMetadata;
+
+/**
+ <p>The expenses detected by Amazon Textract.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractExpenseDocument *> * _Nullable expenseDocuments;
+
+/**
+ <p>The current status of the text detection job.</p>
+ */
+@property (nonatomic, assign) AWSTextractJobStatus jobStatus;
+
+/**
+ <p>If the response is truncated, Amazon Textract returns this token. You can use this token in the subsequent request to retrieve the next set of text-detection results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Returns if the detection job could not be completed. Contains explanation for what error occured. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable statusMessage;
+
+/**
+ <p>A list of warnings that occurred during the text-detection operation for the document.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractWarning *> * _Nullable warnings;
+
+@end
+
+/**
  <p>Shows the results of the human in the loop evaluation. If there is no HumanLoopArn, the input did not trigger human review.</p>
  */
 @interface AWSTextractHumanLoopActivationOutput : AWSModel
@@ -818,7 +888,7 @@ typedef NS_ENUM(NSInteger, AWSTextractTextType) {
 @property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
- <p>The file name of the input document. Synchronous operations can use image files that are in JPEG or PNG format. Asynchronous operations also support PDF format files.</p>
+ <p>The file name of the input document. Synchronous operations can use image files that are in JPEG or PNG format. Asynchronous operations also support PDF and TIFF format files.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
 
@@ -931,6 +1001,57 @@ typedef NS_ENUM(NSInteger, AWSTextractTextType) {
 
 /**
  <p>The identifier of the text detection job for the document. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetDocumentTextDetection</code>. A <code>JobId</code> value is only valid for 7 days.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTextractStartExpenseAnalysisRequest : AWSRequest
+
+
+/**
+ <p>The idempotent token that's used to identify the start request. If you use the same token with multiple <code>StartDocumentTextDetection</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidentally started more than once. For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/api-async.html">Calling Amazon Textract Asynchronous Operations</a></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientRequestToken;
+
+/**
+ <p>The location of the document to be processed.</p>
+ */
+@property (nonatomic, strong) AWSTextractDocumentLocation * _Nullable documentLocation;
+
+/**
+ <p>An identifier you specify that's included in the completion notification published to the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify the type of document that the completion notification corresponds to (such as a tax form or a receipt).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTag;
+
+/**
+ <p>The KMS key used to encrypt the inference results. This can be in either Key ID or Key Alias format. When a KMS key is provided, the KMS key will be used for server-side encryption of the objects in the customer bucket. When this parameter is not enabled, the result will be encrypted server side,using SSE-S3.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable KMSKeyId;
+
+/**
+ <p>The Amazon SNS topic ARN that you want Amazon Textract to publish the completion status of the operation to. </p>
+ */
+@property (nonatomic, strong) AWSTextractNotificationChannel * _Nullable notificationChannel;
+
+/**
+ <p>Sets if the output will go to a customer defined bucket. By default, Amazon Textract will save the results internally to be accessed by the <code>GetExpenseAnalysis</code> operation.</p>
+ */
+@property (nonatomic, strong) AWSTextractOutputConfig * _Nullable outputConfig;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTextractStartExpenseAnalysisResponse : AWSModel
+
+
+/**
+ <p>A unique identifier for the text detection job. The <code>JobId</code> is returned from <code>StartExpenseAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobId;
 

@@ -614,6 +614,85 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 @end
 
+@implementation AWSTextractGetExpenseAnalysisRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"jobId" : @"JobId",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
+@end
+
+@implementation AWSTextractGetExpenseAnalysisResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"analyzeExpenseModelVersion" : @"AnalyzeExpenseModelVersion",
+             @"documentMetadata" : @"DocumentMetadata",
+             @"expenseDocuments" : @"ExpenseDocuments",
+             @"jobStatus" : @"JobStatus",
+             @"nextToken" : @"NextToken",
+             @"statusMessage" : @"StatusMessage",
+             @"warnings" : @"Warnings",
+             };
+}
+
++ (NSValueTransformer *)documentMetadataJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractDocumentMetadata class]];
+}
+
++ (NSValueTransformer *)expenseDocumentsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTextractExpenseDocument class]];
+}
+
++ (NSValueTransformer *)jobStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSTextractJobStatusInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"SUCCEEDED"] == NSOrderedSame) {
+            return @(AWSTextractJobStatusSucceeded);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSTextractJobStatusFailed);
+        }
+        if ([value caseInsensitiveCompare:@"PARTIAL_SUCCESS"] == NSOrderedSame) {
+            return @(AWSTextractJobStatusPartialSuccess);
+        }
+        return @(AWSTextractJobStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTextractJobStatusInProgress:
+                return @"IN_PROGRESS";
+            case AWSTextractJobStatusSucceeded:
+                return @"SUCCEEDED";
+            case AWSTextractJobStatusFailed:
+                return @"FAILED";
+            case AWSTextractJobStatusPartialSuccess:
+                return @"PARTIAL_SUCCESS";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)warningsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTextractWarning class]];
+}
+
+@end
+
 @implementation AWSTextractHumanLoopActivationOutput
 
 + (BOOL)supportsSecureCoding {
@@ -881,6 +960,51 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 @end
 
 @implementation AWSTextractStartDocumentTextDetectionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"jobId" : @"JobId",
+             };
+}
+
+@end
+
+@implementation AWSTextractStartExpenseAnalysisRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"clientRequestToken" : @"ClientRequestToken",
+             @"documentLocation" : @"DocumentLocation",
+             @"jobTag" : @"JobTag",
+             @"KMSKeyId" : @"KMSKeyId",
+             @"notificationChannel" : @"NotificationChannel",
+             @"outputConfig" : @"OutputConfig",
+             };
+}
+
++ (NSValueTransformer *)documentLocationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractDocumentLocation class]];
+}
+
++ (NSValueTransformer *)notificationChannelJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractNotificationChannel class]];
+}
+
++ (NSValueTransformer *)outputConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractOutputConfig class]];
+}
+
+@end
+
+@implementation AWSTextractStartExpenseAnalysisResponse
 
 + (BOOL)supportsSecureCoding {
     return YES;
