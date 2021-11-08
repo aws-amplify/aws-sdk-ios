@@ -1,16 +1,23 @@
----
-
 # AWS Mobile SDK for iOS CHANGELOG
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
 
 ## Unreleased
 
--Features for next release
+### Features for next release
 
 - **AWSIoT**
   - fix(AWSIoT): adds back Message type ([PR #3852](https://github.com/aws-amplify/aws-sdk-ios/pull/3852))
 
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSAutoScaling
+  - AWSTextract
+  - AWSConnectParticipant
+  - AWSConnect
+  - AWSTranscribe
+  - AWSRekognition
+  - AWSTranslate
+  
 ## 2.26.3
 
 ### Misc. Updates
