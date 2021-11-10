@@ -26,6 +26,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		030D030B273C810800F6718E /* AWSAsyncBlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030D030A273C810800F6718E /* AWSAsyncBlockOperation.swift */; };
+		030D037A273C811500F6718E /* AWSAsyncBlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030D030A273C810800F6718E /* AWSAsyncBlockOperation.swift */; };
 		1708BF6C21C31AB800B2DA8C /* AWSMobileOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1708BF0D21C31AB200B2DA8C /* AWSMobileOptions.swift */; };
 		170AD35321921764004E1E88 /* AWSMobileClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 170AD35221921764004E1E88 /* AWSMobileClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		170C8BB51F43FEE200C2A1E4 /* AWSUserPoolsUIOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 1711A4BA1F43A461006105D3 /* AWSUserPoolsUIOperations.m */; };
@@ -1247,6 +1249,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		030D030A273C810800F6718E /* AWSAsyncBlockOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSAsyncBlockOperation.swift; sourceTree = "<group>"; };
 		1708BF0D21C31AB200B2DA8C /* AWSMobileOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileOptions.swift; sourceTree = "<group>"; };
 		170AD35221921764004E1E88 /* AWSMobileClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSMobileClient.h; sourceTree = "<group>"; };
 		1711A4B91F43A461006105D3 /* AWSUserPoolsUIOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSUserPoolsUIOperations.h; sourceTree = "<group>"; };
@@ -2088,6 +2091,7 @@
 				170AD3D52195663C004E1E88 /* Internal */,
 				B5FC69041FAFA1AA004790CB /* Info.plist */,
 				17D61F822166C784009B2B9C /* AWSMobileResults.swift */,
+				030D030A273C810800F6718E /* AWSAsyncBlockOperation.swift */,
 				17D61FA6216BBC59009B2B9C /* AWSMobileClient.swift */,
 				179E0AD021656F3200E1F877 /* AWSMobileClientExtensions.swift */,
 				1708BF0D21C31AB200B2DA8C /* AWSMobileOptions.swift */,
@@ -3684,6 +3688,7 @@
 				B402CD2A2580672F0020B83B /* AWSMobileOptions.swift in Sources */,
 				B402CD2B2580672F0020B83B /* DeviceOperations.swift in Sources */,
 				B402CD2C2580672F0020B83B /* AWSUserPoolOperationsHandler.swift in Sources */,
+				030D030B273C810800F6718E /* AWSAsyncBlockOperation.swift in Sources */,
 				B402CD2D2580672F0020B83B /* AWSCognitoAuthUICKeyChainStore.m in Sources */,
 				B402CD2E2580672F0020B83B /* _AWSMobileClient.m in Sources */,
 				B402CD2F2580672F0020B83B /* AWSCognitoAuth+Extensions.m in Sources */,
@@ -3750,6 +3755,7 @@
 				1708BF6C21C31AB800B2DA8C /* AWSMobileOptions.swift in Sources */,
 				1744D05B21FFD84E00A81008 /* DeviceOperations.swift in Sources */,
 				17D61F812166C757009B2B9C /* AWSUserPoolOperationsHandler.swift in Sources */,
+				030D037A273C811500F6718E /* AWSAsyncBlockOperation.swift in Sources */,
 				177B8ADD21E52C730051068F /* AWSCognitoAuthUICKeyChainStore.m in Sources */,
 				B5FC690A1FAFA1D0004790CB /* _AWSMobileClient.m in Sources */,
 				17F4F75121F6B0750068B553 /* AWSCognitoAuth+Extensions.m in Sources */,

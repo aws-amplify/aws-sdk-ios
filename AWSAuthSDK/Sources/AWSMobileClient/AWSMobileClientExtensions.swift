@@ -768,14 +768,13 @@ extension AWSMobileClient {
         }
         
         let cancellationToken = self.credentialsFetchCancellationSource
-        credentialsFetchOperationQueue.addOperation {
-            self.credentialsFetchLock.enter()
+        let operation = AsyncBlockOperation { done in
             self.internalCredentialsProvider?.credentials(withCancellationToken: cancellationToken).continueWith(block: { (task) -> Any? in
                 // If we have called cancellation already, leave the block without doing anything
                 // with the fetched credentials.
                 if (task.isCancelled || cancellationToken.isCancellationRequested) {
-                    self.credentialsFetchLock.leave()
                     completionHandler(task.result, task.error)
+                    done()
                     return nil
                 }
                 
@@ -783,10 +782,9 @@ extension AWSMobileClient {
                     if error._domain == AWSCognitoIdentityErrorDomain
                         && error._code == AWSCognitoIdentityErrorType.notAuthorized.rawValue
                         && self.federationProvider == .none {
-                        
-                        self.credentialsFetchLock.leave()
-                        completionHandler(nil, AWSMobileClientError.guestAccessNotAllowed(message: "Your backend is not configured with cognito identity pool to allow guest acess. Please allow un-authenticated access to identity pool to use this feature."))
-                        
+
+                        completionHandler(nil, AWSMobileClientError.guestAccessNotAllowed(message: "Your backend is not configured with cognito identity pool to allow guest access. Please allow un-authenticated access to identity pool to use this feature."))
+                        done()
                     } else if error._domain == AWSCognitoIdentityErrorDomain
                         && error._code == AWSCognitoIdentityErrorType.notAuthorized.rawValue
                         && self.federationProvider == .oidcFederation {
@@ -795,21 +793,21 @@ extension AWSMobileClient {
                         
                         self.mobileClientStatusChanged(userState: .signedOutFederatedTokensInvalid, additionalInfo: [self.ProviderKey:self.cachedLoginsMap.first!.key])
                     } else {
-                        self.credentialsFetchLock.leave()
                         completionHandler(nil, error)
+                        done()
                     }
                 } else if let result = task.result {
                     if(self.federationProvider == .none && self.currentUserState != .guest) {
                         self.mobileClientStatusChanged(userState: .guest, additionalInfo: [:])
                     }
-                    self.credentialsFetchLock.leave()
                     completionHandler(result, nil)
+                    done()
                 }
                 
                 return nil
             })
-            self.credentialsFetchLock.wait()
         }
+        credentialsFetchOperationQueue.addOperation(operation)
     }
 
     /// Invoke this function to release any sign-in waits.
@@ -847,10 +845,8 @@ extension AWSMobileClient {
         }
         
         if self.federationProvider == .hostedUI {
-            self.tokenFetchOperationQueue.addOperation {
-                self.tokenFetchLock.enter()
-                AWSCognitoAuth.init(forKey: self.CognitoAuthRegistrationKey).getSession({ (session, error) in
-
+            let operation = AsyncBlockOperation { done in
+                AWSCognitoAuth(forKey: self.CognitoAuthRegistrationKey).getSession({ (session, error) in
                     if let sessionError = error,
                         (sessionError as NSError).domain == AWSCognitoAuthErrorDomain,
                         let errorType = AWSCognitoAuthClientErrorType(rawValue: (sessionError as NSError).code),
@@ -866,17 +862,16 @@ extension AWSMobileClient {
                     } else {
                         completionHandler(nil, error)
                     }
-                    self.tokenFetchLock.leave()
+                    done()
                 })
-                self.tokenFetchLock.wait()
             }
+            tokenFetchOperationQueue.addOperation(operation)
             return
         }
         if self.federationProvider == .userPools {
             self.userpoolOpsHelper.userpoolClient?.delegate = self.userpoolOpsHelper
             self.userpoolOpsHelper.authHelperDelegate = self
-            self.tokenFetchOperationQueue.addOperation {
-                self.tokenFetchLock.enter()
+            let operation = AsyncBlockOperation { done in
                 self.currentUser?.getSession().continueWith(block: { (task) -> Any? in
                     if let error = task.error {
                         completionHandler(nil, error)
@@ -889,11 +884,13 @@ extension AWSMobileClient {
                         }
                         self.invokeSignInCallback(signResult: SignInResult(signInState: .signedIn), error: nil)
                     }
-                    self.tokenFetchLock.leave()
+                    defer {
+                        done()
+                    }
                     return nil
                 })
-                self.tokenFetchLock.wait()
             }
+            tokenFetchOperationQueue.addOperation(operation)
             return
         }
     }
