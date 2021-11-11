@@ -1,22 +1,22 @@
 import Foundation
 
-enum AsyncBlockState: String {
+enum AWSAsyncBlockState: String {
     case ready = "isReady"
     case executing = "isExecuting"
     case finished  = "isFinished"
     case cancelled = "isCancelled"
 }
 
-typealias AsyncBlockDoneClosure = () -> Void
-typealias AsyncBlockClosure = (@escaping AsyncBlockDoneClosure) -> Void
+public typealias AWSAsyncBlockDoneClosure = () -> Void
+public typealias AWSAsyncBlockClosure = (@escaping AWSAsyncBlockDoneClosure) -> Void
 
-class AsyncBlockOperation: Operation {
-    let asyncBlock: AsyncBlockClosure
+public class AWSAsyncBlockOperation: Operation {
+    let asyncBlock: AWSAsyncBlockClosure
 
-    var state: AsyncBlockState = .ready
+    var state: AWSAsyncBlockState = .ready
 
     // handle KVO events before changing state
-    func transition(to newState: AsyncBlockState) {
+    func transition(to newState: AWSAsyncBlockState) {
         guard state != newState else { return }
 
         willChangeValue(forKey: newState.rawValue)
@@ -28,42 +28,35 @@ class AsyncBlockOperation: Operation {
         didChangeValue(forKey: state.rawValue)
     }
 
-    override var isReady: Bool {
+    public override var isReady: Bool {
         state == .ready
     }
 
-    override var isExecuting: Bool {
+    public override var isExecuting: Bool {
         state == .executing
     }
 
-    override var isFinished: Bool {
+    public override var isFinished: Bool {
         state == .finished
     }
 
-    override var isCancelled: Bool {
+    public override var isCancelled: Bool {
         state == .cancelled
     }
 
-    init(asyncBlock: @escaping AsyncBlockClosure) {
+    public init(asyncBlock: @escaping AWSAsyncBlockClosure) {
         self.asyncBlock = asyncBlock
         super.init()
     }
 
-    override var isAsynchronous: Bool { true }
+    public override var isAsynchronous: Bool { true }
 
-    override func start() {
-        guard !isCancelled && isReady else {
-            return
-        }
-        main()
-    }
-
-    override func main() {
+    public override func start() {
         guard !isCancelled else { return }
 
         transition(to: .executing)
 
-        let done: AsyncBlockDoneClosure = { [weak self] in
+        let done: AWSAsyncBlockDoneClosure = { [weak self] in
             guard let self = self else { fatalError() }
             self.transition(to: .finished)
         }
@@ -71,7 +64,7 @@ class AsyncBlockOperation: Operation {
         asyncBlock(done)
     }
 
-    override func cancel() {
+    public override func cancel() {
         transition(to: .cancelled)
     }
 }

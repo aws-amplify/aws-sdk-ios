@@ -768,7 +768,7 @@ extension AWSMobileClient {
         }
         
         let cancellationToken = self.credentialsFetchCancellationSource
-        let operation = AsyncBlockOperation { done in
+        let operation = AWSAsyncBlockOperation { done in
             self.internalCredentialsProvider?.credentials(withCancellationToken: cancellationToken).continueWith(block: { (task) -> Any? in
                 // If we have called cancellation already, leave the block without doing anything
                 // with the fetched credentials.
@@ -845,7 +845,7 @@ extension AWSMobileClient {
         }
         
         if self.federationProvider == .hostedUI {
-            let operation = AsyncBlockOperation { done in
+            let operation = AWSAsyncBlockOperation { done in
                 AWSCognitoAuth(forKey: self.CognitoAuthRegistrationKey).getSession({ (session, error) in
                     if let sessionError = error,
                         (sessionError as NSError).domain == AWSCognitoAuthErrorDomain,
@@ -871,7 +871,7 @@ extension AWSMobileClient {
         if self.federationProvider == .userPools {
             self.userpoolOpsHelper.userpoolClient?.delegate = self.userpoolOpsHelper
             self.userpoolOpsHelper.authHelperDelegate = self
-            let operation = AsyncBlockOperation { done in
+            let operation = AWSAsyncBlockOperation { done in
                 self.currentUser?.getSession().continueWith(block: { (task) -> Any? in
                     if let error = task.error {
                         completionHandler(nil, error)

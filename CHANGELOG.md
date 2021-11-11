@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- **AWSMobileClient**
+  - fix(AWSMobileClient): eliminates thread blocking in operations ([PR #3872](https://github.com/aws-amplify/aws-sdk-ios/pull/3872))
+
 ### Features for next release
 
 - **AWSIoT**
