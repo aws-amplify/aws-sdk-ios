@@ -796,6 +796,8 @@ enableVersioning: BOOL, set to NO to disable versioning (default YES)
 enableForeignStateUpdateNotifications: BOOL, set to YES to enable foreign state updates (default NO)
 enableStaleDiscards: BOOL, set to NO to disable discarding stale updates (default YES)
 enableIgnoreDeltas: BOOL, set to YES to disable delta updates (default NO)
+enableIgnoreDeletes: BOOL, set to YES to disable delete updates (default NO)
+enableIgnoreRejecteds: BOOL, set to YES to disable all/rejected updates (default NO)
 QoS: AWSIoTMQTTQoS (default AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce)
 shadowOperationTimeoutSeconds: double, device shadow operation timeout (default 10.0)
  

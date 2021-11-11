@@ -48,6 +48,8 @@
 @property(atomic, assign) BOOL enableStaleDiscards;
 @property(atomic, assign) BOOL enableIgnoreDeltas;
 @property(atomic, assign) BOOL enableIgnoreDocuments;
+@property(atomic, assign) BOOL enableIgnoreDeletes;
+@property(atomic, assign) BOOL enableIgnoreRejecteds;
 @property(atomic, assign) UInt32 version;
 @property(nonatomic, strong) NSString *clientToken;
 @property(atomic, assign) AWSIoTMQTTQoS qos;
@@ -73,6 +75,8 @@
          discardStaleUpdates:(BOOL)enableStaleDiscards
                discardDeltas:(BOOL)enableIgnoreDeltas
             discardDocuments:(BOOL)enableIgnoreDocuments
+              discardDeletes:(BOOL)enableIgnoreDeletes
+            discardRejecteds:(BOOL)enableIgnoreRejecteds
       updateOnForeignChanges:(BOOL)enableForeignStateUpdateNotifications
             operationTimeout:(NSTimeInterval)operationTimeoutSeconds
                          QoS:(AWSIoTMQTTQoS)qos
@@ -85,6 +89,8 @@
         _enableStaleDiscards = enableStaleDiscards;
         _enableIgnoreDeltas = enableIgnoreDeltas;
         _enableIgnoreDocuments = enableIgnoreDocuments;
+        _enableIgnoreDeletes = enableIgnoreDeletes;
+        _enableIgnoreRejecteds = enableIgnoreRejecteds;
         _enableForeignStateUpdateNotifications = enableForeignStateUpdateNotifications;
         _callback = callback;
         _operationTimeout = operationTimeoutSeconds;
@@ -1218,6 +1224,8 @@ static void (^shadowMqttMessageHandler)(NSObject *mqttClient, NSString *topic, N
                                     discardStaleUpdates:YES
                                           discardDeltas:NO
                                        discardDocuments:NO
+                                         discardDeletes:NO
+                                       discardRejecteds:NO
                                  updateOnForeignChanges:NO
                                        operationTimeout:10.0
                                                     QoS:AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce
@@ -1257,6 +1265,14 @@ static void (^shadowMqttMessageHandler)(NSObject *mqttClient, NSString *topic, N
                 if (numberOptionValue != nil) {
                     shadow.enableIgnoreDocuments = [numberOptionValue integerValue];
                 }
+                numberOptionValue = [options valueForKey:@"enableIgnoreDeletes"];
+                if (numberOptionValue != nil) {
+                    shadow.enableIgnoreDeletes = [numberOptionValue integerValue];
+                }
+                numberOptionValue = [options valueForKey:@"enableIgnoreRejecteds"];
+                if (numberOptionValue != nil) {
+                    shadow.enableIgnoreRejecteds = [numberOptionValue integerValue];
+                }
                 numberOptionValue = [options valueForKey:@"QoS"];
                 if (numberOptionValue != nil) {
                     shadow.qos = [numberOptionValue integerValue];
@@ -1276,12 +1292,17 @@ static void (^shadowMqttMessageHandler)(NSObject *mqttClient, NSString *topic, N
                                         operations:@[[NSNumber numberWithInteger:AWSIoTShadowOperationTypeUpdate]]
                                             statii:@[[NSNumber numberWithInteger:AWSIoTShadowOperationStatusTypeDocuments]] ];
             }
+            if (shadow.enableIgnoreDeletes == NO) {
+                NSArray * statii = shadow.enableIgnoreRejecteds ? @[[NSNumber numberWithInteger:AWSIoTShadowOperationStatusTypeAccepted]] : @[[NSNumber numberWithInteger:AWSIoTShadowOperationStatusTypeAccepted], [NSNumber numberWithInteger:AWSIoTShadowOperationStatusTypeRejected]];
+                [self createSubscriptionsForShadow:shadow
+                                        operations:@[[NSNumber numberWithInteger:AWSIoTShadowOperationTypeDelete]]
+                                            statii:statii];
+            }
+            NSArray * statii = shadow.enableIgnoreRejecteds ? @[[NSNumber numberWithInteger:AWSIoTShadowOperationStatusTypeAccepted]] : @[[NSNumber numberWithInteger:AWSIoTShadowOperationStatusTypeAccepted], [NSNumber numberWithInteger:AWSIoTShadowOperationStatusTypeRejected]];
             [self createSubscriptionsForShadow:shadow
                                     operations:@[[NSNumber numberWithInteger:AWSIoTShadowOperationTypeUpdate],
-                                                 [NSNumber numberWithInteger:AWSIoTShadowOperationTypeGet],
-                                                 [NSNumber numberWithInteger:AWSIoTShadowOperationTypeDelete]]
-                                        statii:@[[NSNumber numberWithInteger:AWSIoTShadowOperationStatusTypeAccepted],
-                                                 [NSNumber numberWithInteger:AWSIoTShadowOperationStatusTypeRejected]]];
+                                                 [NSNumber numberWithInteger:AWSIoTShadowOperationTypeGet]]
+                                        statii:statii];
             //
             // Persistently subscribe to the special topics for this shadow.
             //
