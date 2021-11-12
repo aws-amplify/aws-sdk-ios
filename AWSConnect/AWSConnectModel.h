@@ -80,6 +80,16 @@ typedef NS_ENUM(NSInteger, AWSConnectContactFlowType) {
     AWSConnectContactFlowTypeQueueTransfer,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectContactInitiationMethod) {
+    AWSConnectContactInitiationMethodUnknown,
+    AWSConnectContactInitiationMethodInbound,
+    AWSConnectContactInitiationMethodOutbound,
+    AWSConnectContactInitiationMethodTransfer,
+    AWSConnectContactInitiationMethodQueueTransfer,
+    AWSConnectContactInitiationMethodCallback,
+    AWSConnectContactInitiationMethodApi,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectCurrentMetricName) {
     AWSConnectCurrentMetricNameUnknown,
     AWSConnectCurrentMetricNameAgentsOnline,
@@ -113,8 +123,6 @@ typedef NS_ENUM(NSInteger, AWSConnectGrouping) {
     AWSConnectGroupingUnknown,
     AWSConnectGroupingQueue,
     AWSConnectGroupingChannel,
-    AWSConnectGroupingRoutingProfile,
-    AWSConnectGroupingInstance,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectHistoricalMetricName) {
@@ -131,8 +139,6 @@ typedef NS_ENUM(NSInteger, AWSConnectHistoricalMetricName) {
     AWSConnectHistoricalMetricNameContactsTransferredOut,
     AWSConnectHistoricalMetricNameContactsTransferredInFromQueue,
     AWSConnectHistoricalMetricNameContactsTransferredOutFromQueue,
-    AWSConnectHistoricalMetricNameContactsTransferredInByAgent,
-    AWSConnectHistoricalMetricNameContactsTransferredOutByAgent,
     AWSConnectHistoricalMetricNameContactsMissed,
     AWSConnectHistoricalMetricNameCallbackContactsHandled,
     AWSConnectHistoricalMetricNameApiContactsHandled,
@@ -474,14 +480,16 @@ typedef NS_ENUM(NSInteger, AWSConnectQuickConnectType) {
     AWSConnectQuickConnectTypePhoneNumber,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectReferenceStatus) {
+    AWSConnectReferenceStatusUnknown,
+    AWSConnectReferenceStatusApproved,
+    AWSConnectReferenceStatusRejected,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectReferenceType) {
     AWSConnectReferenceTypeUnknown,
     AWSConnectReferenceTypeUrl,
     AWSConnectReferenceTypeAttachment,
-    AWSConnectReferenceTypeNumber,
-    AWSConnectReferenceTypeString,
-    AWSConnectReferenceTypeDate,
-    AWSConnectReferenceTypeEmail,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectResourceType) {
@@ -525,7 +533,6 @@ typedef NS_ENUM(NSInteger, AWSConnectTrafficType) {
 typedef NS_ENUM(NSInteger, AWSConnectUnit) {
     AWSConnectUnitUnknown,
     AWSConnectUnitSeconds,
-    AWSConnectUnitMilliseconds,
     AWSConnectUnitCount,
     AWSConnectUnitPercent,
 };
@@ -543,6 +550,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
     AWSConnectVoiceRecordingTrackAll,
 };
 
+@class AWSConnectAgentInfo;
 @class AWSConnectAgentStatus;
 @class AWSConnectAgentStatusSummary;
 @class AWSConnectAnswerMachineDetectionConfig;
@@ -556,9 +564,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectAssociateRoutingProfileQueuesRequest;
 @class AWSConnectAssociateSecurityKeyRequest;
 @class AWSConnectAssociateSecurityKeyResponse;
+@class AWSConnectAttachmentReference;
 @class AWSConnectAttribute;
 @class AWSConnectChatMessage;
 @class AWSConnectChatStreamingConfiguration;
+@class AWSConnectContact;
 @class AWSConnectContactFlow;
 @class AWSConnectContactFlowSummary;
 @class AWSConnectCreateAgentStatusRequest;
@@ -601,6 +611,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDescribeAgentStatusResponse;
 @class AWSConnectDescribeContactFlowRequest;
 @class AWSConnectDescribeContactFlowResponse;
+@class AWSConnectDescribeContactRequest;
+@class AWSConnectDescribeContactResponse;
 @class AWSConnectDescribeHoursOfOperationRequest;
 @class AWSConnectDescribeHoursOfOperationResponse;
 @class AWSConnectDescribeInstanceAttributeRequest;
@@ -657,7 +669,6 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectHoursOfOperationSummary;
 @class AWSConnectHoursOfOperationTimeSlice;
 @class AWSConnectInstance;
-@class AWSConnectInstanceReference;
 @class AWSConnectInstanceStatusReason;
 @class AWSConnectInstanceStorageConfig;
 @class AWSConnectInstanceSummary;
@@ -676,6 +687,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectListBotsResponse;
 @class AWSConnectListContactFlowsRequest;
 @class AWSConnectListContactFlowsResponse;
+@class AWSConnectListContactReferencesRequest;
+@class AWSConnectListContactReferencesResponse;
 @class AWSConnectListHoursOfOperationsRequest;
 @class AWSConnectListHoursOfOperationsResponse;
 @class AWSConnectListInstanceAttributesRequest;
@@ -726,6 +739,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectProblemDetail;
 @class AWSConnectPromptSummary;
 @class AWSConnectQueue;
+@class AWSConnectQueueInfo;
 @class AWSConnectQueueQuickConnectConfig;
 @class AWSConnectQueueReference;
 @class AWSConnectQueueSummary;
@@ -733,13 +747,13 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectQuickConnectConfig;
 @class AWSConnectQuickConnectSummary;
 @class AWSConnectReference;
+@class AWSConnectReferenceSummary;
 @class AWSConnectResumeContactRecordingRequest;
 @class AWSConnectResumeContactRecordingResponse;
 @class AWSConnectRoutingProfile;
 @class AWSConnectRoutingProfileQueueConfig;
 @class AWSConnectRoutingProfileQueueConfigSummary;
 @class AWSConnectRoutingProfileQueueReference;
-@class AWSConnectRoutingProfileReference;
 @class AWSConnectRoutingProfileSummary;
 @class AWSConnectS3Config;
 @class AWSConnectSecurityKey;
@@ -771,6 +785,10 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectUpdateContactAttributesResponse;
 @class AWSConnectUpdateContactFlowContentRequest;
 @class AWSConnectUpdateContactFlowNameRequest;
+@class AWSConnectUpdateContactRequest;
+@class AWSConnectUpdateContactResponse;
+@class AWSConnectUpdateContactScheduleRequest;
+@class AWSConnectUpdateContactScheduleResponse;
 @class AWSConnectUpdateHoursOfOperationRequest;
 @class AWSConnectUpdateInstanceAttributeRequest;
 @class AWSConnectUpdateInstanceStorageConfigRequest;
@@ -793,6 +811,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectUpdateUserPhoneConfigRequest;
 @class AWSConnectUpdateUserRoutingProfileRequest;
 @class AWSConnectUpdateUserSecurityProfilesRequest;
+@class AWSConnectUrlReference;
 @class AWSConnectUseCase;
 @class AWSConnectUser;
 @class AWSConnectUserIdentityInfo;
@@ -800,6 +819,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectUserQuickConnectConfig;
 @class AWSConnectUserSummary;
 @class AWSConnectVoiceRecordingConfiguration;
+
+/**
+ <p>Information about the agent who accepted the contact.</p>
+ */
+@interface AWSConnectAgentInfo : AWSModel
+
+
+/**
+ <p>The timestamp when the contact was connected to the agent.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable connectedToAgentTimestamp;
+
+/**
+ <p>The identifier of the agent who accepted the contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+@end
 
 /**
  <p>Contains information about an agent status.</p>
@@ -838,7 +875,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectAgentStatusState state;
 
 /**
- <p>The tags used to organize, track, or control access for this resource.</p>
+ <p>One or more tags.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -1086,6 +1123,29 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>Information about the attachment reference if the <code>referenceType</code> is <code>ATTACHMENT</code>. Otherwise, null.</p>
+ */
+@interface AWSConnectAttachmentReference : AWSModel
+
+
+/**
+ <p>Identifier of the attachment reference.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>Status of an attachment reference type.</p>
+ */
+@property (nonatomic, assign) AWSConnectReferenceStatus status;
+
+/**
+ <p>Contains the location path of the attachment reference.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable value;
+
+@end
+
+/**
  <p>A toggle for an individual feature at the instance level.</p>
  */
 @interface AWSConnectAttribute : AWSModel
@@ -1105,6 +1165,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 /**
  <p>A chat message.</p>
+ Required parameters: [ContentType, Content]
  */
 @interface AWSConnectChatMessage : AWSModel
 
@@ -1132,6 +1193,84 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The Amazon Resource Name (ARN) of the standard Amazon SNS topic. The Amazon Resource Name (ARN) of the streaming endpoint that is used to publish real-time message streaming for chat conversations.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable streamingEndpointArn;
+
+@end
+
+/**
+ <p>Contains information about a contact.</p>
+ */
+@interface AWSConnectContact : AWSModel
+
+
+/**
+ <p>Information about the agent who accepted the contact.</p>
+ */
+@property (nonatomic, strong) AWSConnectAgentInfo * _Nullable agentInfo;
+
+/**
+ <p>The Amazon Resource Name (ARN) for the contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
+ <p>How the contact reached your contact center.</p>
+ */
+@property (nonatomic, assign) AWSConnectChannel channel;
+
+/**
+ <p>The description of the contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The timestamp when the customer endpoint disconnected from Amazon Connect.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable disconnectTimestamp;
+
+/**
+ <p>The identifier for the contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>If this contact is related to other contacts, this is the ID of the initial contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable initialContactId;
+
+/**
+ <p>Indicates how the contact was initiated.</p>
+ */
+@property (nonatomic, assign) AWSConnectContactInitiationMethod initiationMethod;
+
+/**
+ <p>The date and time this contact was initiated, in UTC time. For <code>INBOUND</code>, this is when the contact arrived. For <code>OUTBOUND</code>, this is when the agent began dialing. For <code>CALLBACK</code>, this is when the callback contact was created. For <code>TRANSFER</code> and <code>QUEUE_TRANSFER</code>, this is when the transfer was initiated. For <code>API</code>, this is when the request arrived.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable initiationTimestamp;
+
+/**
+ <p>The timestamp when contact was last updated.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastUpdateTimestamp;
+
+/**
+ <p>The name of the contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>If this contact is not the first contact, this is the ID of the previous contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable previousContactId;
+
+/**
+ <p>If this contact was queued, this contains information about the queue. </p>
+ */
+@property (nonatomic, strong) AWSConnectQueueInfo * _Nullable queueInfo;
+
+/**
+ <p>The timestamp, in Unix epoch time format, at which to start running the inbound flow. </p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable scheduledTimestamp;
 
 @end
 
@@ -1238,7 +1377,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectAgentStatusState state;
 
 /**
- <p>The tags used to organize, track, or control access for this resource.</p>
+ <p>One or more tags.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -1345,7 +1484,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>The tags used to organize, track, or control access for this resource.</p>
+ <p>One or more tags.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -1467,7 +1606,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectSourceType sourceType;
 
 /**
- <p>The tags used to organize, track, or control access for this resource.</p>
+ <p>One or more tags.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -1533,7 +1672,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable quickConnectIds;
 
 /**
- <p>The tags used to organize, track, or control access for this resource.</p>
+ <p>One or more tags.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -1584,7 +1723,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) AWSConnectQuickConnectConfig * _Nullable quickConnectConfig;
 
 /**
- <p>The tags used to organize, track, or control access for this resource.</p>
+ <p>One or more tags.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -1696,7 +1835,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable securityProfileName;
 
 /**
- <p>The tags used to organize, track, or control access for this resource.</p>
+ <p>One or more tags.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -1737,7 +1876,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable integrationAssociationId;
 
 /**
- <p>The tags used to organize, track, or control access for this resource.</p>
+ <p>One or more tags.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -2174,6 +2313,37 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectDescribeContactRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the initial contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDescribeContactResponse : AWSModel
+
+
+/**
+ <p>Information about the contact.</p>
+ */
+@property (nonatomic, strong) AWSConnectContact * _Nullable contact;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectDescribeHoursOfOperationRequest : AWSRequest
 
 
@@ -2519,19 +2689,9 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectChannel channel;
 
 /**
- <p>The instance reference.</p>
- */
-@property (nonatomic, strong) AWSConnectInstanceReference * _Nullable instanceReference;
-
-/**
  <p>Information about the queue for which metrics are returned.</p>
  */
 @property (nonatomic, strong) AWSConnectQueueReference * _Nullable queue;
-
-/**
- <p>The routing profile.</p>
- */
-@property (nonatomic, strong) AWSConnectRoutingProfileReference * _Nullable routingProfile;
 
 @end
 
@@ -2738,11 +2898,6 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The queues to use to filter the metrics. You can specify up to 100 queues per request.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable queues;
-
-/**
- <p>The filters used to sort routing profiles. </p>
- */
-@property (nonatomic, strong) NSArray<NSString *> * _Nullable routingProfiles;
 
 @end
 
@@ -3218,7 +3373,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>The tags used to organize, track, or control access for this resource.</p>
+ <p>One or more tags.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -3350,24 +3505,6 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>Relevant details why the instance was not successfully created. </p>
  */
 @property (nonatomic, strong) AWSConnectInstanceStatusReason * _Nullable statusReason;
-
-@end
-
-/**
- <p>The instance reference.</p>
- */
-@interface AWSConnectInstanceReference : AWSModel
-
-
-/**
- <p>The Amazon Resource Name (ARN) of the instance reference.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable arn;
-
-/**
- <p>The identifier of the instance reference.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable identifier;
 
 @end
 
@@ -3807,6 +3944,52 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectListContactReferencesRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the initial contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p><important><p>This is not expected to be set since the value returned in the previous response is always null.</p></important>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The type of reference.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable referenceTypes;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListContactReferencesResponse : AWSModel
+
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p><important><p>This is always returned as null in the response.</p></important>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Information about the contact flows.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectReferenceSummary *> * _Nullable referenceSummaryList;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectListHoursOfOperationsRequest : AWSRequest
 
 
@@ -3980,7 +4163,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The type of integration.</p>
+ <p/>
  */
 @property (nonatomic, assign) AWSConnectIntegrationType integrationType;
 
@@ -4044,7 +4227,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The Lambda function ARNs associated with the specified instance.</p>
+ <p>The Lambdafunction ARNs associated with the specified instance.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable lambdaFunctions;
 
@@ -4882,9 +5065,27 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectQueueStatus status;
 
 /**
- <p>The tags used to organize, track, or control access for this resource.</p>
+ <p>One or more tags.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ <p>If this contact was queued, this contains information about the queue. </p>
+ */
+@interface AWSConnectQueueInfo : AWSModel
+
+
+/**
+ <p>The timestamp when the contact was added to the queue.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable enqueueTimestamp;
+
+/**
+ <p>The identifier of the agent who accepted the contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
 
 @end
 
@@ -4922,11 +5123,6 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The identifier of the queue.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable identifier;
-
-/**
- <p>The type of queue.</p>
- */
-@property (nonatomic, assign) AWSConnectQueueType queueType;
 
 @end
 
@@ -4990,7 +5186,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable quickConnectId;
 
 /**
- <p>The tags used to organize, track, or control access for this resource.</p>
+ <p>One or more tags.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -5061,14 +5257,32 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>A valid URL.</p>
+ <p>The type of the reference. Only <code>URL</code> type can be added or updated on a contact.</p>
  */
 @property (nonatomic, assign) AWSConnectReferenceType types;
 
 /**
- <p>A formatted URL that displays to an agent in the Contact Control Panel (CCP)</p>
+ <p>A valid value for the reference. For example, for a URL reference, a formatted URL that is displayed to an agent in the Contact Control Panel (CCP).</p>
  */
 @property (nonatomic, strong) NSString * _Nullable value;
+
+@end
+
+/**
+ <p>Contains summary information about a reference. <code>ReferenceSummary</code> contains only one non null field between the URL and attachment based on the reference type.</p>
+ */
+@interface AWSConnectReferenceSummary : AWSModel
+
+
+/**
+ <p>Information about the attachment reference if the <code>referenceType</code> is <code>ATTACHMENT</code>. Otherwise, null.</p>
+ */
+@property (nonatomic, strong) AWSConnectAttachmentReference * _Nullable attachment;
+
+/**
+ <p>Information about Url reference if the <code>referenceType</code> is <code>URL</code>. Otherwise, null.</p>
+ */
+@property (nonatomic, strong) AWSConnectUrlReference * _Nullable url;
 
 @end
 
@@ -5234,24 +5448,6 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
- <p>The routing profile reference.</p>
- */
-@interface AWSConnectRoutingProfileReference : AWSModel
-
-
-/**
- <p>The Amazon Resource Name (ARN) of the routing profile reference.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable arn;
-
-/**
- <p>The identifier of the routing profile reference.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable identifier;
-
-@end
-
-/**
  <p>Contains summary information about a routing profile.</p>
  */
 @interface AWSConnectRoutingProfileSummary : AWSModel
@@ -5353,7 +5549,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable securityProfileName;
 
 /**
- <p>The tags used to organize, track, or control access for this resource.</p>
+ <p>One or more tags.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -5636,6 +5832,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP).</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSConnectReference *> * _Nullable references;
+
+/**
+ <p>The timestamp, in Unix Epoch seconds format, at which to start running the inbound contact flow. The scheduled time cannot be in the past. It must be within up to 6 days in future. </p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable scheduledTime;
 
 @end
 
@@ -5953,6 +6154,78 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectUpdateContactRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with your contact center.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The description of the contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The name of the contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP).</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSConnectReference *> * _Nullable references;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateContactResponse : AWSModel
+
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateContactScheduleRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The timestamp, in Unix Epoch seconds format, at which to start running the inbound contact flow. The scheduled time cannot be in the past. It must be within up to 6 days in future. </p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable scheduledTime;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateContactScheduleResponse : AWSModel
+
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectUpdateHoursOfOperationRequest : AWSRequest
 
 
@@ -5995,7 +6268,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The type of attribute.</p><note><p>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature, contact Amazon Web Services Support for allowlisting.</p></note>
+ <p>The type of attribute.</p><note><p>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature, contact AWS Support for allowlisting.</p></note>
  */
 @property (nonatomic, assign) AWSConnectInstanceAttributeType attributeType;
 
@@ -6488,6 +6761,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The identifier of the user account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userId;
+
+@end
+
+/**
+ <p>The URL reference.</p>
+ */
+@interface AWSConnectUrlReference : AWSModel
+
+
+/**
+ <p>Identifier of the URL reference.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>A valid URL.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable value;
 
 @end
 

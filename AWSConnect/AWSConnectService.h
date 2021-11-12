@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 
 /**
- <p>Amazon Connect is a cloud-based contact center solution that you use to set up and manage a customer contact center and provide reliable customer engagement at any scale.</p><p>Amazon Connect provides metrics and real-time reporting that enable you to optimize contact routing. You can also resolve customer issues more efficiently by getting customers in touch with the appropriate agents.</p><p>There are limits to the number of Amazon Connect resources that you can create. There are also limits to the number of requests that you can make per second. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p><p>You can connect programmatically to an Amazon Web Services service by using an endpoint. For a list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect Endpoints</a>.</p><note><p>Working with contact flows? Check out the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect Flow language</a>.</p></note>
+ <p>Amazon Connect is a cloud-based contact center solution that you use to set up and manage a customer contact center and provide reliable customer engagement at any scale.</p><p>Amazon Connect provides metrics and real-time reporting that enable you to optimize contact routing. You can also resolve customer issues more efficiently by getting customers in touch with the appropriate agents.</p><p>There are limits to the number of Amazon Connect resources that you can create. There are also limits to the number of requests that you can make per second. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p><p>You can connect programmatically to an AWS service by using an endpoint. For a list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect Endpoints</a>.</p><note><p>Working with contact flows? Check out the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect Flow language</a>.</p></note>
  */
 @interface AWSConnect : AWSService
 
@@ -457,7 +457,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)createInstance:(AWSConnectCreateInstanceRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateInstanceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates an Amazon Web Services resource association with an Amazon Connect instance.</p>
+ <p>Creates an AWS resource association with an Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the CreateIntegrationAssociation service method.
 
@@ -469,7 +469,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectCreateIntegrationAssociationResponse *> *)createIntegrationAssociation:(AWSConnectCreateIntegrationAssociationRequest *)request;
 
 /**
- <p>Creates an Amazon Web Services resource association with an Amazon Connect instance.</p>
+ <p>Creates an AWS resource association with an Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the CreateIntegrationAssociation service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -701,7 +701,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)deleteInstance:(AWSConnectDeleteInstanceRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes an Amazon Web Services resource association from an Amazon Connect instance. The association must not have any use cases associated with it.</p>
+ <p>Deletes an AWS resource association from an Amazon Connect instance. The association must not have any use cases associated with it.</p>
  
  @param request A container for the necessary parameters to execute the DeleteIntegrationAssociation service method.
 
@@ -712,7 +712,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask *)deleteIntegrationAssociation:(AWSConnectDeleteIntegrationAssociationRequest *)request;
 
 /**
- <p>Deletes an Amazon Web Services resource association from an Amazon Connect instance. The association must not have any use cases associated with it.</p>
+ <p>Deletes an AWS resource association from an Amazon Connect instance. The association must not have any use cases associated with it.</p>
  
  @param request A container for the necessary parameters to execute the DeleteIntegrationAssociation service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -856,6 +856,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectDescribeAgentStatusResponse
  */
 - (void)describeAgentStatus:(AWSConnectDescribeAgentStatusRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDescribeAgentStatusResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Describes the specified contact. </p><important><p>Contact information is available in Amazon Connect for 24 months, and then it is deleted.</p></important>
+ 
+ @param request A container for the necessary parameters to execute the DescribeContact service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectDescribeContactResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectDescribeContactRequest
+ @see AWSConnectDescribeContactResponse
+ */
+- (AWSTask<AWSConnectDescribeContactResponse *> *)describeContact:(AWSConnectDescribeContactRequest *)request;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Describes the specified contact. </p><important><p>Contact information is available in Amazon Connect for 24 months, and then it is deleted.</p></important>
+ 
+ @param request A container for the necessary parameters to execute the DescribeContact service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectDescribeContactRequest
+ @see AWSConnectDescribeContactResponse
+ */
+- (void)describeContact:(AWSConnectDescribeContactRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDescribeContactResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Describes the specified contact flow.</p><p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect Flow language</a>.</p>
@@ -1534,6 +1559,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listContactFlows:(AWSConnectListContactFlowsRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListContactFlowsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>For the specified <code>referenceTypes</code>, returns a list of references associated with the contact. </p>
+ 
+ @param request A container for the necessary parameters to execute the ListContactReferences service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectListContactReferencesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectListContactReferencesRequest
+ @see AWSConnectListContactReferencesResponse
+ */
+- (AWSTask<AWSConnectListContactReferencesResponse *> *)listContactReferences:(AWSConnectListContactReferencesRequest *)request;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>For the specified <code>referenceTypes</code>, returns a list of references associated with the contact. </p>
+ 
+ @param request A container for the necessary parameters to execute the ListContactReferences service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectListContactReferencesRequest
+ @see AWSConnectListContactReferencesResponse
+ */
+- (void)listContactReferences:(AWSConnectListContactReferencesRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListContactReferencesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Provides information about the hours of operation for the specified Amazon Connect instance.</p><p>For more information about hours of operation, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-hours-operation.html">Set the Hours of Operation for a Queue</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ListHoursOfOperations service method.
@@ -1634,7 +1684,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listInstances:(AWSConnectListInstancesRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListInstancesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Provides summary information about the Amazon Web Services resource associations for the specified Amazon Connect instance.</p>
+ <p>Provides summary information about the AWS resource associations for the specified Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the ListIntegrationAssociations service method.
 
@@ -1646,7 +1696,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectListIntegrationAssociationsResponse *> *)listIntegrationAssociations:(AWSConnectListIntegrationAssociationsRequest *)request;
 
 /**
- <p>Provides summary information about the Amazon Web Services resource associations for the specified Amazon Connect instance.</p>
+ <p>Provides summary information about the AWS resource associations for the specified Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the ListIntegrationAssociations service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1934,7 +1984,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listSecurityProfilePermissions:(AWSConnectListSecurityProfilePermissionsRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListSecurityProfilePermissionsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Provides summary information about the security profiles for the specified Amazon Connect instance.</p><p>For more information about security profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html">Security Profiles</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ <p>Provides summary information about the security profiles for the specified Amazon Connect instance.</p><p>For more information about security profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html">Security Profiles</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ListSecurityProfiles service method.
 
@@ -1946,7 +1996,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectListSecurityProfilesResponse *> *)listSecurityProfiles:(AWSConnectListSecurityProfilesRequest *)request;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Provides summary information about the security profiles for the specified Amazon Connect instance.</p><p>For more information about security profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html">Security Profiles</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ <p>Provides summary information about the security profiles for the specified Amazon Connect instance.</p><p>For more information about security profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html">Security Profiles</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ListSecurityProfiles service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2184,7 +2234,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)startOutboundVoiceContact:(AWSConnectStartOutboundVoiceContactRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectStartOutboundVoiceContactResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Initiates a contact flow to start a new task.</p>
+ <p>Initiates a contact flow to start a new task immediately or at a future date and time.</p>
  
  @param request A container for the necessary parameters to execute the StartTaskContact service method.
 
@@ -2196,7 +2246,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectStartTaskContactResponse *> *)startTaskContact:(AWSConnectStartTaskContactRequest *)request;
 
 /**
- <p>Initiates a contact flow to start a new task.</p>
+ <p>Initiates a contact flow to start a new task immediately or at a future date and time.</p>
  
  @param request A container for the necessary parameters to execute the StartTaskContact service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2375,6 +2425,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)updateAgentStatus:(AWSConnectUpdateAgentStatusRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Adds or updates user defined contact information associated with the specified contact. At least one field to be updated must be present in the request.</p><important><p>You can add or update user-defined contact information for both ongoing and completed contacts.</p></important>
+ 
+ @param request A container for the necessary parameters to execute the UpdateContact service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectUpdateContactResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectUpdateContactRequest
+ @see AWSConnectUpdateContactResponse
+ */
+- (AWSTask<AWSConnectUpdateContactResponse *> *)updateContact:(AWSConnectUpdateContactRequest *)request;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Adds or updates user defined contact information associated with the specified contact. At least one field to be updated must be present in the request.</p><important><p>You can add or update user-defined contact information for both ongoing and completed contacts.</p></important>
+ 
+ @param request A container for the necessary parameters to execute the UpdateContact service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectUpdateContactRequest
+ @see AWSConnectUpdateContactResponse
+ */
+- (void)updateContact:(AWSConnectUpdateContactRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectUpdateContactResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Creates or updates user-defined contact attributes associated with the specified contact.</p><p>You can create or update user-defined attributes for both ongoing and completed contacts. For example, while the call is active, you can update the customer's name or the reason the customer called. You can add notes about steps that the agent took during the call that display to the next agent that takes the call. You can also update attributes for a contact using data from your CRM application and save the data with the contact in Amazon Connect. You could also flag calls for additional analysis, such as legal review or to identify abusive callers.</p><p>Contact attributes are available in Amazon Connect for 24 months, and are then deleted. For information about CTR retention and the maximum size of the CTR attributes section, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>. </p><p><b>Important:</b> You cannot use the operation to update attributes for contacts that occurred prior to the release of the API, which was September 12, 2018. You can update attributes only for contacts that started after the release of the API. If you attempt to update attributes for a contact that occurred prior to the release of the API, a 400 error is returned. This applies also to queued callbacks that were initiated prior to the release of the API but are still active in your instance.</p>
  
  @param request A container for the necessary parameters to execute the UpdateContactAttributes service method.
@@ -2442,6 +2517,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectUpdateContactFlowNameRequest
  */
 - (void)updateContactFlowName:(AWSConnectUpdateContactFlowNameRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Updates the scheduled time of a task contact that is already scheduled.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateContactSchedule service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectUpdateContactScheduleResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorLimitExceeded`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectUpdateContactScheduleRequest
+ @see AWSConnectUpdateContactScheduleResponse
+ */
+- (AWSTask<AWSConnectUpdateContactScheduleResponse *> *)updateContactSchedule:(AWSConnectUpdateContactScheduleRequest *)request;
+
+/**
+ <p>Updates the scheduled time of a task contact that is already scheduled.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateContactSchedule service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorLimitExceeded`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectUpdateContactScheduleRequest
+ @see AWSConnectUpdateContactScheduleResponse
+ */
+- (void)updateContactSchedule:(AWSConnectUpdateContactScheduleRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectUpdateContactScheduleResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Updates the hours of operation.</p>
