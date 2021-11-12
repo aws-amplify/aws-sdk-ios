@@ -16,7 +16,7 @@
     <a title="AWSKinesisVideoArchivedMedia  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSKinesisVideoArchivedMedia 2.26.3 Docs</a> (58% documented)</p>
+        <p><a href="index.html">AWSKinesisVideoArchivedMedia 2.26.4 Docs</a> (54% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKinesisVideoArchivedMedia.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -43,10 +43,34 @@
                 <a href="Classes/AWSKinesisVideoArchivedMedia.html">AWSKinesisVideoArchivedMedia</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSKinesisVideoArchivedMediaClipFragmentSelector.html">AWSKinesisVideoArchivedMediaClipFragmentSelector</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSKinesisVideoArchivedMediaClipTimestampRange.html">AWSKinesisVideoArchivedMediaClipTimestampRange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSKinesisVideoArchivedMediaDASHFragmentSelector.html">AWSKinesisVideoArchivedMediaDASHFragmentSelector</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSKinesisVideoArchivedMediaDASHTimestampRange.html">AWSKinesisVideoArchivedMediaDASHTimestampRange</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSKinesisVideoArchivedMediaFragment.html">AWSKinesisVideoArchivedMediaFragment</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSKinesisVideoArchivedMediaFragmentSelector.html">AWSKinesisVideoArchivedMediaFragmentSelector</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSKinesisVideoArchivedMediaGetClipInput.html">AWSKinesisVideoArchivedMediaGetClipInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSKinesisVideoArchivedMediaGetClipOutput.html">AWSKinesisVideoArchivedMediaGetClipOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSKinesisVideoArchivedMediaGetDASHStreamingSessionURLInput.html">AWSKinesisVideoArchivedMediaGetDASHStreamingSessionURLInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSKinesisVideoArchivedMediaGetDASHStreamingSessionURLOutput.html">AWSKinesisVideoArchivedMediaGetDASHStreamingSessionURLOutput</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLInput.html">AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLInput</a>
@@ -101,7 +125,22 @@
             <a href="Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Enums/AWSKinesisVideoArchivedMediaDiscontinuityMode.html">AWSKinesisVideoArchivedMediaDiscontinuityMode</a>
+                <a href="Enums/AWSKinesisVideoArchivedMediaClipFragmentSelectorType.html">AWSKinesisVideoArchivedMediaClipFragmentSelectorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSKinesisVideoArchivedMediaContainerFormat.html">AWSKinesisVideoArchivedMediaContainerFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSKinesisVideoArchivedMediaDASHDisplayFragmentNumber.html">AWSKinesisVideoArchivedMediaDASHDisplayFragmentNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSKinesisVideoArchivedMediaDASHDisplayFragmentTimestamp.html">AWSKinesisVideoArchivedMediaDASHDisplayFragmentTimestamp</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSKinesisVideoArchivedMediaDASHFragmentSelectorType.html">AWSKinesisVideoArchivedMediaDASHFragmentSelectorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSKinesisVideoArchivedMediaDASHPlaybackMode.html">AWSKinesisVideoArchivedMediaDASHPlaybackMode</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSKinesisVideoArchivedMediaErrorType.html">AWSKinesisVideoArchivedMediaErrorType</a>
@@ -110,10 +149,16 @@
                 <a href="Enums/AWSKinesisVideoArchivedMediaFragmentSelectorType.html">AWSKinesisVideoArchivedMediaFragmentSelectorType</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/AWSKinesisVideoArchivedMediaHLSDiscontinuityMode.html">AWSKinesisVideoArchivedMediaHLSDiscontinuityMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSKinesisVideoArchivedMediaHLSDisplayFragmentTimestamp.html">AWSKinesisVideoArchivedMediaHLSDisplayFragmentTimestamp</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/AWSKinesisVideoArchivedMediaHLSFragmentSelectorType.html">AWSKinesisVideoArchivedMediaHLSFragmentSelectorType</a>
               </li>
               <li class="nav-group-task">
-                <a href="Enums/AWSKinesisVideoArchivedMediaPlaybackMode.html">AWSKinesisVideoArchivedMediaPlaybackMode</a>
+                <a href="Enums/AWSKinesisVideoArchivedMediaHLSPlaybackMode.html">AWSKinesisVideoArchivedMediaHLSPlaybackMode</a>
               </li>
             </ul>
           </li>
@@ -549,7 +594,7 @@ fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-10-28)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-11-12)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
