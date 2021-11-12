@@ -561,6 +561,69 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMessage.h",
+      "line": 22,
+      "symbol": "AWSIoTMessage",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMessage.h",
+      "line": 24,
+      "symbol": "AWSIoTMessage.type",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMessage.h",
+      "line": 25,
+      "symbol": "AWSIoTMessage.qos",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMessage.h",
+      "line": 26,
+      "symbol": "AWSIoTMessage.retainFlag",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMessage.h",
+      "line": 27,
+      "symbol": "AWSIoTMessage.isDuplicate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMessage.h",
+      "line": 28,
+      "symbol": "AWSIoTMessage.rawData",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMessage.h",
+      "line": 29,
+      "symbol": "AWSIoTMessage.messageData",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMessage.h",
+      "line": 31,
+      "symbol": "AWSIoTMessage.topic",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMessage.h",
+      "line": 32,
+      "symbol": "AWSIoTMessage.message",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTModel.h",
       "line": 22,
       "symbol": "AWSIoTErrorDomain",
