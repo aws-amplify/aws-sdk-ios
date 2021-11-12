@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.26.4
+
 ### Features for next release
 
 - **AWSIoT**
