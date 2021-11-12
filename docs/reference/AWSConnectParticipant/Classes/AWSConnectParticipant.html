@@ -17,7 +17,7 @@
     <a title="AWSConnectParticipant Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSConnectParticipant 2.26.3 Docs</a> (66% documented)</p>
+        <p><a href="../index.html">AWSConnectParticipant 2.26.4 Docs</a> (64% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSConnectParticipant.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -549,7 +549,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Allows you to confirm that the attachment has been uploaded using the pre-signed URL provided in StartAttachmentUpload API. </p>
+                        <p>Allows you to confirm that the attachment has been uploaded using the pre-signed URL provided in StartAttachmentUpload API. </p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectParticipantCompleteAttachmentUploadRequest</p>
@@ -614,7 +614,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Allows you to confirm that the attachment has been uploaded using the pre-signed URL provided in StartAttachmentUpload API. </p>
+                        <p>Allows you to confirm that the attachment has been uploaded using the pre-signed URL provided in StartAttachmentUpload API. </p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectParticipantCompleteAttachmentUploadRequest</p>
@@ -695,7 +695,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Creates the participant&rsquo;s connection. Note that ParticipantToken is used for invoking this API instead of ConnectionToken.</p><p>The participant token is valid for the lifetime of the participant – until they are part of a contact.</p><p>The response URL for <code>WEBSOCKET</code> Type has a connect expiry timeout of 100s. Clients must manually connect to the returned websocket URL and subscribe to the desired topic. </p><p>For chat, you need to publish the following on the established websocket connection:</p><p><code>{&quot;topic&quot;:&quot;aws/subscribe&quot;,&quot;content&quot;:{&quot;topics&quot;:[&quot;aws/chat&quot;]}}</code></p><p>Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter, clients need to call this API again to obtain a new websocket URL and perform the same steps as before.</p><note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p></note></p>
+                        <p><p>Creates the participant&rsquo;s connection. Note that ParticipantToken is used for invoking this API instead of ConnectionToken.</p><p>The participant token is valid for the lifetime of the participant – until they are part of a contact.</p><p>The response URL for <code>WEBSOCKET</code> Type has a connect expiry timeout of 100s. Clients must manually connect to the returned websocket URL and subscribe to the desired topic. </p><p>For chat, you need to publish the following on the established websocket connection:</p><p><code>{&quot;topic&quot;:&quot;aws/subscribe&quot;,&quot;content&quot;:{&quot;topics&quot;:[&quot;aws/chat&quot;]}}</code></p><p>Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter, clients need to call this API again to obtain a new websocket URL and perform the same steps as before.</p><p><b>Message streaming support</b>: This API can also be used together with the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html">StartContactStreaming</a> API to create a participant connection for chat contacts that are not using a websocket. For more information about message streaming, <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html">Enable real-time chat message streaming</a> in the <i>Amazon Connect Administrator Guide</i>.</p><p><b>Feature specifications</b>: For information about feature specifications, such as the allowed number of open websocket connections per participant, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>. </p><note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectParticipantCreateParticipantConnectionRequest</p>
@@ -760,7 +760,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Creates the participant&rsquo;s connection. Note that ParticipantToken is used for invoking this API instead of ConnectionToken.</p><p>The participant token is valid for the lifetime of the participant – until they are part of a contact.</p><p>The response URL for <code>WEBSOCKET</code> Type has a connect expiry timeout of 100s. Clients must manually connect to the returned websocket URL and subscribe to the desired topic. </p><p>For chat, you need to publish the following on the established websocket connection:</p><p><code>{&quot;topic&quot;:&quot;aws/subscribe&quot;,&quot;content&quot;:{&quot;topics&quot;:[&quot;aws/chat&quot;]}}</code></p><p>Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter, clients need to call this API again to obtain a new websocket URL and perform the same steps as before.</p><note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p></note></p>
+                        <p><p>Creates the participant&rsquo;s connection. Note that ParticipantToken is used for invoking this API instead of ConnectionToken.</p><p>The participant token is valid for the lifetime of the participant – until they are part of a contact.</p><p>The response URL for <code>WEBSOCKET</code> Type has a connect expiry timeout of 100s. Clients must manually connect to the returned websocket URL and subscribe to the desired topic. </p><p>For chat, you need to publish the following on the established websocket connection:</p><p><code>{&quot;topic&quot;:&quot;aws/subscribe&quot;,&quot;content&quot;:{&quot;topics&quot;:[&quot;aws/chat&quot;]}}</code></p><p>Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter, clients need to call this API again to obtain a new websocket URL and perform the same steps as before.</p><p><b>Message streaming support</b>: This API can also be used together with the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html">StartContactStreaming</a> API to create a participant connection for chat contacts that are not using a websocket. For more information about message streaming, <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html">Enable real-time chat message streaming</a> in the <i>Amazon Connect Administrator Guide</i>.</p><p><b>Feature specifications</b>: For information about feature specifications, such as the allowed number of open websocket connections per participant, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>. </p><note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectParticipantCreateParticipantConnectionRequest</p>
@@ -987,7 +987,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Provides a pre-signed URL for download of a completed attachment. This is an asynchronous API for use with active contacts.</p>
+                        <p>Provides a pre-signed URL for download of a completed attachment. This is an asynchronous API for use with active contacts.</p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectParticipantGetAttachmentRequest</p>
@@ -1052,7 +1052,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Provides a pre-signed URL for download of a completed attachment. This is an asynchronous API for use with active contacts.</p>
+                        <p>Provides a pre-signed URL for download of a completed attachment. This is an asynchronous API for use with active contacts.</p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectParticipantGetAttachmentRequest</p>
@@ -1414,7 +1414,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Sends a message. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p><note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p></note></p>
+                        <p>Sends a message. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectParticipantSendMessageRequest</p>
@@ -1478,7 +1478,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Sends a message. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p><note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p></note></p>
+                        <p>Sends a message. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectParticipantSendMessageRequest</p>
@@ -1555,7 +1555,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Provides a pre-signed Amazon S3 URL in response for uploading the file directly to S3.</p>
+                        <p>Provides a pre-signed Amazon S3 URL in response for uploading the file directly to S3.</p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectParticipantStartAttachmentUploadRequest</p>
@@ -1620,7 +1620,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Provides a pre-signed Amazon S3 URL in response for uploading the file directly to S3.</p>
+                        <p>Provides a pre-signed Amazon S3 URL in response for uploading the file directly to S3.</p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectParticipantStartAttachmentUploadRequest</p>
@@ -1692,7 +1692,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-10-28)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-11-12)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
