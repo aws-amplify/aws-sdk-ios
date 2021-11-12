@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSTextractNotificationChannel Class Reference</title>
+    <title>AWSTextractStartExpenseAnalysisRequest Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSTextractNotificationChannel" class="dashAnchor"></a>
-    <a title="AWSTextractNotificationChannel Class Reference"></a>
+    <a name="//apple_ref/objc/Class/AWSTextractStartExpenseAnalysisRequest" class="dashAnchor"></a>
+    <a title="AWSTextractStartExpenseAnalysisRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSTextract 2.26.4 Docs</a> (72% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSTextract Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        AWSTextractNotificationChannel Class Reference
+        AWSTextractStartExpenseAnalysisRequest Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -219,23 +219,20 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSTextractNotificationChannel</h1>
+            <h1>AWSTextractStartExpenseAnalysisRequest</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTextractNotificationChannel</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTextractStartExpenseAnalysisRequest</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTextractNotificationChannel</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTextractStartExpenseAnalysisRequest</span></code></pre>
 
                 </div>
               </div>
-            <p>The Amazon Simple Notification Service (Amazon SNS) topic to which Amazon Textract publishes the completion status of an asynchronous document operation, such as <a>StartDocumentTextDetection</a>. </p>
-
-<p>Required parameters: [SNSTopicArn, RoleArn]</p>
-
+            
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -243,9 +240,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSTextractNotificationChannel(py)roleArn"></a>
-                    <a name="//apple_ref/objc/Property/roleArn" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTextractNotificationChannel(py)roleArn">roleArn</a>
+                    <a name="/c:objc(cs)AWSTextractStartExpenseAnalysisRequest(py)clientRequestToken"></a>
+                    <a name="//apple_ref/objc/Property/clientRequestToken" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractStartExpenseAnalysisRequest(py)clientRequestToken">clientRequestToken</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -253,19 +250,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The Amazon Resource Name (ARN) of an IAM role that gives Amazon Textract publishing permissions to the Amazon SNS topic. </p>
+                        <p>The idempotent token that&rsquo;s used to identify the start request. If you use the same token with multiple <code>StartDocumentTextDetection</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidentally started more than once. For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/api-async.html">Calling Amazon Textract Asynchronous Operations</a></p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">roleArn</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">clientRequestToken</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">roleArn</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">clientRequestToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -275,9 +272,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSTextractNotificationChannel(py)SNSTopicArn"></a>
-                    <a name="//apple_ref/objc/Property/SNSTopicArn" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTextractNotificationChannel(py)SNSTopicArn">SNSTopicArn</a>
+                    <a name="/c:objc(cs)AWSTextractStartExpenseAnalysisRequest(py)documentLocation"></a>
+                    <a name="//apple_ref/objc/Property/documentLocation" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractStartExpenseAnalysisRequest(py)documentLocation">documentLocation</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -285,19 +282,147 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The Amazon SNS topic that Amazon Textract posts the completion status to.</p>
+                        <p>The location of the document to be processed.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">SNSTopicArn</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSTextractDocumentLocation.html">AWSTextractDocumentLocation</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">documentLocation</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">snsTopicArn</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">documentLocation</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTextractDocumentLocation.html">AWSTextractDocumentLocation</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTextractStartExpenseAnalysisRequest(py)jobTag"></a>
+                    <a name="//apple_ref/objc/Property/jobTag" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractStartExpenseAnalysisRequest(py)jobTag">jobTag</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An identifier you specify that&rsquo;s included in the completion notification published to the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify the type of document that the completion notification corresponds to (such as a tax form or a receipt).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">jobTag</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">jobTag</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTextractStartExpenseAnalysisRequest(py)KMSKeyId"></a>
+                    <a name="//apple_ref/objc/Property/KMSKeyId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractStartExpenseAnalysisRequest(py)KMSKeyId">KMSKeyId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The KMS key used to encrypt the inference results. This can be in either Key ID or Key Alias format. When a KMS key is provided, the KMS key will be used for server-side encryption of the objects in the customer bucket. When this parameter is not enabled, the result will be encrypted server side,using SSE-S3.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">KMSKeyId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">kmsKeyId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTextractStartExpenseAnalysisRequest(py)notificationChannel"></a>
+                    <a name="//apple_ref/objc/Property/notificationChannel" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractStartExpenseAnalysisRequest(py)notificationChannel">notificationChannel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The Amazon SNS topic ARN that you want Amazon Textract to publish the completion status of the operation to. </p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSTextractNotificationChannel.html">AWSTextractNotificationChannel</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">notificationChannel</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">notificationChannel</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTextractNotificationChannel.html">AWSTextractNotificationChannel</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTextractStartExpenseAnalysisRequest(py)outputConfig"></a>
+                    <a name="//apple_ref/objc/Property/outputConfig" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractStartExpenseAnalysisRequest(py)outputConfig">outputConfig</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets if the output will go to a customer defined bucket. By default, Amazon Textract will save the results internally to be accessed by the <code>GetExpenseAnalysis</code> operation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSTextractOutputConfig.html">AWSTextractOutputConfig</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">outputConfig</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">outputConfig</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTextractOutputConfig.html">AWSTextractOutputConfig</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>

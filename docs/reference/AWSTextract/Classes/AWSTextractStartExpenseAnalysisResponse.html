@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSTextractNotificationChannel Class Reference</title>
+    <title>AWSTextractStartExpenseAnalysisResponse Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSTextractNotificationChannel" class="dashAnchor"></a>
-    <a title="AWSTextractNotificationChannel Class Reference"></a>
+    <a name="//apple_ref/objc/Class/AWSTextractStartExpenseAnalysisResponse" class="dashAnchor"></a>
+    <a title="AWSTextractStartExpenseAnalysisResponse Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSTextract 2.26.4 Docs</a> (72% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSTextract Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        AWSTextractNotificationChannel Class Reference
+        AWSTextractStartExpenseAnalysisResponse Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -219,23 +219,20 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSTextractNotificationChannel</h1>
+            <h1>AWSTextractStartExpenseAnalysisResponse</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTextractNotificationChannel</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTextractStartExpenseAnalysisResponse</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTextractNotificationChannel</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTextractStartExpenseAnalysisResponse</span></code></pre>
 
                 </div>
               </div>
-            <p>The Amazon Simple Notification Service (Amazon SNS) topic to which Amazon Textract publishes the completion status of an asynchronous document operation, such as <a>StartDocumentTextDetection</a>. </p>
-
-<p>Required parameters: [SNSTopicArn, RoleArn]</p>
-
+            
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -243,9 +240,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSTextractNotificationChannel(py)roleArn"></a>
-                    <a name="//apple_ref/objc/Property/roleArn" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTextractNotificationChannel(py)roleArn">roleArn</a>
+                    <a name="/c:objc(cs)AWSTextractStartExpenseAnalysisResponse(py)jobId"></a>
+                    <a name="//apple_ref/objc/Property/jobId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractStartExpenseAnalysisResponse(py)jobId">jobId</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -253,51 +250,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The Amazon Resource Name (ARN) of an IAM role that gives Amazon Textract publishing permissions to the Amazon SNS topic. </p>
+                        <p>A unique identifier for the text detection job. The <code>JobId</code> is returned from <code>StartExpenseAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">roleArn</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">jobId</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">roleArn</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)AWSTextractNotificationChannel(py)SNSTopicArn"></a>
-                    <a name="//apple_ref/objc/Property/SNSTopicArn" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTextractNotificationChannel(py)SNSTopicArn">SNSTopicArn</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The Amazon SNS topic that Amazon Textract posts the completion status to.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">SNSTopicArn</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">snsTopicArn</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">jobId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>

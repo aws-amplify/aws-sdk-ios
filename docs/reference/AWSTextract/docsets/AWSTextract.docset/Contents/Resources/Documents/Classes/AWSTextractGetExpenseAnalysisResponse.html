@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSTextractJobStatus Enumeration Reference</title>
+    <title>AWSTextractGetExpenseAnalysisResponse Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Enum/AWSTextractJobStatus" class="dashAnchor"></a>
-    <a title="AWSTextractJobStatus Enumeration Reference"></a>
+    <a name="//apple_ref/objc/Class/AWSTextractGetExpenseAnalysisResponse" class="dashAnchor"></a>
+    <a title="AWSTextractGetExpenseAnalysisResponse Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSTextract 2.26.4 Docs</a> (72% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSTextract Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        AWSTextractJobStatus Enumeration Reference
+        AWSTextractGetExpenseAnalysisResponse Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -219,27 +219,20 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSTextractJobStatus</h1>
+            <h1>AWSTextractGetExpenseAnalysisResponse</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSTextractJobStatus</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">AWSTextractJobStatusUnknown</span><span class="p">,</span>
-    <span class="n">AWSTextractJobStatusInProgress</span><span class="p">,</span>
-    <span class="n">AWSTextractJobStatusSucceeded</span><span class="p">,</span>
-    <span class="n">AWSTextractJobStatusFailed</span><span class="p">,</span>
-    <span class="n">AWSTextractJobStatusPartialSuccess</span><span class="p">,</span>
-<span class="p">}</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTextractGetExpenseAnalysisResponse</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTextractJobStatus</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTextractGetExpenseAnalysisResponse</span></code></pre>
 
                 </div>
               </div>
-            <p>Undocumented</p>
-
+            
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -247,9 +240,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@AWSTextractJobStatus@AWSTextractJobStatusUnknown"></a>
-                    <a name="//apple_ref/objc/Case/AWSTextractJobStatusUnknown" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSTextractJobStatus@AWSTextractJobStatusUnknown">AWSTextractJobStatusUnknown</a>
+                    <a name="/c:objc(cs)AWSTextractGetExpenseAnalysisResponse(py)analyzeExpenseModelVersion"></a>
+                    <a name="//apple_ref/objc/Property/analyzeExpenseModelVersion" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractGetExpenseAnalysisResponse(py)analyzeExpenseModelVersion">analyzeExpenseModelVersion</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -257,19 +250,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The current model version of AnalyzeExpense.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSTextractJobStatusUnknown</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">analyzeExpenseModelVersion</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unknown</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">analyzeExpenseModelVersion</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -279,9 +272,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@AWSTextractJobStatus@AWSTextractJobStatusInProgress"></a>
-                    <a name="//apple_ref/objc/Case/AWSTextractJobStatusInProgress" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSTextractJobStatus@AWSTextractJobStatusInProgress">AWSTextractJobStatusInProgress</a>
+                    <a name="/c:objc(cs)AWSTextractGetExpenseAnalysisResponse(py)documentMetadata"></a>
+                    <a name="//apple_ref/objc/Property/documentMetadata" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractGetExpenseAnalysisResponse(py)documentMetadata">documentMetadata</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -289,19 +282,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Information about a document that Amazon Textract processed. <code>DocumentMetadata</code> is returned in every page of paginated responses from an Amazon Textract operation.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSTextractJobStatusInProgress</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSTextractDocumentMetadata.html">AWSTextractDocumentMetadata</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">documentMetadata</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">inProgress</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">documentMetadata</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTextractDocumentMetadata.html">AWSTextractDocumentMetadata</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -311,9 +304,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@AWSTextractJobStatus@AWSTextractJobStatusSucceeded"></a>
-                    <a name="//apple_ref/objc/Case/AWSTextractJobStatusSucceeded" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSTextractJobStatus@AWSTextractJobStatusSucceeded">AWSTextractJobStatusSucceeded</a>
+                    <a name="/c:objc(cs)AWSTextractGetExpenseAnalysisResponse(py)expenseDocuments"></a>
+                    <a name="//apple_ref/objc/Property/expenseDocuments" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractGetExpenseAnalysisResponse(py)expenseDocuments">expenseDocuments</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -321,19 +314,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The expenses detected by Amazon Textract.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSTextractJobStatusSucceeded</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/AWSTextractExpenseDocument.html">AWSTextractExpenseDocument</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">expenseDocuments</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">succeeded</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">expenseDocuments</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/AWSTextractExpenseDocument.html">AWSTextractExpenseDocument</a></span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -343,9 +336,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@AWSTextractJobStatus@AWSTextractJobStatusFailed"></a>
-                    <a name="//apple_ref/objc/Case/AWSTextractJobStatusFailed" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSTextractJobStatus@AWSTextractJobStatusFailed">AWSTextractJobStatusFailed</a>
+                    <a name="/c:objc(cs)AWSTextractGetExpenseAnalysisResponse(py)jobStatus"></a>
+                    <a name="//apple_ref/objc/Property/jobStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractGetExpenseAnalysisResponse(py)jobStatus">jobStatus</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -353,19 +346,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The current status of the text detection job.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSTextractJobStatusFailed</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSTextractJobStatus.html">AWSTextractJobStatus</a></span> <span class="n">jobStatus</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">failed</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">jobStatus</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSTextractJobStatus.html">AWSTextractJobStatus</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -375,9 +368,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@AWSTextractJobStatus@AWSTextractJobStatusPartialSuccess"></a>
-                    <a name="//apple_ref/objc/Case/AWSTextractJobStatusPartialSuccess" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSTextractJobStatus@AWSTextractJobStatusPartialSuccess">AWSTextractJobStatusPartialSuccess</a>
+                    <a name="/c:objc(cs)AWSTextractGetExpenseAnalysisResponse(py)nextToken"></a>
+                    <a name="//apple_ref/objc/Property/nextToken" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractGetExpenseAnalysisResponse(py)nextToken">nextToken</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -385,19 +378,83 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>If the response is truncated, Amazon Textract returns this token. You can use this token in the subsequent request to retrieve the next set of text-detection results.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSTextractJobStatusPartialSuccess</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">nextToken</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">partialSuccess</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">nextToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTextractGetExpenseAnalysisResponse(py)statusMessage"></a>
+                    <a name="//apple_ref/objc/Property/statusMessage" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractGetExpenseAnalysisResponse(py)statusMessage">statusMessage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns if the detection job could not be completed. Contains explanation for what error occured. </p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">statusMessage</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">statusMessage</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTextractGetExpenseAnalysisResponse(py)warnings"></a>
+                    <a name="//apple_ref/objc/Property/warnings" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractGetExpenseAnalysisResponse(py)warnings">warnings</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A list of warnings that occurred during the text-detection operation for the document.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/AWSTextractWarning.html">AWSTextractWarning</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">warnings</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">warnings</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/AWSTextractWarning.html">AWSTextractWarning</a></span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
