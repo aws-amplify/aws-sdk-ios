@@ -2,11 +2,14 @@
 
 ## Unreleased
 
--Features for next release
+### Features for next release
+### New features
+- **AWSCore**
+  - Support for `ap-southeast-3` - Asia Pacific (Jakarta)
 
 ## 2.26.4
 
-### Features for next release
+### Bug Fixes
 
 - **AWSIoT**
   - fix(AWSIoT): adds back Message type ([PR #3852](https://github.com/aws-amplify/aws-sdk-ios/pull/3852))
