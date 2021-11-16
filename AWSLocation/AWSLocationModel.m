@@ -997,6 +997,9 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
         if ([value caseInsensitiveCompare:@"DistanceBased"] == NSOrderedSame) {
             return @(AWSLocationPositionFilteringDistanceBased);
         }
+        if ([value caseInsensitiveCompare:@"AccuracyBased"] == NSOrderedSame) {
+            return @(AWSLocationPositionFilteringAccuracyBased);
+        }
         return @(AWSLocationPositionFilteringUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1004,6 +1007,8 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
                 return @"TimeBased";
             case AWSLocationPositionFilteringDistanceBased:
                 return @"DistanceBased";
+            case AWSLocationPositionFilteringAccuracyBased:
+                return @"AccuracyBased";
             default:
                 return nil;
         }
@@ -1577,6 +1582,9 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
         if ([value caseInsensitiveCompare:@"DistanceBased"] == NSOrderedSame) {
             return @(AWSLocationPositionFilteringDistanceBased);
         }
+        if ([value caseInsensitiveCompare:@"AccuracyBased"] == NSOrderedSame) {
+            return @(AWSLocationPositionFilteringAccuracyBased);
+        }
         return @(AWSLocationPositionFilteringUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1584,6 +1592,8 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
                 return @"TimeBased";
             case AWSLocationPositionFilteringDistanceBased:
                 return @"DistanceBased";
+            case AWSLocationPositionFilteringAccuracyBased:
+                return @"AccuracyBased";
             default:
                 return nil;
         }
@@ -2727,6 +2737,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
              @"addressNumber" : @"AddressNumber",
              @"country" : @"Country",
              @"geometry" : @"Geometry",
+             @"interpolated" : @"Interpolated",
              @"label" : @"Label",
              @"municipality" : @"Municipality",
              @"neighborhood" : @"Neighborhood",
@@ -2734,11 +2745,16 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
              @"region" : @"Region",
              @"street" : @"Street",
              @"subRegion" : @"SubRegion",
+             @"timeZone" : @"TimeZone",
              };
 }
 
 + (NSValueTransformer *)geometryJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLocationPlaceGeometry class]];
+}
+
++ (NSValueTransformer *)timeZoneJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLocationTimeZone class]];
 }
 
 @end
@@ -2817,6 +2833,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"distance" : @"Distance",
              @"place" : @"Place",
              };
 }
@@ -2835,7 +2852,9 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"distance" : @"Distance",
              @"place" : @"Place",
+             @"relevance" : @"Relevance",
              };
 }
 
@@ -2854,6 +2873,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"indexName" : @"IndexName",
+             @"language" : @"Language",
              @"maxResults" : @"MaxResults",
              @"position" : @"Position",
              };
@@ -2893,6 +2913,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"dataSource" : @"DataSource",
+             @"language" : @"Language",
              @"maxResults" : @"MaxResults",
              @"position" : @"Position",
              };
@@ -2912,6 +2933,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
              @"filterBBox" : @"FilterBBox",
              @"filterCountries" : @"FilterCountries",
              @"indexName" : @"IndexName",
+             @"language" : @"Language",
              @"maxResults" : @"MaxResults",
              @"text" : @"Text",
              };
@@ -2954,6 +2976,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
              @"dataSource" : @"DataSource",
              @"filterBBox" : @"FilterBBox",
              @"filterCountries" : @"FilterCountries",
+             @"language" : @"Language",
              @"maxResults" : @"MaxResults",
              @"resultBBox" : @"ResultBBox",
              @"text" : @"Text",
@@ -2999,6 +3022,21 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 + (BOOL)supportsSecureCoding {
     return YES;
+}
+
+@end
+
+@implementation AWSLocationTimeZone
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"name" : @"Name",
+             @"offset" : @"Offset",
+             };
 }
 
 @end
@@ -3394,6 +3432,9 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
         if ([value caseInsensitiveCompare:@"DistanceBased"] == NSOrderedSame) {
             return @(AWSLocationPositionFilteringDistanceBased);
         }
+        if ([value caseInsensitiveCompare:@"AccuracyBased"] == NSOrderedSame) {
+            return @(AWSLocationPositionFilteringAccuracyBased);
+        }
         return @(AWSLocationPositionFilteringUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3401,6 +3442,8 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
                 return @"TimeBased";
             case AWSLocationPositionFilteringDistanceBased:
                 return @"DistanceBased";
+            case AWSLocationPositionFilteringAccuracyBased:
+                return @"AccuracyBased";
             default:
                 return nil;
         }
