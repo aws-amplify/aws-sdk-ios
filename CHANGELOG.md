@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.26.5
+
 ### Features for next release
 ### New features
 - **AWSCore**
