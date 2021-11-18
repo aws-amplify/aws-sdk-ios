@@ -3141,6 +3141,12 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"VIRTUAL_HOST"] == NSOrderedSame) {
             return @(AWSLambdaSourceAccessTypeVirtualHost);
         }
+        if ([value caseInsensitiveCompare:@"CLIENT_CERTIFICATE_TLS_AUTH"] == NSOrderedSame) {
+            return @(AWSLambdaSourceAccessTypeClientCertificateTlsAuth);
+        }
+        if ([value caseInsensitiveCompare:@"SERVER_ROOT_CA_CERTIFICATE"] == NSOrderedSame) {
+            return @(AWSLambdaSourceAccessTypeServerRootCaCertificate);
+        }
         return @(AWSLambdaSourceAccessTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3156,6 +3162,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"SASL_SCRAM_256_AUTH";
             case AWSLambdaSourceAccessTypeVirtualHost:
                 return @"VIRTUAL_HOST";
+            case AWSLambdaSourceAccessTypeClientCertificateTlsAuth:
+                return @"CLIENT_CERTIFICATE_TLS_AUTH";
+            case AWSLambdaSourceAccessTypeServerRootCaCertificate:
+                return @"SERVER_ROOT_CA_CERTIFICATE";
             default:
                 return nil;
         }
