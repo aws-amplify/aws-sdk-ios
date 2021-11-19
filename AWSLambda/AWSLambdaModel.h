@@ -65,6 +65,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaArchitecture) {
     AWSLambdaArchitectureArm64,
 };
 
+typedef NS_ENUM(NSInteger, AWSLambdaAuthorizationType) {
+    AWSLambdaAuthorizationTypeUnknown,
+    AWSLambdaAuthorizationTypeNone,
+    AWSLambdaAuthorizationTypeAwsIam,
+};
+
 typedef NS_ENUM(NSInteger, AWSLambdaCodeSigningPolicy) {
     AWSLambdaCodeSigningPolicyUnknown,
     AWSLambdaCodeSigningPolicyWarn,
@@ -177,6 +183,8 @@ typedef NS_ENUM(NSInteger, AWSLambdaSourceAccessType) {
     AWSLambdaSourceAccessTypeSaslScram512Auth,
     AWSLambdaSourceAccessTypeSaslScram256Auth,
     AWSLambdaSourceAccessTypeVirtualHost,
+    AWSLambdaSourceAccessTypeClientCertificateTlsAuth,
+    AWSLambdaSourceAccessTypeServerRootCaCertificate,
 };
 
 typedef NS_ENUM(NSInteger, AWSLambdaState) {
@@ -231,11 +239,14 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaCodeSigningConfig;
 @class AWSLambdaCodeSigningPolicies;
 @class AWSLambdaConcurrency;
+@class AWSLambdaCors;
 @class AWSLambdaCreateAliasRequest;
 @class AWSLambdaCreateCodeSigningConfigRequest;
 @class AWSLambdaCreateCodeSigningConfigResponse;
 @class AWSLambdaCreateEventSourceMappingRequest;
 @class AWSLambdaCreateFunctionRequest;
+@class AWSLambdaCreateFunctionUrlConfigRequest;
+@class AWSLambdaCreateFunctionUrlConfigResponse;
 @class AWSLambdaDeadLetterConfig;
 @class AWSLambdaDeleteAliasRequest;
 @class AWSLambdaDeleteCodeSigningConfigRequest;
@@ -245,6 +256,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaDeleteFunctionConcurrencyRequest;
 @class AWSLambdaDeleteFunctionEventInvokeConfigRequest;
 @class AWSLambdaDeleteFunctionRequest;
+@class AWSLambdaDeleteFunctionUrlConfigRequest;
 @class AWSLambdaDeleteLayerVersionRequest;
 @class AWSLambdaDeleteProvisionedConcurrencyConfigRequest;
 @class AWSLambdaDestinationConfig;
@@ -257,6 +269,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaFunctionCodeLocation;
 @class AWSLambdaFunctionConfiguration;
 @class AWSLambdaFunctionEventInvokeConfig;
+@class AWSLambdaFunctionUrlConfig;
 @class AWSLambdaGetAccountSettingsRequest;
 @class AWSLambdaGetAccountSettingsResponse;
 @class AWSLambdaGetAliasRequest;
@@ -271,6 +284,8 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaGetFunctionEventInvokeConfigRequest;
 @class AWSLambdaGetFunctionRequest;
 @class AWSLambdaGetFunctionResponse;
+@class AWSLambdaGetFunctionUrlConfigRequest;
+@class AWSLambdaGetFunctionUrlConfigResponse;
 @class AWSLambdaGetLayerVersionByArnRequest;
 @class AWSLambdaGetLayerVersionPolicyRequest;
 @class AWSLambdaGetLayerVersionPolicyResponse;
@@ -300,6 +315,8 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaListEventSourceMappingsResponse;
 @class AWSLambdaListFunctionEventInvokeConfigsRequest;
 @class AWSLambdaListFunctionEventInvokeConfigsResponse;
+@class AWSLambdaListFunctionUrlConfigsRequest;
+@class AWSLambdaListFunctionUrlConfigsResponse;
 @class AWSLambdaListFunctionsByCodeSigningConfigRequest;
 @class AWSLambdaListFunctionsByCodeSigningConfigResponse;
 @class AWSLambdaListFunctionsRequest;
@@ -341,6 +358,8 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaUpdateFunctionCodeRequest;
 @class AWSLambdaUpdateFunctionConfigurationRequest;
 @class AWSLambdaUpdateFunctionEventInvokeConfigRequest;
+@class AWSLambdaUpdateFunctionUrlConfigRequest;
+@class AWSLambdaUpdateFunctionUrlConfigResponse;
 @class AWSLambdaVpcConfig;
 @class AWSLambdaVpcConfigResponse;
 
@@ -655,6 +674,44 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 /**
  
  */
+@interface AWSLambdaCors : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable allowCredentials;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable allowHeaders;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable allowMethods;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable allowOrigins;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable exposeHeaders;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxAge;
+
+@end
+
+/**
+ 
+ */
 @interface AWSLambdaCreateAliasRequest : AWSRequest
 
 
@@ -916,7 +973,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
 /**
- <p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For additional information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
+ <p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For additional information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable timeout;
 
@@ -929,6 +986,67 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>For network connectivity to Amazon Web Services resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
  */
 @property (nonatomic, strong) AWSLambdaVpcConfig * _Nullable vpcConfig;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaCreateFunctionUrlConfigRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSLambdaAuthorizationType authorizationType;
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSLambdaCors * _Nullable cors;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable functionName;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable qualifier;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaCreateFunctionUrlConfigResponse : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSLambdaAuthorizationType authorizationType;
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSLambdaCors * _Nullable cors;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable creationTime;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable functionArn;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable functionUrl;
 
 @end
 
@@ -1054,6 +1172,24 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 /**
  <p>Specify a version to delete. You can't delete a version that's referenced by an alias.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable qualifier;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaDeleteFunctionUrlConfigRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable functionName;
+
+/**
+ 
  */
 @property (nonatomic, strong) NSString * _Nullable qualifier;
 
@@ -1422,7 +1558,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) AWSLambdaImageConfigResponse * _Nullable imageConfigResponse;
 
 /**
- <p>The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed CMK.</p>
+ <p>The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed key.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable KMSKeyArn;
 
@@ -1452,7 +1588,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<AWSLambdaLayer *> * _Nullable layers;
 
 /**
- <p>For Lambda@Edge functions, the ARN of the master function.</p>
+ <p>For Lambda@Edge functions, the ARN of the main function.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable masterArn;
 
@@ -1558,6 +1694,44 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The maximum number of times to retry when the function returns an error.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumRetryAttempts;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaFunctionUrlConfig : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSLambdaAuthorizationType authorizationType;
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSLambdaCors * _Nullable cors;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable creationTime;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable functionArn;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable functionUrl;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable lastModifiedTime;
 
 @end
 
@@ -1780,6 +1954,62 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaGetFunctionUrlConfigRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable functionName;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable qualifier;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaGetFunctionUrlConfigResponse : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSLambdaAuthorizationType authorizationType;
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSLambdaCors * _Nullable cors;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable creationTime;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable functionArn;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable functionUrl;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable lastModifiedTime;
 
 @end
 
@@ -2475,6 +2705,47 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 /**
  <p>The pagination token that's included if more results are available.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextMarker;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaListFunctionUrlConfigsRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable functionName;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable marker;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxItems;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaListFunctionUrlConfigsResponse : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<AWSLambdaFunctionUrlConfig *> * _Nullable functionUrlConfigs;
+
+/**
+ 
  */
 @property (nonatomic, strong) NSString * _Nullable nextMarker;
 
@@ -3539,7 +3810,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, assign) AWSLambdaRuntime runtime;
 
 /**
- <p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For additional information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
+ <p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For additional information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable timeout;
 
@@ -3585,6 +3856,72 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>A version number or alias name.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable qualifier;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaUpdateFunctionUrlConfigRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSLambdaAuthorizationType authorizationType;
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSLambdaCors * _Nullable cors;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable functionName;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable qualifier;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaUpdateFunctionUrlConfigResponse : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSLambdaAuthorizationType authorizationType;
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSLambdaCors * _Nullable cors;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable creationTime;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable functionArn;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable functionUrl;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable lastModifiedTime;
 
 @end
 

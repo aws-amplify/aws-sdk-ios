@@ -31,11 +31,14 @@
 - (void) test_AWSLambdaCodeSigningConfig API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaCodeSigningPolicies API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaConcurrency API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaCors API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaCreateAliasRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaCreateCodeSigningConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaCreateCodeSigningConfigResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaCreateEventSourceMappingRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaCreateFunctionRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaCreateFunctionUrlConfigRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaCreateFunctionUrlConfigResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaDeadLetterConfig API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaDeleteAliasRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaDeleteCodeSigningConfigRequest API_AVAILABLE(ios(11));
@@ -45,6 +48,7 @@
 - (void) test_AWSLambdaDeleteFunctionConcurrencyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaDeleteFunctionEventInvokeConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaDeleteFunctionRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaDeleteFunctionUrlConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaDeleteLayerVersionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaDeleteProvisionedConcurrencyConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaDestinationConfig API_AVAILABLE(ios(11));
@@ -57,6 +61,7 @@
 - (void) test_AWSLambdaFunctionCodeLocation API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaFunctionConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaFunctionEventInvokeConfig API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaFunctionUrlConfig API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaGetAccountSettingsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaGetAccountSettingsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaGetAliasRequest API_AVAILABLE(ios(11));
@@ -71,6 +76,8 @@
 - (void) test_AWSLambdaGetFunctionEventInvokeConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaGetFunctionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaGetFunctionResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaGetFunctionUrlConfigRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaGetFunctionUrlConfigResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaGetLayerVersionByArnRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaGetLayerVersionPolicyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaGetLayerVersionPolicyResponse API_AVAILABLE(ios(11));
@@ -100,6 +107,8 @@
 - (void) test_AWSLambdaListEventSourceMappingsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaListFunctionEventInvokeConfigsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaListFunctionEventInvokeConfigsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaListFunctionUrlConfigsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaListFunctionUrlConfigsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaListFunctionsByCodeSigningConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaListFunctionsByCodeSigningConfigResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaListFunctionsRequest API_AVAILABLE(ios(11));
@@ -141,6 +150,8 @@
 - (void) test_AWSLambdaUpdateFunctionCodeRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaUpdateFunctionConfigurationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaUpdateFunctionEventInvokeConfigRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaUpdateFunctionUrlConfigRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaUpdateFunctionUrlConfigResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaVpcConfig API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaVpcConfigResponse API_AVAILABLE(ios(11));
 
@@ -196,6 +207,10 @@
     [self validateSecureCodingForClass:[AWSLambdaConcurrency class]];
 }
 
+- (void) test_AWSLambdaCors {
+    [self validateSecureCodingForClass:[AWSLambdaCors class]];
+}
+
 - (void) test_AWSLambdaCreateAliasRequest {
     [self validateSecureCodingForClass:[AWSLambdaCreateAliasRequest class]];
 }
@@ -214,6 +229,14 @@
 
 - (void) test_AWSLambdaCreateFunctionRequest {
     [self validateSecureCodingForClass:[AWSLambdaCreateFunctionRequest class]];
+}
+
+- (void) test_AWSLambdaCreateFunctionUrlConfigRequest {
+    [self validateSecureCodingForClass:[AWSLambdaCreateFunctionUrlConfigRequest class]];
+}
+
+- (void) test_AWSLambdaCreateFunctionUrlConfigResponse {
+    [self validateSecureCodingForClass:[AWSLambdaCreateFunctionUrlConfigResponse class]];
 }
 
 - (void) test_AWSLambdaDeadLetterConfig {
@@ -250,6 +273,10 @@
 
 - (void) test_AWSLambdaDeleteFunctionRequest {
     [self validateSecureCodingForClass:[AWSLambdaDeleteFunctionRequest class]];
+}
+
+- (void) test_AWSLambdaDeleteFunctionUrlConfigRequest {
+    [self validateSecureCodingForClass:[AWSLambdaDeleteFunctionUrlConfigRequest class]];
 }
 
 - (void) test_AWSLambdaDeleteLayerVersionRequest {
@@ -298,6 +325,10 @@
 
 - (void) test_AWSLambdaFunctionEventInvokeConfig {
     [self validateSecureCodingForClass:[AWSLambdaFunctionEventInvokeConfig class]];
+}
+
+- (void) test_AWSLambdaFunctionUrlConfig {
+    [self validateSecureCodingForClass:[AWSLambdaFunctionUrlConfig class]];
 }
 
 - (void) test_AWSLambdaGetAccountSettingsRequest {
@@ -354,6 +385,14 @@
 
 - (void) test_AWSLambdaGetFunctionResponse {
     [self validateSecureCodingForClass:[AWSLambdaGetFunctionResponse class]];
+}
+
+- (void) test_AWSLambdaGetFunctionUrlConfigRequest {
+    [self validateSecureCodingForClass:[AWSLambdaGetFunctionUrlConfigRequest class]];
+}
+
+- (void) test_AWSLambdaGetFunctionUrlConfigResponse {
+    [self validateSecureCodingForClass:[AWSLambdaGetFunctionUrlConfigResponse class]];
 }
 
 - (void) test_AWSLambdaGetLayerVersionByArnRequest {
@@ -470,6 +509,14 @@
 
 - (void) test_AWSLambdaListFunctionEventInvokeConfigsResponse {
     [self validateSecureCodingForClass:[AWSLambdaListFunctionEventInvokeConfigsResponse class]];
+}
+
+- (void) test_AWSLambdaListFunctionUrlConfigsRequest {
+    [self validateSecureCodingForClass:[AWSLambdaListFunctionUrlConfigsRequest class]];
+}
+
+- (void) test_AWSLambdaListFunctionUrlConfigsResponse {
+    [self validateSecureCodingForClass:[AWSLambdaListFunctionUrlConfigsResponse class]];
 }
 
 - (void) test_AWSLambdaListFunctionsByCodeSigningConfigRequest {
@@ -634,6 +681,14 @@
 
 - (void) test_AWSLambdaUpdateFunctionEventInvokeConfigRequest {
     [self validateSecureCodingForClass:[AWSLambdaUpdateFunctionEventInvokeConfigRequest class]];
+}
+
+- (void) test_AWSLambdaUpdateFunctionUrlConfigRequest {
+    [self validateSecureCodingForClass:[AWSLambdaUpdateFunctionUrlConfigRequest class]];
+}
+
+- (void) test_AWSLambdaUpdateFunctionUrlConfigResponse {
+    [self validateSecureCodingForClass:[AWSLambdaUpdateFunctionUrlConfigResponse class]];
 }
 
 - (void) test_AWSLambdaVpcConfig {
