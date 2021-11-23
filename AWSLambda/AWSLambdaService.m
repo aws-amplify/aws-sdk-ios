@@ -476,6 +476,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSLambdaCreateFunctionUrlConfigResponse *> *)createFunctionUrlConfig:(AWSLambdaCreateFunctionUrlConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/2021-10-31/functions/{FunctionName}/url"
+                  targetPrefix:@""
+                 operationName:@"CreateFunctionUrlConfig"
+                   outputClass:[AWSLambdaCreateFunctionUrlConfigResponse class]];
+}
+
+- (void)createFunctionUrlConfig:(AWSLambdaCreateFunctionUrlConfigRequest *)request
+     completionHandler:(void (^)(AWSLambdaCreateFunctionUrlConfigResponse *response, NSError *error))completionHandler {
+    [[self createFunctionUrlConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaCreateFunctionUrlConfigResponse *> * _Nonnull task) {
+        AWSLambdaCreateFunctionUrlConfigResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)deleteAlias:(AWSLambdaDeleteAliasRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
@@ -622,6 +645,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)deleteFunctionEventInvokeConfig:(AWSLambdaDeleteFunctionEventInvokeConfigRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self deleteFunctionEventInvokeConfig:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)deleteFunctionUrlConfig:(AWSLambdaDeleteFunctionUrlConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/2021-10-31/functions/{FunctionName}/url"
+                  targetPrefix:@""
+                 operationName:@"DeleteFunctionUrlConfig"
+                   outputClass:nil];
+}
+
+- (void)deleteFunctionUrlConfig:(AWSLambdaDeleteFunctionUrlConfigRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteFunctionUrlConfig:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -883,6 +928,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSLambdaGetFunctionUrlConfigResponse *> *)getFunctionUrlConfig:(AWSLambdaGetFunctionUrlConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/2021-10-31/functions/{FunctionName}/url"
+                  targetPrefix:@""
+                 operationName:@"GetFunctionUrlConfig"
+                   outputClass:[AWSLambdaGetFunctionUrlConfigResponse class]];
+}
+
+- (void)getFunctionUrlConfig:(AWSLambdaGetFunctionUrlConfigRequest *)request
+     completionHandler:(void (^)(AWSLambdaGetFunctionUrlConfigResponse *response, NSError *error))completionHandler {
+    [[self getFunctionUrlConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaGetFunctionUrlConfigResponse *> * _Nonnull task) {
+        AWSLambdaGetFunctionUrlConfigResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSLambdaGetLayerVersionResponse *> *)getLayerVersion:(AWSLambdaGetLayerVersionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -1126,6 +1194,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLambdaListFunctionEventInvokeConfigsResponse *response, NSError *error))completionHandler {
     [[self listFunctionEventInvokeConfigs:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaListFunctionEventInvokeConfigsResponse *> * _Nonnull task) {
         AWSLambdaListFunctionEventInvokeConfigsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaListFunctionUrlConfigsResponse *> *)listFunctionUrlConfigs:(AWSLambdaListFunctionUrlConfigsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/2021-10-31/functions/{FunctionName}/urls"
+                  targetPrefix:@""
+                 operationName:@"ListFunctionUrlConfigs"
+                   outputClass:[AWSLambdaListFunctionUrlConfigsResponse class]];
+}
+
+- (void)listFunctionUrlConfigs:(AWSLambdaListFunctionUrlConfigsRequest *)request
+     completionHandler:(void (^)(AWSLambdaListFunctionUrlConfigsResponse *response, NSError *error))completionHandler {
+    [[self listFunctionUrlConfigs:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaListFunctionUrlConfigsResponse *> * _Nonnull task) {
+        AWSLambdaListFunctionUrlConfigsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1651,6 +1742,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLambdaFunctionEventInvokeConfig *response, NSError *error))completionHandler {
     [[self updateFunctionEventInvokeConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaFunctionEventInvokeConfig *> * _Nonnull task) {
         AWSLambdaFunctionEventInvokeConfig *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaUpdateFunctionUrlConfigResponse *> *)updateFunctionUrlConfig:(AWSLambdaUpdateFunctionUrlConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/2021-10-31/functions/{FunctionName}/url"
+                  targetPrefix:@""
+                 operationName:@"UpdateFunctionUrlConfig"
+                   outputClass:[AWSLambdaUpdateFunctionUrlConfigResponse class]];
+}
+
+- (void)updateFunctionUrlConfig:(AWSLambdaUpdateFunctionUrlConfigRequest *)request
+     completionHandler:(void (^)(AWSLambdaUpdateFunctionUrlConfigResponse *response, NSError *error))completionHandler {
+    [[self updateFunctionUrlConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaUpdateFunctionUrlConfigResponse *> * _Nonnull task) {
+        AWSLambdaUpdateFunctionUrlConfigResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

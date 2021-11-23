@@ -157,7 +157,7 @@
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"ResourceNotFoundException\"}\
       ],\
-      \"documentation\":\"<p>Creates a mapping between an event source and an Lambda function. Lambda reads items from the event source and triggers the function.</p> <p>For details about each event source type, see the following topics. </p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping\\\"> Configuring a Dynamo DB stream as an event source</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping\\\"> Configuring a Kinesis stream as an event source</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource\\\"> Configuring an Amazon SQS queue as an event source</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping\\\"> Configuring an MQ broker as an event source</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html\\\"> Configuring MSK as an event source</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html\\\"> Configuring Self-Managed Apache Kafka as an event source</a> </p> </li> </ul> <p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p> <ul> <li> <p> <code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p> </li> <li> <p> <code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p> </li> <li> <p> <code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p> </li> <li> <p> <code>MaximumRetryAttempts</code> - Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p> </li> <li> <p> <code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p> </li> </ul>\"\
+      \"documentation\":\"<p>Creates a mapping between an event source and an Lambda function. Lambda reads items from the event source and triggers the function.</p> <p>For details about how to configure different event sources, see the following topics. </p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping\\\"> Amazon DynamoDB Streams</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping\\\"> Amazon Kinesis</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource\\\"> Amazon SQS</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping\\\"> Amazon MQ and RabbitMQ</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html\\\"> Amazon MSK</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html\\\"> Apache Kafka</a> </p> </li> </ul> <p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p> <ul> <li> <p> <code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p> </li> <li> <p> <code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p> </li> <li> <p> <code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p> </li> <li> <p> <code>MaximumRetryAttempts</code> - Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p> </li> <li> <p> <code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p> </li> </ul> <p>For information about which configuration parameters apply to each event source, see the following topics.</p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-params\\\"> Amazon DynamoDB Streams</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-params\\\"> Amazon Kinesis</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-params\\\"> Amazon SQS</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-params\\\"> Amazon MQ and RabbitMQ</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-parms\\\"> Amazon MSK</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms\\\"> Apache Kafka</a> </p> </li> </ul>\"\
     },\
     \"CreateFunction\":{\
       \"name\":\"CreateFunction\",\
@@ -180,6 +180,23 @@
         {\"shape\":\"CodeSigningConfigNotFoundException\"}\
       ],\
       \"documentation\":\"<p>Creates a Lambda function. To create a function, you need a <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html\\\">deployment package</a> and an <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role\\\">execution role</a>. The deployment package is a .zip file archive or container image that contains your function code. The execution role grants the function permission to use Amazon Web Services services, such as Amazon CloudWatch Logs for log streaming and X-Ray for request tracing.</p> <p>You set the package type to <code>Image</code> if the deployment package is a <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html\\\">container image</a>. For a container image, the code property must include the URI of a container image in the Amazon ECR registry. You do not need to specify the handler and runtime properties. </p> <p>You set the package type to <code>Zip</code> if the deployment package is a <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip\\\">.zip file archive</a>. For a .zip file archive, the code property specifies the location of the .zip file. You must also specify the handler and runtime properties. The code in the deployment package must be compatible with the target instruction set architecture of the function (<code>x86-64</code> or <code>arm64</code>). If you do not specify the architecture, the default value is <code>x86-64</code>.</p> <p>When you create a function, Lambda provisions an instance of the function and its supporting resources. If your function connects to a VPC, this process can take a minute or so. During this time, you can't invoke or modify the function. The <code>State</code>, <code>StateReason</code>, and <code>StateReasonCode</code> fields in the response from <a>GetFunctionConfiguration</a> indicate when the function is ready to invoke. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html\\\">Function States</a>.</p> <p>A function has an unpublished version, and can have published versions and aliases. The unpublished version changes when you update your function's code and configuration. A published version is a snapshot of your function code and configuration that can't be changed. An alias is a named resource that maps to a version, and can be changed to map to a different version. Use the <code>Publish</code> parameter to create version <code>1</code> of your function from its initial configuration.</p> <p>The other parameters let you configure version-specific and function-level settings. You can modify version-specific settings later with <a>UpdateFunctionConfiguration</a>. Function-level settings apply to both the unpublished and published versions of the function, and include tags (<a>TagResource</a>) and per-function concurrency limits (<a>PutFunctionConcurrency</a>).</p> <p>You can use code signing if your deployment package is a .zip file archive. To enable code signing for this function, specify the ARN of a code-signing configuration. When a user attempts to deploy a code package with <a>UpdateFunctionCode</a>, Lambda checks that the code package has a valid signature from a trusted publisher. The code-signing configuration includes set set of signing profiles, which define the trusted publishers for this function.</p> <p>If another account or an Amazon Web Services service invokes your function, use <a>AddPermission</a> to grant permission by creating a resource-based IAM policy. You can grant permissions at the function level, on a version, or on an alias.</p> <p>To invoke your function directly, use <a>Invoke</a>. To invoke your function in response to events in other Amazon Web Services services, create an event source mapping (<a>CreateEventSourceMapping</a>), or configure a function trigger in the other service. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html\\\">Invoking Functions</a>.</p>\"\
+    },\
+    \"CreateFunctionUrlConfig\":{\
+      \"name\":\"CreateFunctionUrlConfig\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/2021-10-31/functions/{FunctionName}/url\",\
+        \"responseCode\":201\
+      },\
+      \"input\":{\"shape\":\"CreateFunctionUrlConfigRequest\"},\
+      \"output\":{\"shape\":\"CreateFunctionUrlConfigResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceConflictException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidParameterValueException\"},\
+        {\"shape\":\"ServiceException\"},\
+        {\"shape\":\"TooManyRequestsException\"}\
+      ]\
     },\
     \"DeleteAlias\":{\
       \"name\":\"DeleteAlias\",\
@@ -300,6 +317,21 @@
         {\"shape\":\"ResourceConflictException\"}\
       ],\
       \"documentation\":\"<p>Deletes the configuration for asynchronous invocation for a function, version, or alias.</p> <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>\"\
+    },\
+    \"DeleteFunctionUrlConfig\":{\
+      \"name\":\"DeleteFunctionUrlConfig\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/2021-10-31/functions/{FunctionName}/url\",\
+        \"responseCode\":204\
+      },\
+      \"input\":{\"shape\":\"DeleteFunctionUrlConfigRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceConflictException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ServiceException\"},\
+        {\"shape\":\"TooManyRequestsException\"}\
+      ]\
     },\
     \"DeleteLayerVersion\":{\
       \"name\":\"DeleteLayerVersion\",\
@@ -481,6 +513,22 @@
         {\"shape\":\"TooManyRequestsException\"}\
       ],\
       \"documentation\":\"<p>Retrieves the configuration for asynchronous invocation for a function, version, or alias.</p> <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>\"\
+    },\
+    \"GetFunctionUrlConfig\":{\
+      \"name\":\"GetFunctionUrlConfig\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/2021-10-31/functions/{FunctionName}/url\",\
+        \"responseCode\":200\
+      },\
+      \"input\":{\"shape\":\"GetFunctionUrlConfigRequest\"},\
+      \"output\":{\"shape\":\"GetFunctionUrlConfigResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterValueException\"},\
+        {\"shape\":\"ServiceException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"TooManyRequestsException\"}\
+      ]\
     },\
     \"GetLayerVersion\":{\
       \"name\":\"GetLayerVersion\",\
@@ -690,6 +738,22 @@
         {\"shape\":\"ServiceException\"}\
       ],\
       \"documentation\":\"<p>Retrieves a list of configurations for asynchronous invocation for a function.</p> <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>\"\
+    },\
+    \"ListFunctionUrlConfigs\":{\
+      \"name\":\"ListFunctionUrlConfigs\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/2021-10-31/functions/{FunctionName}/urls\",\
+        \"responseCode\":200\
+      },\
+      \"input\":{\"shape\":\"ListFunctionUrlConfigsRequest\"},\
+      \"output\":{\"shape\":\"ListFunctionUrlConfigsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterValueException\"},\
+        {\"shape\":\"ServiceException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"TooManyRequestsException\"}\
+      ]\
     },\
     \"ListFunctions\":{\
       \"name\":\"ListFunctions\",\
@@ -1037,7 +1101,7 @@
         {\"shape\":\"ResourceConflictException\"},\
         {\"shape\":\"ResourceInUseException\"}\
       ],\
-      \"documentation\":\"<p>Updates an event source mapping. You can change the function that Lambda invokes, or pause invocation and resume later from the same location.</p> <p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p> <ul> <li> <p> <code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p> </li> <li> <p> <code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p> </li> <li> <p> <code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p> </li> <li> <p> <code>MaximumRetryAttempts</code> - Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p> </li> <li> <p> <code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p> </li> </ul>\"\
+      \"documentation\":\"<p>Updates an event source mapping. You can change the function that Lambda invokes, or pause invocation and resume later from the same location.</p> <p>For details about how to configure different event sources, see the following topics. </p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping\\\"> Amazon DynamoDB Streams</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping\\\"> Amazon Kinesis</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource\\\"> Amazon SQS</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping\\\"> Amazon MQ and RabbitMQ</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html\\\"> Amazon MSK</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html\\\"> Apache Kafka</a> </p> </li> </ul> <p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p> <ul> <li> <p> <code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p> </li> <li> <p> <code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p> </li> <li> <p> <code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p> </li> <li> <p> <code>MaximumRetryAttempts</code> - Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p> </li> <li> <p> <code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p> </li> </ul> <p>For information about which configuration parameters apply to each event source, see the following topics.</p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-params\\\"> Amazon DynamoDB Streams</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-params\\\"> Amazon Kinesis</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-params\\\"> Amazon SQS</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-params\\\"> Amazon MQ and RabbitMQ</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-parms\\\"> Amazon MSK</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms\\\"> Apache Kafka</a> </p> </li> </ul>\"\
     },\
     \"UpdateFunctionCode\":{\
       \"name\":\"UpdateFunctionCode\",\
@@ -1101,6 +1165,23 @@
         {\"shape\":\"ResourceConflictException\"}\
       ],\
       \"documentation\":\"<p>Updates the configuration for asynchronous invocation for a function, version, or alias.</p> <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>\"\
+    },\
+    \"UpdateFunctionUrlConfig\":{\
+      \"name\":\"UpdateFunctionUrlConfig\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/2021-10-31/functions/{FunctionName}/url\",\
+        \"responseCode\":200\
+      },\
+      \"input\":{\"shape\":\"UpdateFunctionUrlConfigRequest\"},\
+      \"output\":{\"shape\":\"UpdateFunctionUrlConfigResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceConflictException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidParameterValueException\"},\
+        {\"shape\":\"ServiceException\"},\
+        {\"shape\":\"TooManyRequestsException\"}\
+      ]\
     }\
   },\
   \"shapes\":{\
@@ -1328,6 +1409,17 @@
       },\
       \"documentation\":\"<p>The <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html\\\">traffic-shifting</a> configuration of a Lambda function alias.</p>\"\
     },\
+    \"AllowCredentials\":{\"type\":\"boolean\"},\
+    \"AllowMethodsList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"Method\"},\
+      \"max\":6\
+    },\
+    \"AllowOriginsList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"Origin\"},\
+      \"max\":100\
+    },\
     \"AllowedPublishers\":{\
       \"type\":\"structure\",\
       \"required\":[\"SigningProfileVersionArns\"],\
@@ -1355,6 +1447,13 @@
     \"Arn\":{\
       \"type\":\"string\",\
       \"pattern\":\"arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\\\-])+:([a-z]{2}(-gov)?-[a-z]+-\\\\d{1})?:(\\\\d{12})?:(.*)\"\
+    },\
+    \"AuthorizationType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"NONE\",\
+        \"AWS_IAM\"\
+      ]\
     },\
     \"BatchSize\":{\
       \"type\":\"integer\",\
@@ -1490,6 +1589,17 @@
         }\
       }\
     },\
+    \"Cors\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"AllowCredentials\":{\"shape\":\"AllowCredentials\"},\
+        \"AllowHeaders\":{\"shape\":\"HeadersList\"},\
+        \"AllowMethods\":{\"shape\":\"AllowMethodsList\"},\
+        \"AllowOrigins\":{\"shape\":\"AllowOriginsList\"},\
+        \"ExposeHeaders\":{\"shape\":\"HeadersList\"},\
+        \"MaxAge\":{\"shape\":\"MaxAge\"}\
+      }\
+    },\
     \"CreateAliasRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -1568,7 +1678,11 @@
         },\
         \"BatchSize\":{\
           \"shape\":\"BatchSize\",\
-          \"documentation\":\"<p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p> <ul> <li> <p> <b>Amazon Kinesis</b> - Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p> </li> <li> <p> <b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p> </li> </ul>\"\
+          \"documentation\":\"<p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p> <ul> <li> <p> <b>Amazon Kinesis</b> - Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p> </li> <li> <p> <b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</p> </li> </ul>\"\
+        },\
+        \"FilterCriteria\":{\
+          \"shape\":\"FilterCriteria\",\
+          \"documentation\":\"<p>(Streams and Amazon SQS) A object that defines the filter criteria used to determine whether Lambda should process an event. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html\\\">Lambda event filtering</a>.</p>\"\
         },\
         \"MaximumBatchingWindowInSeconds\":{\
           \"shape\":\"MaximumBatchingWindowInSeconds\",\
@@ -1662,7 +1776,7 @@
         },\
         \"Timeout\":{\
           \"shape\":\"Timeout\",\
-          \"documentation\":\"<p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For additional information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html\\\">Lambda execution environment</a>.</p>\"\
+          \"documentation\":\"<p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For additional information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html\\\">Lambda execution environment</a>.</p>\"\
         },\
         \"MemorySize\":{\
           \"shape\":\"MemorySize\",\
@@ -1718,8 +1832,45 @@
         },\
         \"Architectures\":{\
           \"shape\":\"ArchitecturesList\",\
-          \"documentation\":\"<p>The instruction set architecture that the function supports. Enter a string array with one of the valid values. The default value is <code>x86_64</code>.</p>\"\
+          \"documentation\":\"<p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>\"\
         }\
+      }\
+    },\
+    \"CreateFunctionUrlConfigRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"FunctionName\",\
+        \"AuthorizationType\"\
+      ],\
+      \"members\":{\
+        \"FunctionName\":{\
+          \"shape\":\"FunctionName\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"FunctionName\"\
+        },\
+        \"Qualifier\":{\
+          \"shape\":\"FunctionUrlQualifier\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"Qualifier\"\
+        },\
+        \"AuthorizationType\":{\"shape\":\"AuthorizationType\"},\
+        \"Cors\":{\"shape\":\"Cors\"}\
+      }\
+    },\
+    \"CreateFunctionUrlConfigResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"FunctionUrl\",\
+        \"FunctionArn\",\
+        \"AuthorizationType\",\
+        \"CreationTime\"\
+      ],\
+      \"members\":{\
+        \"FunctionUrl\":{\"shape\":\"FunctionUrl\"},\
+        \"FunctionArn\":{\"shape\":\"FunctionArn\"},\
+        \"AuthorizationType\":{\"shape\":\"AuthorizationType\"},\
+        \"Cors\":{\"shape\":\"Cors\"},\
+        \"CreationTime\":{\"shape\":\"Timestamp\"}\
       }\
     },\
     \"Date\":{\"type\":\"timestamp\"},\
@@ -1838,6 +1989,22 @@
         \"Qualifier\":{\
           \"shape\":\"Qualifier\",\
           \"documentation\":\"<p>Specify a version to delete. You can't delete a version that's referenced by an alias.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"Qualifier\"\
+        }\
+      }\
+    },\
+    \"DeleteFunctionUrlConfigRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"FunctionName\"],\
+      \"members\":{\
+        \"FunctionName\":{\
+          \"shape\":\"FunctionName\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"FunctionName\"\
+        },\
+        \"Qualifier\":{\
+          \"shape\":\"FunctionUrlQualifier\",\
           \"location\":\"querystring\",\
           \"locationName\":\"Qualifier\"\
         }\
@@ -2099,6 +2266,10 @@
           \"shape\":\"Arn\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) of the event source.</p>\"\
         },\
+        \"FilterCriteria\":{\
+          \"shape\":\"FilterCriteria\",\
+          \"documentation\":\"<p>(Streams and Amazon SQS) A object that defines the filter criteria used to determine whether Lambda should process an event. For more information, see Event filtering.</p>\"\
+        },\
         \"FunctionArn\":{\
           \"shape\":\"FunctionArn\",\
           \"documentation\":\"<p>The ARN of the Lambda function.</p>\"\
@@ -2207,6 +2378,30 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"FileSystemConfig\"},\
       \"max\":1\
+    },\
+    \"Filter\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Pattern\":{\
+          \"shape\":\"Pattern\",\
+          \"documentation\":\"<p> A filter pattern. For more information on the syntax of a filter pattern, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax\\\"> Filter criteria syntax</a>. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p> An object that specifies a filter criteria. </p>\"\
+    },\
+    \"FilterCriteria\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Filters\":{\
+          \"shape\":\"FilterList\",\
+          \"documentation\":\"<p> A list of filters. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p> An object that contains the filters on the event source. </p>\"\
+    },\
+    \"FilterList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"Filter\"}\
     },\
     \"FunctionArn\":{\
       \"type\":\"string\",\
@@ -2329,7 +2524,7 @@
         },\
         \"KMSKeyArn\":{\
           \"shape\":\"KMSKeyArn\",\
-          \"documentation\":\"<p>The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed CMK.</p>\"\
+          \"documentation\":\"<p>The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed key.</p>\"\
         },\
         \"TracingConfig\":{\
           \"shape\":\"TracingConfigResponse\",\
@@ -2337,7 +2532,7 @@
         },\
         \"MasterArn\":{\
           \"shape\":\"FunctionArn\",\
-          \"documentation\":\"<p>For Lambda@Edge functions, the ARN of the master function.</p>\"\
+          \"documentation\":\"<p>For Lambda@Edge functions, the ARN of the main function.</p>\"\
         },\
         \"RevisionId\":{\
           \"shape\":\"String\",\
@@ -2446,6 +2641,39 @@
       \"member\":{\"shape\":\"FunctionResponseType\"},\
       \"max\":1,\
       \"min\":0\
+    },\
+    \"FunctionUrl\":{\
+      \"type\":\"string\",\
+      \"max\":100,\
+      \"min\":40\
+    },\
+    \"FunctionUrlConfig\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"FunctionUrl\",\
+        \"FunctionArn\",\
+        \"CreationTime\",\
+        \"LastModifiedTime\",\
+        \"AuthorizationType\"\
+      ],\
+      \"members\":{\
+        \"FunctionUrl\":{\"shape\":\"FunctionUrl\"},\
+        \"FunctionArn\":{\"shape\":\"FunctionArn\"},\
+        \"CreationTime\":{\"shape\":\"Timestamp\"},\
+        \"LastModifiedTime\":{\"shape\":\"Timestamp\"},\
+        \"Cors\":{\"shape\":\"Cors\"},\
+        \"AuthorizationType\":{\"shape\":\"AuthorizationType\"}\
+      }\
+    },\
+    \"FunctionUrlConfigList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"FunctionUrlConfig\"}\
+    },\
+    \"FunctionUrlQualifier\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1,\
+      \"pattern\":\"(^\\\\$LATEST$)|((?!^[0-9]+$)([a-zA-Z0-9-_]+))\"\
     },\
     \"FunctionVersion\":{\
       \"type\":\"string\",\
@@ -2649,6 +2877,40 @@
         }\
       }\
     },\
+    \"GetFunctionUrlConfigRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"FunctionName\"],\
+      \"members\":{\
+        \"FunctionName\":{\
+          \"shape\":\"FunctionName\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"FunctionName\"\
+        },\
+        \"Qualifier\":{\
+          \"shape\":\"FunctionUrlQualifier\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"Qualifier\"\
+        }\
+      }\
+    },\
+    \"GetFunctionUrlConfigResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"FunctionUrl\",\
+        \"FunctionArn\",\
+        \"AuthorizationType\",\
+        \"CreationTime\",\
+        \"LastModifiedTime\"\
+      ],\
+      \"members\":{\
+        \"FunctionUrl\":{\"shape\":\"FunctionUrl\"},\
+        \"FunctionArn\":{\"shape\":\"FunctionArn\"},\
+        \"AuthorizationType\":{\"shape\":\"AuthorizationType\"},\
+        \"Cors\":{\"shape\":\"Cors\"},\
+        \"CreationTime\":{\"shape\":\"Timestamp\"},\
+        \"LastModifiedTime\":{\"shape\":\"Timestamp\"}\
+      }\
+    },\
     \"GetLayerVersionByArnRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"Arn\"],\
@@ -2843,6 +3105,16 @@
       \"max\":128,\
       \"pattern\":\"[^\\\\s]+\"\
     },\
+    \"Header\":{\
+      \"type\":\"string\",\
+      \"max\":1024,\
+      \"pattern\":\".*\"\
+    },\
+    \"HeadersList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"Header\"},\
+      \"max\":100\
+    },\
     \"HttpStatus\":{\"type\":\"integer\"},\
     \"ImageConfig\":{\
       \"type\":\"structure\",\
@@ -3003,7 +3275,7 @@
         },\
         \"Payload\":{\
           \"shape\":\"Blob\",\
-          \"documentation\":\"<p>The JSON that you want to provide to your Lambda function as input.</p>\"\
+          \"documentation\":\"<p>The JSON that you want to provide to your Lambda function as input.</p> <p>You can enter the JSON directly. For example, <code>--payload '{ \\\"key\\\": \\\"value\\\" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>. </p>\"\
         },\
         \"Qualifier\":{\
           \"shape\":\"Qualifier\",\
@@ -3478,6 +3750,35 @@
         }\
       }\
     },\
+    \"ListFunctionUrlConfigsRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"FunctionName\"],\
+      \"members\":{\
+        \"FunctionName\":{\
+          \"shape\":\"FunctionName\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"FunctionName\"\
+        },\
+        \"Marker\":{\
+          \"shape\":\"String\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"Marker\"\
+        },\
+        \"MaxItems\":{\
+          \"shape\":\"MaxItems\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"MaxItems\"\
+        }\
+      }\
+    },\
+    \"ListFunctionUrlConfigsResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"FunctionUrlConfigs\"],\
+      \"members\":{\
+        \"FunctionUrlConfigs\":{\"shape\":\"FunctionUrlConfigList\"},\
+        \"NextMarker\":{\"shape\":\"String\"}\
+      }\
+    },\
     \"ListFunctionsByCodeSigningConfigRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"CodeSigningConfigArn\"],\
@@ -3761,7 +4062,17 @@
       \"type\":\"string\",\
       \"pattern\":\"ALL|[a-z]{2}(-gov)?-[a-z]+-\\\\d{1}\"\
     },\
+    \"MaxAge\":{\
+      \"type\":\"integer\",\
+      \"max\":86400,\
+      \"min\":0\
+    },\
     \"MaxFunctionEventInvokeConfigListItems\":{\
+      \"type\":\"integer\",\
+      \"max\":50,\
+      \"min\":1\
+    },\
+    \"MaxItems\":{\
       \"type\":\"integer\",\
       \"max\":50,\
       \"min\":1\
@@ -3811,6 +4122,11 @@
       \"max\":10240,\
       \"min\":128\
     },\
+    \"Method\":{\
+      \"type\":\"string\",\
+      \"max\":6,\
+      \"pattern\":\".*\"\
+    },\
     \"NameSpacedFunctionArn\":{\
       \"type\":\"string\",\
       \"pattern\":\"arn:(aws[a-zA-Z-]*)?:lambda:[a-z]{2}(-gov)?-[a-z]+-\\\\d{1}:\\\\d{12}:function:[a-zA-Z0-9-_\\\\.]+(:(\\\\$LATEST|[a-zA-Z0-9-_]+))?\"\
@@ -3856,6 +4172,12 @@
       \"max\":34,\
       \"pattern\":\"o-[a-z0-9]{10,32}\"\
     },\
+    \"Origin\":{\
+      \"type\":\"string\",\
+      \"max\":253,\
+      \"min\":1,\
+      \"pattern\":\".*\"\
+    },\
     \"PackageType\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -3867,6 +4189,12 @@
       \"type\":\"integer\",\
       \"max\":10,\
       \"min\":1\
+    },\
+    \"Pattern\":{\
+      \"type\":\"string\",\
+      \"max\":4096,\
+      \"min\":0,\
+      \"pattern\":\".*\"\
     },\
     \"PolicyLengthExceededException\":{\
       \"type\":\"structure\",\
@@ -4444,7 +4772,7 @@
       \"members\":{\
         \"Type\":{\
           \"shape\":\"SourceAccessType\",\
-          \"documentation\":\"<p>The type of authentication protocol, VPC components, or virtual host for your event source. For example: <code>\\\"Type\\\":\\\"SASL_SCRAM_512_AUTH\\\"</code>.</p> <ul> <li> <p> <code>BASIC_AUTH</code> - (Amazon MQ) The Secrets Manager secret that stores your broker credentials.</p> </li> <li> <p> <code>BASIC_AUTH</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.</p> </li> <li> <p> <code>VPC_SUBNET</code> - The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.</p> </li> <li> <p> <code>VPC_SECURITY_GROUP</code> - The VPC security group used to manage access to your self-managed Apache Kafka brokers.</p> </li> <li> <p> <code>SASL_SCRAM_256_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.</p> </li> <li> <p> <code>SASL_SCRAM_512_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.</p> </li> <li> <p> <code>VIRTUAL_HOST</code> - (Amazon MQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source.</p> </li> </ul>\"\
+          \"documentation\":\"<p>The type of authentication protocol, VPC components, or virtual host for your event source. For example: <code>\\\"Type\\\":\\\"SASL_SCRAM_512_AUTH\\\"</code>.</p> <ul> <li> <p> <code>BASIC_AUTH</code> - (Amazon MQ) The Secrets Manager secret that stores your broker credentials.</p> </li> <li> <p> <code>BASIC_AUTH</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.</p> </li> <li> <p> <code>VPC_SUBNET</code> - The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.</p> </li> <li> <p> <code>VPC_SECURITY_GROUP</code> - The VPC security group used to manage access to your self-managed Apache Kafka brokers.</p> </li> <li> <p> <code>SASL_SCRAM_256_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.</p> </li> <li> <p> <code>SASL_SCRAM_512_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.</p> </li> <li> <p> <code>VIRTUAL_HOST</code> - (Amazon MQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.</p> </li> </ul>\"\
         },\
         \"URI\":{\
           \"shape\":\"URI\",\
@@ -4467,7 +4795,9 @@
         \"VPC_SECURITY_GROUP\",\
         \"SASL_SCRAM_512_AUTH\",\
         \"SASL_SCRAM_256_AUTH\",\
-        \"VIRTUAL_HOST\"\
+        \"VIRTUAL_HOST\",\
+        \"CLIENT_CERTIFICATE_TLS_AUTH\",\
+        \"SERVER_ROOT_CA_CERTIFICATE\"\
       ]\
     },\
     \"SourceOwner\":{\
@@ -4769,7 +5099,11 @@
         },\
         \"BatchSize\":{\
           \"shape\":\"BatchSize\",\
-          \"documentation\":\"<p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p> <ul> <li> <p> <b>Amazon Kinesis</b> - Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p> </li> <li> <p> <b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p> </li> </ul>\"\
+          \"documentation\":\"<p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p> <ul> <li> <p> <b>Amazon Kinesis</b> - Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p> </li> <li> <p> <b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</p> </li> </ul>\"\
+        },\
+        \"FilterCriteria\":{\
+          \"shape\":\"FilterCriteria\",\
+          \"documentation\":\"<p>(Streams and Amazon SQS) A object that defines the filter criteria used to determine whether Lambda should process an event. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html\\\">Lambda event filtering</a>.</p>\"\
         },\
         \"MaximumBatchingWindowInSeconds\":{\
           \"shape\":\"MaximumBatchingWindowInSeconds\",\
@@ -4853,7 +5187,7 @@
         },\
         \"Architectures\":{\
           \"shape\":\"ArchitecturesList\",\
-          \"documentation\":\"<p>The instruction set architecture that the function supports. Enter a string array with one of the valid values. The default value is <code>x86_64</code>.</p>\"\
+          \"documentation\":\"<p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>\"\
         }\
       }\
     },\
@@ -4881,7 +5215,7 @@
         },\
         \"Timeout\":{\
           \"shape\":\"Timeout\",\
-          \"documentation\":\"<p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For additional information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html\\\">Lambda execution environment</a>.</p>\"\
+          \"documentation\":\"<p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For additional information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html\\\">Lambda execution environment</a>.</p>\"\
         },\
         \"MemorySize\":{\
           \"shape\":\"MemorySize\",\
@@ -4959,6 +5293,42 @@
         }\
       }\
     },\
+    \"UpdateFunctionUrlConfigRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"FunctionName\"],\
+      \"members\":{\
+        \"FunctionName\":{\
+          \"shape\":\"FunctionName\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"FunctionName\"\
+        },\
+        \"Qualifier\":{\
+          \"shape\":\"FunctionUrlQualifier\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"Qualifier\"\
+        },\
+        \"AuthorizationType\":{\"shape\":\"AuthorizationType\"},\
+        \"Cors\":{\"shape\":\"Cors\"}\
+      }\
+    },\
+    \"UpdateFunctionUrlConfigResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"FunctionUrl\",\
+        \"FunctionArn\",\
+        \"AuthorizationType\",\
+        \"CreationTime\",\
+        \"LastModifiedTime\"\
+      ],\
+      \"members\":{\
+        \"FunctionUrl\":{\"shape\":\"FunctionUrl\"},\
+        \"FunctionArn\":{\"shape\":\"FunctionArn\"},\
+        \"AuthorizationType\":{\"shape\":\"AuthorizationType\"},\
+        \"Cors\":{\"shape\":\"Cors\"},\
+        \"CreationTime\":{\"shape\":\"Timestamp\"},\
+        \"LastModifiedTime\":{\"shape\":\"Timestamp\"}\
+      }\
+    },\
     \"Version\":{\
       \"type\":\"string\",\
       \"max\":1024,\
@@ -5008,7 +5378,7 @@
       \"max\":1000\
     }\
   },\
-  \"documentation\":\"<fullname>Lambda</fullname> <p> <b>Overview</b> </p> <p>This is the <i>Lambda API Reference</i>. The Lambda Developer Guide provides additional information. For the service overview, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/welcome.html\\\">What is Lambda</a>, and for information about how the service works, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html\\\">Lambda: How it Works</a> in the <b>Lambda Developer Guide</b>.</p>\"\
+  \"documentation\":\"<fullname>Lambda</fullname> <p> <b>Overview</b> </p> <p>Lambda is a compute service that lets you run code without provisioning or managing servers. Lambda runs your code on a high-availability compute infrastructure and performs all of the administration of the compute resources, including server and operating system maintenance, capacity provisioning and automatic scaling, code monitoring and logging. With Lambda, you can run code for virtually any type of application or backend service. For more information about the Lambda service, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/welcome.html\\\">What is Lambda</a> in the <b>Lambda Developer Guide</b>.</p> <p>The <i>Lambda API Reference</i> provides information about each of the API methods, including details about the parameters in each API request and response. </p> <p/> <p>You can use Software Development Kits (SDKs), Integrated Development Environment (IDE) Toolkits, and command line tools to access the API. For installation instructions, see <a href=\\\"http://aws.amazon.com/tools/\\\">Tools for Amazon Web Services</a>. </p> <p>For a list of Region-specific endpoints that Lambda supports, see <a href=\\\"https://docs.aws.amazon.com/general/latest/gr/lambda-service.html/\\\">Lambda endpoints and quotas </a> in the <i>Amazon Web Services General Reference.</i>. </p> <p>When making the API calls, you will need to authenticate your request by providing a signature. Lambda supports signature version 4. For more information, see <a href=\\\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\\\">Signature Version 4 signing process</a> in the <i>Amazon Web Services General Reference.</i>. </p> <p> <b>CA certificates</b> </p> <p>Because Amazon Web Services SDKs use the CA certificates from your computer, changes to the certificates on the Amazon Web Services servers can cause connection failures when you attempt to use an SDK. You can prevent these failures by keeping your computer's CA certificates and operating system up-to-date. If you encounter this issue in a corporate environment and do not manage your own computer, you might need to ask an administrator to assist with the update process. The following list shows minimum operating system and Java versions:</p> <ul> <li> <p>Microsoft Windows versions that have updates from January 2005 or later installed contain at least one of the required CAs in their trust list. </p> </li> <li> <p>Mac OS X 10.4 with Java for Mac OS X 10.4 Release 5 (February 2007), Mac OS X 10.5 (October 2007), and later versions contain at least one of the required CAs in their trust list. </p> </li> <li> <p>Red Hat Enterprise Linux 5 (March 2007), 6, and 7 and CentOS 5, 6, and 7 all contain at least one of the required CAs in their default trusted CA list. </p> </li> <li> <p>Java 1.4.2_12 (May 2006), 5 Update 2 (March 2005), and all later versions, including Java 6 (December 2006), 7, and 8, contain at least one of the required CAs in their default trusted CA list. </p> </li> </ul> <p>When accessing the Lambda management console or Lambda API endpoints, whether through browsers or programmatically, you will need to ensure your client machines support any of the following CAs: </p> <ul> <li> <p>Amazon Root CA 1</p> </li> <li> <p>Starfield Services Root Certificate Authority - G2</p> </li> <li> <p>Starfield Class 2 Certification Authority</p> </li> </ul> <p>Root certificates from the first two authorities are available from <a href=\\\"https://www.amazontrust.com/repository/\\\">Amazon trust services</a>, but keeping your computer up-to-date is the more straightforward solution. To learn more about ACM-provided certificates, see <a href=\\\"http://aws.amazon.com/certificate-manager/faqs/#certificates\\\">Amazon Web Services Certificate Manager FAQs.</a> </p>\"\
 }\
 ";
 }
