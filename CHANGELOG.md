@@ -1,3 +1,15 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSSQS
+---AWSLambda
+---AWSSTS
+---AWSElasticLoadBalancingv2
+---AWSDynamoDB
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
