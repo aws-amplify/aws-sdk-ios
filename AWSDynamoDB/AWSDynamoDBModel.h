@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -515,7 +515,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSDate * _Nullable archivalDateTime;
 
 /**
- <p>The reason DynamoDB archived the table. Currently, the only possible value is:</p><ul><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The table was archived due to the table's AWS KMS key being inaccessible for more than seven days. An On-Demand backup was created at the archival time.</p></li></ul>
+ <p>The reason DynamoDB archived the table. Currently, the only possible value is:</p><ul><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The table was archived due to the table's KMS key being inaccessible for more than seven days. An On-Demand backup was created at the archival time.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable archivalReason;
 
@@ -838,7 +838,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBBackupStatus backupStatus;
 
 /**
- <p>BackupType:</p><ul><li><p><code>USER</code> - You create and manage these using the on-demand backup feature.</p></li><li><p><code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code> backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion. </p></li><li><p><code>AWS_BACKUP</code> - On-demand backup created by you from AWS Backup service.</p></li></ul>
+ <p>BackupType:</p><ul><li><p><code>USER</code> - You create and manage these using the on-demand backup feature.</p></li><li><p><code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code> backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion. </p></li><li><p><code>AWS_BACKUP</code> - On-demand backup created by you from Backup service.</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBBackupType backupType;
 
@@ -881,7 +881,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBBackupStatus backupStatus;
 
 /**
- <p>BackupType:</p><ul><li><p><code>USER</code> - You create and manage these using the on-demand backup feature.</p></li><li><p><code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code> backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion. </p></li><li><p><code>AWS_BACKUP</code> - On-demand backup created by you from AWS Backup service.</p></li></ul>
+ <p>BackupType:</p><ul><li><p><code>USER</code> - You create and manage these using the on-demand backup feature.</p></li><li><p><code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code> backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion. </p></li><li><p><code>AWS_BACKUP</code> - On-demand backup created by you from Backup service.</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBBackupType backupType;
 
@@ -909,7 +909,12 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p> The list of PartiQL statements representing the batch to run. </p>
+ <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p><ul><li><p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p><p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li><li><p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li><li><p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity;
+
+/**
+ <p>The list of PartiQL statements representing the batch to run.</p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBBatchStatementRequest *> * _Nullable statements;
 
@@ -922,7 +927,12 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p> The response to each PartiQL statement in the batch. </p>
+ <p>The capacity units consumed by the entire operation. The values of the list are ordered according to the ordering of the statements.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBConsumedCapacity *> * _Nullable consumedCapacity;
+
+/**
+ <p>The response to each PartiQL statement in the batch.</p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBBatchStatementResponse *> * _Nullable responses;
 
@@ -941,7 +951,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBKeysAndAttributes *> * _Nullable requestItems;
 
 /**
- <p>Determines the level of detail about provisioned throughput consumption that is returned in the response:</p><ul><li><p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p><p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li><li><p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li><li><p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li></ul>
+ <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p><ul><li><p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p><p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li><li><p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li><li><p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity;
 
@@ -1048,7 +1058,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSDictionary<NSString *, NSArray<AWSDynamoDBWriteRequest *> *> * _Nullable requestItems;
 
 /**
- <p>Determines the level of detail about provisioned throughput consumption that is returned in the response:</p><ul><li><p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p><p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li><li><p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li><li><p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li></ul>
+ <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p><ul><li><p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p><p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li><li><p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li><li><p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity;
 
@@ -1407,7 +1417,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSArray<AWSDynamoDBReplicaGlobalSecondaryIndex *> * _Nullable globalSecondaryIndexes;
 
 /**
- <p>The AWS KMS customer master key (CMK) that should be used for AWS KMS encryption in the new replica. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS master key alias/aws/dynamodb.</p>
+ <p>The KMS key that should be used for KMS encryption in the new replica. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS key <code>alias/aws/dynamodb</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable KMSMasterKeyId;
 
@@ -1612,7 +1622,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable key;
 
 /**
- <p>Determines the level of detail about provisioned throughput consumption that is returned in the response:</p><ul><li><p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p><p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li><li><p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li><li><p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li></ul>
+ <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p><ul><li><p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p><p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li><li><p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li><li><p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity;
 
@@ -1802,17 +1812,17 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>List of names of the associated Alpine rules.</p>
+ <p>List of names of the associated contributor insights rules.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable contributorInsightsRuleList;
 
 /**
- <p>Current Status contributor insights.</p>
+ <p>Current status of contributor insights.</p>
  */
 @property (nonatomic, assign) AWSDynamoDBContributorInsightsStatus contributorInsightsStatus;
 
 /**
- <p>Returns information about the last failure that encountered.</p><p>The most common exceptions for a FAILED status are:</p><ul><li><p>LimitExceededException - Per-account Amazon CloudWatch Contributor Insights rule limit reached. Please disable Contributor Insights for other tables/indexes OR disable Contributor Insights rules before retrying.</p></li><li><p>AccessDeniedException - Amazon CloudWatch Contributor Insights rules cannot be modified due to insufficient permissions.</p></li><li><p>AccessDeniedException - Failed to create service-linked role for Contributor Insights due to insufficient permissions.</p></li><li><p>InternalServerError - Failed to create Amazon CloudWatch Contributor Insights rules. Please retry request.</p></li></ul>
+ <p>Returns information about the last failure that was encountered.</p><p>The most common exceptions for a FAILED status are:</p><ul><li><p>LimitExceededException - Per-account Amazon CloudWatch Contributor Insights rule limit reached. Please disable Contributor Insights for other tables/indexes OR disable Contributor Insights rules before retrying.</p></li><li><p>AccessDeniedException - Amazon CloudWatch Contributor Insights rules cannot be modified due to insufficient permissions.</p></li><li><p>AccessDeniedException - Failed to create service-linked role for Contributor Insights due to insufficient permissions.</p></li><li><p>InternalServerError - Failed to create Amazon CloudWatch Contributor Insights rules. Please retry request.</p></li></ul>
  */
 @property (nonatomic, strong) AWSDynamoDBFailureException * _Nullable failureException;
 
@@ -2109,22 +2119,27 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p> The consistency of a read operation. If set to <code>true</code>, then a strongly consistent read is used; otherwise, an eventually consistent read is used. </p>
+ <p>The consistency of a read operation. If set to <code>true</code>, then a strongly consistent read is used; otherwise, an eventually consistent read is used.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable consistentRead;
 
 /**
- <p> Set this value to get remaining results, if <code>NextToken</code> was returned in the statement response. </p>
+ <p>Set this value to get remaining results, if <code>NextToken</code> was returned in the statement response.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p> The parameters for the PartiQL statement, if any. </p>
+ <p>The parameters for the PartiQL statement, if any.</p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBAttributeValue *> * _Nullable parameters;
 
 /**
- <p> The PartiQL statement representing the operation to run. </p>
+ <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p><ul><li><p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p><p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li><li><p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li><li><p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity;
+
+/**
+ <p>The PartiQL statement representing the operation to run.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable statement;
 
@@ -2137,12 +2152,17 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p> If a read operation was used, this property will contain the result of the reade operation; a map of attribute names and their values. For the write operations this value will be empty. </p>
+ <p>The capacity units consumed by an operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the request asked for it. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBConsumedCapacity * _Nullable consumedCapacity;
+
+/**
+ <p>If a read operation was used, this property will contain the result of the read operation; a map of attribute names and their values. For the write operations this value will be empty.</p>
  */
 @property (nonatomic, strong) NSArray<NSDictionary<NSString *, AWSDynamoDBAttributeValue *> *> * _Nullable items;
 
 /**
- <p> If the response of a read request exceeds the response payload limit DynamoDB will set this value in the response. If set, you can use that this value in the subsequent request to get the remaining results. </p>
+ <p>If the response of a read request exceeds the response payload limit DynamoDB will set this value in the response. If set, you can use that this value in the subsequent request to get the remaining results.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -2155,12 +2175,17 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p> Set this value to get remaining results, if <code>NextToken</code> was returned in the statement response. </p>
+ <p>Set this value to get remaining results, if <code>NextToken</code> was returned in the statement response.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientRequestToken;
 
 /**
- <p> The list of PartiQL statements representing the transaction to run. </p>
+ <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactGetItems.html">TransactGetItems</a> and <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactWriteItems.html">TransactWriteItems</a>.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity;
+
+/**
+ <p>The list of PartiQL statements representing the transaction to run.</p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBParameterizedStatement *> * _Nullable transactStatements;
 
@@ -2173,7 +2198,12 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p> The response to a PartiQL transaction. </p>
+ <p>The capacity units consumed by the entire operation. The values of the list are ordered according to the ordering of the statements.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBConsumedCapacity *> * _Nullable consumedCapacity;
+
+/**
+ <p>The response to a PartiQL transaction.</p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBItemResponse *> * _Nullable responses;
 
@@ -2274,7 +2304,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable s3Bucket;
 
 /**
- <p>The ID of the AWS account that owns the bucket containing the export.</p>
+ <p>The ID of the Amazon Web Services account that owns the bucket containing the export.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable s3BucketOwner;
 
@@ -2284,12 +2314,12 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable s3Prefix;
 
 /**
- <p>Type of encryption used on the bucket where export data is stored. Valid values for <code>S3SseAlgorithm</code> are:</p><ul><li><p><code>AES256</code> - server-side encryption with Amazon S3 managed keys</p></li><li><p><code>KMS</code> - server-side encryption with AWS KMS managed keys</p></li></ul>
+ <p>Type of encryption used on the bucket where export data is stored. Valid values for <code>S3SseAlgorithm</code> are:</p><ul><li><p><code>AES256</code> - server-side encryption with Amazon S3 managed keys</p></li><li><p><code>KMS</code> - server-side encryption with KMS managed keys</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBS3SseAlgorithm s3SseAlgorithm;
 
 /**
- <p>The ID of the AWS KMS managed key used to encrypt the S3 bucket where export data is stored (if applicable).</p>
+ <p>The ID of the KMS managed key used to encrypt the S3 bucket where export data is stored (if applicable).</p>
  */
 @property (nonatomic, strong) NSString * _Nullable s3SseKmsKeyId;
 
@@ -2355,7 +2385,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable s3Bucket;
 
 /**
- <p>The ID of the AWS account that owns the bucket the export will be stored in.</p>
+ <p>The ID of the Amazon Web Services account that owns the bucket the export will be stored in.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable s3BucketOwner;
 
@@ -2365,12 +2395,12 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable s3Prefix;
 
 /**
- <p>Type of encryption used on the bucket where export data will be stored. Valid values for <code>S3SseAlgorithm</code> are:</p><ul><li><p><code>AES256</code> - server-side encryption with Amazon S3 managed keys</p></li><li><p><code>KMS</code> - server-side encryption with AWS KMS managed keys</p></li></ul>
+ <p>Type of encryption used on the bucket where export data will be stored. Valid values for <code>S3SseAlgorithm</code> are:</p><ul><li><p><code>AES256</code> - server-side encryption with Amazon S3 managed keys</p></li><li><p><code>KMS</code> - server-side encryption with KMS managed keys</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBS3SseAlgorithm s3SseAlgorithm;
 
 /**
- <p>The ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).</p>
+ <p>The ID of the KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).</p>
  */
 @property (nonatomic, strong) NSString * _Nullable s3SseKmsKeyId;
 
@@ -2474,7 +2504,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable projectionExpression;
 
 /**
- <p>Determines the level of detail about provisioned throughput consumption that is returned in the response:</p><ul><li><p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p><p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li><li><p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li><li><p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li></ul>
+ <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p><ul><li><p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p><p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li><li><p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li><li><p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity;
 
@@ -3429,7 +3459,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable item;
 
 /**
- <p>Determines the level of detail about provisioned throughput consumption that is returned in the response:</p><ul><li><p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p><p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li><li><p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li><li><p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li></ul>
+ <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p><ul><li><p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p><p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li><li><p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li><li><p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity;
 
@@ -3439,7 +3469,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBReturnItemCollectionMetrics returnItemCollectionMetrics;
 
 /**
- <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they were updated with the <code>PutItem</code> request. For <code>PutItem</code>, the valid values are:</p><ul><li><p><code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This setting is the default for <code>ReturnValues</code>.)</p></li><li><p><code>ALL_OLD</code> - If <code>PutItem</code> overwrote an attribute name-value pair, then the content of the old item is returned.</p></li></ul><note><p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however, <code>PutItem</code> does not recognize any values other than <code>NONE</code> or <code>ALL_OLD</code>.</p></note>
+ <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they were updated with the <code>PutItem</code> request. For <code>PutItem</code>, the valid values are:</p><ul><li><p><code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This setting is the default for <code>ReturnValues</code>.)</p></li><li><p><code>ALL_OLD</code> - If <code>PutItem</code> overwrote an attribute name-value pair, then the content of the old item is returned.</p></li></ul><p>The values returned are strongly consistent.</p><note><p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however, <code>PutItem</code> does not recognize any values other than <code>NONE</code> or <code>ALL_OLD</code>.</p></note>
  */
 @property (nonatomic, assign) AWSDynamoDBReturnValue returnValues;
 
@@ -3560,7 +3590,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBCondition *> * _Nullable queryFilter;
 
 /**
- <p>Determines the level of detail about provisioned throughput consumption that is returned in the response:</p><ul><li><p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p><p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li><li><p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li><li><p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li></ul>
+ <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p><ul><li><p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p><p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li><li><p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li><li><p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity;
 
@@ -3696,7 +3726,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSArray<AWSDynamoDBReplicaGlobalSecondaryIndexDescription *> * _Nullable globalSecondaryIndexes;
 
 /**
- <p>The AWS KMS customer master key (CMK) of the replica that will be used for AWS KMS encryption.</p>
+ <p>The KMS key of the replica that will be used for KMS encryption.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable KMSMasterKeyId;
 
@@ -3716,7 +3746,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSDate * _Nullable replicaInaccessibleDateTime;
 
 /**
- <p>The current state of the replica:</p><ul><li><p><code>CREATING</code> - The replica is being created.</p></li><li><p><code>UPDATING</code> - The replica is being updated.</p></li><li><p><code>DELETING</code> - The replica is being deleted.</p></li><li><p><code>ACTIVE</code> - The replica is ready for use.</p></li><li><p><code>REGION_DISABLED</code> - The replica is inaccessible because the AWS Region has been disabled.</p><note><p>If the AWS Region remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p></note></li><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS </code> - The AWS KMS key used to encrypt the table is inaccessible.</p><note><p>If the AWS KMS key remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p></note></li></ul>
+ <p>The current state of the replica:</p><ul><li><p><code>CREATING</code> - The replica is being created.</p></li><li><p><code>UPDATING</code> - The replica is being updated.</p></li><li><p><code>DELETING</code> - The replica is being deleted.</p></li><li><p><code>ACTIVE</code> - The replica is ready for use.</p></li><li><p><code>REGION_DISABLED</code> - The replica is inaccessible because the Amazon Web Services Region has been disabled.</p><note><p>If the Amazon Web Services Region remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p></note></li><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS </code> - The KMS key used to encrypt the table is inaccessible.</p><note><p>If the KMS key remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p></note></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBReplicaStatus replicaStatus;
 
@@ -4160,17 +4190,17 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>Indicates the time, in UNIX epoch date format, when DynamoDB detected that the table's AWS KMS key was inaccessible. This attribute will automatically be cleared when DynamoDB detects that the table's AWS KMS key is accessible again. DynamoDB will initiate the table archival process when table's AWS KMS key remains inaccessible for more than seven days from this date.</p>
+ <p>Indicates the time, in UNIX epoch date format, when DynamoDB detected that the table's KMS key was inaccessible. This attribute will automatically be cleared when DynamoDB detects that the table's KMS key is accessible again. DynamoDB will initiate the table archival process when table's KMS key remains inaccessible for more than seven days from this date.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable inaccessibleEncryptionDateTime;
 
 /**
- <p>The AWS KMS customer master key (CMK) ARN used for the AWS KMS encryption.</p>
+ <p>The KMS key ARN used for the KMS encryption.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable KMSMasterKeyArn;
 
 /**
- <p>Server-side encryption type. The only supported value is:</p><ul><li><p><code>KMS</code> - Server-side encryption that uses AWS Key Management Service. The key is stored in your account and is managed by AWS KMS (AWS KMS charges apply).</p></li></ul>
+ <p>Server-side encryption type. The only supported value is:</p><ul><li><p><code>KMS</code> - Server-side encryption that uses Key Management Service. The key is stored in your account and is managed by KMS (KMS charges apply).</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBSSEType SSEType;
 
@@ -4188,17 +4218,17 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>Indicates whether server-side encryption is done using an AWS managed CMK or an AWS owned CMK. If enabled (true), server-side encryption type is set to <code>KMS</code> and an AWS managed CMK is used (AWS KMS charges apply). If disabled (false) or not specified, server-side encryption is set to AWS owned CMK.</p>
+ <p>Indicates whether server-side encryption is done using an Amazon Web Services managed key or an Amazon Web Services owned key. If enabled (true), server-side encryption type is set to <code>KMS</code> and an Amazon Web Services managed key is used (KMS charges apply). If disabled (false) or not specified, server-side encryption is set to Amazon Web Services owned key.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 /**
- <p>The AWS KMS customer master key (CMK) that should be used for the AWS KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB customer master key alias/aws/dynamodb.</p>
+ <p>The KMS key that should be used for the KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key <code>alias/aws/dynamodb</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable KMSMasterKeyId;
 
 /**
- <p>Server-side encryption type. The only supported value is:</p><ul><li><p><code>KMS</code> - Server-side encryption that uses AWS Key Management Service. The key is stored in your account and is managed by AWS KMS (AWS KMS charges apply).</p></li></ul>
+ <p>Server-side encryption type. The only supported value is:</p><ul><li><p><code>KMS</code> - Server-side encryption that uses Key Management Service. The key is stored in your account and is managed by KMS (KMS charges apply).</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBSSEType SSEType;
 
@@ -4262,7 +4292,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable projectionExpression;
 
 /**
- <p>Determines the level of detail about provisioned throughput consumption that is returned in the response:</p><ul><li><p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p><p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li><li><p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li><li><p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li></ul>
+ <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p><ul><li><p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p><p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li><li><p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li><li><p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity;
 
@@ -4487,7 +4517,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSArray<AWSDynamoDBGlobalSecondaryIndexDescription *> * _Nullable globalSecondaryIndexes;
 
 /**
- <p>Represents the version of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html">global tables</a> in use, if the table is replicated across AWS Regions.</p>
+ <p>Represents the version of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html">global tables</a> in use, if the table is replicated across Amazon Web Services Regions.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable globalTableVersion;
 
@@ -4507,7 +4537,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable latestStreamArn;
 
 /**
- <p>A timestamp, in ISO 8601 format, for this stream.</p><p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:</p><ul><li><p>AWS customer ID</p></li><li><p>Table name</p></li><li><p><code>StreamLabel</code></p></li></ul>
+ <p>A timestamp, in ISO 8601 format, for this stream.</p><p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:</p><ul><li><p>Amazon Web Services customer ID</p></li><li><p>Table name</p></li><li><p><code>StreamLabel</code></p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable latestStreamLabel;
 
@@ -4562,21 +4592,21 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable tableSizeBytes;
 
 /**
- <p>The current state of the table:</p><ul><li><p><code>CREATING</code> - The table is being created.</p></li><li><p><code>UPDATING</code> - The table is being updated.</p></li><li><p><code>DELETING</code> - The table is being deleted.</p></li><li><p><code>ACTIVE</code> - The table is ready for use.</p></li><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The AWS KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the AWS KMS key. DynamoDB will initiate the table archival process when a table's AWS KMS key remains inaccessible for more than seven days. </p></li><li><p><code>ARCHIVING</code> - The table is being archived. Operations are not allowed until archival is complete. </p></li><li><p><code>ARCHIVED</code> - The table has been archived. See the ArchivalReason for more information. </p></li></ul>
+ <p>The current state of the table:</p><ul><li><p><code>CREATING</code> - The table is being created.</p></li><li><p><code>UPDATING</code> - The table is being updated.</p></li><li><p><code>DELETING</code> - The table is being deleted.</p></li><li><p><code>ACTIVE</code> - The table is ready for use.</p></li><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the KMS key. DynamoDB will initiate the table archival process when a table's KMS key remains inaccessible for more than seven days. </p></li><li><p><code>ARCHIVING</code> - The table is being archived. Operations are not allowed until archival is complete. </p></li><li><p><code>ARCHIVED</code> - The table has been archived. See the ArchivalReason for more information. </p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBTableStatus tableStatus;
 
 @end
 
 /**
- <p>Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table. </p><p> AWS-assigned tag names and values are automatically assigned the <code>aws:</code> prefix, which the user cannot assign. AWS-assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix <code>user:</code> in the Cost Allocation Report. You cannot backdate the application of a tag. </p><p>For an overview on tagging DynamoDB resources, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table. </p><p>Amazon Web Services-assigned tag names and values are automatically assigned the <code>aws:</code> prefix, which the user cannot assign. Amazon Web Services-assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix <code>user:</code> in the Cost Allocation Report. You cannot backdate the application of a tag.</p><p>For an overview on tagging DynamoDB resources, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  Required parameters: [Key, Value]
  */
 @interface AWSDynamoDBTag : AWSModel
 
 
 /**
- <p>The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value. </p>
+ <p>The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable key;
 
@@ -4732,7 +4762,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable clientRequestToken;
 
 /**
- <p>Determines the level of detail about provisioned throughput consumption that is returned in the response:</p><ul><li><p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p><p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li><li><p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li><li><p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li></ul>
+ <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p><ul><li><p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p><p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li><li><p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li><li><p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity;
 
@@ -4742,7 +4772,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBReturnItemCollectionMetrics returnItemCollectionMetrics;
 
 /**
- <p>An ordered array of up to 25 <code>TransactWriteItem</code> objects, each of which contains a <code>ConditionCheck</code>, <code>Put</code>, <code>Update</code>, or <code>Delete</code> object. These can operate on items in different tables, but the tables must reside in the same AWS account and Region, and no two of them can operate on the same item. </p>
+ <p>An ordered array of up to 25 <code>TransactWriteItem</code> objects, each of which contains a <code>ConditionCheck</code>, <code>Put</code>, <code>Update</code>, or <code>Delete</code> object. These can operate on items in different tables, but the tables must reside in the same Amazon Web Services account and Region, and no two of them can operate on the same item. </p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBTransactWriteItem *> * _Nullable transactItems;
 
@@ -5054,7 +5084,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable key;
 
 /**
- <p>Determines the level of detail about provisioned throughput consumption that is returned in the response:</p><ul><li><p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p><p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li><li><p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li><li><p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li></ul>
+ <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p><ul><li><p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p><p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li><li><p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li><li><p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity;
 
@@ -5116,7 +5146,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSArray<AWSDynamoDBReplicaGlobalSecondaryIndex *> * _Nullable globalSecondaryIndexes;
 
 /**
- <p>The AWS KMS customer master key (CMK) of the replica that should be used for AWS KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS master key alias/aws/dynamodb.</p>
+ <p>The KMS key of the replica that should be used for KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS key <code>alias/aws/dynamodb</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable KMSMasterKeyId;
 

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -494,8 +494,35 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"returnConsumedCapacity" : @"ReturnConsumedCapacity",
              @"statements" : @"Statements",
              };
+}
+
++ (NSValueTransformer *)returnConsumedCapacityJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"INDEXES"] == NSOrderedSame) {
+            return @(AWSDynamoDBReturnConsumedCapacityIndexes);
+        }
+        if ([value caseInsensitiveCompare:@"TOTAL"] == NSOrderedSame) {
+            return @(AWSDynamoDBReturnConsumedCapacityTotal);
+        }
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
+            return @(AWSDynamoDBReturnConsumedCapacityNone);
+        }
+        return @(AWSDynamoDBReturnConsumedCapacityUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBReturnConsumedCapacityIndexes:
+                return @"INDEXES";
+            case AWSDynamoDBReturnConsumedCapacityTotal:
+                return @"TOTAL";
+            case AWSDynamoDBReturnConsumedCapacityNone:
+                return @"NONE";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)statementsJSONTransformer {
@@ -512,8 +539,13 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"consumedCapacity" : @"ConsumedCapacity",
              @"responses" : @"Responses",
              };
+}
+
++ (NSValueTransformer *)consumedCapacityJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
 }
 
 + (NSValueTransformer *)responsesJSONTransformer {
@@ -2258,12 +2290,39 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
              @"consistentRead" : @"ConsistentRead",
              @"nextToken" : @"NextToken",
              @"parameters" : @"Parameters",
+             @"returnConsumedCapacity" : @"ReturnConsumedCapacity",
              @"statement" : @"Statement",
              };
 }
 
 + (NSValueTransformer *)parametersJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAttributeValue class]];
+}
+
++ (NSValueTransformer *)returnConsumedCapacityJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"INDEXES"] == NSOrderedSame) {
+            return @(AWSDynamoDBReturnConsumedCapacityIndexes);
+        }
+        if ([value caseInsensitiveCompare:@"TOTAL"] == NSOrderedSame) {
+            return @(AWSDynamoDBReturnConsumedCapacityTotal);
+        }
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
+            return @(AWSDynamoDBReturnConsumedCapacityNone);
+        }
+        return @(AWSDynamoDBReturnConsumedCapacityUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBReturnConsumedCapacityIndexes:
+                return @"INDEXES";
+            case AWSDynamoDBReturnConsumedCapacityTotal:
+                return @"TOTAL";
+            case AWSDynamoDBReturnConsumedCapacityNone:
+                return @"NONE";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -2276,9 +2335,14 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"consumedCapacity" : @"ConsumedCapacity",
              @"items" : @"Items",
              @"nextToken" : @"NextToken",
              };
+}
+
++ (NSValueTransformer *)consumedCapacityJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
 }
 
 + (NSValueTransformer *)itemsJSONTransformer {
@@ -2300,8 +2364,35 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"clientRequestToken" : @"ClientRequestToken",
+             @"returnConsumedCapacity" : @"ReturnConsumedCapacity",
              @"transactStatements" : @"TransactStatements",
              };
+}
+
++ (NSValueTransformer *)returnConsumedCapacityJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"INDEXES"] == NSOrderedSame) {
+            return @(AWSDynamoDBReturnConsumedCapacityIndexes);
+        }
+        if ([value caseInsensitiveCompare:@"TOTAL"] == NSOrderedSame) {
+            return @(AWSDynamoDBReturnConsumedCapacityTotal);
+        }
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
+            return @(AWSDynamoDBReturnConsumedCapacityNone);
+        }
+        return @(AWSDynamoDBReturnConsumedCapacityUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBReturnConsumedCapacityIndexes:
+                return @"INDEXES";
+            case AWSDynamoDBReturnConsumedCapacityTotal:
+                return @"TOTAL";
+            case AWSDynamoDBReturnConsumedCapacityNone:
+                return @"NONE";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)transactStatementsJSONTransformer {
@@ -2318,8 +2409,13 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"consumedCapacity" : @"ConsumedCapacity",
              @"responses" : @"Responses",
              };
+}
+
++ (NSValueTransformer *)consumedCapacityJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBConsumedCapacity class]];
 }
 
 + (NSValueTransformer *)responsesJSONTransformer {
