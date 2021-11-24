@@ -53,6 +53,8 @@
 - (void) test_AWSLambdaEnvironmentResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaEventSourceMappingConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaFileSystemConfig API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaFilter API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaFilterCriteria API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaFunctionCode API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaFunctionCodeLocation API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaFunctionConfiguration API_AVAILABLE(ios(11));
@@ -282,6 +284,14 @@
 
 - (void) test_AWSLambdaFileSystemConfig {
     [self validateSecureCodingForClass:[AWSLambdaFileSystemConfig class]];
+}
+
+- (void) test_AWSLambdaFilter {
+    [self validateSecureCodingForClass:[AWSLambdaFilter class]];
+}
+
+- (void) test_AWSLambdaFilterCriteria {
+    [self validateSecureCodingForClass:[AWSLambdaFilterCriteria class]];
 }
 
 - (void) test_AWSLambdaFunctionCode {
