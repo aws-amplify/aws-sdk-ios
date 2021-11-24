@@ -340,9 +340,12 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @class AWSAutoScalingLoadForecast;
 @class AWSAutoScalingMemoryGiBPerVCpuRequest;
 @class AWSAutoScalingMemoryMiBRequest;
+@class AWSAutoScalingMetric;
 @class AWSAutoScalingMetricCollectionType;
+@class AWSAutoScalingMetricDataQuery;
 @class AWSAutoScalingMetricDimension;
 @class AWSAutoScalingMetricGranularityType;
+@class AWSAutoScalingMetricStat;
 @class AWSAutoScalingMixedInstancesPolicy;
 @class AWSAutoScalingNetworkInterfaceCountRequest;
 @class AWSAutoScalingNotificationConfiguration;
@@ -350,6 +353,9 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @class AWSAutoScalingPolicyARNType;
 @class AWSAutoScalingPredefinedMetricSpecification;
 @class AWSAutoScalingPredictiveScalingConfiguration;
+@class AWSAutoScalingPredictiveScalingCustomizedCapacityMetric;
+@class AWSAutoScalingPredictiveScalingCustomizedLoadMetric;
+@class AWSAutoScalingPredictiveScalingCustomizedScalingMetric;
 @class AWSAutoScalingPredictiveScalingMetricSpecification;
 @class AWSAutoScalingPredictiveScalingPredefinedLoadMetric;
 @class AWSAutoScalingPredictiveScalingPredefinedMetricPair;
@@ -1061,7 +1067,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 
 
 /**
- <p>The time stamps for the data points, in UTC format.</p>
+ <p>The timestamps for the data points, in UTC format.</p>
  */
 @property (nonatomic, strong) NSArray<NSDate *> * _Nullable timestamps;
 
@@ -3165,7 +3171,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) AWSAutoScalingPredictiveScalingMetricSpecification * _Nullable metricSpecification;
 
 /**
- <p>The time stamps for the data points, in UTC format.</p>
+ <p>The timestamps for the data points, in UTC format.</p>
  */
 @property (nonatomic, strong) NSArray<NSDate *> * _Nullable timestamps;
 
@@ -3214,6 +3220,30 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @end
 
 /**
+ <p>Represents a specific metric. </p>
+ Required parameters: [Namespace, MetricName]
+ */
+@interface AWSAutoScalingMetric : AWSModel
+
+
+/**
+ <p>The dimensions for the metric. For the list of available dimensions, see the Amazon Web Services documentation available from the table in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html">Amazon Web Services services that publish CloudWatch metrics </a> in the <i>Amazon CloudWatch User Guide</i>. </p><p>Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSAutoScalingMetricDimension *> * _Nullable dimensions;
+
+/**
+ <p>The name of the metric.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable metricName;
+
+/**
+ <p>The namespace of the metric. For more information, see the table in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html">Amazon Web Services services that publish CloudWatch metrics </a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable namespace;
+
+@end
+
+/**
  <p>Describes a metric.</p>
  */
 @interface AWSAutoScalingMetricCollectionType : AWSModel
@@ -3223,6 +3253,40 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
  <p>One of the following metrics:</p><ul><li><p><code>GroupMinSize</code></p></li><li><p><code>GroupMaxSize</code></p></li><li><p><code>GroupDesiredCapacity</code></p></li><li><p><code>GroupInServiceInstances</code></p></li><li><p><code>GroupPendingInstances</code></p></li><li><p><code>GroupStandbyInstances</code></p></li><li><p><code>GroupTerminatingInstances</code></p></li><li><p><code>GroupTotalInstances</code></p></li><li><p><code>GroupInServiceCapacity</code></p></li><li><p><code>GroupPendingCapacity</code></p></li><li><p><code>GroupStandbyCapacity</code></p></li><li><p><code>GroupTerminatingCapacity</code></p></li><li><p><code>GroupTotalCapacity</code></p></li><li><p><code>WarmPoolDesiredCapacity</code></p></li><li><p><code>WarmPoolWarmedCapacity</code></p></li><li><p><code>WarmPoolPendingCapacity</code></p></li><li><p><code>WarmPoolTerminatingCapacity</code></p></li><li><p><code>WarmPoolTotalCapacity</code></p></li><li><p><code>GroupAndWarmPoolDesiredCapacity</code></p></li><li><p><code>GroupAndWarmPoolTotalCapacity</code></p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable metric;
+
+@end
+
+/**
+ <p>The metric data to return. Also defines whether this call is returning data for one metric only, or whether it is performing a math expression on the values of returned metric statistics to create a new time series. A time series is a series of data points, each of which is associated with a timestamp.</p><p>For more information and examples, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/predictive-scaling-customized-metric-specification.html">Advanced predictive scaling policy configurations using customized metrics</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ Required parameters: [Id]
+ */
+@interface AWSAutoScalingMetricDataQuery : AWSModel
+
+
+/**
+ <p>The math expression to perform on the returned data, if this object is performing a math expression. This expression can use the <code>Id</code> of the other metrics to refer to those metrics, and can also use the <code>Id</code> of other expressions to use the result of those expressions. </p><p>For example, to use search expressions, use the SEARCH() function in your metric math expression to combine multiple metrics from Auto Scaling groups that use a specific name prefix.</p><p>Conditional: Within each <code>MetricDataQuery</code> object, you must specify either <code>Expression</code> or <code>MetricStat</code>, but not both.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable expression;
+
+/**
+ <p>A short name that identifies the object's results in the response. This name must be unique among all <code>MetricDataQuery</code> objects specified for a single scaling policy. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscores. The first character must be a lowercase letter. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>A human-readable label for this metric or expression. This is especially useful if this is a math expression, so that you know what the value represents.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable label;
+
+/**
+ <p>Information about the metric data to return.</p><p>Conditional: Within each <code>MetricDataQuery</code> object, you must specify either <code>Expression</code> or <code>MetricStat</code>, but not both.</p>
+ */
+@property (nonatomic, strong) AWSAutoScalingMetricStat * _Nullable metricStat;
+
+/**
+ <p>Indicates whether to return the timestamps and raw data values of this metric. </p><p>If you use any math expressions, specify <code>True</code> for this value for only the final math expression that the metric specification is based on. You must specify <code>False</code> for <code>ReturnData</code> for all the other metrics and expressions used in the metric specification.</p><p>If you are only retrieving metrics and not performing any math expressions, do not specify anything for <code>ReturnData</code>. This sets it to its default (<code>True</code>).</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable returnData;
 
 @end
 
@@ -3255,6 +3319,30 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
  <p>The granularity. The only valid value is <code>1Minute</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable granularity;
+
+@end
+
+/**
+ <p>This structure defines the CloudWatch metric to return, along with the statistic, period, and unit.</p><p>For more information about the CloudWatch terminology below, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch concepts</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+ Required parameters: [Metric, Stat]
+ */
+@interface AWSAutoScalingMetricStat : AWSModel
+
+
+/**
+ <p>The CloudWatch metric to return, including the metric name, namespace, and dimensions. To get the exact metric name, namespace, and dimensions, inspect the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html">Metric</a> object that is returned by a call to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html">ListMetrics</a>.</p>
+ */
+@property (nonatomic, strong) AWSAutoScalingMetric * _Nullable metric;
+
+/**
+ <p>The statistic to return. It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic">Statistics</a> in the <i>Amazon CloudWatch User Guide</i>.</p><p>The most commonly used metrics for predictive scaling are <code>Average</code> and <code>Sum</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable stat;
+
+/**
+ <p>The unit to use for the returned data points. For a complete list of the units that CloudWatch supports, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">MetricDatum</a> data type in the <i>Amazon CloudWatch API Reference</i>. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable unit;
 
 @end
 
@@ -3407,29 +3495,86 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @end
 
 /**
- <p>This structure specifies the metrics and target utilization settings for a predictive scaling policy. </p><p>You must specify either a metric pair, or a load metric and a scaling metric individually. Specifying a metric pair instead of individual metrics provides a simpler way to configure metrics for a scaling policy. You choose the metric pair, and the policy automatically knows the correct sum and average statistics to use for the load metric and the scaling metric.</p><p>Example</p><ul><li><p>You create a predictive scaling policy and specify <code>ALBRequestCount</code> as the value for the metric pair and <code>1000.0</code> as the target value. For this type of metric, you must provide the metric dimension for the corresponding target group, so you also provide a resource label for the Application Load Balancer target group that is attached to your Auto Scaling group.</p></li><li><p>The number of requests the target group receives per minute provides the load metric, and the request count averaged between the members of the target group provides the scaling metric. In CloudWatch, this refers to the <code>RequestCount</code> and <code>RequestCountPerTarget</code> metrics, respectively.</p></li><li><p>For optimal use of predictive scaling, you adhere to the best practice of using a dynamic scaling policy to automatically scale between the minimum capacity and maximum capacity in response to real-time changes in resource utilization.</p></li><li><p>Amazon EC2 Auto Scaling consumes data points for the load metric over the last 14 days and creates an hourly load forecast for predictive scaling. (A minimum of 24 hours of data is required.)</p></li><li><p>After creating the load forecast, Amazon EC2 Auto Scaling determines when to reduce or increase the capacity of your Auto Scaling group in each hour of the forecast period so that the average number of requests received by each instance is as close to 1000 requests per minute as possible at all times.</p></li></ul>
+ <p>Describes a customized capacity metric for a predictive scaling policy.</p>
+ Required parameters: [MetricDataQueries]
+ */
+@interface AWSAutoScalingPredictiveScalingCustomizedCapacityMetric : AWSModel
+
+
+/**
+ <p>One or more metric data queries to provide the data points for a capacity metric. Use multiple metric data queries only if you are performing a math expression on returned data. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSAutoScalingMetricDataQuery *> * _Nullable metricDataQueries;
+
+@end
+
+/**
+ <p>Describes a customized load metric for a predictive scaling policy.</p>
+ Required parameters: [MetricDataQueries]
+ */
+@interface AWSAutoScalingPredictiveScalingCustomizedLoadMetric : AWSModel
+
+
+/**
+ <p>One or more metric data queries to provide the data points for a load metric. Use multiple metric data queries only if you are performing a math expression on returned data. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSAutoScalingMetricDataQuery *> * _Nullable metricDataQueries;
+
+@end
+
+/**
+ <p>Describes a customized scaling metric for a predictive scaling policy.</p>
+ Required parameters: [MetricDataQueries]
+ */
+@interface AWSAutoScalingPredictiveScalingCustomizedScalingMetric : AWSModel
+
+
+/**
+ <p>One or more metric data queries to provide the data points for a scaling metric. Use multiple metric data queries only if you are performing a math expression on returned data. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSAutoScalingMetricDataQuery *> * _Nullable metricDataQueries;
+
+@end
+
+/**
+ <p>This structure specifies the metrics and target utilization settings for a predictive scaling policy. </p><p>You must specify either a metric pair, or a load metric and a scaling metric individually. Specifying a metric pair instead of individual metrics provides a simpler way to configure metrics for a scaling policy. You choose the metric pair, and the policy automatically knows the correct sum and average statistics to use for the load metric and the scaling metric.</p><p>Example</p><ul><li><p>You create a predictive scaling policy and specify <code>ALBRequestCount</code> as the value for the metric pair and <code>1000.0</code> as the target value. For this type of metric, you must provide the metric dimension for the corresponding target group, so you also provide a resource label for the Application Load Balancer target group that is attached to your Auto Scaling group.</p></li><li><p>The number of requests the target group receives per minute provides the load metric, and the request count averaged between the members of the target group provides the scaling metric. In CloudWatch, this refers to the <code>RequestCount</code> and <code>RequestCountPerTarget</code> metrics, respectively.</p></li><li><p>For optimal use of predictive scaling, you adhere to the best practice of using a dynamic scaling policy to automatically scale between the minimum capacity and maximum capacity in response to real-time changes in resource utilization.</p></li><li><p>Amazon EC2 Auto Scaling consumes data points for the load metric over the last 14 days and creates an hourly load forecast for predictive scaling. (A minimum of 24 hours of data is required.)</p></li><li><p>After creating the load forecast, Amazon EC2 Auto Scaling determines when to reduce or increase the capacity of your Auto Scaling group in each hour of the forecast period so that the average number of requests received by each instance is as close to 1000 requests per minute as possible at all times.</p></li></ul><p>For information about using customized metrics with predictive scaling, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/predictive-scaling-customized-metric-specification.html">Advanced predictive scaling policy configurations using customized metrics</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  Required parameters: [TargetValue]
  */
 @interface AWSAutoScalingPredictiveScalingMetricSpecification : AWSModel
 
 
 /**
- <p>The load metric specification.</p>
+ <p>The customized capacity metric specification.</p>
+ */
+@property (nonatomic, strong) AWSAutoScalingPredictiveScalingCustomizedCapacityMetric * _Nullable customizedCapacityMetricSpecification;
+
+/**
+ <p>The customized load metric specification.</p>
+ */
+@property (nonatomic, strong) AWSAutoScalingPredictiveScalingCustomizedLoadMetric * _Nullable customizedLoadMetricSpecification;
+
+/**
+ <p>The customized scaling metric specification.</p>
+ */
+@property (nonatomic, strong) AWSAutoScalingPredictiveScalingCustomizedScalingMetric * _Nullable customizedScalingMetricSpecification;
+
+/**
+ <p>The predefined load metric specification.</p>
  */
 @property (nonatomic, strong) AWSAutoScalingPredictiveScalingPredefinedLoadMetric * _Nullable predefinedLoadMetricSpecification;
 
 /**
- <p>The metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.</p>
+ <p>The predefined metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.</p>
  */
 @property (nonatomic, strong) AWSAutoScalingPredictiveScalingPredefinedMetricPair * _Nullable predefinedMetricPairSpecification;
 
 /**
- <p>The scaling metric specification.</p>
+ <p>The predefined scaling metric specification.</p>
  */
 @property (nonatomic, strong) AWSAutoScalingPredictiveScalingPredefinedScalingMetric * _Nullable predefinedScalingMetricSpecification;
 
 /**
- <p>Specifies the target utilization.</p>
+ <p>Specifies the target utilization.</p><note><p>Some metrics are based on a count instead of a percentage, such as the request count for an Application Load Balancer or the number of messages in an SQS queue. If the scaling policy specifies one of these metrics, specify the target utilization as the optimal average request or message count per instance during any one-minute interval. </p></note>
  */
 @property (nonatomic, strong) NSNumber * _Nullable targetValue;
 
