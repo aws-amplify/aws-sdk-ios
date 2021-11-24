@@ -58,6 +58,7 @@
 - (void) test_AWSTranslateTextTranslationJobProperties API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateTranslateTextRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateTranslateTextResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTranslateTranslationSettings API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateUpdateParallelDataRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateUpdateParallelDataResponse API_AVAILABLE(ios(11));
 
@@ -219,6 +220,10 @@
 
 - (void) test_AWSTranslateTranslateTextResponse {
     [self validateSecureCodingForClass:[AWSTranslateTranslateTextResponse class]];
+}
+
+- (void) test_AWSTranslateTranslationSettings {
+    [self validateSecureCodingForClass:[AWSTranslateTranslationSettings class]];
 }
 
 - (void) test_AWSTranslateUpdateParallelDataRequest {
