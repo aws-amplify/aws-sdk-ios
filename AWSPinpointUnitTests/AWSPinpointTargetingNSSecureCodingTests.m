@@ -361,6 +361,9 @@
 - (void) test_AWSPinpointTargetingSegmentsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingSendMessagesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingSendMessagesResponse API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingSendOTPMessageRequest API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingSendOTPMessageRequestParameters API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingSendOTPMessageResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingSendUsersMessageRequest API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingSendUsersMessageResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingSendUsersMessagesRequest API_AVAILABLE(ios(11));
@@ -433,6 +436,10 @@
 - (void) test_AWSPinpointTargetingUpdateVoiceChannelResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingUpdateVoiceTemplateRequest API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingUpdateVoiceTemplateResponse API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingVerificationResponse API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingVerifyOTPMessageRequest API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingVerifyOTPMessageRequestParameters API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingVerifyOTPMessageResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingVoiceChannelRequest API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingVoiceChannelResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingVoiceMessage API_AVAILABLE(ios(11));
@@ -1819,6 +1826,18 @@
     [self validateSecureCodingForClass:[AWSPinpointTargetingSendMessagesResponse class]];
 }
 
+- (void) test_AWSPinpointTargetingSendOTPMessageRequest {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingSendOTPMessageRequest class]];
+}
+
+- (void) test_AWSPinpointTargetingSendOTPMessageRequestParameters {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingSendOTPMessageRequestParameters class]];
+}
+
+- (void) test_AWSPinpointTargetingSendOTPMessageResponse {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingSendOTPMessageResponse class]];
+}
+
 - (void) test_AWSPinpointTargetingSendUsersMessageRequest {
     [self validateSecureCodingForClass:[AWSPinpointTargetingSendUsersMessageRequest class]];
 }
@@ -2105,6 +2124,22 @@
 
 - (void) test_AWSPinpointTargetingUpdateVoiceTemplateResponse {
     [self validateSecureCodingForClass:[AWSPinpointTargetingUpdateVoiceTemplateResponse class]];
+}
+
+- (void) test_AWSPinpointTargetingVerificationResponse {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingVerificationResponse class]];
+}
+
+- (void) test_AWSPinpointTargetingVerifyOTPMessageRequest {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingVerifyOTPMessageRequest class]];
+}
+
+- (void) test_AWSPinpointTargetingVerifyOTPMessageRequestParameters {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingVerifyOTPMessageRequestParameters class]];
+}
+
+- (void) test_AWSPinpointTargetingVerifyOTPMessageResponse {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingVerifyOTPMessageResponse class]];
 }
 
 - (void) test_AWSPinpointTargetingVoiceChannelRequest {

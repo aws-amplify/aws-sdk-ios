@@ -2425,6 +2425,31 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)sendMessages:(AWSPinpointTargetingSendMessagesRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingSendMessagesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Send an OTP message</p>
+ 
+ @param request A container for the necessary parameters to execute the SendOTPMessage service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSPinpointTargetingSendOTPMessageResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSPinpointTargetingErrorDomain` domain and the following error code: `AWSPinpointTargetingErrorBadRequest`, `AWSPinpointTargetingErrorInternalServerError`, `AWSPinpointTargetingErrorPayloadTooLarge`, `AWSPinpointTargetingErrorForbidden`, `AWSPinpointTargetingErrorNotFound`, `AWSPinpointTargetingErrorMethodNotAllowed`, `AWSPinpointTargetingErrorTooManyRequests`.
+ 
+ @see AWSPinpointTargetingSendOTPMessageRequest
+ @see AWSPinpointTargetingSendOTPMessageResponse
+ */
+- (AWSTask<AWSPinpointTargetingSendOTPMessageResponse *> *)sendOTPMessage:(AWSPinpointTargetingSendOTPMessageRequest *)request;
+
+/**
+ <p>Send an OTP message</p>
+ 
+ @param request A container for the necessary parameters to execute the SendOTPMessage service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSPinpointTargetingErrorDomain` domain and the following error code: `AWSPinpointTargetingErrorBadRequest`, `AWSPinpointTargetingErrorInternalServerError`, `AWSPinpointTargetingErrorPayloadTooLarge`, `AWSPinpointTargetingErrorForbidden`, `AWSPinpointTargetingErrorNotFound`, `AWSPinpointTargetingErrorMethodNotAllowed`, `AWSPinpointTargetingErrorTooManyRequests`.
+ 
+ @see AWSPinpointTargetingSendOTPMessageRequest
+ @see AWSPinpointTargetingSendOTPMessageResponse
+ */
+- (void)sendOTPMessage:(AWSPinpointTargetingSendOTPMessageRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingSendOTPMessageResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Creates and sends a message to a list of users.</p>
  
  @param request A container for the necessary parameters to execute the SendUsersMessages service method.
@@ -3092,6 +3117,31 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
  @see AWSPinpointTargetingUpdateVoiceTemplateResponse
  */
 - (void)updateVoiceTemplate:(AWSPinpointTargetingUpdateVoiceTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingUpdateVoiceTemplateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Verify an OTP</p>
+ 
+ @param request A container for the necessary parameters to execute the VerifyOTPMessage service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSPinpointTargetingVerifyOTPMessageResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSPinpointTargetingErrorDomain` domain and the following error code: `AWSPinpointTargetingErrorBadRequest`, `AWSPinpointTargetingErrorInternalServerError`, `AWSPinpointTargetingErrorPayloadTooLarge`, `AWSPinpointTargetingErrorForbidden`, `AWSPinpointTargetingErrorNotFound`, `AWSPinpointTargetingErrorMethodNotAllowed`, `AWSPinpointTargetingErrorTooManyRequests`.
+ 
+ @see AWSPinpointTargetingVerifyOTPMessageRequest
+ @see AWSPinpointTargetingVerifyOTPMessageResponse
+ */
+- (AWSTask<AWSPinpointTargetingVerifyOTPMessageResponse *> *)verifyOTPMessage:(AWSPinpointTargetingVerifyOTPMessageRequest *)request;
+
+/**
+ <p>Verify an OTP</p>
+ 
+ @param request A container for the necessary parameters to execute the VerifyOTPMessage service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSPinpointTargetingErrorDomain` domain and the following error code: `AWSPinpointTargetingErrorBadRequest`, `AWSPinpointTargetingErrorInternalServerError`, `AWSPinpointTargetingErrorPayloadTooLarge`, `AWSPinpointTargetingErrorForbidden`, `AWSPinpointTargetingErrorNotFound`, `AWSPinpointTargetingErrorMethodNotAllowed`, `AWSPinpointTargetingErrorTooManyRequests`.
+ 
+ @see AWSPinpointTargetingVerifyOTPMessageRequest
+ @see AWSPinpointTargetingVerifyOTPMessageResponse
+ */
+- (void)verifyOTPMessage:(AWSPinpointTargetingVerifyOTPMessageRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingVerifyOTPMessageResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 @end
 
