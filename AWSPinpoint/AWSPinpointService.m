@@ -153,7 +153,7 @@ static AWSSynchronizedMutableDictionary *_pinpointForAppNamespace = nil;
         }
         
         if (configuration.enableAutoSessionRecording) {
-            [_pinpointContext.sessionClient startSession];
+            [_pinpointContext.sessionClient startPinpointSession];
         }
         
         AWSDDLogInfo(@"Pinpoint SDK Initialization successfully completed.");

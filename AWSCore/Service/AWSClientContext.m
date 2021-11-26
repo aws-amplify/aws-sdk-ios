@@ -113,6 +113,7 @@ static NSString *const AWSClientContextKeychainInstallationIdKey = @"com.amazona
                                                          error:&error];
     if (!JSONData) {
         AWSDDLogError(@"Failed to serialize JSON Data. [%@]", error);
+        return nil;
     }
 
     return [[NSString alloc] initWithData:JSONData
