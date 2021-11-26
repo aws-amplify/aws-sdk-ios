@@ -1217,6 +1217,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"ap-southeast-2"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintAPSoutheast2);
         }
+        if ([value caseInsensitiveCompare:@"ap-southeast-3"] == NSOrderedSame) {
+            return @(AWSS3BucketLocationConstraintAPSoutheast3);
+        }
         if ([value caseInsensitiveCompare:@"ca-central-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintCACentral1);
         }
@@ -1289,6 +1292,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"ap-southeast-1";
             case AWSS3BucketLocationConstraintAPSoutheast2:
                 return @"ap-southeast-2";
+            case AWSS3BucketLocationConstraintAPSoutheast3:
+                return @"ap-southeast-3";
             case AWSS3BucketLocationConstraintCACentral1:
                 return @"ca-central-1";
             case AWSS3BucketLocationConstraintCNNorth1:
@@ -2795,6 +2800,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"ap-southeast-2"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintAPSoutheast2);
         }
+        if ([value caseInsensitiveCompare:@"ap-southeast-3"] == NSOrderedSame) {
+            return @(AWSS3BucketLocationConstraintAPSoutheast3);
+        }
         if ([value caseInsensitiveCompare:@"ca-central-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintCACentral1);
         }
@@ -2867,6 +2875,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"ap-southeast-1";
             case AWSS3BucketLocationConstraintAPSoutheast2:
                 return @"ap-southeast-2";
+            case AWSS3BucketLocationConstraintAPSoutheast3:
+                return @"ap-southeast-3";
             case AWSS3BucketLocationConstraintCACentral1:
                 return @"ca-central-1";
             case AWSS3BucketLocationConstraintCNNorth1:

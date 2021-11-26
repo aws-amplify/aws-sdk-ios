@@ -1,20 +1,26 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSLocation
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
 
 -Features for next release
 
-## 2.26.4
+## 2.26.5
 
 ### Features for next release
+### New features
+- **AWSCore**
+  - Support for `ap-southeast-3` - Asia Pacific (Jakarta) (see [AWS Regional Services List](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for a list of services supported in the region)
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSLocation
+  - AWSDynamoDB
+  - AWSTranslate
+
+## 2.26.4
+
+### Bug Fixes
 
 - **AWSIoT**
   - fix(AWSIoT): adds back Message type ([PR #3852](https://github.com/aws-amplify/aws-sdk-ios/pull/3852))
