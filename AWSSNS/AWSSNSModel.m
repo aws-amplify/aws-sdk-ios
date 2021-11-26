@@ -35,6 +35,23 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 
 @end
 
+@implementation AWSSNSBatchResultErrorEntry
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"code" : @"Code",
+             @"identifier" : @"Id",
+             @"message" : @"Message",
+             @"senderFault" : @"SenderFault",
+             };
+}
+
+@end
+
 @implementation AWSSNSCheckIfPhoneNumberIsOptedOutInput
 
 + (BOOL)supportsSecureCoding {
@@ -925,6 +942,92 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"attributes" : @"Attributes",
              @"platformApplicationArn" : @"PlatformApplicationArn",
+             };
+}
+
+@end
+
+@implementation AWSSNSPublishBatchInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"publishBatchRequestEntries" : @"PublishBatchRequestEntries",
+             @"topicArn" : @"TopicArn",
+             };
+}
+
++ (NSValueTransformer *)publishBatchRequestEntriesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSNSPublishBatchRequestEntry class]];
+}
+
+@end
+
+@implementation AWSSNSPublishBatchRequestEntry
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identifier" : @"Id",
+             @"message" : @"Message",
+             @"messageAttributes" : @"MessageAttributes",
+             @"messageDeduplicationId" : @"MessageDeduplicationId",
+             @"messageGroupId" : @"MessageGroupId",
+             @"messageStructure" : @"MessageStructure",
+             @"subject" : @"Subject",
+             };
+}
+
++ (NSValueTransformer *)messageAttributesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSSNSMessageAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
+}
+
+@end
+
+@implementation AWSSNSPublishBatchResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"failed" : @"Failed",
+             @"successful" : @"Successful",
+             };
+}
+
++ (NSValueTransformer *)failedJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSNSBatchResultErrorEntry class]];
+}
+
++ (NSValueTransformer *)successfulJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSNSPublishBatchResultEntry class]];
+}
+
+@end
+
+@implementation AWSSNSPublishBatchResultEntry
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identifier" : @"Id",
+             @"messageId" : @"MessageId",
+             @"sequenceNumber" : @"SequenceNumber",
              };
 }
 

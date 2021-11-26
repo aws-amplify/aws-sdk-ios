@@ -1,11 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSLambda
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -19,6 +11,15 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 - **AWSCore**
   - Support for `ap-southeast-3` - Asia Pacific (Jakarta) (see [AWS Regional Services List](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for a list of services supported in the region)
 
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSLocation
+  - AWSDynamoDB
+  - AWSTranslate
+  - AWSLambda
+  - AWSSNS
+  
 ## 2.26.4
 
 ### Bug Fixes
