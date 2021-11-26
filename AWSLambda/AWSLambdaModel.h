@@ -785,7 +785,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p></li></ul>
+ <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</p></li></ul>
  */
 @property (nonatomic, strong) NSNumber * _Nullable batchSize;
 
@@ -883,7 +883,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values. The default value is <code>x86_64</code>.</p>
+ <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable architectures;
 
@@ -2311,7 +2311,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, assign) AWSLambdaLogType logType;
 
 /**
- <p>The JSON that you want to provide to your Lambda function as input.</p>
+ <p>The JSON that you want to provide to your Lambda function as input.</p><p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>. </p>
  */
 @property (nonatomic, strong) id _Nullable payload;
 
@@ -3455,7 +3455,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The type of authentication protocol, VPC components, or virtual host for your event source. For example: <code>"Type":"SASL_SCRAM_512_AUTH"</code>.</p><ul><li><p><code>BASIC_AUTH</code> - (Amazon MQ) The Secrets Manager secret that stores your broker credentials.</p></li><li><p><code>BASIC_AUTH</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.</p></li><li><p><code>VPC_SUBNET</code> - The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.</p></li><li><p><code>VPC_SECURITY_GROUP</code> - The VPC security group used to manage access to your self-managed Apache Kafka brokers.</p></li><li><p><code>SASL_SCRAM_256_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.</p></li><li><p><code>SASL_SCRAM_512_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.</p></li><li><p><code>VIRTUAL_HOST</code> - (Amazon MQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source.</p></li></ul>
+ <p>The type of authentication protocol, VPC components, or virtual host for your event source. For example: <code>"Type":"SASL_SCRAM_512_AUTH"</code>.</p><ul><li><p><code>BASIC_AUTH</code> - (Amazon MQ) The Secrets Manager secret that stores your broker credentials.</p></li><li><p><code>BASIC_AUTH</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.</p></li><li><p><code>VPC_SUBNET</code> - The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.</p></li><li><p><code>VPC_SECURITY_GROUP</code> - The VPC security group used to manage access to your self-managed Apache Kafka brokers.</p></li><li><p><code>SASL_SCRAM_256_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.</p></li><li><p><code>SASL_SCRAM_512_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.</p></li><li><p><code>VIRTUAL_HOST</code> - (Amazon MQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.</p></li><li><p><code>CLIENT_CERTIFICATE_TLS_AUTH</code> - (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.</p></li><li><p><code>SERVER_ROOT_CA_CERTIFICATE</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers. </p></li></ul>
  */
 @property (nonatomic, assign) AWSLambdaSourceAccessType types;
 
@@ -3614,7 +3614,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p></li></ul>
+ <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</p></li></ul>
  */
 @property (nonatomic, strong) NSNumber * _Nullable batchSize;
 
@@ -3687,7 +3687,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values. The default value is <code>x86_64</code>.</p>
+ <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable architectures;
 
