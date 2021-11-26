@@ -249,7 +249,7 @@ commands:
 jobs:
   build:
     macos:
-      xcode: "13.0.0"
+      xcode: "13.1.0"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -272,7 +272,7 @@ jobs:
 
   build_test_host_apps:
     macos:
-      xcode: "13.0.0"
+      xcode: "13.1.0"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -289,7 +289,7 @@ jobs:
 
   unit_test:
     macos:
-      xcode: "13.0.0"
+      xcode: "13.1.0"
     parameters:
       project:
         default: "AWSiOSSDKv2.xcodeproj"
@@ -342,7 +342,7 @@ jobs:
 
   integ_test:
     macos:
-      xcode: "13.0.0"
+      xcode: "13.1.0"
     parameters:
       project:
         default: "AWSiOSSDKv2.xcodeproj"
@@ -393,7 +393,7 @@ jobs:
 
   release_tag:
     macos:
-      xcode: "13.0.0"
+      xcode: "13.1.0"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -410,7 +410,7 @@ jobs:
 
   build_xcframeworks:
     macos:
-      xcode: "12.3.0"
+      xcode: "13.1.0"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -428,7 +428,7 @@ jobs:
 
   release_carthage:
     macos:
-      xcode: "13.0.0"
+      xcode: "13.1.0"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -449,7 +449,7 @@ jobs:
 
   release_cocoapods:
     macos:
-      xcode: "13.0.0"
+      xcode: "13.1.0"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -467,7 +467,7 @@ jobs:
 
   release_docs:
     macos:
-      xcode: "13.0.0"
+      xcode: "13.1.0"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -511,7 +511,7 @@ jobs:
 
   bump_ios_sampleapp_version:
     macos:
-      xcode: "13.0.0"
+      xcode: "13.1.0"
     steps:
       - skip_job_unless_required
       - set_environment_variables
@@ -530,7 +530,7 @@ jobs:
   
   release_xcframeworks:
     macos:
-      xcode: "13.0.0"
+      xcode: "13.1.0"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -574,7 +574,7 @@ jobs:
 
   release_xcframeworks_combined:
     macos:
-      xcode: "13.0.0"
+      xcode: "13.1.0"
     environment:
       TERM: xterm-256color
     steps:
@@ -618,7 +618,7 @@ jobs:
 
   bump_sdk_version:
     macos:
-      xcode: "13.0.0"
+      xcode: "13.1.0"
     steps:
       - skip_job_unless_required
       - set_environment_variables
