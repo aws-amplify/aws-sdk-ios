@@ -20,6 +20,7 @@
 @interface AWSSNSNSSecureCodingTests : AWSNSSecureCodingTest
 
 - (void) test_AWSSNSAddPermissionInput API_AVAILABLE(ios(11));
+- (void) test_AWSSNSBatchResultErrorEntry API_AVAILABLE(ios(11));
 - (void) test_AWSSNSCheckIfPhoneNumberIsOptedOutInput API_AVAILABLE(ios(11));
 - (void) test_AWSSNSCheckIfPhoneNumberIsOptedOutResponse API_AVAILABLE(ios(11));
 - (void) test_AWSSNSConfirmSubscriptionInput API_AVAILABLE(ios(11));
@@ -73,6 +74,10 @@
 - (void) test_AWSSNSOptInPhoneNumberResponse API_AVAILABLE(ios(11));
 - (void) test_AWSSNSPhoneNumberInformation API_AVAILABLE(ios(11));
 - (void) test_AWSSNSPlatformApplication API_AVAILABLE(ios(11));
+- (void) test_AWSSNSPublishBatchInput API_AVAILABLE(ios(11));
+- (void) test_AWSSNSPublishBatchRequestEntry API_AVAILABLE(ios(11));
+- (void) test_AWSSNSPublishBatchResponse API_AVAILABLE(ios(11));
+- (void) test_AWSSNSPublishBatchResultEntry API_AVAILABLE(ios(11));
 - (void) test_AWSSNSPublishInput API_AVAILABLE(ios(11));
 - (void) test_AWSSNSPublishResponse API_AVAILABLE(ios(11));
 - (void) test_AWSSNSRemovePermissionInput API_AVAILABLE(ios(11));
@@ -102,6 +107,10 @@
 
 - (void) test_AWSSNSAddPermissionInput {
     [self validateSecureCodingForClass:[AWSSNSAddPermissionInput class]];
+}
+
+- (void) test_AWSSNSBatchResultErrorEntry {
+    [self validateSecureCodingForClass:[AWSSNSBatchResultErrorEntry class]];
 }
 
 - (void) test_AWSSNSCheckIfPhoneNumberIsOptedOutInput {
@@ -314,6 +323,22 @@
 
 - (void) test_AWSSNSPlatformApplication {
     [self validateSecureCodingForClass:[AWSSNSPlatformApplication class]];
+}
+
+- (void) test_AWSSNSPublishBatchInput {
+    [self validateSecureCodingForClass:[AWSSNSPublishBatchInput class]];
+}
+
+- (void) test_AWSSNSPublishBatchRequestEntry {
+    [self validateSecureCodingForClass:[AWSSNSPublishBatchRequestEntry class]];
+}
+
+- (void) test_AWSSNSPublishBatchResponse {
+    [self validateSecureCodingForClass:[AWSSNSPublishBatchResponse class]];
+}
+
+- (void) test_AWSSNSPublishBatchResultEntry {
+    [self validateSecureCodingForClass:[AWSSNSPublishBatchResultEntry class]];
 }
 
 - (void) test_AWSSNSPublishInput {

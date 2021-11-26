@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -50,6 +50,10 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantChatItemType) {
     AWSConnectParticipantChatItemTypeEvent,
     AWSConnectParticipantChatItemTypeAttachment,
     AWSConnectParticipantChatItemTypeConnectionAck,
+    AWSConnectParticipantChatItemTypeParticipantActive,
+    AWSConnectParticipantChatItemTypeParticipantInactive,
+    AWSConnectParticipantChatItemTypeParticipantEngaged,
+    AWSConnectParticipantChatItemTypeParticipantDisengaged,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectParticipantConnectionType) {
@@ -184,7 +188,12 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
 
 
 /**
- <p>This is a header parameter.</p><p>The Participant Token as obtained from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html">StartChatContact</a> API response.</p>
+ <p>Amazon Connect Participant is used to mark the participant as connected for message streaming.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable connectParticipant;
+
+/**
+ <p>This is a header parameter.</p><p>The ParticipantToken as obtained from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html">StartChatContact</a> API response.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable participantToken;
 
@@ -264,7 +273,7 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
 
 
 /**
- <p>The pre-signed URL using which file would be downloaded from Amazon S3 by the API caller.</p>
+ <p>This is the pre-signed URL that can be used for uploading the file to Amazon S3 when used in response to <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_StartAttachmentUpload.html">StartAttachmentUpload</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable url;
 
@@ -572,7 +581,7 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable headersToInclude;
 
 /**
- <p>The pre-signed URL using which file would be downloaded from Amazon S3 by the API caller.</p>
+ <p>This is the pre-signed URL that can be used for uploading the file to Amazon S3 when used in response to <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_StartAttachmentUpload.html">StartAttachmentUpload</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable url;
 

@@ -59,6 +59,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaErrorType) {
     AWSLambdaErrorUnsupportedMediaType,
 };
 
+typedef NS_ENUM(NSInteger, AWSLambdaArchitecture) {
+    AWSLambdaArchitectureUnknown,
+    AWSLambdaArchitectureX86_64,
+    AWSLambdaArchitectureArm64,
+};
+
 typedef NS_ENUM(NSInteger, AWSLambdaCodeSigningPolicy) {
     AWSLambdaCodeSigningPolicyUnknown,
     AWSLambdaCodeSigningPolicyWarn,
@@ -150,6 +156,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
     AWSLambdaRuntimePython36,
     AWSLambdaRuntimePython37,
     AWSLambdaRuntimePython38,
+    AWSLambdaRuntimePython39,
     AWSLambdaRuntimeDotnetcore10,
     AWSLambdaRuntimeDotnetcore20,
     AWSLambdaRuntimeDotnetcore21,
@@ -170,6 +177,8 @@ typedef NS_ENUM(NSInteger, AWSLambdaSourceAccessType) {
     AWSLambdaSourceAccessTypeSaslScram512Auth,
     AWSLambdaSourceAccessTypeSaslScram256Auth,
     AWSLambdaSourceAccessTypeVirtualHost,
+    AWSLambdaSourceAccessTypeClientCertificateTlsAuth,
+    AWSLambdaSourceAccessTypeServerRootCaCertificate,
 };
 
 typedef NS_ENUM(NSInteger, AWSLambdaState) {
@@ -491,7 +500,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable sourceAccount;
 
 /**
- <p>For Amazon Web Services services, the ARN of the Amazon Web Services resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.</p>
+ <p>For Amazon Web Services services, the ARN of the Amazon Web Services resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.</p><p>Note that Lambda configures the comparison using the <code>StringLike</code> operator.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceArn;
 
@@ -639,7 +648,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The number of concurrent executions that are reserved for this function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">Managing Concurrency</a>.</p>
+ <p>The number of concurrent executions that are reserved for this function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html">Managing Concurrency</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable reservedConcurrentExecutions;
 
@@ -721,7 +730,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The maximum number of items to retrieve in a single batch.</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p></li></ul>
+ <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</p></li></ul>
  */
 @property (nonatomic, strong) NSNumber * _Nullable batchSize;
 
@@ -736,7 +745,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) AWSLambdaDestinationConfig * _Nullable destinationConfig;
 
 /**
- <p>If true, the event source mapping is active. Set to false to pause polling and invocation.</p>
+ <p>When true, the event source mapping is active. When false, Lambda pauses polling and invocation.</p><p>Default: True</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
@@ -756,7 +765,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable functionResponseTypes;
 
 /**
- <p>(Streams and SQS standard queues) The maximum amount of time to gather records before invoking the function, in seconds.</p>
+ <p>(Streams and Amazon SQS standard queues) The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.</p><p>Default: 0</p><p>Related setting: When you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumBatchingWindowInSeconds;
 
@@ -817,6 +826,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  */
 @interface AWSLambdaCreateFunctionRequest : AWSRequest
 
+
+/**
+ <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable architectures;
 
 /**
  <p>The code for the function.</p>
@@ -904,7 +918,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
 /**
- <p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For additional information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
+ <p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For additional information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable timeout;
 
@@ -1157,7 +1171,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The maximum number of items to retrieve in a single batch.</p>
+ <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p><p>Default value: Varies by service. For Amazon SQS, the default is 10. For all other services, the default is 100.</p><p>Related setting: When you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable batchSize;
 
@@ -1197,7 +1211,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable lastProcessingResult;
 
 /**
- <p>(Streams and Amazon SQS standard queues) The maximum amount of time to gather records before invoking the function, in seconds. The default value is zero.</p>
+ <p>(Streams and Amazon SQS standard queues) The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.</p><p>Default: 0</p><p>Related setting: When you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumBatchingWindowInSeconds;
 
@@ -1355,6 +1369,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
+ <p>The instruction set architecture that the function supports. Architecture is a string array with one of the valid values. The default architecture value is <code>x86_64</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable architectures;
+
+/**
  <p>The SHA256 hash of the function's deployment package.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable codeSha256;
@@ -1405,7 +1424,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) AWSLambdaImageConfigResponse * _Nullable imageConfigResponse;
 
 /**
- <p>The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed CMK.</p>
+ <p>The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed key.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable KMSKeyArn;
 
@@ -1435,7 +1454,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<AWSLambdaLayer *> * _Nullable layers;
 
 /**
- <p>For Lambda@Edge functions, the ARN of the master function.</p>
+ <p>For Lambda@Edge functions, the ARN of the main function.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable masterArn;
 
@@ -1840,6 +1859,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
+ <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable compatibleArchitectures;
+
+/**
  <p>The layer's compatible runtimes.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable compatibleRuntimes;
@@ -2054,12 +2078,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, assign) AWSLambdaInvocationType invocationType;
 
 /**
- <p>Set to <code>Tail</code> to include the execution log in the response.</p>
+ <p>Set to <code>Tail</code> to include the execution log in the response. Applies to synchronously invoked functions only.</p>
  */
 @property (nonatomic, assign) AWSLambdaLogType logType;
 
 /**
- <p>The JSON that you want to provide to your Lambda function as input.</p>
+ <p>The JSON that you want to provide to your Lambda function as input.</p><p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>. </p>
  */
 @property (nonatomic, strong) id _Nullable payload;
 
@@ -2228,6 +2252,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  */
 @interface AWSLambdaLayerVersionsListItem : AWSModel
 
+
+/**
+ <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable compatibleArchitectures;
 
 /**
  <p>The layer's compatible runtimes.</p>
@@ -2511,7 +2540,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable marker;
 
 /**
- <p>For Lambda@Edge functions, the Region of the master function. For example, <code>us-east-1</code> filters the list of functions to only include Lambda@Edge functions replicated from a master function in US East (N. Virginia). If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</p>
+ <p>For Lambda@Edge functions, the Amazon Web Services Region of the master function. For example, <code>us-east-1</code> filters the list of functions to only include Lambda@Edge functions replicated from a master function in US East (N. Virginia). If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable masterRegion;
 
@@ -2545,6 +2574,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  */
 @interface AWSLambdaListLayerVersionsRequest : AWSRequest
 
+
+/**
+ <p>The compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.</p>
+ */
+@property (nonatomic, assign) AWSLambdaArchitecture compatibleArchitecture;
 
 /**
  <p>A runtime identifier. For example, <code>go1.x</code>.</p>
@@ -2591,6 +2625,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  */
 @interface AWSLambdaListLayersRequest : AWSRequest
 
+
+/**
+ <p>The compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.</p>
+ */
+@property (nonatomic, assign) AWSLambdaArchitecture compatibleArchitecture;
 
 /**
  <p>A runtime identifier. For example, <code>go1.x</code>.</p>
@@ -2675,7 +2714,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The function's Amazon Resource Name (ARN).</p>
+ <p>The function's Amazon Resource Name (ARN). Note: Lambda does not support adding tags to aliases or versions.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable resource;
 
@@ -2811,6 +2850,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
+ <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable compatibleArchitectures;
+
+/**
  <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">function runtimes</a>. Used for filtering with <a>ListLayers</a> and <a>ListLayerVersions</a>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable compatibleRuntimes;
@@ -2842,6 +2886,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  */
 @interface AWSLambdaPublishLayerVersionResponse : AWSModel
 
+
+/**
+ <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable compatibleArchitectures;
 
 /**
  <p>The layer's compatible runtimes.</p>
@@ -3137,7 +3186,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The type of authentication protocol, VPC components, or virtual host for your event source. For example: <code>"Type":"SASL_SCRAM_512_AUTH"</code>.</p><ul><li><p><code>BASIC_AUTH</code> - (Amazon MQ) The Secrets Manager secret that stores your broker credentials.</p></li><li><p><code>BASIC_AUTH</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.</p></li><li><p><code>VPC_SUBNET</code> - The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.</p></li><li><p><code>VPC_SECURITY_GROUP</code> - The VPC security group used to manage access to your self-managed Apache Kafka brokers.</p></li><li><p><code>SASL_SCRAM_256_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.</p></li><li><p><code>SASL_SCRAM_512_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.</p></li><li><p><code>VIRTUAL_HOST</code> - (Amazon MQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source.</p></li></ul>
+ <p>The type of authentication protocol, VPC components, or virtual host for your event source. For example: <code>"Type":"SASL_SCRAM_512_AUTH"</code>.</p><ul><li><p><code>BASIC_AUTH</code> - (Amazon MQ) The Secrets Manager secret that stores your broker credentials.</p></li><li><p><code>BASIC_AUTH</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.</p></li><li><p><code>VPC_SUBNET</code> - The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.</p></li><li><p><code>VPC_SECURITY_GROUP</code> - The VPC security group used to manage access to your self-managed Apache Kafka brokers.</p></li><li><p><code>SASL_SCRAM_256_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.</p></li><li><p><code>SASL_SCRAM_512_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.</p></li><li><p><code>VIRTUAL_HOST</code> - (Amazon MQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.</p></li><li><p><code>CLIENT_CERTIFICATE_TLS_AUTH</code> - (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.</p></li><li><p><code>SERVER_ROOT_CA_CERTIFICATE</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers. </p></li></ul>
  */
 @property (nonatomic, assign) AWSLambdaSourceAccessType types;
 
@@ -3296,7 +3345,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The maximum number of items to retrieve in a single batch.</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p></li></ul>
+ <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</p></li></ul>
  */
 @property (nonatomic, strong) NSNumber * _Nullable batchSize;
 
@@ -3311,7 +3360,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) AWSLambdaDestinationConfig * _Nullable destinationConfig;
 
 /**
- <p>If true, the event source mapping is active. Set to false to pause polling and invocation.</p>
+ <p>When true, the event source mapping is active. When false, Lambda pauses polling and invocation.</p><p>Default: True</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
@@ -3326,7 +3375,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable functionResponseTypes;
 
 /**
- <p>(Streams and SQS standard queues) The maximum amount of time to gather records before invoking the function, in seconds.</p>
+ <p>(Streams and Amazon SQS standard queues) The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.</p><p>Default: 0</p><p>Related setting: When you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumBatchingWindowInSeconds;
 
@@ -3367,6 +3416,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  */
 @interface AWSLambdaUpdateFunctionCodeRequest : AWSRequest
 
+
+/**
+ <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable architectures;
 
 /**
  <p>Set to true to validate the request parameters and access permissions without modifying the function code.</p>
@@ -3452,7 +3506,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable handler;
 
 /**
- <p><a href="https://docs.aws.amazon.com/lambda/latest/dg/images-parms.html">Container image configuration values</a> that override the values in the container image Dockerfile.</p>
+ <p><a href="https://docs.aws.amazon.com/lambda/latest/dg/images-parms.html">Container image configuration values</a> that override the values in the container image Docker file.</p>
  */
 @property (nonatomic, strong) AWSLambdaImageConfig * _Nullable imageConfig;
 
@@ -3487,7 +3541,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, assign) AWSLambdaRuntime runtime;
 
 /**
- <p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For additional information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
+ <p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For additional information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable timeout;
 

@@ -15,11 +15,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-
-
 @class AWSS3TransferUtilityTask;
 @class AWSS3TransferUtilityUploadTask;
 @class AWSS3TransferUtilityMultiPartUploadTask;
+@class AWSS3TransferUtilityUploadSubTask;
 @class AWSS3TransferUtilityDownloadTask;
 @class AWSS3TransferUtilityExpression;
 @class AWSS3TransferUtilityUploadExpression;
@@ -179,48 +178,7 @@ typedef void (^AWSS3TransferUtilityMultiPartProgressBlock) (AWSS3TransferUtility
 /**
  The task object to represent a multipart upload task.
  */
-@interface AWSS3TransferUtilityMultiPartUploadTask: NSObject
-
-/**
- An identifier uniquely identifies the transferID.
- */
-@property (readonly) NSString *transferID;
-
-/**
- The Amazon S3 bucket name associated with the transfer.
- */
-@property (readonly) NSString *bucket;
-
-/**
- The Amazon S3 object key name associated with the transfer.
- */
-@property (readonly) NSString *key;
-
-/**
- The transfer progress.
- */
-@property (readonly) NSProgress *progress;
-
-/**
- the status of the Transfer.
- */
-@property (readonly) AWSS3TransferUtilityTransferStatusType status;
-
-
-/**
- Cancels the task.
- */
-- (void)cancel;
-
-/**
- Resumes the task, if it is suspended.
- */
-- (void)resume;
-
-/**
- Temporarily suspends a task.
- */
-- (void)suspend;
+@interface AWSS3TransferUtilityMultiPartUploadTask: AWSS3TransferUtilityTask
 
 /**
  set completion handler for task

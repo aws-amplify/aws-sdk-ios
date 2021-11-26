@@ -26,10 +26,10 @@ typedef NS_ENUM(NSInteger, AWSS3TransferUtilityErrorType) {
     AWSS3TransferUtilityErrorRedirection,
     AWSS3TransferUtilityErrorClientError,
     AWSS3TransferUtilityErrorServerError,
-    AWSS3TransferUtilityErrorLocalFileNotFound
+    AWSS3TransferUtilityErrorLocalFileNotFound,
+    AWSS3TransferUtilityErrorBaseDirectoryNotFound,
+    AWSS3TransferUtilityErrorPartialFileNotCreated
 };
-
-
 
 FOUNDATION_EXPORT NSString *const AWSS3TransferUtilityURLSessionDidBecomeInvalidNotification;
 
@@ -56,6 +56,16 @@ FOUNDATION_EXPORT NSString *const AWSS3TransferUtilityURLSessionDidBecomeInvalid
  @warning Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.
  */
 @property (readonly) AWSServiceConfiguration *configuration;
+
+/**
+ The transfer utility configuration.
+ */
+@property (readonly) AWSS3TransferUtilityConfiguration *transferUtilityConfiguration;
+
+/**
+ Indicates if completed tasks should be removed. Off by default.
+ */
+@property (assign) BOOL shouldRemoveCompletedTasks;
 
 /**
  Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with `defaultServiceConfiguration` from `[AWSServiceManager defaultServiceManager]`. The reference to this object is maintained by the SDK, and you do not need to retain it manually.
@@ -621,7 +631,8 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
                                                                 _Nullable AWSS3TransferUtilityUploadCompletionHandlerBlock * _Nullable completionHandlerReference))uploadBlocksAssigner
                                 downloadTask:(nullable void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
                                                                 _Nullable AWSS3TransferUtilityProgressBlock * _Nullable downloadProgressBlockReference,
-                                                                _Nullable AWSS3TransferUtilityDownloadCompletionHandlerBlock * _Nullable completionHandlerReference))downloadBlocksAssigner;
+                                                                _Nullable AWSS3TransferUtilityDownloadCompletionHandlerBlock * _Nullable completionHandlerReference))downloadBlocksAssigner
+                                                                DEPRECATED_MSG_ATTRIBUTE("Use enumerateToAssignBlocks: instead.");
 
 /**
  Assigns progress feedback and completion handler blocks. This method should be called when the app was suspended while the transfer is still happening.
@@ -630,15 +641,16 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
  @param multiPartUploadBlocksAssigner The block for assigning the multipart upload progress feedback and completion handler blocks.
  @param downloadBlocksAssigner The block for assigning the download progress feedback and completion handler blocks.
  */
--(void)enumerateToAssignBlocksForUploadTask:(void (^)(AWSS3TransferUtilityUploadTask *uploadTask,
-                                                      AWSS3TransferUtilityProgressBlock _Nullable * _Nullable uploadProgressBlockReference,
-                                                      AWSS3TransferUtilityUploadCompletionHandlerBlock _Nullable * _Nullable completionHandlerReference))uploadBlocksAssigner
-              multiPartUploadBlocksAssigner: (void (^) (AWSS3TransferUtilityMultiPartUploadTask *multiPartUploadTask,
+- (void)enumerateToAssignBlocksForUploadTask:(void (^)(AWSS3TransferUtilityUploadTask *uploadTask,
+                                                       AWSS3TransferUtilityProgressBlock _Nullable * _Nullable uploadProgressBlockReference,
+                                                       AWSS3TransferUtilityUploadCompletionHandlerBlock _Nullable * _Nullable completionHandlerReference))uploadBlocksAssigner
+               multiPartUploadBlocksAssigner:(void (^)(AWSS3TransferUtilityMultiPartUploadTask *multiPartUploadTask,
                                                         AWSS3TransferUtilityMultiPartProgressBlock _Nullable * _Nullable multiPartUploadProgressBlockReference,
                                                         AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock _Nullable * _Nullable completionHandlerReference)) multiPartUploadBlocksAssigner
-                     downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
-                                                      AWSS3TransferUtilityProgressBlock _Nullable * _Nullable downloadProgressBlockReference,
-                                                      AWSS3TransferUtilityDownloadCompletionHandlerBlock _Nullable * _Nullable completionHandlerReference))downloadBlocksAssigner;
+                      downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
+                                                       AWSS3TransferUtilityProgressBlock _Nullable * _Nullable downloadProgressBlockReference,
+                                                       AWSS3TransferUtilityDownloadCompletionHandlerBlock _Nullable * _Nullable completionHandlerReference))downloadBlocksAssigner
+                                                       DEPRECATED_MSG_ATTRIBUTE("Use enumerateToAssign(blocks:) instead.");
 
 /**
  Retrieves all running tasks.

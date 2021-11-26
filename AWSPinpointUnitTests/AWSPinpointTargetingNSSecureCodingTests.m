@@ -52,6 +52,7 @@
 - (void) test_AWSPinpointTargetingCampaignEmailMessage API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingCampaignEventFilter API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingCampaignHook API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingCampaignInAppMessage API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingCampaignLimits API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingCampaignResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingCampaignSmsMessage API_AVAILABLE(ios(11));
@@ -61,6 +62,7 @@
 - (void) test_AWSPinpointTargetingChannelsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingCondition API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingConditionalSplitActivity API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingContactCenterActivity API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingCreateAppRequest API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingCreateAppResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingCreateApplicationRequest API_AVAILABLE(ios(11));
@@ -72,6 +74,8 @@
 - (void) test_AWSPinpointTargetingCreateExportJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingCreateImportJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingCreateImportJobResponse API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingCreateInAppTemplateRequest API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingCreateInAppTemplateResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingCreateJourneyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingCreateJourneyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingCreatePushTemplateRequest API_AVAILABLE(ios(11));
@@ -88,6 +92,7 @@
 - (void) test_AWSPinpointTargetingCreateVoiceTemplateResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingCustomDeliveryConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingCustomMessageActivity API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingDefaultButtonConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingDefaultMessage API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingDefaultPushNotificationMessage API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingDefaultPushNotificationTemplate API_AVAILABLE(ios(11));
@@ -117,6 +122,8 @@
 - (void) test_AWSPinpointTargetingDeleteEventStreamResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingDeleteGcmChannelRequest API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingDeleteGcmChannelResponse API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingDeleteInAppTemplateRequest API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingDeleteInAppTemplateResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingDeleteJourneyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingDeleteJourneyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingDeletePushTemplateRequest API_AVAILABLE(ios(11));
@@ -224,6 +231,10 @@
 - (void) test_AWSPinpointTargetingGetImportJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingGetImportJobsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingGetImportJobsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingGetInAppMessagesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingGetInAppMessagesResponse API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingGetInAppTemplateRequest API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingGetInAppTemplateResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingGetJourneyDateRangeKpiRequest API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingGetJourneyDateRangeKpiResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingGetJourneyExecutionActivityMetricsRequest API_AVAILABLE(ios(11));
@@ -265,6 +276,16 @@
 - (void) test_AWSPinpointTargetingImportJobResource API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingImportJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingImportJobsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingInAppCampaignSchedule API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingInAppMessage API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingInAppMessageBodyConfig API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingInAppMessageButton API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingInAppMessageCampaign API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingInAppMessageContent API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingInAppMessageHeaderConfig API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingInAppMessagesResponse API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingInAppTemplateRequest API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingInAppTemplateResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingItemResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingJourneyCustomMessage API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingJourneyDateRangeKpiResponse API_AVAILABLE(ios(11));
@@ -273,6 +294,7 @@
 - (void) test_AWSPinpointTargetingJourneyExecutionMetricsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingJourneyLimits API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingJourneyPushMessage API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingJourneyChannelSettings API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingJourneyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingJourneySMSMessage API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingJourneySchedule API_AVAILABLE(ios(11));
@@ -298,6 +320,7 @@
 - (void) test_AWSPinpointTargetingMultiConditionalSplitActivity API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingNumberValidateRequest API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingNumberValidateResponse API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingOverrideButtonConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingPhoneNumberValidateRequest API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingPhoneNumberValidateResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingPublicEndpoint API_AVAILABLE(ios(11));
@@ -353,6 +376,7 @@
 - (void) test_AWSPinpointTargetingTemplate API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingTemplateActiveVersionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingTemplateConfiguration API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingTemplateCreateMessageBody API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingTemplateResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingTemplateVersionResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingTemplateVersionsResponse API_AVAILABLE(ios(11));
@@ -386,6 +410,8 @@
 - (void) test_AWSPinpointTargetingUpdateEndpointsBatchResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingUpdateGcmChannelRequest API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingUpdateGcmChannelResponse API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingUpdateInAppTemplateRequest API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingUpdateInAppTemplateResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingUpdateJourneyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingUpdateJourneyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingUpdateJourneyStateRequest API_AVAILABLE(ios(11));
@@ -557,6 +583,10 @@
     [self validateSecureCodingForClass:[AWSPinpointTargetingCampaignHook class]];
 }
 
+- (void) test_AWSPinpointTargetingCampaignInAppMessage {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingCampaignInAppMessage class]];
+}
+
 - (void) test_AWSPinpointTargetingCampaignLimits {
     [self validateSecureCodingForClass:[AWSPinpointTargetingCampaignLimits class]];
 }
@@ -591,6 +621,10 @@
 
 - (void) test_AWSPinpointTargetingConditionalSplitActivity {
     [self validateSecureCodingForClass:[AWSPinpointTargetingConditionalSplitActivity class]];
+}
+
+- (void) test_AWSPinpointTargetingContactCenterActivity {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingContactCenterActivity class]];
 }
 
 - (void) test_AWSPinpointTargetingCreateAppRequest {
@@ -635,6 +669,14 @@
 
 - (void) test_AWSPinpointTargetingCreateImportJobResponse {
     [self validateSecureCodingForClass:[AWSPinpointTargetingCreateImportJobResponse class]];
+}
+
+- (void) test_AWSPinpointTargetingCreateInAppTemplateRequest {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingCreateInAppTemplateRequest class]];
+}
+
+- (void) test_AWSPinpointTargetingCreateInAppTemplateResponse {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingCreateInAppTemplateResponse class]];
 }
 
 - (void) test_AWSPinpointTargetingCreateJourneyRequest {
@@ -699,6 +741,10 @@
 
 - (void) test_AWSPinpointTargetingCustomMessageActivity {
     [self validateSecureCodingForClass:[AWSPinpointTargetingCustomMessageActivity class]];
+}
+
+- (void) test_AWSPinpointTargetingDefaultButtonConfiguration {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingDefaultButtonConfiguration class]];
 }
 
 - (void) test_AWSPinpointTargetingDefaultMessage {
@@ -815,6 +861,14 @@
 
 - (void) test_AWSPinpointTargetingDeleteGcmChannelResponse {
     [self validateSecureCodingForClass:[AWSPinpointTargetingDeleteGcmChannelResponse class]];
+}
+
+- (void) test_AWSPinpointTargetingDeleteInAppTemplateRequest {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingDeleteInAppTemplateRequest class]];
+}
+
+- (void) test_AWSPinpointTargetingDeleteInAppTemplateResponse {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingDeleteInAppTemplateResponse class]];
 }
 
 - (void) test_AWSPinpointTargetingDeleteJourneyRequest {
@@ -1245,6 +1299,22 @@
     [self validateSecureCodingForClass:[AWSPinpointTargetingGetImportJobsResponse class]];
 }
 
+- (void) test_AWSPinpointTargetingGetInAppMessagesRequest {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingGetInAppMessagesRequest class]];
+}
+
+- (void) test_AWSPinpointTargetingGetInAppMessagesResponse {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingGetInAppMessagesResponse class]];
+}
+
+- (void) test_AWSPinpointTargetingGetInAppTemplateRequest {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingGetInAppTemplateRequest class]];
+}
+
+- (void) test_AWSPinpointTargetingGetInAppTemplateResponse {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingGetInAppTemplateResponse class]];
+}
+
 - (void) test_AWSPinpointTargetingGetJourneyDateRangeKpiRequest {
     [self validateSecureCodingForClass:[AWSPinpointTargetingGetJourneyDateRangeKpiRequest class]];
 }
@@ -1409,6 +1479,46 @@
     [self validateSecureCodingForClass:[AWSPinpointTargetingImportJobsResponse class]];
 }
 
+- (void) test_AWSPinpointTargetingInAppCampaignSchedule {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingInAppCampaignSchedule class]];
+}
+
+- (void) test_AWSPinpointTargetingInAppMessage {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingInAppMessage class]];
+}
+
+- (void) test_AWSPinpointTargetingInAppMessageBodyConfig {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingInAppMessageBodyConfig class]];
+}
+
+- (void) test_AWSPinpointTargetingInAppMessageButton {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingInAppMessageButton class]];
+}
+
+- (void) test_AWSPinpointTargetingInAppMessageCampaign {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingInAppMessageCampaign class]];
+}
+
+- (void) test_AWSPinpointTargetingInAppMessageContent {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingInAppMessageContent class]];
+}
+
+- (void) test_AWSPinpointTargetingInAppMessageHeaderConfig {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingInAppMessageHeaderConfig class]];
+}
+
+- (void) test_AWSPinpointTargetingInAppMessagesResponse {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingInAppMessagesResponse class]];
+}
+
+- (void) test_AWSPinpointTargetingInAppTemplateRequest {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingInAppTemplateRequest class]];
+}
+
+- (void) test_AWSPinpointTargetingInAppTemplateResponse {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingInAppTemplateResponse class]];
+}
+
 - (void) test_AWSPinpointTargetingItemResponse {
     [self validateSecureCodingForClass:[AWSPinpointTargetingItemResponse class]];
 }
@@ -1439,6 +1549,10 @@
 
 - (void) test_AWSPinpointTargetingJourneyPushMessage {
     [self validateSecureCodingForClass:[AWSPinpointTargetingJourneyPushMessage class]];
+}
+
+- (void) test_AWSPinpointTargetingJourneyChannelSettings {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingJourneyChannelSettings class]];
 }
 
 - (void) test_AWSPinpointTargetingJourneyResponse {
@@ -1539,6 +1653,10 @@
 
 - (void) test_AWSPinpointTargetingNumberValidateResponse {
     [self validateSecureCodingForClass:[AWSPinpointTargetingNumberValidateResponse class]];
+}
+
+- (void) test_AWSPinpointTargetingOverrideButtonConfiguration {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingOverrideButtonConfiguration class]];
 }
 
 - (void) test_AWSPinpointTargetingPhoneNumberValidateRequest {
@@ -1761,6 +1879,10 @@
     [self validateSecureCodingForClass:[AWSPinpointTargetingTemplateConfiguration class]];
 }
 
+- (void) test_AWSPinpointTargetingTemplateCreateMessageBody {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingTemplateCreateMessageBody class]];
+}
+
 - (void) test_AWSPinpointTargetingTemplateResponse {
     [self validateSecureCodingForClass:[AWSPinpointTargetingTemplateResponse class]];
 }
@@ -1891,6 +2013,14 @@
 
 - (void) test_AWSPinpointTargetingUpdateGcmChannelResponse {
     [self validateSecureCodingForClass:[AWSPinpointTargetingUpdateGcmChannelResponse class]];
+}
+
+- (void) test_AWSPinpointTargetingUpdateInAppTemplateRequest {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingUpdateInAppTemplateRequest class]];
+}
+
+- (void) test_AWSPinpointTargetingUpdateInAppTemplateResponse {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingUpdateInAppTemplateResponse class]];
 }
 
 - (void) test_AWSPinpointTargetingUpdateJourneyRequest {

@@ -25,7 +25,7 @@
 #import "AWSChimeSDKIdentityResources.h"
 
 static NSString *const AWSInfoChimeSDKIdentity = @"ChimeSDKIdentity";
-NSString *const AWSChimeSDKIdentitySDKVersion = @"2.24.5";
+NSString *const AWSChimeSDKIdentitySDKVersion = @"2.26.5";
 
 
 @interface AWSChimeSDKIdentityResponseSerializer : AWSJSONResponseSerializer
@@ -418,6 +418,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask *)deregisterAppInstanceUserEndpoint:(AWSChimeSDKIdentityDeregisterAppInstanceUserEndpointRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/app-instance-users/{appInstanceUserArn}/endpoints/{endpointId}"
+                  targetPrefix:@""
+                 operationName:@"DeregisterAppInstanceUserEndpoint"
+                   outputClass:nil];
+}
+
+- (void)deregisterAppInstanceUserEndpoint:(AWSChimeSDKIdentityDeregisterAppInstanceUserEndpointRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deregisterAppInstanceUserEndpoint:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSChimeSDKIdentityDescribeAppInstanceResponse *> *)describeAppInstance:(AWSChimeSDKIdentityDescribeAppInstanceRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -487,6 +509,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSChimeSDKIdentityDescribeAppInstanceUserEndpointResponse *> *)describeAppInstanceUserEndpoint:(AWSChimeSDKIdentityDescribeAppInstanceUserEndpointRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/app-instance-users/{appInstanceUserArn}/endpoints/{endpointId}"
+                  targetPrefix:@""
+                 operationName:@"DescribeAppInstanceUserEndpoint"
+                   outputClass:[AWSChimeSDKIdentityDescribeAppInstanceUserEndpointResponse class]];
+}
+
+- (void)describeAppInstanceUserEndpoint:(AWSChimeSDKIdentityDescribeAppInstanceUserEndpointRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKIdentityDescribeAppInstanceUserEndpointResponse *response, NSError *error))completionHandler {
+    [[self describeAppInstanceUserEndpoint:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKIdentityDescribeAppInstanceUserEndpointResponse *> * _Nonnull task) {
+        AWSChimeSDKIdentityDescribeAppInstanceUserEndpointResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSChimeSDKIdentityGetAppInstanceRetentionSettingsResponse *> *)getAppInstanceRetentionSettings:(AWSChimeSDKIdentityGetAppInstanceRetentionSettingsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -523,6 +568,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSChimeSDKIdentityListAppInstanceAdminsResponse *response, NSError *error))completionHandler {
     [[self listAppInstanceAdmins:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKIdentityListAppInstanceAdminsResponse *> * _Nonnull task) {
         AWSChimeSDKIdentityListAppInstanceAdminsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSChimeSDKIdentityListAppInstanceUserEndpointsResponse *> *)listAppInstanceUserEndpoints:(AWSChimeSDKIdentityListAppInstanceUserEndpointsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/app-instance-users/{appInstanceUserArn}/endpoints"
+                  targetPrefix:@""
+                 operationName:@"ListAppInstanceUserEndpoints"
+                   outputClass:[AWSChimeSDKIdentityListAppInstanceUserEndpointsResponse class]];
+}
+
+- (void)listAppInstanceUserEndpoints:(AWSChimeSDKIdentityListAppInstanceUserEndpointsRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKIdentityListAppInstanceUserEndpointsResponse *response, NSError *error))completionHandler {
+    [[self listAppInstanceUserEndpoints:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKIdentityListAppInstanceUserEndpointsResponse *> * _Nonnull task) {
+        AWSChimeSDKIdentityListAppInstanceUserEndpointsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -579,6 +647,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSChimeSDKIdentityListTagsForResourceResponse *> *)listTagsForResource:(AWSChimeSDKIdentityListTagsForResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/tags"
+                  targetPrefix:@""
+                 operationName:@"ListTagsForResource"
+                   outputClass:[AWSChimeSDKIdentityListTagsForResourceResponse class]];
+}
+
+- (void)listTagsForResource:(AWSChimeSDKIdentityListTagsForResourceRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKIdentityListTagsForResourceResponse *response, NSError *error))completionHandler {
+    [[self listTagsForResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKIdentityListTagsForResourceResponse *> * _Nonnull task) {
+        AWSChimeSDKIdentityListTagsForResourceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSChimeSDKIdentityPutAppInstanceRetentionSettingsResponse *> *)putAppInstanceRetentionSettings:(AWSChimeSDKIdentityPutAppInstanceRetentionSettingsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -596,6 +687,73 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSChimeSDKIdentityRegisterAppInstanceUserEndpointResponse *> *)registerAppInstanceUserEndpoint:(AWSChimeSDKIdentityRegisterAppInstanceUserEndpointRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/app-instance-users/{appInstanceUserArn}/endpoints"
+                  targetPrefix:@""
+                 operationName:@"RegisterAppInstanceUserEndpoint"
+                   outputClass:[AWSChimeSDKIdentityRegisterAppInstanceUserEndpointResponse class]];
+}
+
+- (void)registerAppInstanceUserEndpoint:(AWSChimeSDKIdentityRegisterAppInstanceUserEndpointRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKIdentityRegisterAppInstanceUserEndpointResponse *response, NSError *error))completionHandler {
+    [[self registerAppInstanceUserEndpoint:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKIdentityRegisterAppInstanceUserEndpointResponse *> * _Nonnull task) {
+        AWSChimeSDKIdentityRegisterAppInstanceUserEndpointResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)tagResource:(AWSChimeSDKIdentityTagResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/tags?operation=tag-resource"
+                  targetPrefix:@""
+                 operationName:@"TagResource"
+                   outputClass:nil];
+}
+
+- (void)tagResource:(AWSChimeSDKIdentityTagResourceRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self tagResource:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)untagResource:(AWSChimeSDKIdentityUntagResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/tags?operation=untag-resource"
+                  targetPrefix:@""
+                 operationName:@"UntagResource"
+                   outputClass:nil];
+}
+
+- (void)untagResource:(AWSChimeSDKIdentityUntagResourceRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self untagResource:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
         }
 
         return nil;
@@ -638,6 +796,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSChimeSDKIdentityUpdateAppInstanceUserResponse *response, NSError *error))completionHandler {
     [[self updateAppInstanceUser:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKIdentityUpdateAppInstanceUserResponse *> * _Nonnull task) {
         AWSChimeSDKIdentityUpdateAppInstanceUserResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSChimeSDKIdentityUpdateAppInstanceUserEndpointResponse *> *)updateAppInstanceUserEndpoint:(AWSChimeSDKIdentityUpdateAppInstanceUserEndpointRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/app-instance-users/{appInstanceUserArn}/endpoints/{endpointId}"
+                  targetPrefix:@""
+                 operationName:@"UpdateAppInstanceUserEndpoint"
+                   outputClass:[AWSChimeSDKIdentityUpdateAppInstanceUserEndpointResponse class]];
+}
+
+- (void)updateAppInstanceUserEndpoint:(AWSChimeSDKIdentityUpdateAppInstanceUserEndpointRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKIdentityUpdateAppInstanceUserEndpointResponse *response, NSError *error))completionHandler {
+    [[self updateAppInstanceUserEndpoint:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKIdentityUpdateAppInstanceUserEndpointResponse *> * _Nonnull task) {
+        AWSChimeSDKIdentityUpdateAppInstanceUserEndpointResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

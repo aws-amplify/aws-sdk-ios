@@ -42,3 +42,4 @@ FOUNDATION_EXPORT const unsigned char AWSIoTVersionString[] DEPRECATED_MSG_ATTRI
 #import "AWSIoTService.h"
 #import "AWSIoTManager.h"
 #import "AWSIoTData.h"
+#import "AWSIoTMessage.h"

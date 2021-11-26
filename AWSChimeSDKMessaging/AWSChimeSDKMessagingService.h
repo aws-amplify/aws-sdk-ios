@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 
 /**
- <p>The Amazon Chime SDK Messaging APIs in this section allow software developers to send and receive messages in custom messaging applications. These APIs depend on the frameworks provided by the Amazon Chime SDK Identity APIs. For more information about the messaging APIs, see .</p>
+ <p>The Amazon Chime SDK Messaging APIs in this section allow software developers to send and receive messages in custom messaging applications. These APIs depend on the frameworks provided by the Amazon Chime SDK Identity APIs. For more information about the messaging APIs, see <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging">Amazon Chime SDK messaging</a></p>
  */
 @interface AWSChimeSDKMessaging : AWSService
 
@@ -175,6 +175,28 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 + (void)removeChimeSDKMessagingForKey:(NSString *)key;
 
 /**
+ <p>Associates a channel flow with a channel. Once associated, all messages to that channel go through channel flow processors. To stop processing, use the <code>DisassociateChannelFlow</code> API.</p><note><p>Only administrators or channel moderators can associate a channel flow. The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ 
+ @param request A container for the necessary parameters to execute the AssociateChannelFlow service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorNotFound`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorConflict`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingAssociateChannelFlowRequest
+ */
+- (AWSTask *)associateChannelFlow:(AWSChimeSDKMessagingAssociateChannelFlowRequest *)request;
+
+/**
+ <p>Associates a channel flow with a channel. Once associated, all messages to that channel go through channel flow processors. To stop processing, use the <code>DisassociateChannelFlow</code> API.</p><note><p>Only administrators or channel moderators can associate a channel flow. The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ 
+ @param request A container for the necessary parameters to execute the AssociateChannelFlow service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorNotFound`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorConflict`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingAssociateChannelFlowRequest
+ */
+- (void)associateChannelFlow:(AWSChimeSDKMessagingAssociateChannelFlowRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
  <p>Adds a specified number of users to a channel. </p>
  
  @param request A container for the necessary parameters to execute the BatchCreateChannelMembership service method.
@@ -198,6 +220,31 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
  @see AWSChimeSDKMessagingBatchCreateChannelMembershipResponse
  */
 - (void)batchCreateChannelMembership:(AWSChimeSDKMessagingBatchCreateChannelMembershipRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingBatchCreateChannelMembershipResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Calls back Chime SDK Messaging with a processing response message. This should be invoked from the processor Lambda. This is a developer API.</p><p>You can return one of the following processing responses:</p><ul><li><p>Update message content or metadata</p></li><li><p>Deny a message</p></li><li><p>Make no changes to the message</p></li></ul>
+ 
+ @param request A container for the necessary parameters to execute the ChannelFlowCallback service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKMessagingChannelFlowCallbackResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorConflict`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingChannelFlowCallbackRequest
+ @see AWSChimeSDKMessagingChannelFlowCallbackResponse
+ */
+- (AWSTask<AWSChimeSDKMessagingChannelFlowCallbackResponse *> *)channelFlowCallback:(AWSChimeSDKMessagingChannelFlowCallbackRequest *)request;
+
+/**
+ <p>Calls back Chime SDK Messaging with a processing response message. This should be invoked from the processor Lambda. This is a developer API.</p><p>You can return one of the following processing responses:</p><ul><li><p>Update message content or metadata</p></li><li><p>Deny a message</p></li><li><p>Make no changes to the message</p></li></ul>
+ 
+ @param request A container for the necessary parameters to execute the ChannelFlowCallback service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorConflict`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingChannelFlowCallbackRequest
+ @see AWSChimeSDKMessagingChannelFlowCallbackResponse
+ */
+- (void)channelFlowCallback:(AWSChimeSDKMessagingChannelFlowCallbackRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingChannelFlowCallbackResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Creates a channel to which you can add users and send messages.</p><p><b>Restriction</b>: You can't change a channel's privacy.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
@@ -250,7 +297,32 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)createChannelBan:(AWSChimeSDKMessagingCreateChannelBanRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingCreateChannelBanResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Adds a user to a channel. The <code>InvitedBy</code> response field is derived from the request header. A channel member can:</p><ul><li><p>List messages</p></li><li><p>Send messages</p></li><li><p>Receive messages</p></li><li><p>Edit their own messages</p></li><li><p>Leave the channel</p></li></ul><p>Privacy settings impact this action as follows:</p><ul><li><p>Public Channels: You do not need to be a member to list messages, but you must be a member to send messages.</p></li><li><p>Private Channels: You must be a member to list or send messages.</p></li></ul><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Creates a channel flow, a container for processors. Processors are AWS Lambda functions that perform actions on chat messages, such as stripping out profanity. You can associate channel flows with channels, and the processors in the channel flow then take action on all messages sent to that channel. This is a developer API.</p><p>Channel flows process the following items:</p><ol><li><p>New and updated messages</p></li><li><p>Persistent and non-persistent messages</p></li><li><p>The Standard message type</p></li></ol><note><p>Channel flows don't process Control or System messages. For more information about the message types provided by Chime SDK Messaging, refer to <a href="https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types">Message types</a> in the <i>Amazon Chime developer guide</i>.</p></note>
+ 
+ @param request A container for the necessary parameters to execute the CreateChannelFlow service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKMessagingCreateChannelFlowResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorConflict`, `AWSChimeSDKMessagingErrorResourceLimitExceeded`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingCreateChannelFlowRequest
+ @see AWSChimeSDKMessagingCreateChannelFlowResponse
+ */
+- (AWSTask<AWSChimeSDKMessagingCreateChannelFlowResponse *> *)createChannelFlow:(AWSChimeSDKMessagingCreateChannelFlowRequest *)request;
+
+/**
+ <p>Creates a channel flow, a container for processors. Processors are AWS Lambda functions that perform actions on chat messages, such as stripping out profanity. You can associate channel flows with channels, and the processors in the channel flow then take action on all messages sent to that channel. This is a developer API.</p><p>Channel flows process the following items:</p><ol><li><p>New and updated messages</p></li><li><p>Persistent and non-persistent messages</p></li><li><p>The Standard message type</p></li></ol><note><p>Channel flows don't process Control or System messages. For more information about the message types provided by Chime SDK Messaging, refer to <a href="https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types">Message types</a> in the <i>Amazon Chime developer guide</i>.</p></note>
+ 
+ @param request A container for the necessary parameters to execute the CreateChannelFlow service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorConflict`, `AWSChimeSDKMessagingErrorResourceLimitExceeded`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingCreateChannelFlowRequest
+ @see AWSChimeSDKMessagingCreateChannelFlowResponse
+ */
+- (void)createChannelFlow:(AWSChimeSDKMessagingCreateChannelFlowRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingCreateChannelFlowResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Adds a user to a channel. The <code>InvitedBy</code> field in <code>ChannelMembership</code> is derived from the request header. A channel member can:</p><ul><li><p>List messages</p></li><li><p>Send messages</p></li><li><p>Receive messages</p></li><li><p>Edit their own messages</p></li><li><p>Leave the channel</p></li></ul><p>Privacy settings impact this action as follows:</p><ul><li><p>Public Channels: You do not need to be a member to list messages, but you must be a member to send messages.</p></li><li><p>Private Channels: You must be a member to list or send messages.</p></li></ul><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateChannelMembership service method.
 
@@ -262,7 +334,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingCreateChannelMembershipResponse *> *)createChannelMembership:(AWSChimeSDKMessagingCreateChannelMembershipRequest *)request;
 
 /**
- <p>Adds a user to a channel. The <code>InvitedBy</code> response field is derived from the request header. A channel member can:</p><ul><li><p>List messages</p></li><li><p>Send messages</p></li><li><p>Receive messages</p></li><li><p>Edit their own messages</p></li><li><p>Leave the channel</p></li></ul><p>Privacy settings impact this action as follows:</p><ul><li><p>Public Channels: You do not need to be a member to list messages, but you must be a member to send messages.</p></li><li><p>Private Channels: You must be a member to list or send messages.</p></li></ul><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Adds a user to a channel. The <code>InvitedBy</code> field in <code>ChannelMembership</code> is derived from the request header. A channel member can:</p><ul><li><p>List messages</p></li><li><p>Send messages</p></li><li><p>Receive messages</p></li><li><p>Edit their own messages</p></li><li><p>Leave the channel</p></li></ul><p>Privacy settings impact this action as follows:</p><ul><li><p>Public Channels: You do not need to be a member to list messages, but you must be a member to send messages.</p></li><li><p>Private Channels: You must be a member to list or send messages.</p></li></ul><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateChannelMembership service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -342,6 +414,28 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
  @see AWSChimeSDKMessagingDeleteChannelBanRequest
  */
 - (void)deleteChannelBan:(AWSChimeSDKMessagingDeleteChannelBanRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes a channel flow, an irreversible process. This is a developer API.</p><note><p> This API works only when the channel flow is not associated with any channel. To get a list of all channels that a channel flow is associated with, use the <code>ListChannelsAssociatedWithChannelFlow</code> API. Use the <code>DisassociateChannelFlow</code> API to disassociate a channel flow from all channels. </p></note>
+ 
+ @param request A container for the necessary parameters to execute the DeleteChannelFlow service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorConflict`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingDeleteChannelFlowRequest
+ */
+- (AWSTask *)deleteChannelFlow:(AWSChimeSDKMessagingDeleteChannelFlowRequest *)request;
+
+/**
+ <p>Deletes a channel flow, an irreversible process. This is a developer API.</p><note><p> This API works only when the channel flow is not associated with any channel. To get a list of all channels that a channel flow is associated with, use the <code>ListChannelsAssociatedWithChannelFlow</code> API. Use the <code>DisassociateChannelFlow</code> API to disassociate a channel flow from all channels. </p></note>
+ 
+ @param request A container for the necessary parameters to execute the DeleteChannelFlow service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorConflict`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingDeleteChannelFlowRequest
+ */
+- (void)deleteChannelFlow:(AWSChimeSDKMessagingDeleteChannelFlowRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
  <p>Removes a member from a channel.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
@@ -460,6 +554,31 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)describeChannelBan:(AWSChimeSDKMessagingDescribeChannelBanRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingDescribeChannelBanResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Returns the full details of a channel flow in an Amazon Chime <code>AppInstance</code>. This is a developer API.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeChannelFlow service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKMessagingDescribeChannelFlowResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingDescribeChannelFlowRequest
+ @see AWSChimeSDKMessagingDescribeChannelFlowResponse
+ */
+- (AWSTask<AWSChimeSDKMessagingDescribeChannelFlowResponse *> *)describeChannelFlow:(AWSChimeSDKMessagingDescribeChannelFlowRequest *)request;
+
+/**
+ <p>Returns the full details of a channel flow in an Amazon Chime <code>AppInstance</code>. This is a developer API.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeChannelFlow service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingDescribeChannelFlowRequest
+ @see AWSChimeSDKMessagingDescribeChannelFlowResponse
+ */
+- (void)describeChannelFlow:(AWSChimeSDKMessagingDescribeChannelFlowRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingDescribeChannelFlowResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Returns the full details of a user's channel membership.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the DescribeChannelMembership service method.
@@ -560,6 +679,53 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)describeChannelModerator:(AWSChimeSDKMessagingDescribeChannelModeratorRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingDescribeChannelModeratorResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Disassociates a channel flow from all its channels. Once disassociated, all messages to that channel stop going through the channel flow processor.</p><note><p>Only administrators or channel moderators can disassociate a channel flow. The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ 
+ @param request A container for the necessary parameters to execute the DisassociateChannelFlow service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorNotFound`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorConflict`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingDisassociateChannelFlowRequest
+ */
+- (AWSTask *)disassociateChannelFlow:(AWSChimeSDKMessagingDisassociateChannelFlowRequest *)request;
+
+/**
+ <p>Disassociates a channel flow from all its channels. Once disassociated, all messages to that channel stop going through the channel flow processor.</p><note><p>Only administrators or channel moderators can disassociate a channel flow. The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ 
+ @param request A container for the necessary parameters to execute the DisassociateChannelFlow service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorNotFound`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorConflict`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingDisassociateChannelFlowRequest
+ */
+- (void)disassociateChannelFlow:(AWSChimeSDKMessagingDisassociateChannelFlowRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Gets the membership preferences of an <code>AppInstanceUser</code> for the specified channel. The <code>AppInstanceUser</code> must be a member of the channel. Only the <code>AppInstanceUser</code> who owns the membership can retrieve preferences. Users in the <code>AppInstanceAdmin</code> and channel moderator roles can't retrieve preferences for other users. Banned users can't retrieve membership preferences for the channel from which they are banned.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetChannelMembershipPreferences service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKMessagingGetChannelMembershipPreferencesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingGetChannelMembershipPreferencesRequest
+ @see AWSChimeSDKMessagingGetChannelMembershipPreferencesResponse
+ */
+- (AWSTask<AWSChimeSDKMessagingGetChannelMembershipPreferencesResponse *> *)getChannelMembershipPreferences:(AWSChimeSDKMessagingGetChannelMembershipPreferencesRequest *)request;
+
+/**
+ <p>Gets the membership preferences of an <code>AppInstanceUser</code> for the specified channel. The <code>AppInstanceUser</code> must be a member of the channel. Only the <code>AppInstanceUser</code> who owns the membership can retrieve preferences. Users in the <code>AppInstanceAdmin</code> and channel moderator roles can't retrieve preferences for other users. Banned users can't retrieve membership preferences for the channel from which they are banned.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetChannelMembershipPreferences service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingGetChannelMembershipPreferencesRequest
+ @see AWSChimeSDKMessagingGetChannelMembershipPreferencesResponse
+ */
+- (void)getChannelMembershipPreferences:(AWSChimeSDKMessagingGetChannelMembershipPreferencesRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingGetChannelMembershipPreferencesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Gets the full details of a channel message.</p><note><p>The x-amz-chime-bearer request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the GetChannelMessage service method.
@@ -583,6 +749,31 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
  @see AWSChimeSDKMessagingGetChannelMessageResponse
  */
 - (void)getChannelMessage:(AWSChimeSDKMessagingGetChannelMessageRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingGetChannelMessageResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Gets message status for a specified <code>messageId</code>. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to retrieving message status if the event was not received because a client wasn't connected to a websocket. </p><p>Messages can have any one of these statuses.</p><dl><dt>SENT</dt><dd><p>Message processed successfully</p></dd><dt>PENDING</dt><dd><p>Ongoing processing</p></dd><dt>FAILED</dt><dd><p>Processing failed</p></dd><dt>DENIED</dt><dd><p>Messasge denied by the processor</p></dd></dl><note><ul><li><p>This API does not return statuses for denied messages, because we don't store them once the processor denies them. </p></li><li><p>Only the message sender can invoke this API.</p></li><li><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header</p></li></ul></note>
+ 
+ @param request A container for the necessary parameters to execute the GetChannelMessageStatus service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKMessagingGetChannelMessageStatusResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingGetChannelMessageStatusRequest
+ @see AWSChimeSDKMessagingGetChannelMessageStatusResponse
+ */
+- (AWSTask<AWSChimeSDKMessagingGetChannelMessageStatusResponse *> *)getChannelMessageStatus:(AWSChimeSDKMessagingGetChannelMessageStatusRequest *)request;
+
+/**
+ <p>Gets message status for a specified <code>messageId</code>. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to retrieving message status if the event was not received because a client wasn't connected to a websocket. </p><p>Messages can have any one of these statuses.</p><dl><dt>SENT</dt><dd><p>Message processed successfully</p></dd><dt>PENDING</dt><dd><p>Ongoing processing</p></dd><dt>FAILED</dt><dd><p>Processing failed</p></dd><dt>DENIED</dt><dd><p>Messasge denied by the processor</p></dd></dl><note><ul><li><p>This API does not return statuses for denied messages, because we don't store them once the processor denies them. </p></li><li><p>Only the message sender can invoke this API.</p></li><li><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header</p></li></ul></note>
+ 
+ @param request A container for the necessary parameters to execute the GetChannelMessageStatus service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingGetChannelMessageStatusRequest
+ @see AWSChimeSDKMessagingGetChannelMessageStatusResponse
+ */
+- (void)getChannelMessageStatus:(AWSChimeSDKMessagingGetChannelMessageStatusRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingGetChannelMessageStatusResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>The details of the endpoint for the messaging session.</p>
@@ -635,7 +826,32 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)listChannelBans:(AWSChimeSDKMessagingListChannelBansRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingListChannelBansResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists all channel memberships in a channel.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Returns a paginated lists of all the channel flows created under a single Chime. This is a developer API.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListChannelFlows service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKMessagingListChannelFlowsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingListChannelFlowsRequest
+ @see AWSChimeSDKMessagingListChannelFlowsResponse
+ */
+- (AWSTask<AWSChimeSDKMessagingListChannelFlowsResponse *> *)listChannelFlows:(AWSChimeSDKMessagingListChannelFlowsRequest *)request;
+
+/**
+ <p>Returns a paginated lists of all the channel flows created under a single Chime. This is a developer API.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListChannelFlows service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingListChannelFlowsRequest
+ @see AWSChimeSDKMessagingListChannelFlowsResponse
+ */
+- (void)listChannelFlows:(AWSChimeSDKMessagingListChannelFlowsRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingListChannelFlowsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Lists all channel memberships in a channel.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note><p>If you want to list the channels to which a specific app instance user belongs, see the <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html">ListChannelMembershipsForAppInstanceUser</a> API.</p>
  
  @param request A container for the necessary parameters to execute the ListChannelMemberships service method.
 
@@ -647,7 +863,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (AWSTask<AWSChimeSDKMessagingListChannelMembershipsResponse *> *)listChannelMemberships:(AWSChimeSDKMessagingListChannelMembershipsRequest *)request;
 
 /**
- <p>Lists all channel memberships in a channel.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
+ <p>Lists all channel memberships in a channel.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note><p>If you want to list the channels to which a specific app instance user belongs, see the <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html">ListChannelMembershipsForAppInstanceUser</a> API.</p>
  
  @param request A container for the necessary parameters to execute the ListChannelMemberships service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -760,6 +976,31 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)listChannels:(AWSChimeSDKMessagingListChannelsRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingListChannelsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Lists all channels associated with a specified channel flow. You can associate a channel flow with multiple channels, but you can only associate a channel with one channel flow. This is a developer API.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListChannelsAssociatedWithChannelFlow service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKMessagingListChannelsAssociatedWithChannelFlowResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingListChannelsAssociatedWithChannelFlowRequest
+ @see AWSChimeSDKMessagingListChannelsAssociatedWithChannelFlowResponse
+ */
+- (AWSTask<AWSChimeSDKMessagingListChannelsAssociatedWithChannelFlowResponse *> *)listChannelsAssociatedWithChannelFlow:(AWSChimeSDKMessagingListChannelsAssociatedWithChannelFlowRequest *)request;
+
+/**
+ <p>Lists all channels associated with a specified channel flow. You can associate a channel flow with multiple channels, but you can only associate a channel with one channel flow. This is a developer API.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListChannelsAssociatedWithChannelFlow service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingListChannelsAssociatedWithChannelFlowRequest
+ @see AWSChimeSDKMessagingListChannelsAssociatedWithChannelFlowResponse
+ */
+- (void)listChannelsAssociatedWithChannelFlow:(AWSChimeSDKMessagingListChannelsAssociatedWithChannelFlowRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingListChannelsAssociatedWithChannelFlowResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>A list of the channels moderated by an <code>AppInstanceUser</code>.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the ListChannelsModeratedByAppInstanceUser service method.
@@ -783,6 +1024,56 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
  @see AWSChimeSDKMessagingListChannelsModeratedByAppInstanceUserResponse
  */
 - (void)listChannelsModeratedByAppInstanceUser:(AWSChimeSDKMessagingListChannelsModeratedByAppInstanceUserRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingListChannelsModeratedByAppInstanceUserResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Lists the tags applied to an Amazon Chime SDK messaging resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListTagsForResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKMessagingListTagsForResourceResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingListTagsForResourceRequest
+ @see AWSChimeSDKMessagingListTagsForResourceResponse
+ */
+- (AWSTask<AWSChimeSDKMessagingListTagsForResourceResponse *> *)listTagsForResource:(AWSChimeSDKMessagingListTagsForResourceRequest *)request;
+
+/**
+ <p>Lists the tags applied to an Amazon Chime SDK messaging resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListTagsForResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingListTagsForResourceRequest
+ @see AWSChimeSDKMessagingListTagsForResourceResponse
+ */
+- (void)listTagsForResource:(AWSChimeSDKMessagingListTagsForResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingListTagsForResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Sets the membership preferences of an <code>AppInstanceUser</code> for the specified channel. The <code>AppInstanceUser</code> must be a member of the channel. Only the <code>AppInstanceUser</code> who owns the membership can set preferences. Users in the <code>AppInstanceAdmin</code> and channel moderator roles can't set preferences for other users. Banned users can't set membership preferences for the channel from which they are banned.</p>
+ 
+ @param request A container for the necessary parameters to execute the PutChannelMembershipPreferences service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKMessagingPutChannelMembershipPreferencesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorConflict`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingPutChannelMembershipPreferencesRequest
+ @see AWSChimeSDKMessagingPutChannelMembershipPreferencesResponse
+ */
+- (AWSTask<AWSChimeSDKMessagingPutChannelMembershipPreferencesResponse *> *)putChannelMembershipPreferences:(AWSChimeSDKMessagingPutChannelMembershipPreferencesRequest *)request;
+
+/**
+ <p>Sets the membership preferences of an <code>AppInstanceUser</code> for the specified channel. The <code>AppInstanceUser</code> must be a member of the channel. Only the <code>AppInstanceUser</code> who owns the membership can set preferences. Users in the <code>AppInstanceAdmin</code> and channel moderator roles can't set preferences for other users. Banned users can't set membership preferences for the channel from which they are banned.</p>
+ 
+ @param request A container for the necessary parameters to execute the PutChannelMembershipPreferences service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorConflict`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingPutChannelMembershipPreferencesRequest
+ @see AWSChimeSDKMessagingPutChannelMembershipPreferencesResponse
+ */
+- (void)putChannelMembershipPreferences:(AWSChimeSDKMessagingPutChannelMembershipPreferencesRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingPutChannelMembershipPreferencesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Redacts message content, but not metadata. The message exists in the back end, but the action returns null content, and the state shows as redacted.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
@@ -835,6 +1126,50 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
 - (void)sendChannelMessage:(AWSChimeSDKMessagingSendChannelMessageRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingSendChannelMessageResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Applies the specified tags to the specified Amazon Chime SDK messaging resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the TagResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorResourceLimitExceeded`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingTagResourceRequest
+ */
+- (AWSTask *)tagResource:(AWSChimeSDKMessagingTagResourceRequest *)request;
+
+/**
+ <p>Applies the specified tags to the specified Amazon Chime SDK messaging resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the TagResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorResourceLimitExceeded`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingTagResourceRequest
+ */
+- (void)tagResource:(AWSChimeSDKMessagingTagResourceRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Removes the specified tags from the specified Amazon Chime SDK messaging resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the UntagResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingUntagResourceRequest
+ */
+- (AWSTask *)untagResource:(AWSChimeSDKMessagingUntagResourceRequest *)request;
+
+/**
+ <p>Removes the specified tags from the specified Amazon Chime SDK messaging resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the UntagResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingUntagResourceRequest
+ */
+- (void)untagResource:(AWSChimeSDKMessagingUntagResourceRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
  <p>Update a channel's attributes.</p><p><b>Restriction</b>: You can't change a channel's privacy. </p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>
  
  @param request A container for the necessary parameters to execute the UpdateChannel service method.
@@ -858,6 +1193,31 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
  @see AWSChimeSDKMessagingUpdateChannelResponse
  */
 - (void)updateChannel:(AWSChimeSDKMessagingUpdateChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingUpdateChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Updates channel flow attributes. This is a developer API.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateChannelFlow service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKMessagingUpdateChannelFlowResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorConflict`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingUpdateChannelFlowRequest
+ @see AWSChimeSDKMessagingUpdateChannelFlowResponse
+ */
+- (AWSTask<AWSChimeSDKMessagingUpdateChannelFlowResponse *> *)updateChannelFlow:(AWSChimeSDKMessagingUpdateChannelFlowRequest *)request;
+
+/**
+ <p>Updates channel flow attributes. This is a developer API.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateChannelFlow service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorConflict`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingUpdateChannelFlowRequest
+ @see AWSChimeSDKMessagingUpdateChannelFlowResponse
+ */
+- (void)updateChannelFlow:(AWSChimeSDKMessagingUpdateChannelFlowRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingUpdateChannelFlowResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Updates the content of a message.</p><note><p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header.</p></note>

@@ -398,6 +398,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"architectures" : @"Architectures",
              @"code" : @"Code",
              @"codeSigningConfigArn" : @"CodeSigningConfigArn",
              @"deadLetterConfig" : @"DeadLetterConfig",
@@ -506,6 +507,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"python3.8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimePython38);
         }
+        if ([value caseInsensitiveCompare:@"python3.9"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython39);
+        }
         if ([value caseInsensitiveCompare:@"dotnetcore1.0"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeDotnetcore10);
         }
@@ -567,6 +571,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"python3.7";
             case AWSLambdaRuntimePython38:
                 return @"python3.8";
+            case AWSLambdaRuntimePython39:
+                return @"python3.9";
             case AWSLambdaRuntimeDotnetcore10:
                 return @"dotnetcore1.0";
             case AWSLambdaRuntimeDotnetcore20:
@@ -974,6 +980,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"architectures" : @"Architectures",
              @"codeSha256" : @"CodeSha256",
              @"codeSize" : @"CodeSize",
              @"deadLetterConfig" : @"DeadLetterConfig",
@@ -1180,6 +1187,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"python3.8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimePython38);
         }
+        if ([value caseInsensitiveCompare:@"python3.9"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython39);
+        }
         if ([value caseInsensitiveCompare:@"dotnetcore1.0"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeDotnetcore10);
         }
@@ -1241,6 +1251,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"python3.7";
             case AWSLambdaRuntimePython38:
                 return @"python3.8";
+            case AWSLambdaRuntimePython39:
+                return @"python3.9";
             case AWSLambdaRuntimeDotnetcore10:
                 return @"dotnetcore1.0";
             case AWSLambdaRuntimeDotnetcore20:
@@ -1704,6 +1716,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"compatibleArchitectures" : @"CompatibleArchitectures",
              @"compatibleRuntimes" : @"CompatibleRuntimes",
              @"content" : @"Content",
              @"createdDate" : @"CreatedDate",
@@ -2038,6 +2051,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"compatibleArchitectures" : @"CompatibleArchitectures",
              @"compatibleRuntimes" : @"CompatibleRuntimes",
              @"createdDate" : @"CreatedDate",
              @"detail" : @"Description",
@@ -2301,11 +2315,33 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"compatibleArchitecture" : @"CompatibleArchitecture",
              @"compatibleRuntime" : @"CompatibleRuntime",
              @"layerName" : @"LayerName",
              @"marker" : @"Marker",
              @"maxItems" : @"MaxItems",
              };
+}
+
++ (NSValueTransformer *)compatibleArchitectureJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"x86_64"] == NSOrderedSame) {
+            return @(AWSLambdaArchitectureX86_64);
+        }
+        if ([value caseInsensitiveCompare:@"arm64"] == NSOrderedSame) {
+            return @(AWSLambdaArchitectureArm64);
+        }
+        return @(AWSLambdaArchitectureUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaArchitectureX86_64:
+                return @"x86_64";
+            case AWSLambdaArchitectureArm64:
+                return @"arm64";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)compatibleRuntimeJSONTransformer {
@@ -2351,6 +2387,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         }
         if ([value caseInsensitiveCompare:@"python3.8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimePython38);
+        }
+        if ([value caseInsensitiveCompare:@"python3.9"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython39);
         }
         if ([value caseInsensitiveCompare:@"dotnetcore1.0"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeDotnetcore10);
@@ -2413,6 +2452,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"python3.7";
             case AWSLambdaRuntimePython38:
                 return @"python3.8";
+            case AWSLambdaRuntimePython39:
+                return @"python3.9";
             case AWSLambdaRuntimeDotnetcore10:
                 return @"dotnetcore1.0";
             case AWSLambdaRuntimeDotnetcore20:
@@ -2468,10 +2509,32 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"compatibleArchitecture" : @"CompatibleArchitecture",
              @"compatibleRuntime" : @"CompatibleRuntime",
              @"marker" : @"Marker",
              @"maxItems" : @"MaxItems",
              };
+}
+
++ (NSValueTransformer *)compatibleArchitectureJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"x86_64"] == NSOrderedSame) {
+            return @(AWSLambdaArchitectureX86_64);
+        }
+        if ([value caseInsensitiveCompare:@"arm64"] == NSOrderedSame) {
+            return @(AWSLambdaArchitectureArm64);
+        }
+        return @(AWSLambdaArchitectureUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaArchitectureX86_64:
+                return @"x86_64";
+            case AWSLambdaArchitectureArm64:
+                return @"arm64";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)compatibleRuntimeJSONTransformer {
@@ -2517,6 +2580,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         }
         if ([value caseInsensitiveCompare:@"python3.8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimePython38);
+        }
+        if ([value caseInsensitiveCompare:@"python3.9"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython39);
         }
         if ([value caseInsensitiveCompare:@"dotnetcore1.0"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeDotnetcore10);
@@ -2579,6 +2645,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"python3.7";
             case AWSLambdaRuntimePython38:
                 return @"python3.8";
+            case AWSLambdaRuntimePython39:
+                return @"python3.9";
             case AWSLambdaRuntimeDotnetcore10:
                 return @"dotnetcore1.0";
             case AWSLambdaRuntimeDotnetcore20:
@@ -2806,6 +2874,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"compatibleArchitectures" : @"CompatibleArchitectures",
              @"compatibleRuntimes" : @"CompatibleRuntimes",
              @"content" : @"Content",
              @"detail" : @"Description",
@@ -2828,6 +2897,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"compatibleArchitectures" : @"CompatibleArchitectures",
              @"compatibleRuntimes" : @"CompatibleRuntimes",
              @"content" : @"Content",
              @"createdDate" : @"CreatedDate",
@@ -3071,6 +3141,12 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"VIRTUAL_HOST"] == NSOrderedSame) {
             return @(AWSLambdaSourceAccessTypeVirtualHost);
         }
+        if ([value caseInsensitiveCompare:@"CLIENT_CERTIFICATE_TLS_AUTH"] == NSOrderedSame) {
+            return @(AWSLambdaSourceAccessTypeClientCertificateTlsAuth);
+        }
+        if ([value caseInsensitiveCompare:@"SERVER_ROOT_CA_CERTIFICATE"] == NSOrderedSame) {
+            return @(AWSLambdaSourceAccessTypeServerRootCaCertificate);
+        }
         return @(AWSLambdaSourceAccessTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3086,6 +3162,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"SASL_SCRAM_256_AUTH";
             case AWSLambdaSourceAccessTypeVirtualHost:
                 return @"VIRTUAL_HOST";
+            case AWSLambdaSourceAccessTypeClientCertificateTlsAuth:
+                return @"CLIENT_CERTIFICATE_TLS_AUTH";
+            case AWSLambdaSourceAccessTypeServerRootCaCertificate:
+                return @"SERVER_ROOT_CA_CERTIFICATE";
             default:
                 return nil;
         }
@@ -3302,6 +3382,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"architectures" : @"Architectures",
              @"dryRun" : @"DryRun",
              @"functionName" : @"FunctionName",
              @"imageUri" : @"ImageUri",
@@ -3403,6 +3484,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"python3.8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimePython38);
         }
+        if ([value caseInsensitiveCompare:@"python3.9"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython39);
+        }
         if ([value caseInsensitiveCompare:@"dotnetcore1.0"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeDotnetcore10);
         }
@@ -3464,6 +3548,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"python3.7";
             case AWSLambdaRuntimePython38:
                 return @"python3.8";
+            case AWSLambdaRuntimePython39:
+                return @"python3.9";
             case AWSLambdaRuntimeDotnetcore10:
                 return @"dotnetcore1.0";
             case AWSLambdaRuntimeDotnetcore20:

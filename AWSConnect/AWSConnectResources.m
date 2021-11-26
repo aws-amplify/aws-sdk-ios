@@ -269,7 +269,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Creates hours of operation. </p>\"\
+      \"documentation\":\"<p>Creates hours of operation. </p>\"\
     },\
     \"CreateInstance\":{\
       \"name\":\"CreateInstance\",\
@@ -303,7 +303,7 @@
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Create an AppIntegration association with an Amazon Connect instance.</p>\"\
+      \"documentation\":\"<p>Creates an Amazon Web Services resource association with an Amazon Connect instance.</p>\"\
     },\
     \"CreateQueue\":{\
       \"name\":\"CreateQueue\",\
@@ -362,6 +362,25 @@
       ],\
       \"documentation\":\"<p>Creates a new routing profile.</p>\"\
     },\
+    \"CreateSecurityProfile\":{\
+      \"name\":\"CreateSecurityProfile\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/security-profiles/{InstanceId}\"\
+      },\
+      \"input\":{\"shape\":\"CreateSecurityProfileRequest\"},\
+      \"output\":{\"shape\":\"CreateSecurityProfileResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"LimitExceededException\"},\
+        {\"shape\":\"DuplicateResourceException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Creates a security profile.</p>\"\
+    },\
     \"CreateUseCase\":{\
       \"name\":\"CreateUseCase\",\
       \"http\":{\
@@ -377,7 +396,7 @@
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Creates a use case for an AppIntegration association.</p>\"\
+      \"documentation\":\"<p>Creates a use case for an integration association.</p>\"\
     },\
     \"CreateUser\":{\
       \"name\":\"CreateUser\",\
@@ -431,7 +450,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Deletes an hours of operation.</p>\"\
+      \"documentation\":\"<p>Deletes an hours of operation.</p>\"\
     },\
     \"DeleteInstance\":{\
       \"name\":\"DeleteInstance\",\
@@ -460,7 +479,7 @@
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Deletes an AppIntegration association from an Amazon Connect instance. The association must not have any use cases associated with it.</p>\"\
+      \"documentation\":\"<p>Deletes an Amazon Web Services resource association from an Amazon Connect instance. The association must not have any use cases associated with it.</p>\"\
     },\
     \"DeleteQuickConnect\":{\
       \"name\":\"DeleteQuickConnect\",\
@@ -478,6 +497,24 @@
       ],\
       \"documentation\":\"<p>Deletes a quick connect.</p>\"\
     },\
+    \"DeleteSecurityProfile\":{\
+      \"name\":\"DeleteSecurityProfile\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/security-profiles/{InstanceId}/{SecurityProfileId}\"\
+      },\
+      \"input\":{\"shape\":\"DeleteSecurityProfileRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"ResourceInUseException\"}\
+      ],\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Deletes a security profile.</p>\"\
+    },\
     \"DeleteUseCase\":{\
       \"name\":\"DeleteUseCase\",\
       \"http\":{\
@@ -491,7 +528,7 @@
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Deletes a use case from an AppIntegration association.</p>\"\
+      \"documentation\":\"<p>Deletes a use case from an integration association.</p>\"\
     },\
     \"DeleteUser\":{\
       \"name\":\"DeleteUser\",\
@@ -576,7 +613,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Describes the hours of operation.</p>\"\
+      \"documentation\":\"<p>Describes the hours of operation.</p>\"\
     },\
     \"DescribeInstance\":{\
       \"name\":\"DescribeInstance\",\
@@ -677,6 +714,23 @@
         {\"shape\":\"InternalServiceException\"}\
       ],\
       \"documentation\":\"<p>Describes the specified routing profile.</p>\"\
+    },\
+    \"DescribeSecurityProfile\":{\
+      \"name\":\"DescribeSecurityProfile\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/security-profiles/{InstanceId}/{SecurityProfileId}\"\
+      },\
+      \"input\":{\"shape\":\"DescribeSecurityProfileRequest\"},\
+      \"output\":{\"shape\":\"DescribeSecurityProfileResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Gets basic information about the security profle.</p>\"\
     },\
     \"DescribeUser\":{\
       \"name\":\"DescribeUser\",\
@@ -1069,7 +1123,7 @@
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Provides summary information about the AppIntegration associations for the specified Amazon Connect instance.</p>\"\
+      \"documentation\":\"<p>Provides summary information about the Amazon Web Services resource associations for the specified Amazon Connect instance.</p>\"\
     },\
     \"ListLambdaFunctions\":{\
       \"name\":\"ListLambdaFunctions\",\
@@ -1241,6 +1295,23 @@
       ],\
       \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Returns a paginated list of all security keys associated with the instance.</p>\"\
     },\
+    \"ListSecurityProfilePermissions\":{\
+      \"name\":\"ListSecurityProfilePermissions\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/security-profiles-permissions/{InstanceId}/{SecurityProfileId}\"\
+      },\
+      \"input\":{\"shape\":\"ListSecurityProfilePermissionsRequest\"},\
+      \"output\":{\"shape\":\"ListSecurityProfilePermissionsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Lists the permissions granted to a security profile.</p>\"\
+    },\
     \"ListSecurityProfiles\":{\
       \"name\":\"ListSecurityProfiles\",\
       \"http\":{\
@@ -1256,7 +1327,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Provides summary information about the security profiles for the specified Amazon Connect instance.</p> <p>For more information about security profiles, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html\\\">Security Profiles</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Provides summary information about the security profiles for the specified Amazon Connect instance.</p> <p>For more information about security profiles, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html\\\">Security Profiles</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
     },\
     \"ListTagsForResource\":{\
       \"name\":\"ListTagsForResource\",\
@@ -1289,7 +1360,7 @@
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Lists the use cases. </p>\"\
+      \"documentation\":\"<p>Lists the use cases for the integration association. </p>\"\
     },\
     \"ListUserHierarchyGroups\":{\
       \"name\":\"ListUserHierarchyGroups\",\
@@ -1373,6 +1444,23 @@
       ],\
       \"documentation\":\"<p>Starts recording the contact when the agent joins the call. StartContactRecording is a one-time action. For example, if you use StopContactRecording to stop recording an ongoing call, you can't use StartContactRecording to restart it. For scenarios where the recording has started and you want to suspend and resume it, such as when collecting sensitive information (for example, a credit card number), use SuspendContactRecording and ResumeContactRecording.</p> <p>You can use this API to override the recording behavior configured in the <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/set-recording-behavior.html\\\">Set recording behavior</a> block.</p> <p>Only voice recordings are supported at this time.</p>\"\
     },\
+    \"StartContactStreaming\":{\
+      \"name\":\"StartContactStreaming\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/contact/start-streaming\"\
+      },\
+      \"input\":{\"shape\":\"StartContactStreamingRequest\"},\
+      \"output\":{\"shape\":\"StartContactStreamingResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"LimitExceededException\"}\
+      ],\
+      \"documentation\":\"<p> Initiates real-time message streaming for a new chat contact.</p> <p> For more information about message streaming, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html\\\">Enable real-time chat message streaming</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
+    },\
     \"StartOutboundVoiceContact\":{\
       \"name\":\"StartOutboundVoiceContact\",\
       \"http\":{\
@@ -1390,7 +1478,7 @@
         {\"shape\":\"DestinationNotAllowedException\"},\
         {\"shape\":\"OutboundContactNotPermittedException\"}\
       ],\
-      \"documentation\":\"<p>Places an outbound call to a contact, and then initiates the contact flow. It performs the actions in the contact flow that's specified (in <code>ContactFlowId</code>).</p> <p>Agents do not initiate the outbound API, which means that they do not dial the contact. If the contact flow places an outbound call to a contact, and then puts the contact in queue, the call is then routed to the agent, like any other inbound case.</p> <p>There is a 60-second dialing timeout for this operation. If the call is not connected after 60 seconds, it fails.</p> <note> <p>UK numbers with a 447 prefix are not allowed by default. Before you can dial these UK mobile numbers, you must submit a service quota increase request. For more information, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html\\\">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. </p> </note>\"\
+      \"documentation\":\"<p>Places an outbound call to a contact, and then initiates the contact flow. It performs the actions in the contact flow that's specified (in <code>ContactFlowId</code>).</p> <p>Agents do not initiate the outbound API, which means that they do not dial the contact. If the contact flow places an outbound call to a contact, and then puts the contact in queue, the call is then routed to the agent, like any other inbound case.</p> <p>There is a 60-second dialing timeout for this operation. If the call is not connected after 60 seconds, it fails.</p> <note> <p>UK numbers with a 447 prefix are not allowed by default. Before you can dial these UK mobile numbers, you must submit a service quota increase request. For more information, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html\\\">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. </p> </note> <note> <p>Campaign calls are not allowed by default. Before you can make a call with <code>TrafficType</code> = <code>CAMPAIGN</code>, you must submit a service quota increase request. For more information, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html\\\">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. </p> </note>\"\
     },\
     \"StartTaskContact\":{\
       \"name\":\"StartTaskContact\",\
@@ -1441,6 +1529,22 @@
         {\"shape\":\"InternalServiceException\"}\
       ],\
       \"documentation\":\"<p>Stops recording a call when a contact is being recorded. StopContactRecording is a one-time action. If you use StopContactRecording to stop recording an ongoing call, you can't use StartContactRecording to restart it. For scenarios where the recording has started and you want to suspend it for sensitive information (for example, to collect a credit card number), and then restart it, use SuspendContactRecording and ResumeContactRecording.</p> <p>Only voice recordings are supported at this time.</p>\"\
+    },\
+    \"StopContactStreaming\":{\
+      \"name\":\"StopContactStreaming\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/contact/stop-streaming\"\
+      },\
+      \"input\":{\"shape\":\"StopContactStreamingRequest\"},\
+      \"output\":{\"shape\":\"StopContactStreamingResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p> Ends message streaming on a specified contact. To restart message streaming on that contact, call the <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html\\\">StartContactStreaming</a> API. </p>\"\
     },\
     \"SuspendContactRecording\":{\
       \"name\":\"SuspendContactRecording\",\
@@ -1572,7 +1676,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Updates the hours of operation.</p>\"\
+      \"documentation\":\"<p>Updates the hours of operation.</p>\"\
     },\
     \"UpdateInstanceAttribute\":{\
       \"name\":\"UpdateInstanceAttribute\",\
@@ -1784,6 +1888,22 @@
       ],\
       \"documentation\":\"<p>Updates the properties associated with a set of queues for a routing profile.</p>\"\
     },\
+    \"UpdateSecurityProfile\":{\
+      \"name\":\"UpdateSecurityProfile\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/security-profiles/{InstanceId}/{SecurityProfileId}\"\
+      },\
+      \"input\":{\"shape\":\"UpdateSecurityProfileRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Updates a security profile.</p>\"\
+    },\
     \"UpdateUserHierarchy\":{\
       \"name\":\"UpdateUserHierarchy\",\
       \"http\":{\
@@ -1901,6 +2021,15 @@
   },\
   \"shapes\":{\
     \"ARN\":{\"type\":\"string\"},\
+    \"AccessDeniedException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Message\":{\"shape\":\"Message\"}\
+      },\
+      \"documentation\":\"<p>You do not have sufficient access to perform this action.</p>\",\
+      \"error\":{\"httpStatusCode\":403},\
+      \"exception\":true\
+    },\
     \"AfterContactWorkTimeLimit\":{\
       \"type\":\"integer\",\
       \"min\":0\
@@ -1948,7 +2077,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>One or more tags.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about an agent status.</p>\"\
@@ -2024,6 +2153,20 @@
       \"type\":\"string\",\
       \"max\":100,\
       \"min\":1\
+    },\
+    \"AnswerMachineDetectionConfig\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"EnableAnswerMachineDetection\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>The flag to indicate if answer machine detection analysis needs to be performed for a voice call. If set to <code>true</code>, <code>TrafficType</code> must be set as <code>CAMPAIGN</code>. </p>\"\
+        },\
+        \"AwaitAnswerMachinePrompt\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Wait for the answering machine prompt.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Configuration of the answering machine detection.</p>\"\
     },\
     \"AssociateApprovedOriginRequest\":{\
       \"type\":\"structure\",\
@@ -2261,6 +2404,11 @@
       \"max\":128,\
       \"min\":1\
     },\
+    \"CampaignId\":{\
+      \"type\":\"string\",\
+      \"max\":100,\
+      \"min\":1\
+    },\
     \"Channel\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -2272,7 +2420,7 @@
     \"Channels\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"Channel\"},\
-      \"max\":1\
+      \"max\":3\
     },\
     \"ChatContent\":{\
       \"type\":\"string\",\
@@ -2286,10 +2434,6 @@
     },\
     \"ChatMessage\":{\
       \"type\":\"structure\",\
-      \"required\":[\
-        \"ContentType\",\
-        \"Content\"\
-      ],\
       \"members\":{\
         \"ContentType\":{\
           \"shape\":\"ChatContentType\",\
@@ -2301,6 +2445,22 @@
         }\
       },\
       \"documentation\":\"<p>A chat message.</p>\"\
+    },\
+    \"ChatStreamingConfiguration\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"StreamingEndpointArn\"],\
+      \"members\":{\
+        \"StreamingEndpointArn\":{\
+          \"shape\":\"ChatStreamingEndpointARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the standard Amazon SNS topic. The Amazon Resource Name (ARN) of the streaming endpoint that is used to publish real-time message streaming for chat conversations.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The streaming configuration, such as the Amazon SNS streaming endpoint.</p>\"\
+    },\
+    \"ChatStreamingEndpointARN\":{\
+      \"type\":\"string\",\
+      \"max\":350,\
+      \"min\":1\
     },\
     \"ClientToken\":{\
       \"type\":\"string\",\
@@ -2473,7 +2633,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>One or more tags.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
         }\
       }\
     },\
@@ -2573,7 +2733,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>One or more tags.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
         }\
       }\
     },\
@@ -2642,10 +2802,7 @@
       \"required\":[\
         \"InstanceId\",\
         \"IntegrationType\",\
-        \"IntegrationArn\",\
-        \"SourceApplicationUrl\",\
-        \"SourceApplicationName\",\
-        \"SourceType\"\
+        \"IntegrationArn\"\
       ],\
       \"members\":{\
         \"InstanceId\":{\
@@ -2664,19 +2821,19 @@
         },\
         \"SourceApplicationUrl\":{\
           \"shape\":\"URI\",\
-          \"documentation\":\"<p>The URL for the external application.</p>\"\
+          \"documentation\":\"<p>The URL for the external application. This field is only required for the EVENT integration type.</p>\"\
         },\
         \"SourceApplicationName\":{\
           \"shape\":\"SourceApplicationName\",\
-          \"documentation\":\"<p>The name of the external application.</p>\"\
+          \"documentation\":\"<p>The name of the external application. This field is only required for the EVENT integration type.</p>\"\
         },\
         \"SourceType\":{\
           \"shape\":\"SourceType\",\
-          \"documentation\":\"<p>The type of the data source.</p>\"\
+          \"documentation\":\"<p>The type of the data source. This field is only required for the EVENT integration type.</p>\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>One or more tags.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
         }\
       }\
     },\
@@ -2685,7 +2842,7 @@
       \"members\":{\
         \"IntegrationAssociationId\":{\
           \"shape\":\"IntegrationAssociationId\",\
-          \"documentation\":\"<p>The identifier for the association.</p>\"\
+          \"documentation\":\"<p>The identifier for the integration association.</p>\"\
         },\
         \"IntegrationAssociationArn\":{\
           \"shape\":\"ARN\",\
@@ -2734,7 +2891,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>One or more tags.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
         }\
       }\
     },\
@@ -2779,7 +2936,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>One or more tags.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
         }\
       }\
     },\
@@ -2851,6 +3008,50 @@
         }\
       }\
     },\
+    \"CreateSecurityProfileRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"SecurityProfileName\",\
+        \"InstanceId\"\
+      ],\
+      \"members\":{\
+        \"SecurityProfileName\":{\
+          \"shape\":\"SecurityProfileName\",\
+          \"documentation\":\"<p>The name of the security profile.</p>\"\
+        },\
+        \"Description\":{\
+          \"shape\":\"SecurityProfileDescription\",\
+          \"documentation\":\"<p>The description of the security profile.</p>\"\
+        },\
+        \"Permissions\":{\
+          \"shape\":\"PermissionsList\",\
+          \"documentation\":\"<p>Permissions assigned to the security profile.</p>\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagMap\",\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateSecurityProfileResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"SecurityProfileId\":{\
+          \"shape\":\"SecurityProfileId\",\
+          \"documentation\":\"<p>The identifier for the security profle.</p>\"\
+        },\
+        \"SecurityProfileArn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for the security profile.</p>\"\
+        }\
+      }\
+    },\
     \"CreateUseCaseRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -2867,17 +3068,17 @@
         },\
         \"IntegrationAssociationId\":{\
           \"shape\":\"IntegrationAssociationId\",\
-          \"documentation\":\"<p>The identifier for the AppIntegration association.</p>\",\
+          \"documentation\":\"<p>The identifier for the integration association.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"IntegrationAssociationId\"\
         },\
         \"UseCaseType\":{\
           \"shape\":\"UseCaseType\",\
-          \"documentation\":\"<p>The type of use case to associate to the AppIntegration association. Each AppIntegration association can have only one of each use case type.</p>\"\
+          \"documentation\":\"<p>The type of use case to associate to the integration association. Each integration association can have only one of each use case type.</p>\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>One or more tags.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
         }\
       }\
     },\
@@ -3146,7 +3347,7 @@
         },\
         \"IntegrationAssociationId\":{\
           \"shape\":\"IntegrationAssociationId\",\
-          \"documentation\":\"<p>The identifier for the AppIntegration association.</p>\",\
+          \"documentation\":\"<p>The identifier for the integration association.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"IntegrationAssociationId\"\
         }\
@@ -3173,6 +3374,27 @@
         }\
       }\
     },\
+    \"DeleteSecurityProfileRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"SecurityProfileId\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"SecurityProfileId\":{\
+          \"shape\":\"SecurityProfileId\",\
+          \"documentation\":\"<p>The identifier for the security profle.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"SecurityProfileId\"\
+        }\
+      }\
+    },\
     \"DeleteUseCaseRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -3189,7 +3411,7 @@
         },\
         \"IntegrationAssociationId\":{\
           \"shape\":\"IntegrationAssociationId\",\
-          \"documentation\":\"<p>The identifier for the AppIntegration association.</p>\",\
+          \"documentation\":\"<p>The identifier for the integration association.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"IntegrationAssociationId\"\
         },\
@@ -3511,6 +3733,36 @@
         }\
       }\
     },\
+    \"DescribeSecurityProfileRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"SecurityProfileId\",\
+        \"InstanceId\"\
+      ],\
+      \"members\":{\
+        \"SecurityProfileId\":{\
+          \"shape\":\"SecurityProfileId\",\
+          \"documentation\":\"<p>The identifier for the security profle.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"SecurityProfileId\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        }\
+      }\
+    },\
+    \"DescribeSecurityProfileResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"SecurityProfile\":{\
+          \"shape\":\"SecurityProfile\",\
+          \"documentation\":\"<p>The security profile.</p>\"\
+        }\
+      }\
+    },\
     \"DescribeUserHierarchyGroupRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -3619,6 +3871,14 @@
         \"Channel\":{\
           \"shape\":\"Channel\",\
           \"documentation\":\"<p>The channel used for grouping and filters.</p>\"\
+        },\
+        \"RoutingProfile\":{\
+          \"shape\":\"RoutingProfileReference\",\
+          \"documentation\":\"<p>The routing profile.</p>\"\
+        },\
+        \"InstanceReference\":{\
+          \"shape\":\"InstanceReference\",\
+          \"documentation\":\"<p>The instance reference.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about the dimensions for a set of metrics.</p>\"\
@@ -3861,7 +4121,7 @@
         },\
         \"KeyId\":{\
           \"shape\":\"KeyId\",\
-          \"documentation\":\"<p>The identifier of the encryption key.</p>\"\
+          \"documentation\":\"<p>The full ARN of the encryption key. </p> <note> <p>Be sure to provide the full ARN of the encryption key, not just the ID.</p> </note>\"\
         }\
       },\
       \"documentation\":\"<p>The encryption configuration.</p>\"\
@@ -3876,6 +4136,10 @@
         \"Queues\":{\
           \"shape\":\"Queues\",\
           \"documentation\":\"<p>The queues to use to filter the metrics. You can specify up to 100 queues per request.</p>\"\
+        },\
+        \"RoutingProfiles\":{\
+          \"shape\":\"RoutingProfiles\",\
+          \"documentation\":\"<p>The filters used to sort routing profiles. </p>\"\
         },\
         \"Channels\":{\
           \"shape\":\"Channels\",\
@@ -3947,7 +4211,7 @@
         },\
         \"CurrentMetrics\":{\
           \"shape\":\"CurrentMetrics\",\
-          \"documentation\":\"<p>The metrics to retrieve. Specify the name and unit for each metric. The following metrics are available. For a description of all the metrics, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html\\\">Real-time Metrics Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p> <dl> <dt>AGENTS_AFTER_CONTACT_WORK</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#aftercallwork-real-time\\\">ACW</a> </p> </dd> <dt>AGENTS_AVAILABLE</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#available-real-time\\\">Available</a> </p> </dd> <dt>AGENTS_ERROR</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#error-real-time\\\">Error</a> </p> </dd> <dt>AGENTS_NON_PRODUCTIVE</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#non-productive-time-real-time\\\">NPT (Non-Productive Time)</a> </p> </dd> <dt>AGENTS_ON_CALL</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#on-call-real-time\\\">On contact</a> </p> </dd> <dt>AGENTS_ON_CONTACT</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#on-call-real-time\\\">On contact</a> </p> </dd> <dt>AGENTS_ONLINE</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#online-real-time\\\">Online</a> </p> </dd> <dt>AGENTS_STAFFED</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#staffed-real-time\\\">Staffed</a> </p> </dd> <dt>CONTACTS_IN_QUEUE</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#in-queue-real-time\\\">In queue</a> </p> </dd> <dt>CONTACTS_SCHEDULED</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#scheduled-real-time\\\">Scheduled</a> </p> </dd> <dt>OLDEST_CONTACT_AGE</dt> <dd> <p>Unit: SECONDS</p> <p>When you use groupings, Unit says SECONDS but the Value is returned in MILLISECONDS. For example, if you get a response like this:</p> <p> <code>{ \\\"Metric\\\": { \\\"Name\\\": \\\"OLDEST_CONTACT_AGE\\\", \\\"Unit\\\": \\\"SECONDS\\\" }, \\\"Value\\\": 24113.0 </code>}</p> <p>The actual OLDEST_CONTACT_AGE is 24 seconds.</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#oldest-real-time\\\">Oldest</a> </p> </dd> <dt>SLOTS_ACTIVE</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#active-real-time\\\">Active</a> </p> </dd> <dt>SLOTS_AVAILABLE</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#availability-real-time\\\">Availability</a> </p> </dd> </dl>\"\
+          \"documentation\":\"<p>The metrics to retrieve. Specify the name and unit for each metric. The following metrics are available. For a description of all the metrics, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html\\\">Real-time Metrics Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p> <dl> <dt>AGENTS_AFTER_CONTACT_WORK</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#aftercallwork-real-time\\\">ACW</a> </p> </dd> <dt>AGENTS_AVAILABLE</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#available-real-time\\\">Available</a> </p> </dd> <dt>AGENTS_ERROR</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#error-real-time\\\">Error</a> </p> </dd> <dt>AGENTS_NON_PRODUCTIVE</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#non-productive-time-real-time\\\">NPT (Non-Productive Time)</a> </p> </dd> <dt>AGENTS_ON_CALL</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#on-call-real-time\\\">On contact</a> </p> </dd> <dt>AGENTS_ON_CONTACT</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#on-call-real-time\\\">On contact</a> </p> </dd> <dt>AGENTS_ONLINE</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#online-real-time\\\">Online</a> </p> </dd> <dt>AGENTS_STAFFED</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#staffed-real-time\\\">Staffed</a> </p> </dd> <dt>CONTACTS_IN_QUEUE</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#in-queue-real-time\\\">In queue</a> </p> </dd> <dt>CONTACTS_SCHEDULED</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#scheduled-real-time\\\">Scheduled</a> </p> </dd> <dt>OLDEST_CONTACT_AGE</dt> <dd> <p>Unit: SECONDS</p> <p>When you use groupings, Unit says SECONDS and the Value is returned in SECONDS. </p> <p>When you do not use groupings, Unit says SECONDS but the Value is returned in MILLISECONDS. For example, if you get a response like this:</p> <p> <code>{ \\\"Metric\\\": { \\\"Name\\\": \\\"OLDEST_CONTACT_AGE\\\", \\\"Unit\\\": \\\"SECONDS\\\" }, \\\"Value\\\": 24113.0 </code>}</p> <p>The actual OLDEST_CONTACT_AGE is 24 seconds.</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#oldest-real-time\\\">Oldest</a> </p> </dd> <dt>SLOTS_ACTIVE</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#active-real-time\\\">Active</a> </p> </dd> <dt>SLOTS_AVAILABLE</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#availability-real-time\\\">Availability</a> </p> </dd> </dl>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"NextToken\",\
@@ -4062,7 +4326,9 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"QUEUE\",\
-        \"CHANNEL\"\
+        \"CHANNEL\",\
+        \"ROUTING_PROFILE\",\
+        \"INSTANCE\"\
       ]\
     },\
     \"Groupings\":{\
@@ -4287,6 +4553,8 @@
         \"CONTACTS_TRANSFERRED_OUT\",\
         \"CONTACTS_TRANSFERRED_IN_FROM_QUEUE\",\
         \"CONTACTS_TRANSFERRED_OUT_FROM_QUEUE\",\
+        \"CONTACTS_TRANSFERRED_IN_BY_AGENT\",\
+        \"CONTACTS_TRANSFERRED_OUT_BY_AGENT\",\
         \"CONTACTS_MISSED\",\
         \"CALLBACK_CONTACTS_HANDLED\",\
         \"API_CONTACTS_HANDLED\",\
@@ -4363,7 +4631,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>One or more tags.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about of the hours of operation.</p>\"\
@@ -4382,11 +4650,11 @@
         },\
         \"StartTime\":{\
           \"shape\":\"HoursOfOperationTimeSlice\",\
-          \"documentation\":\"<p>The start time that your contact center is open.</p>\"\
+          \"documentation\":\"<p>The start time that your contact center opens.</p>\"\
         },\
         \"EndTime\":{\
           \"shape\":\"HoursOfOperationTimeSlice\",\
-          \"documentation\":\"<p>The end time that your contact center is closes.</p>\"\
+          \"documentation\":\"<p>The end time that your contact center closes.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about the hours of operation.</p>\"\
@@ -4524,8 +4792,22 @@
     },\
     \"InstanceId\":{\
       \"type\":\"string\",\
-      \"max\":100,\
+      \"max\":256,\
       \"min\":1\
+    },\
+    \"InstanceReference\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Id\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the instance reference.</p>\"\
+        },\
+        \"Arn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the instance reference.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The instance reference.</p>\"\
     },\
     \"InstanceStatus\":{\
       \"type\":\"string\",\
@@ -4686,7 +4968,13 @@
     },\
     \"IntegrationType\":{\
       \"type\":\"string\",\
-      \"enum\":[\"EVENT\"]\
+      \"enum\":[\
+        \"EVENT\",\
+        \"VOICE_ID\",\
+        \"PINPOINT_APP\",\
+        \"WISDOM_ASSISTANT\",\
+        \"WISDOM_KNOWLEDGE_BASE\"\
+      ]\
     },\
     \"InternalServiceException\":{\
       \"type\":\"structure\",\
@@ -5187,6 +5475,12 @@
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
+        \"IntegrationType\":{\
+          \"shape\":\"IntegrationType\",\
+          \"documentation\":\"<p>The type of integration.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"integrationType\"\
+        },\
         \"NextToken\":{\
           \"shape\":\"NextToken\",\
           \"documentation\":\"<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>\",\
@@ -5207,7 +5501,7 @@
       \"members\":{\
         \"IntegrationAssociationSummaryList\":{\
           \"shape\":\"IntegrationAssociationSummaryList\",\
-          \"documentation\":\"<p>The AppIntegration associations.</p>\"\
+          \"documentation\":\"<p>The associations.</p>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"NextToken\",\
@@ -5245,7 +5539,7 @@
       \"members\":{\
         \"LambdaFunctions\":{\
           \"shape\":\"FunctionArnsList\",\
-          \"documentation\":\"<p>The Lambdafunction ARNs associated with the specified instance.</p>\"\
+          \"documentation\":\"<p>The Lambda function ARNs associated with the specified instance.</p>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"NextToken\",\
@@ -5271,7 +5565,7 @@
         },\
         \"MaxResults\":{\
           \"shape\":\"MaxResult25\",\
-          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"documentation\":\"<p>The maximum number of results to return per page. If no value is specified, the default is 10. </p>\",\
           \"box\":true,\
           \"location\":\"querystring\",\
           \"locationName\":\"maxResults\"\
@@ -5635,6 +5929,53 @@
         }\
       }\
     },\
+    \"ListSecurityProfilePermissionsRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"SecurityProfileId\",\
+        \"InstanceId\"\
+      ],\
+      \"members\":{\
+        \"SecurityProfileId\":{\
+          \"shape\":\"SecurityProfileId\",\
+          \"documentation\":\"<p>The identifier for the security profle.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"SecurityProfileId\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"nextToken\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResult1000\",\
+          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"box\":true,\
+          \"location\":\"querystring\",\
+          \"locationName\":\"maxResults\"\
+        }\
+      }\
+    },\
+    \"ListSecurityProfilePermissionsResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Permissions\":{\
+          \"shape\":\"PermissionsList\",\
+          \"documentation\":\"<p>The permissions granted to the security profile.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>If there are additional results, this is the token for the next set of results.</p>\"\
+        }\
+      }\
+    },\
     \"ListSecurityProfilesRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"InstanceId\"],\
@@ -5727,7 +6068,7 @@
           \"locationName\":\"maxResults\"\
         }\
       },\
-      \"documentation\":\"<p>Provides summary information about the use cases for the specified Amazon Connect AppIntegration association.</p>\"\
+      \"documentation\":\"<p>Provides summary information about the use cases for the specified integration association.</p>\"\
     },\
     \"ListUseCasesResponse\":{\
       \"type\":\"structure\",\
@@ -5954,7 +6295,13 @@
     },\
     \"Password\":{\
       \"type\":\"string\",\
-      \"pattern\":\"/^(?=.*[a-z])(?=.*[A-Z])(?=.*\\\\d)[a-zA-Z\\\\d\\\\S]{8,64}$/\"\
+      \"pattern\":\"/^(?=.*[a-z])(?=.*[A-Z])(?=.*\\\\d)[a-zA-Z\\\\d\\\\S]{8,64}$/\",\
+      \"sensitive\":true\
+    },\
+    \"PermissionsList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"SecurityProfilePermission\"},\
+      \"max\":500\
     },\
     \"PhoneNumber\":{\"type\":\"string\"},\
     \"PhoneNumberCountryCode\":{\
@@ -6366,7 +6713,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>One or more tags.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a queue.</p>\"\
@@ -6414,6 +6761,10 @@
         \"Arn\":{\
           \"shape\":\"ARN\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) of the queue.</p>\"\
+        },\
+        \"QueueType\":{\
+          \"shape\":\"QueueType\",\
+          \"documentation\":\"<p>The type of queue.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a queue resource for which metrics are returned.</p>\"\
@@ -6494,7 +6845,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>One or more tags.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a quick connect.</p>\"\
@@ -6603,7 +6954,14 @@
     },\
     \"ReferenceType\":{\
       \"type\":\"string\",\
-      \"enum\":[\"URL\"]\
+      \"enum\":[\
+        \"URL\",\
+        \"ATTACHMENT\",\
+        \"NUMBER\",\
+        \"STRING\",\
+        \"DATE\",\
+        \"EMAIL\"\
+      ]\
     },\
     \"ReferenceValue\":{\
       \"type\":\"string\",\
@@ -6831,6 +7189,20 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"RoutingProfileQueueReference\"}\
     },\
+    \"RoutingProfileReference\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Id\":{\
+          \"shape\":\"RoutingProfileId\",\
+          \"documentation\":\"<p>The identifier of the routing profile reference.</p>\"\
+        },\
+        \"Arn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the routing profile reference.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The routing profile reference.</p>\"\
+    },\
     \"RoutingProfileSummary\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -6852,6 +7224,12 @@
     \"RoutingProfileSummaryList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"RoutingProfileSummary\"}\
+    },\
+    \"RoutingProfiles\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"RoutingProfileId\"},\
+      \"max\":100,\
+      \"min\":1\
     },\
     \"S3Config\":{\
       \"type\":\"structure\",\
@@ -6897,6 +7275,40 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"SecurityKey\"}\
     },\
+    \"SecurityProfile\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Id\":{\
+          \"shape\":\"SecurityProfileId\",\
+          \"documentation\":\"<p>The identifier for the security profile.</p>\"\
+        },\
+        \"OrganizationResourceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The organization resource identifier for the security profile.</p>\"\
+        },\
+        \"Arn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for the secruity profile.</p>\"\
+        },\
+        \"SecurityProfileName\":{\
+          \"shape\":\"SecurityProfileName\",\
+          \"documentation\":\"<p>The name for the security profile.</p>\"\
+        },\
+        \"Description\":{\
+          \"shape\":\"SecurityProfileDescription\",\
+          \"documentation\":\"<p>The description of the security profile.</p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagMap\",\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Contains information about a security profile.</p>\"\
+    },\
+    \"SecurityProfileDescription\":{\
+      \"type\":\"string\",\
+      \"max\":250\
+    },\
     \"SecurityProfileId\":{\"type\":\"string\"},\
     \"SecurityProfileIds\":{\
       \"type\":\"list\",\
@@ -6905,6 +7317,11 @@
       \"min\":1\
     },\
     \"SecurityProfileName\":{\"type\":\"string\"},\
+    \"SecurityProfilePermission\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1\
+    },\
     \"SecurityProfileSummary\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -7037,6 +7454,44 @@
       \"members\":{\
       }\
     },\
+    \"StartContactStreamingRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"ContactId\",\
+        \"ChatStreamingConfiguration\",\
+        \"ClientToken\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\"\
+        },\
+        \"ContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>\"\
+        },\
+        \"ChatStreamingConfiguration\":{\
+          \"shape\":\"ChatStreamingConfiguration\",\
+          \"documentation\":\"<p>The streaming configuration, such as the Amazon SNS streaming endpoint.</p>\"\
+        },\
+        \"ClientToken\":{\
+          \"shape\":\"ClientToken\",\
+          \"documentation\":\"<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>\",\
+          \"idempotencyToken\":true\
+        }\
+      }\
+    },\
+    \"StartContactStreamingResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"StreamingId\"],\
+      \"members\":{\
+        \"StreamingId\":{\
+          \"shape\":\"StreamingId\",\
+          \"documentation\":\"<p>The identifier of the streaming configuration enabled. </p>\"\
+        }\
+      }\
+    },\
     \"StartOutboundVoiceContactRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -7073,6 +7528,18 @@
         \"Attributes\":{\
           \"shape\":\"Attributes\",\
           \"documentation\":\"<p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in contact flows just like any other contact attributes.</p> <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.</p>\"\
+        },\
+        \"AnswerMachineDetectionConfig\":{\
+          \"shape\":\"AnswerMachineDetectionConfig\",\
+          \"documentation\":\"<p>Configuration of the answering machine detection for this outbound call. </p>\"\
+        },\
+        \"CampaignId\":{\
+          \"shape\":\"CampaignId\",\
+          \"documentation\":\"<p>The campaign identifier of the outbound communication.</p>\"\
+        },\
+        \"TrafficType\":{\
+          \"shape\":\"TrafficType\",\
+          \"documentation\":\"<p>Denotes the class of traffic. Calls with different traffic types are handled differently by Amazon Connect. The default value is <code>GENERAL</code>. Use <code>CAMPAIGN</code> if <code>EnableAnswerMachineDetection</code> is set to <code>true</code>. For all other cases, use <code>GENERAL</code>. </p>\"\
         }\
       }\
     },\
@@ -7194,6 +7661,33 @@
       \"members\":{\
       }\
     },\
+    \"StopContactStreamingRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"ContactId\",\
+        \"StreamingId\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\"\
+        },\
+        \"ContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact. This is the identifier of the contact that is associated with the first interaction with the contact center.</p>\"\
+        },\
+        \"StreamingId\":{\
+          \"shape\":\"StreamingId\",\
+          \"documentation\":\"<p>The identifier of the streaming configuration enabled. </p>\"\
+        }\
+      }\
+    },\
+    \"StopContactStreamingResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
     \"StorageType\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -7202,6 +7696,11 @@
         \"KINESIS_STREAM\",\
         \"KINESIS_FIREHOSE\"\
       ]\
+    },\
+    \"StreamingId\":{\
+      \"type\":\"string\",\
+      \"max\":100,\
+      \"min\":1\
     },\
     \"String\":{\"type\":\"string\"},\
     \"SuspendContactRecordingRequest\":{\
@@ -7300,6 +7799,13 @@
     },\
     \"TimeZone\":{\"type\":\"string\"},\
     \"Timestamp\":{\"type\":\"timestamp\"},\
+    \"TrafficType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"GENERAL\",\
+        \"CAMPAIGN\"\
+      ]\
+    },\
     \"URI\":{\
       \"type\":\"string\",\
       \"max\":2000,\
@@ -7309,6 +7815,7 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"SECONDS\",\
+        \"MILLISECONDS\",\
         \"COUNT\",\
         \"PERCENT\"\
       ]\
@@ -7521,7 +8028,7 @@
         },\
         \"AttributeType\":{\
           \"shape\":\"InstanceAttributeType\",\
-          \"documentation\":\"<p>The type of attribute.</p>\",\
+          \"documentation\":\"<p>The type of attribute.</p> <note> <p>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature, contact Amazon Web Services Support for allowlisting.</p> </note>\",\
           \"location\":\"uri\",\
           \"locationName\":\"AttributeType\"\
         },\
@@ -7861,6 +8368,35 @@
         }\
       }\
     },\
+    \"UpdateSecurityProfileRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"SecurityProfileId\",\
+        \"InstanceId\"\
+      ],\
+      \"members\":{\
+        \"Description\":{\
+          \"shape\":\"SecurityProfileDescription\",\
+          \"documentation\":\"<p>The description of the security profile.</p>\"\
+        },\
+        \"Permissions\":{\
+          \"shape\":\"PermissionsList\",\
+          \"documentation\":\"<p>The permissions granted to a security profile.</p>\"\
+        },\
+        \"SecurityProfileId\":{\
+          \"shape\":\"SecurityProfileId\",\
+          \"documentation\":\"<p>The identifier for the security profle.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"SecurityProfileId\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        }\
+      }\
+    },\
     \"UpdateUserHierarchyGroupNameRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -8048,7 +8584,7 @@
         },\
         \"UseCaseType\":{\
           \"shape\":\"UseCaseType\",\
-          \"documentation\":\"<p>The type of use case to associate to the AppIntegration association. Each AppIntegration association can have only one of each use case type.</p>\"\
+          \"documentation\":\"<p>The type of use case to associate to the integration association. Each integration association can have only one of each use case type.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains the use case.</p>\"\
@@ -8064,7 +8600,10 @@
     },\
     \"UseCaseType\":{\
       \"type\":\"string\",\
-      \"enum\":[\"RULES_EVALUATION\"]\
+      \"enum\":[\
+        \"RULES_EVALUATION\",\
+        \"CONNECT_CAMPAIGNS\"\
+      ]\
     },\
     \"User\":{\
       \"type\":\"structure\",\
@@ -8224,7 +8763,7 @@
     },\
     \"timestamp\":{\"type\":\"timestamp\"}\
   },\
-  \"documentation\":\"<p>Amazon Connect is a cloud-based contact center solution that you use to set up and manage a customer contact center and provide reliable customer engagement at any scale.</p> <p>Amazon Connect provides metrics and real-time reporting that enable you to optimize contact routing. You can also resolve customer issues more efficiently by getting customers in touch with the appropriate agents.</p> <p>There are limits to the number of Amazon Connect resources that you can create. There are also limits to the number of requests that you can make per second. For more information, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html\\\">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p> <p>You can connect programmatically to an AWS service by using an endpoint. For a list of Amazon Connect endpoints, see <a href=\\\"https://docs.aws.amazon.com/general/latest/gr/connect_region.html\\\">Amazon Connect Endpoints</a>.</p> <note> <p>Working with contact flows? Check out the <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html\\\">Amazon Connect Flow language</a>.</p> </note>\"\
+  \"documentation\":\"<p>Amazon Connect is a cloud-based contact center solution that you use to set up and manage a customer contact center and provide reliable customer engagement at any scale.</p> <p>Amazon Connect provides metrics and real-time reporting that enable you to optimize contact routing. You can also resolve customer issues more efficiently by getting customers in touch with the appropriate agents.</p> <p>There are limits to the number of Amazon Connect resources that you can create. There are also limits to the number of requests that you can make per second. For more information, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html\\\">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p> <p>You can connect programmatically to an Amazon Web Services service by using an endpoint. For a list of Amazon Connect endpoints, see <a href=\\\"https://docs.aws.amazon.com/general/latest/gr/connect_region.html\\\">Amazon Connect Endpoints</a>.</p> <note> <p>Working with contact flows? Check out the <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html\\\">Amazon Connect Flow language</a>.</p> </note>\"\
 }\
 ";
 }

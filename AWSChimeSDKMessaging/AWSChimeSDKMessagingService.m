@@ -25,7 +25,7 @@
 #import "AWSChimeSDKMessagingResources.h"
 
 static NSString *const AWSInfoChimeSDKMessaging = @"ChimeSDKMessaging";
-NSString *const AWSChimeSDKMessagingSDKVersion = @"2.24.5";
+NSString *const AWSChimeSDKMessagingSDKVersion = @"2.26.5";
 
 
 @interface AWSChimeSDKMessagingResponseSerializer : AWSJSONResponseSerializer
@@ -284,6 +284,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 #pragma mark - Service method
 
+- (AWSTask *)associateChannelFlow:(AWSChimeSDKMessagingAssociateChannelFlowRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/channels/{channelArn}/channel-flow"
+                  targetPrefix:@""
+                 operationName:@"AssociateChannelFlow"
+                   outputClass:nil];
+}
+
+- (void)associateChannelFlow:(AWSChimeSDKMessagingAssociateChannelFlowRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self associateChannelFlow:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSChimeSDKMessagingBatchCreateChannelMembershipResponse *> *)batchCreateChannelMembership:(AWSChimeSDKMessagingBatchCreateChannelMembershipRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -297,6 +319,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSChimeSDKMessagingBatchCreateChannelMembershipResponse *response, NSError *error))completionHandler {
     [[self batchCreateChannelMembership:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingBatchCreateChannelMembershipResponse *> * _Nonnull task) {
         AWSChimeSDKMessagingBatchCreateChannelMembershipResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSChimeSDKMessagingChannelFlowCallbackResponse *> *)channelFlowCallback:(AWSChimeSDKMessagingChannelFlowCallbackRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/channels/{channelArn}?operation=channel-flow-callback"
+                  targetPrefix:@""
+                 operationName:@"ChannelFlowCallback"
+                   outputClass:[AWSChimeSDKMessagingChannelFlowCallbackResponse class]];
+}
+
+- (void)channelFlowCallback:(AWSChimeSDKMessagingChannelFlowCallbackRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKMessagingChannelFlowCallbackResponse *response, NSError *error))completionHandler {
+    [[self channelFlowCallback:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingChannelFlowCallbackResponse *> * _Nonnull task) {
+        AWSChimeSDKMessagingChannelFlowCallbackResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -343,6 +388,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSChimeSDKMessagingCreateChannelBanResponse *response, NSError *error))completionHandler {
     [[self createChannelBan:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingCreateChannelBanResponse *> * _Nonnull task) {
         AWSChimeSDKMessagingCreateChannelBanResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSChimeSDKMessagingCreateChannelFlowResponse *> *)createChannelFlow:(AWSChimeSDKMessagingCreateChannelFlowRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/channel-flows"
+                  targetPrefix:@""
+                 operationName:@"CreateChannelFlow"
+                   outputClass:[AWSChimeSDKMessagingCreateChannelFlowResponse class]];
+}
+
+- (void)createChannelFlow:(AWSChimeSDKMessagingCreateChannelFlowRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKMessagingCreateChannelFlowResponse *response, NSError *error))completionHandler {
+    [[self createChannelFlow:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingCreateChannelFlowResponse *> * _Nonnull task) {
+        AWSChimeSDKMessagingCreateChannelFlowResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -433,6 +501,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)deleteChannelBan:(AWSChimeSDKMessagingDeleteChannelBanRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self deleteChannelBan:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)deleteChannelFlow:(AWSChimeSDKMessagingDeleteChannelFlowRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/channel-flows/{channelFlowArn}"
+                  targetPrefix:@""
+                 operationName:@"DeleteChannelFlow"
+                   outputClass:nil];
+}
+
+- (void)deleteChannelFlow:(AWSChimeSDKMessagingDeleteChannelFlowRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteChannelFlow:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -555,6 +645,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSChimeSDKMessagingDescribeChannelFlowResponse *> *)describeChannelFlow:(AWSChimeSDKMessagingDescribeChannelFlowRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/channel-flows/{channelFlowArn}"
+                  targetPrefix:@""
+                 operationName:@"DescribeChannelFlow"
+                   outputClass:[AWSChimeSDKMessagingDescribeChannelFlowResponse class]];
+}
+
+- (void)describeChannelFlow:(AWSChimeSDKMessagingDescribeChannelFlowRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKMessagingDescribeChannelFlowResponse *response, NSError *error))completionHandler {
+    [[self describeChannelFlow:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingDescribeChannelFlowResponse *> * _Nonnull task) {
+        AWSChimeSDKMessagingDescribeChannelFlowResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSChimeSDKMessagingDescribeChannelMembershipResponse *> *)describeChannelMembership:(AWSChimeSDKMessagingDescribeChannelMembershipRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -647,6 +760,51 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask *)disassociateChannelFlow:(AWSChimeSDKMessagingDisassociateChannelFlowRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/channels/{channelArn}/channel-flow/{channelFlowArn}"
+                  targetPrefix:@""
+                 operationName:@"DisassociateChannelFlow"
+                   outputClass:nil];
+}
+
+- (void)disassociateChannelFlow:(AWSChimeSDKMessagingDisassociateChannelFlowRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self disassociateChannelFlow:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSChimeSDKMessagingGetChannelMembershipPreferencesResponse *> *)getChannelMembershipPreferences:(AWSChimeSDKMessagingGetChannelMembershipPreferencesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/channels/{channelArn}/memberships/{memberArn}/preferences"
+                  targetPrefix:@""
+                 operationName:@"GetChannelMembershipPreferences"
+                   outputClass:[AWSChimeSDKMessagingGetChannelMembershipPreferencesResponse class]];
+}
+
+- (void)getChannelMembershipPreferences:(AWSChimeSDKMessagingGetChannelMembershipPreferencesRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKMessagingGetChannelMembershipPreferencesResponse *response, NSError *error))completionHandler {
+    [[self getChannelMembershipPreferences:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingGetChannelMembershipPreferencesResponse *> * _Nonnull task) {
+        AWSChimeSDKMessagingGetChannelMembershipPreferencesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSChimeSDKMessagingGetChannelMessageResponse *> *)getChannelMessage:(AWSChimeSDKMessagingGetChannelMessageRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -660,6 +818,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSChimeSDKMessagingGetChannelMessageResponse *response, NSError *error))completionHandler {
     [[self getChannelMessage:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingGetChannelMessageResponse *> * _Nonnull task) {
         AWSChimeSDKMessagingGetChannelMessageResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSChimeSDKMessagingGetChannelMessageStatusResponse *> *)getChannelMessageStatus:(AWSChimeSDKMessagingGetChannelMessageStatusRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/channels/{channelArn}/messages/{messageId}?scope=message-status"
+                  targetPrefix:@""
+                 operationName:@"GetChannelMessageStatus"
+                   outputClass:[AWSChimeSDKMessagingGetChannelMessageStatusResponse class]];
+}
+
+- (void)getChannelMessageStatus:(AWSChimeSDKMessagingGetChannelMessageStatusRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKMessagingGetChannelMessageStatusResponse *response, NSError *error))completionHandler {
+    [[self getChannelMessageStatus:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingGetChannelMessageStatusResponse *> * _Nonnull task) {
+        AWSChimeSDKMessagingGetChannelMessageStatusResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -706,6 +887,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSChimeSDKMessagingListChannelBansResponse *response, NSError *error))completionHandler {
     [[self listChannelBans:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingListChannelBansResponse *> * _Nonnull task) {
         AWSChimeSDKMessagingListChannelBansResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSChimeSDKMessagingListChannelFlowsResponse *> *)listChannelFlows:(AWSChimeSDKMessagingListChannelFlowsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/channel-flows"
+                  targetPrefix:@""
+                 operationName:@"ListChannelFlows"
+                   outputClass:[AWSChimeSDKMessagingListChannelFlowsResponse class]];
+}
+
+- (void)listChannelFlows:(AWSChimeSDKMessagingListChannelFlowsRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKMessagingListChannelFlowsResponse *response, NSError *error))completionHandler {
+    [[self listChannelFlows:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingListChannelFlowsResponse *> * _Nonnull task) {
+        AWSChimeSDKMessagingListChannelFlowsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -831,6 +1035,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSChimeSDKMessagingListChannelsAssociatedWithChannelFlowResponse *> *)listChannelsAssociatedWithChannelFlow:(AWSChimeSDKMessagingListChannelsAssociatedWithChannelFlowRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/channels?scope=channel-flow-associations"
+                  targetPrefix:@""
+                 operationName:@"ListChannelsAssociatedWithChannelFlow"
+                   outputClass:[AWSChimeSDKMessagingListChannelsAssociatedWithChannelFlowResponse class]];
+}
+
+- (void)listChannelsAssociatedWithChannelFlow:(AWSChimeSDKMessagingListChannelsAssociatedWithChannelFlowRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKMessagingListChannelsAssociatedWithChannelFlowResponse *response, NSError *error))completionHandler {
+    [[self listChannelsAssociatedWithChannelFlow:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingListChannelsAssociatedWithChannelFlowResponse *> * _Nonnull task) {
+        AWSChimeSDKMessagingListChannelsAssociatedWithChannelFlowResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSChimeSDKMessagingListChannelsModeratedByAppInstanceUserResponse *> *)listChannelsModeratedByAppInstanceUser:(AWSChimeSDKMessagingListChannelsModeratedByAppInstanceUserRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -844,6 +1071,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSChimeSDKMessagingListChannelsModeratedByAppInstanceUserResponse *response, NSError *error))completionHandler {
     [[self listChannelsModeratedByAppInstanceUser:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingListChannelsModeratedByAppInstanceUserResponse *> * _Nonnull task) {
         AWSChimeSDKMessagingListChannelsModeratedByAppInstanceUserResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSChimeSDKMessagingListTagsForResourceResponse *> *)listTagsForResource:(AWSChimeSDKMessagingListTagsForResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/tags"
+                  targetPrefix:@""
+                 operationName:@"ListTagsForResource"
+                   outputClass:[AWSChimeSDKMessagingListTagsForResourceResponse class]];
+}
+
+- (void)listTagsForResource:(AWSChimeSDKMessagingListTagsForResourceRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKMessagingListTagsForResourceResponse *response, NSError *error))completionHandler {
+    [[self listTagsForResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingListTagsForResourceResponse *> * _Nonnull task) {
+        AWSChimeSDKMessagingListTagsForResourceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSChimeSDKMessagingPutChannelMembershipPreferencesResponse *> *)putChannelMembershipPreferences:(AWSChimeSDKMessagingPutChannelMembershipPreferencesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/channels/{channelArn}/memberships/{memberArn}/preferences"
+                  targetPrefix:@""
+                 operationName:@"PutChannelMembershipPreferences"
+                   outputClass:[AWSChimeSDKMessagingPutChannelMembershipPreferencesResponse class]];
+}
+
+- (void)putChannelMembershipPreferences:(AWSChimeSDKMessagingPutChannelMembershipPreferencesRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKMessagingPutChannelMembershipPreferencesResponse *response, NSError *error))completionHandler {
+    [[self putChannelMembershipPreferences:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingPutChannelMembershipPreferencesResponse *> * _Nonnull task) {
+        AWSChimeSDKMessagingPutChannelMembershipPreferencesResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -900,6 +1173,50 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask *)tagResource:(AWSChimeSDKMessagingTagResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/tags?operation=tag-resource"
+                  targetPrefix:@""
+                 operationName:@"TagResource"
+                   outputClass:nil];
+}
+
+- (void)tagResource:(AWSChimeSDKMessagingTagResourceRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self tagResource:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)untagResource:(AWSChimeSDKMessagingUntagResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/tags?operation=untag-resource"
+                  targetPrefix:@""
+                 operationName:@"UntagResource"
+                   outputClass:nil];
+}
+
+- (void)untagResource:(AWSChimeSDKMessagingUntagResourceRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self untagResource:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSChimeSDKMessagingUpdateChannelResponse *> *)updateChannel:(AWSChimeSDKMessagingUpdateChannelRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -913,6 +1230,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSChimeSDKMessagingUpdateChannelResponse *response, NSError *error))completionHandler {
     [[self updateChannel:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingUpdateChannelResponse *> * _Nonnull task) {
         AWSChimeSDKMessagingUpdateChannelResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSChimeSDKMessagingUpdateChannelFlowResponse *> *)updateChannelFlow:(AWSChimeSDKMessagingUpdateChannelFlowRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/channel-flows/{channelFlowArn}"
+                  targetPrefix:@""
+                 operationName:@"UpdateChannelFlow"
+                   outputClass:[AWSChimeSDKMessagingUpdateChannelFlowResponse class]];
+}
+
+- (void)updateChannelFlow:(AWSChimeSDKMessagingUpdateChannelFlowRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKMessagingUpdateChannelFlowResponse *response, NSError *error))completionHandler {
+    [[self updateChannelFlow:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingUpdateChannelFlowResponse *> * _Nonnull task) {
+        AWSChimeSDKMessagingUpdateChannelFlowResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

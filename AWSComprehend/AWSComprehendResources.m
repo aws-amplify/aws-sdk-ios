@@ -588,6 +588,21 @@
       ],\
       \"documentation\":\"<p>Gets a list of the documentation classification jobs that you have submitted.</p>\"\
     },\
+    \"ListDocumentClassifierSummaries\":{\
+      \"name\":\"ListDocumentClassifierSummaries\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"ListDocumentClassifierSummariesRequest\"},\
+      \"output\":{\"shape\":\"ListDocumentClassifierSummariesResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"InternalServerException\"}\
+      ],\
+      \"documentation\":\"<p>Gets a list of summaries of the document classifiers that you have created</p>\"\
+    },\
     \"ListDocumentClassifiers\":{\
       \"name\":\"ListDocumentClassifiers\",\
       \"http\":{\
@@ -650,6 +665,21 @@
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Gets a list of the entity detection jobs that you have submitted.</p>\"\
+    },\
+    \"ListEntityRecognizerSummaries\":{\
+      \"name\":\"ListEntityRecognizerSummaries\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"ListEntityRecognizerSummariesRequest\"},\
+      \"output\":{\"shape\":\"ListEntityRecognizerSummariesResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"InternalServerException\"}\
+      ],\
+      \"documentation\":\"<p>Gets a list of summaries for the entity recognizers that you have created.</p>\"\
     },\
     \"ListEntityRecognizers\":{\
       \"name\":\"ListEntityRecognizers\",\
@@ -776,6 +806,7 @@
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"ResourceUnavailableException\"},\
         {\"shape\":\"KmsKeyValidationException\"},\
+        {\"shape\":\"TooManyTagsException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Starts an asynchronous document classification job. Use the operation to track the progress of the job.</p>\"\
@@ -792,6 +823,7 @@
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"KmsKeyValidationException\"},\
+        {\"shape\":\"TooManyTagsException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Starts an asynchronous dominant language detection job for a collection of documents. Use the operation to track the status of a job.</p>\"\
@@ -810,6 +842,7 @@
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"ResourceUnavailableException\"},\
         {\"shape\":\"KmsKeyValidationException\"},\
+        {\"shape\":\"TooManyTagsException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Starts an asynchronous entity detection job for a collection of documents. Use the operation to track the status of a job.</p> <p>This API can be used for either standard entity detection or custom entity recognition. In order to be used for custom entity recognition, the optional <code>EntityRecognizerArn</code> must be used in order to provide access to the recognizer being used to detect the custom entity.</p>\"\
@@ -826,6 +859,7 @@
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"KmsKeyValidationException\"},\
+        {\"shape\":\"TooManyTagsException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Starts an asynchronous event detection job for a collection of documents.</p>\"\
@@ -842,6 +876,7 @@
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"KmsKeyValidationException\"},\
+        {\"shape\":\"TooManyTagsException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Starts an asynchronous key phrase detection job for a collection of documents. Use the operation to track the status of a job.</p>\"\
@@ -858,6 +893,7 @@
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"KmsKeyValidationException\"},\
+        {\"shape\":\"TooManyTagsException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Starts an asynchronous PII entity detection job for a collection of documents.</p>\"\
@@ -874,6 +910,7 @@
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"KmsKeyValidationException\"},\
+        {\"shape\":\"TooManyTagsException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Starts an asynchronous sentiment detection job for a collection of documents. use the operation to track the status of a job.</p>\"\
@@ -890,6 +927,7 @@
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"KmsKeyValidationException\"},\
+        {\"shape\":\"TooManyTagsException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Starts an asynchronous topic detection job. Use the <code>DescribeTopicDetectionJob</code> operation to track the status of a job.</p>\"\
@@ -1082,6 +1120,13 @@
       \"min\":1,\
       \"pattern\":\"^[a-zA-Z0-9](-*[a-zA-Z0-9])*\"\
     },\
+    \"AugmentedManifestsDocumentTypeFormat\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"PLAIN_TEXT_DOCUMENT\",\
+        \"SEMI_STRUCTURED_DOCUMENT\"\
+      ]\
+    },\
     \"AugmentedManifestsListItem\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -1093,9 +1138,25 @@
           \"shape\":\"S3Uri\",\
           \"documentation\":\"<p>The Amazon S3 location of the augmented manifest file.</p>\"\
         },\
+        \"Split\":{\
+          \"shape\":\"Split\",\
+          \"documentation\":\"<p>The purpose of the data you've provided in the augmented manifest. You can either train or test this data. If you don't specify, the default is train.</p> <p>TRAIN - all of the documents in the manifest will be used for training. If no test documents are provided, Amazon Comprehend will automatically reserve a portion of the training documents for testing.</p> <p> TEST - all of the documents in the manifest will be used for testing.</p>\"\
+        },\
         \"AttributeNames\":{\
           \"shape\":\"AttributeNamesList\",\
           \"documentation\":\"<p>The JSON attribute that contains the annotations for your training documents. The number of attribute names that you specify depends on whether your augmented manifest file is the output of a single labeling job or a chained labeling job.</p> <p>If your file is the output of a single labeling job, specify the LabelAttributeName key that was used when the job was created in Ground Truth.</p> <p>If your file is the output of a chained labeling job, specify the LabelAttributeName key for one or more jobs in the chain. Each LabelAttributeName key provides the annotations from an individual job.</p>\"\
+        },\
+        \"AnnotationDataS3Uri\":{\
+          \"shape\":\"S3Uri\",\
+          \"documentation\":\"<p>The S3 prefix to the annotation files that are referred in the augmented manifest file.</p>\"\
+        },\
+        \"SourceDocumentsS3Uri\":{\
+          \"shape\":\"S3Uri\",\
+          \"documentation\":\"<p>The S3 prefix to the source files (PDFs) that are referred to in the augmented manifest file.</p>\"\
+        },\
+        \"DocumentType\":{\
+          \"shape\":\"AugmentedManifestsDocumentTypeFormat\",\
+          \"documentation\":\"<p>The type of augmented manifest. PlainTextDocument or SemiStructuredDocument. If you don't specify, the default is PlainTextDocument. </p> <ul> <li> <p> <code>PLAIN_TEXT_DOCUMENT</code> A document type that represents any unicode text that is encoded in UTF-8.</p> </li> <li> <p> <code>SEMI_STRUCTURED_DOCUMENT</code> A document type with positional and structural context, like a PDF. For training with Amazon Comprehend, only PDFs are supported. For inference, Amazon Comprehend support PDFs, DOCX and TXT.</p> </li> </ul>\"\
         }\
       },\
       \"documentation\":\"<p>An augmented manifest file that provides training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.</p>\"\
@@ -1473,7 +1534,7 @@
     \"ComprehendArn\":{\
       \"type\":\"string\",\
       \"max\":256,\
-      \"pattern\":\"arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*\"\
+      \"pattern\":\"arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-]{1,64}/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?\"\
     },\
     \"ComprehendArnName\":{\
       \"type\":\"string\",\
@@ -1493,7 +1554,7 @@
     \"ComprehendModelArn\":{\
       \"type\":\"string\",\
       \"max\":256,\
-      \"pattern\":\"arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:(document-classifier|entity-recognizer)/[a-zA-Z0-9](-*[a-zA-Z0-9])*\"\
+      \"pattern\":\"arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:(document-classifier|entity-recognizer)/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?\"\
     },\
     \"ConcurrentModificationException\":{\
       \"type\":\"structure\",\
@@ -1541,6 +1602,10 @@
         \"DocumentClassifierName\":{\
           \"shape\":\"ComprehendArnName\",\
           \"documentation\":\"<p>The name of the document classifier.</p>\"\
+        },\
+        \"VersionName\":{\
+          \"shape\":\"VersionName\",\
+          \"documentation\":\"<p>The version name given to the newly created classifier. Version names can have a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The version name must be unique among all models with the same classifier name in the account/AWS Region.</p>\"\
         },\
         \"DataAccessRoleArn\":{\
           \"shape\":\"IamRoleArn\",\
@@ -1650,6 +1715,10 @@
         \"RecognizerName\":{\
           \"shape\":\"ComprehendArnName\",\
           \"documentation\":\"<p>The name given to the newly created recognizer. Recognizer names can be a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The name must be unique in the account/region.</p>\"\
+        },\
+        \"VersionName\":{\
+          \"shape\":\"VersionName\",\
+          \"documentation\":\"<p>The version name given to the newly created recognizer. Version names can be a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The version name must be unique among all models with the same recognizer name in the account/ AWS Region.</p>\"\
         },\
         \"DataAccessRoleArn\":{\
           \"shape\":\"IamRoleArn\",\
@@ -2158,6 +2227,10 @@
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier assigned to the document classification job.</p>\"\
         },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the document classification job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:document-classification-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:document-classification-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
+        },\
         \"JobName\":{\
           \"shape\":\"JobName\",\
           \"documentation\":\"<p>The name that you assigned to the document classification job.</p>\"\
@@ -2212,7 +2285,7 @@
     \"DocumentClassifierArn\":{\
       \"type\":\"string\",\
       \"max\":256,\
-      \"pattern\":\"arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:document-classifier/[a-zA-Z0-9](-*[a-zA-Z0-9])*\"\
+      \"pattern\":\"arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:document-classifier/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?\"\
     },\
     \"DocumentClassifierAugmentedManifestsList\":{\
       \"type\":\"list\",\
@@ -2237,6 +2310,10 @@
           \"shape\":\"ModelStatus\",\
           \"documentation\":\"<p>Filters the list of classifiers based on status.</p>\"\
         },\
+        \"DocumentClassifierName\":{\
+          \"shape\":\"ComprehendArnName\",\
+          \"documentation\":\"<p>The name that you assigned to the document classifier</p>\"\
+        },\
         \"SubmitTimeBefore\":{\
           \"shape\":\"Timestamp\",\
           \"documentation\":\"<p>Filters the list of classifiers based on the time that the classifier was submitted for processing. Returns only classifiers submitted before the specified time. Classifiers are returned in ascending order, oldest to newest.</p>\"\
@@ -2258,6 +2335,10 @@
         \"S3Uri\":{\
           \"shape\":\"S3Uri\",\
           \"documentation\":\"<p>The Amazon S3 URI for the input data. The S3 bucket must be in the same region as the API endpoint that you are calling. The URI can point to a single input file or it can provide the prefix for a collection of input files.</p> <p>For example, if you use the URI <code>S3://bucketName/prefix</code>, if the prefix is a single file, Amazon Comprehend uses that file as input. If more than one file begins with the prefix, Amazon Comprehend uses all of them as input.</p> <p>This parameter is required if you set <code>DataFormat</code> to <code>COMPREHEND_CSV</code>.</p>\"\
+        },\
+        \"TestS3Uri\":{\
+          \"shape\":\"S3Uri\",\
+          \"documentation\":\"<p>The Amazon S3 URI for the input data. The Amazon S3 bucket must be in the same AWS Region as the API endpoint that you are calling. The URI can point to a single input file or it can provide the prefix for a collection of input files. </p>\"\
         },\
         \"LabelDelimiter\":{\
           \"shape\":\"LabelDelimiter\",\
@@ -2357,6 +2438,10 @@
         \"ModelKmsKeyId\":{\
           \"shape\":\"KmsKeyId\",\
           \"documentation\":\"<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\\\"1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\\\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> </ul>\"\
+        },\
+        \"VersionName\":{\
+          \"shape\":\"VersionName\",\
+          \"documentation\":\"<p>The version name that you assigned to the document classifier.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Provides information about a document classifier.</p>\"\
@@ -2364,6 +2449,36 @@
     \"DocumentClassifierPropertiesList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"DocumentClassifierProperties\"}\
+    },\
+    \"DocumentClassifierSummariesList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"DocumentClassifierSummary\"}\
+    },\
+    \"DocumentClassifierSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"DocumentClassifierName\":{\
+          \"shape\":\"ComprehendArnName\",\
+          \"documentation\":\"<p>The name that you assigned the document classifier.</p>\"\
+        },\
+        \"NumberOfVersions\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The number of versions you created.</p>\"\
+        },\
+        \"LatestVersionCreatedAt\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>The time that the latest document classifier version was submitted for processing.</p>\"\
+        },\
+        \"LatestVersionName\":{\
+          \"shape\":\"VersionName\",\
+          \"documentation\":\"<p>The version name you assigned to the latest document classifier version.</p>\"\
+        },\
+        \"LatestVersionStatus\":{\
+          \"shape\":\"ModelStatus\",\
+          \"documentation\":\"<p>Provides the status of the latest document classifier version.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes information about a document classifier and its versions.</p>\"\
     },\
     \"DocumentLabel\":{\
       \"type\":\"structure\",\
@@ -2378,6 +2493,47 @@
         }\
       },\
       \"documentation\":\"<p>Specifies one of the label or labels that categorize the document being analyzed.</p>\"\
+    },\
+    \"DocumentReadAction\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"TEXTRACT_DETECT_DOCUMENT_TEXT\",\
+        \"TEXTRACT_ANALYZE_DOCUMENT\"\
+      ]\
+    },\
+    \"DocumentReadFeatureTypes\":{\
+      \"type\":\"string\",\
+      \"documentation\":\"<p>A list of the types of analyses to perform. This field specifies what feature types need to be extracted from the document where entity recognition is expected.</p> <ul> <li> <p> <code>TABLES</code> - Add TABLES to the list to return information about the tables that are detected in the input document. </p> </li> <li> <p> <code>FORMS</code> - Add FORMS to return detected form data. </p> </li> </ul>\",\
+      \"enum\":[\
+        \"TABLES\",\
+        \"FORMS\"\
+      ]\
+    },\
+    \"DocumentReadMode\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"SERVICE_DEFAULT\",\
+        \"FORCE_DOCUMENT_READ_ACTION\"\
+      ]\
+    },\
+    \"DocumentReaderConfig\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"DocumentReadAction\"],\
+      \"members\":{\
+        \"DocumentReadAction\":{\
+          \"shape\":\"DocumentReadAction\",\
+          \"documentation\":\"<p>This enum field will start with two values which will apply to PDFs:</p> <ul> <li> <p> <code>TEXTRACT_DETECT_DOCUMENT_TEXT</code> - The service calls DetectDocumentText for PDF documents per page.</p> </li> <li> <p> <code>TEXTRACT_ANALYZE_DOCUMENT</code> - The service calls AnalyzeDocument for PDF documents per page.</p> </li> </ul>\"\
+        },\
+        \"DocumentReadMode\":{\
+          \"shape\":\"DocumentReadMode\",\
+          \"documentation\":\"<p>This enum field provides two values:</p> <ul> <li> <p> <code>SERVICE_DEFAULT</code> - use service defaults for Document reading. For Digital PDF it would mean using an internal parser instead of Textract APIs</p> </li> <li> <p> <code>FORCE_DOCUMENT_READ_ACTION</code> - Always use specified action for DocumentReadAction, including Digital PDF. </p> </li> </ul>\"\
+        },\
+        \"FeatureTypes\":{\
+          \"shape\":\"ListOfDocumentReadFeatureTypes\",\
+          \"documentation\":\"<p>Specifies how the text in an input file should be processed:</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The input properties for a topic detection job.</p>\"\
     },\
     \"DominantLanguage\":{\
       \"type\":\"structure\",\
@@ -2421,6 +2577,10 @@
         \"JobId\":{\
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier assigned to the dominant language detection job.</p>\"\
+        },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the dominant language detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:dominant-language-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:dominant-language-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
         },\
         \"JobName\":{\
           \"shape\":\"JobName\",\
@@ -2511,6 +2671,10 @@
           \"shape\":\"ComprehendModelArn\",\
           \"documentation\":\"<p>The Amazon Resource Number (ARN) of the model to which the endpoint is attached.</p>\"\
         },\
+        \"DesiredModelArn\":{\
+          \"shape\":\"ComprehendModelArn\",\
+          \"documentation\":\"<p>ARN of the new model to use for updating an existing endpoint. This ARN is going to be different from the model ARN when the update is in progress</p>\"\
+        },\
         \"DesiredInferenceUnits\":{\
           \"shape\":\"InferenceUnitsInteger\",\
           \"documentation\":\"<p>The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.</p>\"\
@@ -2530,6 +2694,10 @@
         \"DataAccessRoleArn\":{\
           \"shape\":\"IamRoleArn\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) of the AWS identity and Access Management (IAM) role that grants Amazon Comprehend read access to trained custom models encrypted with a customer managed key (ModelKmsKeyId).</p>\"\
+        },\
+        \"DesiredDataAccessRoleArn\":{\
+          \"shape\":\"IamRoleArn\",\
+          \"documentation\":\"<p>Data access role ARN to use in case the new model is encrypted with a customer KMS key.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Specifies information about the specified endpoint.</p>\"\
@@ -2576,6 +2744,10 @@
         \"JobId\":{\
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier assigned to the entities detection job.</p>\"\
+        },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the entities detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:entities-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:entities-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
         },\
         \"JobName\":{\
           \"shape\":\"JobName\",\
@@ -2679,6 +2851,10 @@
         \"S3Uri\":{\
           \"shape\":\"S3Uri\",\
           \"documentation\":\"<p> Specifies the Amazon S3 location where the annotations for an entity recognizer are located. The URI must be in the same region as the API endpoint that you are calling.</p>\"\
+        },\
+        \"TestS3Uri\":{\
+          \"shape\":\"S3Uri\",\
+          \"documentation\":\"<p>This specifies the Amazon S3 location where the test annotations for an entity recognizer are located. The URI must be in the same AWS Region as the API endpoint that you are calling.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes the annotations associated with a entity recognizer.</p>\"\
@@ -2686,7 +2862,7 @@
     \"EntityRecognizerArn\":{\
       \"type\":\"string\",\
       \"max\":256,\
-      \"pattern\":\"arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:entity-recognizer/[a-zA-Z0-9](-*[a-zA-Z0-9])*\"\
+      \"pattern\":\"arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:entity-recognizer/[a-zA-Z0-9](-*[a-zA-Z0-9])*(/version/[a-zA-Z0-9](-*[a-zA-Z0-9])*)?\"\
     },\
     \"EntityRecognizerAugmentedManifestsList\":{\
       \"type\":\"list\",\
@@ -2706,6 +2882,14 @@
         \"S3Uri\":{\
           \"shape\":\"S3Uri\",\
           \"documentation\":\"<p> Specifies the Amazon S3 location where the training documents for an entity recognizer are located. The URI must be in the same region as the API endpoint that you are calling.</p>\"\
+        },\
+        \"TestS3Uri\":{\
+          \"shape\":\"S3Uri\",\
+          \"documentation\":\"<p> Specifies the Amazon S3 location where the test documents for an entity recognizer are located. The URI must be in the same AWS Region as the API endpoint that you are calling.</p>\"\
+        },\
+        \"InputFormat\":{\
+          \"shape\":\"InputFormat\",\
+          \"documentation\":\"<p> Specifies how the text in an input file should be processed. This is optional, and the default is ONE_DOC_PER_LINE. ONE_DOC_PER_FILE - Each file is considered a separate document. Use this option when you are processing large documents, such as newspaper articles or scientific papers. ONE_DOC_PER_LINE - Each line in a file is considered a separate document. Use this option when you are processing many short documents, such as text messages.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes the training documents submitted with an entity recognizer.</p>\"\
@@ -2750,6 +2934,10 @@
         \"Status\":{\
           \"shape\":\"ModelStatus\",\
           \"documentation\":\"<p>The status of an entity recognizer.</p>\"\
+        },\
+        \"RecognizerName\":{\
+          \"shape\":\"ComprehendArnName\",\
+          \"documentation\":\"<p>The name that you assigned the entity recognizer.</p>\"\
         },\
         \"SubmitTimeBefore\":{\
           \"shape\":\"Timestamp\",\
@@ -2896,6 +3084,10 @@
         \"ModelKmsKeyId\":{\
           \"shape\":\"KmsKeyId\",\
           \"documentation\":\"<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats: </p> <ul> <li> <p>KMS Key ID: <code>\\\"1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\\\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> </ul>\"\
+        },\
+        \"VersionName\":{\
+          \"shape\":\"VersionName\",\
+          \"documentation\":\"<p>The version name you assigned to the entity recognizer.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes information about an entity recognizer.</p>\"\
@@ -2903,6 +3095,36 @@
     \"EntityRecognizerPropertiesList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"EntityRecognizerProperties\"}\
+    },\
+    \"EntityRecognizerSummariesList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"EntityRecognizerSummary\"}\
+    },\
+    \"EntityRecognizerSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"RecognizerName\":{\
+          \"shape\":\"ComprehendArnName\",\
+          \"documentation\":\"<p> The name that you assigned the entity recognizer.</p>\"\
+        },\
+        \"NumberOfVersions\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p> The number of versions you created.</p>\"\
+        },\
+        \"LatestVersionCreatedAt\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p> The time that the latest entity recognizer version was submitted for processing.</p>\"\
+        },\
+        \"LatestVersionName\":{\
+          \"shape\":\"VersionName\",\
+          \"documentation\":\"<p> The version name you assigned to the latest entity recognizer version.</p>\"\
+        },\
+        \"LatestVersionStatus\":{\
+          \"shape\":\"ModelStatus\",\
+          \"documentation\":\"<p> Provides the status of the latest entity recognizer version.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p> Describes the information about an entity recognizer and its versions.</p>\"\
     },\
     \"EntityType\":{\
       \"type\":\"string\",\
@@ -2991,6 +3213,10 @@
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier assigned to the events detection job.</p>\"\
         },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the events detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:events-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:events-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
+        },\
         \"JobName\":{\
           \"shape\":\"JobName\",\
           \"documentation\":\"<p>The name you assigned the events detection job.</p>\"\
@@ -3060,9 +3286,13 @@
         \"InputFormat\":{\
           \"shape\":\"InputFormat\",\
           \"documentation\":\"<p>Specifies how the text in an input file should be processed:</p> <ul> <li> <p> <code>ONE_DOC_PER_FILE</code> - Each file is considered a separate document. Use this option when you are processing large documents, such as newspaper articles or scientific papers.</p> </li> <li> <p> <code>ONE_DOC_PER_LINE</code> - Each line in a file is considered a separate document. Use this option when you are processing many short documents, such as text messages.</p> </li> </ul>\"\
+        },\
+        \"DocumentReaderConfig\":{\
+          \"shape\":\"DocumentReaderConfig\",\
+          \"documentation\":\"<p>The document reader config field applies only for InputDataConfig of StartEntitiesDetectionJob. </p> <p>Use DocumentReaderConfig to provide specifications about how you want your inference documents read. Currently it applies for PDF documents in StartEntitiesDetectionJob custom inference.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>The input properties for a topic detection job.</p>\"\
+      \"documentation\":\"<p>The input properties for an inference job.</p>\"\
     },\
     \"InputFormat\":{\
       \"type\":\"string\",\
@@ -3179,6 +3409,10 @@
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier assigned to the key phrases detection job.</p>\"\
         },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the key phrases detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:key-phrases-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:key-phrases-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
+        },\
         \"JobName\":{\
           \"shape\":\"JobName\",\
           \"documentation\":\"<p>The name that you assigned the key phrases detection job.</p>\"\
@@ -3232,7 +3466,8 @@
     },\
     \"KmsKeyId\":{\
       \"type\":\"string\",\
-      \"max\":2048\
+      \"max\":2048,\
+      \"pattern\":\".*\"\
     },\
     \"KmsKeyValidationException\":{\
       \"type\":\"structure\",\
@@ -3288,6 +3523,32 @@
         \"DocumentClassificationJobPropertiesList\":{\
           \"shape\":\"DocumentClassificationJobPropertiesList\",\
           \"documentation\":\"<p>A list containing the properties of each job returned.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>Identifies the next page of results to return.</p>\"\
+        }\
+      }\
+    },\
+    \"ListDocumentClassifierSummariesRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>Identifies the next page of results to return.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResultsInteger\",\
+          \"documentation\":\"<p>The maximum number of results to return on each page. The default is 100.</p>\"\
+        }\
+      }\
+    },\
+    \"ListDocumentClassifierSummariesResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"DocumentClassifierSummariesList\":{\
+          \"shape\":\"DocumentClassifierSummariesList\",\
+          \"documentation\":\"<p>The list of summaries of document classifiers.</p>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"String\",\
@@ -3415,6 +3676,32 @@
         }\
       }\
     },\
+    \"ListEntityRecognizerSummariesRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>Identifies the next page of results to return.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResultsInteger\",\
+          \"documentation\":\"<p>The maximum number of results to return on each page. The default is 100.</p>\"\
+        }\
+      }\
+    },\
+    \"ListEntityRecognizerSummariesResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"EntityRecognizerSummariesList\":{\
+          \"shape\":\"EntityRecognizerSummariesList\",\
+          \"documentation\":\"<p>The list entity recognizer summaries.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The list entity recognizer summaries.</p>\"\
+        }\
+      }\
+    },\
     \"ListEntityRecognizersRequest\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -3528,6 +3815,12 @@
     \"ListOfDetectSyntaxResult\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"BatchDetectSyntaxItemResult\"}\
+    },\
+    \"ListOfDocumentReadFeatureTypes\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"DocumentReadFeatureTypes\"},\
+      \"max\":2,\
+      \"min\":1\
     },\
     \"ListOfDominantLanguages\":{\
       \"type\":\"list\",\
@@ -3783,6 +4076,10 @@
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier assigned to the PII entities detection job.</p>\"\
         },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the PII entities detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:pii-entities-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:pii-entities-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
+        },\
         \"JobName\":{\
           \"shape\":\"JobName\",\
           \"documentation\":\"<p>The name that you assigned the PII entities detection job.</p>\"\
@@ -4009,6 +4306,10 @@
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier assigned to the sentiment detection job.</p>\"\
         },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the sentiment detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:sentiment-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:sentiment-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
+        },\
         \"JobName\":{\
           \"shape\":\"JobName\",\
           \"documentation\":\"<p>The name that you assigned to the sentiment detection job</p>\"\
@@ -4091,6 +4392,13 @@
         \"MIXED\"\
       ]\
     },\
+    \"Split\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"TRAIN\",\
+        \"TEST\"\
+      ]\
+    },\
     \"StartDocumentClassificationJobRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -4132,6 +4440,10 @@
         \"VpcConfig\":{\
           \"shape\":\"VpcConfig\",\
           \"documentation\":\"<p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your document classification job. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\\\">Amazon VPC</a>. </p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>Tags to be associated with the document classification job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \\\"Sales\\\" as the key might be added to a resource to indicate its use by the sales department.</p>\"\
         }\
       }\
     },\
@@ -4141,6 +4453,10 @@
         \"JobId\":{\
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier generated for the job. To get the status of the job, use this identifier with the operation.</p>\"\
+        },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the document classification job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:document-classification-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:document-classification-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
         },\
         \"JobStatus\":{\
           \"shape\":\"JobStatus\",\
@@ -4184,6 +4500,10 @@
         \"VpcConfig\":{\
           \"shape\":\"VpcConfig\",\
           \"documentation\":\"<p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your dominant language detection job. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\\\">Amazon VPC</a>. </p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>Tags to be associated with the dominant language detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \\\"Sales\\\" as the key might be added to a resource to indicate its use by the sales department.</p>\"\
         }\
       }\
     },\
@@ -4193,6 +4513,10 @@
         \"JobId\":{\
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier generated for the job. To get the status of a job, use this identifier with the operation.</p>\"\
+        },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the dominant language detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:dominant-language-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:dominant-language-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
         },\
         \"JobStatus\":{\
           \"shape\":\"JobStatus\",\
@@ -4245,6 +4569,10 @@
         \"VpcConfig\":{\
           \"shape\":\"VpcConfig\",\
           \"documentation\":\"<p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your entity detection job. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\\\">Amazon VPC</a>. </p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>Tags to be associated with the entities detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \\\"Sales\\\" as the key might be added to a resource to indicate its use by the sales department.</p>\"\
         }\
       }\
     },\
@@ -4254,6 +4582,10 @@
         \"JobId\":{\
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier generated for the job. To get the status of job, use this identifier with the operation.</p>\"\
+        },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the entities detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:entities-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:entities-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
         },\
         \"JobStatus\":{\
           \"shape\":\"JobStatus\",\
@@ -4299,6 +4631,10 @@
         \"TargetEventTypes\":{\
           \"shape\":\"TargetEventTypes\",\
           \"documentation\":\"<p>The types of events to detect in the input documents.</p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>Tags to be associated with the events detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \\\"Sales\\\" as the key might be added to a resource to indicate its use by the sales department.</p>\"\
         }\
       }\
     },\
@@ -4308,6 +4644,10 @@
         \"JobId\":{\
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>An unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>\"\
+        },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the events detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:events-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:events-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
         },\
         \"JobStatus\":{\
           \"shape\":\"JobStatus\",\
@@ -4356,6 +4696,10 @@
         \"VpcConfig\":{\
           \"shape\":\"VpcConfig\",\
           \"documentation\":\"<p> Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your key phrases detection job. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\\\">Amazon VPC</a>. </p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>Tags to be associated with the key phrases detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \\\"Sales\\\" as the key might be added to a resource to indicate its use by the sales department.</p>\"\
         }\
       }\
     },\
@@ -4365,6 +4709,10 @@
         \"JobId\":{\
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier generated for the job. To get the status of a job, use this identifier with the operation.</p>\"\
+        },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the key phrase detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:key-phrases-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:key-phrases-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
         },\
         \"JobStatus\":{\
           \"shape\":\"JobStatus\",\
@@ -4414,6 +4762,10 @@
           \"shape\":\"ClientRequestTokenString\",\
           \"documentation\":\"<p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>\",\
           \"idempotencyToken\":true\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>Tags to be associated with the PII entities detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \\\"Sales\\\" as the key might be added to a resource to indicate its use by the sales department.</p>\"\
         }\
       }\
     },\
@@ -4423,6 +4775,10 @@
         \"JobId\":{\
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier generated for the job.</p>\"\
+        },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the PII entity detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:pii-entities-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:pii-entities-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
         },\
         \"JobStatus\":{\
           \"shape\":\"JobStatus\",\
@@ -4471,6 +4827,10 @@
         \"VpcConfig\":{\
           \"shape\":\"VpcConfig\",\
           \"documentation\":\"<p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your sentiment detection job. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\\\">Amazon VPC</a>. </p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>Tags to be associated with the sentiment detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \\\"Sales\\\" as the key might be added to a resource to indicate its use by the sales department.</p>\"\
         }\
       }\
     },\
@@ -4480,6 +4840,10 @@
         \"JobId\":{\
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier generated for the job. To get the status of a job, use this identifier with the operation.</p>\"\
+        },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the sentiment detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:sentiment-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:sentiment-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
         },\
         \"JobStatus\":{\
           \"shape\":\"JobStatus\",\
@@ -4527,6 +4891,10 @@
         \"VpcConfig\":{\
           \"shape\":\"VpcConfig\",\
           \"documentation\":\"<p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your topic detection job. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\\\">Amazon VPC</a>. </p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>Tags to be associated with the topics detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \\\"Sales\\\" as the key might be added to a resource to indicate its use by the sales department.</p>\"\
         }\
       }\
     },\
@@ -4536,6 +4904,10 @@
         \"JobId\":{\
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier generated for the job. To get the status of the job, use this identifier with the <code>DescribeTopicDetectionJob</code> operation.</p>\"\
+        },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the topics detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:topics-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:document-classification-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
         },\
         \"JobStatus\":{\
           \"shape\":\"JobStatus\",\
@@ -4886,6 +5258,10 @@
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier assigned to the topic detection job.</p>\"\
         },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the topics detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:topics-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:topics-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
+        },\
         \"JobName\":{\
           \"shape\":\"JobName\",\
           \"documentation\":\"<p>The name of the topic detection job.</p>\"\
@@ -4969,18 +5345,23 @@
     },\
     \"UpdateEndpointRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\
-        \"EndpointArn\",\
-        \"DesiredInferenceUnits\"\
-      ],\
+      \"required\":[\"EndpointArn\"],\
       \"members\":{\
         \"EndpointArn\":{\
           \"shape\":\"ComprehendEndpointArn\",\
           \"documentation\":\"<p>The Amazon Resource Number (ARN) of the endpoint being updated.</p>\"\
         },\
+        \"DesiredModelArn\":{\
+          \"shape\":\"ComprehendModelArn\",\
+          \"documentation\":\"<p>The ARN of the new model to use when updating an existing endpoint.</p>\"\
+        },\
         \"DesiredInferenceUnits\":{\
           \"shape\":\"InferenceUnitsInteger\",\
           \"documentation\":\"<p> The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.</p>\"\
+        },\
+        \"DesiredDataAccessRoleArn\":{\
+          \"shape\":\"IamRoleArn\",\
+          \"documentation\":\"<p>Data access role ARN to use in case the new model is encrypted with a customer CMK.</p>\"\
         }\
       }\
     },\
@@ -4988,6 +5369,11 @@
       \"type\":\"structure\",\
       \"members\":{\
       }\
+    },\
+    \"VersionName\":{\
+      \"type\":\"string\",\
+      \"max\":63,\
+      \"pattern\":\"^[a-zA-Z0-9](-*[a-zA-Z0-9])*$\"\
     },\
     \"VpcConfig\":{\
       \"type\":\"structure\",\

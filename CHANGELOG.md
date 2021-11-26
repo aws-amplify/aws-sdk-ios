@@ -2,9 +2,146 @@
 
 ## Unreleased
 
+### Features for next release
+
 -Features for next release
 
-- Reset completion sources in AWSMobileClient (See [Issue](https://github.com/aws-amplify/amplify-ios/issues/1376))
+### Bug Fixes
+
+- **AWSMobileClient**
+  - Reset completion sources in AWSMobileClient (See [Issue](https://github.com/aws-amplify/amplify-ios/issues/1376))
+  
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSLocation
+  - AWSDynamoDB
+  - AWSTranslate
+  - AWSLambda
+  - AWSSNS
+
+## 2.26.5
+
+### New features
+
+- **AWSCore**
+  - Support for `ap-southeast-3` - Asia Pacific (Jakarta) (see [AWS Regional Services List](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for a list of services supported in the region)
+
+  
+## 2.26.4
+
+### Bug Fixes
+
+- **AWSIoT**
+  - fix(AWSIoT): adds back Message type ([PR #3852](https://github.com/aws-amplify/aws-sdk-ios/pull/3852))
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSAutoScaling
+  - AWSTextract
+  - AWSConnectParticipant
+  - AWSConnect
+  - AWSTranscribe
+  - AWSRekognition
+  - AWSTranslate
+  
+## 2.26.3
+
+### Misc. Updates
+
+- **AWSChime**
+  - feat(AWSChimeSDKIdentity): update models to latest ([PR #3834](https://github.com/aws-amplify/aws-sdk-ios/pull/3834))
+  - feat(AWSChimeSDKMessaging): update models to latest ([PR #3835](https://github.com/aws-amplify/aws-sdk-ios/pull/3835))
+
+- **AWSConnect**
+  - feat(AWSConnect): update models to latest ([PR #3831](https://github.com/aws-amplify/aws-sdk-ios/pull/3831))
+
+- **AWSIoT**
+  - feat(AWSIoT): update models to latest ([PR #3782](https://github.com/aws-amplify/aws-sdk-ios/pull/3782))
+
+### Bug Fixes
+
+- **AWSS3**
+  - Removes tasks from completed dictionary and clears progress and completion handlers ([PR #3833](https://github.com/aws-amplify/aws-sdk-ios/pull/3833))
+  - Fixes for a regression found with integration tests on main branch ([PR #3838](https://github.com/aws-amplify/aws-sdk-ios/pull/3838))
+
+## 2.26.2
+
+### Bug Fixes
+
+- **AWSCore**
+  - Handle special characters in AWSSignatureV4Signer (See [PR #3763](https://github.com/aws-amplify/aws-sdk-ios/pull/3763))
+  
+- **AWSS3**
+  - Saving relative path of files in the DB to avoid issues arising with sandbox path changing after app restarts. [PR #3794](https://github.com/aws-amplify/aws-sdk-ios/pull/3794)
+  - Makes `propagateHeaderInformation:requestHeaders:` function public [PR #3720](https://github.com/aws-amplify/aws-sdk-ios/pull/3720)
+  - Makes transferUtilityConfiguration public as read-only so properties like bucket can be accessed [PR #3789](https://github.com/aws-amplify/aws-sdk-ios/pull/3789)
+  - Moves suspended tasks from in progress dictionary to waiting dictionary during recovery process [PR #3818](https://github.com/aws-amplify/aws-sdk-ios/pull/3818)
+
+- **AWSIoT**
+  - Fixes crash caused by a race condition in IoT [PR #3823](https://github.com/aws-amplify/aws-sdk-ios/pull/3823)
+
+### Misc. Updates
+
+- Support Xcode 13.0.0 for CircleCI build ([PR #3803](https://github.com/aws-amplify/aws-sdk-ios/pull/3803))
+
+- **AWSIoT**
+  - Adds support to read settings from `awsconfiguration.json` [PR #3815](https://github.com/aws-amplify/aws-sdk-ios/pull/3815)
+
+- Model updates for the following services
+  - AWSFirehose
+  - AWSElasticLoadBalancingv2
+  - AWSAutoScaling
+  - AWSLocation
+  - AWSKMS
+
+## 2.26.1
+
+### Bug Fixes
+
+- **Core**
+  - Defines NS_BLOCK_ASSERTIONS and NDEBUG for Release builds  ([PR #3787](https://github.com/aws-amplify/aws-sdk-ios/pull/3787))
+
+- **AWSS3**
+  
+  - Rewrite of method which creates partial files for multipart upload process
+  - Adds test coverage for new code
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSChimeSDKMessaging
+  - AWSCloudWatchLogs
+  - AWSComprehend
+  - AWSConnect
+  - AWSEC2
+  - AWSElasticLoadBalancingv2
+  - AWSFirehose
+  - AWSIoTDataPlane
+  - AWSKMS
+  - AWSLambda
+  - AWSPinpoint
+  - AWSPolly
+  - AWSSageMakerRuntime
+  - AWSSQS
+  - AWSTranscribe
+  
+## 2.26.0
+
+### New Features
+
+- **AWSS3**
+   - Marks enumerate blocks methods as deprecated and provides and alternative which works with Swift. (See [PR #3726](https://github.com/aws-amplify/aws-sdk-ios/pull/3726))
+
+## 2.25.0
+
+### New Features
+- **AWSIoT**
+  - AWSIoT now supports retained messages ([PR #3681](https://github.com/aws-amplify/aws-sdk-ios/pull/3681))
+
+### Breaking Changes
+  - IoT: updates nullability status for ackCallback for publishing messages
 
 ## 2.24.5
 

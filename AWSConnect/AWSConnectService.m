@@ -25,7 +25,7 @@
 #import "AWSConnectResources.h"
 
 static NSString *const AWSInfoConnect = @"Connect";
-NSString *const AWSConnectSDKVersion = @"2.24.5";
+NSString *const AWSConnectSDKVersion = @"2.26.5";
 
 
 @interface AWSConnectResponseSerializer : AWSJSONResponseSerializer
@@ -39,6 +39,7 @@ NSString *const AWSConnectSDKVersion = @"2.24.5";
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
+                            @"AccessDeniedException" : @(AWSConnectErrorAccessDenied),
                             @"ContactFlowNotPublishedException" : @(AWSConnectErrorContactFlowNotPublished),
                             @"ContactNotFoundException" : @(AWSConnectErrorContactNotFound),
                             @"DestinationNotAllowedException" : @(AWSConnectErrorDestinationNotAllowed),
@@ -653,6 +654,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectCreateSecurityProfileResponse *> *)createSecurityProfile:(AWSConnectCreateSecurityProfileRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/security-profiles/{InstanceId}"
+                  targetPrefix:@""
+                 operationName:@"CreateSecurityProfile"
+                   outputClass:[AWSConnectCreateSecurityProfileResponse class]];
+}
+
+- (void)createSecurityProfile:(AWSConnectCreateSecurityProfileRequest *)request
+     completionHandler:(void (^)(AWSConnectCreateSecurityProfileResponse *response, NSError *error))completionHandler {
+    [[self createSecurityProfile:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectCreateSecurityProfileResponse *> * _Nonnull task) {
+        AWSConnectCreateSecurityProfileResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectCreateUseCaseResponse *> *)createUseCase:(AWSConnectCreateUseCaseRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -800,6 +824,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)deleteQuickConnect:(AWSConnectDeleteQuickConnectRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self deleteQuickConnect:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)deleteSecurityProfile:(AWSConnectDeleteSecurityProfileRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/security-profiles/{InstanceId}/{SecurityProfileId}"
+                  targetPrefix:@""
+                 operationName:@"DeleteSecurityProfile"
+                   outputClass:nil];
+}
+
+- (void)deleteSecurityProfile:(AWSConnectDeleteSecurityProfileRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteSecurityProfile:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1073,6 +1119,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectDescribeRoutingProfileResponse *response, NSError *error))completionHandler {
     [[self describeRoutingProfile:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDescribeRoutingProfileResponse *> * _Nonnull task) {
         AWSConnectDescribeRoutingProfileResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectDescribeSecurityProfileResponse *> *)describeSecurityProfile:(AWSConnectDescribeSecurityProfileRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/security-profiles/{InstanceId}/{SecurityProfileId}"
+                  targetPrefix:@""
+                 operationName:@"DescribeSecurityProfile"
+                   outputClass:[AWSConnectDescribeSecurityProfileResponse class]];
+}
+
+- (void)describeSecurityProfile:(AWSConnectDescribeSecurityProfileRequest *)request
+     completionHandler:(void (^)(AWSConnectDescribeSecurityProfileResponse *response, NSError *error))completionHandler {
+    [[self describeSecurityProfile:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDescribeSecurityProfileResponse *> * _Nonnull task) {
+        AWSConnectDescribeSecurityProfileResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1857,6 +1926,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectListSecurityProfilePermissionsResponse *> *)listSecurityProfilePermissions:(AWSConnectListSecurityProfilePermissionsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/security-profiles-permissions/{InstanceId}/{SecurityProfileId}"
+                  targetPrefix:@""
+                 operationName:@"ListSecurityProfilePermissions"
+                   outputClass:[AWSConnectListSecurityProfilePermissionsResponse class]];
+}
+
+- (void)listSecurityProfilePermissions:(AWSConnectListSecurityProfilePermissionsRequest *)request
+     completionHandler:(void (^)(AWSConnectListSecurityProfilePermissionsResponse *response, NSError *error))completionHandler {
+    [[self listSecurityProfilePermissions:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListSecurityProfilePermissionsResponse *> * _Nonnull task) {
+        AWSConnectListSecurityProfilePermissionsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectListSecurityProfilesResponse *> *)listSecurityProfiles:(AWSConnectListSecurityProfilesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -2041,6 +2133,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectStartContactStreamingResponse *> *)startContactStreaming:(AWSConnectStartContactStreamingRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/contact/start-streaming"
+                  targetPrefix:@""
+                 operationName:@"StartContactStreaming"
+                   outputClass:[AWSConnectStartContactStreamingResponse class]];
+}
+
+- (void)startContactStreaming:(AWSConnectStartContactStreamingRequest *)request
+     completionHandler:(void (^)(AWSConnectStartContactStreamingResponse *response, NSError *error))completionHandler {
+    [[self startContactStreaming:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectStartContactStreamingResponse *> * _Nonnull task) {
+        AWSConnectStartContactStreamingResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectStartOutboundVoiceContactResponse *> *)startOutboundVoiceContact:(AWSConnectStartOutboundVoiceContactRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -2123,6 +2238,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectStopContactRecordingResponse *response, NSError *error))completionHandler {
     [[self stopContactRecording:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectStopContactRecordingResponse *> * _Nonnull task) {
         AWSConnectStopContactRecordingResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectStopContactStreamingResponse *> *)stopContactStreaming:(AWSConnectStopContactStreamingRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/contact/stop-streaming"
+                  targetPrefix:@""
+                 operationName:@"StopContactStreaming"
+                   outputClass:[AWSConnectStopContactStreamingResponse class]];
+}
+
+- (void)stopContactStreaming:(AWSConnectStopContactStreamingRequest *)request
+     completionHandler:(void (^)(AWSConnectStopContactStreamingResponse *response, NSError *error))completionHandler {
+    [[self stopContactStreaming:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectStopContactStreamingResponse *> * _Nonnull task) {
+        AWSConnectStopContactStreamingResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -2587,6 +2725,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)updateRoutingProfileQueues:(AWSConnectUpdateRoutingProfileQueuesRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self updateRoutingProfileQueues:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)updateSecurityProfile:(AWSConnectUpdateSecurityProfileRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/security-profiles/{InstanceId}/{SecurityProfileId}"
+                  targetPrefix:@""
+                 operationName:@"UpdateSecurityProfile"
+                   outputClass:nil];
+}
+
+- (void)updateSecurityProfile:(AWSConnectUpdateSecurityProfileRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self updateSecurityProfile:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {

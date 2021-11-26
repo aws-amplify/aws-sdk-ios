@@ -61,7 +61,7 @@
                                                         willRetainFlag:NO
                                                   publishRetryThrottle:10];
 
-    OnMessageSessionDelegateBlock onMessage = ^void(AWSMQTTSession *session, NSData *data, NSString *topic) {
+    OnMessageSessionDelegateBlock onMessage = ^void(AWSMQTTSession *session, AWSMQTTMessage *message, NSString *topic) {
         if ([topic isEqualToString:expectedTopic]) {
             [messagesDelivered fulfill];
         }

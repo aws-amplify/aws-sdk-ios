@@ -33,6 +33,31 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorType) {
     AWSChimeSDKIdentityErrorUnauthorizedClient,
 };
 
+typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityAllowMessages) {
+    AWSChimeSDKIdentityAllowMessagesUnknown,
+    AWSChimeSDKIdentityAllowMessagesAll,
+    AWSChimeSDKIdentityAllowMessagesNone,
+};
+
+typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityAppInstanceUserEndpointType) {
+    AWSChimeSDKIdentityAppInstanceUserEndpointTypeUnknown,
+    AWSChimeSDKIdentityAppInstanceUserEndpointTypeApns,
+    AWSChimeSDKIdentityAppInstanceUserEndpointTypeApnsSandbox,
+    AWSChimeSDKIdentityAppInstanceUserEndpointTypeGcm,
+};
+
+typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityEndpointStatus) {
+    AWSChimeSDKIdentityEndpointStatusUnknown,
+    AWSChimeSDKIdentityEndpointStatusActive,
+    AWSChimeSDKIdentityEndpointStatusInactive,
+};
+
+typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityEndpointStatusReason) {
+    AWSChimeSDKIdentityEndpointStatusReasonUnknown,
+    AWSChimeSDKIdentityEndpointStatusReasonInvalidDeviceToken,
+    AWSChimeSDKIdentityEndpointStatusReasonInvalidPinpointArn,
+};
+
 typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
     AWSChimeSDKIdentityErrorCodeUnknown,
     AWSChimeSDKIdentityErrorCodeBadRequest,
@@ -58,6 +83,8 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
 @class AWSChimeSDKIdentityAppInstanceRetentionSettings;
 @class AWSChimeSDKIdentityAppInstanceSummary;
 @class AWSChimeSDKIdentityAppInstanceUser;
+@class AWSChimeSDKIdentityAppInstanceUserEndpoint;
+@class AWSChimeSDKIdentityAppInstanceUserEndpointSummary;
 @class AWSChimeSDKIdentityAppInstanceUserSummary;
 @class AWSChimeSDKIdentityChannelRetentionSettings;
 @class AWSChimeSDKIdentityCreateAppInstanceAdminRequest;
@@ -69,26 +96,41 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
 @class AWSChimeSDKIdentityDeleteAppInstanceAdminRequest;
 @class AWSChimeSDKIdentityDeleteAppInstanceRequest;
 @class AWSChimeSDKIdentityDeleteAppInstanceUserRequest;
+@class AWSChimeSDKIdentityDeregisterAppInstanceUserEndpointRequest;
 @class AWSChimeSDKIdentityDescribeAppInstanceAdminRequest;
 @class AWSChimeSDKIdentityDescribeAppInstanceAdminResponse;
 @class AWSChimeSDKIdentityDescribeAppInstanceRequest;
 @class AWSChimeSDKIdentityDescribeAppInstanceResponse;
+@class AWSChimeSDKIdentityDescribeAppInstanceUserEndpointRequest;
+@class AWSChimeSDKIdentityDescribeAppInstanceUserEndpointResponse;
 @class AWSChimeSDKIdentityDescribeAppInstanceUserRequest;
 @class AWSChimeSDKIdentityDescribeAppInstanceUserResponse;
+@class AWSChimeSDKIdentityEndpointAttributes;
+@class AWSChimeSDKIdentityEndpointState;
 @class AWSChimeSDKIdentityGetAppInstanceRetentionSettingsRequest;
 @class AWSChimeSDKIdentityGetAppInstanceRetentionSettingsResponse;
 @class AWSChimeSDKIdentityIdentity;
 @class AWSChimeSDKIdentityListAppInstanceAdminsRequest;
 @class AWSChimeSDKIdentityListAppInstanceAdminsResponse;
+@class AWSChimeSDKIdentityListAppInstanceUserEndpointsRequest;
+@class AWSChimeSDKIdentityListAppInstanceUserEndpointsResponse;
 @class AWSChimeSDKIdentityListAppInstanceUsersRequest;
 @class AWSChimeSDKIdentityListAppInstanceUsersResponse;
 @class AWSChimeSDKIdentityListAppInstancesRequest;
 @class AWSChimeSDKIdentityListAppInstancesResponse;
+@class AWSChimeSDKIdentityListTagsForResourceRequest;
+@class AWSChimeSDKIdentityListTagsForResourceResponse;
 @class AWSChimeSDKIdentityPutAppInstanceRetentionSettingsRequest;
 @class AWSChimeSDKIdentityPutAppInstanceRetentionSettingsResponse;
+@class AWSChimeSDKIdentityRegisterAppInstanceUserEndpointRequest;
+@class AWSChimeSDKIdentityRegisterAppInstanceUserEndpointResponse;
 @class AWSChimeSDKIdentityTag;
+@class AWSChimeSDKIdentityTagResourceRequest;
+@class AWSChimeSDKIdentityUntagResourceRequest;
 @class AWSChimeSDKIdentityUpdateAppInstanceRequest;
 @class AWSChimeSDKIdentityUpdateAppInstanceResponse;
+@class AWSChimeSDKIdentityUpdateAppInstanceUserEndpointRequest;
+@class AWSChimeSDKIdentityUpdateAppInstanceUserEndpointResponse;
 @class AWSChimeSDKIdentityUpdateAppInstanceUserRequest;
 @class AWSChimeSDKIdentityUpdateAppInstanceUserResponse;
 
@@ -227,6 +269,102 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
  <p>The name of the <code>AppInstanceUser</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ <p>An endpoint under an Amazon Chime <code>AppInstanceUser</code> that receives messages for a user. For push notifications, the endpoint is a mobile device used to receive mobile push notifications for a user.</p>
+ */
+@interface AWSChimeSDKIdentityAppInstanceUserEndpoint : AWSModel
+
+
+/**
+ <p>Boolean that controls whether the <code>AppInstanceUserEndpoint</code> is opted in to receive messages. <code>ALL</code> indicates the endpoint will receive all messages. <code>NONE</code> indicates the endpoint will receive no messages.</p>
+ */
+@property (nonatomic, assign) AWSChimeSDKIdentityAllowMessages allowMessages;
+
+/**
+ <p>The ARN of the <code>AppInstanceUser</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable appInstanceUserArn;
+
+/**
+ <p>The time at which an <code>AppInstanceUserEndpoint</code> was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable createdTimestamp;
+
+/**
+ <p>The attributes of an <code>Endpoint</code>.</p>
+ */
+@property (nonatomic, strong) AWSChimeSDKIdentityEndpointAttributes * _Nullable endpointAttributes;
+
+/**
+ <p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable endpointId;
+
+/**
+ <p>A read-only field that represents the state of an <code>AppInstanceUserEndpoint</code>. Supported values:</p><ul><li><p><code>ACTIVE</code>: The <code>AppInstanceUserEndpoint</code> is active and able to receive messages. When <code>ACTIVE</code>, the <code>EndpointStatusReason</code> remains empty.</p></li><li><p><code>INACTIVE</code>: The <code>AppInstanceUserEndpoint</code> is inactive and can't receive message. When <code>INACTIVE</code>, the corresponding reason will be conveyed through <code>EndpointStatusReason</code>.</p></li><li><p><code>INVALID_DEVICE_TOKEN</code> indicates that an <code>AppInstanceUserEndpoint</code> is <code>INACTIVE</code> due to invalid device token</p></li><li><p><code>INVALID_PINPOINT_ARN</code> indicates that an <code>AppInstanceUserEndpoint</code> is <code>INACTIVE</code> due to an invalid pinpoint ARN that was input through the <code>ResourceArn</code> field.</p></li></ul>
+ */
+@property (nonatomic, strong) AWSChimeSDKIdentityEndpointState * _Nullable endpointState;
+
+/**
+ <p>The time at which an <code>AppInstanceUserEndpoint</code> was last updated.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastUpdatedTimestamp;
+
+/**
+ <p>The name of the <code>AppInstanceUserEndpoint</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The ARN of the resource to which the endpoint belongs.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+/**
+ <p>The type of the <code>AppInstanceUserEndpoint</code>.</p>
+ */
+@property (nonatomic, assign) AWSChimeSDKIdentityAppInstanceUserEndpointType types;
+
+@end
+
+/**
+ <p>Summary of the details of an <code>AppInstanceUserEndpoint</code>.</p>
+ */
+@interface AWSChimeSDKIdentityAppInstanceUserEndpointSummary : AWSModel
+
+
+/**
+ <p>BBoolean that controls whether the <code>AppInstanceUserEndpoint</code> is opted in to receive messages. <code>ALL</code> indicates the endpoint will receive all messages. <code>NONE</code> indicates the endpoint will receive no messages.</p>
+ */
+@property (nonatomic, assign) AWSChimeSDKIdentityAllowMessages allowMessages;
+
+/**
+ <p>The ARN of the <code>AppInstanceUser</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable appInstanceUserArn;
+
+/**
+ <p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable endpointId;
+
+/**
+ <p>A read-only field that represent the state of an <code>AppInstanceUserEndpoint</code>.</p>
+ */
+@property (nonatomic, strong) AWSChimeSDKIdentityEndpointState * _Nullable endpointState;
+
+/**
+ <p>The name of the <code>AppInstanceUserEndpoint</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The type of the <code>AppInstanceUserEndpoint</code>.</p>
+ */
+@property (nonatomic, assign) AWSChimeSDKIdentityAppInstanceUserEndpointType types;
 
 @end
 
@@ -441,6 +579,24 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
 /**
  
  */
+@interface AWSChimeSDKIdentityDeregisterAppInstanceUserEndpointRequest : AWSRequest
+
+
+/**
+ <p>The ARN of the <code>AppInstanceUser</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable appInstanceUserArn;
+
+/**
+ <p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable endpointId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSChimeSDKIdentityDescribeAppInstanceAdminRequest : AWSRequest
 
 
@@ -498,6 +654,37 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
 /**
  
  */
+@interface AWSChimeSDKIdentityDescribeAppInstanceUserEndpointRequest : AWSRequest
+
+
+/**
+ <p>The ARN of the <code>AppInstanceUser</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable appInstanceUserArn;
+
+/**
+ <p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable endpointId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSChimeSDKIdentityDescribeAppInstanceUserEndpointResponse : AWSModel
+
+
+/**
+ <p>The full details of an <code>AppInstanceUserEndpoint</code>: the <code>AppInstanceUserArn</code>, ID, name, type, resource ARN, attributes, allow messages, state, and created and last updated timestamps. All timestamps use epoch milliseconds.</p>
+ */
+@property (nonatomic, strong) AWSChimeSDKIdentityAppInstanceUserEndpoint * _Nullable appInstanceUserEndpoint;
+
+@end
+
+/**
+ 
+ */
 @interface AWSChimeSDKIdentityDescribeAppInstanceUserRequest : AWSRequest
 
 
@@ -518,6 +705,44 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
  <p>The name of the <code>AppInstanceUser</code>.</p>
  */
 @property (nonatomic, strong) AWSChimeSDKIdentityAppInstanceUser * _Nullable appInstanceUser;
+
+@end
+
+/**
+ <p>The attributes of an <code>Endpoint</code>.</p>
+ Required parameters: [DeviceToken]
+ */
+@interface AWSChimeSDKIdentityEndpointAttributes : AWSModel
+
+
+/**
+ <p>The device token for the GCM, APNS, and APNS_SANDBOX endpoint types.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable deviceToken;
+
+/**
+ <p>The VOIP device token for the APNS and APNS_SANDBOX endpoint types.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable voipDeviceToken;
+
+@end
+
+/**
+ <p>A read-only field that represents the state of an <code>AppInstanceUserEndpoint</code>. Supported values:</p><ul><li><p><code>ACTIVE</code>: The <code>AppInstanceUserEndpoint</code> is active and able to receive messages. When <code>ACTIVE</code>, the <code>EndpointStatusReason</code> remains empty.</p></li><li><p><code>INACTIVE</code>: The <code>AppInstanceUserEndpoint</code> is inactive and can't receive message. When INACTIVE, the corresponding reason will be conveyed through EndpointStatusReason.</p></li><li><p><code>INVALID_DEVICE_TOKEN</code> indicates that an <code>AppInstanceUserEndpoint</code> is <code>INACTIVE</code> due to invalid device token</p></li><li><p><code>INVALID_PINPOINT_ARN</code> indicates that an <code>AppInstanceUserEndpoint</code> is <code>INACTIVE</code> due to an invalid pinpoint ARN that was input through the <code>ResourceArn</code> field.</p></li></ul>
+ Required parameters: [Status]
+ */
+@interface AWSChimeSDKIdentityEndpointState : AWSModel
+
+
+/**
+ <p>Enum that indicates the Status of an <code>AppInstanceUserEndpoint</code>.</p>
+ */
+@property (nonatomic, assign) AWSChimeSDKIdentityEndpointStatus status;
+
+/**
+ <p>The reason for the <code>EndpointStatus</code>.</p>
+ */
+@property (nonatomic, assign) AWSChimeSDKIdentityEndpointStatusReason statusReason;
 
 @end
 
@@ -619,6 +844,47 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
 /**
  
  */
+@interface AWSChimeSDKIdentityListAppInstanceUserEndpointsRequest : AWSRequest
+
+
+/**
+ <p>The ARN of the <code>AppInstanceUser</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable appInstanceUserArn;
+
+/**
+ <p>The maximum number of endpoints that you want to return.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token passed by previous API calls until all requested endpoints are returned.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSChimeSDKIdentityListAppInstanceUserEndpointsResponse : AWSModel
+
+
+/**
+ <p>The information for each requested <code>AppInstanceUserEndpoint</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSChimeSDKIdentityAppInstanceUserEndpointSummary *> * _Nullable appInstanceUserEndpoints;
+
+/**
+ <p>The token passed by previous API calls until all requested endpoints are returned.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
 @interface AWSChimeSDKIdentityListAppInstanceUsersRequest : AWSRequest
 
 
@@ -701,6 +967,32 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
 /**
  
  */
+@interface AWSChimeSDKIdentityListTagsForResourceRequest : AWSRequest
+
+
+/**
+ <p>The ARN of the resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceARN;
+
+@end
+
+/**
+ 
+ */
+@interface AWSChimeSDKIdentityListTagsForResourceResponse : AWSModel
+
+
+/**
+ <p>The tag key-value pairs.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSChimeSDKIdentityTag *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
 @interface AWSChimeSDKIdentityPutAppInstanceRetentionSettingsRequest : AWSRequest
 
 
@@ -735,21 +1027,118 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
 @end
 
 /**
- <p>Describes a tag applied to a resource.</p>
+ 
+ */
+@interface AWSChimeSDKIdentityRegisterAppInstanceUserEndpointRequest : AWSRequest
+
+
+/**
+ <p>Boolean that controls whether the AppInstanceUserEndpoint is opted in to receive messages. <code>ALL</code> indicates the endpoint receives all messages. <code>NONE</code> indicates the endpoint receives no messages.</p>
+ */
+@property (nonatomic, assign) AWSChimeSDKIdentityAllowMessages allowMessages;
+
+/**
+ <p>The ARN of the <code>AppInstanceUser</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable appInstanceUserArn;
+
+/**
+ <p>The idempotency token for each client request. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientRequestToken;
+
+/**
+ <p>The attributes of an <code>Endpoint</code>.</p>
+ */
+@property (nonatomic, strong) AWSChimeSDKIdentityEndpointAttributes * _Nullable endpointAttributes;
+
+/**
+ <p>The name of the <code>AppInstanceUserEndpoint</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The ARN of the resource to which the endpoint belongs.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+/**
+ <p>The type of the <code>AppInstanceUserEndpoint</code>. Supported types:</p><ul><li><p><code>APNS</code>: The mobile notification service for an Apple device.</p></li><li><p><code>APNS_SANDBOX</code>: The sandbox environment of the mobile notification service for an Apple device.</p></li><li><p><code>GCM</code>: The mobile notification service for an Android device.</p></li></ul><p>Populate the <code>ResourceArn</code> value of each type as <code>PinpointAppArn</code>.</p>
+ */
+@property (nonatomic, assign) AWSChimeSDKIdentityAppInstanceUserEndpointType types;
+
+@end
+
+/**
+ 
+ */
+@interface AWSChimeSDKIdentityRegisterAppInstanceUserEndpointResponse : AWSModel
+
+
+/**
+ <p>The ARN of the <code>AppInstanceUser</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable appInstanceUserArn;
+
+/**
+ <p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable endpointId;
+
+@end
+
+/**
+ <p>A tag object containing a key-value pair.</p>
  Required parameters: [Key, Value]
  */
 @interface AWSChimeSDKIdentityTag : AWSModel
 
 
 /**
- <p>The key of the tag.</p>
+ <p>The key in a tag.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable key;
 
 /**
- <p>The value of the tag.</p>
+ <p>The value in a tag.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable value;
+
+@end
+
+/**
+ 
+ */
+@interface AWSChimeSDKIdentityTagResourceRequest : AWSRequest
+
+
+/**
+ <p>The resource ARN.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceARN;
+
+/**
+ <p>The tag key-value pairs.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSChimeSDKIdentityTag *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSChimeSDKIdentityUntagResourceRequest : AWSRequest
+
+
+/**
+ <p>The resource ARN.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceARN;
+
+/**
+ <p>The tag keys.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable tagKeys;
 
 @end
 
@@ -786,6 +1175,52 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKIdentityErrorCode) {
  <p>The ARN of the <code>AppInstance</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable appInstanceArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSChimeSDKIdentityUpdateAppInstanceUserEndpointRequest : AWSRequest
+
+
+/**
+ <p>Boolean that controls whether the <code>AppInstanceUserEndpoint</code> is opted in to receive messages. <code>ALL</code> indicates the endpoint will receive all messages. <code>NONE</code> indicates the endpoint will receive no messages.</p>
+ */
+@property (nonatomic, assign) AWSChimeSDKIdentityAllowMessages allowMessages;
+
+/**
+ <p>The ARN of the <code>AppInstanceUser</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable appInstanceUserArn;
+
+/**
+ <p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable endpointId;
+
+/**
+ <p>The name of the <code>AppInstanceUserEndpoint</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ 
+ */
+@interface AWSChimeSDKIdentityUpdateAppInstanceUserEndpointResponse : AWSModel
+
+
+/**
+ <p>The ARN of the <code>AppInstanceUser</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable appInstanceUserArn;
+
+/**
+ <p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable endpointId;
 
 @end
 

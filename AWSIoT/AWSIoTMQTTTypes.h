@@ -15,6 +15,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class AWSIoTMessage;
+
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger, AWSIoTMQTTStatus) {
@@ -27,13 +29,32 @@ typedef NS_ENUM(NSInteger, AWSIoTMQTTStatus) {
     AWSIoTMQTTStatusProtocolError
 };
 
+typedef NS_ENUM(NSInteger, AWSIoTMQTTMessageType) {
+    AWSIoTMQTTMessageTypeConnect = 1,
+    AWSIoTMQTTMessageTypeConnack = 2,
+    AWSIoTMQTTMessageTypePublish = 3,
+    AWSIoTMQTTMessageTypePuback = 4,
+    AWSIoTMQTTMessageTypePubrec = 5,
+    AWSIoTMQTTMessageTypePubrel = 6,
+    AWSIoTMQTTMessageTypePubcomp = 7,
+    AWSIoTMQTTMessageTypeSubscribe = 8,
+    AWSIoTMQTTMessageTypeSuback = 9,
+    AWSIoTMQTTMessageTypeUnsubscribe = 10,
+    AWSIoTMQTTMessageTypeUnsuback = 11,
+    AWSIoTMQTTMessageTypePingreq = 12,
+    AWSIoTMQTTMessageTypePingresp = 13,
+    AWSIoTMQTTMessageTypeDisconnect = 14
+};
+
 typedef NS_ENUM(NSInteger, AWSIoTMQTTQoS) {
     AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce = 0,
-    AWSIoTMQTTQoSMessageDeliveryAttemptedAtLeastOnce = 1
+    AWSIoTMQTTQoSMessageDeliveryAttemptedAtLeastOnce = 1,
+    AWSIoTMQTTQoSMessageDeliveryAttemptedExactlyOnce = 2
 };
 
 typedef void(^AWSIoTMQTTNewMessageBlock)(NSData *data);
 typedef void(^AWSIoTMQTTExtendedNewMessageBlock)(NSObject *mqttClient, NSString *topic, NSData *data);
+typedef void(^AWSIoTMQTTFullMessageBlock)(NSString *topic, AWSIoTMessage *message);
 typedef void(^AWSIoTMQTTAckBlock)(void);
 
 NS_ASSUME_NONNULL_END

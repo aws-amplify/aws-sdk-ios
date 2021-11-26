@@ -18,7 +18,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void (^OnMessageSessionDelegateBlock)(AWSMQTTSession*, NSData*, NSString*);
+typedef void (^OnMessageSessionDelegateBlock)(AWSMQTTSession*, AWSMQTTMessage*, NSString*);
 typedef void (^OnEventSessionDelegateBlock)(AWSMQTTSession*, AWSMQTTSessionEvent);
 typedef void (^OnAckSessionDelegateBlock)(AWSMQTTSession*, UInt16);
 
