@@ -2,7 +2,8 @@
 
 ## Unreleased
 
--Features for next release
+### Bug Fixes
+- Return Swift optionals from Objective C methods that can return nil
 
 ## 2.26.5
 
