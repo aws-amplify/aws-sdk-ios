@@ -34,7 +34,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
 /**
  An AWS credentials container class.
  */
-@interface AWSCredentials : NSObject
+@interface AWSCredentials : NSObject <NSCopying>
 
 /**
  Access Key component of credentials.
