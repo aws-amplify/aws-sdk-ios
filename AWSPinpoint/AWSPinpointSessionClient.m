@@ -228,7 +228,10 @@ NSObject *sessionLock;
             AWSDDLogError(@"Pinpoint Analytics is disabled.");
             return nil;
         }
-        if (_session) {
+         if (_session) {
+             [self endCurrentSession];
+         }
+         return [self startNewSession];
             [self endCurrentSession];
             return [self startNewSession];
         } else {
