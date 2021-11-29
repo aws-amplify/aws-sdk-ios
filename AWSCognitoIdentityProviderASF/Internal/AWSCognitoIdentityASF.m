@@ -4,6 +4,7 @@
 #import <CoreTelephony/CTCarrier.h>
 #import <sys/utsname.h>
 #import <CommonCrypto/CommonHMAC.h>
+#import <AWSCore/AWSCocoaLumberjack.h>
 
 @interface AWSCognitoIdentityASF()
 + (NSString *) dashIfNil: (NSString *) str;
@@ -74,8 +75,6 @@ static NSString *const AWSCognitoIdentityASFVersion= @"IOS20171114";
     
     NSString * minTargetString = [NSString stringWithFormat:@"%i", minTarget];
     
-    
-    
     NSMutableDictionary * contextData= [NSMutableDictionary new];
     [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityAppName value:bundleIdentifier];
     [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityAppTargetSDK value: minTargetString];
@@ -107,7 +106,6 @@ static NSString *const AWSCognitoIdentityASFVersion= @"IOS20171114";
                                 @"userPoolId": userPoolId,
                                 @"timestamp" : [NSString stringWithFormat:@"%lli", [@(floor([[NSDate date] timeIntervalSince1970] * 1000)) longLongValue]]
                                 };
-    
     
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:payload
@@ -177,8 +175,6 @@ static NSString *const AWSCognitoIdentityASFVersion= @"IOS20171114";
     
     NSString * minTargetString = [NSString stringWithFormat:@"%i", minTarget];
     
-    
-    
     NSMutableDictionary * contextData= [NSMutableDictionary new];
     [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityAppName value:bundleIdentifier];
     [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityAppTargetSDK value: minTargetString];
@@ -211,12 +207,12 @@ static NSString *const AWSCognitoIdentityASFVersion= @"IOS20171114";
         @"timestamp" : [NSString stringWithFormat:@"%lli", [@(floor([[NSDate date] timeIntervalSince1970] * 1000)) longLongValue]]
     };
     
-    
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:payload
                                                        options:0
                                                          error:&error];
     if(error){
+        AWSDDLogError(@"Failed to parse JSON user context: %@", error);
         return nil;
     }
     
