@@ -95,10 +95,18 @@ typedef NS_ENUM(NSInteger, AWSTextractTextType) {
     AWSTextractTextTypePrinted,
 };
 
+typedef NS_ENUM(NSInteger, AWSTextractValueType) {
+    AWSTextractValueTypeUnknown,
+    AWSTextractValueTypeDate,
+};
+
 @class AWSTextractAnalyzeDocumentRequest;
 @class AWSTextractAnalyzeDocumentResponse;
 @class AWSTextractAnalyzeExpenseRequest;
 @class AWSTextractAnalyzeExpenseResponse;
+@class AWSTextractAnalyzeIDDetections;
+@class AWSTextractAnalyzeIDRequest;
+@class AWSTextractAnalyzeIDResponse;
 @class AWSTextractBlock;
 @class AWSTextractBoundingBox;
 @class AWSTextractDetectDocumentTextRequest;
@@ -120,8 +128,11 @@ typedef NS_ENUM(NSInteger, AWSTextractTextType) {
 @class AWSTextractHumanLoopActivationOutput;
 @class AWSTextractHumanLoopConfig;
 @class AWSTextractHumanLoopDataAttributes;
+@class AWSTextractIdentityDocument;
+@class AWSTextractIdentityDocumentField;
 @class AWSTextractLineItemFields;
 @class AWSTextractLineItemGroup;
+@class AWSTextractNormalizedValue;
 @class AWSTextractNotificationChannel;
 @class AWSTextractOutputConfig;
 @class AWSTextractPoint;
@@ -214,6 +225,66 @@ typedef NS_ENUM(NSInteger, AWSTextractTextType) {
  <p>The expenses detected by Amazon Textract.</p>
  */
 @property (nonatomic, strong) NSArray<AWSTextractExpenseDocument *> * _Nullable expenseDocuments;
+
+@end
+
+/**
+ <p>Used to contain the information detected by an AnalyzeID operation.</p>
+ Required parameters: [Text]
+ */
+@interface AWSTextractAnalyzeIDDetections : AWSModel
+
+
+/**
+ <p>The confidence score of the detected text.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable confidence;
+
+/**
+ <p>Only returned for dates, returns the type of value detected and the date written in a more machine readable way.</p>
+ */
+@property (nonatomic, strong) AWSTextractNormalizedValue * _Nullable normalizedValue;
+
+/**
+ <p>Text of either the normalized field or value associated with it.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable text;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTextractAnalyzeIDRequest : AWSRequest
+
+
+/**
+ <p>The document being passed to AnalyzeID.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractDocument *> * _Nullable documentPages;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTextractAnalyzeIDResponse : AWSModel
+
+
+/**
+ <p>The version of the AnalyzeIdentity API being used to process documents.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable analyzeIDModelVersion;
+
+/**
+ <p>Information about the input document.</p>
+ */
+@property (nonatomic, strong) AWSTextractDocumentMetadata * _Nullable documentMetadata;
+
+/**
+ <p>The list of documents processed by AnalyzeID. Includes a number denoting their place in the list and the response structure for the document.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractIdentityDocument *> * _Nullable identityDocuments;
 
 @end
 
@@ -450,7 +521,7 @@ typedef NS_ENUM(NSInteger, AWSTextractTextType) {
 @end
 
 /**
- <p>Breakdown of detected information, seperated into the catagories Type, LableDetection, and ValueDetection</p>
+ <p>Breakdown of detected information, seperated into the catagories Type, LabelDetection, and ValueDetection</p>
  */
 @interface AWSTextractExpenseField : AWSModel
 
@@ -772,6 +843,42 @@ typedef NS_ENUM(NSInteger, AWSTextractTextType) {
 @end
 
 /**
+ <p>The structure that lists each document processed in an AnalyzeID operation.</p>
+ */
+@interface AWSTextractIdentityDocument : AWSModel
+
+
+/**
+ <p>Denotes the placement of a document in the IdentityDocument list. The first document is marked 1, the second 2 and so on.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable documentIndex;
+
+/**
+ <p>The structure used to record information extracted from identity documents. Contains both normalized field and value of the extracted text.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractIdentityDocumentField *> * _Nullable identityDocumentFields;
+
+@end
+
+/**
+ <p>Structure containing both the normalized type of the extracted information and the text associated with it. These are extracted as Type and Value respectively.</p>
+ */
+@interface AWSTextractIdentityDocumentField : AWSModel
+
+
+/**
+ <p>Used to contain the information detected by an AnalyzeID operation.</p>
+ */
+@property (nonatomic, strong) AWSTextractAnalyzeIDDetections * _Nullable types;
+
+/**
+ <p>Used to contain the information detected by an AnalyzeID operation.</p>
+ */
+@property (nonatomic, strong) AWSTextractAnalyzeIDDetections * _Nullable valueDetection;
+
+@end
+
+/**
  <p>A structure that holds information about the different lines found in a document's tables.</p>
  */
 @interface AWSTextractLineItemFields : AWSModel
@@ -799,6 +906,24 @@ typedef NS_ENUM(NSInteger, AWSTextractTextType) {
  <p>The breakdown of information on a particular line of a table. </p>
  */
 @property (nonatomic, strong) NSArray<AWSTextractLineItemFields *> * _Nullable lineItems;
+
+@end
+
+/**
+ <p>Contains information relating to dates in a document, including the type of value, and the value.</p>
+ */
+@interface AWSTextractNormalizedValue : AWSModel
+
+
+/**
+ <p>The value of the date, written as Year-Month-DayTHour:Minute:Second.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable value;
+
+/**
+ <p>The normalized type of the value detected. In this case, DATE.</p>
+ */
+@property (nonatomic, assign) AWSTextractValueType valueType;
 
 @end
 
