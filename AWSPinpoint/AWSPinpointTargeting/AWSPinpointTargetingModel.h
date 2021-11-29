@@ -593,6 +593,9 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @class AWSPinpointTargetingSegmentsResponse;
 @class AWSPinpointTargetingSendMessagesRequest;
 @class AWSPinpointTargetingSendMessagesResponse;
+@class AWSPinpointTargetingSendOTPMessageRequest;
+@class AWSPinpointTargetingSendOTPMessageRequestParameters;
+@class AWSPinpointTargetingSendOTPMessageResponse;
 @class AWSPinpointTargetingSendUsersMessageRequest;
 @class AWSPinpointTargetingSendUsersMessageResponse;
 @class AWSPinpointTargetingSendUsersMessagesRequest;
@@ -665,6 +668,10 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @class AWSPinpointTargetingUpdateVoiceChannelResponse;
 @class AWSPinpointTargetingUpdateVoiceTemplateRequest;
 @class AWSPinpointTargetingUpdateVoiceTemplateResponse;
+@class AWSPinpointTargetingVerificationResponse;
+@class AWSPinpointTargetingVerifyOTPMessageRequest;
+@class AWSPinpointTargetingVerifyOTPMessageRequestParameters;
+@class AWSPinpointTargetingVerifyOTPMessageResponse;
 @class AWSPinpointTargetingVoiceChannelRequest;
 @class AWSPinpointTargetingVoiceChannelResponse;
 @class AWSPinpointTargetingVoiceMessage;
@@ -9512,6 +9519,101 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @end
 
 /**
+ 
+ */
+@interface AWSPinpointTargetingSendOTPMessageRequest : AWSRequest
+
+
+/**
+ <p>The unique ID of your Amazon Pinpoint application.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ <p>Send OTP message request parameters.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingSendOTPMessageRequestParameters * _Nullable sendOTPMessageRequestParameters;
+
+@end
+
+/**
+ <p>Send OTP message request parameters.</p>
+ Required parameters: [BrandName, ReferenceId, Channel, DestinationIdentity, OriginationIdentity]
+ */
+@interface AWSPinpointTargetingSendOTPMessageRequestParameters : AWSModel
+
+
+/**
+ <p>The attempts allowed to validate an OTP.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable allowedAttempts;
+
+/**
+ <p>The brand name that will be substituted into the OTP message body. Should be owned by calling AWS account.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable brandName;
+
+/**
+ <p>Channel type for the OTP message. Supported values: [SMS].</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable channel;
+
+/**
+ <p>The number of characters in the generated OTP.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable codeLength;
+
+/**
+ <p>The destination identity to send OTP to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationIdentity;
+
+/**
+ <p>A unique Entity ID received from DLT after entity registration is approved.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable entityId;
+
+/**
+ <p>The language to be used for the outgoing message body containing the OTP.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable language;
+
+/**
+ <p>The origination identity used to send OTP from.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable originationIdentity;
+
+/**
+ <p>Developer-specified reference identifier. Required to match during OTP verification.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable referenceId;
+
+/**
+ <p>A unique Template ID received from DLT after entity registration is approved.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable templateId;
+
+/**
+ <p>The time in minutes before the OTP is no longer valid.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable validityPeriod;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingSendOTPMessageResponse : AWSModel
+
+
+/**
+ <p>Provides information about the results of a request to send a message to an endpoint address.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingMessageResponse * _Nullable messageResponse;
+
+@end
+
+/**
  <p>Specifies the configuration and other settings for a message to send to all the endpoints that are associated with a list of users.</p>
  Required parameters: [MessageConfiguration, Users]
  */
@@ -10955,6 +11057,74 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
  <p>Provides information about an API request or response.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingMessageBody * _Nullable messageBody;
+
+@end
+
+/**
+ <p>Verify OTP Message Response.</p>
+ */
+@interface AWSPinpointTargetingVerificationResponse : AWSModel
+
+
+/**
+ <p>Specifies whether the OTP is valid or not.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable valid;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingVerifyOTPMessageRequest : AWSRequest
+
+
+/**
+ <p>The unique ID of your Amazon Pinpoint application.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ <p>Verify OTP message request.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingVerifyOTPMessageRequestParameters * _Nullable verifyOTPMessageRequestParameters;
+
+@end
+
+/**
+ <p>Verify OTP message request.</p>
+ Required parameters: [ReferenceId, Otp, DestinationIdentity]
+ */
+@interface AWSPinpointTargetingVerifyOTPMessageRequestParameters : AWSModel
+
+
+/**
+ <p>The destination identity to send OTP to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationIdentity;
+
+/**
+ <p>The OTP the end user provided for verification.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable otp;
+
+/**
+ <p>The reference identifier provided when the OTP was previously sent.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable referenceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingVerifyOTPMessageResponse : AWSModel
+
+
+/**
+ <p>Verify OTP Message Response.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingVerificationResponse * _Nullable verificationResponse;
 
 @end
 
