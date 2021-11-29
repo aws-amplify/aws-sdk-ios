@@ -333,6 +333,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSTextractAnalyzeIDResponse *> *)analyzeID:(AWSTextractAnalyzeIDRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Textract"
+                 operationName:@"AnalyzeID"
+                   outputClass:[AWSTextractAnalyzeIDResponse class]];
+}
+
+- (void)analyzeID:(AWSTextractAnalyzeIDRequest *)request
+     completionHandler:(void (^)(AWSTextractAnalyzeIDResponse *response, NSError *error))completionHandler {
+    [[self analyzeID:request] continueWithBlock:^id _Nullable(AWSTask<AWSTextractAnalyzeIDResponse *> * _Nonnull task) {
+        AWSTextractAnalyzeIDResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSTextractDetectDocumentTextResponse *> *)detectDocumentText:(AWSTextractDetectDocumentTextRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST

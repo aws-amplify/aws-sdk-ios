@@ -23,6 +23,9 @@
 - (void) test_AWSTextractAnalyzeDocumentResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTextractAnalyzeExpenseRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTextractAnalyzeExpenseResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTextractAnalyzeIDDetections API_AVAILABLE(ios(11));
+- (void) test_AWSTextractAnalyzeIDRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTextractAnalyzeIDResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTextractBlock API_AVAILABLE(ios(11));
 - (void) test_AWSTextractBoundingBox API_AVAILABLE(ios(11));
 - (void) test_AWSTextractDetectDocumentTextRequest API_AVAILABLE(ios(11));
@@ -44,8 +47,11 @@
 - (void) test_AWSTextractHumanLoopActivationOutput API_AVAILABLE(ios(11));
 - (void) test_AWSTextractHumanLoopConfig API_AVAILABLE(ios(11));
 - (void) test_AWSTextractHumanLoopDataAttributes API_AVAILABLE(ios(11));
+- (void) test_AWSTextractIdentityDocument API_AVAILABLE(ios(11));
+- (void) test_AWSTextractIdentityDocumentField API_AVAILABLE(ios(11));
 - (void) test_AWSTextractLineItemFields API_AVAILABLE(ios(11));
 - (void) test_AWSTextractLineItemGroup API_AVAILABLE(ios(11));
+- (void) test_AWSTextractNormalizedValue API_AVAILABLE(ios(11));
 - (void) test_AWSTextractNotificationChannel API_AVAILABLE(ios(11));
 - (void) test_AWSTextractOutputConfig API_AVAILABLE(ios(11));
 - (void) test_AWSTextractPoint API_AVAILABLE(ios(11));
@@ -77,6 +83,18 @@
 
 - (void) test_AWSTextractAnalyzeExpenseResponse {
     [self validateSecureCodingForClass:[AWSTextractAnalyzeExpenseResponse class]];
+}
+
+- (void) test_AWSTextractAnalyzeIDDetections {
+    [self validateSecureCodingForClass:[AWSTextractAnalyzeIDDetections class]];
+}
+
+- (void) test_AWSTextractAnalyzeIDRequest {
+    [self validateSecureCodingForClass:[AWSTextractAnalyzeIDRequest class]];
+}
+
+- (void) test_AWSTextractAnalyzeIDResponse {
+    [self validateSecureCodingForClass:[AWSTextractAnalyzeIDResponse class]];
 }
 
 - (void) test_AWSTextractBlock {
@@ -163,12 +181,24 @@
     [self validateSecureCodingForClass:[AWSTextractHumanLoopDataAttributes class]];
 }
 
+- (void) test_AWSTextractIdentityDocument {
+    [self validateSecureCodingForClass:[AWSTextractIdentityDocument class]];
+}
+
+- (void) test_AWSTextractIdentityDocumentField {
+    [self validateSecureCodingForClass:[AWSTextractIdentityDocumentField class]];
+}
+
 - (void) test_AWSTextractLineItemFields {
     [self validateSecureCodingForClass:[AWSTextractLineItemFields class]];
 }
 
 - (void) test_AWSTextractLineItemGroup {
     [self validateSecureCodingForClass:[AWSTextractLineItemGroup class]];
+}
+
+- (void) test_AWSTextractNormalizedValue {
+    [self validateSecureCodingForClass:[AWSTextractNormalizedValue class]];
 }
 
 - (void) test_AWSTextractNotificationChannel {

@@ -112,6 +112,68 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 @end
 
+@implementation AWSTextractAnalyzeIDDetections
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"confidence" : @"Confidence",
+             @"normalizedValue" : @"NormalizedValue",
+             @"text" : @"Text",
+             };
+}
+
++ (NSValueTransformer *)normalizedValueJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractNormalizedValue class]];
+}
+
+@end
+
+@implementation AWSTextractAnalyzeIDRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"documentPages" : @"DocumentPages",
+             };
+}
+
++ (NSValueTransformer *)documentPagesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTextractDocument class]];
+}
+
+@end
+
+@implementation AWSTextractAnalyzeIDResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"analyzeIDModelVersion" : @"AnalyzeIDModelVersion",
+             @"documentMetadata" : @"DocumentMetadata",
+             @"identityDocuments" : @"IdentityDocuments",
+             };
+}
+
++ (NSValueTransformer *)documentMetadataJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractDocumentMetadata class]];
+}
+
++ (NSValueTransformer *)identityDocumentsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTextractIdentityDocument class]];
+}
+
+@end
+
 @implementation AWSTextractBlock
 
 + (BOOL)supportsSecureCoding {
@@ -743,6 +805,48 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 @end
 
+@implementation AWSTextractIdentityDocument
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"documentIndex" : @"DocumentIndex",
+             @"identityDocumentFields" : @"IdentityDocumentFields",
+             };
+}
+
++ (NSValueTransformer *)identityDocumentFieldsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTextractIdentityDocumentField class]];
+}
+
+@end
+
+@implementation AWSTextractIdentityDocumentField
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"types" : @"Type",
+             @"valueDetection" : @"ValueDetection",
+             };
+}
+
++ (NSValueTransformer *)typesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractAnalyzeIDDetections class]];
+}
+
++ (NSValueTransformer *)valueDetectionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractAnalyzeIDDetections class]];
+}
+
+@end
+
 @implementation AWSTextractLineItemFields
 
 + (BOOL)supportsSecureCoding {
@@ -776,6 +880,37 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 + (NSValueTransformer *)lineItemsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTextractLineItemFields class]];
+}
+
+@end
+
+@implementation AWSTextractNormalizedValue
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"value" : @"Value",
+             @"valueType" : @"ValueType",
+             };
+}
+
++ (NSValueTransformer *)valueTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"DATE"] == NSOrderedSame) {
+            return @(AWSTextractValueTypeDate);
+        }
+        return @(AWSTextractValueTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTextractValueTypeDate:
+                return @"DATE";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
