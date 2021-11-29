@@ -77,8 +77,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Get the device id
+ 
+ @warning This function is deprecated and will be removed in an upcoming minor
+ version of the SDK. You should use deviceIdentifier instead.
+ @deprecated Use deviceIdentifier instead.
  */
-@property (nonatomic, readonly) NSString * deviceId;
+@property (nonatomic, readonly) NSString * deviceId DEPRECATED_MSG_ATTRIBUTE("Use deviceIdentifier instead.");
+
+/**
+ Get the device id
+ */
+@property (nonatomic, readonly, nullable) NSString * deviceIdentifier;
 
 /**
  Confirm a users' sign up with the confirmation code

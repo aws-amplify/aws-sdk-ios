@@ -1202,7 +1202,7 @@ withPresentingViewController:(UIViewController *)presentingViewController {
 }
 
 -(NSDictionary *) claims {
-    NSDictionary * result = nil;
+    NSDictionary * result = @{};
     NSArray *pieces = [self.tokenString componentsSeparatedByString:@"."];
     if(pieces.count > 2){
         NSString * claims = pieces[1];

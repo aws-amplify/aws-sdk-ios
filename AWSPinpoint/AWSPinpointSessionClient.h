@@ -63,15 +63,52 @@ typedef __nullable id(^AWSPinpointTimeoutBlock)(AWSTask *task);
  If a session is currently active then that session is stopped and a new session started.
  
  @return AWSTask - task.result contains the start event.
+ 
+ @warning This function is deprecated and will be removed in an upcoming minor
+ version of the SDK. You should use startPinpointSession instead.
+ @deprecated Use startPinpointSession instead.
  */
-- (AWSTask*)startSession;
+- (AWSTask*)startSession DEPRECATED_MSG_ATTRIBUTE("Use startPinpointSession instead.");
+
+/**
+ Starts the session by recording an event of type "_session.start"
+ If a session is currently active then that session is stopped and a new session started.
+ 
+ @return AWSTask - task.result contains the start event.
+ */
+- (nullable AWSTask*)startPinpointSession;
+
+/**
+ Stops the session by recording an event of type "_session.stop"
+ 
+ @return AWSTask - task.result contains the stop event.
+ 
+ @warning This function is deprecated and will be removed in an upcoming minor
+ version of the SDK. You should use stopPinpointSession instead.
+ @deprecated Use stopPinpointSession instead.
+ */
+- (AWSTask*)stopSession DEPRECATED_MSG_ATTRIBUTE("Use stopPinpointSession instead.");
 
 /**
  Stops the session by recording an event of type "_session.stop"
  
  @return AWSTask - task.result contains the stop event.
  */
-- (AWSTask*)stopSession;
+- (nullable AWSTask*)stopPinpointSession;
+
+/**
+ Pauses the session by recording an event of type "_session.pause"
+ @param timeoutEnabled If this is enabled then the session will timeout after 5 seconds and a session stop will be recorded. (Session timeout is configurable in AWSPinpointConfiguration)
+ @param timeoutCompletionBlock The block that will be executed after timeout has completed and submission of events has occurred, task.result will contain events that were submitted.
+ 
+ @return AWSTask - task.result contains the pause event.
+ 
+ @warning This function is deprecated and will be removed in an upcoming minor
+ version of the SDK. You should use pausePinpointSessionWithTimeoutEnabled instead.
+ @deprecated Use pausePinpointSessionWithTimeoutEnabled instead.
+ */
+- (AWSTask*)pauseSessionWithTimeoutEnabled:(BOOL) timeoutEnabled
+                    timeoutCompletionBlock:(nullable AWSPinpointTimeoutBlock) timeoutCompletionBlock DEPRECATED_MSG_ATTRIBUTE("Use pausePinpointSessionWithTimeoutEnabled instead.");
 
 /**
  Pauses the session by recording an event of type "_session.pause"
@@ -80,7 +117,7 @@ typedef __nullable id(^AWSPinpointTimeoutBlock)(AWSTask *task);
  
  @return AWSTask - task.result contains the pause event.
  */
-- (AWSTask*)pauseSessionWithTimeoutEnabled:(BOOL) timeoutEnabled
+- (nullable AWSTask*)pausePinpointSessionWithTimeoutEnabled:(BOOL) timeoutEnabled
                     timeoutCompletionBlock:(nullable AWSPinpointTimeoutBlock) timeoutCompletionBlock;
 
 /**
@@ -89,9 +126,21 @@ typedef __nullable id(^AWSPinpointTimeoutBlock)(AWSTask *task);
  If the timeout of 5 seconds has passed, then the current session is stopped and a new session started. (Session timeout if configurable in AWSPinpointConfiguration)
  
  @return AWSTask - task.result contains the resume event.
+ 
+ @warning This function is deprecated and will be removed in an upcoming minor
+ version of the SDK. You should use resumePinpointSession instead.
+ @deprecated Use resumePinpointSession instead.
  */
-- (AWSTask*)resumeSession;
+- (AWSTask*)resumeSession DEPRECATED_MSG_ATTRIBUTE("Use resumePinpointSession instead.");
 
+/**
+ Resumes the session by recording an event of type "_session.resume"
+ If no session is active then a new session is started.
+ If the timeout of 5 seconds has passed, then the current session is stopped and a new session started. (Session timeout if configurable in AWSPinpointConfiguration)
+ 
+ @return AWSTask - task.result contains the resume event.
+ */
+- (nullable AWSTask*)resumePinpointSession;
 @end
 
 NS_ASSUME_NONNULL_END
