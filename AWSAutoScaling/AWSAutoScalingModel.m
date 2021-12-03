@@ -2514,26 +2514,6 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
-@implementation AWSAutoScalingMetric
-
-+ (BOOL)supportsSecureCoding {
-    return YES;
-}
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"dimensions" : @"Dimensions",
-             @"metricName" : @"MetricName",
-             @"namespace" : @"Namespace",
-             };
-}
-
-+ (NSValueTransformer *)dimensionsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAutoScalingMetricDimension class]];
-}
-
-@end
-
 @implementation AWSAutoScalingMetricCollectionType
 
 + (BOOL)supportsSecureCoding {
@@ -2544,28 +2524,6 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"metric" : @"Metric",
              };
-}
-
-@end
-
-@implementation AWSAutoScalingMetricDataQuery
-
-+ (BOOL)supportsSecureCoding {
-    return YES;
-}
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"expression" : @"Expression",
-             @"identifier" : @"Id",
-             @"label" : @"Label",
-             @"metricStat" : @"MetricStat",
-             @"returnData" : @"ReturnData",
-             };
-}
-
-+ (NSValueTransformer *)metricStatJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingMetricStat class]];
 }
 
 @end
@@ -2595,26 +2553,6 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"granularity" : @"Granularity",
              };
-}
-
-@end
-
-@implementation AWSAutoScalingMetricStat
-
-+ (BOOL)supportsSecureCoding {
-    return YES;
-}
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"metric" : @"Metric",
-             @"stat" : @"Stat",
-             @"unit" : @"Unit",
-             };
-}
-
-+ (NSValueTransformer *)metricJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingMetric class]];
 }
 
 @end
@@ -2821,60 +2759,6 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
-@implementation AWSAutoScalingPredictiveScalingCustomizedCapacityMetric
-
-+ (BOOL)supportsSecureCoding {
-    return YES;
-}
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"metricDataQueries" : @"MetricDataQueries",
-             };
-}
-
-+ (NSValueTransformer *)metricDataQueriesJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAutoScalingMetricDataQuery class]];
-}
-
-@end
-
-@implementation AWSAutoScalingPredictiveScalingCustomizedLoadMetric
-
-+ (BOOL)supportsSecureCoding {
-    return YES;
-}
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"metricDataQueries" : @"MetricDataQueries",
-             };
-}
-
-+ (NSValueTransformer *)metricDataQueriesJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAutoScalingMetricDataQuery class]];
-}
-
-@end
-
-@implementation AWSAutoScalingPredictiveScalingCustomizedScalingMetric
-
-+ (BOOL)supportsSecureCoding {
-    return YES;
-}
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"metricDataQueries" : @"MetricDataQueries",
-             };
-}
-
-+ (NSValueTransformer *)metricDataQueriesJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAutoScalingMetricDataQuery class]];
-}
-
-@end
-
 @implementation AWSAutoScalingPredictiveScalingMetricSpecification
 
 + (BOOL)supportsSecureCoding {
@@ -2883,26 +2767,11 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"customizedCapacityMetricSpecification" : @"CustomizedCapacityMetricSpecification",
-             @"customizedLoadMetricSpecification" : @"CustomizedLoadMetricSpecification",
-             @"customizedScalingMetricSpecification" : @"CustomizedScalingMetricSpecification",
              @"predefinedLoadMetricSpecification" : @"PredefinedLoadMetricSpecification",
              @"predefinedMetricPairSpecification" : @"PredefinedMetricPairSpecification",
              @"predefinedScalingMetricSpecification" : @"PredefinedScalingMetricSpecification",
              @"targetValue" : @"TargetValue",
              };
-}
-
-+ (NSValueTransformer *)customizedCapacityMetricSpecificationJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingPredictiveScalingCustomizedCapacityMetric class]];
-}
-
-+ (NSValueTransformer *)customizedLoadMetricSpecificationJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingPredictiveScalingCustomizedLoadMetric class]];
-}
-
-+ (NSValueTransformer *)customizedScalingMetricSpecificationJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingPredictiveScalingCustomizedScalingMetric class]];
 }
 
 + (NSValueTransformer *)predefinedLoadMetricSpecificationJSONTransformer {
