@@ -39,8 +39,10 @@ NSString *const AWSSageMakerRuntimeSDKVersion = @"2.26.5";
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
+                            @"InternalDependencyException" : @(AWSSageMakerRuntimeErrorInternalDependency),
                             @"InternalFailure" : @(AWSSageMakerRuntimeErrorInternalFailure),
                             @"ModelError" : @(AWSSageMakerRuntimeErrorModel),
+                            @"ModelNotReadyException" : @(AWSSageMakerRuntimeErrorModelNotReady),
                             @"ServiceUnavailable" : @(AWSSageMakerRuntimeErrorServiceUnavailable),
                             @"ValidationError" : @(AWSSageMakerRuntimeErrorValidation),
                             };

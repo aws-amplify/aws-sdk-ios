@@ -177,6 +177,7 @@
 - (void) test_AWSDynamoDBSourceTableFeatureDetails API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBStreamSpecification API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBTableAutoScalingDescription API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBTableClassSummary API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBTableDescription API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBTag API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBTagResourceInput API_AVAILABLE(ios(11));
@@ -844,6 +845,10 @@
 
 - (void) test_AWSDynamoDBTableAutoScalingDescription {
     [self validateSecureCodingForClass:[AWSDynamoDBTableAutoScalingDescription class]];
+}
+
+- (void) test_AWSDynamoDBTableClassSummary {
+    [self validateSecureCodingForClass:[AWSDynamoDBTableClassSummary class]];
 }
 
 - (void) test_AWSDynamoDBTableDescription {

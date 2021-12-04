@@ -1570,6 +1570,10 @@
           \"shape\":\"BatchSize\",\
           \"documentation\":\"<p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p> <ul> <li> <p> <b>Amazon Kinesis</b> - Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p> </li> <li> <p> <b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</p> </li> </ul>\"\
         },\
+        \"FilterCriteria\":{\
+          \"shape\":\"FilterCriteria\",\
+          \"documentation\":\"<p>(Streams and Amazon SQS) An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html\\\">Lambda event filtering</a>.</p>\"\
+        },\
         \"MaximumBatchingWindowInSeconds\":{\
           \"shape\":\"MaximumBatchingWindowInSeconds\",\
           \"documentation\":\"<p>(Streams and Amazon SQS standard queues) The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.</p> <p>Default: 0</p> <p>Related setting: When you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>\"\
@@ -1624,7 +1628,7 @@
         },\
         \"FunctionResponseTypes\":{\
           \"shape\":\"FunctionResponseTypeList\",\
-          \"documentation\":\"<p>(Streams only) A list of current response type enums applied to the event source mapping.</p>\"\
+          \"documentation\":\"<p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>\"\
         }\
       }\
     },\
@@ -1642,7 +1646,7 @@
         },\
         \"Runtime\":{\
           \"shape\":\"Runtime\",\
-          \"documentation\":\"<p>The identifier of the function's <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\\\">runtime</a>.</p>\"\
+          \"documentation\":\"<p>The identifier of the function's <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\\\">runtime</a>. Runtime is required if the deployment package is a .zip file archive. </p>\"\
         },\
         \"Role\":{\
           \"shape\":\"RoleArn\",\
@@ -1650,7 +1654,7 @@
         },\
         \"Handler\":{\
           \"shape\":\"Handler\",\
-          \"documentation\":\"<p>The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html\\\">Programming Model</a>.</p>\"\
+          \"documentation\":\"<p>The name of the method within your code that Lambda calls to execute your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html\\\">Programming Model</a>.</p>\"\
         },\
         \"Code\":{\
           \"shape\":\"FunctionCode\",\
@@ -2099,6 +2103,10 @@
           \"shape\":\"Arn\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) of the event source.</p>\"\
         },\
+        \"FilterCriteria\":{\
+          \"shape\":\"FilterCriteria\",\
+          \"documentation\":\"<p>(Streams and Amazon SQS) An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html\\\">Lambda event filtering</a>.</p>\"\
+        },\
         \"FunctionArn\":{\
           \"shape\":\"FunctionArn\",\
           \"documentation\":\"<p>The ARN of the Lambda function.</p>\"\
@@ -2207,6 +2215,30 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"FileSystemConfig\"},\
       \"max\":1\
+    },\
+    \"Filter\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Pattern\":{\
+          \"shape\":\"Pattern\",\
+          \"documentation\":\"<p> A filter pattern. For more information on the syntax of a filter pattern, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax\\\"> Filter rule syntax</a>. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p> A structure within a <code>FilterCriteria</code> object that defines an event filtering pattern. </p>\"\
+    },\
+    \"FilterCriteria\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Filters\":{\
+          \"shape\":\"FilterList\",\
+          \"documentation\":\"<p> A list of filters. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p> An object that contains the filters for an event source. </p>\"\
+    },\
+    \"FilterList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"Filter\"}\
     },\
     \"FunctionArn\":{\
       \"type\":\"string\",\
@@ -3868,6 +3900,12 @@
       \"max\":10,\
       \"min\":1\
     },\
+    \"Pattern\":{\
+      \"type\":\"string\",\
+      \"max\":4096,\
+      \"min\":0,\
+      \"pattern\":\".*\"\
+    },\
     \"PolicyLengthExceededException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -4773,6 +4811,10 @@
           \"shape\":\"BatchSize\",\
           \"documentation\":\"<p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p> <ul> <li> <p> <b>Amazon Kinesis</b> - Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p> </li> <li> <p> <b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</p> </li> </ul>\"\
         },\
+        \"FilterCriteria\":{\
+          \"shape\":\"FilterCriteria\",\
+          \"documentation\":\"<p>(Streams and Amazon SQS) An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html\\\">Lambda event filtering</a>.</p>\"\
+        },\
         \"MaximumBatchingWindowInSeconds\":{\
           \"shape\":\"MaximumBatchingWindowInSeconds\",\
           \"documentation\":\"<p>(Streams and Amazon SQS standard queues) The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.</p> <p>Default: 0</p> <p>Related setting: When you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>\"\
@@ -4807,7 +4849,7 @@
         },\
         \"FunctionResponseTypes\":{\
           \"shape\":\"FunctionResponseTypeList\",\
-          \"documentation\":\"<p>(Streams only) A list of current response type enums applied to the event source mapping.</p>\"\
+          \"documentation\":\"<p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>\"\
         }\
       }\
     },\
@@ -4875,7 +4917,7 @@
         },\
         \"Handler\":{\
           \"shape\":\"Handler\",\
-          \"documentation\":\"<p>The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html\\\">Programming Model</a>.</p>\"\
+          \"documentation\":\"<p>The name of the method within your code that Lambda calls to execute your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html\\\">Programming Model</a>.</p>\"\
         },\
         \"Description\":{\
           \"shape\":\"Description\",\
@@ -4899,7 +4941,7 @@
         },\
         \"Runtime\":{\
           \"shape\":\"Runtime\",\
-          \"documentation\":\"<p>The identifier of the function's <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\\\">runtime</a>.</p>\"\
+          \"documentation\":\"<p>The identifier of the function's <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html\\\">runtime</a>. Runtime is required if the deployment package is a .zip file archive. </p>\"\
         },\
         \"DeadLetterConfig\":{\
           \"shape\":\"DeadLetterConfig\",\

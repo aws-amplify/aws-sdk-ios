@@ -3276,6 +3276,12 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
         if ([value caseInsensitiveCompare:@"Female"] == NSOrderedSame) {
             return @(AWSRekognitionKnownGenderTypeFemale);
         }
+        if ([value caseInsensitiveCompare:@"Nonbinary"] == NSOrderedSame) {
+            return @(AWSRekognitionKnownGenderTypeNonbinary);
+        }
+        if ([value caseInsensitiveCompare:@"Unlisted"] == NSOrderedSame) {
+            return @(AWSRekognitionKnownGenderTypeUnlisted);
+        }
         return @(AWSRekognitionKnownGenderTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3283,6 +3289,10 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
                 return @"Male";
             case AWSRekognitionKnownGenderTypeFemale:
                 return @"Female";
+            case AWSRekognitionKnownGenderTypeNonbinary:
+                return @"Nonbinary";
+            case AWSRekognitionKnownGenderTypeUnlisted:
+                return @"Unlisted";
             default:
                 return nil;
         }
