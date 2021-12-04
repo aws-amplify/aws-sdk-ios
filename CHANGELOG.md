@@ -1,21 +1,26 @@
----
+# AWS Mobile SDK for iOS CHANGELOG
 
-MOVE THIS SECTION TO THE CORRECT LOCATION
+## Unreleased
 
 ### Misc. Updates
 
 - Model updates for the following services
----AWSRekognition
-# AWS Mobile SDK for iOS CHANGELOG
-
-## Unreleased
+  - AWSRekognition
+  - AWSSageMakerRuntime
+  - AWSDynamoDB
+  - AWSTextract
+  - AWSPinpoint
+  - AWSAutoScaling
+  - AWSLambda
+  - AWSTranslate
+  - AWSSQS
+  - AWSElasticLoadBalancingv2
 
 ### Bug Fixes
 - Return Swift optionals from Objective C methods that can return nil
 
 ## 2.26.5
 
-### Features for next release
 ### New features
 - **AWSCore**
   - Support for `ap-southeast-3` - Asia Pacific (Jakarta) (see [AWS Regional Services List](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for a list of services supported in the region)
