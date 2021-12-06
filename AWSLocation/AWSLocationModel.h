@@ -204,13 +204,18 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @class AWSLocationMapConfiguration;
 @class AWSLocationPlace;
 @class AWSLocationPlaceGeometry;
+@class AWSLocationPositionalAccuracy;
 @class AWSLocationPutGeofenceRequest;
 @class AWSLocationPutGeofenceResponse;
 @class AWSLocationSearchForPositionResult;
+@class AWSLocationSearchForSuggestionsResult;
 @class AWSLocationSearchForTextResult;
 @class AWSLocationSearchPlaceIndexForPositionRequest;
 @class AWSLocationSearchPlaceIndexForPositionResponse;
 @class AWSLocationSearchPlaceIndexForPositionSummary;
+@class AWSLocationSearchPlaceIndexForSuggestionsRequest;
+@class AWSLocationSearchPlaceIndexForSuggestionsResponse;
+@class AWSLocationSearchPlaceIndexForSuggestionsSummary;
 @class AWSLocationSearchPlaceIndexForTextRequest;
 @class AWSLocationSearchPlaceIndexForTextResponse;
 @class AWSLocationSearchPlaceIndexForTextSummary;
@@ -1054,7 +1059,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
 /**
- <p>Specifies the position filtering for the tracker resource.</p><p>Valid values:</p><ul><li><p><code>TimeBased</code> - Location updates are evaluated against linked geofence collections, but not every location update is stored. If your update frequency is more often than 30 seconds, only one update per 30 seconds is stored for each unique device ID. </p></li><li><p><code>DistanceBased</code> - If the device has moved less than 30 m (98.4 ft), location updates are ignored. Location updates within this area are neither evaluated against linked geofence collections, nor stored. This helps control costs by reducing the number of geofence evaluations and historical device positions to paginate through. Distance-based filtering can also reduce the effects of GPS noise when displaying device trajectories on a map. </p></li></ul><p>This field is optional. If not specified, the default value is <code>TimeBased</code>.</p>
+ <p>Specifies the position filtering for the tracker resource.</p><p>Valid values:</p><ul><li><p><code>TimeBased</code> - Location updates are evaluated against linked geofence collections, but not every location update is stored. If your update frequency is more often than 30 seconds, only one update per 30 seconds is stored for each unique device ID. </p></li><li><p><code>DistanceBased</code> - If the device has moved less than 30 m (98.4 ft), location updates are ignored. Location updates within this area are neither evaluated against linked geofence collections, nor stored. This helps control costs by reducing the number of geofence evaluations and historical device positions to paginate through. Distance-based filtering can also reduce the effects of GPS noise when displaying device trajectories on a map. </p></li><li><p><code>AccuracyBased</code> - If the device has moved less than the measured accuracy, location updates are ignored. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is ignored if the device has moved less than 15 m. Ignored location updates are neither evaluated against linked geofence collections, nor stored. This can reduce the effects of GPS noise when displaying device trajectories on a map, and can help control your costs by reducing the number of geofence evaluations. </p></li></ul><p>This field is optional. If not specified, the default value is <code>TimeBased</code>.</p>
  */
 @property (nonatomic, assign) AWSLocationPositionFiltering positionFiltering;
 
@@ -1559,6 +1564,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 
 
 /**
+ <p>The accuracy of the device position.</p>
+ */
+@property (nonatomic, strong) AWSLocationPositionalAccuracy * _Nullable accuracy;
+
+/**
  <p>The device whose position you retrieved.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable deviceId;
@@ -1567,6 +1577,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
  <p>The last known device position.</p>
  */
 @property (nonatomic, strong) NSArray<NSNumber *> * _Nullable position;
+
+/**
+ <p>The properties associated with the position.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable positionProperties;
 
 /**
  <p>The timestamp for when the tracker resource received the device position in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
@@ -1588,6 +1603,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 
 
 /**
+ <p>The accuracy of the device position.</p>
+ */
+@property (nonatomic, strong) AWSLocationPositionalAccuracy * _Nullable accuracy;
+
+/**
  <p>The device associated to the position update.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable deviceId;
@@ -1596,6 +1616,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
  <p>The latest device position defined in <a href="https://earth-info.nga.mil/GandG/wgs84/index.html">WGS 84</a> format: <code>[X or longitude, Y or latitude]</code>.</p>
  */
 @property (nonatomic, strong) NSArray<NSNumber *> * _Nullable position;
+
+/**
+ <p>Associates one of more properties with the position update. A property is a key-value pair stored with the position update and added to any geofence event the update may trigger.</p><p>Format: <code>"key" : "value"</code></p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable positionProperties;
 
 /**
  <p>The timestamp at which the device's position was determined. Uses <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code></p>
@@ -1719,6 +1744,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 
 
 /**
+ <p>The accuracy of the device position.</p>
+ */
+@property (nonatomic, strong) AWSLocationPositionalAccuracy * _Nullable accuracy;
+
+/**
  <p>The device whose position you retrieved.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable deviceId;
@@ -1727,6 +1757,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
  <p>The last known device position.</p>
  */
 @property (nonatomic, strong) NSArray<NSNumber *> * _Nullable position;
+
+/**
+ <p>The properties associated with the position.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable positionProperties;
 
 /**
  <p>The timestamp for when the tracker resource received the device position in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601 </a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
@@ -2046,6 +2081,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 
 
 /**
+ <p>The accuracy of the device position.</p>
+ */
+@property (nonatomic, strong) AWSLocationPositionalAccuracy * _Nullable accuracy;
+
+/**
  <p>The ID of the device for this position.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable deviceId;
@@ -2054,6 +2094,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
  <p>The last known device position. Empty if no positions currently stored.</p>
  */
 @property (nonatomic, strong) NSArray<NSNumber *> * _Nullable position;
+
+/**
+ <p>The properties associated with the position.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable positionProperties;
 
 /**
  <p>The timestamp at which the device position was determined. Uses <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>.</p>
@@ -2671,6 +2716,20 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @end
 
 /**
+ <p>Defines the level of certainty of the position.</p>
+ Required parameters: [Horizontal]
+ */
+@interface AWSLocationPositionalAccuracy : AWSModel
+
+
+/**
+ <p>Estimated maximum distance, in meters, between the measured position and the true position of a device, along the Earth's surface.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable horizontal;
+
+@end
+
+/**
  
  */
 @interface AWSLocationPutGeofenceRequest : AWSRequest
@@ -2732,6 +2791,20 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
  <p>Details about the search result, such as its address and position.</p>
  */
 @property (nonatomic, strong) AWSLocationPlace * _Nullable place;
+
+@end
+
+/**
+ <p>Contains a place suggestion resulting from a place suggestion query that is run on a place index resource.</p>
+ Required parameters: [Text]
+ */
+@interface AWSLocationSearchForSuggestionsResult : AWSModel
+
+
+/**
+ <p>The text of the place suggestion, typically formatted as an address string.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable text;
 
 @end
 
@@ -2837,6 +2910,111 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 /**
  
  */
+@interface AWSLocationSearchPlaceIndexForSuggestionsRequest : AWSRequest
+
+
+/**
+ <p>An optional parameter that indicates a preference for place suggestions that are closer to a specified position.</p><p> If provided, this parameter must contain a pair of numbers. The first number represents the X coordinate, or longitude; the second number represents the Y coordinate, or latitude.</p><p>For example, <code>[-123.1174, 49.2847]</code> represents the position with longitude <code>-123.1174</code> and latitude <code>49.2847</code>.</p><note><p><code>BiasPosition</code> and <code>FilterBBox</code> are mutually exclusive. Specifying both options results in an error. </p></note>
+ */
+@property (nonatomic, strong) NSArray<NSNumber *> * _Nullable biasPosition;
+
+/**
+ <p>An optional parameter that limits the search results by returning only suggestions within a specified bounding box.</p><p> If provided, this parameter must contain a total of four consecutive numbers in two pairs. The first pair of numbers represents the X and Y coordinates (longitude and latitude, respectively) of the southwest corner of the bounding box; the second pair of numbers represents the X and Y coordinates (longitude and latitude, respectively) of the northeast corner of the bounding box.</p><p>For example, <code>[-12.7935, -37.4835, -12.0684, -36.9542]</code> represents a bounding box where the southwest corner has longitude <code>-12.7935</code> and latitude <code>-37.4835</code>, and the northeast corner has longitude <code>-12.0684</code> and latitude <code>-36.9542</code>.</p><note><p><code>FilterBBox</code> and <code>BiasPosition</code> are mutually exclusive. Specifying both options results in an error. </p></note>
+ */
+@property (nonatomic, strong) NSArray<NSNumber *> * _Nullable filterBBox;
+
+/**
+ <p>An optional parameter that limits the search results by returning only suggestions within the provided list of countries.</p><ul><li><p>Use the <a href="https://www.iso.org/iso-3166-country-codes.html">ISO 3166</a> 3-digit country code. For example, Australia uses three upper-case characters: <code>AUS</code>.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable filterCountries;
+
+/**
+ <p>The name of the place index resource you want to use for the search.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example, <code>en</code> for English.</p><p>This setting affects the languages used in the results. It does not change which results are returned. If the language is not specified, or not supported for a particular result, the partner automatically chooses a language for the result.</p><p>Used only when the partner selected is Here.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable language;
+
+/**
+ <p>An optional parameter. The maximum number of results returned per request. </p><p>The default: <code>5</code></p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The free-form partial text to use to generate place suggestions. For example, <code>eiffel tow</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable text;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLocationSearchPlaceIndexForSuggestionsResponse : AWSModel
+
+
+/**
+ <p>A list of place suggestions that best match the search text.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSLocationSearchForSuggestionsResult *> * _Nullable results;
+
+/**
+ <p>Contains a summary of the request. Echoes the input values for <code>BiasPosition</code>, <code>FilterBBox</code>, <code>FilterCountries</code>, <code>Language</code>, <code>MaxResults</code>, and <code>Text</code>. Also includes the <code>DataSource</code> of the place index. </p>
+ */
+@property (nonatomic, strong) AWSLocationSearchPlaceIndexForSuggestionsSummary * _Nullable summary;
+
+@end
+
+/**
+ <p>A summary of the request sent by using <code>SearchPlaceIndexForSuggestions</code>.</p>
+ Required parameters: [DataSource, Text]
+ */
+@interface AWSLocationSearchPlaceIndexForSuggestionsSummary : AWSModel
+
+
+/**
+ <p>Contains the coordinates for the optional bias position specified in the request.</p><p>This parameter contains a pair of numbers. The first number represents the X coordinate, or longitude; the second number represents the Y coordinate, or latitude.</p><p>For example, <code>[-123.1174, 49.2847]</code> represents the position with longitude <code>-123.1174</code> and latitude <code>49.2847</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSNumber *> * _Nullable biasPosition;
+
+/**
+ <p>The geospatial data provider attached to the place index resource specified in the request. Values can be one of the following:</p><ul><li><p>Esri</p></li><li><p>Here</p></li></ul><p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable dataSource;
+
+/**
+ <p>Contains the coordinates for the optional bounding box specified in the request.</p>
+ */
+@property (nonatomic, strong) NSArray<NSNumber *> * _Nullable filterBBox;
+
+/**
+ <p>Contains the optional country filter specified in the request.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable filterCountries;
+
+/**
+ <p>The preferred language used to return results. Matches the language in the request. The value is a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example, <code>en</code> for English.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable language;
+
+/**
+ <p>Contains the optional result count limit specified in the request.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The free-form partial text input specified in the request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable text;
+
+@end
+
+/**
+ 
+ */
 @interface AWSLocationSearchPlaceIndexForTextRequest : AWSRequest
 
 
@@ -2903,7 +3081,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 
 
 /**
- <p>Contains the coordinates for the optional bias position specified in the request.</p>
+ <p>Contains the coordinates for the optional bias position specified in the request.</p><p>This parameter contains a pair of numbers. The first number represents the X coordinate, or longitude; the second number represents the Y coordinate, or latitude.</p><p>For example, <code>[-123.1174, 49.2847]</code> represents the position with longitude <code>-123.1174</code> and latitude <code>49.2847</code>.</p>
  */
 @property (nonatomic, strong) NSArray<NSNumber *> * _Nullable biasPosition;
 
@@ -3301,7 +3479,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>Updates the position filtering for the tracker resource.</p><p>Valid values:</p><ul><li><p><code>TimeBased</code> - Location updates are evaluated against linked geofence collections, but not every location update is stored. If your update frequency is more often than 30 seconds, only one update per 30 seconds is stored for each unique device ID. </p></li><li><p><code>DistanceBased</code> - If the device has moved less than 30 m (98.4 ft), location updates are ignored. Location updates within this distance are neither evaluated against linked geofence collections, nor stored. This helps control costs by reducing the number of geofence evaluations and device positions to retrieve. Distance-based filtering can also reduce the jitter effect when displaying device trajectory on a map. </p></li></ul>
+ <p>Updates the position filtering for the tracker resource.</p><p>Valid values:</p><ul><li><p><code>TimeBased</code> - Location updates are evaluated against linked geofence collections, but not every location update is stored. If your update frequency is more often than 30 seconds, only one update per 30 seconds is stored for each unique device ID. </p></li><li><p><code>DistanceBased</code> - If the device has moved less than 30 m (98.4 ft), location updates are ignored. Location updates within this distance are neither evaluated against linked geofence collections, nor stored. This helps control costs by reducing the number of geofence evaluations and historical device positions to paginate through. Distance-based filtering can also reduce the effects of GPS noise when displaying device trajectories on a map. </p></li><li><p><code>AccuracyBased</code> - If the device has moved less than the measured accuracy, location updates are ignored. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is ignored if the device has moved less than 15 m. Ignored location updates are neither evaluated against linked geofence collections, nor stored. This helps educe the effects of GPS noise when displaying device trajectories on a map, and can help control costs by reducing the number of geofence evaluations. </p></li></ul>
  */
 @property (nonatomic, assign) AWSLocationPositionFiltering positionFiltering;
 
