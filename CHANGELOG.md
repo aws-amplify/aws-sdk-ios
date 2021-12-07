@@ -1,6 +1,9 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
-## Unreleased
+## 2.26.6
+
+### Bug Fixes
+- Return Swift optionals from Objective C methods that can return nil
 
 ### Misc. Updates
 
@@ -15,9 +18,6 @@
   - AWSTranslate
   - AWSSQS
   - AWSElasticLoadBalancingv2
-
-### Bug Fixes
-- Return Swift optionals from Objective C methods that can return nil
 
 ## 2.26.5
 
