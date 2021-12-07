@@ -1,5 +1,12 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## Unreleased
+
+### Bug Fixes
+
+- **AWSMobileClient**
+  - fix(AWSMobileClient): eliminates thread blocking in operations ([PR #3872](https://github.com/aws-amplify/aws-sdk-ios/pull/3872))
+
 ## 2.26.6
 
 ### Bug Fixes
