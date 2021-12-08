@@ -962,7 +962,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
  
  @param request A container for the necessary parameters to execute the PutQueryDefinition service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLogsPutQueryDefinitionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorResourceNotFound`, `AWSLogsErrorServiceUnavailable`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLogsPutQueryDefinitionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorLimitExceeded`, `AWSLogsErrorResourceNotFound`, `AWSLogsErrorServiceUnavailable`.
  
  @see AWSLogsPutQueryDefinitionRequest
  @see AWSLogsPutQueryDefinitionResponse
@@ -975,7 +975,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
  @param request A container for the necessary parameters to execute the PutQueryDefinition service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorResourceNotFound`, `AWSLogsErrorServiceUnavailable`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorLimitExceeded`, `AWSLogsErrorResourceNotFound`, `AWSLogsErrorServiceUnavailable`.
  
  @see AWSLogsPutQueryDefinitionRequest
  @see AWSLogsPutQueryDefinitionResponse
