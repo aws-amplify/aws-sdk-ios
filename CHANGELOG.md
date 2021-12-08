@@ -3,17 +3,11 @@
 ## Unreleased
 
 ### Bug Fixes
-
+- Return Swift optionals from Objective C methods that can return nil ([PR #3912)](https://github.com/aws-amplify/aws-sdk-ios/pull/3912))
 - **AWSMobileClient**
   - fix(AWSMobileClient): eliminates thread blocking in operations ([PR #3872](https://github.com/aws-amplify/aws-sdk-ios/pull/3872))
 
-## 2.26.6
-
-### Bug Fixes
-- Return Swift optionals from Objective C methods that can return nil
-
 ### Misc. Updates
-
 - Model updates for the following services
   - AWSRekognition
   - AWSSageMakerRuntime
