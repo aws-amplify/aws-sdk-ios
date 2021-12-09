@@ -45,27 +45,41 @@
     {
       "file": "/Users/distiller/project/AWSSageMakerRuntime/AWSSageMakerRuntimeModel.h",
       "line": 26,
-      "symbol": "AWSSageMakerRuntimeErrorType.AWSSageMakerRuntimeErrorInternalFailure",
+      "symbol": "AWSSageMakerRuntimeErrorType.AWSSageMakerRuntimeErrorInternalDependency",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSSageMakerRuntime/AWSSageMakerRuntimeModel.h",
       "line": 27,
-      "symbol": "AWSSageMakerRuntimeErrorType.AWSSageMakerRuntimeErrorModel",
+      "symbol": "AWSSageMakerRuntimeErrorType.AWSSageMakerRuntimeErrorInternalFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSSageMakerRuntime/AWSSageMakerRuntimeModel.h",
       "line": 28,
-      "symbol": "AWSSageMakerRuntimeErrorType.AWSSageMakerRuntimeErrorServiceUnavailable",
+      "symbol": "AWSSageMakerRuntimeErrorType.AWSSageMakerRuntimeErrorModel",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSSageMakerRuntime/AWSSageMakerRuntimeModel.h",
       "line": 29,
+      "symbol": "AWSSageMakerRuntimeErrorType.AWSSageMakerRuntimeErrorModelNotReady",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSSageMakerRuntime/AWSSageMakerRuntimeModel.h",
+      "line": 30,
+      "symbol": "AWSSageMakerRuntimeErrorType.AWSSageMakerRuntimeErrorServiceUnavailable",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSSageMakerRuntime/AWSSageMakerRuntimeModel.h",
+      "line": 31,
       "symbol": "AWSSageMakerRuntimeErrorType.AWSSageMakerRuntimeErrorValidation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"

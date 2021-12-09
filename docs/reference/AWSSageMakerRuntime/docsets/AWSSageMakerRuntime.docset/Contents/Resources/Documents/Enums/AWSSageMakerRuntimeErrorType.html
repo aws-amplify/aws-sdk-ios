@@ -17,7 +17,7 @@
     <a title="AWSSageMakerRuntimeErrorType Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSSageMakerRuntime 2.26.5 Docs</a> (72% documented)</p>
+        <p><a href="../index.html">AWSSageMakerRuntime 2.26.6 Docs</a> (69% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSSageMakerRuntime.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -96,8 +96,10 @@
                   <p class="aside-title">Objective-C</p>
                   <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSSageMakerRuntimeErrorType</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">AWSSageMakerRuntimeErrorUnknown</span><span class="p">,</span>
+    <span class="n">AWSSageMakerRuntimeErrorInternalDependency</span><span class="p">,</span>
     <span class="n">AWSSageMakerRuntimeErrorInternalFailure</span><span class="p">,</span>
     <span class="n">AWSSageMakerRuntimeErrorModel</span><span class="p">,</span>
+    <span class="n">AWSSageMakerRuntimeErrorModelNotReady</span><span class="p">,</span>
     <span class="n">AWSSageMakerRuntimeErrorServiceUnavailable</span><span class="p">,</span>
     <span class="n">AWSSageMakerRuntimeErrorValidation</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
@@ -150,6 +152,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@AWSSageMakerRuntimeErrorType@AWSSageMakerRuntimeErrorInternalDependency"></a>
+                    <a name="//apple_ref/objc/Case/AWSSageMakerRuntimeErrorInternalDependency" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSSageMakerRuntimeErrorType@AWSSageMakerRuntimeErrorInternalDependency">AWSSageMakerRuntimeErrorInternalDependency</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSSageMakerRuntimeErrorInternalDependency</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">internalDependency</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@AWSSageMakerRuntimeErrorType@AWSSageMakerRuntimeErrorInternalFailure"></a>
                     <a name="//apple_ref/objc/Case/AWSSageMakerRuntimeErrorInternalFailure" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@AWSSageMakerRuntimeErrorType@AWSSageMakerRuntimeErrorInternalFailure">AWSSageMakerRuntimeErrorInternalFailure</a>
@@ -172,7 +206,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">internalFailure</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">internalFailure</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
 
                         </div>
                       </div>
@@ -204,7 +238,39 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">model</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">model</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSSageMakerRuntimeErrorType@AWSSageMakerRuntimeErrorModelNotReady"></a>
+                    <a name="//apple_ref/objc/Case/AWSSageMakerRuntimeErrorModelNotReady" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSSageMakerRuntimeErrorType@AWSSageMakerRuntimeErrorModelNotReady">AWSSageMakerRuntimeErrorModelNotReady</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSSageMakerRuntimeErrorModelNotReady</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">modelNotReady</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
 
                         </div>
                       </div>
@@ -236,7 +302,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">serviceUnavailable</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">serviceUnavailable</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
 
                         </div>
                       </div>
@@ -268,7 +334,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">validation</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">validation</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
 
                         </div>
                       </div>
@@ -280,7 +346,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-11-18)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
