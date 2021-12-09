@@ -17,7 +17,7 @@
     <a title="AWSSNSSetPlatformApplicationAttributesInput Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSSNS 2.26.5 Docs</a> (80% documented)</p>
+        <p><a href="../index.html">AWSSNS 2.26.6 Docs</a> (80% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSSNS.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -45,6 +45,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSSNSAddPermissionInput.html">AWSSNSAddPermissionInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSNSBatchResultErrorEntry.html">AWSSNSBatchResultErrorEntry</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSSNSCheckIfPhoneNumberIsOptedOutInput.html">AWSSNSCheckIfPhoneNumberIsOptedOutInput</a>
@@ -206,6 +209,18 @@
                 <a href="../Classes/AWSSNSPlatformApplication.html">AWSSNSPlatformApplication</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSSNSPublishBatchInput.html">AWSSNSPublishBatchInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSNSPublishBatchRequestEntry.html">AWSSNSPublishBatchRequestEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSNSPublishBatchResponse.html">AWSSNSPublishBatchResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSNSPublishBatchResultEntry.html">AWSSNSPublishBatchResultEntry</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSSNSPublishInput.html">AWSSNSPublishInput</a>
               </li>
               <li class="nav-group-task">
@@ -352,7 +367,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>A map of the platform application attributes. Attributes in this map include the following:</p><ul><li><p><code>PlatformCredential</code> – The credential received from the notification service. For <code>APNS</code> and <code>APNS_SANDBOX</code>, <code>PlatformCredential</code> is <code>private key</code>. For <code>GCM</code> (Firebase Cloud Messaging), <code>PlatformCredential</code> is <code>API key</code>. For <code>ADM</code>, <code>PlatformCredential</code> is <code>client secret</code>.</p></li><li><p><code>PlatformPrincipal</code> – The principal received from the notification service. For <code>APNS</code> and <code>APNS_SANDBOX</code>, <code>PlatformPrincipal</code> is <code>SSL certificate</code>. For <code>GCM</code> (Firebase Cloud Messaging), there is no <code>PlatformPrincipal</code>. For <code>ADM</code>, <code>PlatformPrincipal</code> is <code>client id</code>.</p></li><li><p><code>EventEndpointCreated</code> – Topic ARN to which <code>EndpointCreated</code> event notifications are sent.</p></li><li><p><code>EventEndpointDeleted</code> – Topic ARN to which <code>EndpointDeleted</code> event notifications are sent.</p></li><li><p><code>EventEndpointUpdated</code> – Topic ARN to which <code>EndpointUpdate</code> event notifications are sent.</p></li><li><p><code>EventDeliveryFailure</code> – Topic ARN to which <code>DeliveryFailure</code> event notifications are sent upon Direct Publish delivery failure (permanent) to one of the application&rsquo;s endpoints.</p></li><li><p><code>SuccessFeedbackRoleArn</code> – IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.</p></li><li><p><code>FailureFeedbackRoleArn</code> – IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.</p></li><li><p><code>SuccessFeedbackSampleRate</code> – Sample rate percentage (0-100) of successfully delivered messages.</p></li></ul></p>
+                        <p><p>A map of the platform application attributes. Attributes in this map include the following:</p><ul><li><p><code>PlatformCredential</code> – The credential received from the notification service.</p><ul><li><p>For ADM, <code>PlatformCredential</code>is client secret.</p></li><li><p>For Apple Services using certificate credentials, <code>PlatformCredential</code> is private key.</p></li><li><p>For Apple Services using token credentials, <code>PlatformCredential</code> is signing key.</p></li><li><p>For GCM (Firebase Cloud Messaging), <code>PlatformCredential</code> is API key. </p></li></ul></li></ul><ul><li><p><code>PlatformPrincipal</code> – The principal received from the notification service.</p><ul><li><p>For ADM, <code>PlatformPrincipal</code>is client id.</p></li><li><p>For Apple Services using certificate credentials, <code>PlatformPrincipal</code> is SSL certificate.</p></li><li><p>For Apple Services using token credentials, <code>PlatformPrincipal</code> is signing key ID.</p></li><li><p>For GCM (Firebase Cloud Messaging), there is no <code>PlatformPrincipal</code>. </p></li></ul></li></ul><ul><li><p><code>EventEndpointCreated</code> – Topic ARN to which <code>EndpointCreated</code> event notifications are sent.</p></li><li><p><code>EventEndpointDeleted</code> – Topic ARN to which <code>EndpointDeleted</code> event notifications are sent.</p></li><li><p><code>EventEndpointUpdated</code> – Topic ARN to which <code>EndpointUpdate</code> event notifications are sent.</p></li><li><p><code>EventDeliveryFailure</code> – Topic ARN to which <code>DeliveryFailure</code> event notifications are sent upon Direct Publish delivery failure (permanent) to one of the application&rsquo;s endpoints.</p></li><li><p><code>SuccessFeedbackRoleArn</code> – IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.</p></li><li><p><code>FailureFeedbackRoleArn</code> – IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.</p></li><li><p><code>SuccessFeedbackSampleRate</code> – Sample rate percentage (0-100) of successfully delivered messages.</p></li></ul><p>The following attributes only apply to <code>APNs</code> token-based authentication:</p><ul><li><p><code>ApplePlatformTeamID</code> – The identifier that&rsquo;s assigned to your Apple developer account team.</p></li><li><p><code>ApplePlatformBundleID</code> – The bundle identifier that&rsquo;s assigned to your iOS app.</p></li></ul></p>
 
                       </div>
                       <div class="declaration">
@@ -408,7 +423,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-11-18)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

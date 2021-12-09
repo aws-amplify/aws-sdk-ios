@@ -17,7 +17,7 @@
     <a title="AWSSNSGetTopicAttributesResponse Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSSNS 2.26.5 Docs</a> (80% documented)</p>
+        <p><a href="../index.html">AWSSNS 2.26.6 Docs</a> (80% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSSNS.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -45,6 +45,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSSNSAddPermissionInput.html">AWSSNSAddPermissionInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSNSBatchResultErrorEntry.html">AWSSNSBatchResultErrorEntry</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSSNSCheckIfPhoneNumberIsOptedOutInput.html">AWSSNSCheckIfPhoneNumberIsOptedOutInput</a>
@@ -206,6 +209,18 @@
                 <a href="../Classes/AWSSNSPlatformApplication.html">AWSSNSPlatformApplication</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSSNSPublishBatchInput.html">AWSSNSPublishBatchInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSNSPublishBatchRequestEntry.html">AWSSNSPublishBatchRequestEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSNSPublishBatchResponse.html">AWSSNSPublishBatchResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSNSPublishBatchResultEntry.html">AWSSNSPublishBatchResultEntry</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSSNSPublishInput.html">AWSSNSPublishInput</a>
               </li>
               <li class="nav-group-task">
@@ -350,7 +365,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>A map of the topic&rsquo;s attributes. Attributes in this map include the following:</p><ul><li><p><code>DeliveryPolicy</code> – The JSON serialization of the topic&rsquo;s delivery policy.</p></li><li><p><code>DisplayName</code> – The human-readable name used in the <code>From</code> field for notifications to <code>email</code> and <code>email-json</code> endpoints.</p></li><li><p><code>Owner</code> – The account ID of the topic&rsquo;s owner.</p></li><li><p><code>Policy</code> – The JSON serialization of the topic&rsquo;s access control policy.</p></li><li><p><code>SubscriptionsConfirmed</code> – The number of confirmed subscriptions for the topic.</p></li><li><p><code>SubscriptionsDeleted</code> – The number of deleted subscriptions for the topic.</p></li><li><p><code>SubscriptionsPending</code> – The number of subscriptions pending confirmation for the topic.</p></li><li><p><code>TopicArn</code> – The topic&rsquo;s ARN.</p></li><li><p><code>EffectiveDeliveryPolicy</code> – The JSON serialization of the effective delivery policy, taking system defaults into account.</p></li></ul><p>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</p><ul><li><p><code>KmsMasterKeyId</code> - The ID of an Amazon Web Services managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>Key Management Service API Reference</i>.</p></li></ul><p>The following attributes apply only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO topics</a>:</p><ul><li><p><code>FifoTopic</code> – When this is set to <code>true</code>, a FIFO topic is created.</p></li><li><p><code>ContentBasedDeduplication</code> – Enables content-based deduplication for FIFO topics.</p><ul><li><p>By default, <code>ContentBasedDeduplication</code> is set to <code>false</code>. If you create a FIFO topic and this attribute is <code>false</code>, you must specify a value for the <code>MessageDeduplicationId</code> parameter for the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a> action. </p></li><li><p>When you set <code>ContentBasedDeduplication</code> to <code>true</code>, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p><p>(Optional) To override the generated value, you can specify a value for the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code> action.</p></li></ul></li></ul></p>
+                        <p><p>A map of the topic&rsquo;s attributes. Attributes in this map include the following:</p><ul><li><p><code>DeliveryPolicy</code> – The JSON serialization of the topic&rsquo;s delivery policy.</p></li><li><p><code>DisplayName</code> – The human-readable name used in the <code>From</code> field for notifications to <code>email</code> and <code>email-json</code> endpoints.</p></li><li><p><code>Owner</code> – The Amazon Web Services account ID of the topic&rsquo;s owner.</p></li><li><p><code>Policy</code> – The JSON serialization of the topic&rsquo;s access control policy.</p></li><li><p><code>SubscriptionsConfirmed</code> – The number of confirmed subscriptions for the topic.</p></li><li><p><code>SubscriptionsDeleted</code> – The number of deleted subscriptions for the topic.</p></li><li><p><code>SubscriptionsPending</code> – The number of subscriptions pending confirmation for the topic.</p></li><li><p><code>TopicArn</code> – The topic&rsquo;s ARN.</p></li><li><p><code>EffectiveDeliveryPolicy</code> – The JSON serialization of the effective delivery policy, taking system defaults into account.</p></li></ul><p>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</p><ul><li><p><code>KmsMasterKeyId</code> - The ID of an Amazon Web Services managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>Key Management Service API Reference</i>.</p></li></ul><p>The following attributes apply only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO topics</a>:</p><ul><li><p><code>FifoTopic</code> – When this is set to <code>true</code>, a FIFO topic is created.</p></li><li><p><code>ContentBasedDeduplication</code> – Enables content-based deduplication for FIFO topics.</p><ul><li><p>By default, <code>ContentBasedDeduplication</code> is set to <code>false</code>. If you create a FIFO topic and this attribute is <code>false</code>, you must specify a value for the <code>MessageDeduplicationId</code> parameter for the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a> action. </p></li><li><p>When you set <code>ContentBasedDeduplication</code> to <code>true</code>, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p><p>(Optional) To override the generated value, you can specify a value for the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code> action.</p></li></ul></li></ul></p>
 
                       </div>
                       <div class="declaration">
@@ -374,7 +389,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-11-18)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
