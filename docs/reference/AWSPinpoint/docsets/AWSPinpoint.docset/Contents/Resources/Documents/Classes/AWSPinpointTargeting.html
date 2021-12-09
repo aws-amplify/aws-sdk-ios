@@ -17,7 +17,7 @@
     <a title="AWSPinpointTargeting Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSPinpoint 2.26.5 Docs</a> (90% documented)</p>
+        <p><a href="../index.html">AWSPinpoint 2.26.6 Docs</a> (90% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSPinpoint.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -1115,6 +1115,15 @@
                 <a href="../Classes/AWSPinpointTargetingSendMessagesResponse.html">AWSPinpointTargetingSendMessagesResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingSendOTPMessageRequest.html">AWSPinpointTargetingSendOTPMessageRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingSendOTPMessageRequestParameters.html">AWSPinpointTargetingSendOTPMessageRequestParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingSendOTPMessageResponse.html">AWSPinpointTargetingSendOTPMessageResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingSendUsersMessageRequest.html">AWSPinpointTargetingSendUsersMessageRequest</a>
               </li>
               <li class="nav-group-task">
@@ -1329,6 +1338,18 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingUpdateVoiceTemplateResponse.html">AWSPinpointTargetingUpdateVoiceTemplateResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingVerificationResponse.html">AWSPinpointTargetingVerificationResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingVerifyOTPMessageRequest.html">AWSPinpointTargetingVerifyOTPMessageRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingVerifyOTPMessageRequestParameters.html">AWSPinpointTargetingVerifyOTPMessageRequestParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingVerifyOTPMessageResponse.html">AWSPinpointTargetingVerifyOTPMessageResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingVoiceChannelRequest.html">AWSPinpointTargetingVoiceChannelRequest</a>
@@ -14864,6 +14885,150 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSPinpointTargeting(im)sendOTPMessage:"></a>
+                    <a name="//apple_ref/objc/Method/-sendOTPMessage:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointTargeting(im)sendOTPMessage:">-sendOTPMessage:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Send an OTP message</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPinpointTargetingSendOTPMessageRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPinpointTargetingSendOTPMessageResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">AWSTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">sendOTPMessage</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSPinpointTargetingSendOTPMessageRequest.html">AWSPinpointTargetingSendOTPMessageRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">sendOTPMessage</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSPinpointTargetingSendOTPMessageRequest.html">AWSPinpointTargetingSendOTPMessageRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the SendOTPMessage service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSPinpointTargetingSendOTPMessageResponse.html">AWSPinpointTargetingSendOTPMessageResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSPinpointTargetingErrorDomain">AWSPinpointTargetingErrorDomain</a></code> domain and the following error code: <code>AWSPinpointTargetingErrorBadRequest</code>, <code>AWSPinpointTargetingErrorInternalServerError</code>, <code>AWSPinpointTargetingErrorPayloadTooLarge</code>, <code>AWSPinpointTargetingErrorForbidden</code>, <code>AWSPinpointTargetingErrorNotFound</code>, <code>AWSPinpointTargetingErrorMethodNotAllowed</code>, <code>AWSPinpointTargetingErrorTooManyRequests</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPinpointTargeting(im)sendOTPMessage:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-sendOTPMessage:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointTargeting(im)sendOTPMessage:completionHandler:">-sendOTPMessage:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Send an OTP message</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPinpointTargetingSendOTPMessageRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPinpointTargetingSendOTPMessageResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendOTPMessage</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSPinpointTargetingSendOTPMessageRequest.html">AWSPinpointTargetingSendOTPMessageRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+     <span class="nf">completionHandler</span><span class="p">:</span>
+         <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+             <span class="n"><a href="../Classes/AWSPinpointTargetingSendOTPMessageResponse.html">AWSPinpointTargetingSendOTPMessageResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+             <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">sendOTPMessage</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSPinpointTargetingSendOTPMessageRequest.html">AWSPinpointTargetingSendOTPMessageRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSPinpointTargetingSendOTPMessageResponse.html">AWSPinpointTargetingSendOTPMessageResponse</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the SendOTPMessage service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSPinpointTargetingErrorDomain">AWSPinpointTargetingErrorDomain</a></code> domain and the following error code: <code>AWSPinpointTargetingErrorBadRequest</code>, <code>AWSPinpointTargetingErrorInternalServerError</code>, <code>AWSPinpointTargetingErrorPayloadTooLarge</code>, <code>AWSPinpointTargetingErrorForbidden</code>, <code>AWSPinpointTargetingErrorNotFound</code>, <code>AWSPinpointTargetingErrorMethodNotAllowed</code>, <code>AWSPinpointTargetingErrorTooManyRequests</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSPinpointTargeting(im)sendUsersMessages:"></a>
                     <a name="//apple_ref/objc/Method/-sendUsersMessages:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSPinpointTargeting(im)sendUsersMessages:">-sendUsersMessages:<wbr></a>
@@ -18737,12 +18902,156 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPinpointTargeting(im)verifyOTPMessage:"></a>
+                    <a name="//apple_ref/objc/Method/-verifyOTPMessage:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointTargeting(im)verifyOTPMessage:">-verifyOTPMessage:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Verify an OTP</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPinpointTargetingVerifyOTPMessageRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPinpointTargetingVerifyOTPMessageResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">AWSTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">verifyOTPMessage</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSPinpointTargetingVerifyOTPMessageRequest.html">AWSPinpointTargetingVerifyOTPMessageRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">verifyOTPMessage</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSPinpointTargetingVerifyOTPMessageRequest.html">AWSPinpointTargetingVerifyOTPMessageRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the VerifyOTPMessage service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSPinpointTargetingVerifyOTPMessageResponse.html">AWSPinpointTargetingVerifyOTPMessageResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSPinpointTargetingErrorDomain">AWSPinpointTargetingErrorDomain</a></code> domain and the following error code: <code>AWSPinpointTargetingErrorBadRequest</code>, <code>AWSPinpointTargetingErrorInternalServerError</code>, <code>AWSPinpointTargetingErrorPayloadTooLarge</code>, <code>AWSPinpointTargetingErrorForbidden</code>, <code>AWSPinpointTargetingErrorNotFound</code>, <code>AWSPinpointTargetingErrorMethodNotAllowed</code>, <code>AWSPinpointTargetingErrorTooManyRequests</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPinpointTargeting(im)verifyOTPMessage:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-verifyOTPMessage:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointTargeting(im)verifyOTPMessage:completionHandler:">-verifyOTPMessage:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Verify an OTP</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPinpointTargetingVerifyOTPMessageRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPinpointTargetingVerifyOTPMessageResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">verifyOTPMessage</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSPinpointTargetingVerifyOTPMessageRequest.html">AWSPinpointTargetingVerifyOTPMessageRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+       <span class="nf">completionHandler</span><span class="p">:</span>
+           <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+               <span class="n"><a href="../Classes/AWSPinpointTargetingVerifyOTPMessageResponse.html">AWSPinpointTargetingVerifyOTPMessageResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+               <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">verifyOTPMessage</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSPinpointTargetingVerifyOTPMessageRequest.html">AWSPinpointTargetingVerifyOTPMessageRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSPinpointTargetingVerifyOTPMessageResponse.html">AWSPinpointTargetingVerifyOTPMessageResponse</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the VerifyOTPMessage service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSPinpointTargetingErrorDomain">AWSPinpointTargetingErrorDomain</a></code> domain and the following error code: <code>AWSPinpointTargetingErrorBadRequest</code>, <code>AWSPinpointTargetingErrorInternalServerError</code>, <code>AWSPinpointTargetingErrorPayloadTooLarge</code>, <code>AWSPinpointTargetingErrorForbidden</code>, <code>AWSPinpointTargetingErrorNotFound</code>, <code>AWSPinpointTargetingErrorMethodNotAllowed</code>, <code>AWSPinpointTargetingErrorTooManyRequests</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-11-18)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
