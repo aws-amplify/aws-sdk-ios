@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSLocation 2.26.5 Docs</a> (89% documented)</p>
+        <p><a href="index.html">AWSLocation 2.26.6 Docs</a> (89% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLocation.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -408,6 +408,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes.html#/c:objc(cs)AWSLocationTagResourceResponse">AWSLocationTagResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLocationTimeZone.html">AWSLocationTimeZone</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSLocationTruckDimensions.html">AWSLocationTruckDimensions</a>
@@ -4118,9 +4121,9 @@ Required parameters: [Distance, DurationSeconds, EndPosition, StartPosition, Ste
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies a single point of interest, or Place as a result of a search query obtained from a dataset configured in the place index resource.</p>
+                        <p>Contains a search result from a position search query that is run on a place index resource.</p>
 
-<p>Required parameters: [Place]</p>
+<p>Required parameters: [Distance, Place]</p>
 
                         <a href="Classes/AWSLocationSearchForPositionResult.html" class="slightly-smaller">See more</a>
                       </div>
@@ -4153,7 +4156,7 @@ Required parameters: [Distance, DurationSeconds, EndPosition, StartPosition, Ste
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Contains relevant Places returned by calling <code>SearchPlaceIndexForText</code>.</p>
+                        <p>Contains a search result from a text search query that is run on a place index resource.</p>
 
 <p>Required parameters: [Place]</p>
 
@@ -4252,7 +4255,7 @@ Required parameters: [Distance, DurationSeconds, EndPosition, StartPosition, Ste
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A summary of the reverse geocoding request sent using <code>SearchPlaceIndexForPosition</code>.</p>
+                        <p>A summary of the request sent by using <code>SearchPlaceIndexForPosition</code>.</p>
 
 <p>Required parameters: [DataSource, Position]</p>
 
@@ -4351,7 +4354,7 @@ Required parameters: [Distance, DurationSeconds, EndPosition, StartPosition, Ste
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A summary of the geocoding request sent using <code>SearchPlaceIndexForText</code>.</p>
+                        <p>A summary of the request sent by using <code>SearchPlaceIndexForText</code>.</p>
 
 <p>Required parameters: [DataSource, Text]</p>
 
@@ -4465,6 +4468,41 @@ Required parameters: [Distance, DurationSeconds, EndPosition, StartPosition, Ste
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationTagResourceResponse</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocationTimeZone"></a>
+                    <a name="//apple_ref/objc/Class/AWSLocationTimeZone" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationTimeZone">AWSLocationTimeZone</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Information about a time zone. Includes the name of the time zone and the offset from UTC in seconds.</p>
+
+<p>Required parameters: [Name]</p>
+
+                        <a href="Classes/AWSLocationTimeZone.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationTimeZone</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationTimeZone</span></code></pre>
 
                         </div>
                       </div>
@@ -5032,7 +5070,7 @@ Required parameters: [Distance, DurationSeconds, EndPosition, StartPosition, Ste
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-11-18)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

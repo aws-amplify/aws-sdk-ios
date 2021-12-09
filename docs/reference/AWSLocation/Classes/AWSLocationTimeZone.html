@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSLocationGetMapSpritesResponse Class Reference</title>
+    <title>AWSLocationTimeZone Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSLocationGetMapSpritesResponse" class="dashAnchor"></a>
-    <a title="AWSLocationGetMapSpritesResponse Class Reference"></a>
+    <a name="//apple_ref/objc/Class/AWSLocationTimeZone" class="dashAnchor"></a>
+    <a title="AWSLocationTimeZone Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSLocation 2.26.6 Docs</a> (89% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSLocation Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        AWSLocationGetMapSpritesResponse Class Reference
+        AWSLocationTimeZone Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -516,20 +516,23 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSLocationGetMapSpritesResponse</h1>
+            <h1>AWSLocationTimeZone</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationGetMapSpritesResponse</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationTimeZone</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationGetMapSpritesResponse</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationTimeZone</span></code></pre>
 
                 </div>
               </div>
-            
+            <p>Information about a time zone. Includes the name of the time zone and the offset from UTC in seconds.</p>
+
+<p>Required parameters: [Name]</p>
+
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -537,9 +540,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSLocationGetMapSpritesResponse(py)blob"></a>
-                    <a name="//apple_ref/objc/Property/blob" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLocationGetMapSpritesResponse(py)blob">blob</a>
+                    <a name="/c:objc(cs)AWSLocationTimeZone(py)name"></a>
+                    <a name="//apple_ref/objc/Property/name" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationTimeZone(py)name">name</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -547,19 +550,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Contains the body of the sprite sheet or JSON offset ﬁle.</p>
+                        <p>The name of the time zone, following the <a href="https://www.iana.org/time-zones"> IANA time zone standard</a>. For example, <code>America/Los_Angeles</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSData</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">blob</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">name</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">blob</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -569,9 +572,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSLocationGetMapSpritesResponse(py)contentType"></a>
-                    <a name="//apple_ref/objc/Property/contentType" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLocationGetMapSpritesResponse(py)contentType">contentType</a>
+                    <a name="/c:objc(cs)AWSLocationTimeZone(py)offset"></a>
+                    <a name="//apple_ref/objc/Property/offset" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationTimeZone(py)offset">offset</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -579,19 +582,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The content type of the sprite sheet and offsets. For example, the sprite sheet content type is <code>image/png</code>, and the sprite offset JSON document is <code>application/json</code>. </p>
+                        <p>The time zone&rsquo;s offset, in seconds, from UTC.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">contentType</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">offset</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">contentType</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">offset</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>

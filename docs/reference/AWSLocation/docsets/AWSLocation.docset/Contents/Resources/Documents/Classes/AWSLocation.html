@@ -17,7 +17,7 @@
     <a title="AWSLocation Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLocation 2.26.5 Docs</a> (89% documented)</p>
+        <p><a href="../index.html">AWSLocation 2.26.6 Docs</a> (89% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLocation.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -408,6 +408,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes.html#/c:objc(cs)AWSLocationTagResourceResponse">AWSLocationTagResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationTimeZone.html">AWSLocationTimeZone</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLocationTruckDimensions.html">AWSLocationTruckDimensions</a>
@@ -1906,7 +1909,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters: <code>DeparturePostiton</code> and <code>DestinationPosition</code>. Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a route calculator resource</a></p><p>By default, a request that doesn&rsquo;t specify a departure time uses the best time of day to travel with the best traffic conditions when calculating the route.</p><p>Additional options include:</p><ul><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#departure-time">Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartureNow</code>. This calculates a route based on predictive traffic data at the given time. </p><note><p>You can&rsquo;t specify both <code>DepartureTime</code> and <code>DepartureNow</code> in a single request. Specifying both parameters returns an error message.</p></note></li><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#travel-mode">Specifying a travel mode</a> using TravelMode. This lets you specify an additional route preference such as <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p></li></ul><p></p>
+                        <p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters: <code>DeparturePostiton</code> and <code>DestinationPosition</code>. Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a route calculator resource</a>.</p><p>By default, a request that doesn&rsquo;t specify a departure time uses the best time of day to travel with the best traffic conditions when calculating the route.</p><p>Additional options include:</p><ul><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#departure-time">Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartureNow</code>. This calculates a route based on predictive traffic data at the given time. </p><note><p>You can&rsquo;t specify both <code>DepartureTime</code> and <code>DepartureNow</code> in a single request. Specifying both parameters returns a validation error.</p></note></li><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#travel-mode">Specifying a travel mode</a> using TravelMode. This lets you specify an additional route preference such as <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p></li></ul><p></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCalculateRouteRequest</p>
@@ -1970,7 +1973,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters: <code>DeparturePostiton</code> and <code>DestinationPosition</code>. Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a route calculator resource</a></p><p>By default, a request that doesn&rsquo;t specify a departure time uses the best time of day to travel with the best traffic conditions when calculating the route.</p><p>Additional options include:</p><ul><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#departure-time">Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartureNow</code>. This calculates a route based on predictive traffic data at the given time. </p><note><p>You can&rsquo;t specify both <code>DepartureTime</code> and <code>DepartureNow</code> in a single request. Specifying both parameters returns an error message.</p></note></li><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#travel-mode">Specifying a travel mode</a> using TravelMode. This lets you specify an additional route preference such as <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p></li></ul><p></p>
+                        <p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters: <code>DeparturePostiton</code> and <code>DestinationPosition</code>. Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a route calculator resource</a>.</p><p>By default, a request that doesn&rsquo;t specify a departure time uses the best time of day to travel with the best traffic conditions when calculating the route.</p><p>Additional options include:</p><ul><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#departure-time">Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartureNow</code>. This calculates a route based on predictive traffic data at the given time. </p><note><p>You can&rsquo;t specify both <code>DepartureTime</code> and <code>DepartureNow</code> in a single request. Specifying both parameters returns a validation error.</p></note></li><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#travel-mode">Specifying a travel mode</a> using TravelMode. This lets you specify an additional route preference such as <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p></li></ul><p></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCalculateRouteRequest</p>
@@ -2332,7 +2335,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a place index resource in your AWS account, which supports functions with geospatial data sourced from your chosen data provider.</p>
+                        <p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCreatePlaceIndexRequest</p>
@@ -2396,7 +2399,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a place index resource in your AWS account, which supports functions with geospatial data sourced from your chosen data provider.</p>
+                        <p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCreatePlaceIndexRequest</p>
@@ -6888,7 +6891,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Geocodes free-form text, such as an address, name, city, or region to allow you to search for Places or points of interest. </p><p>Includes the option to apply additional parameters to narrow your list of results.</p><note><p>You can search for places near a given position using <code>BiasPosition</code>, or filter results within a bounding box using <code>FilterBBox</code>. Providing both parameters simultaneously returns an error.</p></note></p>
+                        <p>Geocodes free-form text, such as an address, name, city, or region to allow you to search for Places or points of interest. </p><p>Optional parameters let you narrow your search results by bounding box or country, or bias your search toward a specific position on the globe.</p><note><p>You can search for places near a given position using <code>BiasPosition</code>, or filter results within a bounding box using <code>FilterBBox</code>. Providing both parameters simultaneously returns an error.</p></note><p>Search results are returned in order of highest to lowest relevance.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationSearchPlaceIndexForTextRequest</p>
@@ -6953,7 +6956,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Geocodes free-form text, such as an address, name, city, or region to allow you to search for Places or points of interest. </p><p>Includes the option to apply additional parameters to narrow your list of results.</p><note><p>You can search for places near a given position using <code>BiasPosition</code>, or filter results within a bounding box using <code>FilterBBox</code>. Providing both parameters simultaneously returns an error.</p></note></p>
+                        <p>Geocodes free-form text, such as an address, name, city, or region to allow you to search for Places or points of interest. </p><p>Optional parameters let you narrow your search results by bounding box or country, or bias your search toward a specific position on the globe.</p><note><p>You can search for places near a given position using <code>BiasPosition</code>, or filter results within a bounding box using <code>FilterBBox</code>. Providing both parameters simultaneously returns an error.</p></note><p>Search results are returned in order of highest to lowest relevance.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationSearchPlaceIndexForTextRequest</p>
@@ -8017,7 +8020,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-11-18)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

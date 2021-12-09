@@ -17,7 +17,7 @@
     <a title="AWSLocationSearchPlaceIndexForPositionRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLocation 2.26.5 Docs</a> (89% documented)</p>
+        <p><a href="../index.html">AWSLocation 2.26.6 Docs</a> (89% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLocation.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -410,6 +410,9 @@
                 <a href="../Classes.html#/c:objc(cs)AWSLocationTagResourceResponse">AWSLocationTagResourceResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLocationTimeZone.html">AWSLocationTimeZone</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLocationTruckDimensions.html">AWSLocationTruckDimensions</a>
               </li>
               <li class="nav-group-task">
@@ -566,6 +569,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSLocationSearchPlaceIndexForPositionRequest(py)language"></a>
+                    <a name="//apple_ref/objc/Property/language" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationSearchPlaceIndexForPositionRequest(py)language">language</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example, <code>en</code> for English.</p><p>This setting affects the languages used in the results. It does not change which results are returned. If the language is not specified, or not supported for a particular result, the partner automatically chooses a language for the result.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">language</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">language</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSLocationSearchPlaceIndexForPositionRequest(py)maxResults"></a>
                     <a name="//apple_ref/objc/Property/maxResults" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSLocationSearchPlaceIndexForPositionRequest(py)maxResults">maxResults</a>
@@ -576,7 +611,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An optional paramer. The maximum number of results returned per request. </p><p>Default value: <code>50</code></p>
+                        <p>An optional parameter. The maximum number of results returned per request.</p><p>Default value: <code>50</code></p>
 
                       </div>
                       <div class="declaration">
@@ -608,7 +643,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies a coordinate for the query defined by a longitude, and latitude.</p><ul><li><p>The first position is the X coordinate, or longitude.</p></li><li><p>The second position is the Y coordinate, or latitude. </p></li></ul><p>For example, <code>position=xLongitude&amp;position=yLatitude</code> .</p>
+                        <p>Specifies the longitude and latitude of the position to query.</p><p> This parameter must contain a pair of numbers. The first number represents the X coordinate, or longitude; the second number represents the Y coordinate, or latitude.</p><p>For example, <code>[-123.1174, 49.2847]</code> represents a position with longitude <code>-123.1174</code> and latitude <code>49.2847</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -632,7 +667,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-11-18)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
