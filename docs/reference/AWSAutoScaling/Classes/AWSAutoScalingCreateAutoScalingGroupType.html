@@ -17,7 +17,7 @@
     <a title="AWSAutoScalingCreateAutoScalingGroupType Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSAutoScaling 2.26.5 Docs</a> (81% documented)</p>
+        <p><a href="../index.html">AWSAutoScaling 2.26.6 Docs</a> (81% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSAutoScaling.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -365,13 +365,22 @@
                 <a href="../Classes/AWSAutoScalingMemoryMiBRequest.html">AWSAutoScalingMemoryMiBRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingMetric.html">AWSAutoScalingMetric</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingMetricCollectionType.html">AWSAutoScalingMetricCollectionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingMetricDataQuery.html">AWSAutoScalingMetricDataQuery</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingMetricDimension.html">AWSAutoScalingMetricDimension</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingMetricGranularityType.html">AWSAutoScalingMetricGranularityType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingMetricStat.html">AWSAutoScalingMetricStat</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingMixedInstancesPolicy.html">AWSAutoScalingMixedInstancesPolicy</a>
@@ -393,6 +402,15 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingPredictiveScalingConfiguration.html">AWSAutoScalingPredictiveScalingConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingPredictiveScalingCustomizedCapacityMetric.html">AWSAutoScalingPredictiveScalingCustomizedCapacityMetric</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingPredictiveScalingCustomizedLoadMetric.html">AWSAutoScalingPredictiveScalingCustomizedLoadMetric</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingPredictiveScalingCustomizedScalingMetric.html">AWSAutoScalingPredictiveScalingCustomizedScalingMetric</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingPredictiveScalingMetricSpecification.html">AWSAutoScalingPredictiveScalingMetricSpecification</a>
@@ -710,7 +728,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/capacity-rebalance.html">Amazon EC2 Auto Scaling Capacity Rebalancing</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+                        <p>Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html">Amazon EC2 Auto Scaling Capacity Rebalancing</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
                       </div>
                       <div class="declaration">
@@ -870,7 +888,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service. During this time, any health check failures for the instance are ignored. The default value is <code>0</code>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period">Health check grace period</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>Conditional: Required if you are adding an <code>ELB</code> health check.</p>
+                        <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed health check. The default value is <code>0</code>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period">Health check grace period</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>Conditional: Required if you are adding an <code>ELB</code> health check.</p>
 
                       </div>
                       <div class="declaration">
@@ -1190,7 +1208,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An embedded object that specifies a mixed instances policy.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+                        <p>An embedded object that specifies a mixed instances policy.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
                       </div>
                       <div class="declaration">
@@ -1222,7 +1240,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance scale-in protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+                        <p>Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html">Using instance scale-in protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
                       </div>
                       <div class="declaration">
@@ -1438,7 +1456,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-11-18)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

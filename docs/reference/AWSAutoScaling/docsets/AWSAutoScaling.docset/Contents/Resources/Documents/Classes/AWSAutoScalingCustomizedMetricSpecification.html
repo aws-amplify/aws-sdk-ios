@@ -17,7 +17,7 @@
     <a title="AWSAutoScalingCustomizedMetricSpecification Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSAutoScaling 2.26.5 Docs</a> (81% documented)</p>
+        <p><a href="../index.html">AWSAutoScaling 2.26.6 Docs</a> (81% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSAutoScaling.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -365,13 +365,22 @@
                 <a href="../Classes/AWSAutoScalingMemoryMiBRequest.html">AWSAutoScalingMemoryMiBRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingMetric.html">AWSAutoScalingMetric</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingMetricCollectionType.html">AWSAutoScalingMetricCollectionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingMetricDataQuery.html">AWSAutoScalingMetricDataQuery</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingMetricDimension.html">AWSAutoScalingMetricDimension</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingMetricGranularityType.html">AWSAutoScalingMetricGranularityType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingMetricStat.html">AWSAutoScalingMetricStat</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingMixedInstancesPolicy.html">AWSAutoScalingMixedInstancesPolicy</a>
@@ -393,6 +402,15 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingPredictiveScalingConfiguration.html">AWSAutoScalingPredictiveScalingConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingPredictiveScalingCustomizedCapacityMetric.html">AWSAutoScalingPredictiveScalingCustomizedCapacityMetric</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingPredictiveScalingCustomizedLoadMetric.html">AWSAutoScalingPredictiveScalingCustomizedLoadMetric</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingPredictiveScalingCustomizedScalingMetric.html">AWSAutoScalingPredictiveScalingCustomizedScalingMetric</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingPredictiveScalingMetricSpecification.html">AWSAutoScalingPredictiveScalingMetricSpecification</a>
@@ -628,9 +646,8 @@
 
                 </div>
               </div>
-            <p>Represents a CloudWatch metric of your choosing for a target tracking scaling policy to use with Amazon EC2 Auto Scaling.</p><p>To create your customized metric specification:</p><ul><li><p>Add values for each required parameter from CloudWatch. You can use an existing metric, or a new metric that you create. To use your own metric, you must first publish the metric to CloudWatch. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">Publish Custom Metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</p></li><li><p>Choose a metric that changes proportionally with capacity. The value of the metric should increase or decrease in inverse proportion to the number of capacity units. That is, the value of the metric should decrease when capacity increases.</p></li></ul><p>For more information about CloudWatch, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch Concepts</a>.</p>
-
-<p>Required parameters: [MetricName, Namespace, Statistic]</p>
+            <p><p>Represents a CloudWatch metric of your choosing for a target tracking scaling policy to use with Amazon EC2 Auto Scaling.</p><p>To create your customized metric specification:</p><ul><li><p>Add values for each required parameter from CloudWatch. You can use an existing metric, or a new metric that you create. To use your own metric, you must first publish the metric to CloudWatch. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">Publish custom metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</p></li><li><p>Choose a metric that changes proportionally with capacity. The value of the metric should increase or decrease in inverse proportion to the number of capacity units. That is, the value of the metric should decrease when capacity increases.</p></li></ul><p>For more information about the CloudWatch terminology below, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch concepts</a>.</p><note><p>Each individual service provides information about the metrics, namespace, and dimensions they use. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html">Amazon Web Services services that publish CloudWatch metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</p></note>
+Required parameters: [MetricName, Namespace, Statistic]</p>
 
           </section>
           <section class="section task-group-section">
@@ -681,7 +698,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The name of the metric.</p>
+                        <p>The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html">Metric</a> object that is returned by a call to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html">ListMetrics</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -777,7 +794,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The unit of the metric.</p>
+                        <p>The unit of the metric. For a complete list of the units that CloudWatch supports, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">MetricDatum</a> data type in the <i>Amazon CloudWatch API Reference</i>.</p>
 
                       </div>
                       <div class="declaration">
@@ -801,7 +818,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-11-18)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

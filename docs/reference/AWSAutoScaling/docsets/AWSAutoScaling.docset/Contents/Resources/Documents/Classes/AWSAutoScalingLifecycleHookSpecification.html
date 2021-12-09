@@ -17,7 +17,7 @@
     <a title="AWSAutoScalingLifecycleHookSpecification Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSAutoScaling 2.26.5 Docs</a> (81% documented)</p>
+        <p><a href="../index.html">AWSAutoScaling 2.26.6 Docs</a> (81% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSAutoScaling.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -365,13 +365,22 @@
                 <a href="../Classes/AWSAutoScalingMemoryMiBRequest.html">AWSAutoScalingMemoryMiBRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingMetric.html">AWSAutoScalingMetric</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingMetricCollectionType.html">AWSAutoScalingMetricCollectionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingMetricDataQuery.html">AWSAutoScalingMetricDataQuery</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingMetricDimension.html">AWSAutoScalingMetricDimension</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingMetricGranularityType.html">AWSAutoScalingMetricGranularityType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingMetricStat.html">AWSAutoScalingMetricStat</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingMixedInstancesPolicy.html">AWSAutoScalingMixedInstancesPolicy</a>
@@ -393,6 +402,15 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingPredictiveScalingConfiguration.html">AWSAutoScalingPredictiveScalingConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingPredictiveScalingCustomizedCapacityMetric.html">AWSAutoScalingPredictiveScalingCustomizedCapacityMetric</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingPredictiveScalingCustomizedLoadMetric.html">AWSAutoScalingPredictiveScalingCustomizedLoadMetric</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingPredictiveScalingCustomizedScalingMetric.html">AWSAutoScalingPredictiveScalingCustomizedScalingMetric</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingPredictiveScalingMetricSpecification.html">AWSAutoScalingPredictiveScalingMetricSpecification</a>
@@ -628,7 +646,7 @@
 
                 </div>
               </div>
-            <p>Describes information used to specify a lifecycle hook for an Auto Scaling group.</p><p>A lifecycle hook tells Amazon EC2 Auto Scaling to perform an action on an instance when the instance launches (before it is put into service) or as the instance terminates (before it is fully terminated).</p><p>This step is a part of the procedure for creating a lifecycle hook for an Auto Scaling group:</p><ol><li><p>(Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke your Lambda function when Amazon EC2 Auto Scaling launches or terminates instances.</p></li><li><p>(Optional) Create a notification target and an IAM role. The target can be either an Amazon SQS queue or an Amazon SNS topic. The role allows Amazon EC2 Auto Scaling to publish lifecycle notifications to the target.</p></li><li><p><b>Create the lifecycle hook. Specify whether the hook is used when the instances launch or terminate.</b></p></li><li><p>If you need more time, record the lifecycle action heartbeat to keep the instance in a pending state.</p></li><li><p>If you finish before the timeout period ends, complete the lifecycle action.</p></li></ol><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon EC2 Auto Scaling lifecycle hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+            <p>Describes information used to specify a lifecycle hook for an Auto Scaling group.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon EC2 Auto Scaling lifecycle hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
 <p>Required parameters: [LifecycleHookName, LifecycleTransition]</p>
 
@@ -865,7 +883,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-11-18)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
