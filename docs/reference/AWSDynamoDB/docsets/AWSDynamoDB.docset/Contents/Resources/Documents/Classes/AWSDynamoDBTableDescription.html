@@ -17,7 +17,7 @@
     <a title="AWSDynamoDBTableDescription Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSDynamoDB 2.26.5 Docs</a> (79% documented)</p>
+        <p><a href="../index.html">AWSDynamoDB 2.26.6 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSDynamoDB.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -539,6 +539,9 @@
                 <a href="../Classes/AWSDynamoDBTableAutoScalingDescription.html">AWSDynamoDBTableAutoScalingDescription</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBTableClassSummary.html">AWSDynamoDBTableClassSummary</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBTableDescription.html">AWSDynamoDBTableDescription</a>
               </li>
               <li class="nav-group-task">
@@ -753,6 +756,9 @@
                 <a href="../Enums/AWSDynamoDBStreamViewType.html">AWSDynamoDBStreamViewType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSDynamoDBTableClass.html">AWSDynamoDBTableClass</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSDynamoDBTableStatus.html">AWSDynamoDBTableStatus</a>
               </li>
               <li class="nav-group-task">
@@ -965,7 +971,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Represents the version of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html">global tables</a> in use, if the table is replicated across AWS Regions.</p>
+                        <p>Represents the version of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html">global tables</a> in use, if the table is replicated across Amazon Web Services Regions.</p>
 
                       </div>
                       <div class="declaration">
@@ -1093,7 +1099,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>A timestamp, in ISO 8601 format, for this stream.</p><p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:</p><ul><li><p>AWS customer ID</p></li><li><p>Table name</p></li><li><p><code>StreamLabel</code></p></li></ul></p>
+                        <p><p>A timestamp, in ISO 8601 format, for this stream.</p><p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:</p><ul><li><p>Amazon Web Services customer ID</p></li><li><p>Table name</p></li><li><p><code>StreamLabel</code></p></li></ul></p>
 
                       </div>
                       <div class="declaration">
@@ -1339,6 +1345,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSDynamoDBTableDescription(py)tableClassSummary"></a>
+                    <a name="//apple_ref/objc/Property/tableClassSummary" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDBTableDescription(py)tableClassSummary">tableClassSummary</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Contains details of the table class.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSDynamoDBTableClassSummary.html">AWSDynamoDBTableClassSummary</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">tableClassSummary</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">tableClassSummary</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBTableClassSummary.html">AWSDynamoDBTableClassSummary</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSDynamoDBTableDescription(py)tableId"></a>
                     <a name="//apple_ref/objc/Property/tableId" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSDynamoDBTableDescription(py)tableId">tableId</a>
@@ -1445,7 +1483,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>The current state of the table:</p><ul><li><p><code>CREATING</code> - The table is being created.</p></li><li><p><code>UPDATING</code> - The table is being updated.</p></li><li><p><code>DELETING</code> - The table is being deleted.</p></li><li><p><code>ACTIVE</code> - The table is ready for use.</p></li><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The AWS KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the AWS KMS key. DynamoDB will initiate the table archival process when a table&rsquo;s AWS KMS key remains inaccessible for more than seven days. </p></li><li><p><code>ARCHIVING</code> - The table is being archived. Operations are not allowed until archival is complete. </p></li><li><p><code>ARCHIVED</code> - The table has been archived. See the ArchivalReason for more information. </p></li></ul></p>
+                        <p><p>The current state of the table:</p><ul><li><p><code>CREATING</code> - The table is being created.</p></li><li><p><code>UPDATING</code> - The table is being updated.</p></li><li><p><code>DELETING</code> - The table is being deleted.</p></li><li><p><code>ACTIVE</code> - The table is ready for use.</p></li><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the KMS key. DynamoDB will initiate the table archival process when a table&rsquo;s KMS key remains inaccessible for more than seven days. </p></li><li><p><code>ARCHIVING</code> - The table is being archived. Operations are not allowed until archival is complete. </p></li><li><p><code>ARCHIVED</code> - The table has been archived. See the ArchivalReason for more information. </p></li></ul></p>
 
                       </div>
                       <div class="declaration">
@@ -1469,7 +1507,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-11-18)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

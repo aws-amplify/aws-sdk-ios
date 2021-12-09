@@ -17,7 +17,7 @@
     <a title="AWSDynamoDBExecuteStatementOutput Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSDynamoDB 2.26.5 Docs</a> (79% documented)</p>
+        <p><a href="../index.html">AWSDynamoDB 2.26.6 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSDynamoDB.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -539,6 +539,9 @@
                 <a href="../Classes/AWSDynamoDBTableAutoScalingDescription.html">AWSDynamoDBTableAutoScalingDescription</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBTableClassSummary.html">AWSDynamoDBTableClassSummary</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBTableDescription.html">AWSDynamoDBTableDescription</a>
               </li>
               <li class="nav-group-task">
@@ -753,6 +756,9 @@
                 <a href="../Enums/AWSDynamoDBStreamViewType.html">AWSDynamoDBStreamViewType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSDynamoDBTableClass.html">AWSDynamoDBTableClass</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSDynamoDBTableStatus.html">AWSDynamoDBTableStatus</a>
               </li>
               <li class="nav-group-task">
@@ -794,6 +800,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSDynamoDBExecuteStatementOutput(py)consumedCapacity"></a>
+                    <a name="//apple_ref/objc/Property/consumedCapacity" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDBExecuteStatementOutput(py)consumedCapacity">consumedCapacity</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The capacity units consumed by an operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the request asked for it. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSDynamoDBConsumedCapacity.html">AWSDynamoDBConsumedCapacity</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">consumedCapacity</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">consumedCapacity</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBConsumedCapacity.html">AWSDynamoDBConsumedCapacity</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSDynamoDBExecuteStatementOutput(py)items"></a>
                     <a name="//apple_ref/objc/Property/items" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSDynamoDBExecuteStatementOutput(py)items">items</a>
@@ -804,7 +842,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p> If a read operation was used, this property will contain the result of the reade operation; a map of attribute names and their values. For the write operations this value will be empty. </p>
+                        <p>If a read operation was used, this property will contain the result of the read operation; a map of attribute names and their values. For the write operations this value will be empty.</p>
 
                       </div>
                       <div class="declaration">
@@ -836,7 +874,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p> If the response of a read request exceeds the response payload limit DynamoDB will set this value in the response. If set, you can use that this value in the subsequent request to get the remaining results. </p>
+                        <p>If the response of a read request exceeds the response payload limit DynamoDB will set this value in the response. If set, you can use that this value in the subsequent request to get the remaining results.</p>
 
                       </div>
                       <div class="declaration">
@@ -860,7 +898,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-11-18)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
