@@ -17,7 +17,7 @@
     <a title="AWSTranslateTerminologyData Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTranslate 2.26.5 Docs</a> (77% documented)</p>
+        <p><a href="../index.html">AWSTranslate 2.26.6 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTranslate.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -164,6 +164,9 @@
                 <a href="../Classes/AWSTranslateTranslateTextResponse.html">AWSTranslateTranslateTextResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateTranslationSettings.html">AWSTranslateTranslationSettings</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSTranslateUpdateParallelDataRequest.html">AWSTranslateUpdateParallelDataRequest</a>
               </li>
               <li class="nav-group-task">
@@ -192,6 +195,9 @@
             <a href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Enums/AWSTranslateDirectionality.html">AWSTranslateDirectionality</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSTranslateEncryptionKeyType.html">AWSTranslateEncryptionKeyType</a>
               </li>
               <li class="nav-group-task">
@@ -208,6 +214,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSTranslateParallelDataStatus.html">AWSTranslateParallelDataStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranslateProfanity.html">AWSTranslateProfanity</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSTranslateTerminologyDataFormat.html">AWSTranslateTerminologyDataFormat</a>
@@ -240,6 +249,38 @@
           <section class="section task-group-section">
             <div class="task-group">
               <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslateTerminologyData(py)directionality"></a>
+                    <a name="//apple_ref/objc/Property/directionality" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslateTerminologyData(py)directionality">directionality</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The directionality of your terminology resource indicates whether it has one source language (uni-directional) or multiple (multi-directional).</p><dl><dt>UNI</dt><dd><p>The terminology resource has one source language (for example, the first column in a CSV file), and all of its other languages are target languages. </p></dd><dt>MULTI</dt><dd><p>Any language in the terminology resource can be the source language or a target language. A single multi-directional terminology resource can be used for jobs that translate different language pairs. For example, if the terminology contains terms in English and Spanish, then it can be used for jobs that translate English to Spanish and jobs that translate Spanish to English.</p></dd></dl><p>When you create a custom terminology resource without specifying the directionality, it behaves as uni-directional terminology, although this parameter will have a null value.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSTranslateDirectionality.html">AWSTranslateDirectionality</a></span> <span class="n">directionality</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">directionality</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSTranslateDirectionality.html">AWSTranslateDirectionality</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -285,7 +326,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The data format of the custom terminology. Either CSV or TMX.</p>
+                        <p>The data format of the custom terminology.</p>
 
                       </div>
                       <div class="declaration">
@@ -309,7 +350,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-11-18)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

@@ -17,7 +17,7 @@
     <a title="AWSTranslateGetTerminologyResponse Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTranslate 2.26.5 Docs</a> (77% documented)</p>
+        <p><a href="../index.html">AWSTranslate 2.26.6 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTranslate.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -164,6 +164,9 @@
                 <a href="../Classes/AWSTranslateTranslateTextResponse.html">AWSTranslateTranslateTextResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateTranslationSettings.html">AWSTranslateTranslationSettings</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSTranslateUpdateParallelDataRequest.html">AWSTranslateUpdateParallelDataRequest</a>
               </li>
               <li class="nav-group-task">
@@ -192,6 +195,9 @@
             <a href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Enums/AWSTranslateDirectionality.html">AWSTranslateDirectionality</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSTranslateEncryptionKeyType.html">AWSTranslateEncryptionKeyType</a>
               </li>
               <li class="nav-group-task">
@@ -208,6 +214,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSTranslateParallelDataStatus.html">AWSTranslateParallelDataStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranslateProfanity.html">AWSTranslateProfanity</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSTranslateTerminologyDataFormat.html">AWSTranslateTerminologyDataFormat</a>
@@ -240,6 +249,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSTranslateGetTerminologyResponse(py)auxiliaryDataLocation"></a>
+                    <a name="//apple_ref/objc/Property/auxiliaryDataLocation" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslateGetTerminologyResponse(py)auxiliaryDataLocation">auxiliaryDataLocation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The Amazon S3 location of a file that provides any errors or warnings that were produced by your input file. This file was created when Amazon Translate attempted to create a terminology resource. The location is returned as a presigned URL to that has a 30 minute expiration.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSTranslateTerminologyDataLocation.html">AWSTranslateTerminologyDataLocation</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">auxiliaryDataLocation</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">auxiliaryDataLocation</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranslateTerminologyDataLocation.html">AWSTranslateTerminologyDataLocation</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSTranslateGetTerminologyResponse(py)terminologyDataLocation"></a>
                     <a name="//apple_ref/objc/Property/terminologyDataLocation" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSTranslateGetTerminologyResponse(py)terminologyDataLocation">terminologyDataLocation</a>
@@ -250,7 +291,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The data location of the custom terminology being retrieved. The custom terminology file is returned in a presigned url that has a 30 minute expiration.</p>
+                        <p><p>The Amazon S3 location of the most recent custom terminology input file that was successfully imported into Amazon Translate. The location is returned as a presigned URL that has a 30 minute expiration.</p><important><p>Amazon Translate doesn&rsquo;t scan all input files for the risk of CSV injection attacks. </p><p>CSV injection occurs when a .csv or .tsv file is altered so that a record contains malicious code. The record begins with a special character, such as =, +, -, or @. When the file is opened in a spreadsheet program, the program might interpret the record as a formula and run the code within it.</p><p>Before you download an input file from Amazon S3, ensure that you recognize the file and trust its creator.</p></important></p>
 
                       </div>
                       <div class="declaration">
@@ -306,7 +347,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-11-18)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

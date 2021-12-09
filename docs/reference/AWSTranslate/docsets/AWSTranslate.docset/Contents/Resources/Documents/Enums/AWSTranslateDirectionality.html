@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSTranslateListTextTranslationJobsRequest Class Reference</title>
+    <title>AWSTranslateDirectionality Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSTranslateListTextTranslationJobsRequest" class="dashAnchor"></a>
-    <a title="AWSTranslateListTextTranslationJobsRequest Class Reference"></a>
+    <a name="//apple_ref/objc/Enum/AWSTranslateDirectionality" class="dashAnchor"></a>
+    <a title="AWSTranslateDirectionality Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSTranslate 2.26.6 Docs</a> (76% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSTranslate Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        AWSTranslateListTextTranslationJobsRequest Class Reference
+        AWSTranslateDirectionality Enumeration Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -228,20 +228,25 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSTranslateListTextTranslationJobsRequest</h1>
+            <h1>AWSTranslateDirectionality</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTranslateListTextTranslationJobsRequest</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSTranslateDirectionality</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSTranslateDirectionalityUnknown</span><span class="p">,</span>
+    <span class="n">AWSTranslateDirectionalityUni</span><span class="p">,</span>
+    <span class="n">AWSTranslateDirectionalityMulti</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTranslateListTextTranslationJobsRequest</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTranslateDirectionality</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                 </div>
               </div>
-            
+            <p>Undocumented</p>
+
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -249,9 +254,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSTranslateListTextTranslationJobsRequest(py)filter"></a>
-                    <a name="//apple_ref/objc/Property/filter" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTranslateListTextTranslationJobsRequest(py)filter">filter</a>
+                    <a name="/c:@E@AWSTranslateDirectionality@AWSTranslateDirectionalityUnknown"></a>
+                    <a name="//apple_ref/objc/Case/AWSTranslateDirectionalityUnknown" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranslateDirectionality@AWSTranslateDirectionalityUnknown">AWSTranslateDirectionalityUnknown</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -259,19 +264,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The parameters that specify which batch translation jobs to retrieve. Filters include job name, job status, and submission time. You can only set one filter at a time.</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSTranslateTextTranslationJobFilter.html">AWSTranslateTextTranslationJobFilter</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">filter</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTranslateDirectionalityUnknown</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">filter</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranslateTextTranslationJobFilter.html">AWSTranslateTextTranslationJobFilter</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unknown</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
 
                         </div>
                       </div>
@@ -281,9 +286,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSTranslateListTextTranslationJobsRequest(py)maxResults"></a>
-                    <a name="//apple_ref/objc/Property/maxResults" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTranslateListTextTranslationJobsRequest(py)maxResults">maxResults</a>
+                    <a name="/c:@E@AWSTranslateDirectionality@AWSTranslateDirectionalityUni"></a>
+                    <a name="//apple_ref/objc/Case/AWSTranslateDirectionalityUni" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranslateDirectionality@AWSTranslateDirectionalityUni">AWSTranslateDirectionalityUni</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -291,19 +296,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The maximum number of results to return in each page. The default value is 100.</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">maxResults</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTranslateDirectionalityUni</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">maxResults</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">uni</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
 
                         </div>
                       </div>
@@ -313,9 +318,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSTranslateListTextTranslationJobsRequest(py)nextToken"></a>
-                    <a name="//apple_ref/objc/Property/nextToken" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTranslateListTextTranslationJobsRequest(py)nextToken">nextToken</a>
+                    <a name="/c:@E@AWSTranslateDirectionality@AWSTranslateDirectionalityMulti"></a>
+                    <a name="//apple_ref/objc/Case/AWSTranslateDirectionalityMulti" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranslateDirectionality@AWSTranslateDirectionalityMulti">AWSTranslateDirectionalityMulti</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -323,19 +328,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The token to request the next page of results.</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">nextToken</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTranslateDirectionalityMulti</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">nextToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">multi</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
 
                         </div>
                       </div>
