@@ -477,6 +477,34 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
+      "line": 98,
+      "symbol": "AWSTextractValueType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
+      "line": 98,
+      "symbol": "AWSTextractValueType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
+      "line": 99,
+      "symbol": "AWSTextractValueType.AWSTextractValueTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
+      "line": 100,
+      "symbol": "AWSTextractValueType.AWSTextractValueTypeDate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractResources.h",
       "line": 18,
       "symbol": "AWSTextractResources",
