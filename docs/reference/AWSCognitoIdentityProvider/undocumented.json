@@ -1983,301 +1983,301 @@
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 95,
+      "line": 104,
       "symbol": "AWSCognitoIdentityUser.-confirmSignUp:clientMetaData:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 98,
+      "line": 107,
       "symbol": "AWSCognitoIdentityUser.-confirmSignUp:forceAliasCreation:clientMetaData:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 106,
+      "line": 115,
       "symbol": "AWSCognitoIdentityUser.-resendConfirmationCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 120,
+      "line": 129,
       "symbol": "AWSCognitoIdentityUser.-getSession:password:validationData:clientMetaData:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 125,
+      "line": 134,
       "symbol": "AWSCognitoIdentityUser.-getSession:password:validationData:isInitialCustomChallenge:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 130,
+      "line": 139,
       "symbol": "AWSCognitoIdentityUser.-getSession:password:validationData:clientMetaData:isInitialCustomChallenge:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 146,
+      "line": 155,
       "symbol": "AWSCognitoIdentityUser.-forgotPassword",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 157,
+      "line": 166,
       "symbol": "AWSCognitoIdentityUser.-confirmForgotPassword:password:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 173,
+      "line": 182,
       "symbol": "AWSCognitoIdentityUser.-updateAttributes:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 193,
+      "line": 202,
       "symbol": "AWSCognitoIdentityUser.-getAttributeVerificationCode:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 295,
+      "line": 304,
       "symbol": "AWSCognitoIdentityUserSession.idToken",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 296,
+      "line": 305,
       "symbol": "AWSCognitoIdentityUserSession.accessToken",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 297,
+      "line": 306,
       "symbol": "AWSCognitoIdentityUserSession.refreshToken",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 298,
+      "line": 307,
       "symbol": "AWSCognitoIdentityUserSession.expirationTime",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 332,
+      "line": 341,
       "symbol": "AWSCognitoIdentityUserSettings.mfaOptions",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 342,
+      "line": 351,
       "symbol": "AWSCognitoIdentityUserMfaPreferences.smsMfa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 343,
+      "line": 352,
       "symbol": "AWSCognitoIdentityUserMfaPreferences.softwareTokenMfa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 352,
+      "line": 361,
       "symbol": "AWSCognitoIdentityUserMfaType.enabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 353,
+      "line": 362,
       "symbol": "AWSCognitoIdentityUserMfaType.preferred",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 355,
+      "line": 364,
       "symbol": "AWSCognitoIdentityUserMfaType.-initWithEnabled:preferred:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 360,
+      "line": 369,
       "symbol": "AWSCognitoIdentityUserMFAOption",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 362,
+      "line": 371,
       "symbol": "AWSCognitoIdentityUserMFAOption.attributeName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 363,
+      "line": 372,
       "symbol": "AWSCognitoIdentityUserMFAOption.deliveryMedium",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 367,
+      "line": 376,
       "symbol": "AWSCognitoIdentityUserAttributeType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 368,
+      "line": 377,
       "symbol": "AWSCognitoIdentityUserAttributeType.-initWithName:value:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 372,
+      "line": 381,
       "symbol": "AWSCognitoIdentityUserConfirmSignUpResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 376,
+      "line": 385,
       "symbol": "AWSCognitoIdentityUserResendConfirmationCodeResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 380,
+      "line": 389,
       "symbol": "AWSCognitoIdentityUserGetDetailsResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 384,
+      "line": 393,
       "symbol": "AWSCognitoIdentityUserForgotPasswordResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 388,
+      "line": 397,
       "symbol": "AWSCognitoIdentityUserConfirmForgotPasswordResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 392,
+      "line": 401,
       "symbol": "AWSCognitoIdentityUserChangePasswordResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 396,
+      "line": 405,
       "symbol": "AWSCognitoIdentityUserUpdateAttributesResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 400,
+      "line": 409,
       "symbol": "AWSCognitoIdentityUserDeleteAttributesResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 404,
+      "line": 413,
       "symbol": "AWSCognitoIdentityUserVerifyAttributeResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 408,
+      "line": 417,
       "symbol": "AWSCognitoIdentityUserGetAttributeVerificationCodeResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 412,
+      "line": 421,
       "symbol": "AWSCognitoIdentityUserSetUserSettingsResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 416,
+      "line": 425,
       "symbol": "AWSCognitoIdentityUserGlobalSignOutResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 420,
+      "line": 429,
       "symbol": "AWSCognitoIdentityUserListDevicesResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 424,
+      "line": 433,
       "symbol": "AWSCognitoIdentityUserUpdateDeviceStatusResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 428,
+      "line": 437,
       "symbol": "AWSCognitoIdentityUserGetDeviceResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 432,
+      "line": 441,
       "symbol": "AWSCognitoIdentityUserVerifySoftwareTokenResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 436,
+      "line": 445,
       "symbol": "AWSCognitoIdentityUserAssociateSoftwareTokenResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h",
-      "line": 440,
+      "line": 449,
       "symbol": "AWSCognitoIdentityUserSetUserMfaPreferenceResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
