@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>IdentityProvider Enumeration Reference</title>
+    <title>AWSAsyncBlockOperation Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Enum/IdentityProvider" class="dashAnchor"></a>
-    <a title="IdentityProvider Enumeration Reference"></a>
+    <a name="//apple_ref/swift/Class/AWSAsyncBlockOperation" class="dashAnchor"></a>
+    <a title="AWSAsyncBlockOperation Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSMobileClient 2.26.6 Docs</a> (49% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSMobileClient Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        IdentityProvider Enumeration Reference
+        AWSAsyncBlockOperation Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -140,23 +140,15 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>IdentityProvider</h1>
+            <h1>AWSAsyncBlockOperation</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">IdentityProvider</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">AWSAsyncBlockOperation</span> <span class="p">:</span> <span class="kt">Operation</span></code></pre>
 
                 </div>
               </div>
-            <p>Represents identity provider keys.</p>
-
-<ul>
-<li>facebook: The provider key for Facebook.</li>
-<li>google: The provider key for Google.</li>
-<li>twitter: The provider key for Twitter.</li>
-<li>amazon: The provider key for Amazon.</li>
-<li>developer: The provider key for Developer Authenticated Identities.</li>
-</ul>
+            <p>Undocumented</p>
 
           </section>
           <section class="section task-group-section">
@@ -165,9 +157,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClient16IdentityProviderO8facebookyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/facebook" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClient16IdentityProviderO8facebookyA2CmF">facebook</a>
+                    <a name="/c:@M@AWSMobileClient@objc(cs)AWSAsyncBlockOperation(py)ready"></a>
+                    <a name="//apple_ref/swift/Property/isReady" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@AWSMobileClient@objc(cs)AWSAsyncBlockOperation(py)ready">isReady</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -182,7 +174,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">facebook</span> <span class="o">=</span> <span class="s">"graph.facebook.com"</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">isReady</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -192,9 +184,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClient16IdentityProviderO6googleyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/google" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClient16IdentityProviderO6googleyA2CmF">google</a>
+                    <a name="/c:@M@AWSMobileClient@objc(cs)AWSAsyncBlockOperation(py)executing"></a>
+                    <a name="//apple_ref/swift/Property/isExecuting" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@AWSMobileClient@objc(cs)AWSAsyncBlockOperation(py)executing">isExecuting</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -209,7 +201,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">google</span> <span class="o">=</span> <span class="s">"accounts.google.com"</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">isExecuting</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -219,9 +211,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClient16IdentityProviderO7twitteryA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/twitter" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClient16IdentityProviderO7twitteryA2CmF">twitter</a>
+                    <a name="/c:@M@AWSMobileClient@objc(cs)AWSAsyncBlockOperation(py)finished"></a>
+                    <a name="//apple_ref/swift/Property/isFinished" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@AWSMobileClient@objc(cs)AWSAsyncBlockOperation(py)finished">isFinished</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -236,7 +228,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">twitter</span> <span class="o">=</span> <span class="s">"api.twitter.com"</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">isFinished</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -246,9 +238,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClient16IdentityProviderO6amazonyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/amazon" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClient16IdentityProviderO6amazonyA2CmF">amazon</a>
+                    <a name="/c:@M@AWSMobileClient@objc(cs)AWSAsyncBlockOperation(py)cancelled"></a>
+                    <a name="//apple_ref/swift/Property/isCancelled" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@AWSMobileClient@objc(cs)AWSAsyncBlockOperation(py)cancelled">isCancelled</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -263,7 +255,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">amazon</span> <span class="o">=</span> <span class="s">"www.amazon.com"</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">isCancelled</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -273,9 +265,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClient16IdentityProviderO9developeryA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/developer" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClient16IdentityProviderO9developeryA2CmF">developer</a>
+                    <a name="/s:15AWSMobileClient22AWSAsyncBlockOperationC05asyncD0ACyyycc_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(asyncBlock:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClient22AWSAsyncBlockOperationC05asyncD0ACyyycc_tcfc">init(asyncBlock:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -290,7 +282,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">developer</span> <span class="o">=</span> <span class="s">"cognito-identity.amazonaws.com"</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">asyncBlock</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Typealiases.html#/s:15AWSMobileClient20AWSAsyncBlockClosurea">AWSAsyncBlockClosure</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -300,9 +292,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClient16IdentityProviderO5appleyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/apple" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClient16IdentityProviderO5appleyA2CmF">apple</a>
+                    <a name="/c:@M@AWSMobileClient@objc(cs)AWSAsyncBlockOperation(py)asynchronous"></a>
+                    <a name="//apple_ref/swift/Property/isAsynchronous" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@AWSMobileClient@objc(cs)AWSAsyncBlockOperation(py)asynchronous">isAsynchronous</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -317,7 +309,61 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">apple</span> <span class="o">=</span> <span class="s">"appleid.apple.com"</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">isAsynchronous</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@AWSMobileClient@objc(cs)AWSAsyncBlockOperation(im)start"></a>
+                    <a name="//apple_ref/swift/Method/start()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@AWSMobileClient@objc(cs)AWSAsyncBlockOperation(im)start">start()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">start</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@AWSMobileClient@objc(cs)AWSAsyncBlockOperation(im)cancel"></a>
+                    <a name="//apple_ref/swift/Method/cancel()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@AWSMobileClient@objc(cs)AWSAsyncBlockOperation(im)cancel">cancel()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">cancel</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
