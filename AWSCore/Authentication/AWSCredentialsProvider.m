@@ -48,7 +48,10 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 
 @interface AWSCredentials()
 
+@property (readonly) BOOL isValid;
+
 - (nullable instancetype)initFromKeychain:(nonnull AWSUICKeyChainStore *)keychain;
+
 
 @end
 
@@ -102,6 +105,13 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                                                             expiration:self.expiration.copy];
     
     return object;
+}
+
+- (BOOL)isValid {
+    // Returns cached credentials when all of the following conditions are true:
+    // 1. The cached credentials are not nil.
+    // 2. The credentials do not expire within 10 minutes.
+    return ([self.expiration compare:[NSDate dateWithTimeIntervalSinceNow:10 * 60]] == NSOrderedDescending);
 }
 
 @end
@@ -217,11 +227,9 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
     // Preemptively refresh credentials if any of the following is true:
     // 1. accessKey or secretKey is nil.
     // 2. the credentials expires within 10 minutes.
-    if (self.internalCredentials.accessKey
-        && self.internalCredentials.secretKey
-        && [self.internalCredentials.expiration compare:[NSDate dateWithTimeIntervalSinceNow:10 * 60]] == NSOrderedDescending) {
-
-        return [AWSTask taskWithResult:self.internalCredentials];
+    AWSCredentials *credentials = self.internalCredentials.copy;
+    if (credentials.accessKey && credentials.secretKey && credentials.isValid) {
+        return [AWSTask taskWithResult:credentials];
     }
 
     // request new credentials
@@ -614,8 +622,7 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
     // Returns cached credentials when all of the following conditions are true:
     // 1. The cached credentials are not nil.
     // 2. The credentials do not expire within 10 minutes.
-    if (credentials
-        && [credentials.expiration compare:[NSDate dateWithTimeIntervalSinceNow:10 * 60]] == NSOrderedDescending) {
+    if (credentials && credentials.isValid) {
         return [AWSTask taskWithResult:credentials];
     }
     
@@ -650,7 +657,7 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
             credentials = self.internalCredentials.copy;
             if ((!self.cachedLogins || [self.cachedLogins isEqualToDictionary:logins])
                 && credentials
-                && [credentials.expiration compare:[NSDate dateWithTimeIntervalSinceNow:10 * 60]] == NSOrderedDescending) {
+                && credentials.isValid) {
                 return [AWSTask taskWithResult:credentials];
             }
             
@@ -670,7 +677,7 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
             credentials = self.internalCredentials.copy;
             if ((!self.cachedLogins || [self.cachedLogins isEqualToDictionary:logins])
                 && credentials
-                && [credentials.expiration compare:[NSDate dateWithTimeIntervalSinceNow:10 * 60]] == NSOrderedDescending) {
+                && credentials.isValid) {
                 return [AWSTask taskWithResult:credentials];
             }
             
