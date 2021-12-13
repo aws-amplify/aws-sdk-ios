@@ -8,8 +8,9 @@
 
 grouped_frameworks = [
     # No dependencies
-    ["AWSCore", "AWSCognitoIdentityProviderASF"],
+    ["AWSCore"],
     [
+        "AWSCognitoIdentityProviderASF",
         # Depends only on AWSCognitoIdentityProviderASF
         "AWSCognitoAuth",
         # Depends on AWSCore and AWSCognitoIdentityProviderASF
