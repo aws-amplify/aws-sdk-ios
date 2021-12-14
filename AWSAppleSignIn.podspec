@@ -12,8 +12,8 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/aws-amplify/aws-sdk-ios.git',
                      :tag => s.version}
   s.requires_arc = true
+  s.dependency 'AWSCore', '2.26.6'
   s.dependency 'AWSAuthCore', '2.26.6'
   s.source_files = 'AWSAuthSDK/Sources/AWSAppleSignIn/*.{h,m}'
   s.public_header_files = 'AWSAuthSDK/Sources/AWSAppleSignIn/*.h'
 end
-

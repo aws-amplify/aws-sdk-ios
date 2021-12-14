@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/aws-amplify/aws-sdk-ios.git',
                      :tag => s.version}
   s.requires_arc = true
+  s.dependency 'AWSCore', '2.26.6'
   s.public_header_files = 'AWSCognitoIdentityProviderASF/*.h'
   s.source_files = 'AWSCognitoIdentityProviderASF/**/*.{h,m,c}'
   s.private_header_files = 'AWSCognitoIdentityProviderASF/Internal/*.h'
