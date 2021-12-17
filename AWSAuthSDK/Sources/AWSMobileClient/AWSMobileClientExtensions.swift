@@ -1055,6 +1055,7 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks {
         if let error = error {
             invokeSignInCallback(signResult: nil, error: AWSMobileClientError.makeMobileClientError(from: error))
         }
+        self.userpoolOpsHelper.passwordAuthTaskCompletionSource = nil
     }
     
     func getNewPasswordDetails(_ newPasswordRequiredInput: AWSCognitoIdentityNewPasswordRequiredInput,
@@ -1068,6 +1069,7 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks {
         if let error = error {
             invokeSignInCallback(signResult: nil, error: AWSMobileClientError.makeMobileClientError(from: error))
         }
+        self.userpoolOpsHelper.newPasswordRequiredTaskCompletionSource = nil
     }
     
     func getCustomAuthenticationDetails(_ customAuthenticationInput: AWSCognitoIdentityCustomAuthenticationInput,
@@ -1099,6 +1101,7 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks {
         if let error = error {
             invokeSignInCallback(signResult: nil, error: AWSMobileClientError.makeMobileClientError(from: error))
         }
+        self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource = nil
     }
 
     func getCode(_ authenticationInput: AWSCognitoIdentityMultifactorAuthenticationInput,
@@ -1124,6 +1127,7 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks {
         if let error = error {
             invokeSignInCallback(signResult: nil, error: AWSMobileClientError.makeMobileClientError(from: error))
         }
+        self.userpoolOpsHelper.mfaCodeCompletionSource = nil
     }
 }
 

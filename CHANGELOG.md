@@ -4,6 +4,11 @@
 
 -Features for next release
 
+### Bug Fixes
+
+- **AWSMobileClient**
+  - Reset completion sources in AWSMobileClient (See [PR #3732](https://github.com/aws-amplify/aws-sdk-ios/pull/3732))
+
 ## 2.26.6
 
 ### Bug Fixes
