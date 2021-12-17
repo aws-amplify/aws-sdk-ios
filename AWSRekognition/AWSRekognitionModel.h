@@ -133,6 +133,8 @@ typedef NS_ENUM(NSInteger, AWSRekognitionKnownGenderType) {
     AWSRekognitionKnownGenderTypeUnknown,
     AWSRekognitionKnownGenderTypeMale,
     AWSRekognitionKnownGenderTypeFemale,
+    AWSRekognitionKnownGenderTypeNonbinary,
+    AWSRekognitionKnownGenderTypeUnlisted,
 };
 
 typedef NS_ENUM(NSInteger, AWSRekognitionLabelDetectionSortBy) {
@@ -633,7 +635,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
- <p>The known gender identity for the celebrity that matches the provided ID.</p>
+ <p>The known gender identity for the celebrity that matches the provided ID. The known gender identity can be Male, Female, Nonbinary, or Unlisted.</p>
  */
 @property (nonatomic, strong) AWSRekognitionKnownGender * _Nullable knownGender;
 
@@ -3072,7 +3074,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>The known gender identity for the celebrity that matches the provided ID.</p>
+ <p>The known gender identity for the celebrity that matches the provided ID. The known gender identity can be Male, Female, Nonbinary, or Unlisted.</p>
  */
 @interface AWSRekognitionKnownGender : AWSModel
 

@@ -81,6 +81,11 @@ typedef NS_ENUM(NSInteger, AWSTranslateParallelDataStatus) {
     AWSTranslateParallelDataStatusFailed,
 };
 
+typedef NS_ENUM(NSInteger, AWSTranslateProfanity) {
+    AWSTranslateProfanityUnknown,
+    AWSTranslateProfanityMask,
+};
+
 typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
     AWSTranslateTerminologyDataFormatUnknown,
     AWSTranslateTerminologyDataFormatCsv,
@@ -127,6 +132,7 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @class AWSTranslateTextTranslationJobProperties;
 @class AWSTranslateTranslateTextRequest;
 @class AWSTranslateTranslateTextResponse;
+@class AWSTranslateTranslationSettings;
 @class AWSTranslateUpdateParallelDataRequest;
 @class AWSTranslateUpdateParallelDataResponse;
 
@@ -277,12 +283,12 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 
 
 /**
- <p>The Amazon Resource Name (ARN) of the encryption key being used to encrypt the custom terminology.</p>
+ <p>The Amazon Resource Name (ARN) of the encryption key being used to encrypt this object.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
- <p>The type of encryption key used by Amazon Translate to encrypt custom terminologies.</p>
+ <p>The type of encryption key used by Amazon Translate to encrypt this object.</p>
  */
 @property (nonatomic, assign) AWSTranslateEncryptionKeyType types;
 
@@ -313,7 +319,7 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @property (nonatomic, strong) AWSTranslateParallelDataDataLocation * _Nullable auxiliaryDataLocation;
 
 /**
- <p>The Amazon S3 location of the most recent parallel data input file that was successfully imported into Amazon Translate. The location is returned as a presigned URL that has a 30 minute expiration.</p><important><p>Amazon Translate doesn't scan parallel data input files for the risk of CSV injection attacks. </p><p>CSV injection occurs when a .csv or .tsv file is altered so that a record contains malicious code. The record begins with a special character, such as =, +, -, or @. When the file is opened in a spreadsheet program, the program might interpret the record as a formula and run the code within it.</p><p>Before you download a parallel data input file from Amazon S3, ensure that you recognize the file and trust its creator.</p></important>
+ <p>The Amazon S3 location of the most recent parallel data input file that was successfully imported into Amazon Translate. The location is returned as a presigned URL that has a 30 minute expiration.</p><important><p>Amazon Translate doesn't scan all input files for the risk of CSV injection attacks. </p><p>CSV injection occurs when a .csv or .tsv file is altered so that a record contains malicious code. The record begins with a special character, such as =, +, -, or @. When the file is opened in a spreadsheet program, the program might interpret the record as a formula and run the code within it.</p><p>Before you download an input file from Amazon S3, ensure that you recognize the file and trust its creator.</p></important>
  */
 @property (nonatomic, strong) AWSTranslateParallelDataDataLocation * _Nullable dataLocation;
 
@@ -359,7 +365,7 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @property (nonatomic, strong) AWSTranslateTerminologyDataLocation * _Nullable auxiliaryDataLocation;
 
 /**
- <p>The data location of the custom terminology being retrieved. The custom terminology file is returned in a presigned url that has a 30 minute expiration.</p>
+ <p>The Amazon S3 location of the most recent custom terminology input file that was successfully imported into Amazon Translate. The location is returned as a presigned URL that has a 30 minute expiration.</p><important><p>Amazon Translate doesn't scan all input files for the risk of CSV injection attacks. </p><p>CSV injection occurs when a .csv or .tsv file is altered so that a record contains malicious code. The record begins with a special character, such as =, +, -, or @. When the file is opened in a spreadsheet program, the program might interpret the record as a formula and run the code within it.</p><p>Before you download an input file from Amazon S3, ensure that you recognize the file and trust its creator.</p></important>
  */
 @property (nonatomic, strong) AWSTranslateTerminologyDataLocation * _Nullable terminologyDataLocation;
 
@@ -622,7 +628,7 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 
 
 /**
- <p>The Amazon S3 location of the parallel data input file. The location is returned as a presigned URL to that has a 30 minute expiration.</p><important><p>Amazon Translate doesn't scan parallel data input files for the risk of CSV injection attacks. </p><p>CSV injection occurs when a .csv or .tsv file is altered so that a record contains malicious code. The record begins with a special character, such as =, +, -, or @. When the file is opened in a spreadsheet program, the program might interpret the record as a formula and run the code within it.</p><p>Before you download a parallel data input file from Amazon S3, ensure that you recognize the file and trust its creator.</p></important>
+ <p>The Amazon S3 location of the parallel data input file. The location is returned as a presigned URL to that has a 30 minute expiration.</p><important><p>Amazon Translate doesn't scan all input files for the risk of CSV injection attacks. </p><p>CSV injection occurs when a .csv or .tsv file is altered so that a record contains malicious code. The record begins with a special character, such as =, +, -, or @. When the file is opened in a spreadsheet program, the program might interpret the record as a formula and run the code within it.</p><p>Before you download an input file from Amazon S3, ensure that you recognize the file and trust its creator.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable location;
 
@@ -763,6 +769,11 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable parallelDataNames;
 
 /**
+ <p>Settings to configure your translation output, including the option to mask profane words and phrases.</p>
+ */
+@property (nonatomic, strong) AWSTranslateTranslationSettings * _Nullable settings;
+
+/**
  <p>The language code of the input language. For a list of language codes, see <a>what-is-languages</a>.</p><p>Amazon Translate does not automatically detect a source language during batch translation jobs.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceLanguageCode;
@@ -878,7 +889,7 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 
 
 /**
- <p>The location of the custom terminology data.</p>
+ <p>The Amazon S3 location of the most recent custom terminology input file that was successfully imported into Amazon Translate. The location is returned as a presigned URL that has a 30 minute expiration.</p><important><p>Amazon Translate doesn't scan all input files for the risk of CSV injection attacks. </p><p>CSV injection occurs when a .csv or .tsv file is altered so that a record contains malicious code. The record begins with a special character, such as =, +, -, or @. When the file is opened in a spreadsheet program, the program might interpret the record as a formula and run the code within it.</p><p>Before you download an input file from Amazon S3, ensure that you recognize the file and trust its creator.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable location;
 
@@ -1052,6 +1063,11 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable parallelDataNames;
 
 /**
+ <p>Settings that configure the translation output.</p>
+ */
+@property (nonatomic, strong) AWSTranslateTranslationSettings * _Nullable settings;
+
+/**
  <p>The language code of the language of the source text. The language must be a language supported by Amazon Translate.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceLanguageCode;
@@ -1078,6 +1094,11 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
  */
 @interface AWSTranslateTranslateTextRequest : AWSRequest
 
+
+/**
+ <p>Settings to configure your translation output, including the option to mask profane words and phrases.</p>
+ */
+@property (nonatomic, strong) AWSTranslateTranslationSettings * _Nullable settings;
 
 /**
  <p>The language code for the language of the source text. The language must be a language supported by Amazon Translate. For a list of language codes, see <a>what-is-languages</a>.</p><p>To have Amazon Translate determine the source language of your text, you can specify <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>, Amazon Translate will call <a href="https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html">Amazon Comprehend</a> to determine the source language.</p>
@@ -1108,6 +1129,11 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 
 
 /**
+ <p>Settings that configure the translation output.</p>
+ */
+@property (nonatomic, strong) AWSTranslateTranslationSettings * _Nullable appliedSettings;
+
+/**
  <p>The names of the custom terminologies applied to the input text by Amazon Translate for the translated text response.</p>
  */
 @property (nonatomic, strong) NSArray<AWSTranslateAppliedTerminology *> * _Nullable appliedTerminologies;
@@ -1126,6 +1152,19 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
  <p>The translated text.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable translatedText;
+
+@end
+
+/**
+ <p>Settings that configure the translation output.</p>
+ */
+@interface AWSTranslateTranslationSettings : AWSModel
+
+
+/**
+ <p>Enable the profanity setting if you want Amazon Translate to mask profane words and phrases in your translation output.</p><p>To mask profane words and phrases, Amazon Translate replaces them with the grawlix string “?$#@$“. This 5-character sequence is used for each profane word or phrase, regardless of the length or number of words.</p><p>Amazon Translate does not detect profanity in all of its supported languages. For languages that support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is.html#what-is-languages">Supported Languages and Language Codes in the Amazon Translate Developer Guide</a>.</p>
+ */
+@property (nonatomic, assign) AWSTranslateProfanity profanity;
 
 @end
 

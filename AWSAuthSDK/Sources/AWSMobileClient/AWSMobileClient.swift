@@ -92,7 +92,6 @@ final public class AWSMobileClient: _AWSMobileClient {
         queue.maxConcurrentOperationCount = 1
         return queue
     }()
-    internal let credentialsFetchLock = DispatchGroup()
     
     /// This token is invoked when the developer explicitly calls the signOut from
     /// AWSMobileClient, thus invalidating all credentials calls.

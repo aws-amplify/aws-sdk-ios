@@ -25,7 +25,7 @@
 #import "AWSTextractResources.h"
 
 static NSString *const AWSInfoTextract = @"Textract";
-NSString *const AWSTextractSDKVersion = @"2.26.5";
+NSString *const AWSTextractSDKVersion = @"2.26.6";
 
 
 @interface AWSTextractResponseSerializer : AWSJSONResponseSerializer
@@ -323,6 +323,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSTextractAnalyzeExpenseResponse *response, NSError *error))completionHandler {
     [[self analyzeExpense:request] continueWithBlock:^id _Nullable(AWSTask<AWSTextractAnalyzeExpenseResponse *> * _Nonnull task) {
         AWSTextractAnalyzeExpenseResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTextractAnalyzeIDResponse *> *)analyzeID:(AWSTextractAnalyzeIDRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Textract"
+                 operationName:@"AnalyzeID"
+                   outputClass:[AWSTextractAnalyzeIDResponse class]];
+}
+
+- (void)analyzeID:(AWSTextractAnalyzeIDRequest *)request
+     completionHandler:(void (^)(AWSTextractAnalyzeIDResponse *response, NSError *error))completionHandler {
+    [[self analyzeID:request] continueWithBlock:^id _Nullable(AWSTask<AWSTextractAnalyzeIDResponse *> * _Nonnull task) {
+        AWSTextractAnalyzeIDResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

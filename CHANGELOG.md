@@ -4,13 +4,37 @@
 
 ### Features for next release
 
--Features for next release
-
 ### Bug Fixes
 
 - **AWSMobileClient**
-  - Reset completion sources in AWSMobileClient (See [Issue](https://github.com/aws-amplify/amplify-ios/issues/1376))
+  - Reset completion sources in AWSMobileClient (See [PR #3732](https://github.com/aws-amplify/aws-sdk-ios/pull/3732))
   
+## 2.26.6
+
+### Bug Fixes
+- Return Swift optionals from Objective C methods that can return nil ([PR #3912)](https://github.com/aws-amplify/aws-sdk-ios/pull/3912))
+- **AWSMobileClient**
+  - fix(AWSMobileClient): eliminates thread blocking in operations ([PR #3872](https://github.com/aws-amplify/aws-sdk-ios/pull/3872))
+
+### Misc. Updates
+- Model updates for the following services
+  - AWSRekognition
+  - AWSSageMakerRuntime
+  - AWSDynamoDB
+  - AWSTextract
+  - AWSPinpoint
+  - AWSAutoScaling
+  - AWSLambda
+  - AWSTranslate
+  - AWSSQS
+  - AWSElasticLoadBalancingv2
+
+## 2.26.5
+
+### New features
+- **AWSCore**
+  - Support for `ap-southeast-3` - Asia Pacific (Jakarta) (see [AWS Regional Services List](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for a list of services supported in the region)
+
 ### Misc. Updates
 
 - Model updates for the following services

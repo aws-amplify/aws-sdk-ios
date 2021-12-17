@@ -162,7 +162,7 @@ NSObject *sessionLock;
     }}
 
 - (void)applicationDidEnterBackground:(NSNotification*)notification {
-    [self pauseSessionWithTimeoutEnabled:YES
+    [self pausePinpointSessionWithTimeoutEnabled:YES
                   timeoutCompletionBlock:nil];
 }
 
@@ -175,7 +175,7 @@ NSObject *sessionLock;
         [self endCurrentBackgroundTask];
     }
     [self.bgTimer invalidate];
-    [self resumeSession];
+    [self resumePinpointSession];
 }
 
 - (void)applicationWillTerminate:(NSNotification*)notification {
@@ -222,7 +222,37 @@ NSObject *sessionLock;
     }
 }
 
+- (AWSTask*)startPinpointSession {
+    @synchronized(sessionLock) {
+        if (!self.context.analyticsClient) {
+            AWSDDLogError(@"Pinpoint Analytics is disabled.");
+            return nil;
+        }
+        if (_session) {
+            [self endCurrentSession];
+            return [self startNewSession];
+        } else {
+            return [self startNewSession];
+        }
+    }
+}
+
 - (AWSTask*)stopSession {
+    @synchronized(sessionLock) {
+        if (!self.context.analyticsClient) {
+            AWSDDLogError(@"Pinpoint Analytics is disabled.");
+            return nil;
+        }
+        if (_session) {
+            return [self endCurrentSession];
+        } else {
+            AWSDDLogDebug(@"Session Stop Failed: No session is running.");
+            return nil;
+        }
+    }
+}
+
+- (AWSTask*)stopPinpointSession {
     @synchronized(sessionLock) {
         if (!self.context.analyticsClient) {
             AWSDDLogError(@"Pinpoint Analytics is disabled.");
@@ -253,6 +283,23 @@ NSObject *sessionLock;
         }
     }
 }
+
+- (AWSTask*)pausePinpointSessionWithTimeoutEnabled:(BOOL) timeoutEnabled
+                    timeoutCompletionBlock:(AWSPinpointTimeoutBlock) block {
+    @synchronized(sessionLock) {
+        if (!self.context.analyticsClient) {
+            AWSDDLogError(@"Pinpoint Analytics is disabled.");
+            return nil;
+        }
+        if (_session) {
+            return [self pauseCurrentSessionWithTimeoutEnabled:timeoutEnabled
+                                        timeoutCompletionBlock:block];
+        } else {
+            AWSDDLogDebug(@"Session Pause Failed: No session is running.");
+            return nil;
+        }
+    }
+}
  
 - (AWSTask*)resumeSession {
     @synchronized(sessionLock) {
@@ -264,6 +311,32 @@ NSObject *sessionLock;
             return [self startNewSession];
         }
 
+        if ([_session stopTime]) {
+            UTCTimeMillis now = [AWSPinpointDateUtils utcTimeMillisNow];
+            if (now - [AWSPinpointDateUtils utcTimeMillisFromDate:[_session stopTime]] < self.context.configuration.sessionTimeout){
+                return [self resumeCurrentSession];
+            } else {
+                AWSDDLogVerbose(@"Session has expired. Starting a fresh one...");
+                [self endCurrentSession];
+                return [self startNewSession];
+            }
+        } else {
+            AWSDDLogVerbose(@"Session Resume Failed: Session is already running.");
+            return nil;
+        }
+    }
+}
+
+- (AWSTask*)resumePinpointSession {
+    @synchronized(sessionLock) {
+        if (!self.context.analyticsClient) {
+            AWSDDLogError(@"Pinpoint Analytics is disabled.");
+            return nil;
+        }
+        if (!_session) {
+            return [self startNewSession];
+        }
+        
         if ([_session stopTime]) {
             UTCTimeMillis now = [AWSPinpointDateUtils utcTimeMillisNow];
             if (now - [AWSPinpointDateUtils utcTimeMillisFromDate:[_session stopTime]] < self.context.configuration.sessionTimeout){

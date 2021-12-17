@@ -4,6 +4,7 @@
 #import <CoreTelephony/CTCarrier.h>
 #import <sys/utsname.h>
 #import <CommonCrypto/CommonHMAC.h>
+#import <AWSCore/AWSCocoaLumberjack.h>
 
 @interface AWSCognitoIdentityASF()
 + (NSString *) dashIfNil: (NSString *) str;
@@ -74,8 +75,6 @@ static NSString *const AWSCognitoIdentityASFVersion= @"IOS20171114";
     
     NSString * minTargetString = [NSString stringWithFormat:@"%i", minTarget];
     
-    
-    
     NSMutableDictionary * contextData= [NSMutableDictionary new];
     [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityAppName value:bundleIdentifier];
     [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityAppTargetSDK value: minTargetString];
@@ -108,7 +107,6 @@ static NSString *const AWSCognitoIdentityASFVersion= @"IOS20171114";
                                 @"timestamp" : [NSString stringWithFormat:@"%lli", [@(floor([[NSDate date] timeIntervalSince1970] * 1000)) longLongValue]]
                                 };
     
-    
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:payload
                                                        options:0
@@ -124,6 +122,107 @@ static NSString *const AWSCognitoIdentityASFVersion= @"IOS20171114";
                               @"version": AWSCognitoIdentityASFVersion,
                               @"signature": [AWSCognitoIdentityASF calculateSecretHash: jsonString clientId:userPoolClientId]
                               };
+    
+    jsonData = [NSJSONSerialization dataWithJSONObject:result
+                                               options:0
+                                                 error:&error];
+    jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    if(error){
+        return nil;
+    }
+    
+    NSData *data = [jsonString
+                    dataUsingEncoding:NSUTF8StringEncoding];
+    
+    // Get NSString from NSData object in Base64
+    NSString *base64Encoded = [data base64EncodedStringWithOptions:0];
+    
+    return base64Encoded;
+}
+
++ (NSString *) userContextString: (int) minTarget build: (NSString *) build userPoolId: (NSString*) userPoolId username: (NSString *) username deviceId: (NSString * _Nullable) deviceId userPoolClientId: (NSString *) userPoolClientId {
+    UIDevice *device = [UIDevice currentDevice];
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSString *bundleIdentifier = [bundle bundleIdentifier];
+    NSString *buildVersion = [bundle objectForInfoDictionaryKey:(NSString*)kCFBundleVersionKey];
+    NSString *bundleVersion = [bundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+    CGRect bounds = [[UIScreen mainScreen] nativeBounds];
+    CGFloat screenWidth = bounds.size.width;
+    CGFloat screenHeight = bounds.size.height;
+    
+    NSDateFormatter *localTimeZoneFormatter = [NSDateFormatter new];
+    localTimeZoneFormatter.timeZone = [NSTimeZone localTimeZone];
+    localTimeZoneFormatter.dateFormat = @"Z";
+    NSString *localTimeZoneOffset = [localTimeZoneFormatter stringFromDate:[NSDate date]];
+    
+    NSString *hourOffset = [localTimeZoneOffset substringToIndex:[localTimeZoneOffset length] - 2];
+    NSString *minuteOffset = [localTimeZoneOffset substringFromIndex:[localTimeZoneOffset length] - 2];
+    NSString *timezoneOffset = [NSString stringWithFormat:@"%@:%@",hourOffset,minuteOffset];
+    NSString * locale = [[NSLocale preferredLanguages] objectAtIndex:0];
+    CTTelephonyNetworkInfo *networkInfo = [[CTTelephonyNetworkInfo alloc] init];
+    NSString * networkType = [networkInfo currentRadioAccessTechnology];
+    CTCarrier *cellularProvider = [networkInfo subscriberCellularProvider];
+    NSString *countryCode = cellularProvider.isoCountryCode;
+    BOOL hasSimCard = countryCode != nil;
+    NSString *carrier = [cellularProvider carrierName];
+    NSString *fingerprint = [NSString stringWithFormat:@"Apple/%@/%@/-:%@/-/-:-/%@",
+                             [AWSCognitoIdentityASF dashIfNil:[device model]],
+                             [AWSCognitoIdentityASF dashIfNil:[AWSCognitoIdentityASF deviceName]],
+                             [AWSCognitoIdentityASF dashIfNil:[device systemVersion]],
+                             [AWSCognitoIdentityASF dashIfNil:build]];
+    
+    
+    NSString * minTargetString = [NSString stringWithFormat:@"%i", minTarget];
+    
+    NSMutableDictionary * contextData= [NSMutableDictionary new];
+    [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityAppName value:bundleIdentifier];
+    [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityAppTargetSDK value: minTargetString];
+    [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityAppVersion value:[NSString stringWithFormat:@"%@-%@",bundleVersion,buildVersion]];
+    [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityDeviceName value:[device name]];
+    [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityPhoneType value:[AWSCognitoIdentityASF deviceName]];
+    [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityThirdPartyDeviceId value:[device identifierForVendor].UUIDString];
+    [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityDeviceId value: ((deviceId == nil)? [device identifierForVendor].UUIDString : deviceId)]; //TODO
+    [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityReleaseVersion value: [device systemVersion]];
+    [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityPlatform value: [device systemName]];
+    [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityBuildType value: build];
+    [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityTimezone value: timezoneOffset];
+    [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityDeviceHeight value: [NSString stringWithFormat:@"%.0f",screenHeight]];
+    [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityDeviceWidth value: [NSString stringWithFormat:@"%.0f",screenWidth]];
+    [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityDeviceLanguage value: locale];
+    [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityCarrier value: carrier];
+    [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityNetworkType value: networkType];
+    [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityHasSimCard value:hasSimCard?@"true":@"false"];
+    
+    [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityDeviceFingerprint value:fingerprint];
+    
+    if(username == nil){
+        username = @"unknown";
+    }
+    
+    NSDictionary * payload =  @{
+        @"contextData": contextData,
+        @"username":username,
+        @"userPoolId": userPoolId,
+        @"timestamp" : [NSString stringWithFormat:@"%lli", [@(floor([[NSDate date] timeIntervalSince1970] * 1000)) longLongValue]]
+    };
+    
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:payload
+                                                       options:0
+                                                         error:&error];
+    if(error){
+        AWSDDLogError(@"Failed to parse JSON user context: %@", error);
+        return nil;
+    }
+    
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    NSDictionary * result = @{
+        @"payload": jsonString,
+        @"version": AWSCognitoIdentityASFVersion,
+        @"signature": [AWSCognitoIdentityASF calculateSecretHash: jsonString clientId:userPoolClientId]
+    };
     
     jsonData = [NSJSONSerialization dataWithJSONObject:result
                                                options:0

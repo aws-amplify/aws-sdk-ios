@@ -80,7 +80,7 @@ API_AVAILABLE(ios(13.0))
 
 @implementation AWSCognitoAuth
 
-NSString *const AWSCognitoAuthSDKVersion = @"2.26.5";
+NSString *const AWSCognitoAuthSDKVersion = @"2.26.6";
 
 
 static NSMutableDictionary *_instanceDictionary = nil;
@@ -1202,7 +1202,7 @@ withPresentingViewController:(UIViewController *)presentingViewController {
 }
 
 -(NSDictionary *) claims {
-    NSDictionary * result = nil;
+    NSDictionary * result = @{};
     NSArray *pieces = [self.tokenString componentsSeparatedByString:@"."];
     if(pieces.count > 2){
         NSString * claims = pieces[1];

@@ -255,6 +255,8 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaEnvironmentResponse;
 @class AWSLambdaEventSourceMappingConfiguration;
 @class AWSLambdaFileSystemConfig;
+@class AWSLambdaFilter;
+@class AWSLambdaFilterCriteria;
 @class AWSLambdaFunctionCode;
 @class AWSLambdaFunctionCodeLocation;
 @class AWSLambdaFunctionConfiguration;
@@ -755,12 +757,17 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable eventSourceArn;
 
 /**
+ <p>(Streams and Amazon SQS) An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
+ */
+@property (nonatomic, strong) AWSLambdaFilterCriteria * _Nullable filterCriteria;
+
+/**
  <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>MyFunction</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li><li><p><b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
 /**
- <p>(Streams only) A list of current response type enums applied to the event source mapping.</p>
+ <p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable functionResponseTypes;
 
@@ -868,7 +875,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
 /**
- <p>The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming Model</a>.</p>
+ <p>The name of the method within your code that Lambda calls to execute your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming Model</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable handler;
 
@@ -908,7 +915,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable role;
 
 /**
- <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>.</p>
+ <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive. </p>
  */
 @property (nonatomic, assign) AWSLambdaRuntime runtime;
 
@@ -1191,6 +1198,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable eventSourceArn;
 
 /**
+ <p>(Streams and Amazon SQS) An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
+ */
+@property (nonatomic, strong) AWSLambdaFilterCriteria * _Nullable filterCriteria;
+
+/**
  <p>The ARN of the Lambda function.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionArn;
@@ -1298,6 +1310,32 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The path where the function can access the file system, starting with <code>/mnt/</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable localMountPath;
+
+@end
+
+/**
+ <p> A structure within a <code>FilterCriteria</code> object that defines an event filtering pattern. </p>
+ */
+@interface AWSLambdaFilter : AWSModel
+
+
+/**
+ <p> A filter pattern. For more information on the syntax of a filter pattern, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax"> Filter rule syntax</a>. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable pattern;
+
+@end
+
+/**
+ <p> An object that contains the filters for an event source. </p>
+ */
+@interface AWSLambdaFilterCriteria : AWSModel
+
+
+/**
+ <p> A list of filters. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSLambdaFilter *> * _Nullable filters;
 
 @end
 
@@ -3365,12 +3403,17 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 /**
+ <p>(Streams and Amazon SQS) An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
+ */
+@property (nonatomic, strong) AWSLambdaFilterCriteria * _Nullable filterCriteria;
+
+/**
  <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>MyFunction</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li><li><p><b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
 /**
- <p>(Streams only) A list of current response type enums applied to the event source mapping.</p>
+ <p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable functionResponseTypes;
 
@@ -3501,7 +3544,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
 /**
- <p>The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming Model</a>.</p>
+ <p>The name of the method within your code that Lambda calls to execute your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming Model</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable handler;
 
@@ -3536,7 +3579,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable role;
 
 /**
- <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>.</p>
+ <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive. </p>
  */
 @property (nonatomic, assign) AWSLambdaRuntime runtime;
 
