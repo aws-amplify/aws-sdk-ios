@@ -2,13 +2,13 @@
 
 ## Unreleased
 
-### Features for next release
+-Features for next release
 
 ### Bug Fixes
 
 - **AWSMobileClient**
   - Reset completion sources in AWSMobileClient (See [PR #3732](https://github.com/aws-amplify/aws-sdk-ios/pull/3732))
-  
+
 ## 2.26.6
 
 ### Bug Fixes
@@ -43,14 +43,6 @@
   - AWSTranslate
   - AWSLambda
   - AWSSNS
-
-## 2.26.5
-
-### New features
-
-- **AWSCore**
-  - Support for `ap-southeast-3` - Asia Pacific (Jakarta) (see [AWS Regional Services List](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for a list of services supported in the region)
-
   
 ## 2.26.4
 
