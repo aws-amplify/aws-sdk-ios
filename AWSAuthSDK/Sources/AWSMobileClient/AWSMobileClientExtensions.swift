@@ -664,6 +664,25 @@ extension AWSMobileClient {
         self.userPoolClient?.clearAll()
     }
     
+    /// Asynchronous deleteUser method which requires network activity.
+    ///
+    /// - Parameters:
+    ///   - completionHandler: completion handler for success or error callback.
+    public func deleteUser(completionHandler: @escaping ((Error?) -> Void)) {
+        let _ = self.userpoolOpsHelper.currentActiveUser!.delete().continueWith { (task) -> Any? in
+            if task.result != nil {
+                // If global signout is successful, we clear tokens locally and perform signout flow.
+                self.signOut()
+                completionHandler(nil)
+            } else if let error = task.error {
+                // If there is an error signing out globally, we notify the developer.
+                completionHandler(AWSMobileClientError.makeMobileClientError(from: error))
+            }
+            return nil
+        }
+        return
+    }
+    
     internal func performUserPoolSuccessfulSignInTasks(session: AWSCognitoIdentityUserSession) {
         let tokenString = session.idToken!.tokenString
         self.developerNavigationController = nil
