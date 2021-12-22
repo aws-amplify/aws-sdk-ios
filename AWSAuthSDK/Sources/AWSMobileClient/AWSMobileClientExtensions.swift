@@ -668,14 +668,19 @@ extension AWSMobileClient {
     ///
     /// - Parameters:
     ///   - completionHandler: completion handler for success or error callback.
-    public func deleteUser(completionHandler: @escaping ((Error?) -> Void)) {
+    public func deleteUser(signOut: Bool = true, completionHandler: @escaping ((Error?) -> Void)) {
         let _ = self.userpoolOpsHelper.currentActiveUser!.delete().continueWith { (task) -> Any? in
             if task.result != nil {
-                // If global signout is successful, we clear tokens locally and perform signout flow.
-                //self.signOut()
-                completionHandler(nil)
+                // User was successfully deleted.
+                if signOut {
+                    // If signOut is true (default), perform global signout and invalidate tokens.
+                    let signOutOptions = SignOutOptions(signOutGlobally: true, invalidateTokens: true)
+                    self.internalSignOut(options: signOutOptions, completionHandler: completionHandler)
+                } else {
+                    completionHandler(nil)
+                }
             } else if let error = task.error {
-                // If there is an error signing out globally, we notify the developer.
+                // If there is an error deleting the user, we notify the developer.
                 completionHandler(AWSMobileClientError.makeMobileClientError(from: error))
             }
             return nil
