@@ -672,7 +672,7 @@ extension AWSMobileClient {
         let _ = self.userpoolOpsHelper.currentActiveUser!.delete().continueWith { (task) -> Any? in
             if task.result != nil {
                 // If global signout is successful, we clear tokens locally and perform signout flow.
-                self.signOut()
+                //self.signOut()
                 completionHandler(nil)
             } else if let error = task.error {
                 // If there is an error signing out globally, we notify the developer.
