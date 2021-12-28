@@ -23,7 +23,7 @@ class AWSMobileClientDeleteUserTests: AWSMobileClientTestBase {
     ///
     func testDeleteUser() {
         let username = "testUser" + UUID().uuidString
-        let signoutExpectation = expectation(description: "Successfully signout")
+        let expectation = expectation(description: "Successfully deleted user")
         signUpAndVerifyUser(username: username)
         signIn(username: username)
         XCTAssertTrue(AWSMobileClient.default().isSignedIn, "Expected to return true for isSignedIn")
@@ -31,9 +31,9 @@ class AWSMobileClientDeleteUserTests: AWSMobileClientTestBase {
         AWSMobileClient.default().deleteUser { (error) in
             XCTAssertNil(error, "Received an error from deleteUser: \(String(describing: error))")
             XCTAssertFalse(AWSMobileClient.default().isSignedIn, "Expected to return false for isSignedIn")
-            signoutExpectation.fulfill()
+            expectation.fulfill()
         }
-        wait(for: [signoutExpectation], timeout: 2)
+        wait(for: [expectation], timeout: 2)
     }
     
     /// Test successful delete user with callback on a Unauthenticated user
@@ -46,7 +46,7 @@ class AWSMobileClientDeleteUserTests: AWSMobileClientTestBase {
     ///
     func testDeleteUserUnauthenticatedUser() {
         let username = "testUser" + UUID().uuidString
-        let signoutExpectation = expectation(description: "Successfully signout for unauthenticated User")
+        let expectation = expectation(description: "Receive AWSMobileClientError.notSignedIn error.")
         signUpAndVerifyUser(username: username)
         XCTAssertTrue(AWSMobileClient.default().isSignedIn == false, "Expected to return false for isSignedIn")
         sleep(1)
@@ -55,9 +55,9 @@ class AWSMobileClientDeleteUserTests: AWSMobileClientTestBase {
                 XCTFail("Expected to receive AWSMobileClientError.notSignedIn error.")
                 return
             }
-            signoutExpectation.fulfill()
+            expectation.fulfill()
         }
-        wait(for: [signoutExpectation], timeout: 2)
+        wait(for: [expectation], timeout: 2)
     }
 }
 

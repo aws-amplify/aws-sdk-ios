@@ -669,7 +669,12 @@ extension AWSMobileClient {
     /// - Parameters:
     ///   - completionHandler: completion handler for success or error callback.
     public func deleteUser(signOut: Bool = true, completionHandler: @escaping ((Error?) -> Void)) {
-        let _ = self.userpoolOpsHelper.currentActiveUser!.delete().continueWith { (task) -> Any? in
+        guard let currentActiveUser = self.userpoolOpsHelper.currentActiveUser else {
+            let errorMessage = "Invalid CognitoUserPool configuration. This should not happen."
+            completionHandler(AWSMobileClientError.invalidConfiguration(message: errorMessage))
+            return
+        }
+        let _ = currentActiveUser.delete().continueWith { (task) -> Any? in
             if task.result != nil {
                 // User was successfully deleted.
                 if signOut {
