@@ -8,6 +8,7 @@
 
 - **AWSMobileClient**
   - Reset completion sources in AWSMobileClient (See [PR #3732](https://github.com/aws-amplify/aws-sdk-ios/pull/3732))
+  - Crash fix in AWSMobileClient for call to leave DispatchGroup (See [PR #3732](https://github.com/aws-amplify/aws-sdk-ios/pull/3949))
 
 ## 2.26.6
 
