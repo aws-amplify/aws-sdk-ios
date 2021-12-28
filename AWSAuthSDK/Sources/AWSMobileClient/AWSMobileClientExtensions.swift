@@ -823,7 +823,6 @@ extension AWSMobileClient {
         } else if self.federationProvider == .hostedUI {
             self.pendingGetTokensCompletion?(nil, AWSMobileClientError.unableToSignIn(message: "Could not get valid token from the user."))
             self.pendingGetTokensCompletion = nil
-            self.tokenFetchLock.leave()
         } else if self.federationProvider == .oidcFederation {
             self.pendingAWSCredentialsCompletion?(nil, AWSMobileClientError.unableToSignIn(message: "Could not get valid federation token from the user."))
             self.pendingAWSCredentialsCompletion = nil

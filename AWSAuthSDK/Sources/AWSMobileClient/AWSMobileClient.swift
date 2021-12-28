@@ -83,7 +83,6 @@ final public class AWSMobileClient: _AWSMobileClient {
         queue.maxConcurrentOperationCount = 1
         return queue
     }()
-    internal let tokenFetchLock = DispatchGroup()
     
     /// Operation Queue to make sure there is only 1 active API call which is fetching/ waiting for AWS Credentials.
     internal let credentialsFetchOperationQueue: OperationQueue = {
