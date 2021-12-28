@@ -858,7 +858,6 @@ extension AWSMobileClient {
                         self.invalidateCachedTemporaryCredentials()
                         self.mobileClientStatusChanged(userState: .signedOutUserPoolsTokenInvalid,
                                                        additionalInfo: [self.ProviderKey:"OAuth"])
-                        // return early without releasing the tokenFetch lock.
                         return
                     } else if let session = session {
                         completionHandler(self.getTokensForCognitoAuthSession(session: session), nil)
