@@ -125,6 +125,7 @@
 		17D61FA7216BBC59009B2B9C /* AWSMobileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D61FA6216BBC59009B2B9C /* AWSMobileClient.swift */; };
 		17DED2A61F32A4E400397F88 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1786CA4D1F2BEDB8003421FF /* Images.xcassets */; };
 		17F4F75121F6B0750068B553 /* AWSCognitoAuth+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F4F74F21F6B0750068B553 /* AWSCognitoAuth+Extensions.m */; };
+		5C3324972773F43400F2C47B /* AWSMobileClientDeleteUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3324962773F43400F2C47B /* AWSMobileClientDeleteUserTests.swift */; };
 		B402CD1F2580672F0020B83B /* _AWSMobileClient.h in Headers */ = {isa = PBXBuildFile; fileRef = B5FC69031FAFA1AA004790CB /* _AWSMobileClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B402CD202580672F0020B83B /* AWSCognitoAuth_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 177B8AD921E52C730051068F /* AWSCognitoAuth_Internal.h */; };
 		B402CD212580672F0020B83B /* AWSCognitoAuthUICKeyChainStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 177B8ADB21E52C730051068F /* AWSCognitoAuthUICKeyChainStore.h */; };
@@ -384,6 +385,48 @@
 			proxyType = 1;
 			remoteGlobalIDString = B5FC69001FAFA1AA004790CB;
 			remoteInfo = AWSMobileClient;
+		};
+		5C33250D2773F43500F2C47B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 211FFC7D26C2FBAC00F0DB75;
+			remoteInfo = AWSChimeSDKIdentity;
+		};
+		5C33250F2773F43500F2C47B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 211FFC8526C2FBAD00F0DB75;
+			remoteInfo = AWSChimeSDKIdentityTests;
+		};
+		5C3325112773F43500F2C47B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 211FFCED26C306E000F0DB75;
+			remoteInfo = AWSChimeSDKIdentityUnitTests;
+		};
+		5C3325132773F43500F2C47B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 211FFC9F26C2FF4600F0DB75;
+			remoteInfo = AWSChimeSDKMessaging;
+		};
+		5C3325152773F43500F2C47B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 211FFCA726C2FF4700F0DB75;
+			remoteInfo = AWSChimeSDKMessagingTests;
+		};
+		5C3325172773F43500F2C47B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 211FFCDE26C3069900F0DB75;
+			remoteInfo = AWSChimeSDKMessagingUnitTests;
 		};
 		6BB7BFA123E5E8FB0026E789 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1347,6 +1390,7 @@
 		17D61FA6216BBC59009B2B9C /* AWSMobileClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClient.swift; sourceTree = "<group>"; };
 		17F4F74E21F6B0750068B553 /* AWSCognitoAuth+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AWSCognitoAuth+Extensions.h"; sourceTree = "<group>"; };
 		17F4F74F21F6B0750068B553 /* AWSCognitoAuth+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AWSCognitoAuth+Extensions.m"; sourceTree = "<group>"; };
+		5C3324962773F43400F2C47B /* AWSMobileClientDeleteUserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientDeleteUserTests.swift; sourceTree = "<group>"; };
 		6BB7BF2E23E5E8FB0026E789 /* AWSMobileClient-Mixed-Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AWSMobileClient-Mixed-Swift.h"; sourceTree = "<group>"; };
 		B402CD3F2580672F0020B83B /* AWSMobileClientXCF.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSMobileClientXCF.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B402D00725815C550020B83B /* AWSMobileClientXCF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSMobileClientXCF.h; sourceTree = "<group>"; };
@@ -1855,8 +1899,8 @@
 		17CD4AA5218241AD00953483 /* AWSMobileClientTests */ = {
 			isa = PBXGroup;
 			children = (
-				17CD4AA8218241AD00953483 /* Info.plist */,
 				B4C8E4A92307447F0064C158 /* AWSMobileClientCredentialsTest.swift */,
+				5C3324962773F43400F2C47B /* AWSMobileClientDeleteUserTests.swift */,
 				B4C8E4A32307415C0064C158 /* AWSMobileClientDeviceTests.swift */,
 				B4C8E4A7230743780064C158 /* AWSMobileClientPasswordTests.swift */,
 				B4031BE523105727009EB524 /* AWSMobileClientSignInTests.swift */,
@@ -1864,6 +1908,7 @@
 				B4C8E49F23073D7B0064C158 /* AWSMobileClientTestBase.swift */,
 				17CD4AA6218241AD00953483 /* AWSMobileClientTests.swift */,
 				B4C8E4A5230742200064C158 /* AWSMobileClientUserAttributeTests.swift */,
+				17CD4AA8218241AD00953483 /* Info.plist */,
 			);
 			path = AWSMobileClientTests;
 			sourceTree = "<group>";
@@ -2062,6 +2107,12 @@
 				B51E4F66215449FB001BC958 /* AWSTranslate.framework */,
 				B51E4F70215449FB001BC958 /* AWSTranslateTests.xctest */,
 				B51E4F68215449FB001BC958 /* AWSTranslateUnitTests.xctest */,
+				5C33250E2773F43500F2C47B /* AWSChimeSDKIdentity.framework */,
+				5C3325102773F43500F2C47B /* AWSChimeSDKIdentityTests.xctest */,
+				5C3325122773F43500F2C47B /* AWSChimeSDKIdentityUnitTests.xctest */,
+				5C3325142773F43500F2C47B /* AWSChimeSDKMessaging.framework */,
+				5C3325162773F43500F2C47B /* AWSChimeSDKMessagingTests.xctest */,
+				5C3325182773F43500F2C47B /* AWSChimeSDKMessagingUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2696,6 +2747,48 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		5C33250E2773F43500F2C47B /* AWSChimeSDKIdentity.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSChimeSDKIdentity.framework;
+			remoteRef = 5C33250D2773F43500F2C47B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5C3325102773F43500F2C47B /* AWSChimeSDKIdentityTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSChimeSDKIdentityTests.xctest;
+			remoteRef = 5C33250F2773F43500F2C47B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5C3325122773F43500F2C47B /* AWSChimeSDKIdentityUnitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSChimeSDKIdentityUnitTests.xctest;
+			remoteRef = 5C3325112773F43500F2C47B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5C3325142773F43500F2C47B /* AWSChimeSDKMessaging.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSChimeSDKMessaging.framework;
+			remoteRef = 5C3325132773F43500F2C47B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5C3325162773F43500F2C47B /* AWSChimeSDKMessagingTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSChimeSDKMessagingTests.xctest;
+			remoteRef = 5C3325152773F43500F2C47B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5C3325182773F43500F2C47B /* AWSChimeSDKMessagingUnitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSChimeSDKMessagingUnitTests.xctest;
+			remoteRef = 5C3325172773F43500F2C47B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		6BB7BFA223E5E8FB0026E789 /* AWSConnectParticipant.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -3662,6 +3755,7 @@
 				B4C8E4A6230742200064C158 /* AWSMobileClientUserAttributeTests.swift in Sources */,
 				17CD4AA7218241AD00953483 /* AWSMobileClientTests.swift in Sources */,
 				B4C8E4A023073D7B0064C158 /* AWSMobileClientTestBase.swift in Sources */,
+				5C3324972773F43400F2C47B /* AWSMobileClientDeleteUserTests.swift in Sources */,
 				B4C8E4A2230740200064C158 /* AWSMobileClientSignoutTests.swift in Sources */,
 				B4C8E4A8230743780064C158 /* AWSMobileClientPasswordTests.swift in Sources */,
 				B4C8E4AA2307447F0064C158 /* AWSMobileClientCredentialsTest.swift in Sources */,

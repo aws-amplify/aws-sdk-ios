@@ -2,7 +2,10 @@
 
 ## Unreleased
 
--Features for next release
+### New features
+
+- **AWSMobileClient**
+  - Add DeleteUser API to AWSMobileClient (See [PR #3948](https://github.com/aws-amplify/aws-sdk-ios/pull/3948))
 
 ### Bug Fixes
 
