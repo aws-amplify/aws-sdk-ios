@@ -825,9 +825,23 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"content" : @"Content",
+             @"messageAttributes" : @"MessageAttributes",
              @"messageId" : @"MessageId",
              @"metadata" : @"Metadata",
+             @"pushNotification" : @"PushNotification",
              };
+}
+
++ (NSValueTransformer *)messageAttributesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSChimeSDKMessagingMessageAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
+}
+
++ (NSValueTransformer *)pushNotificationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKMessagingPushNotificationConfiguration class]];
 }
 
 @end

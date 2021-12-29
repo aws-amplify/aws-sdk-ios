@@ -772,6 +772,11 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 @property (nonatomic, strong) NSString * _Nullable content;
 
 /**
+ <p>The attributes for the message, used for message filtering along with a <code>FilterRule</code> defined in the <code>PushNotificationPreferences</code>. </p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSChimeSDKMessagingMessageAttributeValue *> * _Nullable messageAttributes;
+
+/**
  <p>The message ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable messageId;
@@ -780,6 +785,11 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
  <p>The message metadata.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable metadata;
+
+/**
+ <p>The push notification configuration of the message.</p>
+ */
+@property (nonatomic, strong) AWSChimeSDKMessagingPushNotificationConfiguration * _Nullable pushNotification;
 
 @end
 
@@ -1915,7 +1925,7 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The membership type of a user, <code>DEFAULT</code> or <code>HIDDEN</code>. Default members are always returned as part of <code>ListChannelMemberships</code>. Hidden members are only returned if the type filter in <code>ListChannelMemberships</code> equals <code>HIDDEN</code>. Otherwise hidden members are not returned.</p>
+ <p>The membership type of a user, <code>DEFAULT</code> or <code>HIDDEN</code>. Default members are returned as part of <code>ListChannelMemberships</code> if no type is specified. Hidden members are only returned if the type filter in <code>ListChannelMemberships</code> equals <code>HIDDEN</code>.</p>
  */
 @property (nonatomic, assign) AWSChimeSDKMessagingChannelMembershipType types;
 
@@ -2296,7 +2306,6 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 
 /**
  <p>The push notification configuration of the message.</p>
- Required parameters: [Title, Body, Type]
  */
 @interface AWSChimeSDKMessagingPushNotificationConfiguration : AWSModel
 
