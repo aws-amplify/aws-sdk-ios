@@ -852,7 +852,6 @@ extension AWSMobileClient {
         } else if self.federationProvider == .hostedUI {
             self.pendingGetTokensCompletion?(nil, AWSMobileClientError.unableToSignIn(message: "Could not get valid token from the user."))
             self.pendingGetTokensCompletion = nil
-            self.tokenFetchLock.leave()
         } else if self.federationProvider == .oidcFederation {
             self.pendingAWSCredentialsCompletion?(nil, AWSMobileClientError.unableToSignIn(message: "Could not get valid federation token from the user."))
             self.pendingAWSCredentialsCompletion = nil
@@ -881,18 +880,21 @@ extension AWSMobileClient {
                         (sessionError as NSError).domain == AWSCognitoAuthErrorDomain,
                         let errorType = AWSCognitoAuthClientErrorType(rawValue: (sessionError as NSError).code),
                         (errorType == .errorExpiredRefreshToken) {
-                        self.pendingGetTokensCompletion = completionHandler
+                        self.pendingGetTokensCompletion = { tokens, error in
+                            completionHandler(tokens, error)
+                            done()
+                        }
                         self.invalidateCachedTemporaryCredentials()
                         self.mobileClientStatusChanged(userState: .signedOutUserPoolsTokenInvalid,
                                                        additionalInfo: [self.ProviderKey:"OAuth"])
-                        // return early without releasing the tokenFetch lock.
                         return
                     } else if let session = session {
                         completionHandler(self.getTokensForCognitoAuthSession(session: session), nil)
+                        done()
                     } else {
                         completionHandler(nil, error)
+                        done()
                     }
-                    done()
                 })
             }
             tokenFetchOperationQueue.addOperation(operation)
