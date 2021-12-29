@@ -1248,6 +1248,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSLocationSearchPlaceIndexForSuggestionsResponse *> *)searchPlaceIndexForSuggestions:(AWSLocationSearchPlaceIndexForSuggestionsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/places/v0/indexes/{IndexName}/search/suggestions"
+                  targetPrefix:@""
+                 operationName:@"SearchPlaceIndexForSuggestions"
+                   outputClass:[AWSLocationSearchPlaceIndexForSuggestionsResponse class]];
+}
+
+- (void)searchPlaceIndexForSuggestions:(AWSLocationSearchPlaceIndexForSuggestionsRequest *)request
+     completionHandler:(void (^)(AWSLocationSearchPlaceIndexForSuggestionsResponse *response, NSError *error))completionHandler {
+    [[self searchPlaceIndexForSuggestions:request] continueWithBlock:^id _Nullable(AWSTask<AWSLocationSearchPlaceIndexForSuggestionsResponse *> * _Nonnull task) {
+        AWSLocationSearchPlaceIndexForSuggestionsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSLocationSearchPlaceIndexForTextResponse *> *)searchPlaceIndexForText:(AWSLocationSearchPlaceIndexForTextRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST

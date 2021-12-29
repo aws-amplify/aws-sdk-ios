@@ -250,7 +250,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (void)batchDeleteGeofence:(AWSLocationBatchDeleteGeofenceRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationBatchDeleteGeofenceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Evaluates device positions against the geofence geometries from a given geofence collection.</p><p>This operation always returns an empty response because geofences are asynchronously evaluated. The evaluation determines if the device has entered or exited a geofenced area, and then publishes one of the following events to Amazon EventBridge:</p><ul><li><p><code>ENTER</code> if Amazon Location determines that the tracked device has entered a geofenced area.</p></li><li><p><code>EXIT</code> if Amazon Location determines that the tracked device has exited a geofenced area.</p></li></ul><note><p>The last geofence that a device was observed within is tracked for 30 days after the most recent device position update.</p></note>
+ <p>Evaluates device positions against the geofence geometries from a given geofence collection.</p><p>This operation always returns an empty response because geofences are asynchronously evaluated. The evaluation determines if the device has entered or exited a geofenced area, and then publishes one of the following events to Amazon EventBridge:</p><ul><li><p><code>ENTER</code> if Amazon Location determines that the tracked device has entered a geofenced area.</p></li><li><p><code>EXIT</code> if Amazon Location determines that the tracked device has exited a geofenced area.</p></li></ul><note><p>The last geofence that a device was observed within is tracked for 30 days after the most recent device position update.</p></note><note><p>Geofence evaluation uses the given device position. It does not account for the optional <code>Accuracy</code> of a <code>DevicePositionUpdate</code>.</p></note>
  
  @param request A container for the necessary parameters to execute the BatchEvaluateGeofences service method.
 
@@ -262,7 +262,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (AWSTask<AWSLocationBatchEvaluateGeofencesResponse *> *)batchEvaluateGeofences:(AWSLocationBatchEvaluateGeofencesRequest *)request;
 
 /**
- <p>Evaluates device positions against the geofence geometries from a given geofence collection.</p><p>This operation always returns an empty response because geofences are asynchronously evaluated. The evaluation determines if the device has entered or exited a geofenced area, and then publishes one of the following events to Amazon EventBridge:</p><ul><li><p><code>ENTER</code> if Amazon Location determines that the tracked device has entered a geofenced area.</p></li><li><p><code>EXIT</code> if Amazon Location determines that the tracked device has exited a geofenced area.</p></li></ul><note><p>The last geofence that a device was observed within is tracked for 30 days after the most recent device position update.</p></note>
+ <p>Evaluates device positions against the geofence geometries from a given geofence collection.</p><p>This operation always returns an empty response because geofences are asynchronously evaluated. The evaluation determines if the device has entered or exited a geofenced area, and then publishes one of the following events to Amazon EventBridge:</p><ul><li><p><code>ENTER</code> if Amazon Location determines that the tracked device has entered a geofenced area.</p></li><li><p><code>EXIT</code> if Amazon Location determines that the tracked device has exited a geofenced area.</p></li></ul><note><p>The last geofence that a device was observed within is tracked for 30 days after the most recent device position update.</p></note><note><p>Geofence evaluation uses the given device position. It does not account for the optional <code>Accuracy</code> of a <code>DevicePositionUpdate</code>.</p></note>
  
  @param request A container for the necessary parameters to execute the BatchEvaluateGeofences service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -325,7 +325,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (void)batchPutGeofence:(AWSLocationBatchPutGeofenceRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationBatchPutGeofenceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Uploads position update data for one or more devices to a tracker resource. Amazon Location uses the data when it reports the last known device position and position history. Amazon Location retains location data for 30 days.</p><note><p>Position updates are handled based on the <code>PositionFiltering</code> property of the tracker. When <code>PositionFiltering</code> is set to <code>TimeBased</code>, updates are evaluated against linked geofence collections, and location data is stored at a maximum of one position per 30 second interval. If your update frequency is more often than every 30 seconds, only one update per 30 seconds is stored for each unique device ID. When <code>PositionFiltering</code> is set to <code>DistanceBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than 30 m (98.4 ft).</p></note>
+ <p>Uploads position update data for one or more devices to a tracker resource. Amazon Location uses the data when it reports the last known device position and position history. Amazon Location retains location data for 30 days.</p><note><p>Position updates are handled based on the <code>PositionFiltering</code> property of the tracker. When <code>PositionFiltering</code> is set to <code>TimeBased</code>, updates are evaluated against linked geofence collections, and location data is stored at a maximum of one position per 30 second interval. If your update frequency is more often than every 30 seconds, only one update per 30 seconds is stored for each unique device ID.</p><p>When <code>PositionFiltering</code> is set to <code>DistanceBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than 30 m (98.4 ft).</p><p>When <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than the measured accuracy. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is neither stored or evaluated if the device has moved less than 15 m. If <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, Amazon Location uses the default value <code>{ "Horizontal": 0}</code> when accuracy is not provided on a <code>DevicePositionUpdate</code>.</p></note>
  
  @param request A container for the necessary parameters to execute the BatchUpdateDevicePosition service method.
 
@@ -337,7 +337,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (AWSTask<AWSLocationBatchUpdateDevicePositionResponse *> *)batchUpdateDevicePosition:(AWSLocationBatchUpdateDevicePositionRequest *)request;
 
 /**
- <p>Uploads position update data for one or more devices to a tracker resource. Amazon Location uses the data when it reports the last known device position and position history. Amazon Location retains location data for 30 days.</p><note><p>Position updates are handled based on the <code>PositionFiltering</code> property of the tracker. When <code>PositionFiltering</code> is set to <code>TimeBased</code>, updates are evaluated against linked geofence collections, and location data is stored at a maximum of one position per 30 second interval. If your update frequency is more often than every 30 seconds, only one update per 30 seconds is stored for each unique device ID. When <code>PositionFiltering</code> is set to <code>DistanceBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than 30 m (98.4 ft).</p></note>
+ <p>Uploads position update data for one or more devices to a tracker resource. Amazon Location uses the data when it reports the last known device position and position history. Amazon Location retains location data for 30 days.</p><note><p>Position updates are handled based on the <code>PositionFiltering</code> property of the tracker. When <code>PositionFiltering</code> is set to <code>TimeBased</code>, updates are evaluated against linked geofence collections, and location data is stored at a maximum of one position per 30 second interval. If your update frequency is more often than every 30 seconds, only one update per 30 seconds is stored for each unique device ID.</p><p>When <code>PositionFiltering</code> is set to <code>DistanceBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than 30 m (98.4 ft).</p><p>When <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than the measured accuracy. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is neither stored or evaluated if the device has moved less than 15 m. If <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, Amazon Location uses the default value <code>{ "Horizontal": 0}</code> when accuracy is not provided on a <code>DevicePositionUpdate</code>.</p></note>
  
  @param request A container for the necessary parameters to execute the BatchUpdateDevicePosition service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -425,7 +425,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (void)createMap:(AWSLocationCreateMapRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationCreateMapResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation.</p>
+ <p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p>
  
  @param request A container for the necessary parameters to execute the CreatePlaceIndex service method.
 
@@ -437,7 +437,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (AWSTask<AWSLocationCreatePlaceIndexResponse *> *)createPlaceIndex:(AWSLocationCreatePlaceIndexRequest *)request;
 
 /**
- <p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation.</p>
+ <p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p>
  
  @param request A container for the necessary parameters to execute the CreatePlaceIndex service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1223,6 +1223,31 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
  @see AWSLocationSearchPlaceIndexForPositionResponse
  */
 - (void)searchPlaceIndexForPosition:(AWSLocationSearchPlaceIndexForPositionRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationSearchPlaceIndexForPositionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Generates suggestions for addresses and points of interest based on partial or misspelled free-form text. This operation is also known as autocomplete, autosuggest, or fuzzy matching.</p><p>Optional parameters let you narrow your search results by bounding box or country, or bias your search toward a specific position on the globe.</p><note><p>You can search for suggested place names near a specified position by using <code>BiasPosition</code>, or filter results within a bounding box by using <code>FilterBBox</code>. These parameters are mutually exclusive; using both <code>BiasPosition</code> and <code>FilterBBox</code> in the same command returns an error.</p></note>
+ 
+ @param request A container for the necessary parameters to execute the SearchPlaceIndexForSuggestions service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLocationSearchPlaceIndexForSuggestionsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorResourceNotFound`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorThrottling`.
+ 
+ @see AWSLocationSearchPlaceIndexForSuggestionsRequest
+ @see AWSLocationSearchPlaceIndexForSuggestionsResponse
+ */
+- (AWSTask<AWSLocationSearchPlaceIndexForSuggestionsResponse *> *)searchPlaceIndexForSuggestions:(AWSLocationSearchPlaceIndexForSuggestionsRequest *)request;
+
+/**
+ <p>Generates suggestions for addresses and points of interest based on partial or misspelled free-form text. This operation is also known as autocomplete, autosuggest, or fuzzy matching.</p><p>Optional parameters let you narrow your search results by bounding box or country, or bias your search toward a specific position on the globe.</p><note><p>You can search for suggested place names near a specified position by using <code>BiasPosition</code>, or filter results within a bounding box by using <code>FilterBBox</code>. These parameters are mutually exclusive; using both <code>BiasPosition</code> and <code>FilterBBox</code> in the same command returns an error.</p></note>
+ 
+ @param request A container for the necessary parameters to execute the SearchPlaceIndexForSuggestions service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorResourceNotFound`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorThrottling`.
+ 
+ @see AWSLocationSearchPlaceIndexForSuggestionsRequest
+ @see AWSLocationSearchPlaceIndexForSuggestionsResponse
+ */
+- (void)searchPlaceIndexForSuggestions:(AWSLocationSearchPlaceIndexForSuggestionsRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationSearchPlaceIndexForSuggestionsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Geocodes free-form text, such as an address, name, city, or region to allow you to search for Places or points of interest. </p><p>Optional parameters let you narrow your search results by bounding box or country, or bias your search toward a specific position on the globe.</p><note><p>You can search for places near a given position using <code>BiasPosition</code>, or filter results within a bounding box using <code>FilterBBox</code>. Providing both parameters simultaneously returns an error.</p></note><p>Search results are returned in order of highest to lowest relevance.</p>

@@ -127,13 +127,18 @@
 - (void) test_AWSLocationMapConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSLocationPlace API_AVAILABLE(ios(11));
 - (void) test_AWSLocationPlaceGeometry API_AVAILABLE(ios(11));
+- (void) test_AWSLocationPositionalAccuracy API_AVAILABLE(ios(11));
 - (void) test_AWSLocationPutGeofenceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationPutGeofenceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationSearchForPositionResult API_AVAILABLE(ios(11));
+- (void) test_AWSLocationSearchForSuggestionsResult API_AVAILABLE(ios(11));
 - (void) test_AWSLocationSearchForTextResult API_AVAILABLE(ios(11));
 - (void) test_AWSLocationSearchPlaceIndexForPositionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationSearchPlaceIndexForPositionResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationSearchPlaceIndexForPositionSummary API_AVAILABLE(ios(11));
+- (void) test_AWSLocationSearchPlaceIndexForSuggestionsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLocationSearchPlaceIndexForSuggestionsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLocationSearchPlaceIndexForSuggestionsSummary API_AVAILABLE(ios(11));
 - (void) test_AWSLocationSearchPlaceIndexForTextRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationSearchPlaceIndexForTextResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationSearchPlaceIndexForTextSummary API_AVAILABLE(ios(11));
@@ -593,6 +598,10 @@
     [self validateSecureCodingForClass:[AWSLocationPlaceGeometry class]];
 }
 
+- (void) test_AWSLocationPositionalAccuracy {
+    [self validateSecureCodingForClass:[AWSLocationPositionalAccuracy class]];
+}
+
 - (void) test_AWSLocationPutGeofenceRequest {
     [self validateSecureCodingForClass:[AWSLocationPutGeofenceRequest class]];
 }
@@ -603,6 +612,10 @@
 
 - (void) test_AWSLocationSearchForPositionResult {
     [self validateSecureCodingForClass:[AWSLocationSearchForPositionResult class]];
+}
+
+- (void) test_AWSLocationSearchForSuggestionsResult {
+    [self validateSecureCodingForClass:[AWSLocationSearchForSuggestionsResult class]];
 }
 
 - (void) test_AWSLocationSearchForTextResult {
@@ -619,6 +632,18 @@
 
 - (void) test_AWSLocationSearchPlaceIndexForPositionSummary {
     [self validateSecureCodingForClass:[AWSLocationSearchPlaceIndexForPositionSummary class]];
+}
+
+- (void) test_AWSLocationSearchPlaceIndexForSuggestionsRequest {
+    [self validateSecureCodingForClass:[AWSLocationSearchPlaceIndexForSuggestionsRequest class]];
+}
+
+- (void) test_AWSLocationSearchPlaceIndexForSuggestionsResponse {
+    [self validateSecureCodingForClass:[AWSLocationSearchPlaceIndexForSuggestionsResponse class]];
+}
+
+- (void) test_AWSLocationSearchPlaceIndexForSuggestionsSummary {
+    [self validateSecureCodingForClass:[AWSLocationSearchPlaceIndexForSuggestionsSummary class]];
 }
 
 - (void) test_AWSLocationSearchPlaceIndexForTextRequest {
