@@ -1379,6 +1379,7 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 	return @{
              @"accessPolicy" : @"accessPolicy",
              @"destinationName" : @"destinationName",
+             @"forceUpdate" : @"forceUpdate",
              };
 }
 
