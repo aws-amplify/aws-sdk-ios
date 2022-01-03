@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.26.7
+
 ### New features
 
 - **AWSMobileClient**
