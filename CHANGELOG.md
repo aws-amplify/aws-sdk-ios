@@ -13,6 +13,9 @@
   - Reset completion sources in AWSMobileClient (See [PR #3732](https://github.com/aws-amplify/aws-sdk-ios/pull/3732))
   - Crash fix in AWSMobileClient for call to leave DispatchGroup (See [PR #3951](https://github.com/aws-amplify/aws-sdk-ios/pull/3951))
 
+- **AWSIoT**
+  - Adds leeway in unit tests (See [PR #3952](https://github.com/aws-amplify/aws-sdk-ios/pull/3952))
+
 ## 2.26.6
 
 ### Bug Fixes
