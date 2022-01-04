@@ -17,7 +17,7 @@
     <a title="AWSLocation Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLocation 2.26.6 Docs</a> (89% documented)</p>
+        <p><a href="../index.html">AWSLocation 2.26.7 Docs</a> (90% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLocation.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -368,6 +368,9 @@
                 <a href="../Classes/AWSLocationPlaceGeometry.html">AWSLocationPlaceGeometry</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLocationPositionalAccuracy.html">AWSLocationPositionalAccuracy</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLocationPutGeofenceRequest.html">AWSLocationPutGeofenceRequest</a>
               </li>
               <li class="nav-group-task">
@@ -380,6 +383,9 @@
                 <a href="../Classes/AWSLocationSearchForPositionResult.html">AWSLocationSearchForPositionResult</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLocationSearchForSuggestionsResult.html">AWSLocationSearchForSuggestionsResult</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLocationSearchForTextResult.html">AWSLocationSearchForTextResult</a>
               </li>
               <li class="nav-group-task">
@@ -390,6 +396,15 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLocationSearchPlaceIndexForPositionSummary.html">AWSLocationSearchPlaceIndexForPositionSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationSearchPlaceIndexForSuggestionsRequest.html">AWSLocationSearchPlaceIndexForSuggestionsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationSearchPlaceIndexForSuggestionsResponse.html">AWSLocationSearchPlaceIndexForSuggestionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationSearchPlaceIndexForSuggestionsSummary.html">AWSLocationSearchPlaceIndexForSuggestionsSummary</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLocationSearchPlaceIndexForTextRequest.html">AWSLocationSearchPlaceIndexForTextRequest</a>
@@ -1336,7 +1351,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Evaluates device positions against the geofence geometries from a given geofence collection.</p><p>This operation always returns an empty response because geofences are asynchronously evaluated. The evaluation determines if the device has entered or exited a geofenced area, and then publishes one of the following events to Amazon EventBridge:</p><ul><li><p><code>ENTER</code> if Amazon Location determines that the tracked device has entered a geofenced area.</p></li><li><p><code>EXIT</code> if Amazon Location determines that the tracked device has exited a geofenced area.</p></li></ul><note><p>The last geofence that a device was observed within is tracked for 30 days after the most recent device position update.</p></note></p>
+                        <p><p>Evaluates device positions against the geofence geometries from a given geofence collection.</p><p>This operation always returns an empty response because geofences are asynchronously evaluated. The evaluation determines if the device has entered or exited a geofenced area, and then publishes one of the following events to Amazon EventBridge:</p><ul><li><p><code>ENTER</code> if Amazon Location determines that the tracked device has entered a geofenced area.</p></li><li><p><code>EXIT</code> if Amazon Location determines that the tracked device has exited a geofenced area.</p></li></ul><note><p>The last geofence that a device was observed within is tracked for 30 days after the most recent device position update.</p></note><note><p>Geofence evaluation uses the given device position. It does not account for the optional <code>Accuracy</code> of a <code>DevicePositionUpdate</code>.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationBatchEvaluateGeofencesRequest</p>
@@ -1401,7 +1416,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Evaluates device positions against the geofence geometries from a given geofence collection.</p><p>This operation always returns an empty response because geofences are asynchronously evaluated. The evaluation determines if the device has entered or exited a geofenced area, and then publishes one of the following events to Amazon EventBridge:</p><ul><li><p><code>ENTER</code> if Amazon Location determines that the tracked device has entered a geofenced area.</p></li><li><p><code>EXIT</code> if Amazon Location determines that the tracked device has exited a geofenced area.</p></li></ul><note><p>The last geofence that a device was observed within is tracked for 30 days after the most recent device position update.</p></note></p>
+                        <p><p>Evaluates device positions against the geofence geometries from a given geofence collection.</p><p>This operation always returns an empty response because geofences are asynchronously evaluated. The evaluation determines if the device has entered or exited a geofenced area, and then publishes one of the following events to Amazon EventBridge:</p><ul><li><p><code>ENTER</code> if Amazon Location determines that the tracked device has entered a geofenced area.</p></li><li><p><code>EXIT</code> if Amazon Location determines that the tracked device has exited a geofenced area.</p></li></ul><note><p>The last geofence that a device was observed within is tracked for 30 days after the most recent device position update.</p></note><note><p>Geofence evaluation uses the given device position. It does not account for the optional <code>Accuracy</code> of a <code>DevicePositionUpdate</code>.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationBatchEvaluateGeofencesRequest</p>
@@ -1765,7 +1780,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Uploads position update data for one or more devices to a tracker resource. Amazon Location uses the data when it reports the last known device position and position history. Amazon Location retains location data for 30 days.</p><note><p>Position updates are handled based on the <code>PositionFiltering</code> property of the tracker. When <code>PositionFiltering</code> is set to <code>TimeBased</code>, updates are evaluated against linked geofence collections, and location data is stored at a maximum of one position per 30 second interval. If your update frequency is more often than every 30 seconds, only one update per 30 seconds is stored for each unique device ID. When <code>PositionFiltering</code> is set to <code>DistanceBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than 30 m (98.4 ft).</p></note></p>
+                        <p><p>Uploads position update data for one or more devices to a tracker resource. Amazon Location uses the data when it reports the last known device position and position history. Amazon Location retains location data for 30 days.</p><note><p>Position updates are handled based on the <code>PositionFiltering</code> property of the tracker. When <code>PositionFiltering</code> is set to <code>TimeBased</code>, updates are evaluated against linked geofence collections, and location data is stored at a maximum of one position per 30 second interval. If your update frequency is more often than every 30 seconds, only one update per 30 seconds is stored for each unique device ID.</p><p>When <code>PositionFiltering</code> is set to <code>DistanceBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than 30 m (98.4 ft).</p><p>When <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than the measured accuracy. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is neither stored or evaluated if the device has moved less than 15 m. If <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, Amazon Location uses the default value <code>{ &quot;Horizontal&quot;: 0}</code> when accuracy is not provided on a <code>DevicePositionUpdate</code>.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationBatchUpdateDevicePositionRequest</p>
@@ -1830,7 +1845,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Uploads position update data for one or more devices to a tracker resource. Amazon Location uses the data when it reports the last known device position and position history. Amazon Location retains location data for 30 days.</p><note><p>Position updates are handled based on the <code>PositionFiltering</code> property of the tracker. When <code>PositionFiltering</code> is set to <code>TimeBased</code>, updates are evaluated against linked geofence collections, and location data is stored at a maximum of one position per 30 second interval. If your update frequency is more often than every 30 seconds, only one update per 30 seconds is stored for each unique device ID. When <code>PositionFiltering</code> is set to <code>DistanceBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than 30 m (98.4 ft).</p></note></p>
+                        <p><p>Uploads position update data for one or more devices to a tracker resource. Amazon Location uses the data when it reports the last known device position and position history. Amazon Location retains location data for 30 days.</p><note><p>Position updates are handled based on the <code>PositionFiltering</code> property of the tracker. When <code>PositionFiltering</code> is set to <code>TimeBased</code>, updates are evaluated against linked geofence collections, and location data is stored at a maximum of one position per 30 second interval. If your update frequency is more often than every 30 seconds, only one update per 30 seconds is stored for each unique device ID.</p><p>When <code>PositionFiltering</code> is set to <code>DistanceBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than 30 m (98.4 ft).</p><p>When <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than the measured accuracy. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is neither stored or evaluated if the device has moved less than 15 m. If <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, Amazon Location uses the default value <code>{ &quot;Horizontal&quot;: 0}</code> when accuracy is not provided on a <code>DevicePositionUpdate</code>.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationBatchUpdateDevicePositionRequest</p>
@@ -2335,7 +2350,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation.</p>
+                        <p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCreatePlaceIndexRequest</p>
@@ -2399,7 +2414,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation.</p>
+                        <p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCreatePlaceIndexRequest</p>
@@ -6881,6 +6896,151 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSLocation(im)searchPlaceIndexForSuggestions:"></a>
+                    <a name="//apple_ref/objc/Method/-searchPlaceIndexForSuggestions:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocation(im)searchPlaceIndexForSuggestions:">-searchPlaceIndexForSuggestions:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>Generates suggestions for addresses and points of interest based on partial or misspelled free-form text. This operation is also known as autocomplete, autosuggest, or fuzzy matching.</p><p>Optional parameters let you narrow your search results by bounding box or country, or bias your search toward a specific position on the globe.</p><note><p>You can search for suggested place names near a specified position by using <code>BiasPosition</code>, or filter results within a bounding box by using <code>FilterBBox</code>. These parameters are mutually exclusive; using both <code>BiasPosition</code> and <code>FilterBBox</code> in the same command returns an error.</p></note></p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationSearchPlaceIndexForSuggestionsRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationSearchPlaceIndexForSuggestionsResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">searchPlaceIndexForSuggestions</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLocationSearchPlaceIndexForSuggestionsRequest.html">AWSLocationSearchPlaceIndexForSuggestionsRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">searchPlaceIndex</span><span class="p">(</span><span class="n">forSuggestions</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationSearchPlaceIndexForSuggestionsRequest.html">AWSLocationSearchPlaceIndexForSuggestionsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the SearchPlaceIndexForSuggestions service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSLocationSearchPlaceIndexForSuggestionsResponse.html">AWSLocationSearchPlaceIndexForSuggestionsResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorResourceNotFound</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocation(im)searchPlaceIndexForSuggestions:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-searchPlaceIndexForSuggestions:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocation(im)searchPlaceIndexForSuggestions:completionHandler:">-searchPlaceIndexForSuggestions:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>Generates suggestions for addresses and points of interest based on partial or misspelled free-form text. This operation is also known as autocomplete, autosuggest, or fuzzy matching.</p><p>Optional parameters let you narrow your search results by bounding box or country, or bias your search toward a specific position on the globe.</p><note><p>You can search for suggested place names near a specified position by using <code>BiasPosition</code>, or filter results within a bounding box by using <code>FilterBBox</code>. These parameters are mutually exclusive; using both <code>BiasPosition</code> and <code>FilterBBox</code> in the same command returns an error.</p></note></p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationSearchPlaceIndexForSuggestionsRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationSearchPlaceIndexForSuggestionsResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">searchPlaceIndexForSuggestions</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLocationSearchPlaceIndexForSuggestionsRequest.html">AWSLocationSearchPlaceIndexForSuggestionsRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+                     <span class="nf">completionHandler</span><span class="p">:</span>
+                         <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                             <span class="n"><a href="../Classes/AWSLocationSearchPlaceIndexForSuggestionsResponse.html">AWSLocationSearchPlaceIndexForSuggestionsResponse</a></span>
+                                 <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                             <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">searchPlaceIndex</span><span class="p">(</span><span class="n">forSuggestions</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationSearchPlaceIndexForSuggestionsRequest.html">AWSLocationSearchPlaceIndexForSuggestionsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationSearchPlaceIndexForSuggestionsResponse.html">AWSLocationSearchPlaceIndexForSuggestionsResponse</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the SearchPlaceIndexForSuggestions service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorResourceNotFound</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSLocation(im)searchPlaceIndexForText:"></a>
                     <a name="//apple_ref/objc/Method/-searchPlaceIndexForText:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSLocation(im)searchPlaceIndexForText:">-searchPlaceIndexForText:<wbr></a>
@@ -8020,7 +8180,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-12-09)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-01-04)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
