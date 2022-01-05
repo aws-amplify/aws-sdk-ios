@@ -134,12 +134,13 @@ commands:
 
   configure_aws:
     description: >-
-      Install aws cli and configure android aws release profile
+      Install aws cli and configure release profile
     steps:
       - run:
-          name: Install AWS cli
+          name: Install AWS CLI
           command: |
-            HOMEBREW_NO_AUTO_UPDATE=1 brew install awscli
+            curl -O https://awscli.amazonaws.com/AWSCLIV2.pkg
+            sudo installer -pkg AWSCLIV2.pkg -target /
       - run:
           name: Configure AWS profiles
           command: |
@@ -248,7 +249,7 @@ commands:
 jobs:
   build:
     macos:
-      xcode: "12.1.0"
+      xcode: "13.1.0"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -271,7 +272,7 @@ jobs:
 
   build_test_host_apps:
     macos:
-      xcode: "12.1.0"
+      xcode: "13.1.0"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -288,7 +289,7 @@ jobs:
 
   unit_test:
     macos:
-      xcode: "12.1.0"
+      xcode: "13.1.0"
     parameters:
       project:
         default: "AWSiOSSDKv2.xcodeproj"
@@ -341,7 +342,7 @@ jobs:
 
   integ_test:
     macos:
-      xcode: "12.1.0"
+      xcode: "13.1.0"
     parameters:
       project:
         default: "AWSiOSSDKv2.xcodeproj"
@@ -392,7 +393,7 @@ jobs:
 
   release_tag:
     macos:
-      xcode: "12.1.0"
+      xcode: "13.1.0"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -409,7 +410,7 @@ jobs:
 
   build_xcframeworks:
     macos:
-      xcode: "12.3.0"
+      xcode: "13.1.0"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -427,7 +428,7 @@ jobs:
 
   release_carthage:
     macos:
-      xcode: "12.3.0"
+      xcode: "13.1.0"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -448,7 +449,7 @@ jobs:
 
   release_cocoapods:
     macos:
-      xcode: "12.1.0"
+      xcode: "13.1.0"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -466,7 +467,7 @@ jobs:
 
   release_docs:
     macos:
-      xcode: "12.1.0"
+      xcode: "13.1.0"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -496,7 +497,7 @@ jobs:
 
   add_doc_tag:
     macos:
-      xcode: "12.1.0"
+      xcode: "13.0.0"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -510,7 +511,7 @@ jobs:
 
   bump_ios_sampleapp_version:
     macos:
-      xcode: "12.1.0"
+      xcode: "13.1.0"
     steps:
       - skip_job_unless_required
       - set_environment_variables
@@ -529,7 +530,7 @@ jobs:
   
   release_xcframeworks:
     macos:
-      xcode: "12.3.0"
+      xcode: "13.1.0"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -541,15 +542,11 @@ jobs:
           name: Install boto3
           command: sudo pip3 install boto3
       - run:
-          name: Clone spm github repo and reset release branch
+          name: Clone spm github repo
           command: |
             git clone "https://${GITHUB_SPM_RELEASE_TOKEN}@github.com/aws-amplify/aws-sdk-ios-spm.git"
             cd aws-sdk-ios-spm
             git checkout -b pre-release-${release_version}
-            git fetch
-            git checkout release
-            git reset --hard main
-            git push -f
             cd ..
       - run:
           name: Prepare xcframework archives and update Package.swift manifest
@@ -564,8 +561,8 @@ jobs:
           command: |
             cd aws-sdk-ios-spm
             head_branch=pre-release-${release_version} 
-            target_branch="release"
-            title="release: Version and checksum update for ${release_version}"
+            target_branch="main"
+            title="[release-spm]: Version and checksum update for ${release_version}"
             content="Update for package manifest and version for the next release"
             git checkout ${head_branch}
             git config --local user.name "${GITHUB_SPM_RELEASE_USER}"
@@ -577,7 +574,7 @@ jobs:
 
   release_xcframeworks_combined:
     macos:
-      xcode: "12.1.0"
+      xcode: "13.1.0"
     environment:
       TERM: xterm-256color
     steps:
@@ -621,7 +618,7 @@ jobs:
 
   bump_sdk_version:
     macos:
-      xcode: "12.1.0"
+      xcode: "13.1.0"
     steps:
       - skip_job_unless_required
       - set_environment_variables
@@ -1121,6 +1118,26 @@ workflows:
       - unit_test:
           scheme: AWSLocation
           name: unit_test_AWSLocation
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSChimeSDKMessaging
+          name: unit_test_AWSChimeSDKMessaging
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSChimeSDKIdentity
+          name: unit_test_AWSChimeSDKIdentity
           requires:
             - build
             - build_test_host_apps

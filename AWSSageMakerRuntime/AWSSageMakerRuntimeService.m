@@ -25,7 +25,7 @@
 #import "AWSSageMakerRuntimeResources.h"
 
 static NSString *const AWSInfoSageMakerRuntime = @"SageMakerRuntime";
-NSString *const AWSSageMakerRuntimeSDKVersion = @"2.24.1";
+NSString *const AWSSageMakerRuntimeSDKVersion = @"2.26.7";
 
 
 @interface AWSSageMakerRuntimeResponseSerializer : AWSJSONResponseSerializer
@@ -39,8 +39,10 @@ NSString *const AWSSageMakerRuntimeSDKVersion = @"2.24.1";
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
+                            @"InternalDependencyException" : @(AWSSageMakerRuntimeErrorInternalDependency),
                             @"InternalFailure" : @(AWSSageMakerRuntimeErrorInternalFailure),
                             @"ModelError" : @(AWSSageMakerRuntimeErrorModel),
+                            @"ModelNotReadyException" : @(AWSSageMakerRuntimeErrorModelNotReady),
                             @"ServiceUnavailable" : @(AWSSageMakerRuntimeErrorServiceUnavailable),
                             @"ValidationError" : @(AWSSageMakerRuntimeErrorValidation),
                             };
@@ -292,6 +294,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSSageMakerRuntimeInvokeEndpointOutput *response, NSError *error))completionHandler {
     [[self invokeEndpoint:request] continueWithBlock:^id _Nullable(AWSTask<AWSSageMakerRuntimeInvokeEndpointOutput *> * _Nonnull task) {
         AWSSageMakerRuntimeInvokeEndpointOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSageMakerRuntimeInvokeEndpointAsyncOutput *> *)invokeEndpointAsync:(AWSSageMakerRuntimeInvokeEndpointAsyncInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/endpoints/{EndpointName}/async-invocations"
+                  targetPrefix:@""
+                 operationName:@"InvokeEndpointAsync"
+                   outputClass:[AWSSageMakerRuntimeInvokeEndpointAsyncOutput class]];
+}
+
+- (void)invokeEndpointAsync:(AWSSageMakerRuntimeInvokeEndpointAsyncInput *)request
+     completionHandler:(void (^)(AWSSageMakerRuntimeInvokeEndpointAsyncOutput *response, NSError *error))completionHandler {
+    [[self invokeEndpointAsync:request] continueWithBlock:^id _Nullable(AWSTask<AWSSageMakerRuntimeInvokeEndpointAsyncOutput *> * _Nonnull task) {
+        AWSSageMakerRuntimeInvokeEndpointAsyncOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

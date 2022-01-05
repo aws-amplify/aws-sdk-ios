@@ -198,7 +198,6 @@ cmd_quiet_flag="--quiet"
 [[ -n $region ]] || die "'region' not specified"
 export AWS_DEFAULT_REGION=${region}
 
-
 ##################################################
 # LOCAL FUNCTIONS
 
@@ -253,13 +252,25 @@ function resolve_credentials {
     # Ensure we don't output credentials
     [[ $LOG_LEVEL -ge $LOG_LEVEL_TRACE ]] && set +x
 
+    local circleci_execution_role
+    circleci_execution_role=$(aws ssm get-parameter --name "/mobile-sdk/${platform}/common/circleci_execution_role" 2> /dev/null || echo "")
+    readonly circleci_execution_role
+
+    if [ -z "${circleci_execution_role}" ]; then
+      die "Role not found for Circle CI in region: ${AWS_DEFAULT_REGION}"
+    fi
+
     local circleci_execution_role_arn
-    circleci_execution_role_arn=$(aws ssm get-parameter --name "/mobile-sdk/${platform}/common/circleci_execution_role" | jq -r .Parameter.Value)
+    circleci_execution_role_arn=$(echo "${circleci_execution_role}" | jq -r .Parameter.Value)
     readonly circleci_execution_role_arn
 
     local assume_role_creds
     assume_role_creds=$(aws sts assume-role --duration-seconds 3600 --role-arn "${circleci_execution_role_arn}" --role-session-name "IntegTest-$(date +%Y%m%d%H%M%S)")
     readonly assume_role_creds
+
+    if [ -z "${assume_role_creds}" ]; then
+      die "Failed to assume role credentials for Circle CI"
+    fi
 
     AWS_ACCESS_KEY_ID=$(echo "$assume_role_creds" | jq -r '.Credentials.AccessKeyId')
     readonly AWS_ACCESS_KEY_ID

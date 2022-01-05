@@ -13,9 +13,12 @@ class VersionBumper:
     module_list = [
         "AWSAPIGateway",
         "AWSAutoScaling",
+        "AWSChimeSDKIdentity",
+        "AWSChimeSDKMessaging",
         "AWSCloudWatch",
         "AWSCognitoAuth",
         "AWSCognitoIdentityProvider",
+        "AWSCognitoIdentityProviderASF",
         "AWSComprehend",
         "AWSConnect",
         "AWSConnectParticipant",

@@ -25,7 +25,7 @@
 #import "AWSCognitoIdentityProviderResources.h"
 
 static NSString *const AWSInfoCognitoIdentityProvider = @"CognitoIdentityProvider";
-NSString *const AWSCognitoIdentityProviderSDKVersion = @"2.24.1";
+NSString *const AWSCognitoIdentityProviderSDKVersion = @"2.26.7";
 
 
 @interface AWSCognitoIdentityProviderResponseSerializer : AWSJSONResponseSerializer
@@ -66,8 +66,11 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"SoftwareTokenMFANotFoundException" : @(AWSCognitoIdentityProviderErrorSoftwareTokenMFANotFound),
                             @"TooManyFailedAttemptsException" : @(AWSCognitoIdentityProviderErrorTooManyFailedAttempts),
                             @"TooManyRequestsException" : @(AWSCognitoIdentityProviderErrorTooManyRequests),
+                            @"UnauthorizedException" : @(AWSCognitoIdentityProviderErrorUnauthorized),
                             @"UnexpectedLambdaException" : @(AWSCognitoIdentityProviderErrorUnexpectedLambda),
                             @"UnsupportedIdentityProviderException" : @(AWSCognitoIdentityProviderErrorUnsupportedIdentityProvider),
+                            @"UnsupportedOperationException" : @(AWSCognitoIdentityProviderErrorUnsupportedOperation),
+                            @"UnsupportedTokenTypeException" : @(AWSCognitoIdentityProviderErrorUnsupportedTokenType),
                             @"UnsupportedUserStateException" : @(AWSCognitoIdentityProviderErrorUnsupportedUserState),
                             @"UserImportInProgressException" : @(AWSCognitoIdentityProviderErrorUserImportInProgress),
                             @"UserLambdaValidationException" : @(AWSCognitoIdentityProviderErrorUserLambdaValidation),
@@ -2106,6 +2109,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSCognitoIdentityProviderRespondToAuthChallengeResponse *response, NSError *error))completionHandler {
     [[self respondToAuthChallenge:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderRespondToAuthChallengeResponse *> * _Nonnull task) {
         AWSCognitoIdentityProviderRespondToAuthChallengeResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderRevokeTokenResponse *> *)revokeToken:(AWSCognitoIdentityProviderRevokeTokenRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"RevokeToken"
+                   outputClass:[AWSCognitoIdentityProviderRevokeTokenResponse class]];
+}
+
+- (void)revokeToken:(AWSCognitoIdentityProviderRevokeTokenRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderRevokeTokenResponse *response, NSError *error))completionHandler {
+    [[self revokeToken:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderRevokeTokenResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderRevokeTokenResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

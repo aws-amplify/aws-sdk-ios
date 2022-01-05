@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -177,6 +177,7 @@
 - (void) test_AWSDynamoDBSourceTableFeatureDetails API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBStreamSpecification API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBTableAutoScalingDescription API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBTableClassSummary API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBTableDescription API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBTag API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBTagResourceInput API_AVAILABLE(ios(11));
@@ -844,6 +845,10 @@
 
 - (void) test_AWSDynamoDBTableAutoScalingDescription {
     [self validateSecureCodingForClass:[AWSDynamoDBTableAutoScalingDescription class]];
+}
+
+- (void) test_AWSDynamoDBTableClassSummary {
+    [self validateSecureCodingForClass:[AWSDynamoDBTableClassSummary class]];
 }
 
 - (void) test_AWSDynamoDBTableDescription {

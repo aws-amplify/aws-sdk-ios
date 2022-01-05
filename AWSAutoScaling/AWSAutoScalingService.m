@@ -25,7 +25,7 @@
 #import "AWSAutoScalingResources.h"
 
 static NSString *const AWSInfoAutoScaling = @"AutoScaling";
-NSString *const AWSAutoScalingSDKVersion = @"2.24.1";
+NSString *const AWSAutoScalingSDKVersion = @"2.26.7";
 
 
 @interface AWSAutoScalingResponseSerializer : AWSXMLResponseSerializer
@@ -1315,6 +1315,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSAutoScalingExitStandbyAnswer *response, NSError *error))completionHandler {
     [[self exitStandby:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingExitStandbyAnswer *> * _Nonnull task) {
         AWSAutoScalingExitStandbyAnswer *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSAutoScalingGetPredictiveScalingForecastAnswer *> *)getPredictiveScalingForecast:(AWSAutoScalingGetPredictiveScalingForecastType *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetPredictiveScalingForecast"
+                   outputClass:[AWSAutoScalingGetPredictiveScalingForecastAnswer class]];
+}
+
+- (void)getPredictiveScalingForecast:(AWSAutoScalingGetPredictiveScalingForecastType *)request
+     completionHandler:(void (^)(AWSAutoScalingGetPredictiveScalingForecastAnswer *response, NSError *error))completionHandler {
+    [[self getPredictiveScalingForecast:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingGetPredictiveScalingForecastAnswer *> * _Nonnull task) {
+        AWSAutoScalingGetPredictiveScalingForecastAnswer *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

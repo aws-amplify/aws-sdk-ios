@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -81,7 +81,7 @@
         {\"shape\":\"LexiconNotFoundException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Deletes the specified pronunciation lexicon stored in an AWS Region. A lexicon which has been deleted is not available for speech synthesis, nor is it possible to retrieve it using either the <code>GetLexicon</code> or <code>ListLexicon</code> APIs.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\\\">Managing Lexicons</a>.</p>\"\
+      \"documentation\":\"<p>Deletes the specified pronunciation lexicon stored in an Amazon Web Services Region. A lexicon which has been deleted is not available for speech synthesis, nor is it possible to retrieve it using either the <code>GetLexicon</code> or <code>ListLexicon</code> APIs.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\\\">Managing Lexicons</a>.</p>\"\
     },\
     \"DescribeVoices\":{\
       \"name\":\"DescribeVoices\",\
@@ -111,7 +111,7 @@
         {\"shape\":\"LexiconNotFoundException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Returns the content of the specified pronunciation lexicon stored in an AWS Region. For more information, see <a href=\\\"https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\\\">Managing Lexicons</a>.</p>\"\
+      \"documentation\":\"<p>Returns the content of the specified pronunciation lexicon stored in an Amazon Web Services Region. For more information, see <a href=\\\"https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\\\">Managing Lexicons</a>.</p>\"\
     },\
     \"GetSpeechSynthesisTask\":{\
       \"name\":\"GetSpeechSynthesisTask\",\
@@ -142,7 +142,7 @@
         {\"shape\":\"InvalidNextTokenException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Returns a list of pronunciation lexicons stored in an AWS Region. For more information, see <a href=\\\"https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\\\">Managing Lexicons</a>.</p>\"\
+      \"documentation\":\"<p>Returns a list of pronunciation lexicons stored in an Amazon Web Services Region. For more information, see <a href=\\\"https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\\\">Managing Lexicons</a>.</p>\"\
     },\
     \"ListSpeechSynthesisTasks\":{\
       \"name\":\"ListSpeechSynthesisTasks\",\
@@ -177,7 +177,7 @@
         {\"shape\":\"MaxLexiconsNumberExceededException\"},\
         {\"shape\":\"ServiceFailureException\"}\
       ],\
-      \"documentation\":\"<p>Stores a pronunciation lexicon in an AWS Region. If a lexicon with the same name already exists in the region, it is overwritten by the new lexicon. Lexicon operations have eventual consistency, therefore, it might take some time before the lexicon is available to the SynthesizeSpeech operation.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\\\">Managing Lexicons</a>.</p>\"\
+      \"documentation\":\"<p>Stores a pronunciation lexicon in an Amazon Web Services Region. If a lexicon with the same name already exists in the region, it is overwritten by the new lexicon. Lexicon operations have eventual consistency, therefore, it might take some time before the lexicon is available to the SynthesizeSpeech operation.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\\\">Managing Lexicons</a>.</p>\"\
     },\
     \"StartSpeechSynthesisTask\":{\
       \"name\":\"StartSpeechSynthesisTask\",\
@@ -202,7 +202,7 @@
         {\"shape\":\"SsmlMarksNotSupportedForTextTypeException\"},\
         {\"shape\":\"LanguageNotSupportedException\"}\
       ],\
-      \"documentation\":\"<p>Allows the creation of an asynchronous synthesis task, by starting a new <code>SpeechSynthesisTask</code>. This operation requires all the standard information needed for speech synthesis, plus the name of an Amazon S3 bucket for the service to store the output of the synthesis task and two optional parameters (OutputS3KeyPrefix and SnsTopicArn). Once the synthesis task is created, this operation will return a SpeechSynthesisTask object, which will include an identifier of this task as well as the current status.</p>\"\
+      \"documentation\":\"<p>Allows the creation of an asynchronous synthesis task, by starting a new <code>SpeechSynthesisTask</code>. This operation requires all the standard information needed for speech synthesis, plus the name of an Amazon S3 bucket for the service to store the output of the synthesis task and two optional parameters (<code>OutputS3KeyPrefix</code> and <code>SnsTopicArn</code>). Once the synthesis task is created, this operation will return a <code>SpeechSynthesisTask</code> object, which will include an identifier of this task as well as the current status. The <code>SpeechSynthesisTask</code> object is available for 72 hours after starting the asynchronous synthesis task.</p>\"\
     },\
     \"SynthesizeSpeech\":{\
       \"name\":\"SynthesizeSpeech\",\
@@ -472,7 +472,9 @@
         \"ro-RO\",\
         \"ru-RU\",\
         \"sv-SE\",\
-        \"tr-TR\"\
+        \"tr-TR\",\
+        \"en-NZ\",\
+        \"en-ZA\"\
       ]\
     },\
     \"LanguageCodeList\":{\
@@ -779,7 +781,7 @@
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
-          \"documentation\":\"<p>Optional language code for the Speech Synthesis request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <a href=\\\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\\\">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>\"\
+          \"documentation\":\"<p>Optional language code for the Speech Synthesis request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly uses the default language of the bilingual voice. The default language for any voice is the one returned by the <a href=\\\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\\\">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>\"\
         },\
         \"LexiconNames\":{\
           \"shape\":\"LexiconNameList\",\
@@ -893,7 +895,7 @@
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
-          \"documentation\":\"<p>Optional language code for a synthesis task. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <a href=\\\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\\\">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>\"\
+          \"documentation\":\"<p>Optional language code for a synthesis task. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly uses the default language of the bilingual voice. The default language for any voice is the one returned by the <a href=\\\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\\\">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>\"\
         }\
       },\
       \"documentation\":\"<p>SynthesisTask object that provides information about a speech synthesis task.</p>\"\
@@ -925,7 +927,7 @@
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
-          \"documentation\":\"<p>Optional language code for the Synthesize Speech request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <a href=\\\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\\\">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>\"\
+          \"documentation\":\"<p>Optional language code for the Synthesize Speech request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly uses the default language of the bilingual voice. The default language for any voice is the one returned by the <a href=\\\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\\\">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>\"\
         },\
         \"LexiconNames\":{\
           \"shape\":\"LexiconNameList\",\
@@ -1082,6 +1084,7 @@
         \"Enrique\",\
         \"Ewa\",\
         \"Filiz\",\
+        \"Gabrielle\",\
         \"Geraint\",\
         \"Giorgio\",\
         \"Gwyneth\",\
@@ -1126,7 +1129,9 @@
         \"Vicki\",\
         \"Vitoria\",\
         \"Zeina\",\
-        \"Zhiyu\"\
+        \"Zhiyu\",\
+        \"Aria\",\
+        \"Ayanda\"\
       ]\
     },\
     \"VoiceList\":{\

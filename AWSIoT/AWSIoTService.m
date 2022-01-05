@@ -25,8 +25,9 @@
 #import "AWSIoTResources.h"
 
 static NSString *const AWSInfoIoT = @"IoT";
-NSString *const AWSIoTSDKVersion = @"2.24.1";
+NSString *const AWSIoTSDKVersion = @"2.26.7";
 
+static NSString *const AWSIoTEndpoint = @"Endpoint";
 
 @interface AWSIoTResponseSerializer : AWSJSONResponseSerializer
 
@@ -42,6 +43,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"CertificateConflictException" : @(AWSIoTErrorCertificateConflict),
                             @"CertificateStateException" : @(AWSIoTErrorCertificateState),
                             @"CertificateValidationException" : @(AWSIoTErrorCertificateValidation),
+                            @"ConflictException" : @(AWSIoTErrorConflict),
                             @"ConflictingResourceUpdateException" : @(AWSIoTErrorConflictingResourceUpdate),
                             @"DeleteConflictException" : @(AWSIoTErrorDeleteConflict),
                             @"IndexNotReadyException" : @(AWSIoTErrorIndexNotReady),
@@ -182,7 +184,19 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     dispatch_once(&onceToken, ^{
         AWSServiceConfiguration *serviceConfiguration = nil;
         AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] defaultServiceInfo:AWSInfoIoT];
-        if (serviceInfo) {
+
+        AWSEndpoint *endpoint = nil;
+        NSString *endpointURLString = [serviceInfo.infoDictionary objectForKey:AWSIoTEndpoint];
+        if (endpointURLString) {
+            endpoint = [[AWSEndpoint alloc] initWithURLString:endpointURLString];
+        }
+
+        if (serviceInfo && endpoint) {
+            serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
+                                                                          endpoint:endpoint
+                                                               credentialsProvider:serviceInfo.cognitoCredentialsProvider];
+        } else if (serviceInfo) {
+
             serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
                                                                credentialsProvider:serviceInfo.cognitoCredentialsProvider];
         }
@@ -851,6 +865,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTCreateFleetMetricResponse *> *)createFleetMetric:(AWSIoTCreateFleetMetricRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/fleet-metric/{metricName}"
+                  targetPrefix:@""
+                 operationName:@"CreateFleetMetric"
+                   outputClass:[AWSIoTCreateFleetMetricResponse class]];
+}
+
+- (void)createFleetMetric:(AWSIoTCreateFleetMetricRequest *)request
+     completionHandler:(void (^)(AWSIoTCreateFleetMetricResponse *response, NSError *error))completionHandler {
+    [[self createFleetMetric:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreateFleetMetricResponse *> * _Nonnull task) {
+        AWSIoTCreateFleetMetricResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTCreateJobResponse *> *)createJob:(AWSIoTCreateJobRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -864,6 +901,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTCreateJobResponse *response, NSError *error))completionHandler {
     [[self createJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreateJobResponse *> * _Nonnull task) {
         AWSIoTCreateJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTCreateJobTemplateResponse *> *)createJobTemplate:(AWSIoTCreateJobTemplateRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/job-templates/{jobTemplateId}"
+                  targetPrefix:@""
+                 operationName:@"CreateJobTemplate"
+                   outputClass:[AWSIoTCreateJobTemplateResponse class]];
+}
+
+- (void)createJobTemplate:(AWSIoTCreateJobTemplateRequest *)request
+     completionHandler:(void (^)(AWSIoTCreateJobTemplateResponse *response, NSError *error))completionHandler {
+    [[self createJobTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreateJobTemplateResponse *> * _Nonnull task) {
+        AWSIoTCreateJobTemplateResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1493,6 +1553,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask *)deleteFleetMetric:(AWSIoTDeleteFleetMetricRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/fleet-metric/{metricName}"
+                  targetPrefix:@""
+                 operationName:@"DeleteFleetMetric"
+                   outputClass:nil];
+}
+
+- (void)deleteFleetMetric:(AWSIoTDeleteFleetMetricRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteFleetMetric:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)deleteJob:(AWSIoTDeleteJobRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
@@ -1527,6 +1609,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)deleteJobExecution:(AWSIoTDeleteJobExecutionRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self deleteJobExecution:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)deleteJobTemplate:(AWSIoTDeleteJobTemplateRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/job-templates/{jobTemplateId}"
+                  targetPrefix:@""
+                 operationName:@"DeleteJobTemplate"
+                   outputClass:nil];
+}
+
+- (void)deleteJobTemplate:(AWSIoTDeleteJobTemplateRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteJobTemplate:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -2315,6 +2419,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTDescribeFleetMetricResponse *> *)describeFleetMetric:(AWSIoTDescribeFleetMetricRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/fleet-metric/{metricName}"
+                  targetPrefix:@""
+                 operationName:@"DescribeFleetMetric"
+                   outputClass:[AWSIoTDescribeFleetMetricResponse class]];
+}
+
+- (void)describeFleetMetric:(AWSIoTDescribeFleetMetricRequest *)request
+     completionHandler:(void (^)(AWSIoTDescribeFleetMetricResponse *response, NSError *error))completionHandler {
+    [[self describeFleetMetric:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeFleetMetricResponse *> * _Nonnull task) {
+        AWSIoTDescribeFleetMetricResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTDescribeIndexResponse *> *)describeIndex:(AWSIoTDescribeIndexRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -2374,6 +2501,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTDescribeJobExecutionResponse *response, NSError *error))completionHandler {
     [[self describeJobExecution:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeJobExecutionResponse *> * _Nonnull task) {
         AWSIoTDescribeJobExecutionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDescribeJobTemplateResponse *> *)describeJobTemplate:(AWSIoTDescribeJobTemplateRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/job-templates/{jobTemplateId}"
+                  targetPrefix:@""
+                 operationName:@"DescribeJobTemplate"
+                   outputClass:[AWSIoTDescribeJobTemplateResponse class]];
+}
+
+- (void)describeJobTemplate:(AWSIoTDescribeJobTemplateRequest *)request
+     completionHandler:(void (^)(AWSIoTDescribeJobTemplateResponse *response, NSError *error))completionHandler {
+    [[self describeJobTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeJobTemplateResponse *> * _Nonnull task) {
+        AWSIoTDescribeJobTemplateResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -2784,6 +2934,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTGetBehaviorModelTrainingSummariesResponse *response, NSError *error))completionHandler {
     [[self getBehaviorModelTrainingSummaries:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTGetBehaviorModelTrainingSummariesResponse *> * _Nonnull task) {
         AWSIoTGetBehaviorModelTrainingSummariesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTGetBucketsAggregationResponse *> *)getBucketsAggregation:(AWSIoTGetBucketsAggregationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/indices/buckets"
+                  targetPrefix:@""
+                 operationName:@"GetBucketsAggregation"
+                   outputClass:[AWSIoTGetBucketsAggregationResponse class]];
+}
+
+- (void)getBucketsAggregation:(AWSIoTGetBucketsAggregationRequest *)request
+     completionHandler:(void (^)(AWSIoTGetBucketsAggregationResponse *response, NSError *error))completionHandler {
+    [[self getBucketsAggregation:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTGetBucketsAggregationResponse *> * _Nonnull task) {
+        AWSIoTGetBucketsAggregationResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -3507,6 +3680,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTListFleetMetricsResponse *> *)listFleetMetrics:(AWSIoTListFleetMetricsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/fleet-metrics"
+                  targetPrefix:@""
+                 operationName:@"ListFleetMetrics"
+                   outputClass:[AWSIoTListFleetMetricsResponse class]];
+}
+
+- (void)listFleetMetrics:(AWSIoTListFleetMetricsRequest *)request
+     completionHandler:(void (^)(AWSIoTListFleetMetricsResponse *response, NSError *error))completionHandler {
+    [[self listFleetMetrics:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListFleetMetricsResponse *> * _Nonnull task) {
+        AWSIoTListFleetMetricsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTListIndicesResponse *> *)listIndices:(AWSIoTListIndicesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -3566,6 +3762,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTListJobExecutionsForThingResponse *response, NSError *error))completionHandler {
     [[self listJobExecutionsForThing:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListJobExecutionsForThingResponse *> * _Nonnull task) {
         AWSIoTListJobExecutionsForThingResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListJobTemplatesResponse *> *)listJobTemplates:(AWSIoTListJobTemplatesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/job-templates"
+                  targetPrefix:@""
+                 operationName:@"ListJobTemplates"
+                   outputClass:[AWSIoTListJobTemplatesResponse class]];
+}
+
+- (void)listJobTemplates:(AWSIoTListJobTemplatesRequest *)request
+     completionHandler:(void (^)(AWSIoTListJobTemplatesResponse *response, NSError *error))completionHandler {
+    [[self listJobTemplates:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListJobTemplatesResponse *> * _Nonnull task) {
+        AWSIoTListJobTemplatesResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -4302,6 +4521,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTListViolationEventsResponse *response, NSError *error))completionHandler {
     [[self listViolationEvents:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListViolationEventsResponse *> * _Nonnull task) {
         AWSIoTListViolationEventsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTPutVerificationStateOnViolationResponse *> *)putVerificationStateOnViolation:(AWSIoTPutVerificationStateOnViolationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/violations/verification-state/{violationId}"
+                  targetPrefix:@""
+                 operationName:@"PutVerificationStateOnViolation"
+                   outputClass:[AWSIoTPutVerificationStateOnViolationResponse class]];
+}
+
+- (void)putVerificationStateOnViolation:(AWSIoTPutVerificationStateOnViolationRequest *)request
+     completionHandler:(void (^)(AWSIoTPutVerificationStateOnViolationResponse *response, NSError *error))completionHandler {
+    [[self putVerificationStateOnViolation:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTPutVerificationStateOnViolationResponse *> * _Nonnull task) {
+        AWSIoTPutVerificationStateOnViolationResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -5103,6 +5345,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)updateFleetMetric:(AWSIoTUpdateFleetMetricRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPATCH
+                     URLString:@"/fleet-metric/{metricName}"
+                  targetPrefix:@""
+                 operationName:@"UpdateFleetMetric"
+                   outputClass:nil];
+}
+
+- (void)updateFleetMetric:(AWSIoTUpdateFleetMetricRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self updateFleetMetric:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
         }
 
         return nil;

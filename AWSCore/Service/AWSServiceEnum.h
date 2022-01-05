@@ -72,6 +72,10 @@ typedef NS_ENUM(NSInteger, AWSRegionType) {
      */
     AWSRegionAPSoutheast2 NS_SWIFT_NAME(APSoutheast2),
     /**
+     * Asia Pacific (Jakarta)
+     */
+    AWSRegionAPSoutheast3 NS_SWIFT_NAME(APSoutheast3),
+    /**
      *  Asia Pacific (Mumbai)
      */
     AWSRegionAPSouth1 NS_SWIFT_NAME(APSouth1),
@@ -296,7 +300,14 @@ typedef NS_ENUM(NSInteger, AWSServiceType) {
      *  Amazon Location
      */
     AWSServiceLocation NS_SWIFT_NAME(Location),
-    
+    /**
+     *  Amazon Chime Messaging
+     */
+    AWSServiceChimeSDKMessaging NS_SWIFT_NAME(ChimeSDKMessaging),
+    /**
+     *  Amazon Chime Identity
+     */
+    AWSServiceChimeSDKIdentity NS_SWIFT_NAME(ChimeSDKIdentity),
 };
 
 #endif

@@ -25,7 +25,7 @@
 #import "AWSKMSResources.h"
 
 static NSString *const AWSInfoKMS = @"KMS";
-NSString *const AWSKMSSDKVersion = @"2.24.1";
+NSString *const AWSKMSSDKVersion = @"2.26.7";
 
 
 @interface AWSKMSResponseSerializer : AWSJSONResponseSerializer
@@ -1126,6 +1126,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSKMSReplicateKeyResponse *> *)replicateKey:(AWSKMSReplicateKeyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"TrentService"
+                 operationName:@"ReplicateKey"
+                   outputClass:[AWSKMSReplicateKeyResponse class]];
+}
+
+- (void)replicateKey:(AWSKMSReplicateKeyRequest *)request
+     completionHandler:(void (^)(AWSKMSReplicateKeyResponse *response, NSError *error))completionHandler {
+    [[self replicateKey:request] continueWithBlock:^id _Nullable(AWSTask<AWSKMSReplicateKeyResponse *> * _Nonnull task) {
+        AWSKMSReplicateKeyResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)retireGrant:(AWSKMSRetireGrantRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1317,6 +1340,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)updateKeyDescription:(AWSKMSUpdateKeyDescriptionRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self updateKeyDescription:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)updatePrimaryRegion:(AWSKMSUpdatePrimaryRegionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"TrentService"
+                 operationName:@"UpdatePrimaryRegion"
+                   outputClass:nil];
+}
+
+- (void)updatePrimaryRegion:(AWSKMSUpdatePrimaryRegionRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self updatePrimaryRegion:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {

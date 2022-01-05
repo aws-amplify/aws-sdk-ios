@@ -20,6 +20,7 @@
 @interface AWSSNSNSSecureCodingTests : AWSNSSecureCodingTest
 
 - (void) test_AWSSNSAddPermissionInput API_AVAILABLE(ios(11));
+- (void) test_AWSSNSBatchResultErrorEntry API_AVAILABLE(ios(11));
 - (void) test_AWSSNSCheckIfPhoneNumberIsOptedOutInput API_AVAILABLE(ios(11));
 - (void) test_AWSSNSCheckIfPhoneNumberIsOptedOutResponse API_AVAILABLE(ios(11));
 - (void) test_AWSSNSConfirmSubscriptionInput API_AVAILABLE(ios(11));
@@ -28,10 +29,14 @@
 - (void) test_AWSSNSCreatePlatformApplicationInput API_AVAILABLE(ios(11));
 - (void) test_AWSSNSCreatePlatformApplicationResponse API_AVAILABLE(ios(11));
 - (void) test_AWSSNSCreatePlatformEndpointInput API_AVAILABLE(ios(11));
+- (void) test_AWSSNSCreateSMSSandboxPhoneNumberInput API_AVAILABLE(ios(11));
+- (void) test_AWSSNSCreateSMSSandboxPhoneNumberResult API_AVAILABLE(ios(11));
 - (void) test_AWSSNSCreateTopicInput API_AVAILABLE(ios(11));
 - (void) test_AWSSNSCreateTopicResponse API_AVAILABLE(ios(11));
 - (void) test_AWSSNSDeleteEndpointInput API_AVAILABLE(ios(11));
 - (void) test_AWSSNSDeletePlatformApplicationInput API_AVAILABLE(ios(11));
+- (void) test_AWSSNSDeleteSMSSandboxPhoneNumberInput API_AVAILABLE(ios(11));
+- (void) test_AWSSNSDeleteSMSSandboxPhoneNumberResult API_AVAILABLE(ios(11));
 - (void) test_AWSSNSDeleteTopicInput API_AVAILABLE(ios(11));
 - (void) test_AWSSNSEndpoint API_AVAILABLE(ios(11));
 - (void) test_AWSSNSGetEndpointAttributesInput API_AVAILABLE(ios(11));
@@ -40,16 +45,22 @@
 - (void) test_AWSSNSGetPlatformApplicationAttributesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSSNSGetSMSAttributesInput API_AVAILABLE(ios(11));
 - (void) test_AWSSNSGetSMSAttributesResponse API_AVAILABLE(ios(11));
+- (void) test_AWSSNSGetSMSSandboxAccountStatusInput API_AVAILABLE(ios(11));
+- (void) test_AWSSNSGetSMSSandboxAccountStatusResult API_AVAILABLE(ios(11));
 - (void) test_AWSSNSGetSubscriptionAttributesInput API_AVAILABLE(ios(11));
 - (void) test_AWSSNSGetSubscriptionAttributesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSSNSGetTopicAttributesInput API_AVAILABLE(ios(11));
 - (void) test_AWSSNSGetTopicAttributesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSSNSListEndpointsByPlatformApplicationInput API_AVAILABLE(ios(11));
 - (void) test_AWSSNSListEndpointsByPlatformApplicationResponse API_AVAILABLE(ios(11));
+- (void) test_AWSSNSListOriginationNumbersRequest API_AVAILABLE(ios(11));
+- (void) test_AWSSNSListOriginationNumbersResult API_AVAILABLE(ios(11));
 - (void) test_AWSSNSListPhoneNumbersOptedOutInput API_AVAILABLE(ios(11));
 - (void) test_AWSSNSListPhoneNumbersOptedOutResponse API_AVAILABLE(ios(11));
 - (void) test_AWSSNSListPlatformApplicationsInput API_AVAILABLE(ios(11));
 - (void) test_AWSSNSListPlatformApplicationsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSSNSListSMSSandboxPhoneNumbersInput API_AVAILABLE(ios(11));
+- (void) test_AWSSNSListSMSSandboxPhoneNumbersResult API_AVAILABLE(ios(11));
 - (void) test_AWSSNSListSubscriptionsByTopicInput API_AVAILABLE(ios(11));
 - (void) test_AWSSNSListSubscriptionsByTopicResponse API_AVAILABLE(ios(11));
 - (void) test_AWSSNSListSubscriptionsInput API_AVAILABLE(ios(11));
@@ -61,10 +72,16 @@
 - (void) test_AWSSNSMessageAttributeValue API_AVAILABLE(ios(11));
 - (void) test_AWSSNSOptInPhoneNumberInput API_AVAILABLE(ios(11));
 - (void) test_AWSSNSOptInPhoneNumberResponse API_AVAILABLE(ios(11));
+- (void) test_AWSSNSPhoneNumberInformation API_AVAILABLE(ios(11));
 - (void) test_AWSSNSPlatformApplication API_AVAILABLE(ios(11));
+- (void) test_AWSSNSPublishBatchInput API_AVAILABLE(ios(11));
+- (void) test_AWSSNSPublishBatchRequestEntry API_AVAILABLE(ios(11));
+- (void) test_AWSSNSPublishBatchResponse API_AVAILABLE(ios(11));
+- (void) test_AWSSNSPublishBatchResultEntry API_AVAILABLE(ios(11));
 - (void) test_AWSSNSPublishInput API_AVAILABLE(ios(11));
 - (void) test_AWSSNSPublishResponse API_AVAILABLE(ios(11));
 - (void) test_AWSSNSRemovePermissionInput API_AVAILABLE(ios(11));
+- (void) test_AWSSNSSMSSandboxPhoneNumber API_AVAILABLE(ios(11));
 - (void) test_AWSSNSSetEndpointAttributesInput API_AVAILABLE(ios(11));
 - (void) test_AWSSNSSetPlatformApplicationAttributesInput API_AVAILABLE(ios(11));
 - (void) test_AWSSNSSetSMSAttributesInput API_AVAILABLE(ios(11));
@@ -81,6 +98,8 @@
 - (void) test_AWSSNSUnsubscribeInput API_AVAILABLE(ios(11));
 - (void) test_AWSSNSUntagResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSSNSUntagResourceResponse API_AVAILABLE(ios(11));
+- (void) test_AWSSNSVerifySMSSandboxPhoneNumberInput API_AVAILABLE(ios(11));
+- (void) test_AWSSNSVerifySMSSandboxPhoneNumberResult API_AVAILABLE(ios(11));
 
 @end
 
@@ -88,6 +107,10 @@
 
 - (void) test_AWSSNSAddPermissionInput {
     [self validateSecureCodingForClass:[AWSSNSAddPermissionInput class]];
+}
+
+- (void) test_AWSSNSBatchResultErrorEntry {
+    [self validateSecureCodingForClass:[AWSSNSBatchResultErrorEntry class]];
 }
 
 - (void) test_AWSSNSCheckIfPhoneNumberIsOptedOutInput {
@@ -122,6 +145,14 @@
     [self validateSecureCodingForClass:[AWSSNSCreatePlatformEndpointInput class]];
 }
 
+- (void) test_AWSSNSCreateSMSSandboxPhoneNumberInput {
+    [self validateSecureCodingForClass:[AWSSNSCreateSMSSandboxPhoneNumberInput class]];
+}
+
+- (void) test_AWSSNSCreateSMSSandboxPhoneNumberResult {
+    [self validateSecureCodingForClass:[AWSSNSCreateSMSSandboxPhoneNumberResult class]];
+}
+
 - (void) test_AWSSNSCreateTopicInput {
     [self validateSecureCodingForClass:[AWSSNSCreateTopicInput class]];
 }
@@ -136,6 +167,14 @@
 
 - (void) test_AWSSNSDeletePlatformApplicationInput {
     [self validateSecureCodingForClass:[AWSSNSDeletePlatformApplicationInput class]];
+}
+
+- (void) test_AWSSNSDeleteSMSSandboxPhoneNumberInput {
+    [self validateSecureCodingForClass:[AWSSNSDeleteSMSSandboxPhoneNumberInput class]];
+}
+
+- (void) test_AWSSNSDeleteSMSSandboxPhoneNumberResult {
+    [self validateSecureCodingForClass:[AWSSNSDeleteSMSSandboxPhoneNumberResult class]];
 }
 
 - (void) test_AWSSNSDeleteTopicInput {
@@ -170,6 +209,14 @@
     [self validateSecureCodingForClass:[AWSSNSGetSMSAttributesResponse class]];
 }
 
+- (void) test_AWSSNSGetSMSSandboxAccountStatusInput {
+    [self validateSecureCodingForClass:[AWSSNSGetSMSSandboxAccountStatusInput class]];
+}
+
+- (void) test_AWSSNSGetSMSSandboxAccountStatusResult {
+    [self validateSecureCodingForClass:[AWSSNSGetSMSSandboxAccountStatusResult class]];
+}
+
 - (void) test_AWSSNSGetSubscriptionAttributesInput {
     [self validateSecureCodingForClass:[AWSSNSGetSubscriptionAttributesInput class]];
 }
@@ -194,6 +241,14 @@
     [self validateSecureCodingForClass:[AWSSNSListEndpointsByPlatformApplicationResponse class]];
 }
 
+- (void) test_AWSSNSListOriginationNumbersRequest {
+    [self validateSecureCodingForClass:[AWSSNSListOriginationNumbersRequest class]];
+}
+
+- (void) test_AWSSNSListOriginationNumbersResult {
+    [self validateSecureCodingForClass:[AWSSNSListOriginationNumbersResult class]];
+}
+
 - (void) test_AWSSNSListPhoneNumbersOptedOutInput {
     [self validateSecureCodingForClass:[AWSSNSListPhoneNumbersOptedOutInput class]];
 }
@@ -208,6 +263,14 @@
 
 - (void) test_AWSSNSListPlatformApplicationsResponse {
     [self validateSecureCodingForClass:[AWSSNSListPlatformApplicationsResponse class]];
+}
+
+- (void) test_AWSSNSListSMSSandboxPhoneNumbersInput {
+    [self validateSecureCodingForClass:[AWSSNSListSMSSandboxPhoneNumbersInput class]];
+}
+
+- (void) test_AWSSNSListSMSSandboxPhoneNumbersResult {
+    [self validateSecureCodingForClass:[AWSSNSListSMSSandboxPhoneNumbersResult class]];
 }
 
 - (void) test_AWSSNSListSubscriptionsByTopicInput {
@@ -254,8 +317,28 @@
     [self validateSecureCodingForClass:[AWSSNSOptInPhoneNumberResponse class]];
 }
 
+- (void) test_AWSSNSPhoneNumberInformation {
+    [self validateSecureCodingForClass:[AWSSNSPhoneNumberInformation class]];
+}
+
 - (void) test_AWSSNSPlatformApplication {
     [self validateSecureCodingForClass:[AWSSNSPlatformApplication class]];
+}
+
+- (void) test_AWSSNSPublishBatchInput {
+    [self validateSecureCodingForClass:[AWSSNSPublishBatchInput class]];
+}
+
+- (void) test_AWSSNSPublishBatchRequestEntry {
+    [self validateSecureCodingForClass:[AWSSNSPublishBatchRequestEntry class]];
+}
+
+- (void) test_AWSSNSPublishBatchResponse {
+    [self validateSecureCodingForClass:[AWSSNSPublishBatchResponse class]];
+}
+
+- (void) test_AWSSNSPublishBatchResultEntry {
+    [self validateSecureCodingForClass:[AWSSNSPublishBatchResultEntry class]];
 }
 
 - (void) test_AWSSNSPublishInput {
@@ -268,6 +351,10 @@
 
 - (void) test_AWSSNSRemovePermissionInput {
     [self validateSecureCodingForClass:[AWSSNSRemovePermissionInput class]];
+}
+
+- (void) test_AWSSNSSMSSandboxPhoneNumber {
+    [self validateSecureCodingForClass:[AWSSNSSMSSandboxPhoneNumber class]];
 }
 
 - (void) test_AWSSNSSetEndpointAttributesInput {
@@ -332,6 +419,14 @@
 
 - (void) test_AWSSNSUntagResourceResponse {
     [self validateSecureCodingForClass:[AWSSNSUntagResourceResponse class]];
+}
+
+- (void) test_AWSSNSVerifySMSSandboxPhoneNumberInput {
+    [self validateSecureCodingForClass:[AWSSNSVerifySMSSandboxPhoneNumberInput class]];
+}
+
+- (void) test_AWSSNSVerifySMSSandboxPhoneNumberResult {
+    [self validateSecureCodingForClass:[AWSSNSVerifySMSSandboxPhoneNumberResult class]];
 }
 
 @end

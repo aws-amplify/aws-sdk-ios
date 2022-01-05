@@ -85,9 +85,10 @@
         {\"shape\":\"ConflictException\"},\
         {\"shape\":\"AccessDeniedException\"},\
         {\"shape\":\"ValidationException\"},\
+        {\"shape\":\"ServiceQuotaExceededException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Creates an association between a geofence collection and a tracker resource. This allows the tracker resource to communicate location data to the linked geofence collection.</p> <note> <p>Currently not supported â Cross-account configurations, such as creating associations between a tracker resource in one account and a geofence collection in another account.</p> </note>\",\
+      \"documentation\":\"<p>Creates an association between a geofence collection and a tracker resource. This allows the tracker resource to communicate location data to the linked geofence collection. </p> <p>You can associate up to five geofence collections to each tracker resource.</p> <note> <p>Currently not supported â Cross-account configurations, such as creating associations between a tracker resource in one account and a geofence collection in another account.</p> </note>\",\
       \"endpoint\":{\"hostPrefix\":\"tracking.\"}\
     },\
     \"BatchDeleteDevicePositionHistory\":{\
@@ -144,7 +145,7 @@
         {\"shape\":\"ValidationException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Evaluates device positions against the geofence geometries from a given geofence collection. The evaluation determines if the device has entered or exited a geofenced area, which publishes ENTER or EXIT geofence events to Amazon EventBridge.</p> <note> <p>The last geofence that a device was observed within, if any, is tracked for 30 days after the most recent device position update</p> </note>\",\
+      \"documentation\":\"<p>Evaluates device positions against the geofence geometries from a given geofence collection.</p> <p>This operation always returns an empty response because geofences are asynchronously evaluated. The evaluation determines if the device has entered or exited a geofenced area, and then publishes one of the following events to Amazon EventBridge:</p> <ul> <li> <p> <code>ENTER</code> if Amazon Location determines that the tracked device has entered a geofenced area.</p> </li> <li> <p> <code>EXIT</code> if Amazon Location determines that the tracked device has exited a geofenced area.</p> </li> </ul> <note> <p>The last geofence that a device was observed within is tracked for 30 days after the most recent device position update.</p> </note> <note> <p>Geofence evaluation uses the given device position. It does not account for the optional <code>Accuracy</code> of a <code>DevicePositionUpdate</code>.</p> </note>\",\
       \"endpoint\":{\"hostPrefix\":\"geofencing.\"}\
     },\
     \"BatchGetDevicePosition\":{\
@@ -163,7 +164,7 @@
         {\"shape\":\"ValidationException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>A batch request to retrieve all device positions.</p>\",\
+      \"documentation\":\"<p>Lists the latest device positions for requested devices.</p>\",\
       \"endpoint\":{\"hostPrefix\":\"tracking.\"}\
     },\
     \"BatchPutGeofence\":{\
@@ -201,7 +202,7 @@
         {\"shape\":\"ValidationException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Uploads position update data for one or more devices to a tracker resource. Amazon Location uses the data when reporting the last known device position and position history.</p> <note> <p>Only one position update is stored per sample time. Location data is sampled at a fixed rate of one position per 30-second interval and retained for 30 days before it's deleted.</p> </note>\",\
+      \"documentation\":\"<p>Uploads position update data for one or more devices to a tracker resource. Amazon Location uses the data when it reports the last known device position and position history. Amazon Location retains location data for 30 days.</p> <note> <p>Position updates are handled based on the <code>PositionFiltering</code> property of the tracker. When <code>PositionFiltering</code> is set to <code>TimeBased</code>, updates are evaluated against linked geofence collections, and location data is stored at a maximum of one position per 30 second interval. If your update frequency is more often than every 30 seconds, only one update per 30 seconds is stored for each unique device ID.</p> <p>When <code>PositionFiltering</code> is set to <code>DistanceBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than 30 m (98.4 ft).</p> <p>When <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, location data is stored and evaluated against linked geofence collections only if the device has moved more than the measured accuracy. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is neither stored or evaluated if the device has moved less than 15 m. If <code>PositionFiltering</code> is set to <code>AccuracyBased</code> filtering, Amazon Location uses the default value <code>{ \\\"Horizontal\\\": 0}</code> when accuracy is not provided on a <code>DevicePositionUpdate</code>.</p> </note>\",\
       \"endpoint\":{\"hostPrefix\":\"tracking.\"}\
     },\
     \"CalculateRoute\":{\
@@ -220,7 +221,7 @@
         {\"shape\":\"ValidationException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p> <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html\\\">Calculates a route</a> given the following required parameters: <code>DeparturePostiton</code> and <code>DestinationPosition</code>. Requires that you first <a href=\\\"https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html\\\">create aroute calculator resource</a> </p> <p>By default, a request that doesn't specify a departure time uses the best time of day to travel with the best traffic conditions when calculating the route.</p> <p>Additional options include:</p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#departure-time\\\">Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartureNow</code>. This calculates a route based on predictive traffic data at the given time. </p> <note> <p>You can't specify both <code>DepartureTime</code> and <code>DepartureNow</code> in a single request. Specifying both parameters returns an error message.</p> </note> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#travel-mode\\\">Specifying a travel mode</a> using TravelMode. This lets you specify additional route preference such as <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p> </li> </ul> <p> </p>\",\
+      \"documentation\":\"<p> <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html\\\">Calculates a route</a> given the following required parameters: <code>DeparturePostiton</code> and <code>DestinationPosition</code>. Requires that you first <a href=\\\"https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html\\\">create a route calculator resource</a>.</p> <p>By default, a request that doesn't specify a departure time uses the best time of day to travel with the best traffic conditions when calculating the route.</p> <p>Additional options include:</p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#departure-time\\\">Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartureNow</code>. This calculates a route based on predictive traffic data at the given time. </p> <note> <p>You can't specify both <code>DepartureTime</code> and <code>DepartureNow</code> in a single request. Specifying both parameters returns a validation error.</p> </note> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#travel-mode\\\">Specifying a travel mode</a> using TravelMode. This lets you specify an additional route preference such as <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p> </li> </ul> <p> </p>\",\
       \"endpoint\":{\"hostPrefix\":\"routes.\"}\
     },\
     \"CreateGeofenceCollection\":{\
@@ -279,7 +280,7 @@
         {\"shape\":\"ValidationException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Creates a place index resource in your AWS account, which supports functions with geospatial data sourced from your chosen data provider.</p>\",\
+      \"documentation\":\"<p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p>\",\
       \"endpoint\":{\"hostPrefix\":\"places.\"},\
       \"idempotent\":true\
     },\
@@ -685,7 +686,7 @@
         {\"shape\":\"ValidationException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Lists the latest device positions for requested devices.</p>\",\
+      \"documentation\":\"<p>A batch request to retrieve all device positions.</p>\",\
       \"endpoint\":{\"hostPrefix\":\"tracking.\"}\
     },\
     \"ListGeofenceCollections\":{\
@@ -795,7 +796,7 @@
         {\"shape\":\"ValidationException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Returns the tags for the specified Amazon Location Service resource.</p>\",\
+      \"documentation\":\"<p>Returns a list of tags that are applied to the specified Amazon Location resource.</p>\",\
       \"endpoint\":{\"hostPrefix\":\"metadata.\"}\
     },\
     \"ListTrackerConsumers\":{\
@@ -874,6 +875,25 @@
       \"documentation\":\"<p>Reverse geocodes a given coordinate and returns a legible address. Allows you to search for Places or points of interest near a given position.</p>\",\
       \"endpoint\":{\"hostPrefix\":\"places.\"}\
     },\
+    \"SearchPlaceIndexForSuggestions\":{\
+      \"name\":\"SearchPlaceIndexForSuggestions\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/places/v0/indexes/{IndexName}/search/suggestions\",\
+        \"responseCode\":200\
+      },\
+      \"input\":{\"shape\":\"SearchPlaceIndexForSuggestionsRequest\"},\
+      \"output\":{\"shape\":\"SearchPlaceIndexForSuggestionsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalServerException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"ValidationException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>Generates suggestions for addresses and points of interest based on partial or misspelled free-form text. This operation is also known as autocomplete, autosuggest, or fuzzy matching.</p> <p>Optional parameters let you narrow your search results by bounding box or country, or bias your search toward a specific position on the globe.</p> <note> <p>You can search for suggested place names near a specified position by using <code>BiasPosition</code>, or filter results within a bounding box by using <code>FilterBBox</code>. These parameters are mutually exclusive; using both <code>BiasPosition</code> and <code>FilterBBox</code> in the same command returns an error.</p> </note>\",\
+      \"endpoint\":{\"hostPrefix\":\"places.\"}\
+    },\
     \"SearchPlaceIndexForText\":{\
       \"name\":\"SearchPlaceIndexForText\",\
       \"http\":{\
@@ -890,7 +910,7 @@
         {\"shape\":\"ValidationException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Geocodes free-form text, such as an address, name, city, or region to allow you to search for Places or points of interest. </p> <p>Includes the option to apply additional parameters to narrow your list of results.</p> <note> <p>You can search for places near a given position using <code>BiasPosition</code>, or filter results within a bounding box using <code>FilterBBox</code>. Providing both parameters simultaneously returns an error.</p> </note>\",\
+      \"documentation\":\"<p>Geocodes free-form text, such as an address, name, city, or region to allow you to search for Places or points of interest. </p> <p>Optional parameters let you narrow your search results by bounding box or country, or bias your search toward a specific position on the globe.</p> <note> <p>You can search for places near a given position using <code>BiasPosition</code>, or filter results within a bounding box using <code>FilterBBox</code>. Providing both parameters simultaneously returns an error.</p> </note> <p>Search results are returned in order of highest to lowest relevance.</p>\",\
       \"endpoint\":{\"hostPrefix\":\"places.\"}\
     },\
     \"TagResource\":{\
@@ -909,7 +929,7 @@
         {\"shape\":\"ValidationException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Assigns one or more tags (key-value pairs) to the specified Amazon Location Service resource.</p> <pre><code> &lt;p&gt;Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values.&lt;/p&gt; &lt;p&gt;Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.&lt;/p&gt; &lt;p&gt;You can use the &lt;code&gt;TagResource&lt;/code&gt; action with an Amazon Location Service resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the tags already associated with the resource. If you specify a tag key that is already associated with the resource, the new tag value that you specify replaces the previous value for that tag. &lt;/p&gt; &lt;p&gt;You can associate as many as 50 tags with a resource.&lt;/p&gt; </code></pre>\",\
+      \"documentation\":\"<p>Assigns one or more tags (key-value pairs) to the specified Amazon Location Service resource.</p> <pre><code> &lt;p&gt;Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values.&lt;/p&gt; &lt;p&gt;You can use the &lt;code&gt;TagResource&lt;/code&gt; operation with an Amazon Location Service resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the tags already associated with the resource. If you specify a tag key that's already associated with the resource, the new tag value that you specify replaces the previous value for that tag. &lt;/p&gt; &lt;p&gt;You can associate up to 50 tags with a resource.&lt;/p&gt; </code></pre>\",\
       \"endpoint\":{\"hostPrefix\":\"metadata.\"}\
     },\
     \"UntagResource\":{\
@@ -928,8 +948,108 @@
         {\"shape\":\"ValidationException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Removes one or more tags from the specified Amazon Location Service resource.</p>\",\
+      \"documentation\":\"<p>Removes one or more tags from the specified Amazon Location resource.</p>\",\
       \"endpoint\":{\"hostPrefix\":\"metadata.\"},\
+      \"idempotent\":true\
+    },\
+    \"UpdateGeofenceCollection\":{\
+      \"name\":\"UpdateGeofenceCollection\",\
+      \"http\":{\
+        \"method\":\"PATCH\",\
+        \"requestUri\":\"/geofencing/v0/collections/{CollectionName}\",\
+        \"responseCode\":200\
+      },\
+      \"input\":{\"shape\":\"UpdateGeofenceCollectionRequest\"},\
+      \"output\":{\"shape\":\"UpdateGeofenceCollectionResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalServerException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"ValidationException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>Updates the specified properties of a given geofence collection.</p>\",\
+      \"endpoint\":{\"hostPrefix\":\"geofencing.\"},\
+      \"idempotent\":true\
+    },\
+    \"UpdateMap\":{\
+      \"name\":\"UpdateMap\",\
+      \"http\":{\
+        \"method\":\"PATCH\",\
+        \"requestUri\":\"/maps/v0/maps/{MapName}\",\
+        \"responseCode\":200\
+      },\
+      \"input\":{\"shape\":\"UpdateMapRequest\"},\
+      \"output\":{\"shape\":\"UpdateMapResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalServerException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"ValidationException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>Updates the specified properties of a given map resource.</p>\",\
+      \"endpoint\":{\"hostPrefix\":\"maps.\"},\
+      \"idempotent\":true\
+    },\
+    \"UpdatePlaceIndex\":{\
+      \"name\":\"UpdatePlaceIndex\",\
+      \"http\":{\
+        \"method\":\"PATCH\",\
+        \"requestUri\":\"/places/v0/indexes/{IndexName}\",\
+        \"responseCode\":200\
+      },\
+      \"input\":{\"shape\":\"UpdatePlaceIndexRequest\"},\
+      \"output\":{\"shape\":\"UpdatePlaceIndexResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalServerException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"ValidationException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>Updates the specified properties of a given place index resource.</p>\",\
+      \"endpoint\":{\"hostPrefix\":\"places.\"},\
+      \"idempotent\":true\
+    },\
+    \"UpdateRouteCalculator\":{\
+      \"name\":\"UpdateRouteCalculator\",\
+      \"http\":{\
+        \"method\":\"PATCH\",\
+        \"requestUri\":\"/routes/v0/calculators/{CalculatorName}\",\
+        \"responseCode\":200\
+      },\
+      \"input\":{\"shape\":\"UpdateRouteCalculatorRequest\"},\
+      \"output\":{\"shape\":\"UpdateRouteCalculatorResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalServerException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"ValidationException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>Updates the specified properties for a given route calculator resource.</p>\",\
+      \"endpoint\":{\"hostPrefix\":\"routes.\"},\
+      \"idempotent\":true\
+    },\
+    \"UpdateTracker\":{\
+      \"name\":\"UpdateTracker\",\
+      \"http\":{\
+        \"method\":\"PATCH\",\
+        \"requestUri\":\"/tracking/v0/trackers/{TrackerName}\",\
+        \"responseCode\":200\
+      },\
+      \"input\":{\"shape\":\"UpdateTrackerRequest\"},\
+      \"output\":{\"shape\":\"UpdateTrackerResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalServerException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"ValidationException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>Updates the specified properties of a given tracker resource.</p>\",\
+      \"endpoint\":{\"hostPrefix\":\"tracking.\"},\
       \"idempotent\":true\
     }\
   },\
@@ -943,7 +1063,7 @@
           \"locationName\":\"message\"\
         }\
       },\
-      \"documentation\":\"<p>The request was denied due to insufficient access or permission. Check with an administrator to verify your permissions.</p>\",\
+      \"documentation\":\"<p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>\",\
       \"error\":{\
         \"httpStatusCode\":403,\
         \"senderFault\":true\
@@ -1458,7 +1578,7 @@
       \"members\":{\
         \"CalculatorName\":{\
           \"shape\":\"ResourceName\",\
-          \"documentation\":\"<p>The name of the route calculator resource that you want to use to calculate a route. </p>\",\
+          \"documentation\":\"<p>The name of the route calculator resource that you want to use to calculate the route. </p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"CalculatorName\"\
         },\
@@ -1472,11 +1592,11 @@
         },\
         \"DeparturePosition\":{\
           \"shape\":\"Position\",\
-          \"documentation\":\"<p>The start position for the route. Defined in <a href=\\\"https://earth-info.nga.mil/GandG/wgs84/index.html\\\">WGS 84</a> format: <code>[longitude, latitude]</code>.</p> <ul> <li> <p>For example, <code>[-123.115, 49.285]</code> </p> </li> </ul> <note> <p>If you specify a departure that's not located on a road, Amazon Location <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road\\\">moves the position to the nearest road</a>.</p> </note> <p>Valid Values: <code>[-180 to 180,-90 to 90]</code> </p>\"\
+          \"documentation\":\"<p>The start position for the route. Defined in <a href=\\\"https://earth-info.nga.mil/GandG/wgs84/index.html\\\">WGS 84</a> format: <code>[longitude, latitude]</code>.</p> <ul> <li> <p>For example, <code>[-123.115, 49.285]</code> </p> </li> </ul> <note> <p>If you specify a departure that's not located on a road, Amazon Location <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road\\\">moves the position to the nearest road</a>. If Esri is the provider for your route calculator, specifying a route that is longer than 400 km returns a <code>400 RoutesValidationException</code> error.</p> </note> <p>Valid Values: <code>[-180 to 180,-90 to 90]</code> </p>\"\
         },\
         \"DepartureTime\":{\
           \"shape\":\"Timestamp\",\
-          \"documentation\":\"<p>Specifies the desired time of departure. Uses the given time to calculate a route. Otherwise, the best time of day to travel with the best traffic conditions is used to calculate the route.</p> <note> <p>Setting a departure time in the past returns a <code>400 ValidationException</code> error.</p> </note> <ul> <li> <p>In <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. For example, <code>2020â07-2T12:15:20.000Z+01:00</code> </p> </li> </ul>\"\
+          \"documentation\":\"<p>Specifies the desired time of departure. Uses the given time to calculate the route. Otherwise, the best time of day to travel with the best traffic conditions is used to calculate the route.</p> <note> <p>Setting a departure time in the past returns a <code>400 ValidationException</code> error.</p> </note> <ul> <li> <p>In <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. For example, <code>2020â07-2T12:15:20.000Z+01:00</code> </p> </li> </ul>\"\
         },\
         \"DestinationPosition\":{\
           \"shape\":\"Position\",\
@@ -1500,7 +1620,7 @@
         },\
         \"WaypointPositions\":{\
           \"shape\":\"CalculateRouteRequestWaypointPositionsList\",\
-          \"documentation\":\"<p>Specifies an ordered list of up to 23 intermediate positions to include along a route between the departure position and destination position. </p> <ul> <li> <p>For example, from the <code>DeparturePosition</code> <code>[-123.115, 49.285]</code>, the route follows the order that the waypoint positions are given <code>[[-122.757, 49.0021],[-122.349, 47.620]]</code> </p> </li> </ul> <note> <p>If you specify a waypoint position that's not located on a road, Amazon Location <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road\\\">moves the position to the nearest road</a>. </p> <p>Specifying more than 23 waypoints returns a <code>400 ValidationException</code> error.</p> </note> <p>Valid Values: <code>[-180 to 180,-90 to 90]</code> </p>\"\
+          \"documentation\":\"<p>Specifies an ordered list of up to 23 intermediate positions to include along a route between the departure position and destination position. </p> <ul> <li> <p>For example, from the <code>DeparturePosition</code> <code>[-123.115, 49.285]</code>, the route follows the order that the waypoint positions are given <code>[[-122.757, 49.0021],[-122.349, 47.620]]</code> </p> </li> </ul> <note> <p>If you specify a waypoint position that's not located on a road, Amazon Location <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road\\\">moves the position to the nearest road</a>. </p> <p>Specifying more than 23 waypoints returns a <code>400 ValidationException</code> error.</p> <p>If Esri is the provider for your route calculator, specifying a route that is longer than 400 km returns a <code>400 RoutesValidationException</code> error.</p> </note> <p>Valid Values: <code>[-180 to 180,-90 to 90]</code> </p>\"\
         }\
       }\
     },\
@@ -1519,11 +1639,11 @@
       \"members\":{\
         \"Legs\":{\
           \"shape\":\"LegList\",\
-          \"documentation\":\"<p>Contains details about each path between a pair of positions included along a route such as: <code>StartPosition</code>, <code>EndPosition</code>, <code>Distance</code>, <code>DurationSeconds</code>, <code>Geometry</code>, and <code>Steps</code>. The number of legs returned corresponds to one less than the total number of positions in the request. </p> <p>For example, a route with a departure position and destination position returns one leg with the positions <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road\\\">snapped to a nearby road</a>:</p> <ul> <li> <p>The <code>StartPosition</code> is the departure position.</p> </li> <li> <p>The <code>EndPosition</code> is the destination position.</p> </li> </ul> <p>A route with a waypoint between the departure and destination position returns two legs with the positions snapped to a nearby road.:</p> <ul> <li> <p>Leg 1: The <code>StartPosition</code> is the departure position . The <code>EndPosition</code> is the waypoint positon.</p> </li> <li> <p>Leg 2: The <code>StartPosition</code> is the waypoint position. The <code>EndPosition</code> is the destination position.</p> </li> </ul>\"\
+          \"documentation\":\"<p>Contains details about each path between a pair of positions included along a route such as: <code>StartPosition</code>, <code>EndPosition</code>, <code>Distance</code>, <code>DurationSeconds</code>, <code>Geometry</code>, and <code>Steps</code>. The number of legs returned corresponds to one fewer than the total number of positions in the request. </p> <p>For example, a route with a departure position and destination position returns one leg with the positions <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road\\\">snapped to a nearby road</a>:</p> <ul> <li> <p>The <code>StartPosition</code> is the departure position.</p> </li> <li> <p>The <code>EndPosition</code> is the destination position.</p> </li> </ul> <p>A route with a waypoint between the departure and destination position returns two legs with the positions snapped to a nearby road:</p> <ul> <li> <p>Leg 1: The <code>StartPosition</code> is the departure position . The <code>EndPosition</code> is the waypoint positon.</p> </li> <li> <p>Leg 2: The <code>StartPosition</code> is the waypoint position. The <code>EndPosition</code> is the destination position.</p> </li> </ul>\"\
         },\
         \"Summary\":{\
           \"shape\":\"CalculateRouteSummary\",\
-          \"documentation\":\"<p>Contains information about the whole route, such as: <code>RouteBBox</code>, <code>DataSource</code>, <code>Distance</code>, <code>DistanceUnit</code>, and <code>DurationSeconds</code> </p>\"\
+          \"documentation\":\"<p>Contains information about the whole route, such as: <code>RouteBBox</code>, <code>DataSource</code>, <code>Distance</code>, <code>DistanceUnit</code>, and <code>DurationSeconds</code>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Returns the result of the route calculation. Metadata includes legs and route summary.</p>\"\
@@ -1544,11 +1664,11 @@
         },\
         \"Distance\":{\
           \"shape\":\"CalculateRouteSummaryDistanceDouble\",\
-          \"documentation\":\"<p>The total distance covered by the route. The sum of the distance travelled between every stop on the route.</p> <note> <p>The route <code>distance</code> can't be greater than 250 km. If the route exceeds 250 km, the response returns a <code>400 RoutesValidationException</code> error.</p> </note>\"\
+          \"documentation\":\"<p>The total distance covered by the route. The sum of the distance travelled between every stop on the route.</p> <note> <p>If Esri is the data source for the route calculator, the route distance canât be greater than 400 km. If the route exceeds 400 km, the response is a <code>400 RoutesValidationException</code> error.</p> </note>\"\
         },\
         \"DistanceUnit\":{\
           \"shape\":\"DistanceUnit\",\
-          \"documentation\":\"<p>The unit of measurement for the distance.</p>\"\
+          \"documentation\":\"<p>The unit of measurement for route distances.</p>\"\
         },\
         \"DurationSeconds\":{\
           \"shape\":\"CalculateRouteSummaryDurationSecondsDouble\",\
@@ -1556,7 +1676,7 @@
         },\
         \"RouteBBox\":{\
           \"shape\":\"BoundingBox\",\
-          \"documentation\":\"<p>Specifies a geographical box surrounding a route. Used to zoom into a route when displaying it in a map. For example, <code>[min x, min y, max x, max y]</code> </p> <p>The first 2 <code>bbox</code> parameters describe the lower southwest corner: </p> <ul> <li> <p>The first <code>bbox</code> position is the X coordinate or longitude of the lower southwest corner. </p> </li> <li> <p>The second <code>bbox</code> position is the Y coordinate or latitude of the lower southwest corner. </p> </li> </ul> <p>The next 2 <code>bbox</code> parameters describe the upper northeast corner: </p> <ul> <li> <p>The third <code>bbox</code> position is the X coordinate, or longitude of the upper northeast corner. </p> </li> <li> <p>The fourth <code>bbox</code> position is the Y coordinate, or longitude of the upper northeast corner. </p> </li> </ul>\"\
+          \"documentation\":\"<p>Specifies a geographical box surrounding a route. Used to zoom into a route when displaying it in a map. For example, <code>[min x, min y, max x, max y]</code>.</p> <p>The first 2 <code>bbox</code> parameters describe the lower southwest corner: </p> <ul> <li> <p>The first <code>bbox</code> position is the X coordinate or longitude of the lower southwest corner. </p> </li> <li> <p>The second <code>bbox</code> position is the Y coordinate or latitude of the lower southwest corner. </p> </li> </ul> <p>The next 2 <code>bbox</code> parameters describe the upper northeast corner: </p> <ul> <li> <p>The third <code>bbox</code> position is the X coordinate, or longitude of the upper northeast corner. </p> </li> <li> <p>The fourth <code>bbox</code> position is the Y coordinate, or latitude of the upper northeast corner. </p> </li> </ul>\"\
         }\
       },\
       \"documentation\":\"<p>A summary of the calculated route.</p>\"\
@@ -1602,7 +1722,7 @@
           \"locationName\":\"message\"\
         }\
       },\
-      \"documentation\":\"<p>The request was unsuccessful due to a conflict.</p>\",\
+      \"documentation\":\"<p>The request was unsuccessful because of a conflict.</p>\",\
       \"error\":{\
         \"httpStatusCode\":409,\
         \"senderFault\":true\
@@ -1621,10 +1741,7 @@
     },\
     \"CreateGeofenceCollectionRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\
-        \"CollectionName\",\
-        \"PricingPlan\"\
-      ],\
+      \"required\":[\"CollectionName\"],\
       \"members\":{\
         \"CollectionName\":{\
           \"shape\":\"ResourceName\",\
@@ -1640,7 +1757,7 @@
         },\
         \"PricingPlan\":{\
           \"shape\":\"PricingPlan\",\
-          \"documentation\":\"<p>Specifies the pricing plan for the geofence collection.</p> <p>For additional details and restrictions on each pricing plan option, see the <a href=\\\"https://aws.amazon.com/location/pricing/\\\">Amazon Location Service pricing page</a>.</p>\"\
+          \"documentation\":\"<p>Optionally specifies the pricing plan for the geofence collection. Defaults to <code>RequestBasedUsage</code>.</p> <p>For additional details and restrictions on each pricing plan option, see the <a href=\\\"https://aws.amazon.com/location/pricing/\\\">Amazon Location Service pricing page</a>.</p>\"\
         },\
         \"PricingPlanDataSource\":{\
           \"shape\":\"String\",\
@@ -1648,7 +1765,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>Applies one or more tags to the geofence collection. A tag is a key-value pair helps manage, identify, search, and filter your resources by labelling them.</p> <p>Format: <code>\\\"key\\\" : \\\"value\\\"</code> </p> <p>Restrictions:</p> <ul> <li> <p>Maximum 50 tags per resource</p> </li> <li> <p>Each resource tag must be unique with a maximum of one value.</p> </li> <li> <p>Maximum key length: 128 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length: 256 Unicode characters in UTF-8</p> </li> <li> <p>Can use alphanumeric characters (AâZ, aâz, 0â9), and the following characters: + - = . _ : / @. </p> </li> </ul>\"\
+          \"documentation\":\"<p>Applies one or more tags to the geofence collection. A tag is a key-value pair helps manage, identify, search, and filter your resources by labelling them.</p> <p>Format: <code>\\\"key\\\" : \\\"value\\\"</code> </p> <p>Restrictions:</p> <ul> <li> <p>Maximum 50 tags per resource</p> </li> <li> <p>Each resource tag must be unique with a maximum of one value.</p> </li> <li> <p>Maximum key length: 128 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length: 256 Unicode characters in UTF-8</p> </li> <li> <p>Can use alphanumeric characters (AâZ, aâz, 0â9), and the following characters: + - = . _ : / @. </p> </li> <li> <p>Cannot use \\\"aws:\\\" as a prefix for a key.</p> </li> </ul>\"\
         }\
       }\
     },\
@@ -1678,8 +1795,7 @@
       \"type\":\"structure\",\
       \"required\":[\
         \"Configuration\",\
-        \"MapName\",\
-        \"PricingPlan\"\
+        \"MapName\"\
       ],\
       \"members\":{\
         \"Configuration\":{\
@@ -1696,11 +1812,11 @@
         },\
         \"PricingPlan\":{\
           \"shape\":\"PricingPlan\",\
-          \"documentation\":\"<p>Specifies the pricing plan for your map resource.</p> <p>For additional details and restrictions on each pricing plan option, see the <a href=\\\"https://aws.amazon.com/location/pricing/\\\">Amazon Location Service pricing page</a>.</p>\"\
+          \"documentation\":\"<p>Optionally specifies the pricing plan for the map resource. Defaults to <code>RequestBasedUsage</code>.</p> <p>For additional details and restrictions on each pricing plan option, see <a href=\\\"https://aws.amazon.com/location/pricing/\\\">Amazon Location Service pricing</a>.</p>\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>Applies one or more tags to the map resource. A tag is a key-value pair helps manage, identify, search, and filter your resources by labelling them.</p> <p>Format: <code>\\\"key\\\" : \\\"value\\\"</code> </p> <p>Restrictions:</p> <ul> <li> <p>Maximum 50 tags per resource</p> </li> <li> <p>Each resource tag must be unique with a maximum of one value.</p> </li> <li> <p>Maximum key length: 128 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length: 256 Unicode characters in UTF-8</p> </li> <li> <p>Can use alphanumeric characters (AâZ, aâz, 0â9), and the following characters: + - = . _ : / @. </p> </li> </ul>\"\
+          \"documentation\":\"<p>Applies one or more tags to the map resource. A tag is a key-value pair helps manage, identify, search, and filter your resources by labelling them.</p> <p>Format: <code>\\\"key\\\" : \\\"value\\\"</code> </p> <p>Restrictions:</p> <ul> <li> <p>Maximum 50 tags per resource</p> </li> <li> <p>Each resource tag must be unique with a maximum of one value.</p> </li> <li> <p>Maximum key length: 128 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length: 256 Unicode characters in UTF-8</p> </li> <li> <p>Can use alphanumeric characters (AâZ, aâz, 0â9), and the following characters: + - = . _ : / @. </p> </li> <li> <p>Cannot use \\\"aws:\\\" as a prefix for a key.</p> </li> </ul>\"\
         }\
       }\
     },\
@@ -1718,7 +1834,7 @@
         },\
         \"MapArn\":{\
           \"shape\":\"Arn\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) for the map resource. Used when you need to specify a resource across all AWS.</p> <ul> <li> <p>Format example: <code>arn:aws:geo:region:account-id:maps/ExampleMap</code> </p> </li> </ul>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.</p> <ul> <li> <p>Format example: <code>arn:aws:geo:region:account-id:maps/ExampleMap</code> </p> </li> </ul>\"\
         },\
         \"MapName\":{\
           \"shape\":\"ResourceName\",\
@@ -1730,17 +1846,16 @@
       \"type\":\"structure\",\
       \"required\":[\
         \"DataSource\",\
-        \"IndexName\",\
-        \"PricingPlan\"\
+        \"IndexName\"\
       ],\
       \"members\":{\
         \"DataSource\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>Specifies the data provider of geospatial data.</p> <note> <p>This field is case-sensitive. Enter the valid values as shown. For example, entering <code>HERE</code> will return an error.</p> </note> <p>Valid values include:</p> <ul> <li> <p> <code>Esri</code> </p> </li> <li> <p> <code>Here</code> </p> <important> <p>Place index resources using HERE as a data provider can't be used to <a href=\\\"https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html\\\">store</a> results for locations in Japan. For more information, see the <a href=\\\"https://aws.amazon.com/service-terms/\\\">AWS Service Terms</a> for Amazon Location Service.</p> </important> </li> </ul> <p>For additional details on data providers, see the <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html\\\">Amazon Location Service data providers page</a>.</p>\"\
+          \"documentation\":\"<p>Specifies the geospatial data provider for the new place index.</p> <note> <p>This field is case-sensitive. Enter the valid values as shown. For example, entering <code>HERE</code> returns an error.</p> </note> <p>Valid values include:</p> <ul> <li> <p> <code>Esri</code> â For additional information about <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/esri.html\\\">Esri</a>'s coverage in your region of interest, see <a href=\\\"https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm\\\">Esri details on geocoding coverage</a>.</p> </li> <li> <p> <code>Here</code> â For additional information about <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/HERE.html\\\">HERE Technologies</a>' coverage in your region of interest, see <a href=\\\"https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html\\\">HERE details on goecoding coverage</a>.</p> <important> <p>If you specify HERE Technologies (<code>Here</code>) as the data provider, you may not <a href=\\\"https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html\\\">store results</a> for locations in Japan. For more information, see the <a href=\\\"https://aws.amazon.com/service-terms/\\\">AWS Service Terms</a> for Amazon Location Service.</p> </important> </li> </ul> <p>For additional information , see <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html\\\">Data providers</a> on the <i>Amazon Location Service Developer Guide</i>.</p>\"\
         },\
         \"DataSourceConfiguration\":{\
           \"shape\":\"DataSourceConfiguration\",\
-          \"documentation\":\"<p>Specifies the data storage option for requesting Places.</p>\"\
+          \"documentation\":\"<p>Specifies the data storage option requesting Places.</p>\"\
         },\
         \"Description\":{\
           \"shape\":\"ResourceDescription\",\
@@ -1752,11 +1867,11 @@
         },\
         \"PricingPlan\":{\
           \"shape\":\"PricingPlan\",\
-          \"documentation\":\"<p>Specifies the pricing plan for your place index resource.</p> <p>For additional details and restrictions on each pricing plan option, see the <a href=\\\"https://aws.amazon.com/location/pricing/\\\">Amazon Location Service pricing page</a>.</p>\"\
+          \"documentation\":\"<p>Optionally specifies the pricing plan for the place index resource. Defaults to <code>RequestBasedUsage</code>.</p> <p>For additional details and restrictions on each pricing plan option, see <a href=\\\"https://aws.amazon.com/location/pricing/\\\">Amazon Location Service pricing</a>.</p>\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>Applies one or more tags to the place index resource. A tag is a key-value pair helps manage, identify, search, and filter your resources by labelling them.</p> <p>Format: <code>\\\"key\\\" : \\\"value\\\"</code> </p> <p>Restrictions:</p> <ul> <li> <p>Maximum 50 tags per resource</p> </li> <li> <p>Each resource tag must be unique with a maximum of one value.</p> </li> <li> <p>Maximum key length: 128 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length: 256 Unicode characters in UTF-8</p> </li> <li> <p>Can use alphanumeric characters (AâZ, aâz, 0â9), and the following characters: + - = . _ : / @. </p> </li> </ul>\"\
+          \"documentation\":\"<p>Applies one or more tags to the place index resource. A tag is a key-value pair that helps you manage, identify, search, and filter your resources.</p> <p>Format: <code>\\\"key\\\" : \\\"value\\\"</code> </p> <p>Restrictions:</p> <ul> <li> <p>Maximum 50 tags per resource.</p> </li> <li> <p>Each tag key must be unique and must have exactly one associated value.</p> </li> <li> <p>Maximum key length: 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length: 256 Unicode characters in UTF-8.</p> </li> <li> <p>Can use alphanumeric characters (AâZ, aâz, 0â9), and the following characters: + - = . _ : / @</p> </li> <li> <p>Cannot use \\\"aws:\\\" as a prefix for a key.</p> </li> </ul>\"\
         }\
       }\
     },\
@@ -1774,7 +1889,7 @@
         },\
         \"IndexArn\":{\
           \"shape\":\"Arn\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across all AWS. </p> <ul> <li> <p>Format example: <code>arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex</code> </p> </li> </ul>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS. </p> <ul> <li> <p>Format example: <code>arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex</code> </p> </li> </ul>\"\
         },\
         \"IndexName\":{\
           \"shape\":\"ResourceName\",\
@@ -1786,8 +1901,7 @@
       \"type\":\"structure\",\
       \"required\":[\
         \"CalculatorName\",\
-        \"DataSource\",\
-        \"PricingPlan\"\
+        \"DataSource\"\
       ],\
       \"members\":{\
         \"CalculatorName\":{\
@@ -1796,7 +1910,7 @@
         },\
         \"DataSource\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>Specifies the data provider of traffic and road network data.</p> <note> <p>This field is case-sensitive. Enter the valid values as shown. For example, entering <code>HERE</code> returns an error.</p> </note> <p>Valid Values: <code>Esri</code> | <code>Here</code> </p> <p>For more information about data providers, see <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html\\\">Amazon Location Service data providers</a>.</p>\"\
+          \"documentation\":\"<p>Specifies the data provider of traffic and road network data.</p> <note> <p>This field is case-sensitive. Enter the valid values as shown. For example, entering <code>HERE</code> returns an error. Route calculators that use Esri as a data source only calculate routes that are shorter than 400 km.</p> </note> <p>Valid values include:</p> <ul> <li> <p> <code>Esri</code> â For additional information about <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/esri.html\\\">Esri</a>'s coverage in your region of interest, see <a href=\\\"https://doc.arcgis.com/en/arcgis-online/reference/network-coverage.htm\\\">Esri details on street networks and traffic coverage</a>.</p> </li> <li> <p> <code>Here</code> â For additional information about <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/HERE.html\\\">HERE Technologies</a>' coverage in your region of interest, see <a href=\\\"https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/car-routing.html\\\">HERE car routing coverage</a> and <a href=\\\"https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/truck-routing.html\\\">HERE truck routing coverage</a>.</p> </li> </ul> <p>For additional information , see <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html\\\">Data providers</a> on the <i>Amazon Location Service Developer Guide</i>.</p>\"\
         },\
         \"Description\":{\
           \"shape\":\"ResourceDescription\",\
@@ -1804,11 +1918,11 @@
         },\
         \"PricingPlan\":{\
           \"shape\":\"PricingPlan\",\
-          \"documentation\":\"<p>Specifies the pricing plan for your route calculator resource.</p> <p>For additional details and restrictions on each pricing plan option, see <a href=\\\"https://aws.amazon.com/location/pricing/\\\">Amazon Location Service pricing</a>.</p>\"\
+          \"documentation\":\"<p>Optionally specifies the pricing plan for the route calculator resource. Defaults to <code>RequestBasedUsage</code>.</p> <p>For additional details and restrictions on each pricing plan option, see <a href=\\\"https://aws.amazon.com/location/pricing/\\\">Amazon Location Service pricing</a>.</p>\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>Applies one or more tags to the route calculator resource. A tag is a key-value pair helps manage, identify, search, and filter your resources by labelling them.</p> <ul> <li> <p>For example: { <code>\\\"tag1\\\" : \\\"value1\\\"</code>, <code>\\\"tag2\\\" : \\\"value2\\\"</code>}</p> </li> </ul> <p>Format: <code>\\\"key\\\" : \\\"value\\\"</code> </p> <p>Restrictions:</p> <ul> <li> <p>Maximum 50 tags per resource</p> </li> <li> <p>Each resource tag must be unique with a maximum of one value.</p> </li> <li> <p>Maximum key length: 128 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length: 256 Unicode characters in UTF-8</p> </li> <li> <p>Can use alphanumeric characters (AâZ, aâz, 0â9), and the following characters: + - = . _ : / @. </p> </li> </ul>\"\
+          \"documentation\":\"<p>Applies one or more tags to the route calculator resource. A tag is a key-value pair helps manage, identify, search, and filter your resources by labelling them.</p> <ul> <li> <p>For example: { <code>\\\"tag1\\\" : \\\"value1\\\"</code>, <code>\\\"tag2\\\" : \\\"value2\\\"</code>}</p> </li> </ul> <p>Format: <code>\\\"key\\\" : \\\"value\\\"</code> </p> <p>Restrictions:</p> <ul> <li> <p>Maximum 50 tags per resource</p> </li> <li> <p>Each resource tag must be unique with a maximum of one value.</p> </li> <li> <p>Maximum key length: 128 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length: 256 Unicode characters in UTF-8</p> </li> <li> <p>Can use alphanumeric characters (AâZ, aâz, 0â9), and the following characters: + - = . _ : / @. </p> </li> <li> <p>Cannot use \\\"aws:\\\" as a prefix for a key.</p> </li> </ul>\"\
         }\
       }\
     },\
@@ -1836,10 +1950,7 @@
     },\
     \"CreateTrackerRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\
-        \"PricingPlan\",\
-        \"TrackerName\"\
-      ],\
+      \"required\":[\"TrackerName\"],\
       \"members\":{\
         \"Description\":{\
           \"shape\":\"ResourceDescription\",\
@@ -1849,17 +1960,21 @@
           \"shape\":\"KmsKeyId\",\
           \"documentation\":\"<p>A key identifier for an <a href=\\\"https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html\\\">AWS KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN.</p>\"\
         },\
+        \"PositionFiltering\":{\
+          \"shape\":\"PositionFiltering\",\
+          \"documentation\":\"<p>Specifies the position filtering for the tracker resource.</p> <p>Valid values:</p> <ul> <li> <p> <code>TimeBased</code> - Location updates are evaluated against linked geofence collections, but not every location update is stored. If your update frequency is more often than 30 seconds, only one update per 30 seconds is stored for each unique device ID. </p> </li> <li> <p> <code>DistanceBased</code> - If the device has moved less than 30 m (98.4 ft), location updates are ignored. Location updates within this area are neither evaluated against linked geofence collections, nor stored. This helps control costs by reducing the number of geofence evaluations and historical device positions to paginate through. Distance-based filtering can also reduce the effects of GPS noise when displaying device trajectories on a map. </p> </li> <li> <p> <code>AccuracyBased</code> - If the device has moved less than the measured accuracy, location updates are ignored. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is ignored if the device has moved less than 15 m. Ignored location updates are neither evaluated against linked geofence collections, nor stored. This can reduce the effects of GPS noise when displaying device trajectories on a map, and can help control your costs by reducing the number of geofence evaluations. </p> </li> </ul> <p>This field is optional. If not specified, the default value is <code>TimeBased</code>.</p>\"\
+        },\
         \"PricingPlan\":{\
           \"shape\":\"PricingPlan\",\
-          \"documentation\":\"<p>Specifies the pricing plan for the tracker resource.</p> <p>For additional details and restrictions on each pricing plan option, see the <a href=\\\"https://aws.amazon.com/location/pricing/\\\">Amazon Location Service pricing page</a>.</p>\"\
+          \"documentation\":\"<p>Optionally specifies the pricing plan for the tracker resource. Defaults to <code>RequestBasedUsage</code>.</p> <p>For additional details and restrictions on each pricing plan option, see <a href=\\\"https://aws.amazon.com/location/pricing/\\\">Amazon Location Service pricing</a>.</p>\"\
         },\
         \"PricingPlanDataSource\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>Specifies the data provider for the tracker resource.</p> <ul> <li> <p>Required value for the following pricing plans: <code>MobileAssetTracking </code>| <code>MobileAssetManagement</code> </p> </li> </ul> <p>For more information about <a href=\\\"https://aws.amazon.com/location/data-providers/\\\">Data Providers</a>, and <a href=\\\"https://aws.amazon.com/location/pricing/\\\">Pricing plans</a>, see the Amazon Location Service product page.</p> <note> <p>Amazon Location Service only uses <code>PricingPlanDataSource</code> to calculate billing for your tracker resource. Your data will not be shared with the data provider, and will remain in your AWS account or Region unless you move it.</p> </note> <p>Valid Values: <code>Esri</code> | <code>Here</code> </p>\"\
+          \"documentation\":\"<p>Specifies the data provider for the tracker resource.</p> <ul> <li> <p>Required value for the following pricing plans: <code>MobileAssetTracking </code>| <code>MobileAssetManagement</code> </p> </li> </ul> <p>For more information about <a href=\\\"https://aws.amazon.com/location/data-providers/\\\">Data Providers</a>, and <a href=\\\"https://aws.amazon.com/location/pricing/\\\">Pricing plans</a>, see the Amazon Location Service product page.</p> <note> <p>Amazon Location Service only uses <code>PricingPlanDataSource</code> to calculate billing for your tracker resource. Your data will not be shared with the data provider, and will remain in your AWS account or Region unless you move it.</p> </note> <p>Valid values: <code>Esri</code> | <code>Here</code> </p>\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>Applies one or more tags to the tracker resource. A tag is a key-value pair helps manage, identify, search, and filter your resources by labelling them.</p> <p>Format: <code>\\\"key\\\" : \\\"value\\\"</code> </p> <p>Restrictions:</p> <ul> <li> <p>Maximum 50 tags per resource</p> </li> <li> <p>Each resource tag must be unique with a maximum of one value.</p> </li> <li> <p>Maximum key length: 128 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length: 256 Unicode characters in UTF-8</p> </li> <li> <p>Can use alphanumeric characters (AâZ, aâz, 0â9), and the following characters: + - = . _ : / @. </p> </li> </ul>\"\
+          \"documentation\":\"<p>Applies one or more tags to the tracker resource. A tag is a key-value pair helps manage, identify, search, and filter your resources by labelling them.</p> <p>Format: <code>\\\"key\\\" : \\\"value\\\"</code> </p> <p>Restrictions:</p> <ul> <li> <p>Maximum 50 tags per resource</p> </li> <li> <p>Each resource tag must be unique with a maximum of one value.</p> </li> <li> <p>Maximum key length: 128 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length: 256 Unicode characters in UTF-8</p> </li> <li> <p>Can use alphanumeric characters (AâZ, aâz, 0â9), and the following characters: + - = . _ : / @. </p> </li> <li> <p>Cannot use \\\"aws:\\\" as a prefix for a key.</p> </li> </ul>\"\
         },\
         \"TrackerName\":{\
           \"shape\":\"ResourceName\",\
@@ -1894,10 +2009,10 @@
       \"members\":{\
         \"IntendedUse\":{\
           \"shape\":\"IntendedUse\",\
-          \"documentation\":\"<p>Specifies how the results of an operation will be stored by the caller. </p> <p>Valid values include:</p> <ul> <li> <p> <code>SingleUse</code> specifies that the results won't be stored. </p> </li> <li> <p> <code>Storage</code> specifies that the result can be cached or stored in a database.</p> <important> <p>Place index resources using HERE as a data provider can't be configured to store results for locations in Japan when choosing <code>Storage</code> for the <code>IntendedUse</code> parameter.</p> </important> </li> </ul> <p>Default value: <code>SingleUse</code> </p>\"\
+          \"documentation\":\"<p>Specifies how the results of an operation will be stored by the caller. </p> <p>Valid values include:</p> <ul> <li> <p> <code>SingleUse</code> specifies that the results won't be stored. </p> </li> <li> <p> <code>Storage</code> specifies that the result can be cached or stored in a database.</p> </li> </ul> <p>Default value: <code>SingleUse</code> </p>\"\
         }\
       },\
-      \"documentation\":\"<p>Specifies the data storage option chosen for requesting Places.</p>\"\
+      \"documentation\":\"<p>Specifies the data storage option chosen for requesting Places.</p> <important> <p>When using Amazon Location Places:</p> <ul> <li> <p>If using HERE Technologies as a data provider, you can't store results for locations in Japan by setting <code>IntendedUse</code> to <code>Storage</code>. parameter.</p> </li> <li> <p>Under the <code>MobileAssetTracking</code> or <code>MobilAssetManagement</code> pricing plan, you can't store results from your place index resources by setting <code>IntendedUse</code> to <code>Storage</code>. This returns a validation exception error.</p> </li> </ul> <p>For more information, see the <a href=\\\"https://aws.amazon.com/service-terms/\\\">AWS Service Terms</a> for Amazon Location Service.</p> </important>\"\
     },\
     \"DeleteGeofenceCollectionRequest\":{\
       \"type\":\"structure\",\
@@ -2088,7 +2203,7 @@
         },\
         \"MapArn\":{\
           \"shape\":\"Arn\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) for the map resource. Used when you need to specify a resource across all AWS.</p> <ul> <li> <p>Format example: <code>arn:aws:geo:region:account-id:maps/ExampleMap</code> </p> </li> </ul>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.</p> <ul> <li> <p>Format example: <code>arn:aws:geo:region:account-id:maps/ExampleMap</code> </p> </li> </ul>\"\
         },\
         \"MapName\":{\
           \"shape\":\"ResourceName\",\
@@ -2096,7 +2211,7 @@
         },\
         \"PricingPlan\":{\
           \"shape\":\"PricingPlan\",\
-          \"documentation\":\"<p>The pricing plan selected for the specified map resource.</p> <pre><code> &lt;p&gt;For additional details and restrictions on each pricing plan option, see the &lt;a href=&quot;https://aws.amazon.com/location/pricing/&quot;&gt;Amazon Location Service pricing page&lt;/a&gt;.&lt;/p&gt; </code></pre>\"\
+          \"documentation\":\"<p>The pricing plan selected for the specified map resource.</p> <pre><code> &lt;p&gt;For additional details and restrictions on each pricing plan option, see &lt;a href=&quot;https://aws.amazon.com/location/pricing/&quot;&gt;Amazon Location Service pricing&lt;/a&gt;.&lt;/p&gt; </code></pre>\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
@@ -2139,7 +2254,7 @@
         },\
         \"DataSource\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The data provider of geospatial data. Indicates one of the available providers:</p> <ul> <li> <p> <code>Esri</code> </p> </li> <li> <p> <code>Here</code> </p> </li> </ul> <p>For additional details on data providers, see the <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html\\\">Amazon Location Service data providers page</a>.</p>\"\
+          \"documentation\":\"<p>The data provider of geospatial data. Values can be one of the following:</p> <ul> <li> <p> <code>Esri</code> </p> </li> <li> <p> <code>Here</code> </p> </li> </ul> <p>For more information about data providers, see <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html\\\">Amazon Location Service data providers</a>.</p>\"\
         },\
         \"DataSourceConfiguration\":{\
           \"shape\":\"DataSourceConfiguration\",\
@@ -2151,7 +2266,7 @@
         },\
         \"IndexArn\":{\
           \"shape\":\"Arn\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across all AWS. </p> <ul> <li> <p>Format example: <code>arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex</code> </p> </li> </ul>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS. </p> <ul> <li> <p>Format example: <code>arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex</code> </p> </li> </ul>\"\
         },\
         \"IndexName\":{\
           \"shape\":\"ResourceName\",\
@@ -2159,7 +2274,7 @@
         },\
         \"PricingPlan\":{\
           \"shape\":\"PricingPlan\",\
-          \"documentation\":\"<p>The pricing plan selected for the specified place index resource.</p> <p>For additional details and restrictions on each pricing plan option, see the <a href=\\\"https://aws.amazon.com/location/pricing/\\\">Amazon Location Service pricing page</a>.</p>\"\
+          \"documentation\":\"<p>The pricing plan selected for the specified place index resource.</p> <p>For additional details and restrictions on each pricing plan option, see <a href=\\\"https://aws.amazon.com/location/pricing/\\\">Amazon Location Service pricing</a>.</p>\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
@@ -2264,9 +2379,13 @@
           \"shape\":\"KmsKeyId\",\
           \"documentation\":\"<p>A key identifier for an <a href=\\\"https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html\\\">AWS KMS customer managed key</a> assigned to the Amazon Location resource.</p>\"\
         },\
+        \"PositionFiltering\":{\
+          \"shape\":\"PositionFiltering\",\
+          \"documentation\":\"<p>The position filtering method of the tracker resource.</p>\"\
+        },\
         \"PricingPlan\":{\
           \"shape\":\"PricingPlan\",\
-          \"documentation\":\"<p>The pricing plan selected for the specified tracker resource.</p> <p>For additional details and restrictions on each pricing plan option, see the <a href=\\\"https://aws.amazon.com/location/pricing/\\\">Amazon Location Service pricing page</a>.</p>\"\
+          \"documentation\":\"<p>The pricing plan selected for the specified tracker resource.</p> <p>For additional details and restrictions on each pricing plan option, see <a href=\\\"https://aws.amazon.com/location/pricing/\\\">Amazon Location Service pricing</a>.</p>\"\
         },\
         \"PricingPlanDataSource\":{\
           \"shape\":\"String\",\
@@ -2298,6 +2417,10 @@
         \"SampleTime\"\
       ],\
       \"members\":{\
+        \"Accuracy\":{\
+          \"shape\":\"PositionalAccuracy\",\
+          \"documentation\":\"<p>The accuracy of the device position.</p>\"\
+        },\
         \"DeviceId\":{\
           \"shape\":\"Id\",\
           \"documentation\":\"<p>The device whose position you retrieved.</p>\"\
@@ -2305,6 +2428,10 @@
         \"Position\":{\
           \"shape\":\"Position\",\
           \"documentation\":\"<p>The last known device position.</p>\"\
+        },\
+        \"PositionProperties\":{\
+          \"shape\":\"PropertyMap\",\
+          \"documentation\":\"<p>The properties associated with the position.</p>\"\
         },\
         \"ReceivedTime\":{\
           \"shape\":\"Timestamp\",\
@@ -2329,6 +2456,10 @@
         \"SampleTime\"\
       ],\
       \"members\":{\
+        \"Accuracy\":{\
+          \"shape\":\"PositionalAccuracy\",\
+          \"documentation\":\"<p>The accuracy of the device position.</p>\"\
+        },\
         \"DeviceId\":{\
           \"shape\":\"Id\",\
           \"documentation\":\"<p>The device associated to the position update.</p>\"\
@@ -2336,6 +2467,10 @@
         \"Position\":{\
           \"shape\":\"Position\",\
           \"documentation\":\"<p>The latest device position defined in <a href=\\\"https://earth-info.nga.mil/GandG/wgs84/index.html\\\">WGS 84</a> format: <code>[X or longitude, Y or latitude]</code>.</p>\"\
+        },\
+        \"PositionProperties\":{\
+          \"shape\":\"PropertyMap\",\
+          \"documentation\":\"<p>Associates one of more properties with the position update. A property is a key-value pair stored with the position update and added to any geofence event the update may trigger.</p> <p>Format: <code>\\\"key\\\" : \\\"value\\\"</code> </p>\"\
         },\
         \"SampleTime\":{\
           \"shape\":\"Timestamp\",\
@@ -2474,6 +2609,10 @@
         \"SampleTime\"\
       ],\
       \"members\":{\
+        \"Accuracy\":{\
+          \"shape\":\"PositionalAccuracy\",\
+          \"documentation\":\"<p>The accuracy of the device position.</p>\"\
+        },\
         \"DeviceId\":{\
           \"shape\":\"Id\",\
           \"documentation\":\"<p>The device whose position you retrieved.</p>\"\
@@ -2481,6 +2620,10 @@
         \"Position\":{\
           \"shape\":\"Position\",\
           \"documentation\":\"<p>The last known device position.</p>\"\
+        },\
+        \"PositionProperties\":{\
+          \"shape\":\"PropertyMap\",\
+          \"documentation\":\"<p>The properties associated with the position.</p>\"\
         },\
         \"ReceivedTime\":{\
           \"shape\":\"Timestamp\",\
@@ -2555,7 +2698,7 @@
       \"members\":{\
         \"FontStack\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>A comma-separated list of fonts to load glyphs from in order of preference.. For example, <code>Noto Sans, Arial Unicode</code>.</p>\",\
+          \"documentation\":\"<p>A comma-separated list of fonts to load glyphs from in order of preference. For example, <code>Noto Sans Regular, Arial Unicode</code>.</p> <p>Valid fonts stacks for <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/esri.html\\\">Esri</a> styles: </p> <ul> <li> <p>VectorEsriDarkGrayCanvas â <code>Ubuntu Medium Italic</code> | <code>Ubuntu Medium</code> | <code>Ubuntu Italic</code> | <code>Ubuntu Regular</code> | <code>Ubuntu Bold</code> </p> </li> <li> <p>VectorEsriLightGrayCanvas â <code>Ubuntu Italic</code> | <code>Ubuntu Regular</code> | <code>Ubuntu Light</code> | <code>Ubuntu Bold</code> </p> </li> <li> <p>VectorEsriTopographic â <code>Noto Sans Italic</code> | <code>Noto Sans Regular</code> | <code>Noto Sans Bold</code> | <code>Noto Serif Regular</code> | <code>Roboto Condensed Light Italic</code> </p> </li> <li> <p>VectorEsriStreets â <code>Arial Regular</code> | <code>Arial Italic</code> | <code>Arial Bold</code> </p> </li> <li> <p>VectorEsriNavigation â <code>Arial Regular</code> | <code>Arial Italic</code> | <code>Arial Bold</code> </p> </li> </ul> <p>Valid font stacks for <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/HERE.html\\\">HERE Technologies</a> styles: </p> <ul> <li> <p>VectorHereBerlin â <code>Fira GO Regular</code> | <code>Fira GO Bold</code> </p> </li> </ul>\",\
           \"location\":\"uri\",\
           \"locationName\":\"FontStack\"\
         },\
@@ -2731,6 +2874,10 @@
       \"min\":1,\
       \"pattern\":\"^[-._\\\\p{L}\\\\p{N}]+$\"\
     },\
+    \"Integer\":{\
+      \"type\":\"integer\",\
+      \"box\":true\
+    },\
     \"IntendedUse\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -2757,6 +2904,11 @@
       \"type\":\"string\",\
       \"max\":2048,\
       \"min\":1\
+    },\
+    \"LanguageTag\":{\
+      \"type\":\"string\",\
+      \"max\":35,\
+      \"min\":2\
     },\
     \"Leg\":{\
       \"type\":\"structure\",\
@@ -2793,7 +2945,7 @@
           \"documentation\":\"<p>Contains a list of steps, which represent subsections of a leg. Each step provides instructions for how to move to the next step in the leg such as the step's start position, end position, travel distance, travel duration, and geometry offset.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Contains the calculated route's details for each path between a pair of positions. The number of legs returned corresponds to one less than the total number of positions in the request. </p> <p>For example, a route with a departure position and destination position returns one leg with the positions <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road\\\">snapped to a nearby road</a>:</p> <ul> <li> <p>The <code>StartPosition</code> is the departure position.</p> </li> <li> <p>The <code>EndPosition</code> is the destination position.</p> </li> </ul> <p>A route with a waypoint between the departure and destination position returns two legs with the positions snapped to a nearby road.:</p> <ul> <li> <p>Leg 1: The <code>StartPosition</code> is the departure position . The <code>EndPosition</code> is the waypoint positon.</p> </li> <li> <p>Leg 2: The <code>StartPosition</code> is the waypoint position. The <code>EndPosition</code> is the destination position.</p> </li> </ul>\"\
+      \"documentation\":\"<p>Contains the calculated route's details for each path between a pair of positions. The number of legs returned corresponds to one fewer than the total number of positions in the request. </p> <p>For example, a route with a departure position and destination position returns one leg with the positions <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road\\\">snapped to a nearby road</a>:</p> <ul> <li> <p>The <code>StartPosition</code> is the departure position.</p> </li> <li> <p>The <code>EndPosition</code> is the destination position.</p> </li> </ul> <p>A route with a waypoint between the departure and destination position returns two legs with the positions snapped to a nearby road:</p> <ul> <li> <p>Leg 1: The <code>StartPosition</code> is the departure position . The <code>EndPosition</code> is the waypoint positon.</p> </li> <li> <p>Leg 2: The <code>StartPosition</code> is the waypoint position. The <code>EndPosition</code> is the destination position.</p> </li> </ul>\"\
     },\
     \"LegDistanceDouble\":{\
       \"type\":\"double\",\
@@ -2882,6 +3034,10 @@
         \"SampleTime\"\
       ],\
       \"members\":{\
+        \"Accuracy\":{\
+          \"shape\":\"PositionalAccuracy\",\
+          \"documentation\":\"<p>The accuracy of the device position.</p>\"\
+        },\
         \"DeviceId\":{\
           \"shape\":\"Id\",\
           \"documentation\":\"<p>The ID of the device for this position.</p>\"\
@@ -2889,6 +3045,10 @@
         \"Position\":{\
           \"shape\":\"Position\",\
           \"documentation\":\"<p>The last known device position. Empty if no positions currently stored.</p>\"\
+        },\
+        \"PositionProperties\":{\
+          \"shape\":\"PropertyMap\",\
+          \"documentation\":\"<p>The properties associated with the position.</p>\"\
         },\
         \"SampleTime\":{\
           \"shape\":\"Timestamp\",\
@@ -3104,7 +3264,7 @@
         },\
         \"PricingPlan\":{\
           \"shape\":\"PricingPlan\",\
-          \"documentation\":\"<p>The pricing plan for the specified map resource.</p> <p>For additional details and restrictions on each pricing plan option, see the <a href=\\\"https://aws.amazon.com/location/pricing/\\\">Amazon Location Service pricing page</a>.</p>\"\
+          \"documentation\":\"<p>The pricing plan for the specified map resource.</p> <p>For additional details and restrictions on each pricing plan option, see <a href=\\\"https://aws.amazon.com/location/pricing/\\\">Amazon Location Service pricing</a>.</p>\"\
         },\
         \"UpdateTime\":{\
           \"shape\":\"Timestamp\",\
@@ -3146,7 +3306,7 @@
         },\
         \"NextToken\":{\
           \"shape\":\"Token\",\
-          \"documentation\":\"<p>A pagination token indicating there are additional pages available. You can use the token in a following request to fetch the next set of results.</p>\"\
+          \"documentation\":\"<p>A pagination token indicating that there are additional pages available. You can use the token in a new request to fetch the next page of results.</p>\"\
         }\
       }\
     },\
@@ -3167,7 +3327,7 @@
         },\
         \"DataSource\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The data provider of geospatial data. Indicates one of the available providers:</p> <ul> <li> <p> <code>Esri</code> </p> </li> <li> <p> <code>Here</code> </p> </li> </ul> <p>For additional details on data providers, see the <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html\\\">Amazon Location Service data providers page</a>.</p>\"\
+          \"documentation\":\"<p>The data provider of geospatial data. Values can be one of the following:</p> <ul> <li> <p> <code>Esri</code> </p> </li> <li> <p> <code>Here</code> </p> </li> </ul> <p>For more information about data providers, see <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html\\\">Amazon Location Service data providers</a>.</p>\"\
         },\
         \"Description\":{\
           \"shape\":\"ResourceDescription\",\
@@ -3179,7 +3339,7 @@
         },\
         \"PricingPlan\":{\
           \"shape\":\"PricingPlan\",\
-          \"documentation\":\"<p>The pricing plan for the specified place index resource.</p> <p>For additional details and restrictions on each pricing plan option, see the <a href=\\\"https://aws.amazon.com/location/pricing/\\\">Amazon Location Service pricing page</a>.</p>\"\
+          \"documentation\":\"<p>The pricing plan for the specified place index resource.</p> <p>For additional details and restrictions on each pricing plan option, see <a href=\\\"https://aws.amazon.com/location/pricing/\\\">Amazon Location Service pricing</a>.</p>\"\
         },\
         \"UpdateTime\":{\
           \"shape\":\"Timestamp\",\
@@ -3273,7 +3433,7 @@
       \"members\":{\
         \"ResourceArn\":{\
           \"shape\":\"Arn\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.</p>\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.</p> <ul> <li> <p>Format example: <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code> </p> </li> </ul>\",\
           \"location\":\"uri\",\
           \"locationName\":\"ResourceArn\"\
         }\
@@ -3284,7 +3444,7 @@
       \"members\":{\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The mapping from tag key to tag value for each tag associated with the specified resource.</p>\"\
+          \"documentation\":\"<p>Tags that have been applied to the specified resource. Tags are mapped from the tag key to the tag value: <code>\\\"TagKey\\\" : \\\"TagValue\\\"</code>.</p> <ul> <li> <p>Format example: <code>{\\\"tag1\\\" : \\\"value1\\\", \\\"tag2\\\" : \\\"value2\\\"} </code> </p> </li> </ul>\"\
         }\
       }\
     },\
@@ -3381,7 +3541,7 @@
         },\
         \"PricingPlan\":{\
           \"shape\":\"PricingPlan\",\
-          \"documentation\":\"<p>The pricing plan for the specified tracker resource.</p> <p>For additional details and restrictions on each pricing plan option, see the <a href=\\\"https://aws.amazon.com/location/pricing/\\\">Amazon Location Service pricing page</a>.</p>\"\
+          \"documentation\":\"<p>The pricing plan for the specified tracker resource.</p> <p>For additional details and restrictions on each pricing plan option, see <a href=\\\"https://aws.amazon.com/location/pricing/\\\">Amazon Location Service pricing</a>.</p>\"\
         },\
         \"PricingPlanDataSource\":{\
           \"shape\":\"String\",\
@@ -3408,7 +3568,7 @@
       \"members\":{\
         \"Style\":{\
           \"shape\":\"MapStyle\",\
-          \"documentation\":\"<p>Specifies the map style selected from an available data provider.</p> <p>Valid styles: <code>RasterEsriImagery</code>, <code>VectorEsriStreets</code>, <code>VectorEsriTopographic</code>, <code>VectorEsriNavigation</code>, <code>VectorEsriDarkGrayCanvas</code>, <code>VectorEsriLightGrayCanvas</code>, <code>VectorHereBerlin</code>.</p> <note> <p>When using HERE as your data provider, and selecting the Style <code>VectorHereBerlin</code>, you may not use HERE Maps for Asset Management. See the <a href=\\\"https://aws.amazon.com/service-terms/\\\">AWS Service Terms</a> for Amazon Location Service.</p> </note>\"\
+          \"documentation\":\"<p>Specifies the map style selected from an available data provider.</p> <p>Valid <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/esri.html\\\">Esri map styles</a>:</p> <ul> <li> <p> <code>VectorEsriDarkGrayCanvas</code> â The Esri Dark Gray Canvas map style. A vector basemap with a dark gray, neutral background with minimal colors, labels, and features that's designed to draw attention to your thematic content. </p> </li> <li> <p> <code>RasterEsriImagery</code> â The Esri Imagery map style. A raster basemap that provides one meter or better satellite and aerial imagery in many parts of the world and lower resolution satellite imagery worldwide. </p> </li> <li> <p> <code>VectorEsriLightGrayCanvas</code> â The Esri Light Gray Canvas map style, which provides a detailed vector basemap with a light gray, neutral background style with minimal colors, labels, and features that's designed to draw attention to your thematic content. </p> </li> <li> <p> <code>VectorEsriTopographic</code> â The Esri Light map style, which provides a detailed vector basemap with a classic Esri map style.</p> </li> <li> <p> <code>VectorEsriStreets</code> â The Esri World Streets map style, which provides a detailed vector basemap for the world symbolized with a classic Esri street map style. The vector tile layer is similar in content and style to the World Street Map raster map.</p> </li> <li> <p> <code>VectorEsriNavigation</code> â The Esri World Navigation map style, which provides a detailed basemap for the world symbolized with a custom navigation map style that's designed for use during the day in mobile devices.</p> </li> </ul> <p>Valid <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/HERE.html\\\">HERE Technologies map styles</a>:</p> <ul> <li> <p> <code>VectorHereBerlin</code> â The HERE Berlin map style is a high contrast detailed base map of the world that blends 3D and 2D rendering.</p> <note> <p>When using HERE as your data provider, and selecting the Style <code>VectorHereBerlin</code>, you may not use HERE Technologies maps for Asset Management. See the <a href=\\\"https://aws.amazon.com/service-terms/\\\">AWS Service Terms</a> for Amazon Location Service.</p> </note> </li> </ul>\"\
         }\
       },\
       \"documentation\":\"<p>Specifies the map tile style selected from an available provider.</p>\"\
@@ -3432,6 +3592,10 @@
           \"documentation\":\"<p>A country/region specified using <a href=\\\"https://www.iso.org/iso-3166-country-codes.html\\\">ISO 3166</a> 3-digit country/region code. For example, <code>CAN</code>.</p>\"\
         },\
         \"Geometry\":{\"shape\":\"PlaceGeometry\"},\
+        \"Interpolated\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p> <code>True</code> if the result is interpolated from other known places.</p> <p> <code>False</code> if the Place is a known place.</p> <p>Not returned when the partner does not provide the information.</p> <p>For example, returns <code>False</code> for an address location that is found in the partner data, but returns <code>True</code> if an address does not exist in the partner data and its location is calculated by interpolating between other known addresses. </p>\"\
+        },\
         \"Label\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>The full name and address of the point of interest such as a city, region, or country. For example, <code>123 Any Street, Any Town, USA</code>.</p>\"\
@@ -3458,7 +3622,11 @@
         },\
         \"SubRegion\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>A country, or an area that's part of a larger region . For example, <code>Metro Vancouver</code>.</p>\"\
+          \"documentation\":\"<p>A country, or an area that's part of a larger region. For example, <code>Metro Vancouver</code>.</p>\"\
+        },\
+        \"TimeZone\":{\
+          \"shape\":\"TimeZone\",\
+          \"documentation\":\"<p>The time zone in which the <code>Place</code> is located. Returned only when using Here as the selected partner.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains details about addresses or points of interest that match the search criteria.</p>\"\
@@ -3485,6 +3653,31 @@
       \"min\":2,\
       \"sensitive\":true\
     },\
+    \"PositionFiltering\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"TimeBased\",\
+        \"DistanceBased\",\
+        \"AccuracyBased\"\
+      ]\
+    },\
+    \"PositionalAccuracy\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Horizontal\"],\
+      \"members\":{\
+        \"Horizontal\":{\
+          \"shape\":\"PositionalAccuracyHorizontalDouble\",\
+          \"documentation\":\"<p>Estimated maximum distance, in meters, between the measured position and the true position of a device, along the Earth's surface.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Defines the level of certainty of the position.</p>\"\
+    },\
+    \"PositionalAccuracyHorizontalDouble\":{\
+      \"type\":\"double\",\
+      \"box\":true,\
+      \"max\":10000,\
+      \"min\":0\
+    },\
     \"PricingPlan\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -3492,6 +3685,24 @@
         \"MobileAssetTracking\",\
         \"MobileAssetManagement\"\
       ]\
+    },\
+    \"PropertyMap\":{\
+      \"type\":\"map\",\
+      \"key\":{\"shape\":\"PropertyMapKeyString\"},\
+      \"value\":{\"shape\":\"PropertyMapValueString\"},\
+      \"max\":3,\
+      \"min\":0,\
+      \"sensitive\":true\
+    },\
+    \"PropertyMapKeyString\":{\
+      \"type\":\"string\",\
+      \"max\":20,\
+      \"min\":1\
+    },\
+    \"PropertyMapValueString\":{\
+      \"type\":\"string\",\
+      \"max\":40,\
+      \"min\":1\
     },\
     \"PutGeofenceRequest\":{\
       \"type\":\"structure\",\
@@ -3570,33 +3781,79 @@
     },\
     \"SearchForPositionResult\":{\
       \"type\":\"structure\",\
-      \"required\":[\"Place\"],\
+      \"required\":[\
+        \"Distance\",\
+        \"Place\"\
+      ],\
       \"members\":{\
+        \"Distance\":{\
+          \"shape\":\"SearchForPositionResultDistanceDouble\",\
+          \"documentation\":\"<p>The distance in meters of a great-circle arc between the query position and the result.</p> <note> <p>A great-circle arc is the shortest path on a sphere, in this case the Earth. This returns the shortest distance between two locations.</p> </note>\"\
+        },\
         \"Place\":{\
           \"shape\":\"Place\",\
-          \"documentation\":\"<p>Contains details about the relevant point of interest.</p>\"\
+          \"documentation\":\"<p>Details about the search result, such as its address and position.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Specifies a single point of interest, or Place as a result of a search query obtained from a dataset configured in the place index resource.</p>\"\
+      \"documentation\":\"<p>Contains a search result from a position search query that is run on a place index resource.</p>\"\
+    },\
+    \"SearchForPositionResultDistanceDouble\":{\
+      \"type\":\"double\",\
+      \"box\":true,\
+      \"min\":0\
     },\
     \"SearchForPositionResultList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"SearchForPositionResult\"}\
     },\
+    \"SearchForSuggestionsResult\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Text\"],\
+      \"members\":{\
+        \"Text\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The text of the place suggestion, typically formatted as an address string.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Contains a place suggestion resulting from a place suggestion query that is run on a place index resource.</p>\"\
+    },\
+    \"SearchForSuggestionsResultList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"SearchForSuggestionsResult\"}\
+    },\
     \"SearchForTextResult\":{\
       \"type\":\"structure\",\
       \"required\":[\"Place\"],\
       \"members\":{\
+        \"Distance\":{\
+          \"shape\":\"SearchForTextResultDistanceDouble\",\
+          \"documentation\":\"<p>The distance in meters of a great-circle arc between the bias position specified and the result. <code>Distance</code> will be returned only if a bias position was specified in the query.</p> <note> <p>A great-circle arc is the shortest path on a sphere, in this case the Earth. This returns the shortest distance between two locations.</p> </note>\"\
+        },\
         \"Place\":{\
           \"shape\":\"Place\",\
-          \"documentation\":\"<p>Contains details about the relevant point of interest.</p>\"\
+          \"documentation\":\"<p>Details about the search result, such as its address and position.</p>\"\
+        },\
+        \"Relevance\":{\
+          \"shape\":\"SearchForTextResultRelevanceDouble\",\
+          \"documentation\":\"<p>The relative confidence in the match for a result among the results returned. For example, if more fields for an address match (including house number, street, city, country/region, and postal code), the relevance score is closer to 1.</p> <p>Returned only when the partner selected is Esri.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Contains relevant Places returned by calling <code>SearchPlaceIndexForText</code>.</p>\"\
+      \"documentation\":\"<p>Contains a search result from a text search query that is run on a place index resource.</p>\"\
+    },\
+    \"SearchForTextResultDistanceDouble\":{\
+      \"type\":\"double\",\
+      \"box\":true,\
+      \"min\":0\
     },\
     \"SearchForTextResultList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"SearchForTextResult\"}\
+    },\
+    \"SearchForTextResultRelevanceDouble\":{\
+      \"type\":\"double\",\
+      \"box\":true,\
+      \"max\":1,\
+      \"min\":0\
     },\
     \"SearchPlaceIndexForPositionRequest\":{\
       \"type\":\"structure\",\
@@ -3611,13 +3868,17 @@
           \"location\":\"uri\",\
           \"locationName\":\"IndexName\"\
         },\
+        \"Language\":{\
+          \"shape\":\"LanguageTag\",\
+          \"documentation\":\"<p>The preferred language used to return results. The value must be a valid <a href=\\\"https://tools.ietf.org/search/bcp47\\\">BCP 47</a> language tag, for example, <code>en</code> for English.</p> <p>This setting affects the languages used in the results. It does not change which results are returned. If the language is not specified, or not supported for a particular result, the partner automatically chooses a language for the result.</p>\"\
+        },\
         \"MaxResults\":{\
           \"shape\":\"PlaceIndexSearchResultLimit\",\
-          \"documentation\":\"<p>An optional paramer. The maximum number of results returned per request. </p> <p>Default value: <code>50</code> </p>\"\
+          \"documentation\":\"<p>An optional parameter. The maximum number of results returned per request.</p> <p>Default value: <code>50</code> </p>\"\
         },\
         \"Position\":{\
           \"shape\":\"Position\",\
-          \"documentation\":\"<p>Specifies a coordinate for the query defined by a longitude, and latitude.</p> <ul> <li> <p>The first position is the X coordinate, or longitude.</p> </li> <li> <p>The second position is the Y coordinate, or latitude. </p> </li> </ul> <p>For example, <code>position=xLongitude&amp;position=yLatitude</code> .</p>\"\
+          \"documentation\":\"<p>Specifies the longitude and latitude of the position to query.</p> <p> This parameter must contain a pair of numbers. The first number represents the X coordinate, or longitude; the second number represents the Y coordinate, or latitude.</p> <p>For example, <code>[-123.1174, 49.2847]</code> represents a position with longitude <code>-123.1174</code> and latitude <code>49.2847</code>.</p>\"\
         }\
       }\
     },\
@@ -3634,7 +3895,7 @@
         },\
         \"Summary\":{\
           \"shape\":\"SearchPlaceIndexForPositionSummary\",\
-          \"documentation\":\"<p>Contains a summary of the request.</p>\"\
+          \"documentation\":\"<p>Contains a summary of the request. Echoes the input values for <code>Position</code>, <code>Language</code>, <code>MaxResults</code>, and the <code>DataSource</code> of the place index. </p>\"\
         }\
       }\
     },\
@@ -3647,18 +3908,122 @@
       \"members\":{\
         \"DataSource\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The data provider of geospatial data. Indicates one of the available providers:</p> <ul> <li> <p>Esri</p> </li> <li> <p>HERE</p> </li> </ul> <p>For additional details on data providers, see the <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html\\\">Amazon Location Service data providers page</a>.</p>\"\
+          \"documentation\":\"<p>The geospatial data provider attached to the place index resource specified in the request. Values can be one of the following:</p> <ul> <li> <p>Esri</p> </li> <li> <p>Here</p> </li> </ul> <p>For more information about data providers, see <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html\\\">Amazon Location Service data providers</a>.</p>\"\
+        },\
+        \"Language\":{\
+          \"shape\":\"LanguageTag\",\
+          \"documentation\":\"<p>The preferred language used to return results. Matches the language in the request. The value is a valid <a href=\\\"https://tools.ietf.org/search/bcp47\\\">BCP 47</a> language tag, for example, <code>en</code> for English.</p>\"\
         },\
         \"MaxResults\":{\
           \"shape\":\"PlaceIndexSearchResultLimit\",\
-          \"documentation\":\"<p>An optional parameter. The maximum number of results returned per request. </p> <p>Default value: <code>50</code> </p>\"\
+          \"documentation\":\"<p>Contains the optional result count limit that is specified in the request.</p> <p>Default value: <code>50</code> </p>\"\
         },\
         \"Position\":{\
           \"shape\":\"Position\",\
-          \"documentation\":\"<p>The position given in the reverse geocoding request.</p>\"\
+          \"documentation\":\"<p>The position specified in the request.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>A summary of the reverse geocoding request sent using <code>SearchPlaceIndexForPosition</code>.</p>\"\
+      \"documentation\":\"<p>A summary of the request sent by using <code>SearchPlaceIndexForPosition</code>.</p>\"\
+    },\
+    \"SearchPlaceIndexForSuggestionsRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"IndexName\",\
+        \"Text\"\
+      ],\
+      \"members\":{\
+        \"BiasPosition\":{\
+          \"shape\":\"Position\",\
+          \"documentation\":\"<p>An optional parameter that indicates a preference for place suggestions that are closer to a specified position.</p> <p> If provided, this parameter must contain a pair of numbers. The first number represents the X coordinate, or longitude; the second number represents the Y coordinate, or latitude.</p> <p>For example, <code>[-123.1174, 49.2847]</code> represents the position with longitude <code>-123.1174</code> and latitude <code>49.2847</code>.</p> <note> <p> <code>BiasPosition</code> and <code>FilterBBox</code> are mutually exclusive. Specifying both options results in an error. </p> </note>\"\
+        },\
+        \"FilterBBox\":{\
+          \"shape\":\"BoundingBox\",\
+          \"documentation\":\"<p>An optional parameter that limits the search results by returning only suggestions within a specified bounding box.</p> <p> If provided, this parameter must contain a total of four consecutive numbers in two pairs. The first pair of numbers represents the X and Y coordinates (longitude and latitude, respectively) of the southwest corner of the bounding box; the second pair of numbers represents the X and Y coordinates (longitude and latitude, respectively) of the northeast corner of the bounding box.</p> <p>For example, <code>[-12.7935, -37.4835, -12.0684, -36.9542]</code> represents a bounding box where the southwest corner has longitude <code>-12.7935</code> and latitude <code>-37.4835</code>, and the northeast corner has longitude <code>-12.0684</code> and latitude <code>-36.9542</code>.</p> <note> <p> <code>FilterBBox</code> and <code>BiasPosition</code> are mutually exclusive. Specifying both options results in an error. </p> </note>\"\
+        },\
+        \"FilterCountries\":{\
+          \"shape\":\"CountryCodeList\",\
+          \"documentation\":\"<p>An optional parameter that limits the search results by returning only suggestions within the provided list of countries.</p> <ul> <li> <p>Use the <a href=\\\"https://www.iso.org/iso-3166-country-codes.html\\\">ISO 3166</a> 3-digit country code. For example, Australia uses three upper-case characters: <code>AUS</code>.</p> </li> </ul>\"\
+        },\
+        \"IndexName\":{\
+          \"shape\":\"ResourceName\",\
+          \"documentation\":\"<p>The name of the place index resource you want to use for the search.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"IndexName\"\
+        },\
+        \"Language\":{\
+          \"shape\":\"LanguageTag\",\
+          \"documentation\":\"<p>The preferred language used to return results. The value must be a valid <a href=\\\"https://tools.ietf.org/search/bcp47\\\">BCP 47</a> language tag, for example, <code>en</code> for English.</p> <p>This setting affects the languages used in the results. It does not change which results are returned. If the language is not specified, or not supported for a particular result, the partner automatically chooses a language for the result.</p> <p>Used only when the partner selected is Here.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"SearchPlaceIndexForSuggestionsRequestMaxResultsInteger\",\
+          \"documentation\":\"<p>An optional parameter. The maximum number of results returned per request. </p> <p>The default: <code>5</code> </p>\"\
+        },\
+        \"Text\":{\
+          \"shape\":\"SyntheticSearchPlaceIndexForSuggestionsRequestString\",\
+          \"documentation\":\"<p>The free-form partial text to use to generate place suggestions. For example, <code>eiffel tow</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"SearchPlaceIndexForSuggestionsRequestMaxResultsInteger\":{\
+      \"type\":\"integer\",\
+      \"box\":true,\
+      \"max\":15,\
+      \"min\":1\
+    },\
+    \"SearchPlaceIndexForSuggestionsResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Results\",\
+        \"Summary\"\
+      ],\
+      \"members\":{\
+        \"Results\":{\
+          \"shape\":\"SearchForSuggestionsResultList\",\
+          \"documentation\":\"<p>A list of place suggestions that best match the search text.</p>\"\
+        },\
+        \"Summary\":{\
+          \"shape\":\"SearchPlaceIndexForSuggestionsSummary\",\
+          \"documentation\":\"<p>Contains a summary of the request. Echoes the input values for <code>BiasPosition</code>, <code>FilterBBox</code>, <code>FilterCountries</code>, <code>Language</code>, <code>MaxResults</code>, and <code>Text</code>. Also includes the <code>DataSource</code> of the place index. </p>\"\
+        }\
+      }\
+    },\
+    \"SearchPlaceIndexForSuggestionsSummary\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"DataSource\",\
+        \"Text\"\
+      ],\
+      \"members\":{\
+        \"BiasPosition\":{\
+          \"shape\":\"Position\",\
+          \"documentation\":\"<p>Contains the coordinates for the optional bias position specified in the request.</p> <p>This parameter contains a pair of numbers. The first number represents the X coordinate, or longitude; the second number represents the Y coordinate, or latitude.</p> <p>For example, <code>[-123.1174, 49.2847]</code> represents the position with longitude <code>-123.1174</code> and latitude <code>49.2847</code>.</p>\"\
+        },\
+        \"DataSource\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The geospatial data provider attached to the place index resource specified in the request. Values can be one of the following:</p> <ul> <li> <p>Esri</p> </li> <li> <p>Here</p> </li> </ul> <p>For more information about data providers, see <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html\\\">Amazon Location Service data providers</a>.</p>\"\
+        },\
+        \"FilterBBox\":{\
+          \"shape\":\"BoundingBox\",\
+          \"documentation\":\"<p>Contains the coordinates for the optional bounding box specified in the request.</p>\"\
+        },\
+        \"FilterCountries\":{\
+          \"shape\":\"CountryCodeList\",\
+          \"documentation\":\"<p>Contains the optional country filter specified in the request.</p>\"\
+        },\
+        \"Language\":{\
+          \"shape\":\"LanguageTag\",\
+          \"documentation\":\"<p>The preferred language used to return results. Matches the language in the request. The value is a valid <a href=\\\"https://tools.ietf.org/search/bcp47\\\">BCP 47</a> language tag, for example, <code>en</code> for English.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>Contains the optional result count limit specified in the request.</p>\"\
+        },\
+        \"Text\":{\
+          \"shape\":\"SyntheticSearchPlaceIndexForSuggestionsSummaryString\",\
+          \"documentation\":\"<p>The free-form partial text input specified in the request.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A summary of the request sent by using <code>SearchPlaceIndexForSuggestions</code>.</p>\"\
     },\
     \"SearchPlaceIndexForTextRequest\":{\
       \"type\":\"structure\",\
@@ -3669,15 +4034,15 @@
       \"members\":{\
         \"BiasPosition\":{\
           \"shape\":\"Position\",\
-          \"documentation\":\"<p>Searches for results closest to the given position. An optional parameter defined by longitude, and latitude.</p> <ul> <li> <p>The first <code>bias</code> position is the X coordinate, or longitude.</p> </li> <li> <p>The second <code>bias</code> position is the Y coordinate, or latitude. </p> </li> </ul> <p>For example, <code>bias=xLongitude&amp;bias=yLatitude</code>.</p>\"\
+          \"documentation\":\"<p>An optional parameter that indicates a preference for places that are closer to a specified position.</p> <p> If provided, this parameter must contain a pair of numbers. The first number represents the X coordinate, or longitude; the second number represents the Y coordinate, or latitude.</p> <p>For example, <code>[-123.1174, 49.2847]</code> represents the position with longitude <code>-123.1174</code> and latitude <code>49.2847</code>.</p> <note> <p> <code>BiasPosition</code> and <code>FilterBBox</code> are mutually exclusive. Specifying both options results in an error. </p> </note>\"\
         },\
         \"FilterBBox\":{\
           \"shape\":\"BoundingBox\",\
-          \"documentation\":\"<p>Filters the results by returning only Places within the provided bounding box. An optional parameter.</p> <p>The first 2 <code>bbox</code> parameters describe the lower southwest corner:</p> <ul> <li> <p>The first <code>bbox</code> position is the X coordinate or longitude of the lower southwest corner.</p> </li> <li> <p>The second <code>bbox</code> position is the Y coordinate or latitude of the lower southwest corner.</p> </li> </ul> <p>For example, <code>bbox=xLongitudeSW&amp;bbox=yLatitudeSW</code>.</p> <p>The next <code>bbox</code> parameters describe the upper northeast corner:</p> <ul> <li> <p>The third <code>bbox</code> position is the X coordinate, or longitude of the upper northeast corner.</p> </li> <li> <p>The fourth <code>bbox</code> position is the Y coordinate, or longitude of the upper northeast corner.</p> </li> </ul> <p>For example, <code>bbox=xLongitudeNE&amp;bbox=yLatitudeNE</code> </p>\"\
+          \"documentation\":\"<p>An optional parameter that limits the search results by returning only places that are within the provided bounding box.</p> <p> If provided, this parameter must contain a total of four consecutive numbers in two pairs. The first pair of numbers represents the X and Y coordinates (longitude and latitude, respectively) of the southwest corner of the bounding box; the second pair of numbers represents the X and Y coordinates (longitude and latitude, respectively) of the northeast corner of the bounding box.</p> <p>For example, <code>[-12.7935, -37.4835, -12.0684, -36.9542]</code> represents a bounding box where the southwest corner has longitude <code>-12.7935</code> and latitude <code>-37.4835</code>, and the northeast corner has longitude <code>-12.0684</code> and latitude <code>-36.9542</code>.</p> <note> <p> <code>FilterBBox</code> and <code>BiasPosition</code> are mutually exclusive. Specifying both options results in an error. </p> </note>\"\
         },\
         \"FilterCountries\":{\
           \"shape\":\"CountryCodeList\",\
-          \"documentation\":\"<p>Limits the search to the given a list of countries/regions. An optional parameter.</p> <ul> <li> <p>Use the <a href=\\\"https://www.iso.org/iso-3166-country-codes.html\\\">ISO 3166</a> 3-digit country code. For example, Australia uses three upper-case characters: <code>AUS</code>.</p> </li> </ul>\"\
+          \"documentation\":\"<p>An optional parameter that limits the search results by returning only places that are in a specified list of countries.</p> <ul> <li> <p>Valid values include <a href=\\\"https://www.iso.org/iso-3166-country-codes.html\\\">ISO 3166</a> 3-digit country codes. For example, Australia uses three upper-case characters: <code>AUS</code>.</p> </li> </ul>\"\
         },\
         \"IndexName\":{\
           \"shape\":\"ResourceName\",\
@@ -3685,13 +4050,17 @@
           \"location\":\"uri\",\
           \"locationName\":\"IndexName\"\
         },\
+        \"Language\":{\
+          \"shape\":\"LanguageTag\",\
+          \"documentation\":\"<p>The preferred language used to return results. The value must be a valid <a href=\\\"https://tools.ietf.org/search/bcp47\\\">BCP 47</a> language tag, for example, <code>en</code> for English.</p> <p>This setting affects the languages used in the results. It does not change which results are returned. If the language is not specified, or not supported for a particular result, the partner automatically chooses a language for the result.</p>\"\
+        },\
         \"MaxResults\":{\
           \"shape\":\"PlaceIndexSearchResultLimit\",\
           \"documentation\":\"<p>An optional parameter. The maximum number of results returned per request. </p> <p>The default: <code>50</code> </p>\"\
         },\
         \"Text\":{\
           \"shape\":\"SyntheticSearchPlaceIndexForTextRequestString\",\
-          \"documentation\":\"<p>The address, name, city, or region to be used in the search. In free-form text format. For example, <code>123 Any Street</code>.</p>\"\
+          \"documentation\":\"<p>The address, name, city, or region to be used in the search in free-form text format. For example, <code>123 Any Street</code>.</p>\"\
         }\
       }\
     },\
@@ -3704,11 +4073,11 @@
       \"members\":{\
         \"Results\":{\
           \"shape\":\"SearchForTextResultList\",\
-          \"documentation\":\"<p>A list of Places closest to the specified position. Each result contains additional information about the specific point of interest. </p>\"\
+          \"documentation\":\"<p>A list of Places matching the input text. Each result contains additional information about the specific point of interest. </p>\"\
         },\
         \"Summary\":{\
           \"shape\":\"SearchPlaceIndexForTextSummary\",\
-          \"documentation\":\"<p>Contains a summary of the request. Contains the <code>BiasPosition</code>, <code>DataSource</code>, <code>FilterBBox</code>, <code>FilterCountries</code>, <code>MaxResults</code>, <code>ResultBBox</code>, and <code>Text</code>.</p>\"\
+          \"documentation\":\"<p>Contains a summary of the request. Echoes the input values for <code>BiasPosition</code>, <code>FilterBBox</code>, <code>FilterCountries</code>, <code>Language</code>, <code>MaxResults</code>, and <code>Text</code>. Also includes the <code>DataSource</code> of the place index and the bounding box, <code>ResultBBox</code>, which surrounds the search results. </p>\"\
         }\
       }\
     },\
@@ -3721,34 +4090,55 @@
       \"members\":{\
         \"BiasPosition\":{\
           \"shape\":\"Position\",\
-          \"documentation\":\"<p>Contains the coordinates for the bias position entered in the geocoding request.</p>\"\
+          \"documentation\":\"<p>Contains the coordinates for the optional bias position specified in the request.</p> <p>This parameter contains a pair of numbers. The first number represents the X coordinate, or longitude; the second number represents the Y coordinate, or latitude.</p> <p>For example, <code>[-123.1174, 49.2847]</code> represents the position with longitude <code>-123.1174</code> and latitude <code>49.2847</code>.</p>\"\
         },\
         \"DataSource\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The data provider of geospatial data. Indicates one of the available providers:</p> <ul> <li> <p>Esri</p> </li> <li> <p>HERE</p> </li> </ul> <p>For additional details on data providers, see the <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html\\\">Amazon Location Service data providers page</a>.</p>\"\
+          \"documentation\":\"<p>The geospatial data provider attached to the place index resource specified in the request. Values can be one of the following:</p> <ul> <li> <p>Esri</p> </li> <li> <p>Here</p> </li> </ul> <p>For more information about data providers, see <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html\\\">Amazon Location Service data providers</a>.</p>\"\
         },\
         \"FilterBBox\":{\
           \"shape\":\"BoundingBox\",\
-          \"documentation\":\"<p>Contains the coordinates for the optional bounding box coordinated entered in the geocoding request.</p>\"\
+          \"documentation\":\"<p>Contains the coordinates for the optional bounding box specified in the request.</p>\"\
         },\
         \"FilterCountries\":{\
           \"shape\":\"CountryCodeList\",\
-          \"documentation\":\"<p>Contains the country filter entered in the geocoding request.</p>\"\
+          \"documentation\":\"<p>Contains the optional country filter specified in the request.</p>\"\
+        },\
+        \"Language\":{\
+          \"shape\":\"LanguageTag\",\
+          \"documentation\":\"<p>The preferred language used to return results. Matches the language in the request. The value is a valid <a href=\\\"https://tools.ietf.org/search/bcp47\\\">BCP 47</a> language tag, for example, <code>en</code> for English.</p>\"\
         },\
         \"MaxResults\":{\
           \"shape\":\"PlaceIndexSearchResultLimit\",\
-          \"documentation\":\"<p>Contains the maximum number of results indicated for the request.</p>\"\
+          \"documentation\":\"<p>Contains the optional result count limit specified in the request.</p>\"\
         },\
         \"ResultBBox\":{\
           \"shape\":\"BoundingBox\",\
-          \"documentation\":\"<p>A bounding box that contains the search results within the specified area indicated by <code>FilterBBox</code>. A subset of bounding box specified using <code>FilterBBox</code>.</p>\"\
+          \"documentation\":\"<p>The bounding box that fully contains all search results.</p> <note> <p>If you specified the optional <code>FilterBBox</code> parameter in the request, <code>ResultBBox</code> is contained within <code>FilterBBox</code>.</p> </note>\"\
         },\
         \"Text\":{\
           \"shape\":\"SyntheticSearchPlaceIndexForTextSummaryString\",\
-          \"documentation\":\"<p>The address, name, city or region to be used in the geocoding request. In free-form text format. For example, <code>Vancouver</code>.</p>\"\
+          \"documentation\":\"<p>The search text specified in the request.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>A summary of the geocoding request sent using <code>SearchPlaceIndexForText</code>.</p>\"\
+      \"documentation\":\"<p>A summary of the request sent by using <code>SearchPlaceIndexForText</code>.</p>\"\
+    },\
+    \"ServiceQuotaExceededException\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Message\"],\
+      \"members\":{\
+        \"Message\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>A message with the reason for the service quota exceeded exception error.</p>\",\
+          \"locationName\":\"message\"\
+        }\
+      },\
+      \"documentation\":\"<p>The operation was denied because the request would exceed the maximum <a href=\\\"https://docs.aws.amazon.com/location/latest/developerguide/location-quotas.html\\\">quota</a> set for Amazon Location Service.</p>\",\
+      \"error\":{\
+        \"httpStatusCode\":402,\
+        \"senderFault\":true\
+      },\
+      \"exception\":true\
     },\
     \"Step\":{\
       \"type\":\"structure\",\
@@ -3802,6 +4192,16 @@
       \"member\":{\"shape\":\"Step\"}\
     },\
     \"String\":{\"type\":\"string\"},\
+    \"SyntheticSearchPlaceIndexForSuggestionsRequestString\":{\
+      \"type\":\"string\",\
+      \"max\":200,\
+      \"min\":1,\
+      \"sensitive\":true\
+    },\
+    \"SyntheticSearchPlaceIndexForSuggestionsSummaryString\":{\
+      \"type\":\"string\",\
+      \"sensitive\":true\
+    },\
     \"SyntheticSearchPlaceIndexForTextRequestString\":{\
       \"type\":\"string\",\
       \"max\":200,\
@@ -3816,7 +4216,7 @@
       \"type\":\"string\",\
       \"max\":128,\
       \"min\":1,\
-      \"pattern\":\"^(?!aws:)[a-zA-Z+-=._:/]+$\"\
+      \"pattern\":\"^[a-zA-Z+-=._:/]+$\"\
     },\
     \"TagKeys\":{\
       \"type\":\"list\",\
@@ -3840,13 +4240,13 @@
       \"members\":{\
         \"ResourceArn\":{\
           \"shape\":\"Arn\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the resource whose tags you want to update.</p>\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the resource whose tags you want to update.</p> <ul> <li> <p>Format example: <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code> </p> </li> </ul>\",\
           \"location\":\"uri\",\
           \"locationName\":\"ResourceArn\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The mapping from tag key to tag value for each tag associated with the specified resource.</p>\"\
+          \"documentation\":\"<p>Applies one or more tags to specific resource. A tag is a key-value pair that helps you manage, identify, search, and filter your resources.</p> <p>Format: <code>\\\"key\\\" : \\\"value\\\"</code> </p> <p>Restrictions:</p> <ul> <li> <p>Maximum 50 tags per resource.</p> </li> <li> <p>Each tag key must be unique and must have exactly one associated value.</p> </li> <li> <p>Maximum key length: 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length: 256 Unicode characters in UTF-8.</p> </li> <li> <p>Can use alphanumeric characters (AâZ, aâz, 0â9), and the following characters: + - = . _ : / @</p> </li> <li> <p>Cannot use \\\"aws:\\\" as a prefix for a key.</p> </li> </ul>\"\
         }\
       }\
     },\
@@ -3870,13 +4270,28 @@
           \"locationName\":\"message\"\
         }\
       },\
-      \"documentation\":\"<p>The request was denied due to request throttling.</p>\",\
+      \"documentation\":\"<p>The request was denied because of request throttling.</p>\",\
       \"error\":{\
         \"httpStatusCode\":429,\
         \"senderFault\":true\
       },\
       \"exception\":true,\
       \"retryable\":{\"throttling\":false}\
+    },\
+    \"TimeZone\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Name\"],\
+      \"members\":{\
+        \"Name\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The name of the time zone, following the <a href=\\\"https://www.iana.org/time-zones\\\"> IANA time zone standard</a>. For example, <code>America/Los_Angeles</code>.</p>\"\
+        },\
+        \"Offset\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The time zone's offset, in seconds, from UTC.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about a time zone. Includes the name of the time zone and the offset from UTC in seconds.</p>\"\
     },\
     \"Timestamp\":{\
       \"type\":\"timestamp\",\
@@ -3960,13 +4375,13 @@
       \"members\":{\
         \"ResourceArn\":{\
           \"shape\":\"Arn\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the resource from which you want to remove tags.</p>\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the resource from which you want to remove tags.</p> <ul> <li> <p>Format example: <code>arn:aws:geo:region:account-id:resourcetype/ExampleResource</code> </p> </li> </ul>\",\
           \"location\":\"uri\",\
           \"locationName\":\"ResourceArn\"\
         },\
         \"TagKeys\":{\
           \"shape\":\"TagKeys\",\
-          \"documentation\":\"<p>The list of tag keys to remove from the resource.</p>\",\
+          \"documentation\":\"<p>The list of tag keys to remove from the specified resource.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"tagKeys\"\
         }\
@@ -3975,6 +4390,232 @@
     \"UntagResourceResponse\":{\
       \"type\":\"structure\",\
       \"members\":{\
+      }\
+    },\
+    \"UpdateGeofenceCollectionRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"CollectionName\"],\
+      \"members\":{\
+        \"CollectionName\":{\
+          \"shape\":\"ResourceName\",\
+          \"documentation\":\"<p>The name of the geofence collection to update.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"CollectionName\"\
+        },\
+        \"Description\":{\
+          \"shape\":\"ResourceDescription\",\
+          \"documentation\":\"<p>Updates the description for the geofence collection.</p>\"\
+        },\
+        \"PricingPlan\":{\
+          \"shape\":\"PricingPlan\",\
+          \"documentation\":\"<p>Updates the pricing plan for the geofence collection.</p> <p>For more information about each pricing plan option restrictions, see <a href=\\\"https://aws.amazon.com/location/pricing/\\\">Amazon Location Service pricing</a>.</p>\"\
+        },\
+        \"PricingPlanDataSource\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>Updates the data provider for the geofence collection. </p> <p>A required value for the following pricing plans: <code>MobileAssetTracking</code>| <code>MobileAssetManagement</code> </p> <p>For more information about <a href=\\\"https://aws.amazon.com/location/data-providers/\\\">data providers</a> and <a href=\\\"https://aws.amazon.com/location/pricing/\\\">pricing plans</a>, see the Amazon Location Service product page.</p> <note> <p>This can only be updated when updating the <code>PricingPlan</code> in the same request.</p> <p>Amazon Location Service uses <code>PricingPlanDataSource</code> to calculate billing for your geofence collection. Your data won't be shared with the data provider, and will remain in your AWS account and Region unless you move it.</p> </note>\"\
+        }\
+      }\
+    },\
+    \"UpdateGeofenceCollectionResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"CollectionArn\",\
+        \"CollectionName\",\
+        \"UpdateTime\"\
+      ],\
+      \"members\":{\
+        \"CollectionArn\":{\
+          \"shape\":\"Arn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the updated geofence collection. Used to specify a resource across AWS.</p> <ul> <li> <p>Format example: <code>arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection</code> </p> </li> </ul>\"\
+        },\
+        \"CollectionName\":{\
+          \"shape\":\"ResourceName\",\
+          \"documentation\":\"<p>The name of the updated geofence collection.</p>\"\
+        },\
+        \"UpdateTime\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>The time when the geofence collection was last updated in <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code> </p>\"\
+        }\
+      }\
+    },\
+    \"UpdateMapRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"MapName\"],\
+      \"members\":{\
+        \"Description\":{\
+          \"shape\":\"ResourceDescription\",\
+          \"documentation\":\"<p>Updates the description for the map resource.</p>\"\
+        },\
+        \"MapName\":{\
+          \"shape\":\"ResourceName\",\
+          \"documentation\":\"<p>The name of the map resource to update.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"MapName\"\
+        },\
+        \"PricingPlan\":{\
+          \"shape\":\"PricingPlan\",\
+          \"documentation\":\"<p>Updates the pricing plan for the map resource.</p> <p>For more information about each pricing plan option restrictions, see <a href=\\\"https://aws.amazon.com/location/pricing/\\\">Amazon Location Service pricing</a>.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateMapResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"MapArn\",\
+        \"MapName\",\
+        \"UpdateTime\"\
+      ],\
+      \"members\":{\
+        \"MapArn\":{\
+          \"shape\":\"Arn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the updated map resource. Used to specify a resource across AWS.</p> <ul> <li> <p>Format example: <code>arn:aws:geo:region:account-id:maps/ExampleMap</code> </p> </li> </ul>\"\
+        },\
+        \"MapName\":{\
+          \"shape\":\"ResourceName\",\
+          \"documentation\":\"<p>The name of the updated map resource.</p>\"\
+        },\
+        \"UpdateTime\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>The timestamp for when the map resource was last updated in <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\"> ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>\"\
+        }\
+      }\
+    },\
+    \"UpdatePlaceIndexRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"IndexName\"],\
+      \"members\":{\
+        \"DataSourceConfiguration\":{\
+          \"shape\":\"DataSourceConfiguration\",\
+          \"documentation\":\"<p>Updates the data storage option for the place index resource.</p>\"\
+        },\
+        \"Description\":{\
+          \"shape\":\"ResourceDescription\",\
+          \"documentation\":\"<p>Updates the description for the place index resource.</p>\"\
+        },\
+        \"IndexName\":{\
+          \"shape\":\"ResourceName\",\
+          \"documentation\":\"<p>The name of the place index resource to update.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"IndexName\"\
+        },\
+        \"PricingPlan\":{\
+          \"shape\":\"PricingPlan\",\
+          \"documentation\":\"<p>Updates the pricing plan for the place index resource.</p> <p>For more information about each pricing plan option restrictions, see <a href=\\\"https://aws.amazon.com/location/pricing/\\\">Amazon Location Service pricing</a>.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdatePlaceIndexResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"IndexArn\",\
+        \"IndexName\",\
+        \"UpdateTime\"\
+      ],\
+      \"members\":{\
+        \"IndexArn\":{\
+          \"shape\":\"Arn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the upated place index resource. Used to specify a resource across AWS.</p> <ul> <li> <p>Format example: <code>arn:aws:geo:region:account-id:place- index/ExamplePlaceIndex</code> </p> </li> </ul>\"\
+        },\
+        \"IndexName\":{\
+          \"shape\":\"ResourceName\",\
+          \"documentation\":\"<p>The name of the updated place index resource.</p>\"\
+        },\
+        \"UpdateTime\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>The timestamp for when the place index resource was last updated in <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\"> ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>\"\
+        }\
+      }\
+    },\
+    \"UpdateRouteCalculatorRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"CalculatorName\"],\
+      \"members\":{\
+        \"CalculatorName\":{\
+          \"shape\":\"ResourceName\",\
+          \"documentation\":\"<p>The name of the route calculator resource to update.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"CalculatorName\"\
+        },\
+        \"Description\":{\
+          \"shape\":\"ResourceDescription\",\
+          \"documentation\":\"<p>Updates the description for the route calculator resource.</p>\"\
+        },\
+        \"PricingPlan\":{\
+          \"shape\":\"PricingPlan\",\
+          \"documentation\":\"<p>Updates the pricing plan for the route calculator resource.</p> <p>For more information about each pricing plan option restrictions, see <a href=\\\"https://aws.amazon.com/location/pricing/\\\">Amazon Location Service pricing</a>.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateRouteCalculatorResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"CalculatorArn\",\
+        \"CalculatorName\",\
+        \"UpdateTime\"\
+      ],\
+      \"members\":{\
+        \"CalculatorArn\":{\
+          \"shape\":\"Arn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the updated route calculator resource. Used to specify a resource across AWS.</p> <ul> <li> <p>Format example: <code>arn:aws:geo:region:account-id:route- calculator/ExampleCalculator</code> </p> </li> </ul>\"\
+        },\
+        \"CalculatorName\":{\
+          \"shape\":\"ResourceName\",\
+          \"documentation\":\"<p>The name of the updated route calculator resource.</p>\"\
+        },\
+        \"UpdateTime\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>The timestamp for when the route calculator was last updated in <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\"> ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>\"\
+        }\
+      }\
+    },\
+    \"UpdateTrackerRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"TrackerName\"],\
+      \"members\":{\
+        \"Description\":{\
+          \"shape\":\"ResourceDescription\",\
+          \"documentation\":\"<p>Updates the description for the tracker resource.</p>\"\
+        },\
+        \"PositionFiltering\":{\
+          \"shape\":\"PositionFiltering\",\
+          \"documentation\":\"<p>Updates the position filtering for the tracker resource.</p> <p>Valid values:</p> <ul> <li> <p> <code>TimeBased</code> - Location updates are evaluated against linked geofence collections, but not every location update is stored. If your update frequency is more often than 30 seconds, only one update per 30 seconds is stored for each unique device ID. </p> </li> <li> <p> <code>DistanceBased</code> - If the device has moved less than 30 m (98.4 ft), location updates are ignored. Location updates within this distance are neither evaluated against linked geofence collections, nor stored. This helps control costs by reducing the number of geofence evaluations and historical device positions to paginate through. Distance-based filtering can also reduce the effects of GPS noise when displaying device trajectories on a map. </p> </li> <li> <p> <code>AccuracyBased</code> - If the device has moved less than the measured accuracy, location updates are ignored. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is ignored if the device has moved less than 15 m. Ignored location updates are neither evaluated against linked geofence collections, nor stored. This helps educe the effects of GPS noise when displaying device trajectories on a map, and can help control costs by reducing the number of geofence evaluations. </p> </li> </ul>\"\
+        },\
+        \"PricingPlan\":{\
+          \"shape\":\"PricingPlan\",\
+          \"documentation\":\"<p>Updates the pricing plan for the tracker resource.</p> <p>For more information about each pricing plan option restrictions, see <a href=\\\"https://aws.amazon.com/location/pricing/\\\">Amazon Location Service pricing</a>.</p>\"\
+        },\
+        \"PricingPlanDataSource\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>Updates the data provider for the tracker resource. </p> <p>A required value for the following pricing plans: <code>MobileAssetTracking</code>| <code>MobileAssetManagement</code> </p> <p>For more information about <a href=\\\"https://aws.amazon.com/location/data-providers/\\\">data providers</a> and <a href=\\\"https://aws.amazon.com/location/pricing/\\\">pricing plans</a>, see the Amazon Location Service product page</p> <note> <p>This can only be updated when updating the <code>PricingPlan</code> in the same request.</p> <p>Amazon Location Service uses <code>PricingPlanDataSource</code> to calculate billing for your tracker resource. Your data won't be shared with the data provider, and will remain in your AWS account and Region unless you move it.</p> </note>\"\
+        },\
+        \"TrackerName\":{\
+          \"shape\":\"ResourceName\",\
+          \"documentation\":\"<p>The name of the tracker resource to update.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"TrackerName\"\
+        }\
+      }\
+    },\
+    \"UpdateTrackerResponse\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"TrackerArn\",\
+        \"TrackerName\",\
+        \"UpdateTime\"\
+      ],\
+      \"members\":{\
+        \"TrackerArn\":{\
+          \"shape\":\"Arn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the updated tracker resource. Used to specify a resource across AWS.</p> <ul> <li> <p>Format example: <code>arn:aws:geo:region:account-id:tracker/ExampleTracker</code> </p> </li> </ul>\"\
+        },\
+        \"TrackerName\":{\
+          \"shape\":\"ResourceName\",\
+          \"documentation\":\"<p>The name of the updated tracker resource.</p>\"\
+        },\
+        \"UpdateTime\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>The timestamp for when the tracker resource was last updated in <a href=\\\"https://www.iso.org/iso-8601-date-and-time-format.html\\\"> ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>\"\
+        }\
       }\
     },\
     \"ValidationException\":{\

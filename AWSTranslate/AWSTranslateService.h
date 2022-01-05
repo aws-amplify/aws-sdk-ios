@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -175,7 +175,7 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
 + (void)removeTranslateForKey:(NSString *)key;
 
 /**
- <p>Creates a parallel data resource in Amazon Translate by importing an input file from Amazon S3. Parallel data files contain examples of source phrases and their translations from your translation memory. By adding parallel data, you can influence the style, tone, and word choice in your translation output.</p>
+ <p>Creates a parallel data resource in Amazon Translate by importing an input file from Amazon S3. Parallel data files contain examples that show how you want segments of text to be translated. By adding parallel data, you can influence the style, tone, and word choice in your translation output.</p>
  
  @param request A container for the necessary parameters to execute the CreateParallelData service method.
 
@@ -187,7 +187,7 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
 - (AWSTask<AWSTranslateCreateParallelDataResponse *> *)createParallelData:(AWSTranslateCreateParallelDataRequest *)request;
 
 /**
- <p>Creates a parallel data resource in Amazon Translate by importing an input file from Amazon S3. Parallel data files contain examples of source phrases and their translations from your translation memory. By adding parallel data, you can influence the style, tone, and word choice in your translation output.</p>
+ <p>Creates a parallel data resource in Amazon Translate by importing an input file from Amazon S3. Parallel data files contain examples that show how you want segments of text to be translated. By adding parallel data, you can influence the style, tone, and word choice in your translation output.</p>
  
  @param request A container for the necessary parameters to execute the CreateParallelData service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -247,7 +247,7 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
 - (void)deleteTerminology:(AWSTranslateDeleteTerminologyRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets the properties associated with an asycnhronous batch translation job including name, ID, status, source and target languages, input/output S3 buckets, and so on.</p>
+ <p>Gets the properties associated with an asynchronous batch translation job including name, ID, status, source and target languages, input/output S3 buckets, and so on.</p>
  
  @param request A container for the necessary parameters to execute the DescribeTextTranslationJob service method.
 
@@ -259,7 +259,7 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
 - (AWSTask<AWSTranslateDescribeTextTranslationJobResponse *> *)describeTextTranslationJob:(AWSTranslateDescribeTextTranslationJobRequest *)request;
 
 /**
- <p>Gets the properties associated with an asycnhronous batch translation job including name, ID, status, source and target languages, input/output S3 buckets, and so on.</p>
+ <p>Gets the properties associated with an asynchronous batch translation job including name, ID, status, source and target languages, input/output S3 buckets, and so on.</p>
  
  @param request A container for the necessary parameters to execute the DescribeTextTranslationJob service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -426,7 +426,7 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
  
  @param request A container for the necessary parameters to execute the StartTextTranslationJob service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranslateStartTextTranslationJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorUnsupportedLanguagePair`, `AWSTranslateErrorInvalidRequest`, `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranslateStartTextTranslationJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorUnsupportedLanguagePair`, `AWSTranslateErrorInvalidRequest`, `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorInternalServer`.
  
  @see AWSTranslateStartTextTranslationJobRequest
  @see AWSTranslateStartTextTranslationJobResponse
@@ -439,7 +439,7 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
  @param request A container for the necessary parameters to execute the StartTextTranslationJob service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorUnsupportedLanguagePair`, `AWSTranslateErrorInvalidRequest`, `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorInternalServer`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorUnsupportedLanguagePair`, `AWSTranslateErrorInvalidRequest`, `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorInternalServer`.
  
  @see AWSTranslateStartTextTranslationJobRequest
  @see AWSTranslateStartTextTranslationJobResponse

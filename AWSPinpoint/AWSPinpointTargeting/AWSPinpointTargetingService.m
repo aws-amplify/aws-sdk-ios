@@ -25,7 +25,7 @@
 #import "AWSPinpointTargetingResources.h"
 
 static NSString *const AWSInfoPinpointTargeting = @"PinpointTargeting";
-NSString *const AWSPinpointTargetingSDKVersion = @"2.24.1";
+NSString *const AWSPinpointTargetingSDKVersion = @"2.26.7";
 
 
 @interface AWSPinpointTargetingResponseSerializer : AWSJSONResponseSerializer
@@ -423,6 +423,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSPinpointTargetingCreateImportJobResponse *response, NSError *error))completionHandler {
     [[self createImportJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingCreateImportJobResponse *> * _Nonnull task) {
         AWSPinpointTargetingCreateImportJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSPinpointTargetingCreateInAppTemplateResponse *> *)createInAppTemplate:(AWSPinpointTargetingCreateInAppTemplateRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/v1/templates/{template-name}/inapp"
+                  targetPrefix:@""
+                 operationName:@"CreateInAppTemplate"
+                   outputClass:[AWSPinpointTargetingCreateInAppTemplateResponse class]];
+}
+
+- (void)createInAppTemplate:(AWSPinpointTargetingCreateInAppTemplateRequest *)request
+     completionHandler:(void (^)(AWSPinpointTargetingCreateInAppTemplateResponse *response, NSError *error))completionHandler {
+    [[self createInAppTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingCreateInAppTemplateResponse *> * _Nonnull task) {
+        AWSPinpointTargetingCreateInAppTemplateResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -860,6 +883,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSPinpointTargetingDeleteGcmChannelResponse *response, NSError *error))completionHandler {
     [[self deleteGcmChannel:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingDeleteGcmChannelResponse *> * _Nonnull task) {
         AWSPinpointTargetingDeleteGcmChannelResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSPinpointTargetingDeleteInAppTemplateResponse *> *)deleteInAppTemplate:(AWSPinpointTargetingDeleteInAppTemplateRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/v1/templates/{template-name}/inapp"
+                  targetPrefix:@""
+                 operationName:@"DeleteInAppTemplate"
+                   outputClass:[AWSPinpointTargetingDeleteInAppTemplateResponse class]];
+}
+
+- (void)deleteInAppTemplate:(AWSPinpointTargetingDeleteInAppTemplateRequest *)request
+     completionHandler:(void (^)(AWSPinpointTargetingDeleteInAppTemplateResponse *response, NSError *error))completionHandler {
+    [[self deleteInAppTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingDeleteInAppTemplateResponse *> * _Nonnull task) {
+        AWSPinpointTargetingDeleteInAppTemplateResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1675,6 +1721,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSPinpointTargetingGetInAppMessagesResponse *> *)getInAppMessages:(AWSPinpointTargetingGetInAppMessagesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/v1/apps/{application-id}/endpoints/{endpoint-id}/inappmessages"
+                  targetPrefix:@""
+                 operationName:@"GetInAppMessages"
+                   outputClass:[AWSPinpointTargetingGetInAppMessagesResponse class]];
+}
+
+- (void)getInAppMessages:(AWSPinpointTargetingGetInAppMessagesRequest *)request
+     completionHandler:(void (^)(AWSPinpointTargetingGetInAppMessagesResponse *response, NSError *error))completionHandler {
+    [[self getInAppMessages:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingGetInAppMessagesResponse *> * _Nonnull task) {
+        AWSPinpointTargetingGetInAppMessagesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSPinpointTargetingGetInAppTemplateResponse *> *)getInAppTemplate:(AWSPinpointTargetingGetInAppTemplateRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/v1/templates/{template-name}/inapp"
+                  targetPrefix:@""
+                 operationName:@"GetInAppTemplate"
+                   outputClass:[AWSPinpointTargetingGetInAppTemplateResponse class]];
+}
+
+- (void)getInAppTemplate:(AWSPinpointTargetingGetInAppTemplateRequest *)request
+     completionHandler:(void (^)(AWSPinpointTargetingGetInAppTemplateResponse *response, NSError *error))completionHandler {
+    [[self getInAppTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingGetInAppTemplateResponse *> * _Nonnull task) {
+        AWSPinpointTargetingGetInAppTemplateResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSPinpointTargetingGetJourneyResponse *> *)getJourney:(AWSPinpointTargetingGetJourneyRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -2296,6 +2388,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSPinpointTargetingSendOTPMessageResponse *> *)sendOTPMessage:(AWSPinpointTargetingSendOTPMessageRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/v1/apps/{application-id}/otp"
+                  targetPrefix:@""
+                 operationName:@"SendOTPMessage"
+                   outputClass:[AWSPinpointTargetingSendOTPMessageResponse class]];
+}
+
+- (void)sendOTPMessage:(AWSPinpointTargetingSendOTPMessageRequest *)request
+     completionHandler:(void (^)(AWSPinpointTargetingSendOTPMessageResponse *response, NSError *error))completionHandler {
+    [[self sendOTPMessage:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingSendOTPMessageResponse *> * _Nonnull task) {
+        AWSPinpointTargetingSendOTPMessageResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSPinpointTargetingSendUsersMessagesResponse *> *)sendUsersMessages:(AWSPinpointTargetingSendUsersMessagesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -2662,6 +2777,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSPinpointTargetingUpdateInAppTemplateResponse *> *)updateInAppTemplate:(AWSPinpointTargetingUpdateInAppTemplateRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/v1/templates/{template-name}/inapp"
+                  targetPrefix:@""
+                 operationName:@"UpdateInAppTemplate"
+                   outputClass:[AWSPinpointTargetingUpdateInAppTemplateResponse class]];
+}
+
+- (void)updateInAppTemplate:(AWSPinpointTargetingUpdateInAppTemplateRequest *)request
+     completionHandler:(void (^)(AWSPinpointTargetingUpdateInAppTemplateResponse *response, NSError *error))completionHandler {
+    [[self updateInAppTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingUpdateInAppTemplateResponse *> * _Nonnull task) {
+        AWSPinpointTargetingUpdateInAppTemplateResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSPinpointTargetingUpdateJourneyResponse *> *)updateJourney:(AWSPinpointTargetingUpdateJourneyRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -2882,6 +3020,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSPinpointTargetingUpdateVoiceTemplateResponse *response, NSError *error))completionHandler {
     [[self updateVoiceTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingUpdateVoiceTemplateResponse *> * _Nonnull task) {
         AWSPinpointTargetingUpdateVoiceTemplateResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSPinpointTargetingVerifyOTPMessageResponse *> *)verifyOTPMessage:(AWSPinpointTargetingVerifyOTPMessageRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/v1/apps/{application-id}/verify-otp"
+                  targetPrefix:@""
+                 operationName:@"VerifyOTPMessage"
+                   outputClass:[AWSPinpointTargetingVerifyOTPMessageResponse class]];
+}
+
+- (void)verifyOTPMessage:(AWSPinpointTargetingVerifyOTPMessageRequest *)request
+     completionHandler:(void (^)(AWSPinpointTargetingVerifyOTPMessageResponse *response, NSError *error))completionHandler {
+    [[self verifyOTPMessage:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingVerifyOTPMessageResponse *> * _Nonnull task) {
+        AWSPinpointTargetingVerifyOTPMessageResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

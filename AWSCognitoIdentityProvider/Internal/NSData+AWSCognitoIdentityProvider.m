@@ -160,4 +160,33 @@ AWSJKBigInteger *signedBigIntegerFromNSData(NSData* data) {
     return [NSData dataWithBytesNoCopy:output length:outputLen freeWhenDone:YES];
 }
 
++ (NSData*) aws_dataFromHexidecimalString:(NSString*)hexString {
+    hexString = [[hexString lowercaseString] stringByReplacingOccurrencesOfString:@"0x" withString:@""];
+    NSData *hexStrData = [hexString dataUsingEncoding:NSASCIIStringEncoding];
+    NSUInteger len = [hexStrData length];
+    if (len % 2 != 0) {
+        return nil;
+    }
+    
+    NSUInteger outputLen = len / 2;
+    if (outputLen == 0) {
+        return [NSData data];
+    }
+    uint8_t *output = malloc(sizeof(uint8_t) * outputLen);
+    if (output == NULL) {
+        // this situation is irrecoverable and we don't want to return something corrupted, so we raise an exception (avoiding NSAssert that may be disabled)
+        [NSException raise:@"NSInternalInconsistencyException" format:@"failed malloc" arguments:nil];
+        return nil;
+    }
+    
+    const char *hexBytes = (const char*)[hexStrData bytes];
+    for (NSUInteger i = 0, j=0; i < len && j < outputLen; i += 2, j++) {
+        unsigned res;
+        sscanf(hexBytes+i, "%2x", &res);
+        output[j] = (uint8_t) (res & 0xff);
+    }
+    
+    return [NSData dataWithBytesNoCopy:output length:outputLen freeWhenDone:YES];
+}
+
 @end

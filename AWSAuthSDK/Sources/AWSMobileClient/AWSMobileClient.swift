@@ -83,8 +83,7 @@ final public class AWSMobileClient: _AWSMobileClient {
         queue.maxConcurrentOperationCount = 1
         return queue
     }()
-    internal let tokenFetchLock = DispatchGroup()
-    
+
     /// Operation Queue to make sure there is only 1 active API call which is fetching/ waiting for AWS Credentials.
     internal let credentialsFetchOperationQueue: OperationQueue = {
         var queue = OperationQueue()
@@ -92,7 +91,6 @@ final public class AWSMobileClient: _AWSMobileClient {
         queue.maxConcurrentOperationCount = 1
         return queue
     }()
-    internal let credentialsFetchLock = DispatchGroup()
     
     /// This token is invoked when the developer explicitly calls the signOut from
     /// AWSMobileClient, thus invalidating all credentials calls.
@@ -622,9 +620,6 @@ final public class AWSMobileClient: _AWSMobileClient {
         self.performHostedUISuccessfulSignInTasks(disableFederation: hostedUIOptions.disableFederation, session: session, federationToken: federationToken!, federationProviderIdentifier: federationProviderIdentifier, signInInfo: &signInInfo)
         self.mobileClientStatusChanged(userState: .signedIn, additionalInfo: signInInfo)
         completionHandler(.signedIn, nil)
-        if self.pendingGetTokensCompletion != nil {
-            self.tokenFetchLock.leave()
-        }
         self.pendingGetTokensCompletion?(self.getTokensForCognitoAuthSession(session: session), nil)
         self.pendingGetTokensCompletion = nil
     }

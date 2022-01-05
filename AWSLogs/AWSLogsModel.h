@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -65,6 +65,38 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
     AWSLogsQueryStatusComplete,
     AWSLogsQueryStatusFailed,
     AWSLogsQueryStatusCancelled,
+    AWSLogsQueryStatusTimeout,
+};
+
+typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
+    AWSLogsStandardUnitUnknown,
+    AWSLogsStandardUnitSeconds,
+    AWSLogsStandardUnitMicroseconds,
+    AWSLogsStandardUnitMilliseconds,
+    AWSLogsStandardUnitBytes,
+    AWSLogsStandardUnitKilobytes,
+    AWSLogsStandardUnitMegabytes,
+    AWSLogsStandardUnitGigabytes,
+    AWSLogsStandardUnitTerabytes,
+    AWSLogsStandardUnitBits,
+    AWSLogsStandardUnitKilobits,
+    AWSLogsStandardUnitMegabits,
+    AWSLogsStandardUnitGigabits,
+    AWSLogsStandardUnitTerabits,
+    AWSLogsStandardUnitPercent,
+    AWSLogsStandardUnitCount,
+    AWSLogsStandardUnitBytesSecond,
+    AWSLogsStandardUnitKilobytesSecond,
+    AWSLogsStandardUnitMegabytesSecond,
+    AWSLogsStandardUnitGigabytesSecond,
+    AWSLogsStandardUnitTerabytesSecond,
+    AWSLogsStandardUnitBitsSecond,
+    AWSLogsStandardUnitKilobitsSecond,
+    AWSLogsStandardUnitMegabitsSecond,
+    AWSLogsStandardUnitGigabitsSecond,
+    AWSLogsStandardUnitTerabitsSecond,
+    AWSLogsStandardUnitCountSecond,
+    AWSLogsStandardUnitNone,
 };
 
 @class AWSLogsAssociateKmsKeyRequest;
@@ -164,7 +196,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 
 
 /**
- <p>The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. This must be a symmetric CMK. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms">Amazon Resource Names - AWS Key Management Service (AWS KMS)</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric Keys</a>.</p>
+ <p>The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. This must be a symmetric CMK. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms">Amazon Resource Names - Key Management Service</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric Keys</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
@@ -195,7 +227,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 
 
 /**
- <p>The name of S3 bucket for the exported log data. The bucket must be in the same AWS region.</p>
+ <p>The name of S3 bucket for the exported log data. The bucket must be in the same Amazon Web Services region.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable destination;
 
@@ -225,7 +257,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @property (nonatomic, strong) NSString * _Nullable taskName;
 
 /**
- <p>The end time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.</p>
+ <p>The end time of the range for the request, expreswatchlogsdocused as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable to;
 
@@ -251,7 +283,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 
 
 /**
- <p>The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms">Amazon Resource Names - AWS Key Management Service (AWS KMS)</a>.</p>
+ <p>The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms">Amazon Resource Names - Key Management Service</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
@@ -261,7 +293,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
 
 /**
- <p>The key-value pairs to use for the tags.</p>
+ <p>The key-value pairs to use for the tags.</p><p>CloudWatch Logs doesn’t support IAM policies that prevent users from assigning specified tags to log groups using the <code>aws:Resource/<i>key-name</i></code> or <code>aws:TagKeys</code> condition keys. For more information about using tags to control access, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources using tags</a>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -577,7 +609,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>If the value is <code>LogStreamName</code>, the results are ordered by log stream name. If the value is <code>LastEventTime</code>, the results are ordered by the event time. The default value is <code>LogStreamName</code>.</p><p>If you order the results by event time, you cannot specify the <code>logStreamNamePrefix</code> parameter.</p><p><code>lastEventTimeStamp</code> represents the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. <code>lastEventTimeStamp</code> updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but in rare situations might take longer.</p>
+ <p>If the value is <code>LogStreamName</code>, the results are ordered by log stream name. If the value is <code>LastEventTime</code>, the results are ordered by the event time. The default value is <code>LogStreamName</code>.</p><p>If you order the results by event time, you cannot specify the <code>logStreamNamePrefix</code> parameter.</p><p><code>lastEventTimestamp</code> represents the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. <code>lastEventTimestamp</code> updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but in rare situations might take longer.</p>
  */
 @property (nonatomic, assign) AWSLogsOrderBy orderBy;
 
@@ -833,7 +865,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 
 
 /**
- <p>An IAM policy document that governs which AWS accounts can create subscription filters against this destination.</p>
+ <p>An IAM policy document that governs which Amazon Web Services accounts can create subscription filters against this destination.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable accessPolicy;
 
@@ -1013,7 +1045,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp before this time are not returned.</p><p>If you omit <code>startTime</code> and <code>endTime</code> the most recent log events are retrieved, to up 1 MB or 10,000 log events.</p>
+ <p>The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp before this time are not returned.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable startTime;
 
@@ -1102,12 +1134,12 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @property (nonatomic, strong) NSString * _Nullable logStreamName;
 
 /**
- <p>The token for the next set of items to return. (You received this token from a previous call.)</p><p>Using this token works only when you specify <code>true</code> for <code>startFromHead</code>.</p>
+ <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>If the value is true, the earliest log events are returned first. If the value is false, the latest log events are returned first. The default value is false.</p><p>If you are using <code>nextToken</code> in this operation, you must specify <code>true</code> for <code>startFromHead</code>.</p>
+ <p>If the value is true, the earliest log events are returned first. If the value is false, the latest log events are returned first. The default value is false.</p><p>If you are using a previous <code>nextForwardToken</code> value as the <code>nextToken</code> in this operation, you must specify <code>true</code> for <code>startFromHead</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable startFromHead;
 
@@ -1153,7 +1185,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
 
 /**
- <p>The time to set as the center of the query. If you specify <code>time</code>, the 8 minutes before and 8 minutes after this time are searched. If you omit <code>time</code>, the past 15 minutes are queried.</p><p>The <code>time</code> value is specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.</p>
+ <p>The time to set as the center of the query. If you specify <code>time</code>, the 15 minutes before this time are queries. If you omit <code>time</code> the 8 minutes before and 8 minutes after this time are searched.</p><p>The <code>time</code> value is specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable time;
 
@@ -1311,7 +1343,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable metricFilterCount;
 
 /**
- <p>The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.</p><p>If you omit <code>retentionInDays</code> in a <code>PutRetentionPolicy</code> operation, the events in the log group are always retained and never expire.</p>
+ <p>The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.</p><p>To set a log group to never have log events expire, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html">DeleteRetentionPolicy</a>. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable retentionInDays;
 
@@ -1457,6 +1489,11 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable defaultValue;
 
 /**
+ <p>The fields to use as dimensions for the metric. One metric filter can include as many as three dimensions.</p><important><p>Metrics extracted from log events are charged as custom metrics. To prevent unexpected high charges, do not specify high-cardinality fields such as <code>IPAddress</code> or <code>requestID</code> as dimensions. Each different value found for a dimension is treated as a separate metric and accrues charges as a separate custom metric. </p><p>To help prevent accidental high charges, Amazon disables a metric filter if it generates 1000 different name/value pairs for the dimensions that you have specified within a certain amount of time.</p><p>You can also set up a billing alarm to alert you if your charges are higher than expected. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html"> Creating a Billing Alarm to Monitor Your Estimated Amazon Web Services Charges</a>. </p></important>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable dimensions;
+
+/**
  <p>The name of the CloudWatch metric.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable metricName;
@@ -1470,6 +1507,11 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
  <p>The value to publish to the CloudWatch metric when a filter pattern matches a log event.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable metricValue;
+
+/**
+ <p>The unit to assign to the metric. If you omit this, the unit is set as <code>None</code>.</p>
+ */
+@property (nonatomic, assign) AWSLogsStandardUnit unit;
 
 @end
 
@@ -1511,6 +1553,11 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
  <p>A name for an existing destination.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable destinationName;
+
+/**
+ <p>Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts. Before you update a destination policy this way, you must first update the subscription filters in the accounts that send logs to this destination. If you do not, the subscription filters might stop working. By specifying <code>true</code> for <code>forceUpdate</code>, you are affirming that you have already updated the subscription filters. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Cross-Account-Log_Subscription-Update.html"> Updating an existing cross-account subscription</a></p><p>If you omit this parameter, the default of <code>false</code> is used.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable forceUpdate;
 
 @end
 
@@ -1672,7 +1719,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 
 
 /**
- <p>Details of the new policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. This parameter is required.</p><p>The following example creates a resource policy enabling the Route 53 service to put DNS query logs in to the specified log group. Replace <code>"logArn"</code> with the ARN of your CloudWatch Logs resource, such as a log group or log stream.</p><p><code>{ "Version": "2012-10-17", "Statement": [ { "Sid": "Route53LogsToCloudWatchLogs", "Effect": "Allow", "Principal": { "Service": [ "route53.amazonaws.com" ] }, "Action":"logs:PutLogEvents", "Resource": "logArn" } ] } </code></p>
+ <p>Details of the new policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. This parameter is required.</p><p>The following example creates a resource policy enabling the Route 53 service to put DNS query logs in to the specified log group. Replace <code>"logArn"</code> with the ARN of your CloudWatch Logs resource, such as a log group or log stream.</p><p>CloudWatch Logs also supports <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn">aws:SourceArn</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourceaccount">aws:SourceAccount</a> condition context keys.</p><p>In the example resource policy, you would replace the value of <code>SourceArn</code> with the resource making the call from Route 53 to CloudWatch Logs and replace the value of <code>SourceAccount</code> with the Amazon Web Services account ID making that call.</p><p/><p><code>{ "Version": "2012-10-17", "Statement": [ { "Sid": "Route53LogsToCloudWatchLogs", "Effect": "Allow", "Principal": { "Service": [ "route53.amazonaws.com" ] }, "Action": "logs:PutLogEvents", "Resource": "logArn", "Condition": { "ArnLike": { "aws:SourceArn": "myRoute53ResourceArn" }, "StringEquals": { "aws:SourceAccount": "myAwsAccountId" } } } ] }</code></p>
  */
 @property (nonatomic, strong) NSString * _Nullable policyDocument;
 
@@ -1708,7 +1755,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
 
 /**
- <p>The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.</p><p>If you omit <code>retentionInDays</code> in a <code>PutRetentionPolicy</code> operation, the events in the log group are always retained and never expire.</p>
+ <p>The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.</p><p>To set a log group to never have log events expire, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html">DeleteRetentionPolicy</a>. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable retentionInDays;
 
@@ -1721,7 +1768,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 
 
 /**
- <p>The ARN of the destination to deliver matching log events to. Currently, the supported destinations are:</p><ul><li><p>An Amazon Kinesis stream belonging to the same account as the subscription filter, for same-account delivery.</p></li><li><p>A logical destination (specified using an ARN) belonging to a different account, for cross-account delivery.</p></li><li><p>An Amazon Kinesis Firehose delivery stream belonging to the same account as the subscription filter, for same-account delivery.</p></li><li><p>An AWS Lambda function belonging to the same account as the subscription filter, for same-account delivery.</p></li></ul>
+ <p>The ARN of the destination to deliver matching log events to. Currently, the supported destinations are:</p><ul><li><p>An Amazon Kinesis stream belonging to the same account as the subscription filter, for same-account delivery.</p></li><li><p>A logical destination (specified using an ARN) belonging to a different account, for cross-account delivery.</p><p>If you are setting up a cross-account subscription, the destination must have an IAM policy associated with it that allows the sender to send logs to the destination. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestinationPolicy.html">PutDestinationPolicy</a>.</p></li><li><p>An Amazon Kinesis Firehose delivery stream belonging to the same account as the subscription filter, for same-account delivery.</p></li><li><p>A Lambda function belonging to the same account as the subscription filter, for same-account delivery.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable destinationArn;
 
@@ -1731,7 +1778,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @property (nonatomic, assign) AWSLogsDistribution distribution;
 
 /**
- <p>A name for the subscription filter. If you are updating an existing filter, you must specify the correct name in <code>filterName</code>. Otherwise, the call fails because you cannot associate a second filter with a log group. To find the name of the filter currently associated with a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeSubscriptionFilters.html">DescribeSubscriptionFilters</a>.</p>
+ <p>A name for the subscription filter. If you are updating an existing filter, you must specify the correct name in <code>filterName</code>. To find the name of the filter currently associated with a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeSubscriptionFilters.html">DescribeSubscriptionFilters</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable filterName;
 

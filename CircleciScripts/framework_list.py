@@ -8,7 +8,11 @@
 
 grouped_frameworks = [
     # No dependencies
-    ["AWSCore", "AWSCognitoIdentityProviderASF"],
+    ["AWSCore"],
+    [
+        # Depends only on AWSCore
+        "AWSCognitoIdentityProviderASF"
+    ],
     [
         # Depends only on AWSCognitoIdentityProviderASF
         "AWSCognitoAuth",
@@ -19,6 +23,8 @@ grouped_frameworks = [
         # Service-API packages depend only on AWSCore
         "AWSAPIGateway",
         "AWSAutoScaling",
+        "AWSChimeSDKIdentity",
+        "AWSChimeSDKMessaging",
         "AWSCloudWatch",
         "AWSComprehend",
         "AWSConnect",

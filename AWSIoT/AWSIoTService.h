@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 
 /**
- <fullname>AWS IoT</fullname><p>AWS IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p><p>The service endpoints that expose this API are listed in <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">AWS IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p><p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">AWS Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p><p>For more information about how AWS IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p><p>For information about how to use the credentials provider for AWS IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to AWS Services</a>.</p>
+ <fullname>IoT</fullname><p>IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p><p>The service endpoints that expose this API are listed in <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html">Amazon Web Services IoT Core Endpoints and Quotas</a>. You must use the endpoint for the region that has the resources you want to access.</p><p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web Services Signature Version 4</a> to sign the request is: <i>execute-api</i>.</p><p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p><p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>
  */
 @interface AWSIoT : AWSService
 
@@ -175,7 +175,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 + (void)removeIoTForKey:(NSString *)key;
 
 /**
- <p>Accepts a pending certificate transfer. The default state of the certificate is INACTIVE.</p><p>To check for pending certificate transfers, call <a>ListCertificates</a> to enumerate your certificates.</p>
+ <p>Accepts a pending certificate transfer. The default state of the certificate is INACTIVE.</p><p>To check for pending certificate transfers, call <a>ListCertificates</a> to enumerate your certificates.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AcceptCertificateTransfer</a> action.</p>
  
  @param request A container for the necessary parameters to execute the AcceptCertificateTransfer service method.
 
@@ -186,7 +186,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)acceptCertificateTransfer:(AWSIoTAcceptCertificateTransferRequest *)request;
 
 /**
- <p>Accepts a pending certificate transfer. The default state of the certificate is INACTIVE.</p><p>To check for pending certificate transfers, call <a>ListCertificates</a> to enumerate your certificates.</p>
+ <p>Accepts a pending certificate transfer. The default state of the certificate is INACTIVE.</p><p>To check for pending certificate transfers, call <a>ListCertificates</a> to enumerate your certificates.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AcceptCertificateTransfer</a> action.</p>
  
  @param request A container for the necessary parameters to execute the AcceptCertificateTransfer service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -197,7 +197,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)acceptCertificateTransfer:(AWSIoTAcceptCertificateTransferRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Adds a thing to a billing group.</p>
+ <p>Adds a thing to a billing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AddThingToBillingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the AddThingToBillingGroup service method.
 
@@ -209,7 +209,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTAddThingToBillingGroupResponse *> *)addThingToBillingGroup:(AWSIoTAddThingToBillingGroupRequest *)request;
 
 /**
- <p>Adds a thing to a billing group.</p>
+ <p>Adds a thing to a billing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AddThingToBillingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the AddThingToBillingGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -222,7 +222,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)addThingToBillingGroup:(AWSIoTAddThingToBillingGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTAddThingToBillingGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Adds a thing to a thing group.</p>
+ <p>Adds a thing to a thing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AddThingToThingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the AddThingToThingGroup service method.
 
@@ -234,7 +234,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTAddThingToThingGroupResponse *> *)addThingToThingGroup:(AWSIoTAddThingToThingGroupRequest *)request;
 
 /**
- <p>Adds a thing to a thing group.</p>
+ <p>Adds a thing to a thing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AddThingToThingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the AddThingToThingGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -247,7 +247,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)addThingToThingGroup:(AWSIoTAddThingToThingGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTAddThingToThingGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Associates a group with a continuous job. The following criteria must be met: </p><ul><li><p>The job must have been created with the <code>targetSelection</code> field set to "CONTINUOUS".</p></li><li><p>The job status must currently be "IN_PROGRESS".</p></li><li><p>The total number of targets associated with a job must not exceed 100.</p></li></ul>
+ <p>Associates a group with a continuous job. The following criteria must be met: </p><ul><li><p>The job must have been created with the <code>targetSelection</code> field set to "CONTINUOUS".</p></li><li><p>The job status must currently be "IN_PROGRESS".</p></li><li><p>The total number of targets associated with a job must not exceed 100.</p></li></ul><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AssociateTargetsWithJob</a> action.</p>
  
  @param request A container for the necessary parameters to execute the AssociateTargetsWithJob service method.
 
@@ -259,7 +259,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTAssociateTargetsWithJobResponse *> *)associateTargetsWithJob:(AWSIoTAssociateTargetsWithJobRequest *)request;
 
 /**
- <p>Associates a group with a continuous job. The following criteria must be met: </p><ul><li><p>The job must have been created with the <code>targetSelection</code> field set to "CONTINUOUS".</p></li><li><p>The job status must currently be "IN_PROGRESS".</p></li><li><p>The total number of targets associated with a job must not exceed 100.</p></li></ul>
+ <p>Associates a group with a continuous job. The following criteria must be met: </p><ul><li><p>The job must have been created with the <code>targetSelection</code> field set to "CONTINUOUS".</p></li><li><p>The job status must currently be "IN_PROGRESS".</p></li><li><p>The total number of targets associated with a job must not exceed 100.</p></li></ul><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AssociateTargetsWithJob</a> action.</p>
  
  @param request A container for the necessary parameters to execute the AssociateTargetsWithJob service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -272,7 +272,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)associateTargetsWithJob:(AWSIoTAssociateTargetsWithJobRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTAssociateTargetsWithJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Attaches a policy to the specified target.</p>
+ <p>Attaches the specified policy to the specified principal (certificate or other credential).</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachPolicy</a> action.</p>
  
  @param request A container for the necessary parameters to execute the AttachPolicy service method.
 
@@ -283,7 +283,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)attachPolicy:(AWSIoTAttachPolicyRequest *)request;
 
 /**
- <p>Attaches a policy to the specified target.</p>
+ <p>Attaches the specified policy to the specified principal (certificate or other credential).</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachPolicy</a> action.</p>
  
  @param request A container for the necessary parameters to execute the AttachPolicy service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -294,7 +294,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)attachPolicy:(AWSIoTAttachPolicyRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Attaches the specified policy to the specified principal (certificate or other credential).</p><p><b>Note:</b> This API is deprecated. Please use <a>AttachPolicy</a> instead.</p>
+ <p>Attaches the specified policy to the specified principal (certificate or other credential).</p><p><b>Note:</b> This action is deprecated. Please use <a>AttachPolicy</a> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachPrincipalPolicy</a> action.</p>
  
  @param request A container for the necessary parameters to execute the AttachPrincipalPolicy service method.
 
@@ -305,7 +305,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)attachPrincipalPolicy:(AWSIoTAttachPrincipalPolicyRequest *)request;
 
 /**
- <p>Attaches the specified policy to the specified principal (certificate or other credential).</p><p><b>Note:</b> This API is deprecated. Please use <a>AttachPolicy</a> instead.</p>
+ <p>Attaches the specified policy to the specified principal (certificate or other credential).</p><p><b>Note:</b> This action is deprecated. Please use <a>AttachPolicy</a> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachPrincipalPolicy</a> action.</p>
  
  @param request A container for the necessary parameters to execute the AttachPrincipalPolicy service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -316,7 +316,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)attachPrincipalPolicy:(AWSIoTAttachPrincipalPolicyRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Associates a Device Defender security profile with a thing group or this account. Each thing group or account can have up to five security profiles associated with it.</p>
+ <p>Associates a Device Defender security profile with a thing group or this account. Each thing group or account can have up to five security profiles associated with it.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachSecurityProfile</a> action.</p>
  
  @param request A container for the necessary parameters to execute the AttachSecurityProfile service method.
 
@@ -328,7 +328,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTAttachSecurityProfileResponse *> *)attachSecurityProfile:(AWSIoTAttachSecurityProfileRequest *)request;
 
 /**
- <p>Associates a Device Defender security profile with a thing group or this account. Each thing group or account can have up to five security profiles associated with it.</p>
+ <p>Associates a Device Defender security profile with a thing group or this account. Each thing group or account can have up to five security profiles associated with it.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachSecurityProfile</a> action.</p>
  
  @param request A container for the necessary parameters to execute the AttachSecurityProfile service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -341,7 +341,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)attachSecurityProfile:(AWSIoTAttachSecurityProfileRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTAttachSecurityProfileResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Attaches the specified principal to the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.</p>
+ <p>Attaches the specified principal to the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachThingPrincipal</a> action.</p>
  
  @param request A container for the necessary parameters to execute the AttachThingPrincipal service method.
 
@@ -353,7 +353,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTAttachThingPrincipalResponse *> *)attachThingPrincipal:(AWSIoTAttachThingPrincipalRequest *)request;
 
 /**
- <p>Attaches the specified principal to the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.</p>
+ <p>Attaches the specified principal to the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachThingPrincipal</a> action.</p>
  
  @param request A container for the necessary parameters to execute the AttachThingPrincipal service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -366,7 +366,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)attachThingPrincipal:(AWSIoTAttachThingPrincipalRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTAttachThingPrincipalResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Cancels a mitigation action task that is in progress. If the task is not in progress, an InvalidRequestException occurs.</p>
+ <p>Cancels a mitigation action task that is in progress. If the task is not in progress, an InvalidRequestException occurs.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelAuditMitigationActionsTask</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CancelAuditMitigationActionsTask service method.
 
@@ -378,7 +378,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCancelAuditMitigationActionsTaskResponse *> *)cancelAuditMitigationActionsTask:(AWSIoTCancelAuditMitigationActionsTaskRequest *)request;
 
 /**
- <p>Cancels a mitigation action task that is in progress. If the task is not in progress, an InvalidRequestException occurs.</p>
+ <p>Cancels a mitigation action task that is in progress. If the task is not in progress, an InvalidRequestException occurs.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelAuditMitigationActionsTask</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CancelAuditMitigationActionsTask service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -391,7 +391,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)cancelAuditMitigationActionsTask:(AWSIoTCancelAuditMitigationActionsTaskRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCancelAuditMitigationActionsTaskResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Cancels an audit that is in progress. The audit can be either scheduled or on demand. If the audit isn't in progress, an "InvalidRequestException" occurs.</p>
+ <p>Cancels an audit that is in progress. The audit can be either scheduled or on demand. If the audit isn't in progress, an "InvalidRequestException" occurs.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelAuditTask</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CancelAuditTask service method.
 
@@ -403,7 +403,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCancelAuditTaskResponse *> *)cancelAuditTask:(AWSIoTCancelAuditTaskRequest *)request;
 
 /**
- <p>Cancels an audit that is in progress. The audit can be either scheduled or on demand. If the audit isn't in progress, an "InvalidRequestException" occurs.</p>
+ <p>Cancels an audit that is in progress. The audit can be either scheduled or on demand. If the audit isn't in progress, an "InvalidRequestException" occurs.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelAuditTask</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CancelAuditTask service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -416,7 +416,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)cancelAuditTask:(AWSIoTCancelAuditTaskRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCancelAuditTaskResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Cancels a pending transfer for the specified certificate.</p><p><b>Note</b> Only the transfer source account can use this operation to cancel a transfer. (Transfer destinations can use <a>RejectCertificateTransfer</a> instead.) After transfer, AWS IoT returns the certificate to the source account in the INACTIVE state. After the destination account has accepted the transfer, the transfer cannot be cancelled.</p><p>After a certificate transfer is cancelled, the status of the certificate changes from PENDING_TRANSFER to INACTIVE.</p>
+ <p>Cancels a pending transfer for the specified certificate.</p><p><b>Note</b> Only the transfer source account can use this operation to cancel a transfer. (Transfer destinations can use <a>RejectCertificateTransfer</a> instead.) After transfer, IoT returns the certificate to the source account in the INACTIVE state. After the destination account has accepted the transfer, the transfer cannot be cancelled.</p><p>After a certificate transfer is cancelled, the status of the certificate changes from PENDING_TRANSFER to INACTIVE.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelCertificateTransfer</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CancelCertificateTransfer service method.
 
@@ -427,7 +427,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)cancelCertificateTransfer:(AWSIoTCancelCertificateTransferRequest *)request;
 
 /**
- <p>Cancels a pending transfer for the specified certificate.</p><p><b>Note</b> Only the transfer source account can use this operation to cancel a transfer. (Transfer destinations can use <a>RejectCertificateTransfer</a> instead.) After transfer, AWS IoT returns the certificate to the source account in the INACTIVE state. After the destination account has accepted the transfer, the transfer cannot be cancelled.</p><p>After a certificate transfer is cancelled, the status of the certificate changes from PENDING_TRANSFER to INACTIVE.</p>
+ <p>Cancels a pending transfer for the specified certificate.</p><p><b>Note</b> Only the transfer source account can use this operation to cancel a transfer. (Transfer destinations can use <a>RejectCertificateTransfer</a> instead.) After transfer, IoT returns the certificate to the source account in the INACTIVE state. After the destination account has accepted the transfer, the transfer cannot be cancelled.</p><p>After a certificate transfer is cancelled, the status of the certificate changes from PENDING_TRANSFER to INACTIVE.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelCertificateTransfer</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CancelCertificateTransfer service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -438,7 +438,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)cancelCertificateTransfer:(AWSIoTCancelCertificateTransferRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p> Cancels a Device Defender ML Detect mitigation action. </p>
+ <p> Cancels a Device Defender ML Detect mitigation action. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelDetectMitigationActionsTask</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CancelDetectMitigationActionsTask service method.
 
@@ -450,7 +450,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCancelDetectMitigationActionsTaskResponse *> *)cancelDetectMitigationActionsTask:(AWSIoTCancelDetectMitigationActionsTaskRequest *)request;
 
 /**
- <p> Cancels a Device Defender ML Detect mitigation action. </p>
+ <p> Cancels a Device Defender ML Detect mitigation action. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelDetectMitigationActionsTask</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CancelDetectMitigationActionsTask service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -463,7 +463,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)cancelDetectMitigationActionsTask:(AWSIoTCancelDetectMitigationActionsTaskRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCancelDetectMitigationActionsTaskResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Cancels a job.</p>
+ <p>Cancels a job.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelJob</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CancelJob service method.
 
@@ -475,7 +475,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCancelJobResponse *> *)cancelJob:(AWSIoTCancelJobRequest *)request;
 
 /**
- <p>Cancels a job.</p>
+ <p>Cancels a job.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelJob</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CancelJob service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -488,7 +488,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)cancelJob:(AWSIoTCancelJobRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCancelJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Cancels the execution of a job for a given thing.</p>
+ <p>Cancels the execution of a job for a given thing.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelJobExecution</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CancelJobExecution service method.
 
@@ -499,7 +499,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)cancelJobExecution:(AWSIoTCancelJobExecutionRequest *)request;
 
 /**
- <p>Cancels the execution of a job for a given thing.</p>
+ <p>Cancels the execution of a job for a given thing.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelJobExecution</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CancelJobExecution service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -510,7 +510,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)cancelJobExecution:(AWSIoTCancelJobExecutionRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Clears the default authorizer.</p>
+ <p>Clears the default authorizer.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ClearDefaultAuthorizer</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ClearDefaultAuthorizer service method.
 
@@ -522,7 +522,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTClearDefaultAuthorizerResponse *> *)clearDefaultAuthorizer:(AWSIoTClearDefaultAuthorizerRequest *)request;
 
 /**
- <p>Clears the default authorizer.</p>
+ <p>Clears the default authorizer.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ClearDefaultAuthorizer</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ClearDefaultAuthorizer service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -535,7 +535,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)clearDefaultAuthorizer:(AWSIoTClearDefaultAuthorizerRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTClearDefaultAuthorizerResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Confirms a topic rule destination. When you create a rule requiring a destination, AWS IoT sends a confirmation message to the endpoint or base address you specify. The message includes a token which you pass back when calling <code>ConfirmTopicRuleDestination</code> to confirm that you own or have access to the endpoint.</p>
+ <p>Confirms a topic rule destination. When you create a rule requiring a destination, IoT sends a confirmation message to the endpoint or base address you specify. The message includes a token which you pass back when calling <code>ConfirmTopicRuleDestination</code> to confirm that you own or have access to the endpoint.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ConfirmTopicRuleDestination</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ConfirmTopicRuleDestination service method.
 
@@ -547,7 +547,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTConfirmTopicRuleDestinationResponse *> *)confirmTopicRuleDestination:(AWSIoTConfirmTopicRuleDestinationRequest *)request;
 
 /**
- <p>Confirms a topic rule destination. When you create a rule requiring a destination, AWS IoT sends a confirmation message to the endpoint or base address you specify. The message includes a token which you pass back when calling <code>ConfirmTopicRuleDestination</code> to confirm that you own or have access to the endpoint.</p>
+ <p>Confirms a topic rule destination. When you create a rule requiring a destination, IoT sends a confirmation message to the endpoint or base address you specify. The message includes a token which you pass back when calling <code>ConfirmTopicRuleDestination</code> to confirm that you own or have access to the endpoint.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ConfirmTopicRuleDestination</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ConfirmTopicRuleDestination service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -560,7 +560,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)confirmTopicRuleDestination:(AWSIoTConfirmTopicRuleDestinationRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTConfirmTopicRuleDestinationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Creates a Device Defender audit suppression. </p>
+ <p> Creates a Device Defender audit suppression. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateAuditSuppression</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateAuditSuppression service method.
 
@@ -572,7 +572,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateAuditSuppressionResponse *> *)createAuditSuppression:(AWSIoTCreateAuditSuppressionRequest *)request;
 
 /**
- <p> Creates a Device Defender audit suppression. </p>
+ <p> Creates a Device Defender audit suppression. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateAuditSuppression</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateAuditSuppression service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -585,7 +585,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createAuditSuppression:(AWSIoTCreateAuditSuppressionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateAuditSuppressionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates an authorizer.</p>
+ <p>Creates an authorizer.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateAuthorizer</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateAuthorizer service method.
 
@@ -597,7 +597,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateAuthorizerResponse *> *)createAuthorizer:(AWSIoTCreateAuthorizerRequest *)request;
 
 /**
- <p>Creates an authorizer.</p>
+ <p>Creates an authorizer.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateAuthorizer</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateAuthorizer service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -610,7 +610,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createAuthorizer:(AWSIoTCreateAuthorizerRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateAuthorizerResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a billing group.</p>
+ <p>Creates a billing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateBillingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateBillingGroup service method.
 
@@ -622,7 +622,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateBillingGroupResponse *> *)createBillingGroup:(AWSIoTCreateBillingGroupRequest *)request;
 
 /**
- <p>Creates a billing group.</p>
+ <p>Creates a billing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateBillingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateBillingGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -635,7 +635,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createBillingGroup:(AWSIoTCreateBillingGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateBillingGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates an X.509 certificate using the specified certificate signing request.</p><p><b>Note:</b> The CSR must include a public key that is either an RSA key with a length of at least 2048 bits or an ECC key from NIST P-256 or NIST P-384 curves. </p><p><b>Note:</b> Reusing the same certificate signing request (CSR) results in a distinct certificate.</p><p>You can create multiple certificates in a batch by creating a directory, copying multiple .csr files into that directory, and then specifying that directory on the command line. The following commands show how to create a batch of certificates given a batch of CSRs.</p><p>Assuming a set of CSRs are located inside of the directory my-csr-directory:</p><p>On Linux and OS X, the command is:</p><p>$ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</p><p>This command lists all of the CSRs in my-csr-directory and pipes each CSR file name to the aws iot create-certificate-from-csr AWS CLI command to create a certificate for the corresponding CSR.</p><p>The aws iot create-certificate-from-csr part of the command can also be run in parallel to speed up the certificate creation process:</p><p>$ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</p><p>On Windows PowerShell, the command to create certificates for all CSRs in my-csr-directory is:</p><p>&gt; ls -Name my-csr-directory | %{aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/$_}</p><p>On a Windows command prompt, the command to create certificates for all CSRs in my-csr-directory is:</p><p>&gt; forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr --certificate-signing-request file://@path"</p>
+ <p>Creates an X.509 certificate using the specified certificate signing request.</p><p><b>Note:</b> The CSR must include a public key that is either an RSA key with a length of at least 2048 bits or an ECC key from NIST P-256 or NIST P-384 curves. </p><p><b>Note:</b> Reusing the same certificate signing request (CSR) results in a distinct certificate.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateCertificateFromCsr</a> action.</p><p>You can create multiple certificates in a batch by creating a directory, copying multiple .csr files into that directory, and then specifying that directory on the command line. The following commands show how to create a batch of certificates given a batch of CSRs.</p><p>Assuming a set of CSRs are located inside of the directory my-csr-directory:</p><p>On Linux and OS X, the command is:</p><p>$ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</p><p>This command lists all of the CSRs in my-csr-directory and pipes each CSR file name to the aws iot create-certificate-from-csr Amazon Web Services CLI command to create a certificate for the corresponding CSR.</p><p>The aws iot create-certificate-from-csr part of the command can also be run in parallel to speed up the certificate creation process:</p><p>$ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</p><p>On Windows PowerShell, the command to create certificates for all CSRs in my-csr-directory is:</p><p>&gt; ls -Name my-csr-directory | %{aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/$_}</p><p>On a Windows command prompt, the command to create certificates for all CSRs in my-csr-directory is:</p><p>&gt; forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr --certificate-signing-request file://@path"</p>
  
  @param request A container for the necessary parameters to execute the CreateCertificateFromCsr service method.
 
@@ -647,7 +647,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateCertificateFromCsrResponse *> *)createCertificateFromCsr:(AWSIoTCreateCertificateFromCsrRequest *)request;
 
 /**
- <p>Creates an X.509 certificate using the specified certificate signing request.</p><p><b>Note:</b> The CSR must include a public key that is either an RSA key with a length of at least 2048 bits or an ECC key from NIST P-256 or NIST P-384 curves. </p><p><b>Note:</b> Reusing the same certificate signing request (CSR) results in a distinct certificate.</p><p>You can create multiple certificates in a batch by creating a directory, copying multiple .csr files into that directory, and then specifying that directory on the command line. The following commands show how to create a batch of certificates given a batch of CSRs.</p><p>Assuming a set of CSRs are located inside of the directory my-csr-directory:</p><p>On Linux and OS X, the command is:</p><p>$ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</p><p>This command lists all of the CSRs in my-csr-directory and pipes each CSR file name to the aws iot create-certificate-from-csr AWS CLI command to create a certificate for the corresponding CSR.</p><p>The aws iot create-certificate-from-csr part of the command can also be run in parallel to speed up the certificate creation process:</p><p>$ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</p><p>On Windows PowerShell, the command to create certificates for all CSRs in my-csr-directory is:</p><p>&gt; ls -Name my-csr-directory | %{aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/$_}</p><p>On a Windows command prompt, the command to create certificates for all CSRs in my-csr-directory is:</p><p>&gt; forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr --certificate-signing-request file://@path"</p>
+ <p>Creates an X.509 certificate using the specified certificate signing request.</p><p><b>Note:</b> The CSR must include a public key that is either an RSA key with a length of at least 2048 bits or an ECC key from NIST P-256 or NIST P-384 curves. </p><p><b>Note:</b> Reusing the same certificate signing request (CSR) results in a distinct certificate.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateCertificateFromCsr</a> action.</p><p>You can create multiple certificates in a batch by creating a directory, copying multiple .csr files into that directory, and then specifying that directory on the command line. The following commands show how to create a batch of certificates given a batch of CSRs.</p><p>Assuming a set of CSRs are located inside of the directory my-csr-directory:</p><p>On Linux and OS X, the command is:</p><p>$ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</p><p>This command lists all of the CSRs in my-csr-directory and pipes each CSR file name to the aws iot create-certificate-from-csr Amazon Web Services CLI command to create a certificate for the corresponding CSR.</p><p>The aws iot create-certificate-from-csr part of the command can also be run in parallel to speed up the certificate creation process:</p><p>$ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</p><p>On Windows PowerShell, the command to create certificates for all CSRs in my-csr-directory is:</p><p>&gt; ls -Name my-csr-directory | %{aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/$_}</p><p>On a Windows command prompt, the command to create certificates for all CSRs in my-csr-directory is:</p><p>&gt; forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr --certificate-signing-request file://@path"</p>
  
  @param request A container for the necessary parameters to execute the CreateCertificateFromCsr service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -660,7 +660,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createCertificateFromCsr:(AWSIoTCreateCertificateFromCsrRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateCertificateFromCsrResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Use this API to define a Custom Metric published by your devices to Device Defender. </p>
+ <p> Use this API to define a Custom Metric published by your devices to Device Defender. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateCustomMetric</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateCustomMetric service method.
 
@@ -672,7 +672,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateCustomMetricResponse *> *)createCustomMetric:(AWSIoTCreateCustomMetricRequest *)request;
 
 /**
- <p> Use this API to define a Custom Metric published by your devices to Device Defender. </p>
+ <p> Use this API to define a Custom Metric published by your devices to Device Defender. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateCustomMetric</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateCustomMetric service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -685,7 +685,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createCustomMetric:(AWSIoTCreateCustomMetricRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateCustomMetricResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Create a dimension that you can use to limit the scope of a metric used in a security profile for AWS IoT Device Defender. For example, using a <code>TOPIC_FILTER</code> dimension, you can narrow down the scope of the metric only to MQTT topics whose name match the pattern specified in the dimension.</p>
+ <p>Create a dimension that you can use to limit the scope of a metric used in a security profile for IoT Device Defender. For example, using a <code>TOPIC_FILTER</code> dimension, you can narrow down the scope of the metric only to MQTT topics whose name match the pattern specified in the dimension.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateDimension</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateDimension service method.
 
@@ -697,7 +697,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateDimensionResponse *> *)createDimension:(AWSIoTCreateDimensionRequest *)request;
 
 /**
- <p>Create a dimension that you can use to limit the scope of a metric used in a security profile for AWS IoT Device Defender. For example, using a <code>TOPIC_FILTER</code> dimension, you can narrow down the scope of the metric only to MQTT topics whose name match the pattern specified in the dimension.</p>
+ <p>Create a dimension that you can use to limit the scope of a metric used in a security profile for IoT Device Defender. For example, using a <code>TOPIC_FILTER</code> dimension, you can narrow down the scope of the metric only to MQTT topics whose name match the pattern specified in the dimension.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateDimension</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateDimension service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -710,7 +710,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createDimension:(AWSIoTCreateDimensionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateDimensionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a domain configuration.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note>
+ <p>Creates a domain configuration.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateDomainConfiguration</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateDomainConfiguration service method.
 
@@ -722,7 +722,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateDomainConfigurationResponse *> *)createDomainConfiguration:(AWSIoTCreateDomainConfigurationRequest *)request;
 
 /**
- <p>Creates a domain configuration.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note>
+ <p>Creates a domain configuration.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateDomainConfiguration</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateDomainConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -735,7 +735,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createDomainConfiguration:(AWSIoTCreateDomainConfigurationRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateDomainConfigurationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a dynamic thing group.</p>
+ <p>Creates a dynamic thing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateDynamicThingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateDynamicThingGroup service method.
 
@@ -747,7 +747,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateDynamicThingGroupResponse *> *)createDynamicThingGroup:(AWSIoTCreateDynamicThingGroupRequest *)request;
 
 /**
- <p>Creates a dynamic thing group.</p>
+ <p>Creates a dynamic thing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateDynamicThingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateDynamicThingGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -760,7 +760,32 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createDynamicThingGroup:(AWSIoTCreateDynamicThingGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateDynamicThingGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a job.</p>
+ <p>Creates a fleet metric.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateFleetMetric</a> action.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateFleetMetric service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTCreateFleetMetricResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`, `AWSIoTErrorLimitExceeded`, `AWSIoTErrorResourceAlreadyExists`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorInvalidQuery`, `AWSIoTErrorInvalidAggregation`, `AWSIoTErrorIndexNotReady`.
+ 
+ @see AWSIoTCreateFleetMetricRequest
+ @see AWSIoTCreateFleetMetricResponse
+ */
+- (AWSTask<AWSIoTCreateFleetMetricResponse *> *)createFleetMetric:(AWSIoTCreateFleetMetricRequest *)request;
+
+/**
+ <p>Creates a fleet metric.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateFleetMetric</a> action.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateFleetMetric service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`, `AWSIoTErrorLimitExceeded`, `AWSIoTErrorResourceAlreadyExists`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorInvalidQuery`, `AWSIoTErrorInvalidAggregation`, `AWSIoTErrorIndexNotReady`.
+ 
+ @see AWSIoTCreateFleetMetricRequest
+ @see AWSIoTCreateFleetMetricResponse
+ */
+- (void)createFleetMetric:(AWSIoTCreateFleetMetricRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateFleetMetricResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Creates a job.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateJob</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateJob service method.
 
@@ -772,7 +797,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateJobResponse *> *)createJob:(AWSIoTCreateJobRequest *)request;
 
 /**
- <p>Creates a job.</p>
+ <p>Creates a job.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateJob</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateJob service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -785,7 +810,32 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createJob:(AWSIoTCreateJobRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued public key. You can also call <code>CreateKeysAndCertificate</code> over MQTT from a device, for more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html#provision-mqtt-api">Provisioning MQTT API</a>.</p><p><b>Note</b> This is the only time AWS IoT issues the private key for this certificate, so it is important to keep it in a secure location.</p>
+ <p>Creates a job template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateJobTemplate</a> action.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateJobTemplate service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTCreateJobTemplateResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorConflict`, `AWSIoTErrorLimitExceeded`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTCreateJobTemplateRequest
+ @see AWSIoTCreateJobTemplateResponse
+ */
+- (AWSTask<AWSIoTCreateJobTemplateResponse *> *)createJobTemplate:(AWSIoTCreateJobTemplateRequest *)request;
+
+/**
+ <p>Creates a job template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateJobTemplate</a> action.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateJobTemplate service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorConflict`, `AWSIoTErrorLimitExceeded`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTCreateJobTemplateRequest
+ @see AWSIoTCreateJobTemplateResponse
+ */
+- (void)createJobTemplate:(AWSIoTCreateJobTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateJobTemplateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued public key. You can also call <code>CreateKeysAndCertificate</code> over MQTT from a device, for more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html#provision-mqtt-api">Provisioning MQTT API</a>.</p><p><b>Note</b> This is the only time IoT issues the private key for this certificate, so it is important to keep it in a secure location.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateKeysAndCertificate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateKeysAndCertificate service method.
 
@@ -797,7 +847,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateKeysAndCertificateResponse *> *)createKeysAndCertificate:(AWSIoTCreateKeysAndCertificateRequest *)request;
 
 /**
- <p>Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued public key. You can also call <code>CreateKeysAndCertificate</code> over MQTT from a device, for more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html#provision-mqtt-api">Provisioning MQTT API</a>.</p><p><b>Note</b> This is the only time AWS IoT issues the private key for this certificate, so it is important to keep it in a secure location.</p>
+ <p>Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued public key. You can also call <code>CreateKeysAndCertificate</code> over MQTT from a device, for more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html#provision-mqtt-api">Provisioning MQTT API</a>.</p><p><b>Note</b> This is the only time IoT issues the private key for this certificate, so it is important to keep it in a secure location.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateKeysAndCertificate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateKeysAndCertificate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -810,7 +860,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createKeysAndCertificate:(AWSIoTCreateKeysAndCertificateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateKeysAndCertificateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Defines an action that can be applied to audit findings by using StartAuditMitigationActionsTask. Only certain types of mitigation actions can be applied to specific check names. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-mitigation-actions.html">Mitigation actions</a>. Each mitigation action can apply only one type of change.</p>
+ <p>Defines an action that can be applied to audit findings by using StartAuditMitigationActionsTask. Only certain types of mitigation actions can be applied to specific check names. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-mitigation-actions.html">Mitigation actions</a>. Each mitigation action can apply only one type of change.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateMitigationAction</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateMitigationAction service method.
 
@@ -822,7 +872,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateMitigationActionResponse *> *)createMitigationAction:(AWSIoTCreateMitigationActionRequest *)request;
 
 /**
- <p>Defines an action that can be applied to audit findings by using StartAuditMitigationActionsTask. Only certain types of mitigation actions can be applied to specific check names. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-mitigation-actions.html">Mitigation actions</a>. Each mitigation action can apply only one type of change.</p>
+ <p>Defines an action that can be applied to audit findings by using StartAuditMitigationActionsTask. Only certain types of mitigation actions can be applied to specific check names. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-mitigation-actions.html">Mitigation actions</a>. Each mitigation action can apply only one type of change.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateMitigationAction</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateMitigationAction service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -835,7 +885,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createMitigationAction:(AWSIoTCreateMitigationActionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateMitigationActionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates an AWS IoT OTAUpdate on a target group of things or groups.</p>
+ <p>Creates an IoT OTA update on a target group of things or groups.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateOTAUpdate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateOTAUpdate service method.
 
@@ -847,7 +897,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateOTAUpdateResponse *> *)createOTAUpdate:(AWSIoTCreateOTAUpdateRequest *)request;
 
 /**
- <p>Creates an AWS IoT OTAUpdate on a target group of things or groups.</p>
+ <p>Creates an IoT OTA update on a target group of things or groups.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateOTAUpdate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateOTAUpdate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -860,7 +910,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createOTAUpdate:(AWSIoTCreateOTAUpdateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateOTAUpdateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates an AWS IoT policy.</p><p>The created policy is the default version for the policy. This operation creates a policy version with a version identifier of <b>1</b> and sets <b>1</b> as the policy's default version.</p>
+ <p>Creates an IoT policy.</p><p>The created policy is the default version for the policy. This operation creates a policy version with a version identifier of <b>1</b> and sets <b>1</b> as the policy's default version.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreatePolicy</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreatePolicy service method.
 
@@ -872,7 +922,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreatePolicyResponse *> *)createPolicy:(AWSIoTCreatePolicyRequest *)request;
 
 /**
- <p>Creates an AWS IoT policy.</p><p>The created policy is the default version for the policy. This operation creates a policy version with a version identifier of <b>1</b> and sets <b>1</b> as the policy's default version.</p>
+ <p>Creates an IoT policy.</p><p>The created policy is the default version for the policy. This operation creates a policy version with a version identifier of <b>1</b> and sets <b>1</b> as the policy's default version.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreatePolicy</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreatePolicy service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -885,7 +935,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createPolicy:(AWSIoTCreatePolicyRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreatePolicyResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a new version of the specified AWS IoT policy. To update a policy, create a new policy version. A managed policy can have up to five versions. If the policy has five versions, you must use <a>DeletePolicyVersion</a> to delete an existing version before you create a new one.</p><p>Optionally, you can set the new version as the policy's default version. The default version is the operative version (that is, the version that is in effect for the certificates to which the policy is attached).</p>
+ <p>Creates a new version of the specified IoT policy. To update a policy, create a new policy version. A managed policy can have up to five versions. If the policy has five versions, you must use <a>DeletePolicyVersion</a> to delete an existing version before you create a new one.</p><p>Optionally, you can set the new version as the policy's default version. The default version is the operative version (that is, the version that is in effect for the certificates to which the policy is attached).</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreatePolicyVersion</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreatePolicyVersion service method.
 
@@ -897,7 +947,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreatePolicyVersionResponse *> *)createPolicyVersion:(AWSIoTCreatePolicyVersionRequest *)request;
 
 /**
- <p>Creates a new version of the specified AWS IoT policy. To update a policy, create a new policy version. A managed policy can have up to five versions. If the policy has five versions, you must use <a>DeletePolicyVersion</a> to delete an existing version before you create a new one.</p><p>Optionally, you can set the new version as the policy's default version. The default version is the operative version (that is, the version that is in effect for the certificates to which the policy is attached).</p>
+ <p>Creates a new version of the specified IoT policy. To update a policy, create a new policy version. A managed policy can have up to five versions. If the policy has five versions, you must use <a>DeletePolicyVersion</a> to delete an existing version before you create a new one.</p><p>Optionally, you can set the new version as the policy's default version. The default version is the operative version (that is, the version that is in effect for the certificates to which the policy is attached).</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreatePolicyVersion</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreatePolicyVersion service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -910,7 +960,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createPolicyVersion:(AWSIoTCreatePolicyVersionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreatePolicyVersionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a provisioning claim.</p>
+ <p>Creates a provisioning claim.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningClaim</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateProvisioningClaim service method.
 
@@ -922,7 +972,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateProvisioningClaimResponse *> *)createProvisioningClaim:(AWSIoTCreateProvisioningClaimRequest *)request;
 
 /**
- <p>Creates a provisioning claim.</p>
+ <p>Creates a provisioning claim.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningClaim</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateProvisioningClaim service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -935,7 +985,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createProvisioningClaim:(AWSIoTCreateProvisioningClaimRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateProvisioningClaimResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a fleet provisioning template.</p>
+ <p>Creates a fleet provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningTemplate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateProvisioningTemplate service method.
 
@@ -947,7 +997,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateProvisioningTemplateResponse *> *)createProvisioningTemplate:(AWSIoTCreateProvisioningTemplateRequest *)request;
 
 /**
- <p>Creates a fleet provisioning template.</p>
+ <p>Creates a fleet provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningTemplate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateProvisioningTemplate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -960,7 +1010,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createProvisioningTemplate:(AWSIoTCreateProvisioningTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateProvisioningTemplateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a new version of a fleet provisioning template.</p>
+ <p>Creates a new version of a fleet provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningTemplateVersion</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateProvisioningTemplateVersion service method.
 
@@ -972,7 +1022,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateProvisioningTemplateVersionResponse *> *)createProvisioningTemplateVersion:(AWSIoTCreateProvisioningTemplateVersionRequest *)request;
 
 /**
- <p>Creates a new version of a fleet provisioning template.</p>
+ <p>Creates a new version of a fleet provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningTemplateVersion</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateProvisioningTemplateVersion service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -985,7 +1035,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createProvisioningTemplateVersion:(AWSIoTCreateProvisioningTemplateVersionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateProvisioningTemplateVersionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a role alias.</p>
+ <p>Creates a role alias.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateRoleAlias</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateRoleAlias service method.
 
@@ -997,7 +1047,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateRoleAliasResponse *> *)createRoleAlias:(AWSIoTCreateRoleAliasRequest *)request;
 
 /**
- <p>Creates a role alias.</p>
+ <p>Creates a role alias.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateRoleAlias</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateRoleAlias service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1010,7 +1060,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createRoleAlias:(AWSIoTCreateRoleAliasRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateRoleAliasResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a scheduled audit that is run at a specified time interval.</p>
+ <p>Creates a scheduled audit that is run at a specified time interval.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateScheduledAudit</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateScheduledAudit service method.
 
@@ -1022,7 +1072,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateScheduledAuditResponse *> *)createScheduledAudit:(AWSIoTCreateScheduledAuditRequest *)request;
 
 /**
- <p>Creates a scheduled audit that is run at a specified time interval.</p>
+ <p>Creates a scheduled audit that is run at a specified time interval.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateScheduledAudit</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateScheduledAudit service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1035,7 +1085,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createScheduledAudit:(AWSIoTCreateScheduledAuditRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateScheduledAuditResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a Device Defender security profile.</p>
+ <p>Creates a Device Defender security profile.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateSecurityProfile</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateSecurityProfile service method.
 
@@ -1047,7 +1097,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateSecurityProfileResponse *> *)createSecurityProfile:(AWSIoTCreateSecurityProfileRequest *)request;
 
 /**
- <p>Creates a Device Defender security profile.</p>
+ <p>Creates a Device Defender security profile.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateSecurityProfile</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateSecurityProfile service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1060,7 +1110,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createSecurityProfile:(AWSIoTCreateSecurityProfileRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateSecurityProfileResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a stream for delivering one or more large files in chunks over MQTT. A stream transports data bytes in chunks or blocks packaged as MQTT messages from a source like S3. You can have one or more files associated with a stream.</p>
+ <p>Creates a stream for delivering one or more large files in chunks over MQTT. A stream transports data bytes in chunks or blocks packaged as MQTT messages from a source like S3. You can have one or more files associated with a stream.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateStream</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateStream service method.
 
@@ -1072,7 +1122,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateStreamResponse *> *)createStream:(AWSIoTCreateStreamRequest *)request;
 
 /**
- <p>Creates a stream for delivering one or more large files in chunks over MQTT. A stream transports data bytes in chunks or blocks packaged as MQTT messages from a source like S3. You can have one or more files associated with a stream.</p>
+ <p>Creates a stream for delivering one or more large files in chunks over MQTT. A stream transports data bytes in chunks or blocks packaged as MQTT messages from a source like S3. You can have one or more files associated with a stream.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateStream</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateStream service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1085,7 +1135,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createStream:(AWSIoTCreateStreamRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateStreamResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a thing record in the registry. If this call is made multiple times using the same thing name and configuration, the call will succeed. If this call is made with the same thing name but different configuration a <code>ResourceAlreadyExistsException</code> is thrown.</p><note><p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html">Authorization</a> for information about authorizing control plane actions.</p></note>
+ <p>Creates a thing record in the registry. If this call is made multiple times using the same thing name and configuration, the call will succeed. If this call is made with the same thing name but different configuration a <code>ResourceAlreadyExistsException</code> is thrown.</p><note><p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html">Authorization</a> for information about authorizing control plane actions.</p></note><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateThing</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateThing service method.
 
@@ -1097,7 +1147,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateThingResponse *> *)createThing:(AWSIoTCreateThingRequest *)request;
 
 /**
- <p>Creates a thing record in the registry. If this call is made multiple times using the same thing name and configuration, the call will succeed. If this call is made with the same thing name but different configuration a <code>ResourceAlreadyExistsException</code> is thrown.</p><note><p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html">Authorization</a> for information about authorizing control plane actions.</p></note>
+ <p>Creates a thing record in the registry. If this call is made multiple times using the same thing name and configuration, the call will succeed. If this call is made with the same thing name but different configuration a <code>ResourceAlreadyExistsException</code> is thrown.</p><note><p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html">Authorization</a> for information about authorizing control plane actions.</p></note><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateThing</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateThing service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1110,7 +1160,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createThing:(AWSIoTCreateThingRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateThingResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Create a thing group.</p><note><p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html">Authorization</a> for information about authorizing control plane actions.</p></note>
+ <p>Create a thing group.</p><note><p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html">Authorization</a> for information about authorizing control plane actions.</p></note><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateThingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateThingGroup service method.
 
@@ -1122,7 +1172,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateThingGroupResponse *> *)createThingGroup:(AWSIoTCreateThingGroupRequest *)request;
 
 /**
- <p>Create a thing group.</p><note><p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html">Authorization</a> for information about authorizing control plane actions.</p></note>
+ <p>Create a thing group.</p><note><p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html">Authorization</a> for information about authorizing control plane actions.</p></note><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateThingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateThingGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1135,7 +1185,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createThingGroup:(AWSIoTCreateThingGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateThingGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a new thing type.</p>
+ <p>Creates a new thing type.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateThingType</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateThingType service method.
 
@@ -1147,7 +1197,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateThingTypeResponse *> *)createThingType:(AWSIoTCreateThingTypeRequest *)request;
 
 /**
- <p>Creates a new thing type.</p>
+ <p>Creates a new thing type.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateThingType</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateThingType service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1160,7 +1210,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createThingType:(AWSIoTCreateThingTypeRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateThingTypeResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.</p>
+ <p>Creates a rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateTopicRule</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateTopicRule service method.
 
@@ -1171,7 +1221,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)createTopicRule:(AWSIoTCreateTopicRuleRequest *)request;
 
 /**
- <p>Creates a rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.</p>
+ <p>Creates a rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateTopicRule</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateTopicRule service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1182,7 +1232,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createTopicRule:(AWSIoTCreateTopicRuleRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a topic rule destination. The destination must be confirmed prior to use.</p>
+ <p>Creates a topic rule destination. The destination must be confirmed prior to use.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateTopicRuleDestination</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateTopicRuleDestination service method.
 
@@ -1194,7 +1244,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateTopicRuleDestinationResponse *> *)createTopicRuleDestination:(AWSIoTCreateTopicRuleDestinationRequest *)request;
 
 /**
- <p>Creates a topic rule destination. The destination must be confirmed prior to use.</p>
+ <p>Creates a topic rule destination. The destination must be confirmed prior to use.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateTopicRuleDestination</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateTopicRuleDestination service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1207,7 +1257,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createTopicRuleDestination:(AWSIoTCreateTopicRuleDestinationRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateTopicRuleDestinationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Restores the default settings for Device Defender audits for this account. Any configuration data you entered is deleted and all audit checks are reset to disabled. </p>
+ <p>Restores the default settings for Device Defender audits for this account. Any configuration data you entered is deleted and all audit checks are reset to disabled. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteAccountAuditConfiguration</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteAccountAuditConfiguration service method.
 
@@ -1219,7 +1269,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDeleteAccountAuditConfigurationResponse *> *)deleteAccountAuditConfiguration:(AWSIoTDeleteAccountAuditConfigurationRequest *)request;
 
 /**
- <p>Restores the default settings for Device Defender audits for this account. Any configuration data you entered is deleted and all audit checks are reset to disabled. </p>
+ <p>Restores the default settings for Device Defender audits for this account. Any configuration data you entered is deleted and all audit checks are reset to disabled. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteAccountAuditConfiguration</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteAccountAuditConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1232,7 +1282,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteAccountAuditConfiguration:(AWSIoTDeleteAccountAuditConfigurationRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteAccountAuditConfigurationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Deletes a Device Defender audit suppression. </p>
+ <p> Deletes a Device Defender audit suppression. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteAuditSuppression</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteAuditSuppression service method.
 
@@ -1244,7 +1294,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDeleteAuditSuppressionResponse *> *)deleteAuditSuppression:(AWSIoTDeleteAuditSuppressionRequest *)request;
 
 /**
- <p> Deletes a Device Defender audit suppression. </p>
+ <p> Deletes a Device Defender audit suppression. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteAuditSuppression</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteAuditSuppression service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1257,7 +1307,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteAuditSuppression:(AWSIoTDeleteAuditSuppressionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteAuditSuppressionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes an authorizer.</p>
+ <p>Deletes an authorizer.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteAuthorizer</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteAuthorizer service method.
 
@@ -1269,7 +1319,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDeleteAuthorizerResponse *> *)deleteAuthorizer:(AWSIoTDeleteAuthorizerRequest *)request;
 
 /**
- <p>Deletes an authorizer.</p>
+ <p>Deletes an authorizer.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteAuthorizer</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteAuthorizer service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1282,7 +1332,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteAuthorizer:(AWSIoTDeleteAuthorizerRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteAuthorizerResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the billing group.</p>
+ <p>Deletes the billing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteBillingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteBillingGroup service method.
 
@@ -1294,7 +1344,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDeleteBillingGroupResponse *> *)deleteBillingGroup:(AWSIoTDeleteBillingGroupRequest *)request;
 
 /**
- <p>Deletes the billing group.</p>
+ <p>Deletes the billing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteBillingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteBillingGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1307,7 +1357,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteBillingGroup:(AWSIoTDeleteBillingGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteBillingGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a registered CA certificate.</p>
+ <p>Deletes a registered CA certificate.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteCACertificate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteCACertificate service method.
 
@@ -1319,7 +1369,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDeleteCACertificateResponse *> *)deleteCACertificate:(AWSIoTDeleteCACertificateRequest *)request;
 
 /**
- <p>Deletes a registered CA certificate.</p>
+ <p>Deletes a registered CA certificate.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteCACertificate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteCACertificate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1332,7 +1382,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteCACertificate:(AWSIoTDeleteCACertificateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteCACertificateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the specified certificate.</p><p>A certificate cannot be deleted if it has a policy or IoT thing attached to it or if its status is set to ACTIVE. To delete a certificate, first use the <a>DetachPrincipalPolicy</a> API to detach all policies. Next, use the <a>UpdateCertificate</a> API to set the certificate to the INACTIVE status.</p>
+ <p>Deletes the specified certificate.</p><p>A certificate cannot be deleted if it has a policy or IoT thing attached to it or if its status is set to ACTIVE. To delete a certificate, first use the <a>DetachPolicy</a> action to detach all policies. Next, use the <a>UpdateCertificate</a> action to set the certificate to the INACTIVE status.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteCertificate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteCertificate service method.
 
@@ -1343,7 +1393,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)deleteCertificate:(AWSIoTDeleteCertificateRequest *)request;
 
 /**
- <p>Deletes the specified certificate.</p><p>A certificate cannot be deleted if it has a policy or IoT thing attached to it or if its status is set to ACTIVE. To delete a certificate, first use the <a>DetachPrincipalPolicy</a> API to detach all policies. Next, use the <a>UpdateCertificate</a> API to set the certificate to the INACTIVE status.</p>
+ <p>Deletes the specified certificate.</p><p>A certificate cannot be deleted if it has a policy or IoT thing attached to it or if its status is set to ACTIVE. To delete a certificate, first use the <a>DetachPolicy</a> action to detach all policies. Next, use the <a>UpdateCertificate</a> action to set the certificate to the INACTIVE status.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteCertificate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteCertificate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1354,7 +1404,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteCertificate:(AWSIoTDeleteCertificateRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <note><p>Before you can delete a custom metric, you must first remove the custom metric from all security profiles it's a part of. The security profile associated with the custom metric can be found using the <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_ListSecurityProfiles.html">ListSecurityProfiles</a> API with <code>metricName</code> set to your custom metric name.</p></note><p> Deletes a Device Defender detect custom metric. </p>
+ <p> Deletes a Device Defender detect custom metric. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteCustomMetric</a> action.</p><note><p>Before you can delete a custom metric, you must first remove the custom metric from all security profiles it's a part of. The security profile associated with the custom metric can be found using the <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_ListSecurityProfiles.html">ListSecurityProfiles</a> API with <code>metricName</code> set to your custom metric name.</p></note>
  
  @param request A container for the necessary parameters to execute the DeleteCustomMetric service method.
 
@@ -1366,7 +1416,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDeleteCustomMetricResponse *> *)deleteCustomMetric:(AWSIoTDeleteCustomMetricRequest *)request;
 
 /**
- <note><p>Before you can delete a custom metric, you must first remove the custom metric from all security profiles it's a part of. The security profile associated with the custom metric can be found using the <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_ListSecurityProfiles.html">ListSecurityProfiles</a> API with <code>metricName</code> set to your custom metric name.</p></note><p> Deletes a Device Defender detect custom metric. </p>
+ <p> Deletes a Device Defender detect custom metric. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteCustomMetric</a> action.</p><note><p>Before you can delete a custom metric, you must first remove the custom metric from all security profiles it's a part of. The security profile associated with the custom metric can be found using the <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_ListSecurityProfiles.html">ListSecurityProfiles</a> API with <code>metricName</code> set to your custom metric name.</p></note>
  
  @param request A container for the necessary parameters to execute the DeleteCustomMetric service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1379,7 +1429,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteCustomMetric:(AWSIoTDeleteCustomMetricRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteCustomMetricResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Removes the specified dimension from your AWS account.</p>
+ <p>Removes the specified dimension from your Amazon Web Services accounts.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteDimension</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteDimension service method.
 
@@ -1391,7 +1441,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDeleteDimensionResponse *> *)deleteDimension:(AWSIoTDeleteDimensionRequest *)request;
 
 /**
- <p>Removes the specified dimension from your AWS account.</p>
+ <p>Removes the specified dimension from your Amazon Web Services accounts.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteDimension</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteDimension service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1404,7 +1454,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteDimension:(AWSIoTDeleteDimensionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteDimensionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the specified domain configuration.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note>
+ <p>Deletes the specified domain configuration.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteDomainConfiguration</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteDomainConfiguration service method.
 
@@ -1416,7 +1466,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDeleteDomainConfigurationResponse *> *)deleteDomainConfiguration:(AWSIoTDeleteDomainConfigurationRequest *)request;
 
 /**
- <p>Deletes the specified domain configuration.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note>
+ <p>Deletes the specified domain configuration.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteDomainConfiguration</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteDomainConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1429,7 +1479,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteDomainConfiguration:(AWSIoTDeleteDomainConfigurationRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteDomainConfigurationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a dynamic thing group.</p>
+ <p>Deletes a dynamic thing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteDynamicThingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteDynamicThingGroup service method.
 
@@ -1441,7 +1491,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDeleteDynamicThingGroupResponse *> *)deleteDynamicThingGroup:(AWSIoTDeleteDynamicThingGroupRequest *)request;
 
 /**
- <p>Deletes a dynamic thing group.</p>
+ <p>Deletes a dynamic thing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteDynamicThingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteDynamicThingGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1454,7 +1504,29 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteDynamicThingGroup:(AWSIoTDeleteDynamicThingGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteDynamicThingGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a job and its related job executions.</p><p>Deleting a job may take time, depending on the number of job executions created for the job and various other factors. While the job is being deleted, the status of the job will be shown as "DELETION_IN_PROGRESS". Attempting to delete or cancel a job whose status is already "DELETION_IN_PROGRESS" will result in an error.</p><p>Only 10 jobs may have status "DELETION_IN_PROGRESS" at the same time, or a LimitExceededException will occur.</p>
+ <p>Deletes the specified fleet metric. Returns successfully with no error if the deletion is successful or you specify a fleet metric that doesn't exist.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteFleetMetric</a> action.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteFleetMetric service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`, `AWSIoTErrorVersionConflict`.
+ 
+ @see AWSIoTDeleteFleetMetricRequest
+ */
+- (AWSTask *)deleteFleetMetric:(AWSIoTDeleteFleetMetricRequest *)request;
+
+/**
+ <p>Deletes the specified fleet metric. Returns successfully with no error if the deletion is successful or you specify a fleet metric that doesn't exist.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteFleetMetric</a> action.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteFleetMetric service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`, `AWSIoTErrorVersionConflict`.
+ 
+ @see AWSIoTDeleteFleetMetricRequest
+ */
+- (void)deleteFleetMetric:(AWSIoTDeleteFleetMetricRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes a job and its related job executions.</p><p>Deleting a job may take time, depending on the number of job executions created for the job and various other factors. While the job is being deleted, the status of the job will be shown as "DELETION_IN_PROGRESS". Attempting to delete or cancel a job whose status is already "DELETION_IN_PROGRESS" will result in an error.</p><p>Only 10 jobs may have status "DELETION_IN_PROGRESS" at the same time, or a LimitExceededException will occur.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteJob</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteJob service method.
 
@@ -1465,7 +1537,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)deleteJob:(AWSIoTDeleteJobRequest *)request;
 
 /**
- <p>Deletes a job and its related job executions.</p><p>Deleting a job may take time, depending on the number of job executions created for the job and various other factors. While the job is being deleted, the status of the job will be shown as "DELETION_IN_PROGRESS". Attempting to delete or cancel a job whose status is already "DELETION_IN_PROGRESS" will result in an error.</p><p>Only 10 jobs may have status "DELETION_IN_PROGRESS" at the same time, or a LimitExceededException will occur.</p>
+ <p>Deletes a job and its related job executions.</p><p>Deleting a job may take time, depending on the number of job executions created for the job and various other factors. While the job is being deleted, the status of the job will be shown as "DELETION_IN_PROGRESS". Attempting to delete or cancel a job whose status is already "DELETION_IN_PROGRESS" will result in an error.</p><p>Only 10 jobs may have status "DELETION_IN_PROGRESS" at the same time, or a LimitExceededException will occur.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteJob</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteJob service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1476,7 +1548,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteJob:(AWSIoTDeleteJobRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a job execution.</p>
+ <p>Deletes a job execution.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteJobExecution</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteJobExecution service method.
 
@@ -1487,7 +1559,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)deleteJobExecution:(AWSIoTDeleteJobExecutionRequest *)request;
 
 /**
- <p>Deletes a job execution.</p>
+ <p>Deletes a job execution.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteJobExecution</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteJobExecution service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1498,7 +1570,29 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteJobExecution:(AWSIoTDeleteJobExecutionRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a defined mitigation action from your AWS account.</p>
+ <p>Deletes the specified job template.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteJobTemplate service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTDeleteJobTemplateRequest
+ */
+- (AWSTask *)deleteJobTemplate:(AWSIoTDeleteJobTemplateRequest *)request;
+
+/**
+ <p>Deletes the specified job template.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteJobTemplate service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTDeleteJobTemplateRequest
+ */
+- (void)deleteJobTemplate:(AWSIoTDeleteJobTemplateRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes a defined mitigation action from your Amazon Web Services accounts.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteMitigationAction</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteMitigationAction service method.
 
@@ -1510,7 +1604,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDeleteMitigationActionResponse *> *)deleteMitigationAction:(AWSIoTDeleteMitigationActionRequest *)request;
 
 /**
- <p>Deletes a defined mitigation action from your AWS account.</p>
+ <p>Deletes a defined mitigation action from your Amazon Web Services accounts.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteMitigationAction</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteMitigationAction service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1523,7 +1617,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteMitigationAction:(AWSIoTDeleteMitigationActionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteMitigationActionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Delete an OTA update.</p>
+ <p>Delete an OTA update.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteOTAUpdate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteOTAUpdate service method.
 
@@ -1535,7 +1629,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDeleteOTAUpdateResponse *> *)deleteOTAUpdate:(AWSIoTDeleteOTAUpdateRequest *)request;
 
 /**
- <p>Delete an OTA update.</p>
+ <p>Delete an OTA update.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteOTAUpdate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteOTAUpdate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1548,7 +1642,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteOTAUpdate:(AWSIoTDeleteOTAUpdateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteOTAUpdateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the specified policy.</p><p>A policy cannot be deleted if it has non-default versions or it is attached to any certificate.</p><p>To delete a policy, use the DeletePolicyVersion API to delete all non-default versions of the policy; use the DetachPrincipalPolicy API to detach the policy from any certificate; and then use the DeletePolicy API to delete the policy.</p><p>When a policy is deleted using DeletePolicy, its default version is deleted with it.</p>
+ <p>Deletes the specified policy.</p><p>A policy cannot be deleted if it has non-default versions or it is attached to any certificate.</p><p>To delete a policy, use the <a>DeletePolicyVersion</a> action to delete all non-default versions of the policy; use the <a>DetachPolicy</a> action to detach the policy from any certificate; and then use the DeletePolicy action to delete the policy.</p><p>When a policy is deleted using DeletePolicy, its default version is deleted with it.</p><note><p>Because of the distributed nature of Amazon Web Services, it can take up to five minutes after a policy is detached before it's ready to be deleted.</p></note><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeletePolicy</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeletePolicy service method.
 
@@ -1559,7 +1653,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)deletePolicy:(AWSIoTDeletePolicyRequest *)request;
 
 /**
- <p>Deletes the specified policy.</p><p>A policy cannot be deleted if it has non-default versions or it is attached to any certificate.</p><p>To delete a policy, use the DeletePolicyVersion API to delete all non-default versions of the policy; use the DetachPrincipalPolicy API to detach the policy from any certificate; and then use the DeletePolicy API to delete the policy.</p><p>When a policy is deleted using DeletePolicy, its default version is deleted with it.</p>
+ <p>Deletes the specified policy.</p><p>A policy cannot be deleted if it has non-default versions or it is attached to any certificate.</p><p>To delete a policy, use the <a>DeletePolicyVersion</a> action to delete all non-default versions of the policy; use the <a>DetachPolicy</a> action to detach the policy from any certificate; and then use the DeletePolicy action to delete the policy.</p><p>When a policy is deleted using DeletePolicy, its default version is deleted with it.</p><note><p>Because of the distributed nature of Amazon Web Services, it can take up to five minutes after a policy is detached before it's ready to be deleted.</p></note><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeletePolicy</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeletePolicy service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1570,7 +1664,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deletePolicy:(AWSIoTDeletePolicyRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the specified version of the specified policy. You cannot delete the default version of a policy using this API. To delete the default version of a policy, use <a>DeletePolicy</a>. To find out which version of a policy is marked as the default version, use ListPolicyVersions.</p>
+ <p>Deletes the specified version of the specified policy. You cannot delete the default version of a policy using this action. To delete the default version of a policy, use <a>DeletePolicy</a>. To find out which version of a policy is marked as the default version, use ListPolicyVersions.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeletePolicyVersion</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeletePolicyVersion service method.
 
@@ -1581,7 +1675,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)deletePolicyVersion:(AWSIoTDeletePolicyVersionRequest *)request;
 
 /**
- <p>Deletes the specified version of the specified policy. You cannot delete the default version of a policy using this API. To delete the default version of a policy, use <a>DeletePolicy</a>. To find out which version of a policy is marked as the default version, use ListPolicyVersions.</p>
+ <p>Deletes the specified version of the specified policy. You cannot delete the default version of a policy using this action. To delete the default version of a policy, use <a>DeletePolicy</a>. To find out which version of a policy is marked as the default version, use ListPolicyVersions.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeletePolicyVersion</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeletePolicyVersion service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1592,7 +1686,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deletePolicyVersion:(AWSIoTDeletePolicyVersionRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a fleet provisioning template.</p>
+ <p>Deletes a fleet provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteProvisioningTemplate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteProvisioningTemplate service method.
 
@@ -1604,7 +1698,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDeleteProvisioningTemplateResponse *> *)deleteProvisioningTemplate:(AWSIoTDeleteProvisioningTemplateRequest *)request;
 
 /**
- <p>Deletes a fleet provisioning template.</p>
+ <p>Deletes a fleet provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteProvisioningTemplate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteProvisioningTemplate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1617,7 +1711,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteProvisioningTemplate:(AWSIoTDeleteProvisioningTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteProvisioningTemplateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a fleet provisioning template version.</p>
+ <p>Deletes a fleet provisioning template version.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteProvisioningTemplateVersion</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteProvisioningTemplateVersion service method.
 
@@ -1629,7 +1723,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDeleteProvisioningTemplateVersionResponse *> *)deleteProvisioningTemplateVersion:(AWSIoTDeleteProvisioningTemplateVersionRequest *)request;
 
 /**
- <p>Deletes a fleet provisioning template version.</p>
+ <p>Deletes a fleet provisioning template version.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteProvisioningTemplateVersion</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteProvisioningTemplateVersion service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1642,7 +1736,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteProvisioningTemplateVersion:(AWSIoTDeleteProvisioningTemplateVersionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteProvisioningTemplateVersionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a CA certificate registration code.</p>
+ <p>Deletes a CA certificate registration code.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteRegistrationCode</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteRegistrationCode service method.
 
@@ -1654,7 +1748,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDeleteRegistrationCodeResponse *> *)deleteRegistrationCode:(AWSIoTDeleteRegistrationCodeRequest *)request;
 
 /**
- <p>Deletes a CA certificate registration code.</p>
+ <p>Deletes a CA certificate registration code.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteRegistrationCode</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteRegistrationCode service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1667,7 +1761,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteRegistrationCode:(AWSIoTDeleteRegistrationCodeRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteRegistrationCodeResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a role alias</p>
+ <p>Deletes a role alias</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteRoleAlias</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteRoleAlias service method.
 
@@ -1679,7 +1773,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDeleteRoleAliasResponse *> *)deleteRoleAlias:(AWSIoTDeleteRoleAliasRequest *)request;
 
 /**
- <p>Deletes a role alias</p>
+ <p>Deletes a role alias</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteRoleAlias</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteRoleAlias service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1692,7 +1786,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteRoleAlias:(AWSIoTDeleteRoleAliasRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteRoleAliasResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a scheduled audit.</p>
+ <p>Deletes a scheduled audit.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteScheduledAudit</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteScheduledAudit service method.
 
@@ -1704,7 +1798,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDeleteScheduledAuditResponse *> *)deleteScheduledAudit:(AWSIoTDeleteScheduledAuditRequest *)request;
 
 /**
- <p>Deletes a scheduled audit.</p>
+ <p>Deletes a scheduled audit.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteScheduledAudit</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteScheduledAudit service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1717,7 +1811,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteScheduledAudit:(AWSIoTDeleteScheduledAuditRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteScheduledAuditResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a Device Defender security profile.</p>
+ <p>Deletes a Device Defender security profile.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteSecurityProfile</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteSecurityProfile service method.
 
@@ -1729,7 +1823,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDeleteSecurityProfileResponse *> *)deleteSecurityProfile:(AWSIoTDeleteSecurityProfileRequest *)request;
 
 /**
- <p>Deletes a Device Defender security profile.</p>
+ <p>Deletes a Device Defender security profile.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteSecurityProfile</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteSecurityProfile service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1742,7 +1836,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteSecurityProfile:(AWSIoTDeleteSecurityProfileRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteSecurityProfileResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a stream.</p>
+ <p>Deletes a stream.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteStream</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteStream service method.
 
@@ -1754,7 +1848,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDeleteStreamResponse *> *)deleteStream:(AWSIoTDeleteStreamRequest *)request;
 
 /**
- <p>Deletes a stream.</p>
+ <p>Deletes a stream.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteStream</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteStream service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1767,7 +1861,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteStream:(AWSIoTDeleteStreamRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteStreamResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the specified thing. Returns successfully with no error if the deletion is successful or you specify a thing that doesn't exist.</p>
+ <p>Deletes the specified thing. Returns successfully with no error if the deletion is successful or you specify a thing that doesn't exist.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteThing</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteThing service method.
 
@@ -1779,7 +1873,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDeleteThingResponse *> *)deleteThing:(AWSIoTDeleteThingRequest *)request;
 
 /**
- <p>Deletes the specified thing. Returns successfully with no error if the deletion is successful or you specify a thing that doesn't exist.</p>
+ <p>Deletes the specified thing. Returns successfully with no error if the deletion is successful or you specify a thing that doesn't exist.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteThing</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteThing service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1792,7 +1886,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteThing:(AWSIoTDeleteThingRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteThingResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a thing group.</p>
+ <p>Deletes a thing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteThingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteThingGroup service method.
 
@@ -1804,7 +1898,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDeleteThingGroupResponse *> *)deleteThingGroup:(AWSIoTDeleteThingGroupRequest *)request;
 
 /**
- <p>Deletes a thing group.</p>
+ <p>Deletes a thing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteThingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteThingGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1817,7 +1911,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteThingGroup:(AWSIoTDeleteThingGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteThingGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the specified thing type. You cannot delete a thing type if it has things associated with it. To delete a thing type, first mark it as deprecated by calling <a>DeprecateThingType</a>, then remove any associated things by calling <a>UpdateThing</a> to change the thing type on any associated thing, and finally use <a>DeleteThingType</a> to delete the thing type.</p>
+ <p>Deletes the specified thing type. You cannot delete a thing type if it has things associated with it. To delete a thing type, first mark it as deprecated by calling <a>DeprecateThingType</a>, then remove any associated things by calling <a>UpdateThing</a> to change the thing type on any associated thing, and finally use <a>DeleteThingType</a> to delete the thing type.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteThingType</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteThingType service method.
 
@@ -1829,7 +1923,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDeleteThingTypeResponse *> *)deleteThingType:(AWSIoTDeleteThingTypeRequest *)request;
 
 /**
- <p>Deletes the specified thing type. You cannot delete a thing type if it has things associated with it. To delete a thing type, first mark it as deprecated by calling <a>DeprecateThingType</a>, then remove any associated things by calling <a>UpdateThing</a> to change the thing type on any associated thing, and finally use <a>DeleteThingType</a> to delete the thing type.</p>
+ <p>Deletes the specified thing type. You cannot delete a thing type if it has things associated with it. To delete a thing type, first mark it as deprecated by calling <a>DeprecateThingType</a>, then remove any associated things by calling <a>UpdateThing</a> to change the thing type on any associated thing, and finally use <a>DeleteThingType</a> to delete the thing type.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteThingType</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteThingType service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1842,7 +1936,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteThingType:(AWSIoTDeleteThingTypeRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteThingTypeResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the rule.</p>
+ <p>Deletes the rule.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteTopicRule</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteTopicRule service method.
 
@@ -1853,7 +1947,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)deleteTopicRule:(AWSIoTDeleteTopicRuleRequest *)request;
 
 /**
- <p>Deletes the rule.</p>
+ <p>Deletes the rule.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteTopicRule</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteTopicRule service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1864,7 +1958,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteTopicRule:(AWSIoTDeleteTopicRuleRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a topic rule destination.</p>
+ <p>Deletes a topic rule destination.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteTopicRuleDestination</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteTopicRuleDestination service method.
 
@@ -1876,7 +1970,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDeleteTopicRuleDestinationResponse *> *)deleteTopicRuleDestination:(AWSIoTDeleteTopicRuleDestinationRequest *)request;
 
 /**
- <p>Deletes a topic rule destination.</p>
+ <p>Deletes a topic rule destination.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteTopicRuleDestination</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteTopicRuleDestination service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1889,7 +1983,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteTopicRuleDestination:(AWSIoTDeleteTopicRuleDestinationRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteTopicRuleDestinationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a logging level.</p>
+ <p>Deletes a logging level.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteV2LoggingLevel</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteV2LoggingLevel service method.
 
@@ -1900,7 +1994,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)deleteV2LoggingLevel:(AWSIoTDeleteV2LoggingLevelRequest *)request;
 
 /**
- <p>Deletes a logging level.</p>
+ <p>Deletes a logging level.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteV2LoggingLevel</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteV2LoggingLevel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1911,7 +2005,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteV2LoggingLevel:(AWSIoTDeleteV2LoggingLevelRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deprecates a thing type. You can not associate new things with deprecated thing type.</p>
+ <p>Deprecates a thing type. You can not associate new things with deprecated thing type.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeprecateThingType</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeprecateThingType service method.
 
@@ -1923,7 +2017,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDeprecateThingTypeResponse *> *)deprecateThingType:(AWSIoTDeprecateThingTypeRequest *)request;
 
 /**
- <p>Deprecates a thing type. You can not associate new things with deprecated thing type.</p>
+ <p>Deprecates a thing type. You can not associate new things with deprecated thing type.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeprecateThingType</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeprecateThingType service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1936,7 +2030,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deprecateThingType:(AWSIoTDeprecateThingTypeRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeprecateThingTypeResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets information about the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.</p>
+ <p>Gets information about the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeAccountAuditConfiguration</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeAccountAuditConfiguration service method.
 
@@ -1948,7 +2042,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeAccountAuditConfigurationResponse *> *)describeAccountAuditConfiguration:(AWSIoTDescribeAccountAuditConfigurationRequest *)request;
 
 /**
- <p>Gets information about the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.</p>
+ <p>Gets information about the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeAccountAuditConfiguration</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeAccountAuditConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1961,7 +2055,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeAccountAuditConfiguration:(AWSIoTDescribeAccountAuditConfigurationRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeAccountAuditConfigurationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets information about a single audit finding. Properties include the reason for noncompliance, the severity of the issue, and the start time when the audit that returned the finding.</p>
+ <p>Gets information about a single audit finding. Properties include the reason for noncompliance, the severity of the issue, and the start time when the audit that returned the finding.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeAuditFinding</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeAuditFinding service method.
 
@@ -1973,7 +2067,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeAuditFindingResponse *> *)describeAuditFinding:(AWSIoTDescribeAuditFindingRequest *)request;
 
 /**
- <p>Gets information about a single audit finding. Properties include the reason for noncompliance, the severity of the issue, and the start time when the audit that returned the finding.</p>
+ <p>Gets information about a single audit finding. Properties include the reason for noncompliance, the severity of the issue, and the start time when the audit that returned the finding.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeAuditFinding</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeAuditFinding service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2036,7 +2130,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeAuditSuppression:(AWSIoTDescribeAuditSuppressionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeAuditSuppressionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets information about a Device Defender audit.</p>
+ <p>Gets information about a Device Defender audit.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeAuditTask</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeAuditTask service method.
 
@@ -2048,7 +2142,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeAuditTaskResponse *> *)describeAuditTask:(AWSIoTDescribeAuditTaskRequest *)request;
 
 /**
- <p>Gets information about a Device Defender audit.</p>
+ <p>Gets information about a Device Defender audit.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeAuditTask</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeAuditTask service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2061,7 +2155,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeAuditTask:(AWSIoTDescribeAuditTaskRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeAuditTaskResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes an authorizer.</p>
+ <p>Describes an authorizer.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeAuthorizer</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeAuthorizer service method.
 
@@ -2073,7 +2167,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeAuthorizerResponse *> *)describeAuthorizer:(AWSIoTDescribeAuthorizerRequest *)request;
 
 /**
- <p>Describes an authorizer.</p>
+ <p>Describes an authorizer.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeAuthorizer</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeAuthorizer service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2086,7 +2180,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeAuthorizer:(AWSIoTDescribeAuthorizerRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeAuthorizerResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns information about a billing group.</p>
+ <p>Returns information about a billing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeBillingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeBillingGroup service method.
 
@@ -2098,7 +2192,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeBillingGroupResponse *> *)describeBillingGroup:(AWSIoTDescribeBillingGroupRequest *)request;
 
 /**
- <p>Returns information about a billing group.</p>
+ <p>Returns information about a billing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeBillingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeBillingGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2111,7 +2205,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeBillingGroup:(AWSIoTDescribeBillingGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeBillingGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes a registered CA certificate.</p>
+ <p>Describes a registered CA certificate.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeCACertificate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeCACertificate service method.
 
@@ -2123,7 +2217,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeCACertificateResponse *> *)describeCACertificate:(AWSIoTDescribeCACertificateRequest *)request;
 
 /**
- <p>Describes a registered CA certificate.</p>
+ <p>Describes a registered CA certificate.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeCACertificate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeCACertificate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2136,7 +2230,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeCACertificate:(AWSIoTDescribeCACertificateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeCACertificateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets information about the specified certificate.</p>
+ <p>Gets information about the specified certificate.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeCertificate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeCertificate service method.
 
@@ -2148,7 +2242,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeCertificateResponse *> *)describeCertificate:(AWSIoTDescribeCertificateRequest *)request;
 
 /**
- <p>Gets information about the specified certificate.</p>
+ <p>Gets information about the specified certificate.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeCertificate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeCertificate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2161,7 +2255,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeCertificate:(AWSIoTDescribeCertificateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeCertificateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Gets information about a Device Defender detect custom metric. </p>
+ <p> Gets information about a Device Defender detect custom metric. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeCustomMetric</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeCustomMetric service method.
 
@@ -2173,7 +2267,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeCustomMetricResponse *> *)describeCustomMetric:(AWSIoTDescribeCustomMetricRequest *)request;
 
 /**
- <p> Gets information about a Device Defender detect custom metric. </p>
+ <p> Gets information about a Device Defender detect custom metric. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeCustomMetric</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeCustomMetric service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2186,7 +2280,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeCustomMetric:(AWSIoTDescribeCustomMetricRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeCustomMetricResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes the default authorizer.</p>
+ <p>Describes the default authorizer.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeDefaultAuthorizer</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeDefaultAuthorizer service method.
 
@@ -2198,7 +2292,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeDefaultAuthorizerResponse *> *)describeDefaultAuthorizer:(AWSIoTDescribeDefaultAuthorizerRequest *)request;
 
 /**
- <p>Describes the default authorizer.</p>
+ <p>Describes the default authorizer.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeDefaultAuthorizer</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeDefaultAuthorizer service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2211,7 +2305,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeDefaultAuthorizer:(AWSIoTDescribeDefaultAuthorizerRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeDefaultAuthorizerResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Gets information about a Device Defender ML Detect mitigation action. </p>
+ <p> Gets information about a Device Defender ML Detect mitigation action. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeDetectMitigationActionsTask</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeDetectMitigationActionsTask service method.
 
@@ -2223,7 +2317,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeDetectMitigationActionsTaskResponse *> *)describeDetectMitigationActionsTask:(AWSIoTDescribeDetectMitigationActionsTaskRequest *)request;
 
 /**
- <p> Gets information about a Device Defender ML Detect mitigation action. </p>
+ <p> Gets information about a Device Defender ML Detect mitigation action. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeDetectMitigationActionsTask</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeDetectMitigationActionsTask service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2236,7 +2330,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeDetectMitigationActionsTask:(AWSIoTDescribeDetectMitigationActionsTaskRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeDetectMitigationActionsTaskResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Provides details about a dimension that is defined in your AWS account.</p>
+ <p>Provides details about a dimension that is defined in your Amazon Web Services accounts.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeDimension</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeDimension service method.
 
@@ -2248,7 +2342,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeDimensionResponse *> *)describeDimension:(AWSIoTDescribeDimensionRequest *)request;
 
 /**
- <p>Provides details about a dimension that is defined in your AWS account.</p>
+ <p>Provides details about a dimension that is defined in your Amazon Web Services accounts.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeDimension</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeDimension service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2261,7 +2355,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeDimension:(AWSIoTDescribeDimensionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeDimensionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets summary information about a domain configuration.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note>
+ <p>Gets summary information about a domain configuration.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeDomainConfiguration</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeDomainConfiguration service method.
 
@@ -2273,7 +2367,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeDomainConfigurationResponse *> *)describeDomainConfiguration:(AWSIoTDescribeDomainConfigurationRequest *)request;
 
 /**
- <p>Gets summary information about a domain configuration.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note>
+ <p>Gets summary information about a domain configuration.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeDomainConfiguration</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeDomainConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2286,7 +2380,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeDomainConfiguration:(AWSIoTDescribeDomainConfigurationRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeDomainConfigurationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns a unique endpoint specific to the AWS account making the call.</p>
+ <p>Returns a unique endpoint specific to the Amazon Web Services account making the call.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeEndpoint</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeEndpoint service method.
 
@@ -2298,7 +2392,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeEndpointResponse *> *)describeEndpoint:(AWSIoTDescribeEndpointRequest *)request;
 
 /**
- <p>Returns a unique endpoint specific to the AWS account making the call.</p>
+ <p>Returns a unique endpoint specific to the Amazon Web Services account making the call.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeEndpoint</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeEndpoint service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2311,7 +2405,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeEndpoint:(AWSIoTDescribeEndpointRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeEndpointResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes event configurations.</p>
+ <p>Describes event configurations.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeEventConfigurations</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeEventConfigurations service method.
 
@@ -2323,7 +2417,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeEventConfigurationsResponse *> *)describeEventConfigurations:(AWSIoTDescribeEventConfigurationsRequest *)request;
 
 /**
- <p>Describes event configurations.</p>
+ <p>Describes event configurations.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeEventConfigurations</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeEventConfigurations service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2336,7 +2430,32 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeEventConfigurations:(AWSIoTDescribeEventConfigurationsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeEventConfigurationsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes a search index.</p>
+ <p>Gets information about the specified fleet metric.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeFleetMetric</a> action.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeFleetMetric service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTDescribeFleetMetricResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`, `AWSIoTErrorResourceNotFound`.
+ 
+ @see AWSIoTDescribeFleetMetricRequest
+ @see AWSIoTDescribeFleetMetricResponse
+ */
+- (AWSTask<AWSIoTDescribeFleetMetricResponse *> *)describeFleetMetric:(AWSIoTDescribeFleetMetricRequest *)request;
+
+/**
+ <p>Gets information about the specified fleet metric.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeFleetMetric</a> action.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeFleetMetric service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`, `AWSIoTErrorResourceNotFound`.
+ 
+ @see AWSIoTDescribeFleetMetricRequest
+ @see AWSIoTDescribeFleetMetricResponse
+ */
+- (void)describeFleetMetric:(AWSIoTDescribeFleetMetricRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeFleetMetricResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes a search index.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeIndex</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeIndex service method.
 
@@ -2348,7 +2467,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeIndexResponse *> *)describeIndex:(AWSIoTDescribeIndexRequest *)request;
 
 /**
- <p>Describes a search index.</p>
+ <p>Describes a search index.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeIndex</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeIndex service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2361,7 +2480,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeIndex:(AWSIoTDescribeIndexRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeIndexResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes a job.</p>
+ <p>Describes a job.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeJob</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeJob service method.
 
@@ -2373,7 +2492,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeJobResponse *> *)describeJob:(AWSIoTDescribeJobRequest *)request;
 
 /**
- <p>Describes a job.</p>
+ <p>Describes a job.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeJob</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeJob service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2386,7 +2505,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeJob:(AWSIoTDescribeJobRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes a job execution.</p>
+ <p>Describes a job execution.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeJobExecution</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeJobExecution service method.
 
@@ -2398,7 +2517,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeJobExecutionResponse *> *)describeJobExecution:(AWSIoTDescribeJobExecutionRequest *)request;
 
 /**
- <p>Describes a job execution.</p>
+ <p>Describes a job execution.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeJobExecution</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeJobExecution service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2411,7 +2530,32 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeJobExecution:(AWSIoTDescribeJobExecutionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeJobExecutionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets information about a mitigation action.</p>
+ <p>Returns information about a job template.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeJobTemplate service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTDescribeJobTemplateResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTDescribeJobTemplateRequest
+ @see AWSIoTDescribeJobTemplateResponse
+ */
+- (AWSTask<AWSIoTDescribeJobTemplateResponse *> *)describeJobTemplate:(AWSIoTDescribeJobTemplateRequest *)request;
+
+/**
+ <p>Returns information about a job template.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeJobTemplate service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTDescribeJobTemplateRequest
+ @see AWSIoTDescribeJobTemplateResponse
+ */
+- (void)describeJobTemplate:(AWSIoTDescribeJobTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeJobTemplateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Gets information about a mitigation action.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeMitigationAction</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeMitigationAction service method.
 
@@ -2423,7 +2567,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeMitigationActionResponse *> *)describeMitigationAction:(AWSIoTDescribeMitigationActionRequest *)request;
 
 /**
- <p>Gets information about a mitigation action.</p>
+ <p>Gets information about a mitigation action.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeMitigationAction</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeMitigationAction service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2436,7 +2580,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeMitigationAction:(AWSIoTDescribeMitigationActionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeMitigationActionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns information about a fleet provisioning template.</p>
+ <p>Returns information about a fleet provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeProvisioningTemplate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeProvisioningTemplate service method.
 
@@ -2448,7 +2592,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeProvisioningTemplateResponse *> *)describeProvisioningTemplate:(AWSIoTDescribeProvisioningTemplateRequest *)request;
 
 /**
- <p>Returns information about a fleet provisioning template.</p>
+ <p>Returns information about a fleet provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeProvisioningTemplate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeProvisioningTemplate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2461,7 +2605,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeProvisioningTemplate:(AWSIoTDescribeProvisioningTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeProvisioningTemplateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns information about a fleet provisioning template version.</p>
+ <p>Returns information about a fleet provisioning template version.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeProvisioningTemplateVersion</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeProvisioningTemplateVersion service method.
 
@@ -2473,7 +2617,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeProvisioningTemplateVersionResponse *> *)describeProvisioningTemplateVersion:(AWSIoTDescribeProvisioningTemplateVersionRequest *)request;
 
 /**
- <p>Returns information about a fleet provisioning template version.</p>
+ <p>Returns information about a fleet provisioning template version.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeProvisioningTemplateVersion</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeProvisioningTemplateVersion service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2486,7 +2630,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeProvisioningTemplateVersion:(AWSIoTDescribeProvisioningTemplateVersionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeProvisioningTemplateVersionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes a role alias.</p>
+ <p>Describes a role alias.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeRoleAlias</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeRoleAlias service method.
 
@@ -2498,7 +2642,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeRoleAliasResponse *> *)describeRoleAlias:(AWSIoTDescribeRoleAliasRequest *)request;
 
 /**
- <p>Describes a role alias.</p>
+ <p>Describes a role alias.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeRoleAlias</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeRoleAlias service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2511,7 +2655,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeRoleAlias:(AWSIoTDescribeRoleAliasRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeRoleAliasResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets information about a scheduled audit.</p>
+ <p>Gets information about a scheduled audit.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeScheduledAudit</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeScheduledAudit service method.
 
@@ -2523,7 +2667,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeScheduledAuditResponse *> *)describeScheduledAudit:(AWSIoTDescribeScheduledAuditRequest *)request;
 
 /**
- <p>Gets information about a scheduled audit.</p>
+ <p>Gets information about a scheduled audit.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeScheduledAudit</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeScheduledAudit service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2536,7 +2680,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeScheduledAudit:(AWSIoTDescribeScheduledAuditRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeScheduledAuditResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets information about a Device Defender security profile.</p>
+ <p>Gets information about a Device Defender security profile.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeSecurityProfile</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeSecurityProfile service method.
 
@@ -2548,7 +2692,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeSecurityProfileResponse *> *)describeSecurityProfile:(AWSIoTDescribeSecurityProfileRequest *)request;
 
 /**
- <p>Gets information about a Device Defender security profile.</p>
+ <p>Gets information about a Device Defender security profile.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeSecurityProfile</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeSecurityProfile service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2561,7 +2705,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeSecurityProfile:(AWSIoTDescribeSecurityProfileRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeSecurityProfileResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets information about a stream.</p>
+ <p>Gets information about a stream.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeStream</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeStream service method.
 
@@ -2573,7 +2717,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeStreamResponse *> *)describeStream:(AWSIoTDescribeStreamRequest *)request;
 
 /**
- <p>Gets information about a stream.</p>
+ <p>Gets information about a stream.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeStream</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeStream service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2586,7 +2730,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeStream:(AWSIoTDescribeStreamRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeStreamResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets information about the specified thing.</p>
+ <p>Gets information about the specified thing.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeThing</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeThing service method.
 
@@ -2598,7 +2742,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeThingResponse *> *)describeThing:(AWSIoTDescribeThingRequest *)request;
 
 /**
- <p>Gets information about the specified thing.</p>
+ <p>Gets information about the specified thing.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeThing</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeThing service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2611,7 +2755,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeThing:(AWSIoTDescribeThingRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeThingResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describe a thing group.</p>
+ <p>Describe a thing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeThingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeThingGroup service method.
 
@@ -2623,7 +2767,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeThingGroupResponse *> *)describeThingGroup:(AWSIoTDescribeThingGroupRequest *)request;
 
 /**
- <p>Describe a thing group.</p>
+ <p>Describe a thing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeThingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeThingGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2636,7 +2780,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeThingGroup:(AWSIoTDescribeThingGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeThingGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes a bulk thing provisioning task.</p>
+ <p>Describes a bulk thing provisioning task.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeThingRegistrationTask</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeThingRegistrationTask service method.
 
@@ -2648,7 +2792,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeThingRegistrationTaskResponse *> *)describeThingRegistrationTask:(AWSIoTDescribeThingRegistrationTaskRequest *)request;
 
 /**
- <p>Describes a bulk thing provisioning task.</p>
+ <p>Describes a bulk thing provisioning task.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeThingRegistrationTask</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeThingRegistrationTask service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2661,7 +2805,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeThingRegistrationTask:(AWSIoTDescribeThingRegistrationTaskRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeThingRegistrationTaskResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets information about the specified thing type.</p>
+ <p>Gets information about the specified thing type.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeThingType</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeThingType service method.
 
@@ -2673,7 +2817,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeThingTypeResponse *> *)describeThingType:(AWSIoTDescribeThingTypeRequest *)request;
 
 /**
- <p>Gets information about the specified thing type.</p>
+ <p>Gets information about the specified thing type.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeThingType</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeThingType service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2686,7 +2830,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeThingType:(AWSIoTDescribeThingTypeRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeThingTypeResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Detaches a policy from the specified target.</p>
+ <p>Detaches a policy from the specified target.</p><note><p>Because of the distributed nature of Amazon Web Services, it can take up to five minutes after a policy is detached before it's ready to be deleted.</p></note><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DetachPolicy</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DetachPolicy service method.
 
@@ -2697,7 +2841,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)detachPolicy:(AWSIoTDetachPolicyRequest *)request;
 
 /**
- <p>Detaches a policy from the specified target.</p>
+ <p>Detaches a policy from the specified target.</p><note><p>Because of the distributed nature of Amazon Web Services, it can take up to five minutes after a policy is detached before it's ready to be deleted.</p></note><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DetachPolicy</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DetachPolicy service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2708,7 +2852,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)detachPolicy:(AWSIoTDetachPolicyRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Removes the specified policy from the specified certificate.</p><p><b>Note:</b> This API is deprecated. Please use <a>DetachPolicy</a> instead.</p>
+ <p>Removes the specified policy from the specified certificate.</p><note><p>This action is deprecated. Please use <a>DetachPolicy</a> instead.</p></note><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DetachPrincipalPolicy</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DetachPrincipalPolicy service method.
 
@@ -2719,7 +2863,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)detachPrincipalPolicy:(AWSIoTDetachPrincipalPolicyRequest *)request;
 
 /**
- <p>Removes the specified policy from the specified certificate.</p><p><b>Note:</b> This API is deprecated. Please use <a>DetachPolicy</a> instead.</p>
+ <p>Removes the specified policy from the specified certificate.</p><note><p>This action is deprecated. Please use <a>DetachPolicy</a> instead.</p></note><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DetachPrincipalPolicy</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DetachPrincipalPolicy service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2730,7 +2874,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)detachPrincipalPolicy:(AWSIoTDetachPrincipalPolicyRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Disassociates a Device Defender security profile from a thing group or from this account.</p>
+ <p>Disassociates a Device Defender security profile from a thing group or from this account.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DetachSecurityProfile</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DetachSecurityProfile service method.
 
@@ -2742,7 +2886,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDetachSecurityProfileResponse *> *)detachSecurityProfile:(AWSIoTDetachSecurityProfileRequest *)request;
 
 /**
- <p>Disassociates a Device Defender security profile from a thing group or from this account.</p>
+ <p>Disassociates a Device Defender security profile from a thing group or from this account.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DetachSecurityProfile</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DetachSecurityProfile service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2755,7 +2899,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)detachSecurityProfile:(AWSIoTDetachSecurityProfileRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDetachSecurityProfileResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Detaches the specified principal from the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.</p><note><p>This call is asynchronous. It might take several seconds for the detachment to propagate.</p></note>
+ <p>Detaches the specified principal from the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.</p><note><p>This call is asynchronous. It might take several seconds for the detachment to propagate.</p></note><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DetachThingPrincipal</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DetachThingPrincipal service method.
 
@@ -2767,7 +2911,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDetachThingPrincipalResponse *> *)detachThingPrincipal:(AWSIoTDetachThingPrincipalRequest *)request;
 
 /**
- <p>Detaches the specified principal from the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.</p><note><p>This call is asynchronous. It might take several seconds for the detachment to propagate.</p></note>
+ <p>Detaches the specified principal from the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.</p><note><p>This call is asynchronous. It might take several seconds for the detachment to propagate.</p></note><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DetachThingPrincipal</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DetachThingPrincipal service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2780,7 +2924,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)detachThingPrincipal:(AWSIoTDetachThingPrincipalRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDetachThingPrincipalResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Disables the rule.</p>
+ <p>Disables the rule.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DisableTopicRule</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DisableTopicRule service method.
 
@@ -2791,7 +2935,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)disableTopicRule:(AWSIoTDisableTopicRuleRequest *)request;
 
 /**
- <p>Disables the rule.</p>
+ <p>Disables the rule.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DisableTopicRule</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DisableTopicRule service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2802,7 +2946,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)disableTopicRule:(AWSIoTDisableTopicRuleRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Enables the rule.</p>
+ <p>Enables the rule.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">EnableTopicRule</a> action.</p>
  
  @param request A container for the necessary parameters to execute the EnableTopicRule service method.
 
@@ -2813,7 +2957,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)enableTopicRule:(AWSIoTEnableTopicRuleRequest *)request;
 
 /**
- <p>Enables the rule.</p>
+ <p>Enables the rule.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">EnableTopicRule</a> action.</p>
  
  @param request A container for the necessary parameters to execute the EnableTopicRule service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2824,7 +2968,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)enableTopicRule:(AWSIoTEnableTopicRuleRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p> Returns a Device Defender's ML Detect Security Profile training model's status. </p>
+ <p> Returns a Device Defender's ML Detect Security Profile training model's status. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetBehaviorModelTrainingSummaries</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetBehaviorModelTrainingSummaries service method.
 
@@ -2836,7 +2980,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTGetBehaviorModelTrainingSummariesResponse *> *)getBehaviorModelTrainingSummaries:(AWSIoTGetBehaviorModelTrainingSummariesRequest *)request;
 
 /**
- <p> Returns a Device Defender's ML Detect Security Profile training model's status. </p>
+ <p> Returns a Device Defender's ML Detect Security Profile training model's status. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetBehaviorModelTrainingSummaries</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetBehaviorModelTrainingSummaries service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2849,7 +2993,32 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)getBehaviorModelTrainingSummaries:(AWSIoTGetBehaviorModelTrainingSummariesRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTGetBehaviorModelTrainingSummariesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns the approximate count of unique values that match the query.</p>
+ <p>Aggregates on indexed data with search queries pertaining to particular fields. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetBucketsAggregation</a> action.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetBucketsAggregation service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTGetBucketsAggregationResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorInvalidQuery`, `AWSIoTErrorInvalidAggregation`, `AWSIoTErrorIndexNotReady`.
+ 
+ @see AWSIoTGetBucketsAggregationRequest
+ @see AWSIoTGetBucketsAggregationResponse
+ */
+- (AWSTask<AWSIoTGetBucketsAggregationResponse *> *)getBucketsAggregation:(AWSIoTGetBucketsAggregationRequest *)request;
+
+/**
+ <p>Aggregates on indexed data with search queries pertaining to particular fields. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetBucketsAggregation</a> action.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetBucketsAggregation service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorInvalidQuery`, `AWSIoTErrorInvalidAggregation`, `AWSIoTErrorIndexNotReady`.
+ 
+ @see AWSIoTGetBucketsAggregationRequest
+ @see AWSIoTGetBucketsAggregationResponse
+ */
+- (void)getBucketsAggregation:(AWSIoTGetBucketsAggregationRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTGetBucketsAggregationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Returns the approximate count of unique values that match the query.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetCardinality</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetCardinality service method.
 
@@ -2861,7 +3030,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTGetCardinalityResponse *> *)getCardinality:(AWSIoTGetCardinalityRequest *)request;
 
 /**
- <p>Returns the approximate count of unique values that match the query.</p>
+ <p>Returns the approximate count of unique values that match the query.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetCardinality</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetCardinality service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2874,7 +3043,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)getCardinality:(AWSIoTGetCardinalityRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTGetCardinalityResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets a list of the policies that have an effect on the authorization behavior of the specified device when it connects to the AWS IoT device gateway.</p>
+ <p>Gets a list of the policies that have an effect on the authorization behavior of the specified device when it connects to the IoT device gateway.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetEffectivePolicies</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetEffectivePolicies service method.
 
@@ -2886,7 +3055,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTGetEffectivePoliciesResponse *> *)getEffectivePolicies:(AWSIoTGetEffectivePoliciesRequest *)request;
 
 /**
- <p>Gets a list of the policies that have an effect on the authorization behavior of the specified device when it connects to the AWS IoT device gateway.</p>
+ <p>Gets a list of the policies that have an effect on the authorization behavior of the specified device when it connects to the IoT device gateway.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetEffectivePolicies</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetEffectivePolicies service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2899,7 +3068,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)getEffectivePolicies:(AWSIoTGetEffectivePoliciesRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTGetEffectivePoliciesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets the indexing configuration.</p>
+ <p>Gets the indexing configuration.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetIndexingConfiguration</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetIndexingConfiguration service method.
 
@@ -2911,7 +3080,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTGetIndexingConfigurationResponse *> *)getIndexingConfiguration:(AWSIoTGetIndexingConfigurationRequest *)request;
 
 /**
- <p>Gets the indexing configuration.</p>
+ <p>Gets the indexing configuration.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetIndexingConfiguration</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetIndexingConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2924,7 +3093,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)getIndexingConfiguration:(AWSIoTGetIndexingConfigurationRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTGetIndexingConfigurationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets a job document.</p>
+ <p>Gets a job document.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetJobDocument</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetJobDocument service method.
 
@@ -2936,7 +3105,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTGetJobDocumentResponse *> *)getJobDocument:(AWSIoTGetJobDocumentRequest *)request;
 
 /**
- <p>Gets a job document.</p>
+ <p>Gets a job document.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetJobDocument</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetJobDocument service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2949,7 +3118,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)getJobDocument:(AWSIoTGetJobDocumentRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTGetJobDocumentResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets the logging options.</p><p>NOTE: use of this command is not recommended. Use <code>GetV2LoggingOptions</code> instead.</p>
+ <p>Gets the logging options.</p><p>NOTE: use of this command is not recommended. Use <code>GetV2LoggingOptions</code> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetLoggingOptions</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetLoggingOptions service method.
 
@@ -2961,7 +3130,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTGetLoggingOptionsResponse *> *)getLoggingOptions:(AWSIoTGetLoggingOptionsRequest *)request;
 
 /**
- <p>Gets the logging options.</p><p>NOTE: use of this command is not recommended. Use <code>GetV2LoggingOptions</code> instead.</p>
+ <p>Gets the logging options.</p><p>NOTE: use of this command is not recommended. Use <code>GetV2LoggingOptions</code> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetLoggingOptions</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetLoggingOptions service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2974,7 +3143,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)getLoggingOptions:(AWSIoTGetLoggingOptionsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTGetLoggingOptionsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets an OTA update.</p>
+ <p>Gets an OTA update.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetOTAUpdate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetOTAUpdate service method.
 
@@ -2986,7 +3155,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTGetOTAUpdateResponse *> *)getOTAUpdate:(AWSIoTGetOTAUpdateRequest *)request;
 
 /**
- <p>Gets an OTA update.</p>
+ <p>Gets an OTA update.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetOTAUpdate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetOTAUpdate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2999,7 +3168,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)getOTAUpdate:(AWSIoTGetOTAUpdateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTGetOTAUpdateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Groups the aggregated values that match the query into percentile groupings. The default percentile groupings are: 1,5,25,50,75,95,99, although you can specify your own when you call <code>GetPercentiles</code>. This function returns a value for each percentile group specified (or the default percentile groupings). The percentile group "1" contains the aggregated field value that occurs in approximately one percent of the values that match the query. The percentile group "5" contains the aggregated field value that occurs in approximately five percent of the values that match the query, and so on. The result is an approximation, the more values that match the query, the more accurate the percentile values.</p>
+ <p>Groups the aggregated values that match the query into percentile groupings. The default percentile groupings are: 1,5,25,50,75,95,99, although you can specify your own when you call <code>GetPercentiles</code>. This function returns a value for each percentile group specified (or the default percentile groupings). The percentile group "1" contains the aggregated field value that occurs in approximately one percent of the values that match the query. The percentile group "5" contains the aggregated field value that occurs in approximately five percent of the values that match the query, and so on. The result is an approximation, the more values that match the query, the more accurate the percentile values.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetPercentiles</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetPercentiles service method.
 
@@ -3011,7 +3180,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTGetPercentilesResponse *> *)getPercentiles:(AWSIoTGetPercentilesRequest *)request;
 
 /**
- <p>Groups the aggregated values that match the query into percentile groupings. The default percentile groupings are: 1,5,25,50,75,95,99, although you can specify your own when you call <code>GetPercentiles</code>. This function returns a value for each percentile group specified (or the default percentile groupings). The percentile group "1" contains the aggregated field value that occurs in approximately one percent of the values that match the query. The percentile group "5" contains the aggregated field value that occurs in approximately five percent of the values that match the query, and so on. The result is an approximation, the more values that match the query, the more accurate the percentile values.</p>
+ <p>Groups the aggregated values that match the query into percentile groupings. The default percentile groupings are: 1,5,25,50,75,95,99, although you can specify your own when you call <code>GetPercentiles</code>. This function returns a value for each percentile group specified (or the default percentile groupings). The percentile group "1" contains the aggregated field value that occurs in approximately one percent of the values that match the query. The percentile group "5" contains the aggregated field value that occurs in approximately five percent of the values that match the query, and so on. The result is an approximation, the more values that match the query, the more accurate the percentile values.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetPercentiles</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetPercentiles service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3024,7 +3193,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)getPercentiles:(AWSIoTGetPercentilesRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTGetPercentilesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets information about the specified policy with the policy document of the default version.</p>
+ <p>Gets information about the specified policy with the policy document of the default version.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetPolicy</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetPolicy service method.
 
@@ -3036,7 +3205,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTGetPolicyResponse *> *)getPolicy:(AWSIoTGetPolicyRequest *)request;
 
 /**
- <p>Gets information about the specified policy with the policy document of the default version.</p>
+ <p>Gets information about the specified policy with the policy document of the default version.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetPolicy</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetPolicy service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3049,7 +3218,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)getPolicy:(AWSIoTGetPolicyRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTGetPolicyResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets information about the specified policy version.</p>
+ <p>Gets information about the specified policy version.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetPolicyVersion</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetPolicyVersion service method.
 
@@ -3061,7 +3230,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTGetPolicyVersionResponse *> *)getPolicyVersion:(AWSIoTGetPolicyVersionRequest *)request;
 
 /**
- <p>Gets information about the specified policy version.</p>
+ <p>Gets information about the specified policy version.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetPolicyVersion</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetPolicyVersion service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3074,7 +3243,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)getPolicyVersion:(AWSIoTGetPolicyVersionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTGetPolicyVersionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets a registration code used to register a CA certificate with AWS IoT.</p>
+ <p>Gets a registration code used to register a CA certificate with IoT.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetRegistrationCode</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetRegistrationCode service method.
 
@@ -3086,7 +3255,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTGetRegistrationCodeResponse *> *)getRegistrationCode:(AWSIoTGetRegistrationCodeRequest *)request;
 
 /**
- <p>Gets a registration code used to register a CA certificate with AWS IoT.</p>
+ <p>Gets a registration code used to register a CA certificate with IoT.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetRegistrationCode</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetRegistrationCode service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3099,7 +3268,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)getRegistrationCode:(AWSIoTGetRegistrationCodeRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTGetRegistrationCodeResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns the count, average, sum, minimum, maximum, sum of squares, variance, and standard deviation for the specified aggregated field. If the aggregation field is of type <code>String</code>, only the count statistic is returned.</p>
+ <p>Returns the count, average, sum, minimum, maximum, sum of squares, variance, and standard deviation for the specified aggregated field. If the aggregation field is of type <code>String</code>, only the count statistic is returned.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetStatistics</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetStatistics service method.
 
@@ -3111,7 +3280,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTGetStatisticsResponse *> *)getStatistics:(AWSIoTGetStatisticsRequest *)request;
 
 /**
- <p>Returns the count, average, sum, minimum, maximum, sum of squares, variance, and standard deviation for the specified aggregated field. If the aggregation field is of type <code>String</code>, only the count statistic is returned.</p>
+ <p>Returns the count, average, sum, minimum, maximum, sum of squares, variance, and standard deviation for the specified aggregated field. If the aggregation field is of type <code>String</code>, only the count statistic is returned.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetStatistics</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetStatistics service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3124,7 +3293,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)getStatistics:(AWSIoTGetStatisticsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTGetStatisticsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets information about the rule.</p>
+ <p>Gets information about the rule.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetTopicRule</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetTopicRule service method.
 
@@ -3136,7 +3305,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTGetTopicRuleResponse *> *)getTopicRule:(AWSIoTGetTopicRuleRequest *)request;
 
 /**
- <p>Gets information about the rule.</p>
+ <p>Gets information about the rule.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetTopicRule</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetTopicRule service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3149,7 +3318,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)getTopicRule:(AWSIoTGetTopicRuleRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTGetTopicRuleResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets information about a topic rule destination.</p>
+ <p>Gets information about a topic rule destination.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetTopicRuleDestination</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetTopicRuleDestination service method.
 
@@ -3161,7 +3330,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTGetTopicRuleDestinationResponse *> *)getTopicRuleDestination:(AWSIoTGetTopicRuleDestinationRequest *)request;
 
 /**
- <p>Gets information about a topic rule destination.</p>
+ <p>Gets information about a topic rule destination.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetTopicRuleDestination</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetTopicRuleDestination service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3174,7 +3343,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)getTopicRuleDestination:(AWSIoTGetTopicRuleDestinationRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTGetTopicRuleDestinationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets the fine grained logging options.</p>
+ <p>Gets the fine grained logging options.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetV2LoggingOptions</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetV2LoggingOptions service method.
 
@@ -3186,7 +3355,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTGetV2LoggingOptionsResponse *> *)getV2LoggingOptions:(AWSIoTGetV2LoggingOptionsRequest *)request;
 
 /**
- <p>Gets the fine grained logging options.</p>
+ <p>Gets the fine grained logging options.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetV2LoggingOptions</a> action.</p>
  
  @param request A container for the necessary parameters to execute the GetV2LoggingOptions service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3199,7 +3368,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)getV2LoggingOptions:(AWSIoTGetV2LoggingOptionsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTGetV2LoggingOptionsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the active violations for a given Device Defender security profile.</p>
+ <p>Lists the active violations for a given Device Defender security profile.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListActiveViolations</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListActiveViolations service method.
 
@@ -3211,7 +3380,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListActiveViolationsResponse *> *)listActiveViolations:(AWSIoTListActiveViolationsRequest *)request;
 
 /**
- <p>Lists the active violations for a given Device Defender security profile.</p>
+ <p>Lists the active violations for a given Device Defender security profile.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListActiveViolations</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListActiveViolations service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3224,7 +3393,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listActiveViolations:(AWSIoTListActiveViolationsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListActiveViolationsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the policies attached to the specified thing group.</p>
+ <p>Lists the policies attached to the specified thing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAttachedPolicies</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListAttachedPolicies service method.
 
@@ -3236,7 +3405,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListAttachedPoliciesResponse *> *)listAttachedPolicies:(AWSIoTListAttachedPoliciesRequest *)request;
 
 /**
- <p>Lists the policies attached to the specified thing group.</p>
+ <p>Lists the policies attached to the specified thing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAttachedPolicies</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListAttachedPolicies service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3249,7 +3418,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listAttachedPolicies:(AWSIoTListAttachedPoliciesRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListAttachedPoliciesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the findings (results) of a Device Defender audit or of the audits performed during a specified time period. (Findings are retained for 90 days.)</p>
+ <p>Lists the findings (results) of a Device Defender audit or of the audits performed during a specified time period. (Findings are retained for 90 days.)</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuditFindings</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListAuditFindings service method.
 
@@ -3261,7 +3430,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListAuditFindingsResponse *> *)listAuditFindings:(AWSIoTListAuditFindingsRequest *)request;
 
 /**
- <p>Lists the findings (results) of a Device Defender audit or of the audits performed during a specified time period. (Findings are retained for 90 days.)</p>
+ <p>Lists the findings (results) of a Device Defender audit or of the audits performed during a specified time period. (Findings are retained for 90 days.)</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuditFindings</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListAuditFindings service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3274,7 +3443,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listAuditFindings:(AWSIoTListAuditFindingsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListAuditFindingsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets the status of audit mitigation action tasks that were executed.</p>
+ <p>Gets the status of audit mitigation action tasks that were executed.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuditMitigationActionsExecutions</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListAuditMitigationActionsExecutions service method.
 
@@ -3286,7 +3455,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListAuditMitigationActionsExecutionsResponse *> *)listAuditMitigationActionsExecutions:(AWSIoTListAuditMitigationActionsExecutionsRequest *)request;
 
 /**
- <p>Gets the status of audit mitigation action tasks that were executed.</p>
+ <p>Gets the status of audit mitigation action tasks that were executed.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuditMitigationActionsExecutions</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListAuditMitigationActionsExecutions service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3299,7 +3468,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listAuditMitigationActionsExecutions:(AWSIoTListAuditMitigationActionsExecutionsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListAuditMitigationActionsExecutionsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets a list of audit mitigation action tasks that match the specified filters.</p>
+ <p>Gets a list of audit mitigation action tasks that match the specified filters.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuditMitigationActionsTasks</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListAuditMitigationActionsTasks service method.
 
@@ -3311,7 +3480,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListAuditMitigationActionsTasksResponse *> *)listAuditMitigationActionsTasks:(AWSIoTListAuditMitigationActionsTasksRequest *)request;
 
 /**
- <p>Gets a list of audit mitigation action tasks that match the specified filters.</p>
+ <p>Gets a list of audit mitigation action tasks that match the specified filters.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuditMitigationActionsTasks</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListAuditMitigationActionsTasks service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3324,7 +3493,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listAuditMitigationActionsTasks:(AWSIoTListAuditMitigationActionsTasksRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListAuditMitigationActionsTasksResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Lists your Device Defender audit listings. </p>
+ <p> Lists your Device Defender audit listings. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuditSuppressions</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListAuditSuppressions service method.
 
@@ -3336,7 +3505,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListAuditSuppressionsResponse *> *)listAuditSuppressions:(AWSIoTListAuditSuppressionsRequest *)request;
 
 /**
- <p> Lists your Device Defender audit listings. </p>
+ <p> Lists your Device Defender audit listings. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuditSuppressions</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListAuditSuppressions service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3349,7 +3518,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listAuditSuppressions:(AWSIoTListAuditSuppressionsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListAuditSuppressionsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the Device Defender audits that have been performed during a given time period.</p>
+ <p>Lists the Device Defender audits that have been performed during a given time period.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuditTasks</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListAuditTasks service method.
 
@@ -3361,7 +3530,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListAuditTasksResponse *> *)listAuditTasks:(AWSIoTListAuditTasksRequest *)request;
 
 /**
- <p>Lists the Device Defender audits that have been performed during a given time period.</p>
+ <p>Lists the Device Defender audits that have been performed during a given time period.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuditTasks</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListAuditTasks service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3374,7 +3543,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listAuditTasks:(AWSIoTListAuditTasksRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListAuditTasksResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the authorizers registered in your account.</p>
+ <p>Lists the authorizers registered in your account.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuthorizers</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListAuthorizers service method.
 
@@ -3386,7 +3555,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListAuthorizersResponse *> *)listAuthorizers:(AWSIoTListAuthorizersRequest *)request;
 
 /**
- <p>Lists the authorizers registered in your account.</p>
+ <p>Lists the authorizers registered in your account.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuthorizers</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListAuthorizers service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3399,7 +3568,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listAuthorizers:(AWSIoTListAuthorizersRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListAuthorizersResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the billing groups you have created.</p>
+ <p>Lists the billing groups you have created.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListBillingGroups</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListBillingGroups service method.
 
@@ -3411,7 +3580,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListBillingGroupsResponse *> *)listBillingGroups:(AWSIoTListBillingGroupsRequest *)request;
 
 /**
- <p>Lists the billing groups you have created.</p>
+ <p>Lists the billing groups you have created.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListBillingGroups</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListBillingGroups service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3424,7 +3593,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listBillingGroups:(AWSIoTListBillingGroupsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListBillingGroupsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the CA certificates registered for your AWS account.</p><p>The results are paginated with a default page size of 25. You can use the returned marker to retrieve additional results.</p>
+ <p>Lists the CA certificates registered for your Amazon Web Services account.</p><p>The results are paginated with a default page size of 25. You can use the returned marker to retrieve additional results.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListCACertificates</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListCACertificates service method.
 
@@ -3436,7 +3605,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListCACertificatesResponse *> *)listCACertificates:(AWSIoTListCACertificatesRequest *)request;
 
 /**
- <p>Lists the CA certificates registered for your AWS account.</p><p>The results are paginated with a default page size of 25. You can use the returned marker to retrieve additional results.</p>
+ <p>Lists the CA certificates registered for your Amazon Web Services account.</p><p>The results are paginated with a default page size of 25. You can use the returned marker to retrieve additional results.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListCACertificates</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListCACertificates service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3449,7 +3618,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listCACertificates:(AWSIoTListCACertificatesRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListCACertificatesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the certificates registered in your AWS account.</p><p>The results are paginated with a default page size of 25. You can use the returned marker to retrieve additional results.</p>
+ <p>Lists the certificates registered in your Amazon Web Services account.</p><p>The results are paginated with a default page size of 25. You can use the returned marker to retrieve additional results.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListCertificates</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListCertificates service method.
 
@@ -3461,7 +3630,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListCertificatesResponse *> *)listCertificates:(AWSIoTListCertificatesRequest *)request;
 
 /**
- <p>Lists the certificates registered in your AWS account.</p><p>The results are paginated with a default page size of 25. You can use the returned marker to retrieve additional results.</p>
+ <p>Lists the certificates registered in your Amazon Web Services account.</p><p>The results are paginated with a default page size of 25. You can use the returned marker to retrieve additional results.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListCertificates</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListCertificates service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3474,7 +3643,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listCertificates:(AWSIoTListCertificatesRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListCertificatesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>List the device certificates signed by the specified CA certificate.</p>
+ <p>List the device certificates signed by the specified CA certificate.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListCertificatesByCA</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListCertificatesByCA service method.
 
@@ -3486,7 +3655,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListCertificatesByCAResponse *> *)listCertificatesByCA:(AWSIoTListCertificatesByCARequest *)request;
 
 /**
- <p>List the device certificates signed by the specified CA certificate.</p>
+ <p>List the device certificates signed by the specified CA certificate.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListCertificatesByCA</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListCertificatesByCA service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3499,7 +3668,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listCertificatesByCA:(AWSIoTListCertificatesByCARequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListCertificatesByCAResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Lists your Device Defender detect custom metrics. </p>
+ <p> Lists your Device Defender detect custom metrics. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListCustomMetrics</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListCustomMetrics service method.
 
@@ -3511,7 +3680,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListCustomMetricsResponse *> *)listCustomMetrics:(AWSIoTListCustomMetricsRequest *)request;
 
 /**
- <p> Lists your Device Defender detect custom metrics. </p>
+ <p> Lists your Device Defender detect custom metrics. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListCustomMetrics</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListCustomMetrics service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3524,7 +3693,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listCustomMetrics:(AWSIoTListCustomMetricsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListCustomMetricsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Lists mitigation actions executions for a Device Defender ML Detect Security Profile. </p>
+ <p> Lists mitigation actions executions for a Device Defender ML Detect Security Profile. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListDetectMitigationActionsExecutions</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListDetectMitigationActionsExecutions service method.
 
@@ -3536,7 +3705,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListDetectMitigationActionsExecutionsResponse *> *)listDetectMitigationActionsExecutions:(AWSIoTListDetectMitigationActionsExecutionsRequest *)request;
 
 /**
- <p> Lists mitigation actions executions for a Device Defender ML Detect Security Profile. </p>
+ <p> Lists mitigation actions executions for a Device Defender ML Detect Security Profile. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListDetectMitigationActionsExecutions</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListDetectMitigationActionsExecutions service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3549,7 +3718,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listDetectMitigationActionsExecutions:(AWSIoTListDetectMitigationActionsExecutionsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListDetectMitigationActionsExecutionsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> List of Device Defender ML Detect mitigation actions tasks. </p>
+ <p> List of Device Defender ML Detect mitigation actions tasks. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListDetectMitigationActionsTasks</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListDetectMitigationActionsTasks service method.
 
@@ -3561,7 +3730,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListDetectMitigationActionsTasksResponse *> *)listDetectMitigationActionsTasks:(AWSIoTListDetectMitigationActionsTasksRequest *)request;
 
 /**
- <p> List of Device Defender ML Detect mitigation actions tasks. </p>
+ <p> List of Device Defender ML Detect mitigation actions tasks. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListDetectMitigationActionsTasks</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListDetectMitigationActionsTasks service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3574,7 +3743,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listDetectMitigationActionsTasks:(AWSIoTListDetectMitigationActionsTasksRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListDetectMitigationActionsTasksResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>List the set of dimensions that are defined for your AWS account.</p>
+ <p>List the set of dimensions that are defined for your Amazon Web Services accounts.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListDimensions</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListDimensions service method.
 
@@ -3586,7 +3755,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListDimensionsResponse *> *)listDimensions:(AWSIoTListDimensionsRequest *)request;
 
 /**
- <p>List the set of dimensions that are defined for your AWS account.</p>
+ <p>List the set of dimensions that are defined for your Amazon Web Services accounts.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListDimensions</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListDimensions service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3599,7 +3768,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listDimensions:(AWSIoTListDimensionsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListDimensionsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets a list of domain configurations for the user. This list is sorted alphabetically by domain configuration name.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note>
+ <p>Gets a list of domain configurations for the user. This list is sorted alphabetically by domain configuration name.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListDomainConfigurations</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListDomainConfigurations service method.
 
@@ -3611,7 +3780,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListDomainConfigurationsResponse *> *)listDomainConfigurations:(AWSIoTListDomainConfigurationsRequest *)request;
 
 /**
- <p>Gets a list of domain configurations for the user. This list is sorted alphabetically by domain configuration name.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note>
+ <p>Gets a list of domain configurations for the user. This list is sorted alphabetically by domain configuration name.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListDomainConfigurations</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListDomainConfigurations service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3624,7 +3793,32 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listDomainConfigurations:(AWSIoTListDomainConfigurationsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListDomainConfigurationsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the search indices.</p>
+ <p>Lists all your fleet metrics. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListFleetMetrics</a> action.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListFleetMetrics service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTListFleetMetricsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTListFleetMetricsRequest
+ @see AWSIoTListFleetMetricsResponse
+ */
+- (AWSTask<AWSIoTListFleetMetricsResponse *> *)listFleetMetrics:(AWSIoTListFleetMetricsRequest *)request;
+
+/**
+ <p>Lists all your fleet metrics. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListFleetMetrics</a> action.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListFleetMetrics service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTListFleetMetricsRequest
+ @see AWSIoTListFleetMetricsResponse
+ */
+- (void)listFleetMetrics:(AWSIoTListFleetMetricsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListFleetMetricsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Lists the search indices.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListIndices</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListIndices service method.
 
@@ -3636,7 +3830,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListIndicesResponse *> *)listIndices:(AWSIoTListIndicesRequest *)request;
 
 /**
- <p>Lists the search indices.</p>
+ <p>Lists the search indices.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListIndices</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListIndices service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3649,7 +3843,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listIndices:(AWSIoTListIndicesRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListIndicesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the job executions for a job.</p>
+ <p>Lists the job executions for a job.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListJobExecutionsForJob</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListJobExecutionsForJob service method.
 
@@ -3661,7 +3855,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListJobExecutionsForJobResponse *> *)listJobExecutionsForJob:(AWSIoTListJobExecutionsForJobRequest *)request;
 
 /**
- <p>Lists the job executions for a job.</p>
+ <p>Lists the job executions for a job.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListJobExecutionsForJob</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListJobExecutionsForJob service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3674,7 +3868,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listJobExecutionsForJob:(AWSIoTListJobExecutionsForJobRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListJobExecutionsForJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the job executions for the specified thing.</p>
+ <p>Lists the job executions for the specified thing.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListJobExecutionsForThing</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListJobExecutionsForThing service method.
 
@@ -3686,7 +3880,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListJobExecutionsForThingResponse *> *)listJobExecutionsForThing:(AWSIoTListJobExecutionsForThingRequest *)request;
 
 /**
- <p>Lists the job executions for the specified thing.</p>
+ <p>Lists the job executions for the specified thing.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListJobExecutionsForThing</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListJobExecutionsForThing service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3699,7 +3893,32 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listJobExecutionsForThing:(AWSIoTListJobExecutionsForThingRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListJobExecutionsForThingResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists jobs.</p>
+ <p>Returns a list of job templates.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListJobTemplates</a> action.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListJobTemplates service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTListJobTemplatesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTListJobTemplatesRequest
+ @see AWSIoTListJobTemplatesResponse
+ */
+- (AWSTask<AWSIoTListJobTemplatesResponse *> *)listJobTemplates:(AWSIoTListJobTemplatesRequest *)request;
+
+/**
+ <p>Returns a list of job templates.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListJobTemplates</a> action.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListJobTemplates service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTListJobTemplatesRequest
+ @see AWSIoTListJobTemplatesResponse
+ */
+- (void)listJobTemplates:(AWSIoTListJobTemplatesRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListJobTemplatesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Lists jobs.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListJobs</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListJobs service method.
 
@@ -3711,7 +3930,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListJobsResponse *> *)listJobs:(AWSIoTListJobsRequest *)request;
 
 /**
- <p>Lists jobs.</p>
+ <p>Lists jobs.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListJobs</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListJobs service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3724,7 +3943,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listJobs:(AWSIoTListJobsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListJobsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets a list of all mitigation actions that match the specified filter criteria.</p>
+ <p>Gets a list of all mitigation actions that match the specified filter criteria.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListMitigationActions</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListMitigationActions service method.
 
@@ -3736,7 +3955,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListMitigationActionsResponse *> *)listMitigationActions:(AWSIoTListMitigationActionsRequest *)request;
 
 /**
- <p>Gets a list of all mitigation actions that match the specified filter criteria.</p>
+ <p>Gets a list of all mitigation actions that match the specified filter criteria.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListMitigationActions</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListMitigationActions service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3749,7 +3968,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listMitigationActions:(AWSIoTListMitigationActionsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListMitigationActionsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists OTA updates.</p>
+ <p>Lists OTA updates.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListOTAUpdates</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListOTAUpdates service method.
 
@@ -3761,7 +3980,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListOTAUpdatesResponse *> *)listOTAUpdates:(AWSIoTListOTAUpdatesRequest *)request;
 
 /**
- <p>Lists OTA updates.</p>
+ <p>Lists OTA updates.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListOTAUpdates</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListOTAUpdates service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3774,7 +3993,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listOTAUpdates:(AWSIoTListOTAUpdatesRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListOTAUpdatesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists certificates that are being transferred but not yet accepted.</p>
+ <p>Lists certificates that are being transferred but not yet accepted.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListOutgoingCertificates</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListOutgoingCertificates service method.
 
@@ -3786,7 +4005,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListOutgoingCertificatesResponse *> *)listOutgoingCertificates:(AWSIoTListOutgoingCertificatesRequest *)request;
 
 /**
- <p>Lists certificates that are being transferred but not yet accepted.</p>
+ <p>Lists certificates that are being transferred but not yet accepted.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListOutgoingCertificates</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListOutgoingCertificates service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3799,7 +4018,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listOutgoingCertificates:(AWSIoTListOutgoingCertificatesRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListOutgoingCertificatesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists your policies.</p>
+ <p>Lists your policies.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPolicies</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListPolicies service method.
 
@@ -3811,7 +4030,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListPoliciesResponse *> *)listPolicies:(AWSIoTListPoliciesRequest *)request;
 
 /**
- <p>Lists your policies.</p>
+ <p>Lists your policies.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPolicies</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListPolicies service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3824,7 +4043,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listPolicies:(AWSIoTListPoliciesRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListPoliciesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the principals associated with the specified policy.</p><p><b>Note:</b> This API is deprecated. Please use <a>ListTargetsForPolicy</a> instead.</p>
+ <p>Lists the principals associated with the specified policy.</p><p><b>Note:</b> This action is deprecated. Please use <a>ListTargetsForPolicy</a> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPolicyPrincipals</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListPolicyPrincipals service method.
 
@@ -3836,7 +4055,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListPolicyPrincipalsResponse *> *)listPolicyPrincipals:(AWSIoTListPolicyPrincipalsRequest *)request;
 
 /**
- <p>Lists the principals associated with the specified policy.</p><p><b>Note:</b> This API is deprecated. Please use <a>ListTargetsForPolicy</a> instead.</p>
+ <p>Lists the principals associated with the specified policy.</p><p><b>Note:</b> This action is deprecated. Please use <a>ListTargetsForPolicy</a> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPolicyPrincipals</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListPolicyPrincipals service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3849,7 +4068,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listPolicyPrincipals:(AWSIoTListPolicyPrincipalsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListPolicyPrincipalsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the versions of the specified policy and identifies the default version.</p>
+ <p>Lists the versions of the specified policy and identifies the default version.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPolicyVersions</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListPolicyVersions service method.
 
@@ -3861,7 +4080,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListPolicyVersionsResponse *> *)listPolicyVersions:(AWSIoTListPolicyVersionsRequest *)request;
 
 /**
- <p>Lists the versions of the specified policy and identifies the default version.</p>
+ <p>Lists the versions of the specified policy and identifies the default version.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPolicyVersions</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListPolicyVersions service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3874,7 +4093,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listPolicyVersions:(AWSIoTListPolicyVersionsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListPolicyVersionsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax">AmazonCognito Identity format</a>.</p><p><b>Note:</b> This API is deprecated. Please use <a>ListAttachedPolicies</a> instead.</p>
+ <p>Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax">AmazonCognito Identity format</a>.</p><p><b>Note:</b> This action is deprecated. Please use <a>ListAttachedPolicies</a> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPrincipalPolicies</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListPrincipalPolicies service method.
 
@@ -3886,7 +4105,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListPrincipalPoliciesResponse *> *)listPrincipalPolicies:(AWSIoTListPrincipalPoliciesRequest *)request;
 
 /**
- <p>Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax">AmazonCognito Identity format</a>.</p><p><b>Note:</b> This API is deprecated. Please use <a>ListAttachedPolicies</a> instead.</p>
+ <p>Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax">AmazonCognito Identity format</a>.</p><p><b>Note:</b> This action is deprecated. Please use <a>ListAttachedPolicies</a> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPrincipalPolicies</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListPrincipalPolicies service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3899,7 +4118,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listPrincipalPolicies:(AWSIoTListPrincipalPoliciesRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListPrincipalPoliciesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the things associated with the specified principal. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities. </p>
+ <p>Lists the things associated with the specified principal. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPrincipalThings</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListPrincipalThings service method.
 
@@ -3911,7 +4130,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListPrincipalThingsResponse *> *)listPrincipalThings:(AWSIoTListPrincipalThingsRequest *)request;
 
 /**
- <p>Lists the things associated with the specified principal. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities. </p>
+ <p>Lists the things associated with the specified principal. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPrincipalThings</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListPrincipalThings service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3924,7 +4143,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listPrincipalThings:(AWSIoTListPrincipalThingsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListPrincipalThingsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>A list of fleet provisioning template versions.</p>
+ <p>A list of fleet provisioning template versions.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListProvisioningTemplateVersions</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListProvisioningTemplateVersions service method.
 
@@ -3936,7 +4155,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListProvisioningTemplateVersionsResponse *> *)listProvisioningTemplateVersions:(AWSIoTListProvisioningTemplateVersionsRequest *)request;
 
 /**
- <p>A list of fleet provisioning template versions.</p>
+ <p>A list of fleet provisioning template versions.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListProvisioningTemplateVersions</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListProvisioningTemplateVersions service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3949,7 +4168,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listProvisioningTemplateVersions:(AWSIoTListProvisioningTemplateVersionsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListProvisioningTemplateVersionsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the fleet provisioning templates in your AWS account.</p>
+ <p>Lists the fleet provisioning templates in your Amazon Web Services account.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListProvisioningTemplates</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListProvisioningTemplates service method.
 
@@ -3961,7 +4180,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListProvisioningTemplatesResponse *> *)listProvisioningTemplates:(AWSIoTListProvisioningTemplatesRequest *)request;
 
 /**
- <p>Lists the fleet provisioning templates in your AWS account.</p>
+ <p>Lists the fleet provisioning templates in your Amazon Web Services account.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListProvisioningTemplates</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListProvisioningTemplates service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3974,7 +4193,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listProvisioningTemplates:(AWSIoTListProvisioningTemplatesRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListProvisioningTemplatesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the role aliases registered in your account.</p>
+ <p>Lists the role aliases registered in your account.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListRoleAliases</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListRoleAliases service method.
 
@@ -3986,7 +4205,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListRoleAliasesResponse *> *)listRoleAliases:(AWSIoTListRoleAliasesRequest *)request;
 
 /**
- <p>Lists the role aliases registered in your account.</p>
+ <p>Lists the role aliases registered in your account.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListRoleAliases</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListRoleAliases service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3999,7 +4218,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listRoleAliases:(AWSIoTListRoleAliasesRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListRoleAliasesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists all of your scheduled audits.</p>
+ <p>Lists all of your scheduled audits.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListScheduledAudits</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListScheduledAudits service method.
 
@@ -4011,7 +4230,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListScheduledAuditsResponse *> *)listScheduledAudits:(AWSIoTListScheduledAuditsRequest *)request;
 
 /**
- <p>Lists all of your scheduled audits.</p>
+ <p>Lists all of your scheduled audits.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListScheduledAudits</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListScheduledAudits service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4024,7 +4243,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listScheduledAudits:(AWSIoTListScheduledAuditsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListScheduledAuditsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the Device Defender security profiles you've created. You can filter security profiles by dimension or custom metric.</p><note><p><code>dimensionName</code> and <code>metricName</code> cannot be used in the same request.</p></note>
+ <p>Lists the Device Defender security profiles you've created. You can filter security profiles by dimension or custom metric.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListSecurityProfiles</a> action.</p><note><p><code>dimensionName</code> and <code>metricName</code> cannot be used in the same request.</p></note>
  
  @param request A container for the necessary parameters to execute the ListSecurityProfiles service method.
 
@@ -4036,7 +4255,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListSecurityProfilesResponse *> *)listSecurityProfiles:(AWSIoTListSecurityProfilesRequest *)request;
 
 /**
- <p>Lists the Device Defender security profiles you've created. You can filter security profiles by dimension or custom metric.</p><note><p><code>dimensionName</code> and <code>metricName</code> cannot be used in the same request.</p></note>
+ <p>Lists the Device Defender security profiles you've created. You can filter security profiles by dimension or custom metric.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListSecurityProfiles</a> action.</p><note><p><code>dimensionName</code> and <code>metricName</code> cannot be used in the same request.</p></note>
  
  @param request A container for the necessary parameters to execute the ListSecurityProfiles service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4049,7 +4268,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listSecurityProfiles:(AWSIoTListSecurityProfilesRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListSecurityProfilesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the Device Defender security profiles attached to a target (thing group).</p>
+ <p>Lists the Device Defender security profiles attached to a target (thing group).</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListSecurityProfilesForTarget</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListSecurityProfilesForTarget service method.
 
@@ -4061,7 +4280,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListSecurityProfilesForTargetResponse *> *)listSecurityProfilesForTarget:(AWSIoTListSecurityProfilesForTargetRequest *)request;
 
 /**
- <p>Lists the Device Defender security profiles attached to a target (thing group).</p>
+ <p>Lists the Device Defender security profiles attached to a target (thing group).</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListSecurityProfilesForTarget</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListSecurityProfilesForTarget service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4074,7 +4293,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listSecurityProfilesForTarget:(AWSIoTListSecurityProfilesForTargetRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListSecurityProfilesForTargetResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists all of the streams in your AWS account.</p>
+ <p>Lists all of the streams in your Amazon Web Services account.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListStreams</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListStreams service method.
 
@@ -4086,7 +4305,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListStreamsResponse *> *)listStreams:(AWSIoTListStreamsRequest *)request;
 
 /**
- <p>Lists all of the streams in your AWS account.</p>
+ <p>Lists all of the streams in your Amazon Web Services account.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListStreams</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListStreams service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4099,7 +4318,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listStreams:(AWSIoTListStreamsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListStreamsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the tags (metadata) you have assigned to the resource.</p>
+ <p>Lists the tags (metadata) you have assigned to the resource.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTagsForResource</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListTagsForResource service method.
 
@@ -4111,7 +4330,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListTagsForResourceResponse *> *)listTagsForResource:(AWSIoTListTagsForResourceRequest *)request;
 
 /**
- <p>Lists the tags (metadata) you have assigned to the resource.</p>
+ <p>Lists the tags (metadata) you have assigned to the resource.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTagsForResource</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListTagsForResource service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4124,7 +4343,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listTagsForResource:(AWSIoTListTagsForResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListTagsForResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>List targets for the specified policy.</p>
+ <p>List targets for the specified policy.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTargetsForPolicy</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListTargetsForPolicy service method.
 
@@ -4136,7 +4355,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListTargetsForPolicyResponse *> *)listTargetsForPolicy:(AWSIoTListTargetsForPolicyRequest *)request;
 
 /**
- <p>List targets for the specified policy.</p>
+ <p>List targets for the specified policy.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTargetsForPolicy</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListTargetsForPolicy service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4149,7 +4368,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listTargetsForPolicy:(AWSIoTListTargetsForPolicyRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListTargetsForPolicyResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the targets (thing groups) associated with a given Device Defender security profile.</p>
+ <p>Lists the targets (thing groups) associated with a given Device Defender security profile.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTargetsForSecurityProfile</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListTargetsForSecurityProfile service method.
 
@@ -4161,7 +4380,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListTargetsForSecurityProfileResponse *> *)listTargetsForSecurityProfile:(AWSIoTListTargetsForSecurityProfileRequest *)request;
 
 /**
- <p>Lists the targets (thing groups) associated with a given Device Defender security profile.</p>
+ <p>Lists the targets (thing groups) associated with a given Device Defender security profile.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTargetsForSecurityProfile</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListTargetsForSecurityProfile service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4174,7 +4393,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listTargetsForSecurityProfile:(AWSIoTListTargetsForSecurityProfileRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListTargetsForSecurityProfileResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>List the thing groups in your account.</p>
+ <p>List the thing groups in your account.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingGroups</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListThingGroups service method.
 
@@ -4186,7 +4405,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListThingGroupsResponse *> *)listThingGroups:(AWSIoTListThingGroupsRequest *)request;
 
 /**
- <p>List the thing groups in your account.</p>
+ <p>List the thing groups in your account.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingGroups</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListThingGroups service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4199,7 +4418,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listThingGroups:(AWSIoTListThingGroupsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListThingGroupsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>List the thing groups to which the specified thing belongs.</p>
+ <p>List the thing groups to which the specified thing belongs.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingGroupsForThing</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListThingGroupsForThing service method.
 
@@ -4211,7 +4430,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListThingGroupsForThingResponse *> *)listThingGroupsForThing:(AWSIoTListThingGroupsForThingRequest *)request;
 
 /**
- <p>List the thing groups to which the specified thing belongs.</p>
+ <p>List the thing groups to which the specified thing belongs.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingGroupsForThing</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListThingGroupsForThing service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4224,7 +4443,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listThingGroupsForThing:(AWSIoTListThingGroupsForThingRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListThingGroupsForThingResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the principals associated with the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.</p>
+ <p>Lists the principals associated with the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingPrincipals</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListThingPrincipals service method.
 
@@ -4236,7 +4455,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListThingPrincipalsResponse *> *)listThingPrincipals:(AWSIoTListThingPrincipalsRequest *)request;
 
 /**
- <p>Lists the principals associated with the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.</p>
+ <p>Lists the principals associated with the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingPrincipals</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListThingPrincipals service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4274,7 +4493,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listThingRegistrationTaskReports:(AWSIoTListThingRegistrationTaskReportsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListThingRegistrationTaskReportsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>List bulk thing provisioning tasks.</p>
+ <p>List bulk thing provisioning tasks.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingRegistrationTasks</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListThingRegistrationTasks service method.
 
@@ -4286,7 +4505,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListThingRegistrationTasksResponse *> *)listThingRegistrationTasks:(AWSIoTListThingRegistrationTasksRequest *)request;
 
 /**
- <p>List bulk thing provisioning tasks.</p>
+ <p>List bulk thing provisioning tasks.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingRegistrationTasks</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListThingRegistrationTasks service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4299,7 +4518,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listThingRegistrationTasks:(AWSIoTListThingRegistrationTasksRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListThingRegistrationTasksResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the existing thing types.</p>
+ <p>Lists the existing thing types.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingTypes</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListThingTypes service method.
 
@@ -4311,7 +4530,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListThingTypesResponse *> *)listThingTypes:(AWSIoTListThingTypesRequest *)request;
 
 /**
- <p>Lists the existing thing types.</p>
+ <p>Lists the existing thing types.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingTypes</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListThingTypes service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4324,7 +4543,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listThingTypes:(AWSIoTListThingTypesRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListThingTypesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists your things. Use the <b>attributeName</b> and <b>attributeValue</b> parameters to filter your things. For example, calling <code>ListThings</code> with attributeName=Color and attributeValue=Red retrieves all things in the registry that contain an attribute <b>Color</b> with the value <b>Red</b>. </p><note><p>You will not be charged for calling this API if an <code>Access denied</code> error is returned. You will also not be charged if no attributes or pagination token was provided in request and no pagination token and no results were returned.</p></note>
+ <p>Lists your things. Use the <b>attributeName</b> and <b>attributeValue</b> parameters to filter your things. For example, calling <code>ListThings</code> with attributeName=Color and attributeValue=Red retrieves all things in the registry that contain an attribute <b>Color</b> with the value <b>Red</b>. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThings</a> action.</p><note><p>You will not be charged for calling this API if an <code>Access denied</code> error is returned. You will also not be charged if no attributes or pagination token was provided in request and no pagination token and no results were returned.</p></note>
  
  @param request A container for the necessary parameters to execute the ListThings service method.
 
@@ -4336,7 +4555,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListThingsResponse *> *)listThings:(AWSIoTListThingsRequest *)request;
 
 /**
- <p>Lists your things. Use the <b>attributeName</b> and <b>attributeValue</b> parameters to filter your things. For example, calling <code>ListThings</code> with attributeName=Color and attributeValue=Red retrieves all things in the registry that contain an attribute <b>Color</b> with the value <b>Red</b>. </p><note><p>You will not be charged for calling this API if an <code>Access denied</code> error is returned. You will also not be charged if no attributes or pagination token was provided in request and no pagination token and no results were returned.</p></note>
+ <p>Lists your things. Use the <b>attributeName</b> and <b>attributeValue</b> parameters to filter your things. For example, calling <code>ListThings</code> with attributeName=Color and attributeValue=Red retrieves all things in the registry that contain an attribute <b>Color</b> with the value <b>Red</b>. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThings</a> action.</p><note><p>You will not be charged for calling this API if an <code>Access denied</code> error is returned. You will also not be charged if no attributes or pagination token was provided in request and no pagination token and no results were returned.</p></note>
  
  @param request A container for the necessary parameters to execute the ListThings service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4349,7 +4568,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listThings:(AWSIoTListThingsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListThingsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the things you have added to the given billing group.</p>
+ <p>Lists the things you have added to the given billing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingsInBillingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListThingsInBillingGroup service method.
 
@@ -4361,7 +4580,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListThingsInBillingGroupResponse *> *)listThingsInBillingGroup:(AWSIoTListThingsInBillingGroupRequest *)request;
 
 /**
- <p>Lists the things you have added to the given billing group.</p>
+ <p>Lists the things you have added to the given billing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingsInBillingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListThingsInBillingGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4374,7 +4593,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listThingsInBillingGroup:(AWSIoTListThingsInBillingGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListThingsInBillingGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the things in the specified group.</p>
+ <p>Lists the things in the specified group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingsInThingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListThingsInThingGroup service method.
 
@@ -4386,7 +4605,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListThingsInThingGroupResponse *> *)listThingsInThingGroup:(AWSIoTListThingsInThingGroupRequest *)request;
 
 /**
- <p>Lists the things in the specified group.</p>
+ <p>Lists the things in the specified group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingsInThingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListThingsInThingGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4399,7 +4618,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listThingsInThingGroup:(AWSIoTListThingsInThingGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListThingsInThingGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists all the topic rule destinations in your AWS account.</p>
+ <p>Lists all the topic rule destinations in your Amazon Web Services account.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTopicRuleDestinations</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListTopicRuleDestinations service method.
 
@@ -4411,7 +4630,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListTopicRuleDestinationsResponse *> *)listTopicRuleDestinations:(AWSIoTListTopicRuleDestinationsRequest *)request;
 
 /**
- <p>Lists all the topic rule destinations in your AWS account.</p>
+ <p>Lists all the topic rule destinations in your Amazon Web Services account.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTopicRuleDestinations</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListTopicRuleDestinations service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4424,7 +4643,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listTopicRuleDestinations:(AWSIoTListTopicRuleDestinationsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListTopicRuleDestinationsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the rules for the specific topic.</p>
+ <p>Lists the rules for the specific topic.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTopicRules</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListTopicRules service method.
 
@@ -4436,7 +4655,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListTopicRulesResponse *> *)listTopicRules:(AWSIoTListTopicRulesRequest *)request;
 
 /**
- <p>Lists the rules for the specific topic.</p>
+ <p>Lists the rules for the specific topic.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTopicRules</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListTopicRules service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4449,7 +4668,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listTopicRules:(AWSIoTListTopicRulesRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListTopicRulesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists logging levels.</p>
+ <p>Lists logging levels.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListV2LoggingLevels</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListV2LoggingLevels service method.
 
@@ -4461,7 +4680,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListV2LoggingLevelsResponse *> *)listV2LoggingLevels:(AWSIoTListV2LoggingLevelsRequest *)request;
 
 /**
- <p>Lists logging levels.</p>
+ <p>Lists logging levels.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListV2LoggingLevels</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListV2LoggingLevels service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4474,7 +4693,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listV2LoggingLevels:(AWSIoTListV2LoggingLevelsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListV2LoggingLevelsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the Device Defender security profile violations discovered during the given time period. You can use filters to limit the results to those alerts issued for a particular security profile, behavior, or thing (device).</p>
+ <p>Lists the Device Defender security profile violations discovered during the given time period. You can use filters to limit the results to those alerts issued for a particular security profile, behavior, or thing (device).</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListViolationEvents</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListViolationEvents service method.
 
@@ -4486,7 +4705,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListViolationEventsResponse *> *)listViolationEvents:(AWSIoTListViolationEventsRequest *)request;
 
 /**
- <p>Lists the Device Defender security profile violations discovered during the given time period. You can use filters to limit the results to those alerts issued for a particular security profile, behavior, or thing (device).</p>
+ <p>Lists the Device Defender security profile violations discovered during the given time period. You can use filters to limit the results to those alerts issued for a particular security profile, behavior, or thing (device).</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListViolationEvents</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListViolationEvents service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4499,7 +4718,32 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listViolationEvents:(AWSIoTListViolationEventsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListViolationEventsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Registers a CA certificate with AWS IoT. This CA certificate can then be used to sign device certificates, which can be then registered with AWS IoT. You can register up to 10 CA certificates per AWS account that have the same subject field. This enables you to have up to 10 certificate authorities sign your device certificates. If you have more than one CA certificate registered, make sure you pass the CA certificate when you register your device certificates with the RegisterCertificate API.</p>
+ <p>Set a verification state and provide a description of that verification state on a violation (detect alarm).</p>
+ 
+ @param request A container for the necessary parameters to execute the PutVerificationStateOnViolation service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTPutVerificationStateOnViolationResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTPutVerificationStateOnViolationRequest
+ @see AWSIoTPutVerificationStateOnViolationResponse
+ */
+- (AWSTask<AWSIoTPutVerificationStateOnViolationResponse *> *)putVerificationStateOnViolation:(AWSIoTPutVerificationStateOnViolationRequest *)request;
+
+/**
+ <p>Set a verification state and provide a description of that verification state on a violation (detect alarm).</p>
+ 
+ @param request A container for the necessary parameters to execute the PutVerificationStateOnViolation service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTPutVerificationStateOnViolationRequest
+ @see AWSIoTPutVerificationStateOnViolationResponse
+ */
+- (void)putVerificationStateOnViolation:(AWSIoTPutVerificationStateOnViolationRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTPutVerificationStateOnViolationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Registers a CA certificate with IoT. This CA certificate can then be used to sign device certificates, which can be then registered with IoT. You can register up to 10 CA certificates per Amazon Web Services account that have the same subject field. This enables you to have up to 10 certificate authorities sign your device certificates. If you have more than one CA certificate registered, make sure you pass the CA certificate when you register your device certificates with the <a>RegisterCertificate</a> action.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RegisterCACertificate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the RegisterCACertificate service method.
 
@@ -4511,7 +4755,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTRegisterCACertificateResponse *> *)registerCACertificate:(AWSIoTRegisterCACertificateRequest *)request;
 
 /**
- <p>Registers a CA certificate with AWS IoT. This CA certificate can then be used to sign device certificates, which can be then registered with AWS IoT. You can register up to 10 CA certificates per AWS account that have the same subject field. This enables you to have up to 10 certificate authorities sign your device certificates. If you have more than one CA certificate registered, make sure you pass the CA certificate when you register your device certificates with the RegisterCertificate API.</p>
+ <p>Registers a CA certificate with IoT. This CA certificate can then be used to sign device certificates, which can be then registered with IoT. You can register up to 10 CA certificates per Amazon Web Services account that have the same subject field. This enables you to have up to 10 certificate authorities sign your device certificates. If you have more than one CA certificate registered, make sure you pass the CA certificate when you register your device certificates with the <a>RegisterCertificate</a> action.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RegisterCACertificate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the RegisterCACertificate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4524,7 +4768,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)registerCACertificate:(AWSIoTRegisterCACertificateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTRegisterCACertificateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Registers a device certificate with AWS IoT. If you have more than one CA certificate that has the same subject field, you must specify the CA certificate that was used to sign the device certificate being registered.</p>
+ <p>Registers a device certificate with IoT. If you have more than one CA certificate that has the same subject field, you must specify the CA certificate that was used to sign the device certificate being registered.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RegisterCertificate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the RegisterCertificate service method.
 
@@ -4536,7 +4780,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTRegisterCertificateResponse *> *)registerCertificate:(AWSIoTRegisterCertificateRequest *)request;
 
 /**
- <p>Registers a device certificate with AWS IoT. If you have more than one CA certificate that has the same subject field, you must specify the CA certificate that was used to sign the device certificate being registered.</p>
+ <p>Registers a device certificate with IoT. If you have more than one CA certificate that has the same subject field, you must specify the CA certificate that was used to sign the device certificate being registered.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RegisterCertificate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the RegisterCertificate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4574,7 +4818,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)registerCertificateWithoutCA:(AWSIoTRegisterCertificateWithoutCARequest *)request completionHandler:(void (^ _Nullable)(AWSIoTRegisterCertificateWithoutCAResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Provisions a thing in the device registry. RegisterThing calls other AWS IoT control plane APIs. These calls might exceed your account level <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot"> AWS IoT Throttling Limits</a> and cause throttle errors. Please contact <a href="https://console.aws.amazon.com/support/home">AWS Customer Support</a> to raise your throttling limits if necessary.</p>
+ <p>Provisions a thing in the device registry. RegisterThing calls other IoT control plane APIs. These calls might exceed your account level <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot"> IoT Throttling Limits</a> and cause throttle errors. Please contact <a href="https://console.aws.amazon.com/support/home">Amazon Web Services Customer Support</a> to raise your throttling limits if necessary.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RegisterThing</a> action.</p>
  
  @param request A container for the necessary parameters to execute the RegisterThing service method.
 
@@ -4586,7 +4830,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTRegisterThingResponse *> *)registerThing:(AWSIoTRegisterThingRequest *)request;
 
 /**
- <p>Provisions a thing in the device registry. RegisterThing calls other AWS IoT control plane APIs. These calls might exceed your account level <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot"> AWS IoT Throttling Limits</a> and cause throttle errors. Please contact <a href="https://console.aws.amazon.com/support/home">AWS Customer Support</a> to raise your throttling limits if necessary.</p>
+ <p>Provisions a thing in the device registry. RegisterThing calls other IoT control plane APIs. These calls might exceed your account level <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot"> IoT Throttling Limits</a> and cause throttle errors. Please contact <a href="https://console.aws.amazon.com/support/home">Amazon Web Services Customer Support</a> to raise your throttling limits if necessary.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RegisterThing</a> action.</p>
  
  @param request A container for the necessary parameters to execute the RegisterThing service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4599,7 +4843,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)registerThing:(AWSIoTRegisterThingRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTRegisterThingResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Rejects a pending certificate transfer. After AWS IoT rejects a certificate transfer, the certificate status changes from <b>PENDING_TRANSFER</b> to <b>INACTIVE</b>.</p><p>To check for pending certificate transfers, call <a>ListCertificates</a> to enumerate your certificates.</p><p>This operation can only be called by the transfer destination. After it is called, the certificate will be returned to the source's account in the INACTIVE state.</p>
+ <p>Rejects a pending certificate transfer. After IoT rejects a certificate transfer, the certificate status changes from <b>PENDING_TRANSFER</b> to <b>INACTIVE</b>.</p><p>To check for pending certificate transfers, call <a>ListCertificates</a> to enumerate your certificates.</p><p>This operation can only be called by the transfer destination. After it is called, the certificate will be returned to the source's account in the INACTIVE state.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RejectCertificateTransfer</a> action.</p>
  
  @param request A container for the necessary parameters to execute the RejectCertificateTransfer service method.
 
@@ -4610,7 +4854,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)rejectCertificateTransfer:(AWSIoTRejectCertificateTransferRequest *)request;
 
 /**
- <p>Rejects a pending certificate transfer. After AWS IoT rejects a certificate transfer, the certificate status changes from <b>PENDING_TRANSFER</b> to <b>INACTIVE</b>.</p><p>To check for pending certificate transfers, call <a>ListCertificates</a> to enumerate your certificates.</p><p>This operation can only be called by the transfer destination. After it is called, the certificate will be returned to the source's account in the INACTIVE state.</p>
+ <p>Rejects a pending certificate transfer. After IoT rejects a certificate transfer, the certificate status changes from <b>PENDING_TRANSFER</b> to <b>INACTIVE</b>.</p><p>To check for pending certificate transfers, call <a>ListCertificates</a> to enumerate your certificates.</p><p>This operation can only be called by the transfer destination. After it is called, the certificate will be returned to the source's account in the INACTIVE state.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RejectCertificateTransfer</a> action.</p>
  
  @param request A container for the necessary parameters to execute the RejectCertificateTransfer service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4621,7 +4865,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)rejectCertificateTransfer:(AWSIoTRejectCertificateTransferRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Removes the given thing from the billing group.</p>
+ <p>Removes the given thing from the billing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RemoveThingFromBillingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the RemoveThingFromBillingGroup service method.
 
@@ -4633,7 +4877,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTRemoveThingFromBillingGroupResponse *> *)removeThingFromBillingGroup:(AWSIoTRemoveThingFromBillingGroupRequest *)request;
 
 /**
- <p>Removes the given thing from the billing group.</p>
+ <p>Removes the given thing from the billing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RemoveThingFromBillingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the RemoveThingFromBillingGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4646,7 +4890,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)removeThingFromBillingGroup:(AWSIoTRemoveThingFromBillingGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTRemoveThingFromBillingGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Remove the specified thing from the specified group.</p><p>You must specify either a <code>thingGroupArn</code> or a <code>thingGroupName</code> to identify the thing group and either a <code>thingArn</code> or a <code>thingName</code> to identify the thing to remove from the thing group. </p>
+ <p>Remove the specified thing from the specified group.</p><p>You must specify either a <code>thingGroupArn</code> or a <code>thingGroupName</code> to identify the thing group and either a <code>thingArn</code> or a <code>thingName</code> to identify the thing to remove from the thing group. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RemoveThingFromThingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the RemoveThingFromThingGroup service method.
 
@@ -4658,7 +4902,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTRemoveThingFromThingGroupResponse *> *)removeThingFromThingGroup:(AWSIoTRemoveThingFromThingGroupRequest *)request;
 
 /**
- <p>Remove the specified thing from the specified group.</p><p>You must specify either a <code>thingGroupArn</code> or a <code>thingGroupName</code> to identify the thing group and either a <code>thingArn</code> or a <code>thingName</code> to identify the thing to remove from the thing group. </p>
+ <p>Remove the specified thing from the specified group.</p><p>You must specify either a <code>thingGroupArn</code> or a <code>thingGroupName</code> to identify the thing group and either a <code>thingArn</code> or a <code>thingName</code> to identify the thing to remove from the thing group. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RemoveThingFromThingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the RemoveThingFromThingGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4671,7 +4915,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)removeThingFromThingGroup:(AWSIoTRemoveThingFromThingGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTRemoveThingFromThingGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Replaces the rule. You must specify all parameters for the new rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.</p>
+ <p>Replaces the rule. You must specify all parameters for the new rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ReplaceTopicRule</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ReplaceTopicRule service method.
 
@@ -4682,7 +4926,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)replaceTopicRule:(AWSIoTReplaceTopicRuleRequest *)request;
 
 /**
- <p>Replaces the rule. You must specify all parameters for the new rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.</p>
+ <p>Replaces the rule. You must specify all parameters for the new rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ReplaceTopicRule</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ReplaceTopicRule service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4693,7 +4937,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)replaceTopicRule:(AWSIoTReplaceTopicRuleRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>The query search index.</p>
+ <p>The query search index.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SearchIndex</a> action.</p>
  
  @param request A container for the necessary parameters to execute the SearchIndex service method.
 
@@ -4705,7 +4949,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTSearchIndexResponse *> *)searchIndex:(AWSIoTSearchIndexRequest *)request;
 
 /**
- <p>The query search index.</p>
+ <p>The query search index.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SearchIndex</a> action.</p>
  
  @param request A container for the necessary parameters to execute the SearchIndex service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4718,7 +4962,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)searchIndex:(AWSIoTSearchIndexRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTSearchIndexResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sets the default authorizer. This will be used if a websocket connection is made without specifying an authorizer.</p>
+ <p>Sets the default authorizer. This will be used if a websocket connection is made without specifying an authorizer.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SetDefaultAuthorizer</a> action.</p>
  
  @param request A container for the necessary parameters to execute the SetDefaultAuthorizer service method.
 
@@ -4730,7 +4974,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTSetDefaultAuthorizerResponse *> *)setDefaultAuthorizer:(AWSIoTSetDefaultAuthorizerRequest *)request;
 
 /**
- <p>Sets the default authorizer. This will be used if a websocket connection is made without specifying an authorizer.</p>
+ <p>Sets the default authorizer. This will be used if a websocket connection is made without specifying an authorizer.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SetDefaultAuthorizer</a> action.</p>
  
  @param request A container for the necessary parameters to execute the SetDefaultAuthorizer service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4743,7 +4987,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)setDefaultAuthorizer:(AWSIoTSetDefaultAuthorizerRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTSetDefaultAuthorizerResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sets the specified version of the specified policy as the policy's default (operative) version. This action affects all certificates to which the policy is attached. To list the principals the policy is attached to, use the ListPrincipalPolicy API.</p>
+ <p>Sets the specified version of the specified policy as the policy's default (operative) version. This action affects all certificates to which the policy is attached. To list the principals the policy is attached to, use the <a>ListPrincipalPolicies</a> action.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SetDefaultPolicyVersion</a> action.</p>
  
  @param request A container for the necessary parameters to execute the SetDefaultPolicyVersion service method.
 
@@ -4754,7 +4998,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)setDefaultPolicyVersion:(AWSIoTSetDefaultPolicyVersionRequest *)request;
 
 /**
- <p>Sets the specified version of the specified policy as the policy's default (operative) version. This action affects all certificates to which the policy is attached. To list the principals the policy is attached to, use the ListPrincipalPolicy API.</p>
+ <p>Sets the specified version of the specified policy as the policy's default (operative) version. This action affects all certificates to which the policy is attached. To list the principals the policy is attached to, use the <a>ListPrincipalPolicies</a> action.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SetDefaultPolicyVersion</a> action.</p>
  
  @param request A container for the necessary parameters to execute the SetDefaultPolicyVersion service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4765,7 +5009,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)setDefaultPolicyVersion:(AWSIoTSetDefaultPolicyVersionRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sets the logging options.</p><p>NOTE: use of this command is not recommended. Use <code>SetV2LoggingOptions</code> instead.</p>
+ <p>Sets the logging options.</p><p>NOTE: use of this command is not recommended. Use <code>SetV2LoggingOptions</code> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SetLoggingOptions</a> action.</p>
  
  @param request A container for the necessary parameters to execute the SetLoggingOptions service method.
 
@@ -4776,7 +5020,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)setLoggingOptions:(AWSIoTSetLoggingOptionsRequest *)request;
 
 /**
- <p>Sets the logging options.</p><p>NOTE: use of this command is not recommended. Use <code>SetV2LoggingOptions</code> instead.</p>
+ <p>Sets the logging options.</p><p>NOTE: use of this command is not recommended. Use <code>SetV2LoggingOptions</code> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SetLoggingOptions</a> action.</p>
  
  @param request A container for the necessary parameters to execute the SetLoggingOptions service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4787,7 +5031,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)setLoggingOptions:(AWSIoTSetLoggingOptionsRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sets the logging level.</p>
+ <p>Sets the logging level.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SetV2LoggingLevel</a> action.</p>
  
  @param request A container for the necessary parameters to execute the SetV2LoggingLevel service method.
 
@@ -4798,7 +5042,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)setV2LoggingLevel:(AWSIoTSetV2LoggingLevelRequest *)request;
 
 /**
- <p>Sets the logging level.</p>
+ <p>Sets the logging level.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SetV2LoggingLevel</a> action.</p>
  
  @param request A container for the necessary parameters to execute the SetV2LoggingLevel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4809,7 +5053,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)setV2LoggingLevel:(AWSIoTSetV2LoggingLevelRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sets the logging options for the V2 logging service.</p>
+ <p>Sets the logging options for the V2 logging service.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SetV2LoggingOptions</a> action.</p>
  
  @param request A container for the necessary parameters to execute the SetV2LoggingOptions service method.
 
@@ -4820,7 +5064,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)setV2LoggingOptions:(AWSIoTSetV2LoggingOptionsRequest *)request;
 
 /**
- <p>Sets the logging options for the V2 logging service.</p>
+ <p>Sets the logging options for the V2 logging service.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SetV2LoggingOptions</a> action.</p>
  
  @param request A container for the necessary parameters to execute the SetV2LoggingOptions service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4831,7 +5075,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)setV2LoggingOptions:(AWSIoTSetV2LoggingOptionsRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Starts a task that applies a set of mitigation actions to the specified target.</p>
+ <p>Starts a task that applies a set of mitigation actions to the specified target.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartAuditMitigationActionsTask</a> action.</p>
  
  @param request A container for the necessary parameters to execute the StartAuditMitigationActionsTask service method.
 
@@ -4843,7 +5087,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTStartAuditMitigationActionsTaskResponse *> *)startAuditMitigationActionsTask:(AWSIoTStartAuditMitigationActionsTaskRequest *)request;
 
 /**
- <p>Starts a task that applies a set of mitigation actions to the specified target.</p>
+ <p>Starts a task that applies a set of mitigation actions to the specified target.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartAuditMitigationActionsTask</a> action.</p>
  
  @param request A container for the necessary parameters to execute the StartAuditMitigationActionsTask service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4856,7 +5100,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)startAuditMitigationActionsTask:(AWSIoTStartAuditMitigationActionsTaskRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTStartAuditMitigationActionsTaskResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p> Starts a Device Defender ML Detect mitigation actions task. </p>
+ <p> Starts a Device Defender ML Detect mitigation actions task. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartDetectMitigationActionsTask</a> action.</p>
  
  @param request A container for the necessary parameters to execute the StartDetectMitigationActionsTask service method.
 
@@ -4868,7 +5112,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTStartDetectMitigationActionsTaskResponse *> *)startDetectMitigationActionsTask:(AWSIoTStartDetectMitigationActionsTaskRequest *)request;
 
 /**
- <p> Starts a Device Defender ML Detect mitigation actions task. </p>
+ <p> Starts a Device Defender ML Detect mitigation actions task. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartDetectMitigationActionsTask</a> action.</p>
  
  @param request A container for the necessary parameters to execute the StartDetectMitigationActionsTask service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4881,7 +5125,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)startDetectMitigationActionsTask:(AWSIoTStartDetectMitigationActionsTaskRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTStartDetectMitigationActionsTaskResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Starts an on-demand Device Defender audit.</p>
+ <p>Starts an on-demand Device Defender audit.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartOnDemandAuditTask</a> action.</p>
  
  @param request A container for the necessary parameters to execute the StartOnDemandAuditTask service method.
 
@@ -4893,7 +5137,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTStartOnDemandAuditTaskResponse *> *)startOnDemandAuditTask:(AWSIoTStartOnDemandAuditTaskRequest *)request;
 
 /**
- <p>Starts an on-demand Device Defender audit.</p>
+ <p>Starts an on-demand Device Defender audit.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartOnDemandAuditTask</a> action.</p>
  
  @param request A container for the necessary parameters to execute the StartOnDemandAuditTask service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4906,7 +5150,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)startOnDemandAuditTask:(AWSIoTStartOnDemandAuditTaskRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTStartOnDemandAuditTaskResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a bulk thing provisioning task.</p>
+ <p>Creates a bulk thing provisioning task.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartThingRegistrationTask</a> action.</p>
  
  @param request A container for the necessary parameters to execute the StartThingRegistrationTask service method.
 
@@ -4918,7 +5162,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTStartThingRegistrationTaskResponse *> *)startThingRegistrationTask:(AWSIoTStartThingRegistrationTaskRequest *)request;
 
 /**
- <p>Creates a bulk thing provisioning task.</p>
+ <p>Creates a bulk thing provisioning task.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartThingRegistrationTask</a> action.</p>
  
  @param request A container for the necessary parameters to execute the StartThingRegistrationTask service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4931,7 +5175,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)startThingRegistrationTask:(AWSIoTStartThingRegistrationTaskRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTStartThingRegistrationTaskResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Cancels a bulk thing provisioning task.</p>
+ <p>Cancels a bulk thing provisioning task.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StopThingRegistrationTask</a> action.</p>
  
  @param request A container for the necessary parameters to execute the StopThingRegistrationTask service method.
 
@@ -4943,7 +5187,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTStopThingRegistrationTaskResponse *> *)stopThingRegistrationTask:(AWSIoTStopThingRegistrationTaskRequest *)request;
 
 /**
- <p>Cancels a bulk thing provisioning task.</p>
+ <p>Cancels a bulk thing provisioning task.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StopThingRegistrationTask</a> action.</p>
  
  @param request A container for the necessary parameters to execute the StopThingRegistrationTask service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4956,7 +5200,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)stopThingRegistrationTask:(AWSIoTStopThingRegistrationTaskRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTStopThingRegistrationTaskResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Adds to or modifies the tags of the given resource. Tags are metadata which can be used to manage a resource.</p>
+ <p>Adds to or modifies the tags of the given resource. Tags are metadata which can be used to manage a resource.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">TagResource</a> action.</p>
  
  @param request A container for the necessary parameters to execute the TagResource service method.
 
@@ -4968,7 +5212,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTTagResourceResponse *> *)tagResource:(AWSIoTTagResourceRequest *)request;
 
 /**
- <p>Adds to or modifies the tags of the given resource. Tags are metadata which can be used to manage a resource.</p>
+ <p>Adds to or modifies the tags of the given resource. Tags are metadata which can be used to manage a resource.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">TagResource</a> action.</p>
  
  @param request A container for the necessary parameters to execute the TagResource service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4981,7 +5225,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)tagResource:(AWSIoTTagResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTTagResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Tests if a specified principal is authorized to perform an AWS IoT action on a specified resource. Use this to test and debug the authorization behavior of devices that connect to the AWS IoT device gateway.</p>
+ <p>Tests if a specified principal is authorized to perform an IoT action on a specified resource. Use this to test and debug the authorization behavior of devices that connect to the IoT device gateway.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">TestAuthorization</a> action.</p>
  
  @param request A container for the necessary parameters to execute the TestAuthorization service method.
 
@@ -4993,7 +5237,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTTestAuthorizationResponse *> *)testAuthorization:(AWSIoTTestAuthorizationRequest *)request;
 
 /**
- <p>Tests if a specified principal is authorized to perform an AWS IoT action on a specified resource. Use this to test and debug the authorization behavior of devices that connect to the AWS IoT device gateway.</p>
+ <p>Tests if a specified principal is authorized to perform an IoT action on a specified resource. Use this to test and debug the authorization behavior of devices that connect to the IoT device gateway.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">TestAuthorization</a> action.</p>
  
  @param request A container for the necessary parameters to execute the TestAuthorization service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5006,7 +5250,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)testAuthorization:(AWSIoTTestAuthorizationRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTTestAuthorizationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Tests a custom authorization behavior by invoking a specified custom authorizer. Use this to test and debug the custom authorization behavior of devices that connect to the AWS IoT device gateway.</p>
+ <p>Tests a custom authorization behavior by invoking a specified custom authorizer. Use this to test and debug the custom authorization behavior of devices that connect to the IoT device gateway.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">TestInvokeAuthorizer</a> action.</p>
  
  @param request A container for the necessary parameters to execute the TestInvokeAuthorizer service method.
 
@@ -5018,7 +5262,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTTestInvokeAuthorizerResponse *> *)testInvokeAuthorizer:(AWSIoTTestInvokeAuthorizerRequest *)request;
 
 /**
- <p>Tests a custom authorization behavior by invoking a specified custom authorizer. Use this to test and debug the custom authorization behavior of devices that connect to the AWS IoT device gateway.</p>
+ <p>Tests a custom authorization behavior by invoking a specified custom authorizer. Use this to test and debug the custom authorization behavior of devices that connect to the IoT device gateway.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">TestInvokeAuthorizer</a> action.</p>
  
  @param request A container for the necessary parameters to execute the TestInvokeAuthorizer service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5031,7 +5275,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)testInvokeAuthorizer:(AWSIoTTestInvokeAuthorizerRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTTestInvokeAuthorizerResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Transfers the specified certificate to the specified AWS account.</p><p>You can cancel the transfer until it is acknowledged by the recipient.</p><p>No notification is sent to the transfer destination's account. It is up to the caller to notify the transfer target.</p><p>The certificate being transferred must not be in the ACTIVE state. You can use the UpdateCertificate API to deactivate it.</p><p>The certificate must not have any policies attached to it. You can use the DetachPrincipalPolicy API to detach them.</p>
+ <p>Transfers the specified certificate to the specified Amazon Web Services account.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">TransferCertificate</a> action.</p><p>You can cancel the transfer until it is acknowledged by the recipient.</p><p>No notification is sent to the transfer destination's account. It is up to the caller to notify the transfer target.</p><p>The certificate being transferred must not be in the ACTIVE state. You can use the <a>UpdateCertificate</a> action to deactivate it.</p><p>The certificate must not have any policies attached to it. You can use the <a>DetachPolicy</a> action to detach them.</p>
  
  @param request A container for the necessary parameters to execute the TransferCertificate service method.
 
@@ -5043,7 +5287,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTTransferCertificateResponse *> *)transferCertificate:(AWSIoTTransferCertificateRequest *)request;
 
 /**
- <p>Transfers the specified certificate to the specified AWS account.</p><p>You can cancel the transfer until it is acknowledged by the recipient.</p><p>No notification is sent to the transfer destination's account. It is up to the caller to notify the transfer target.</p><p>The certificate being transferred must not be in the ACTIVE state. You can use the UpdateCertificate API to deactivate it.</p><p>The certificate must not have any policies attached to it. You can use the DetachPrincipalPolicy API to detach them.</p>
+ <p>Transfers the specified certificate to the specified Amazon Web Services account.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">TransferCertificate</a> action.</p><p>You can cancel the transfer until it is acknowledged by the recipient.</p><p>No notification is sent to the transfer destination's account. It is up to the caller to notify the transfer target.</p><p>The certificate being transferred must not be in the ACTIVE state. You can use the <a>UpdateCertificate</a> action to deactivate it.</p><p>The certificate must not have any policies attached to it. You can use the <a>DetachPolicy</a> action to detach them.</p>
  
  @param request A container for the necessary parameters to execute the TransferCertificate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5056,7 +5300,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)transferCertificate:(AWSIoTTransferCertificateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTTransferCertificateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Removes the given tags (metadata) from the resource.</p>
+ <p>Removes the given tags (metadata) from the resource.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UntagResource</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UntagResource service method.
 
@@ -5068,7 +5312,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTUntagResourceResponse *> *)untagResource:(AWSIoTUntagResourceRequest *)request;
 
 /**
- <p>Removes the given tags (metadata) from the resource.</p>
+ <p>Removes the given tags (metadata) from the resource.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UntagResource</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UntagResource service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5081,7 +5325,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)untagResource:(AWSIoTUntagResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTUntagResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Configures or reconfigures the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.</p>
+ <p>Configures or reconfigures the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateAccountAuditConfiguration</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateAccountAuditConfiguration service method.
 
@@ -5093,7 +5337,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTUpdateAccountAuditConfigurationResponse *> *)updateAccountAuditConfiguration:(AWSIoTUpdateAccountAuditConfigurationRequest *)request;
 
 /**
- <p>Configures or reconfigures the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.</p>
+ <p>Configures or reconfigures the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateAccountAuditConfiguration</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateAccountAuditConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5131,7 +5375,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)updateAuditSuppression:(AWSIoTUpdateAuditSuppressionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTUpdateAuditSuppressionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates an authorizer.</p>
+ <p>Updates an authorizer.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateAuthorizer</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateAuthorizer service method.
 
@@ -5143,7 +5387,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTUpdateAuthorizerResponse *> *)updateAuthorizer:(AWSIoTUpdateAuthorizerRequest *)request;
 
 /**
- <p>Updates an authorizer.</p>
+ <p>Updates an authorizer.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateAuthorizer</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateAuthorizer service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5156,7 +5400,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)updateAuthorizer:(AWSIoTUpdateAuthorizerRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTUpdateAuthorizerResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates information about the billing group.</p>
+ <p>Updates information about the billing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateBillingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateBillingGroup service method.
 
@@ -5168,7 +5412,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTUpdateBillingGroupResponse *> *)updateBillingGroup:(AWSIoTUpdateBillingGroupRequest *)request;
 
 /**
- <p>Updates information about the billing group.</p>
+ <p>Updates information about the billing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateBillingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateBillingGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5181,7 +5425,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)updateBillingGroup:(AWSIoTUpdateBillingGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTUpdateBillingGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates a registered CA certificate.</p>
+ <p>Updates a registered CA certificate.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateCACertificate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateCACertificate service method.
 
@@ -5192,7 +5436,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)updateCACertificate:(AWSIoTUpdateCACertificateRequest *)request;
 
 /**
- <p>Updates a registered CA certificate.</p>
+ <p>Updates a registered CA certificate.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateCACertificate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateCACertificate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5203,7 +5447,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)updateCACertificate:(AWSIoTUpdateCACertificateRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the status of the specified certificate. This operation is idempotent.</p><p>Certificates must be in the ACTIVE state to authenticate devices that use a certificate to connect to AWS IoT.</p><p>Within a few minutes of updating a certificate from the ACTIVE state to any other state, AWS IoT disconnects all devices that used that certificate to connect. Devices cannot use a certificate that is not in the ACTIVE state to reconnect.</p>
+ <p>Updates the status of the specified certificate. This operation is idempotent.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateCertificate</a> action.</p><p>Certificates must be in the ACTIVE state to authenticate devices that use a certificate to connect to IoT.</p><p>Within a few minutes of updating a certificate from the ACTIVE state to any other state, IoT disconnects all devices that used that certificate to connect. Devices cannot use a certificate that is not in the ACTIVE state to reconnect.</p>
  
  @param request A container for the necessary parameters to execute the UpdateCertificate service method.
 
@@ -5214,7 +5458,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)updateCertificate:(AWSIoTUpdateCertificateRequest *)request;
 
 /**
- <p>Updates the status of the specified certificate. This operation is idempotent.</p><p>Certificates must be in the ACTIVE state to authenticate devices that use a certificate to connect to AWS IoT.</p><p>Within a few minutes of updating a certificate from the ACTIVE state to any other state, AWS IoT disconnects all devices that used that certificate to connect. Devices cannot use a certificate that is not in the ACTIVE state to reconnect.</p>
+ <p>Updates the status of the specified certificate. This operation is idempotent.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateCertificate</a> action.</p><p>Certificates must be in the ACTIVE state to authenticate devices that use a certificate to connect to IoT.</p><p>Within a few minutes of updating a certificate from the ACTIVE state to any other state, IoT disconnects all devices that used that certificate to connect. Devices cannot use a certificate that is not in the ACTIVE state to reconnect.</p>
  
  @param request A container for the necessary parameters to execute the UpdateCertificate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5225,7 +5469,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)updateCertificate:(AWSIoTUpdateCertificateRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates a Device Defender detect custom metric. </p>
+ <p>Updates a Device Defender detect custom metric. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateCustomMetric</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateCustomMetric service method.
 
@@ -5237,7 +5481,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTUpdateCustomMetricResponse *> *)updateCustomMetric:(AWSIoTUpdateCustomMetricRequest *)request;
 
 /**
- <p>Updates a Device Defender detect custom metric. </p>
+ <p>Updates a Device Defender detect custom metric. </p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateCustomMetric</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateCustomMetric service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5250,7 +5494,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)updateCustomMetric:(AWSIoTUpdateCustomMetricRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTUpdateCustomMetricResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the definition for a dimension. You cannot change the type of a dimension after it is created (you can delete it and recreate it).</p>
+ <p>Updates the definition for a dimension. You cannot change the type of a dimension after it is created (you can delete it and recreate it).</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateDimension</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateDimension service method.
 
@@ -5262,7 +5506,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTUpdateDimensionResponse *> *)updateDimension:(AWSIoTUpdateDimensionRequest *)request;
 
 /**
- <p>Updates the definition for a dimension. You cannot change the type of a dimension after it is created (you can delete it and recreate it).</p>
+ <p>Updates the definition for a dimension. You cannot change the type of a dimension after it is created (you can delete it and recreate it).</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateDimension</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateDimension service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5275,7 +5519,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)updateDimension:(AWSIoTUpdateDimensionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTUpdateDimensionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates values stored in the domain configuration. Domain configurations for default endpoints can't be updated.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note>
+ <p>Updates values stored in the domain configuration. Domain configurations for default endpoints can't be updated.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateDomainConfiguration</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateDomainConfiguration service method.
 
@@ -5287,7 +5531,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTUpdateDomainConfigurationResponse *> *)updateDomainConfiguration:(AWSIoTUpdateDomainConfigurationRequest *)request;
 
 /**
- <p>Updates values stored in the domain configuration. Domain configurations for default endpoints can't be updated.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note>
+ <p>Updates values stored in the domain configuration. Domain configurations for default endpoints can't be updated.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateDomainConfiguration</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateDomainConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5300,7 +5544,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)updateDomainConfiguration:(AWSIoTUpdateDomainConfigurationRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTUpdateDomainConfigurationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates a dynamic thing group.</p>
+ <p>Updates a dynamic thing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateDynamicThingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateDynamicThingGroup service method.
 
@@ -5312,7 +5556,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTUpdateDynamicThingGroupResponse *> *)updateDynamicThingGroup:(AWSIoTUpdateDynamicThingGroupRequest *)request;
 
 /**
- <p>Updates a dynamic thing group.</p>
+ <p>Updates a dynamic thing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateDynamicThingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateDynamicThingGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5325,7 +5569,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)updateDynamicThingGroup:(AWSIoTUpdateDynamicThingGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTUpdateDynamicThingGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the event configurations.</p>
+ <p>Updates the event configurations.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateEventConfigurations</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateEventConfigurations service method.
 
@@ -5337,7 +5581,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTUpdateEventConfigurationsResponse *> *)updateEventConfigurations:(AWSIoTUpdateEventConfigurationsRequest *)request;
 
 /**
- <p>Updates the event configurations.</p>
+ <p>Updates the event configurations.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateEventConfigurations</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateEventConfigurations service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5350,7 +5594,29 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)updateEventConfigurations:(AWSIoTUpdateEventConfigurationsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTUpdateEventConfigurationsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the search configuration.</p>
+ <p>Updates the data for a fleet metric.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateFleetMetric</a> action.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateFleetMetric service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorInvalidQuery`, `AWSIoTErrorInvalidAggregation`, `AWSIoTErrorVersionConflict`, `AWSIoTErrorIndexNotReady`.
+ 
+ @see AWSIoTUpdateFleetMetricRequest
+ */
+- (AWSTask *)updateFleetMetric:(AWSIoTUpdateFleetMetricRequest *)request;
+
+/**
+ <p>Updates the data for a fleet metric.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateFleetMetric</a> action.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateFleetMetric service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorInvalidQuery`, `AWSIoTErrorInvalidAggregation`, `AWSIoTErrorVersionConflict`, `AWSIoTErrorIndexNotReady`.
+ 
+ @see AWSIoTUpdateFleetMetricRequest
+ */
+- (void)updateFleetMetric:(AWSIoTUpdateFleetMetricRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Updates the search configuration.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateIndexingConfiguration</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateIndexingConfiguration service method.
 
@@ -5362,7 +5628,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTUpdateIndexingConfigurationResponse *> *)updateIndexingConfiguration:(AWSIoTUpdateIndexingConfigurationRequest *)request;
 
 /**
- <p>Updates the search configuration.</p>
+ <p>Updates the search configuration.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateIndexingConfiguration</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateIndexingConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5375,7 +5641,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)updateIndexingConfiguration:(AWSIoTUpdateIndexingConfigurationRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTUpdateIndexingConfigurationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates supported fields of the specified job.</p>
+ <p>Updates supported fields of the specified job.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateJob</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateJob service method.
 
@@ -5386,7 +5652,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)updateJob:(AWSIoTUpdateJobRequest *)request;
 
 /**
- <p>Updates supported fields of the specified job.</p>
+ <p>Updates supported fields of the specified job.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateJob</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateJob service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5397,7 +5663,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)updateJob:(AWSIoTUpdateJobRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the definition for the specified mitigation action.</p>
+ <p>Updates the definition for the specified mitigation action.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateMitigationAction</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateMitigationAction service method.
 
@@ -5409,7 +5675,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTUpdateMitigationActionResponse *> *)updateMitigationAction:(AWSIoTUpdateMitigationActionRequest *)request;
 
 /**
- <p>Updates the definition for the specified mitigation action.</p>
+ <p>Updates the definition for the specified mitigation action.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateMitigationAction</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateMitigationAction service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5422,7 +5688,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)updateMitigationAction:(AWSIoTUpdateMitigationActionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTUpdateMitigationActionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates a fleet provisioning template.</p>
+ <p>Updates a fleet provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateProvisioningTemplate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateProvisioningTemplate service method.
 
@@ -5434,7 +5700,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTUpdateProvisioningTemplateResponse *> *)updateProvisioningTemplate:(AWSIoTUpdateProvisioningTemplateRequest *)request;
 
 /**
- <p>Updates a fleet provisioning template.</p>
+ <p>Updates a fleet provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateProvisioningTemplate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateProvisioningTemplate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5447,7 +5713,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)updateProvisioningTemplate:(AWSIoTUpdateProvisioningTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTUpdateProvisioningTemplateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates a role alias.</p>
+ <p>Updates a role alias.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateRoleAlias</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateRoleAlias service method.
 
@@ -5459,7 +5725,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTUpdateRoleAliasResponse *> *)updateRoleAlias:(AWSIoTUpdateRoleAliasRequest *)request;
 
 /**
- <p>Updates a role alias.</p>
+ <p>Updates a role alias.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateRoleAlias</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateRoleAlias service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5472,7 +5738,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)updateRoleAlias:(AWSIoTUpdateRoleAliasRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTUpdateRoleAliasResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates a scheduled audit, including which checks are performed and how often the audit takes place.</p>
+ <p>Updates a scheduled audit, including which checks are performed and how often the audit takes place.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateScheduledAudit</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateScheduledAudit service method.
 
@@ -5484,7 +5750,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTUpdateScheduledAuditResponse *> *)updateScheduledAudit:(AWSIoTUpdateScheduledAuditRequest *)request;
 
 /**
- <p>Updates a scheduled audit, including which checks are performed and how often the audit takes place.</p>
+ <p>Updates a scheduled audit, including which checks are performed and how often the audit takes place.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateScheduledAudit</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateScheduledAudit service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5497,7 +5763,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)updateScheduledAudit:(AWSIoTUpdateScheduledAuditRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTUpdateScheduledAuditResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates a Device Defender security profile.</p>
+ <p>Updates a Device Defender security profile.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateSecurityProfile</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateSecurityProfile service method.
 
@@ -5509,7 +5775,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTUpdateSecurityProfileResponse *> *)updateSecurityProfile:(AWSIoTUpdateSecurityProfileRequest *)request;
 
 /**
- <p>Updates a Device Defender security profile.</p>
+ <p>Updates a Device Defender security profile.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateSecurityProfile</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateSecurityProfile service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5522,7 +5788,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)updateSecurityProfile:(AWSIoTUpdateSecurityProfileRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTUpdateSecurityProfileResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates an existing stream. The stream version will be incremented by one.</p>
+ <p>Updates an existing stream. The stream version will be incremented by one.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateStream</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateStream service method.
 
@@ -5534,7 +5800,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTUpdateStreamResponse *> *)updateStream:(AWSIoTUpdateStreamRequest *)request;
 
 /**
- <p>Updates an existing stream. The stream version will be incremented by one.</p>
+ <p>Updates an existing stream. The stream version will be incremented by one.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateStream</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateStream service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5547,7 +5813,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)updateStream:(AWSIoTUpdateStreamRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTUpdateStreamResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the data for a thing.</p>
+ <p>Updates the data for a thing.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateThing</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateThing service method.
 
@@ -5559,7 +5825,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTUpdateThingResponse *> *)updateThing:(AWSIoTUpdateThingRequest *)request;
 
 /**
- <p>Updates the data for a thing.</p>
+ <p>Updates the data for a thing.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateThing</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateThing service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5572,7 +5838,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)updateThing:(AWSIoTUpdateThingRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTUpdateThingResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Update a thing group.</p>
+ <p>Update a thing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateThingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateThingGroup service method.
 
@@ -5584,7 +5850,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTUpdateThingGroupResponse *> *)updateThingGroup:(AWSIoTUpdateThingGroupRequest *)request;
 
 /**
- <p>Update a thing group.</p>
+ <p>Update a thing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateThingGroup</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateThingGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5597,7 +5863,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)updateThingGroup:(AWSIoTUpdateThingGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTUpdateThingGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the groups to which the thing belongs.</p>
+ <p>Updates the groups to which the thing belongs.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateThingGroupsForThing</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateThingGroupsForThing service method.
 
@@ -5609,7 +5875,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTUpdateThingGroupsForThingResponse *> *)updateThingGroupsForThing:(AWSIoTUpdateThingGroupsForThingRequest *)request;
 
 /**
- <p>Updates the groups to which the thing belongs.</p>
+ <p>Updates the groups to which the thing belongs.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateThingGroupsForThing</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateThingGroupsForThing service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5622,7 +5888,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)updateThingGroupsForThing:(AWSIoTUpdateThingGroupsForThingRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTUpdateThingGroupsForThingResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates a topic rule destination. You use this to change the status, endpoint URL, or confirmation URL of the destination.</p>
+ <p>Updates a topic rule destination. You use this to change the status, endpoint URL, or confirmation URL of the destination.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateTopicRuleDestination</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateTopicRuleDestination service method.
 
@@ -5634,7 +5900,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTUpdateTopicRuleDestinationResponse *> *)updateTopicRuleDestination:(AWSIoTUpdateTopicRuleDestinationRequest *)request;
 
 /**
- <p>Updates a topic rule destination. You use this to change the status, endpoint URL, or confirmation URL of the destination.</p>
+ <p>Updates a topic rule destination. You use this to change the status, endpoint URL, or confirmation URL of the destination.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateTopicRuleDestination</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateTopicRuleDestination service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5647,7 +5913,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)updateTopicRuleDestination:(AWSIoTUpdateTopicRuleDestinationRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTUpdateTopicRuleDestinationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Validates a Device Defender security profile behaviors specification.</p>
+ <p>Validates a Device Defender security profile behaviors specification.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ValidateSecurityProfileBehaviors</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ValidateSecurityProfileBehaviors service method.
 
@@ -5659,7 +5925,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTValidateSecurityProfileBehaviorsResponse *> *)validateSecurityProfileBehaviors:(AWSIoTValidateSecurityProfileBehaviorsRequest *)request;
 
 /**
- <p>Validates a Device Defender security profile behaviors specification.</p>
+ <p>Validates a Device Defender security profile behaviors specification.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ValidateSecurityProfileBehaviors</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ValidateSecurityProfileBehaviors service method.
  @param completionHandler The completion handler to call when the load request is complete.

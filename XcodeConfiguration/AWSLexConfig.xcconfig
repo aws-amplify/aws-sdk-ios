@@ -13,13 +13,12 @@
 // permissions and limitations under the License.
 //
 
-// Add arm64 to EXCLUDED_ARCHS for iOS simulator version 14
+// Add arm64 to EXCLUDED_ARCHS for iOS simulator version 14+
 // This is to temporarily fix issues with Xcode 12, since Xcode 12 supports Apple Silicon Macs using arm64,
 // but most libraries currently haven't been built with arm64 support for simulator. AWSLex internally uses
 // libBlueAudioSourceiOS static library which do not have support for arm64 simulator
 //
 // NOTE: EXCLUDED_ARCHS is a new feature of Xcode 12. https://developer.apple.com/documentation/xcode-release-notes/xcode-12-release-notes#Build-System
 // Nevertheless, it appears that while Xcode 11 does not support this feature, it notices the build setting and does
-// weird things as a result, breaking the build on Xcode 11. To keep using Xcode 11, we found that we can
-// use 14* instead of *. also we can just comment this line out.
-EXCLUDED_ARCHS[sdk=iphonesimulator14*] = arm64
+// weird things as a result, breaking the build on Xcode 11. To keep using Xcode 11, we can just comment this line out.
+EXCLUDED_ARCHS[sdk=iphonesimulator*] = arm64

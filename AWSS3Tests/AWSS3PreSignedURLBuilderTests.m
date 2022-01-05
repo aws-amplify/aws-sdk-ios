@@ -414,7 +414,7 @@ static long unsigned testObjectSize = 10000;
 }
 
 - (void)testPutObjectWithSpecialCharacters {
-    NSArray *keyNameArray = @[@"a:b/&$@=;:+ ,?.zip",@"\\^`><{}/[]#  %'~|"]; //characters might require special handling and characters to avoid
+    NSArray *keyNameArray = @[@"a:b/&$@=😀;:+ ,?.zip",@"\\^`><{}/[]#  %'~|"]; //characters might require special handling and characters to avoid
     NSString *testContentType = @"application/x-authorware-bin";
 
 

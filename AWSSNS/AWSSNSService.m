@@ -25,7 +25,7 @@
 #import "AWSSNSResources.h"
 
 static NSString *const AWSInfoSNS = @"SNS";
-NSString *const AWSSNSSDKVersion = @"2.24.1";
+NSString *const AWSSNSSDKVersion = @"2.26.7";
 
 
 @interface AWSSNSResponseSerializer : AWSXMLResponseSerializer
@@ -40,10 +40,14 @@ static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
                             @"AuthorizationError" : @(AWSSNSErrorAuthorizationError),
+                            @"BatchEntryIdsNotDistinct" : @(AWSSNSErrorBatchEntryIdsNotDistinct),
+                            @"BatchRequestTooLong" : @(AWSSNSErrorBatchRequestTooLong),
                             @"ConcurrentAccess" : @(AWSSNSErrorConcurrentAccess),
+                            @"EmptyBatchRequest" : @(AWSSNSErrorEmptyBatchRequest),
                             @"EndpointDisabled" : @(AWSSNSErrorEndpointDisabled),
                             @"FilterPolicyLimitExceeded" : @(AWSSNSErrorFilterPolicyLimitExceeded),
                             @"InternalError" : @(AWSSNSErrorInternalError),
+                            @"InvalidBatchEntryId" : @(AWSSNSErrorInvalidBatchEntryId),
                             @"InvalidParameter" : @(AWSSNSErrorInvalidParameter),
                             @"ParameterValueInvalid" : @(AWSSNSErrorInvalidParameterValue),
                             @"InvalidSecurity" : @(AWSSNSErrorInvalidSecurity),
@@ -54,6 +58,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"KMSOptInRequired" : @(AWSSNSErrorKMSOptInRequired),
                             @"KMSThrottling" : @(AWSSNSErrorKMSThrottling),
                             @"NotFound" : @(AWSSNSErrorNotFound),
+                            @"OptedOut" : @(AWSSNSErrorOptedOut),
                             @"PlatformApplicationDisabled" : @(AWSSNSErrorPlatformApplicationDisabled),
                             @"ResourceNotFound" : @(AWSSNSErrorResourceNotFound),
                             @"StaleTag" : @(AWSSNSErrorStaleTag),
@@ -61,7 +66,11 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"TagLimitExceeded" : @(AWSSNSErrorTagLimitExceeded),
                             @"TagPolicy" : @(AWSSNSErrorTagPolicy),
                             @"Throttled" : @(AWSSNSErrorThrottled),
+                            @"TooManyEntriesInBatchRequest" : @(AWSSNSErrorTooManyEntriesInBatchRequest),
                             @"TopicLimitExceeded" : @(AWSSNSErrorTopicLimitExceeded),
+                            @"UserError" : @(AWSSNSErrorUserError),
+                            @"ValidationException" : @(AWSSNSErrorValidation),
+                            @"VerificationException" : @(AWSSNSErrorVerification),
                             };
 }
 
@@ -408,6 +417,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSSNSCreateSMSSandboxPhoneNumberResult *> *)createSMSSandboxPhoneNumber:(AWSSNSCreateSMSSandboxPhoneNumberInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"CreateSMSSandboxPhoneNumber"
+                   outputClass:[AWSSNSCreateSMSSandboxPhoneNumberResult class]];
+}
+
+- (void)createSMSSandboxPhoneNumber:(AWSSNSCreateSMSSandboxPhoneNumberInput *)request
+     completionHandler:(void (^)(AWSSNSCreateSMSSandboxPhoneNumberResult *response, NSError *error))completionHandler {
+    [[self createSMSSandboxPhoneNumber:request] continueWithBlock:^id _Nullable(AWSTask<AWSSNSCreateSMSSandboxPhoneNumberResult *> * _Nonnull task) {
+        AWSSNSCreateSMSSandboxPhoneNumberResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSSNSCreateTopicResponse *> *)createTopic:(AWSSNSCreateTopicInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -469,6 +501,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSNSDeleteSMSSandboxPhoneNumberResult *> *)deleteSMSSandboxPhoneNumber:(AWSSNSDeleteSMSSandboxPhoneNumberInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DeleteSMSSandboxPhoneNumber"
+                   outputClass:[AWSSNSDeleteSMSSandboxPhoneNumberResult class]];
+}
+
+- (void)deleteSMSSandboxPhoneNumber:(AWSSNSDeleteSMSSandboxPhoneNumberInput *)request
+     completionHandler:(void (^)(AWSSNSDeleteSMSSandboxPhoneNumberResult *response, NSError *error))completionHandler {
+    [[self deleteSMSSandboxPhoneNumber:request] continueWithBlock:^id _Nullable(AWSTask<AWSSNSDeleteSMSSandboxPhoneNumberResult *> * _Nonnull task) {
+        AWSSNSDeleteSMSSandboxPhoneNumberResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
@@ -566,6 +621,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSSNSGetSMSSandboxAccountStatusResult *> *)getSMSSandboxAccountStatus:(AWSSNSGetSMSSandboxAccountStatusInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetSMSSandboxAccountStatus"
+                   outputClass:[AWSSNSGetSMSSandboxAccountStatusResult class]];
+}
+
+- (void)getSMSSandboxAccountStatus:(AWSSNSGetSMSSandboxAccountStatusInput *)request
+     completionHandler:(void (^)(AWSSNSGetSMSSandboxAccountStatusResult *response, NSError *error))completionHandler {
+    [[self getSMSSandboxAccountStatus:request] continueWithBlock:^id _Nullable(AWSTask<AWSSNSGetSMSSandboxAccountStatusResult *> * _Nonnull task) {
+        AWSSNSGetSMSSandboxAccountStatusResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSSNSGetSubscriptionAttributesResponse *> *)getSubscriptionAttributes:(AWSSNSGetSubscriptionAttributesInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -635,6 +713,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSSNSListOriginationNumbersResult *> *)listOriginationNumbers:(AWSSNSListOriginationNumbersRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ListOriginationNumbers"
+                   outputClass:[AWSSNSListOriginationNumbersResult class]];
+}
+
+- (void)listOriginationNumbers:(AWSSNSListOriginationNumbersRequest *)request
+     completionHandler:(void (^)(AWSSNSListOriginationNumbersResult *response, NSError *error))completionHandler {
+    [[self listOriginationNumbers:request] continueWithBlock:^id _Nullable(AWSTask<AWSSNSListOriginationNumbersResult *> * _Nonnull task) {
+        AWSSNSListOriginationNumbersResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSSNSListPhoneNumbersOptedOutResponse *> *)listPhoneNumbersOptedOut:(AWSSNSListPhoneNumbersOptedOutInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -671,6 +772,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSSNSListPlatformApplicationsResponse *response, NSError *error))completionHandler {
     [[self listPlatformApplications:request] continueWithBlock:^id _Nullable(AWSTask<AWSSNSListPlatformApplicationsResponse *> * _Nonnull task) {
         AWSSNSListPlatformApplicationsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSNSListSMSSandboxPhoneNumbersResult *> *)listSMSSandboxPhoneNumbers:(AWSSNSListSMSSandboxPhoneNumbersInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ListSMSSandboxPhoneNumbers"
+                   outputClass:[AWSSNSListSMSSandboxPhoneNumbersResult class]];
+}
+
+- (void)listSMSSandboxPhoneNumbers:(AWSSNSListSMSSandboxPhoneNumbersInput *)request
+     completionHandler:(void (^)(AWSSNSListSMSSandboxPhoneNumbersResult *response, NSError *error))completionHandler {
+    [[self listSMSSandboxPhoneNumbers:request] continueWithBlock:^id _Nullable(AWSTask<AWSSNSListSMSSandboxPhoneNumbersResult *> * _Nonnull task) {
+        AWSSNSListSMSSandboxPhoneNumbersResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -809,6 +933,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSSNSPublishResponse *response, NSError *error))completionHandler {
     [[self publish:request] continueWithBlock:^id _Nullable(AWSTask<AWSSNSPublishResponse *> * _Nonnull task) {
         AWSSNSPublishResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSNSPublishBatchResponse *> *)publishBatch:(AWSSNSPublishBatchInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"PublishBatch"
+                   outputClass:[AWSSNSPublishBatchResponse class]];
+}
+
+- (void)publishBatch:(AWSSNSPublishBatchInput *)request
+     completionHandler:(void (^)(AWSSNSPublishBatchResponse *response, NSError *error))completionHandler {
+    [[self publishBatch:request] continueWithBlock:^id _Nullable(AWSTask<AWSSNSPublishBatchResponse *> * _Nonnull task) {
+        AWSSNSPublishBatchResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1033,6 +1180,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSSNSUntagResourceResponse *response, NSError *error))completionHandler {
     [[self untagResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSSNSUntagResourceResponse *> * _Nonnull task) {
         AWSSNSUntagResourceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSNSVerifySMSSandboxPhoneNumberResult *> *)verifySMSSandboxPhoneNumber:(AWSSNSVerifySMSSandboxPhoneNumberInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"VerifySMSSandboxPhoneNumber"
+                   outputClass:[AWSSNSVerifySMSSandboxPhoneNumberResult class]];
+}
+
+- (void)verifySMSSandboxPhoneNumber:(AWSSNSVerifySMSSandboxPhoneNumberInput *)request
+     completionHandler:(void (^)(AWSSNSVerifySMSSandboxPhoneNumberResult *response, NSError *error))completionHandler {
+    [[self verifySMSSandboxPhoneNumber:request] continueWithBlock:^id _Nullable(AWSTask<AWSSNSVerifySMSSandboxPhoneNumberResult *> * _Nonnull task) {
+        AWSSNSVerifySMSSandboxPhoneNumberResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

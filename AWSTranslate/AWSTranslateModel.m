@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -324,6 +324,9 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
         if ([value caseInsensitiveCompare:@"TMX"] == NSOrderedSame) {
             return @(AWSTranslateTerminologyDataFormatTmx);
         }
+        if ([value caseInsensitiveCompare:@"TSV"] == NSOrderedSame) {
+            return @(AWSTranslateTerminologyDataFormatTsv);
+        }
         return @(AWSTranslateTerminologyDataFormatUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -331,6 +334,8 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
                 return @"CSV";
             case AWSTranslateTerminologyDataFormatTmx:
                 return @"TMX";
+            case AWSTranslateTerminologyDataFormatTsv:
+                return @"TSV";
             default:
                 return nil;
         }
@@ -347,9 +352,14 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"auxiliaryDataLocation" : @"AuxiliaryDataLocation",
              @"terminologyDataLocation" : @"TerminologyDataLocation",
              @"terminologyProperties" : @"TerminologyProperties",
              };
+}
+
++ (NSValueTransformer *)auxiliaryDataLocationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranslateTerminologyDataLocation class]];
 }
 
 + (NSValueTransformer *)terminologyDataLocationJSONTransformer {
@@ -412,8 +422,13 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"auxiliaryDataLocation" : @"AuxiliaryDataLocation",
              @"terminologyProperties" : @"TerminologyProperties",
              };
+}
+
++ (NSValueTransformer *)auxiliaryDataLocationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranslateTerminologyDataLocation class]];
 }
 
 + (NSValueTransformer *)terminologyPropertiesJSONTransformer {
@@ -568,8 +583,13 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"encryptionKey" : @"EncryptionKey",
              @"s3Uri" : @"S3Uri",
              };
+}
+
++ (NSValueTransformer *)encryptionKeyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranslateEncryptionKey class]];
 }
 
 @end
@@ -778,6 +798,7 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
              @"jobName" : @"JobName",
              @"outputDataConfig" : @"OutputDataConfig",
              @"parallelDataNames" : @"ParallelDataNames",
+             @"settings" : @"Settings",
              @"sourceLanguageCode" : @"SourceLanguageCode",
              @"targetLanguageCodes" : @"TargetLanguageCodes",
              @"terminologyNames" : @"TerminologyNames",
@@ -790,6 +811,10 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 
 + (NSValueTransformer *)outputDataConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranslateOutputDataConfig class]];
+}
+
++ (NSValueTransformer *)settingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranslateTranslationSettings class]];
 }
 
 @end
@@ -953,9 +978,31 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"directionality" : @"Directionality",
              @"file" : @"File",
              @"format" : @"Format",
              };
+}
+
++ (NSValueTransformer *)directionalityJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"UNI"] == NSOrderedSame) {
+            return @(AWSTranslateDirectionalityUni);
+        }
+        if ([value caseInsensitiveCompare:@"MULTI"] == NSOrderedSame) {
+            return @(AWSTranslateDirectionalityMulti);
+        }
+        return @(AWSTranslateDirectionalityUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranslateDirectionalityUni:
+                return @"UNI";
+            case AWSTranslateDirectionalityMulti:
+                return @"MULTI";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)formatJSONTransformer {
@@ -966,6 +1013,9 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
         if ([value caseInsensitiveCompare:@"TMX"] == NSOrderedSame) {
             return @(AWSTranslateTerminologyDataFormatTmx);
         }
+        if ([value caseInsensitiveCompare:@"TSV"] == NSOrderedSame) {
+            return @(AWSTranslateTerminologyDataFormatTsv);
+        }
         return @(AWSTranslateTerminologyDataFormatUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -973,6 +1023,8 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
                 return @"CSV";
             case AWSTranslateTerminologyDataFormatTmx:
                 return @"TMX";
+            case AWSTranslateTerminologyDataFormatTsv:
+                return @"TSV";
             default:
                 return nil;
         }
@@ -1007,10 +1059,14 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
              @"arn" : @"Arn",
              @"createdAt" : @"CreatedAt",
              @"detail" : @"Description",
+             @"directionality" : @"Directionality",
              @"encryptionKey" : @"EncryptionKey",
+             @"format" : @"Format",
              @"lastUpdatedAt" : @"LastUpdatedAt",
+             @"message" : @"Message",
              @"name" : @"Name",
              @"sizeBytes" : @"SizeBytes",
+             @"skippedTermCount" : @"SkippedTermCount",
              @"sourceLanguageCode" : @"SourceLanguageCode",
              @"targetLanguageCodes" : @"TargetLanguageCodes",
              @"termCount" : @"TermCount",
@@ -1025,8 +1081,55 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
     }];
 }
 
++ (NSValueTransformer *)directionalityJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"UNI"] == NSOrderedSame) {
+            return @(AWSTranslateDirectionalityUni);
+        }
+        if ([value caseInsensitiveCompare:@"MULTI"] == NSOrderedSame) {
+            return @(AWSTranslateDirectionalityMulti);
+        }
+        return @(AWSTranslateDirectionalityUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranslateDirectionalityUni:
+                return @"UNI";
+            case AWSTranslateDirectionalityMulti:
+                return @"MULTI";
+            default:
+                return nil;
+        }
+    }];
+}
+
 + (NSValueTransformer *)encryptionKeyJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranslateEncryptionKey class]];
+}
+
++ (NSValueTransformer *)formatJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CSV"] == NSOrderedSame) {
+            return @(AWSTranslateTerminologyDataFormatCsv);
+        }
+        if ([value caseInsensitiveCompare:@"TMX"] == NSOrderedSame) {
+            return @(AWSTranslateTerminologyDataFormatTmx);
+        }
+        if ([value caseInsensitiveCompare:@"TSV"] == NSOrderedSame) {
+            return @(AWSTranslateTerminologyDataFormatTsv);
+        }
+        return @(AWSTranslateTerminologyDataFormatUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranslateTerminologyDataFormatCsv:
+                return @"CSV";
+            case AWSTranslateTerminologyDataFormatTmx:
+                return @"TMX";
+            case AWSTranslateTerminologyDataFormatTsv:
+                return @"TSV";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)lastUpdatedAtJSONTransformer {
@@ -1136,6 +1239,7 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
              @"message" : @"Message",
              @"outputDataConfig" : @"OutputDataConfig",
              @"parallelDataNames" : @"ParallelDataNames",
+             @"settings" : @"Settings",
              @"sourceLanguageCode" : @"SourceLanguageCode",
              @"submittedTime" : @"SubmittedTime",
              @"targetLanguageCodes" : @"TargetLanguageCodes",
@@ -1209,6 +1313,10 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranslateOutputDataConfig class]];
 }
 
++ (NSValueTransformer *)settingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranslateTranslationSettings class]];
+}
+
 + (NSValueTransformer *)submittedTimeJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
@@ -1227,11 +1335,16 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"settings" : @"Settings",
              @"sourceLanguageCode" : @"SourceLanguageCode",
              @"targetLanguageCode" : @"TargetLanguageCode",
              @"terminologyNames" : @"TerminologyNames",
              @"text" : @"Text",
              };
+}
+
++ (NSValueTransformer *)settingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranslateTranslationSettings class]];
 }
 
 @end
@@ -1244,6 +1357,7 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"appliedSettings" : @"AppliedSettings",
              @"appliedTerminologies" : @"AppliedTerminologies",
              @"sourceLanguageCode" : @"SourceLanguageCode",
              @"targetLanguageCode" : @"TargetLanguageCode",
@@ -1251,8 +1365,42 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
              };
 }
 
++ (NSValueTransformer *)appliedSettingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranslateTranslationSettings class]];
+}
+
 + (NSValueTransformer *)appliedTerminologiesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTranslateAppliedTerminology class]];
+}
+
+@end
+
+@implementation AWSTranslateTranslationSettings
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"profanity" : @"Profanity",
+             };
+}
+
++ (NSValueTransformer *)profanityJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"MASK"] == NSOrderedSame) {
+            return @(AWSTranslateProfanityMask);
+        }
+        return @(AWSTranslateProfanityUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranslateProfanityMask:
+                return @"MASK";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -19,6 +19,11 @@
 
 @interface AWSFirehoseNSSecureCodingTests : AWSNSSecureCodingTest
 
+- (void) test_AWSFirehoseAmazonopensearchserviceBufferingHints API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseAmazonopensearchserviceDestinationConfiguration API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseAmazonopensearchserviceDestinationDescription API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseAmazonopensearchserviceDestinationUpdate API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseAmazonopensearchserviceRetryOptions API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseBufferingHints API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseCloudWatchLoggingOptions API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseReplicateCommand API_AVAILABLE(ios(11));
@@ -34,6 +39,7 @@
 - (void) test_AWSFirehoseDescribeDeliveryStreamOutput API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseDeserializer API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseDestinationDescription API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseDynamicPartitioningConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseElasticsearchBufferingHints API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseElasticsearchDestinationConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseElasticsearchDestinationDescription API_AVAILABLE(ios(11));
@@ -79,6 +85,7 @@
 - (void) test_AWSFirehoseRedshiftDestinationDescription API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseRedshiftDestinationUpdate API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseRedshiftRetryOptions API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseRetryOptions API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseS3DestinationConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseS3DestinationDescription API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseS3DestinationUpdate API_AVAILABLE(ios(11));
@@ -106,6 +113,26 @@
 @end
 
 @implementation AWSFirehoseNSSecureCodingTests
+
+- (void) test_AWSFirehoseAmazonopensearchserviceBufferingHints {
+    [self validateSecureCodingForClass:[AWSFirehoseAmazonopensearchserviceBufferingHints class]];
+}
+
+- (void) test_AWSFirehoseAmazonopensearchserviceDestinationConfiguration {
+    [self validateSecureCodingForClass:[AWSFirehoseAmazonopensearchserviceDestinationConfiguration class]];
+}
+
+- (void) test_AWSFirehoseAmazonopensearchserviceDestinationDescription {
+    [self validateSecureCodingForClass:[AWSFirehoseAmazonopensearchserviceDestinationDescription class]];
+}
+
+- (void) test_AWSFirehoseAmazonopensearchserviceDestinationUpdate {
+    [self validateSecureCodingForClass:[AWSFirehoseAmazonopensearchserviceDestinationUpdate class]];
+}
+
+- (void) test_AWSFirehoseAmazonopensearchserviceRetryOptions {
+    [self validateSecureCodingForClass:[AWSFirehoseAmazonopensearchserviceRetryOptions class]];
+}
 
 - (void) test_AWSFirehoseBufferingHints {
     [self validateSecureCodingForClass:[AWSFirehoseBufferingHints class]];
@@ -165,6 +192,10 @@
 
 - (void) test_AWSFirehoseDestinationDescription {
     [self validateSecureCodingForClass:[AWSFirehoseDestinationDescription class]];
+}
+
+- (void) test_AWSFirehoseDynamicPartitioningConfiguration {
+    [self validateSecureCodingForClass:[AWSFirehoseDynamicPartitioningConfiguration class]];
 }
 
 - (void) test_AWSFirehoseElasticsearchBufferingHints {
@@ -345,6 +376,10 @@
 
 - (void) test_AWSFirehoseRedshiftRetryOptions {
     [self validateSecureCodingForClass:[AWSFirehoseRedshiftRetryOptions class]];
+}
+
+- (void) test_AWSFirehoseRetryOptions {
+    [self validateSecureCodingForClass:[AWSFirehoseRetryOptions class]];
 }
 
 - (void) test_AWSFirehoseS3DestinationConfiguration {

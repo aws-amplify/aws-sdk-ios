@@ -18,6 +18,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AWSCognitoIdentityASF : NSObject
-+ (NSString *)userContextData: (int) minTarget build: (NSString *) build userPoolId: (NSString*) userPoolId username: (NSString *) username deviceId: ( NSString * _Nullable ) deviceId userPoolClientId: (NSString *) userPoolClientId;
+/*!
+ @warning This function is deprecated and will be removed in an upcoming minor
+ version of the SDK. You should use userContextString instead.
+ @deprecated Use userContextString instead.
+ */
++ (NSString *)userContextData: (int) minTarget build: (NSString *) build userPoolId: (NSString*) userPoolId username: (NSString *) username deviceId: ( NSString * _Nullable ) deviceId userPoolClientId: (NSString *) userPoolClientId DEPRECATED_MSG_ATTRIBUTE("Use userContextString instead.");
+
++ (nullable NSString *)userContextString: (int) minTarget build: (NSString *) build userPoolId: (NSString*) userPoolId username: (NSString *) username deviceId: ( NSString * _Nullable ) deviceId userPoolClientId: (NSString *) userPoolClientId;
 @end
 NS_ASSUME_NONNULL_END

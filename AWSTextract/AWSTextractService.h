@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -200,6 +200,56 @@ FOUNDATION_EXPORT NSString *const AWSTextractSDKVersion;
 - (void)analyzeDocument:(AWSTextractAnalyzeDocumentRequest *)request completionHandler:(void (^ _Nullable)(AWSTextractAnalyzeDocumentResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p><code>AnalyzeExpense</code> synchronously analyzes an input document for financially related relationships between text.</p><p>Information is returned as <code>ExpenseDocuments</code> and seperated as follows.</p><ul><li><p><code>LineItemGroups</code>- A data set containing <code>LineItems</code> which store information about the lines of text, such as an item purchased and its price on a receipt.</p></li><li><p><code>SummaryFields</code>- Contains all other information a receipt, such as header information or the vendors name.</p></li></ul>
+ 
+ @param request A container for the necessary parameters to execute the AnalyzeExpense service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractAnalyzeExpenseResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorUnsupportedDocument`, `AWSTextractErrorDocumentTooLarge`, `AWSTextractErrorBadDocument`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`.
+ 
+ @see AWSTextractAnalyzeExpenseRequest
+ @see AWSTextractAnalyzeExpenseResponse
+ */
+- (AWSTask<AWSTextractAnalyzeExpenseResponse *> *)analyzeExpense:(AWSTextractAnalyzeExpenseRequest *)request;
+
+/**
+ <p><code>AnalyzeExpense</code> synchronously analyzes an input document for financially related relationships between text.</p><p>Information is returned as <code>ExpenseDocuments</code> and seperated as follows.</p><ul><li><p><code>LineItemGroups</code>- A data set containing <code>LineItems</code> which store information about the lines of text, such as an item purchased and its price on a receipt.</p></li><li><p><code>SummaryFields</code>- Contains all other information a receipt, such as header information or the vendors name.</p></li></ul>
+ 
+ @param request A container for the necessary parameters to execute the AnalyzeExpense service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorUnsupportedDocument`, `AWSTextractErrorDocumentTooLarge`, `AWSTextractErrorBadDocument`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`.
+ 
+ @see AWSTextractAnalyzeExpenseRequest
+ @see AWSTextractAnalyzeExpenseResponse
+ */
+- (void)analyzeExpense:(AWSTextractAnalyzeExpenseRequest *)request completionHandler:(void (^ _Nullable)(AWSTextractAnalyzeExpenseResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Analyzes identity documents for relevant information. This information is extracted and returned as <code>IdentityDocumentFields</code>, which records both the normalized field and value of the extracted text.</p>
+ 
+ @param request A container for the necessary parameters to execute the AnalyzeID service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractAnalyzeIDResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorUnsupportedDocument`, `AWSTextractErrorDocumentTooLarge`, `AWSTextractErrorBadDocument`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`.
+ 
+ @see AWSTextractAnalyzeIDRequest
+ @see AWSTextractAnalyzeIDResponse
+ */
+- (AWSTask<AWSTextractAnalyzeIDResponse *> *)analyzeID:(AWSTextractAnalyzeIDRequest *)request;
+
+/**
+ <p>Analyzes identity documents for relevant information. This information is extracted and returned as <code>IdentityDocumentFields</code>, which records both the normalized field and value of the extracted text.</p>
+ 
+ @param request A container for the necessary parameters to execute the AnalyzeID service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorUnsupportedDocument`, `AWSTextractErrorDocumentTooLarge`, `AWSTextractErrorBadDocument`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`.
+ 
+ @see AWSTextractAnalyzeIDRequest
+ @see AWSTextractAnalyzeIDResponse
+ */
+- (void)analyzeID:(AWSTextractAnalyzeIDRequest *)request completionHandler:(void (^ _Nullable)(AWSTextractAnalyzeIDResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Detects text in the input document. Amazon Textract can detect lines of text and the words that make up a line of text. The input document must be an image in JPEG or PNG format. <code>DetectDocumentText</code> returns the detected text in an array of <a>Block</a> objects. </p><p>Each document page has as an associated <code>Block</code> of type PAGE. Each PAGE <code>Block</code> object is the parent of LINE <code>Block</code> objects that represent the lines of detected text on a page. A LINE <code>Block</code> object is a parent for each word that makes up the line. Words are represented by <code>Block</code> objects of type WORD.</p><p><code>DetectDocumentText</code> is a synchronous operation. To analyze documents asynchronously, use <a>StartDocumentTextDetection</a>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html">Document Text Detection</a>.</p>
  
  @param request A container for the necessary parameters to execute the DetectDocumentText service method.
@@ -229,7 +279,7 @@ FOUNDATION_EXPORT NSString *const AWSTextractSDKVersion;
  
  @param request A container for the necessary parameters to execute the GetDocumentAnalysis service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractGetDocumentAnalysisResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInvalidJobId`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorInvalidS3Object`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractGetDocumentAnalysisResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInvalidJobId`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorInvalidKMSKey`.
  
  @see AWSTextractGetDocumentAnalysisRequest
  @see AWSTextractGetDocumentAnalysisResponse
@@ -242,7 +292,7 @@ FOUNDATION_EXPORT NSString *const AWSTextractSDKVersion;
  @param request A container for the necessary parameters to execute the GetDocumentAnalysis service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInvalidJobId`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorInvalidS3Object`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInvalidJobId`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorInvalidKMSKey`.
  
  @see AWSTextractGetDocumentAnalysisRequest
  @see AWSTextractGetDocumentAnalysisResponse
@@ -254,7 +304,7 @@ FOUNDATION_EXPORT NSString *const AWSTextractSDKVersion;
  
  @param request A container for the necessary parameters to execute the GetDocumentTextDetection service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractGetDocumentTextDetectionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInvalidJobId`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorInvalidS3Object`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractGetDocumentTextDetectionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInvalidJobId`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorInvalidKMSKey`.
  
  @see AWSTextractGetDocumentTextDetectionRequest
  @see AWSTextractGetDocumentTextDetectionResponse
@@ -267,7 +317,7 @@ FOUNDATION_EXPORT NSString *const AWSTextractSDKVersion;
  @param request A container for the necessary parameters to execute the GetDocumentTextDetection service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInvalidJobId`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorInvalidS3Object`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInvalidJobId`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorInvalidKMSKey`.
  
  @see AWSTextractGetDocumentTextDetectionRequest
  @see AWSTextractGetDocumentTextDetectionResponse
@@ -275,7 +325,32 @@ FOUNDATION_EXPORT NSString *const AWSTextractSDKVersion;
 - (void)getDocumentTextDetection:(AWSTextractGetDocumentTextDetectionRequest *)request completionHandler:(void (^ _Nullable)(AWSTextractGetDocumentTextDetectionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Starts the asynchronous analysis of an input document for relationships between detected items such as key-value pairs, tables, and selection elements.</p><p><code>StartDocumentAnalysis</code> can analyze text in documents that are in JPEG, PNG, and PDF format. The documents are stored in an Amazon S3 bucket. Use <a>DocumentLocation</a> to specify the bucket name and file name of the document. </p><p><code>StartDocumentAnalysis</code> returns a job identifier (<code>JobId</code>) that you use to get the results of the operation. When text analysis is finished, Amazon Textract publishes a completion status to the Amazon Simple Notification Service (Amazon SNS) topic that you specify in <code>NotificationChannel</code>. To get the results of the text analysis operation, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetDocumentAnalysis</a>, and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartDocumentAnalysis</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html">Document Text Analysis</a>.</p>
+ <p>Gets the results for an Amazon Textract asynchronous operation that analyzes invoices and receipts. Amazon Textract finds contact information, items purchased, and vendor name, from input invoices and receipts.</p><p>You start asynchronous invoice/receipt analysis by calling <a>StartExpenseAnalysis</a>, which returns a job identifier (<code>JobId</code>). Upon completion of the invoice/receipt analysis, Amazon Textract publishes the completion status to the Amazon Simple Notification Service (Amazon SNS) topic. This topic must be registered in the initial call to <code>StartExpenseAnalysis</code>. To get the results of the invoice/receipt analysis operation, first ensure that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <code>GetExpenseAnalysis</code>, and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartExpenseAnalysis</code>.</p><p>Use the MaxResults parameter to limit the number of blocks that are returned. If there are more results than specified in <code>MaxResults</code>, the value of <code>NextToken</code> in the operation response contains a pagination token for getting the next set of results. To get the next page of results, call <code>GetExpenseAnalysis</code>, and populate the <code>NextToken</code> request parameter with the token value that's returned from the previous call to <code>GetExpenseAnalysis</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/invoices-receipts.html">Analyzing Invoices and Receipts</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetExpenseAnalysis service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractGetExpenseAnalysisResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInvalidJobId`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorInvalidKMSKey`.
+ 
+ @see AWSTextractGetExpenseAnalysisRequest
+ @see AWSTextractGetExpenseAnalysisResponse
+ */
+- (AWSTask<AWSTextractGetExpenseAnalysisResponse *> *)getExpenseAnalysis:(AWSTextractGetExpenseAnalysisRequest *)request;
+
+/**
+ <p>Gets the results for an Amazon Textract asynchronous operation that analyzes invoices and receipts. Amazon Textract finds contact information, items purchased, and vendor name, from input invoices and receipts.</p><p>You start asynchronous invoice/receipt analysis by calling <a>StartExpenseAnalysis</a>, which returns a job identifier (<code>JobId</code>). Upon completion of the invoice/receipt analysis, Amazon Textract publishes the completion status to the Amazon Simple Notification Service (Amazon SNS) topic. This topic must be registered in the initial call to <code>StartExpenseAnalysis</code>. To get the results of the invoice/receipt analysis operation, first ensure that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <code>GetExpenseAnalysis</code>, and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartExpenseAnalysis</code>.</p><p>Use the MaxResults parameter to limit the number of blocks that are returned. If there are more results than specified in <code>MaxResults</code>, the value of <code>NextToken</code> in the operation response contains a pagination token for getting the next set of results. To get the next page of results, call <code>GetExpenseAnalysis</code>, and populate the <code>NextToken</code> request parameter with the token value that's returned from the previous call to <code>GetExpenseAnalysis</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/invoices-receipts.html">Analyzing Invoices and Receipts</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetExpenseAnalysis service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInvalidJobId`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorInvalidKMSKey`.
+ 
+ @see AWSTextractGetExpenseAnalysisRequest
+ @see AWSTextractGetExpenseAnalysisResponse
+ */
+- (void)getExpenseAnalysis:(AWSTextractGetExpenseAnalysisRequest *)request completionHandler:(void (^ _Nullable)(AWSTextractGetExpenseAnalysisResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Starts the asynchronous analysis of an input document for relationships between detected items such as key-value pairs, tables, and selection elements.</p><p><code>StartDocumentAnalysis</code> can analyze text in documents that are in JPEG, PNG, TIFF, and PDF format. The documents are stored in an Amazon S3 bucket. Use <a>DocumentLocation</a> to specify the bucket name and file name of the document. </p><p><code>StartDocumentAnalysis</code> returns a job identifier (<code>JobId</code>) that you use to get the results of the operation. When text analysis is finished, Amazon Textract publishes a completion status to the Amazon Simple Notification Service (Amazon SNS) topic that you specify in <code>NotificationChannel</code>. To get the results of the text analysis operation, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetDocumentAnalysis</a>, and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartDocumentAnalysis</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html">Document Text Analysis</a>.</p>
  
  @param request A container for the necessary parameters to execute the StartDocumentAnalysis service method.
 
@@ -287,7 +362,7 @@ FOUNDATION_EXPORT NSString *const AWSTextractSDKVersion;
 - (AWSTask<AWSTextractStartDocumentAnalysisResponse *> *)startDocumentAnalysis:(AWSTextractStartDocumentAnalysisRequest *)request;
 
 /**
- <p>Starts the asynchronous analysis of an input document for relationships between detected items such as key-value pairs, tables, and selection elements.</p><p><code>StartDocumentAnalysis</code> can analyze text in documents that are in JPEG, PNG, and PDF format. The documents are stored in an Amazon S3 bucket. Use <a>DocumentLocation</a> to specify the bucket name and file name of the document. </p><p><code>StartDocumentAnalysis</code> returns a job identifier (<code>JobId</code>) that you use to get the results of the operation. When text analysis is finished, Amazon Textract publishes a completion status to the Amazon Simple Notification Service (Amazon SNS) topic that you specify in <code>NotificationChannel</code>. To get the results of the text analysis operation, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetDocumentAnalysis</a>, and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartDocumentAnalysis</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html">Document Text Analysis</a>.</p>
+ <p>Starts the asynchronous analysis of an input document for relationships between detected items such as key-value pairs, tables, and selection elements.</p><p><code>StartDocumentAnalysis</code> can analyze text in documents that are in JPEG, PNG, TIFF, and PDF format. The documents are stored in an Amazon S3 bucket. Use <a>DocumentLocation</a> to specify the bucket name and file name of the document. </p><p><code>StartDocumentAnalysis</code> returns a job identifier (<code>JobId</code>) that you use to get the results of the operation. When text analysis is finished, Amazon Textract publishes a completion status to the Amazon Simple Notification Service (Amazon SNS) topic that you specify in <code>NotificationChannel</code>. To get the results of the text analysis operation, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetDocumentAnalysis</a>, and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartDocumentAnalysis</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html">Document Text Analysis</a>.</p>
  
  @param request A container for the necessary parameters to execute the StartDocumentAnalysis service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -300,7 +375,7 @@ FOUNDATION_EXPORT NSString *const AWSTextractSDKVersion;
 - (void)startDocumentAnalysis:(AWSTextractStartDocumentAnalysisRequest *)request completionHandler:(void (^ _Nullable)(AWSTextractStartDocumentAnalysisResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Starts the asynchronous detection of text in a document. Amazon Textract can detect lines of text and the words that make up a line of text.</p><p><code>StartDocumentTextDetection</code> can analyze text in documents that are in JPEG, PNG, and PDF format. The documents are stored in an Amazon S3 bucket. Use <a>DocumentLocation</a> to specify the bucket name and file name of the document. </p><p><code>StartTextDetection</code> returns a job identifier (<code>JobId</code>) that you use to get the results of the operation. When text detection is finished, Amazon Textract publishes a completion status to the Amazon Simple Notification Service (Amazon SNS) topic that you specify in <code>NotificationChannel</code>. To get the results of the text detection operation, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetDocumentTextDetection</a>, and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartDocumentTextDetection</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html">Document Text Detection</a>.</p>
+ <p>Starts the asynchronous detection of text in a document. Amazon Textract can detect lines of text and the words that make up a line of text.</p><p><code>StartDocumentTextDetection</code> can analyze text in documents that are in JPEG, PNG, TIFF, and PDF format. The documents are stored in an Amazon S3 bucket. Use <a>DocumentLocation</a> to specify the bucket name and file name of the document. </p><p><code>StartTextDetection</code> returns a job identifier (<code>JobId</code>) that you use to get the results of the operation. When text detection is finished, Amazon Textract publishes a completion status to the Amazon Simple Notification Service (Amazon SNS) topic that you specify in <code>NotificationChannel</code>. To get the results of the text detection operation, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetDocumentTextDetection</a>, and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartDocumentTextDetection</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html">Document Text Detection</a>.</p>
  
  @param request A container for the necessary parameters to execute the StartDocumentTextDetection service method.
 
@@ -312,7 +387,7 @@ FOUNDATION_EXPORT NSString *const AWSTextractSDKVersion;
 - (AWSTask<AWSTextractStartDocumentTextDetectionResponse *> *)startDocumentTextDetection:(AWSTextractStartDocumentTextDetectionRequest *)request;
 
 /**
- <p>Starts the asynchronous detection of text in a document. Amazon Textract can detect lines of text and the words that make up a line of text.</p><p><code>StartDocumentTextDetection</code> can analyze text in documents that are in JPEG, PNG, and PDF format. The documents are stored in an Amazon S3 bucket. Use <a>DocumentLocation</a> to specify the bucket name and file name of the document. </p><p><code>StartTextDetection</code> returns a job identifier (<code>JobId</code>) that you use to get the results of the operation. When text detection is finished, Amazon Textract publishes a completion status to the Amazon Simple Notification Service (Amazon SNS) topic that you specify in <code>NotificationChannel</code>. To get the results of the text detection operation, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetDocumentTextDetection</a>, and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartDocumentTextDetection</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html">Document Text Detection</a>.</p>
+ <p>Starts the asynchronous detection of text in a document. Amazon Textract can detect lines of text and the words that make up a line of text.</p><p><code>StartDocumentTextDetection</code> can analyze text in documents that are in JPEG, PNG, TIFF, and PDF format. The documents are stored in an Amazon S3 bucket. Use <a>DocumentLocation</a> to specify the bucket name and file name of the document. </p><p><code>StartTextDetection</code> returns a job identifier (<code>JobId</code>) that you use to get the results of the operation. When text detection is finished, Amazon Textract publishes a completion status to the Amazon Simple Notification Service (Amazon SNS) topic that you specify in <code>NotificationChannel</code>. To get the results of the text detection operation, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetDocumentTextDetection</a>, and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartDocumentTextDetection</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html">Document Text Detection</a>.</p>
  
  @param request A container for the necessary parameters to execute the StartDocumentTextDetection service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -323,6 +398,31 @@ FOUNDATION_EXPORT NSString *const AWSTextractSDKVersion;
  @see AWSTextractStartDocumentTextDetectionResponse
  */
 - (void)startDocumentTextDetection:(AWSTextractStartDocumentTextDetectionRequest *)request completionHandler:(void (^ _Nullable)(AWSTextractStartDocumentTextDetectionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Starts the asynchronous analysis of invoices or receipts for data like contact information, items purchased, and vendor names.</p><p><code>StartExpenseAnalysis</code> can analyze text in documents that are in JPEG, PNG, and PDF format. The documents must be stored in an Amazon S3 bucket. Use the <a>DocumentLocation</a> parameter to specify the name of your S3 bucket and the name of the document in that bucket. </p><p><code>StartExpenseAnalysis</code> returns a job identifier (<code>JobId</code>) that you will provide to <code>GetExpenseAnalysis</code> to retrieve the results of the operation. When the analysis of the input invoices/receipts is finished, Amazon Textract publishes a completion status to the Amazon Simple Notification Service (Amazon SNS) topic that you provide to the <code>NotificationChannel</code>. To obtain the results of the invoice and receipt analysis operation, ensure that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetExpenseAnalysis</a>, and pass the job identifier (<code>JobId</code>) that was returned by your call to <code>StartExpenseAnalysis</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/invoice-receipts.html">Analyzing Invoices and Receipts</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the StartExpenseAnalysis service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractStartExpenseAnalysisResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorInvalidKMSKey`, `AWSTextractErrorUnsupportedDocument`, `AWSTextractErrorDocumentTooLarge`, `AWSTextractErrorBadDocument`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorIdempotentParameterMismatch`, `AWSTextractErrorThrottling`, `AWSTextractErrorLimitExceeded`.
+ 
+ @see AWSTextractStartExpenseAnalysisRequest
+ @see AWSTextractStartExpenseAnalysisResponse
+ */
+- (AWSTask<AWSTextractStartExpenseAnalysisResponse *> *)startExpenseAnalysis:(AWSTextractStartExpenseAnalysisRequest *)request;
+
+/**
+ <p>Starts the asynchronous analysis of invoices or receipts for data like contact information, items purchased, and vendor names.</p><p><code>StartExpenseAnalysis</code> can analyze text in documents that are in JPEG, PNG, and PDF format. The documents must be stored in an Amazon S3 bucket. Use the <a>DocumentLocation</a> parameter to specify the name of your S3 bucket and the name of the document in that bucket. </p><p><code>StartExpenseAnalysis</code> returns a job identifier (<code>JobId</code>) that you will provide to <code>GetExpenseAnalysis</code> to retrieve the results of the operation. When the analysis of the input invoices/receipts is finished, Amazon Textract publishes a completion status to the Amazon Simple Notification Service (Amazon SNS) topic that you provide to the <code>NotificationChannel</code>. To obtain the results of the invoice and receipt analysis operation, ensure that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetExpenseAnalysis</a>, and pass the job identifier (<code>JobId</code>) that was returned by your call to <code>StartExpenseAnalysis</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/invoice-receipts.html">Analyzing Invoices and Receipts</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the StartExpenseAnalysis service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorInvalidKMSKey`, `AWSTextractErrorUnsupportedDocument`, `AWSTextractErrorDocumentTooLarge`, `AWSTextractErrorBadDocument`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorIdempotentParameterMismatch`, `AWSTextractErrorThrottling`, `AWSTextractErrorLimitExceeded`.
+ 
+ @see AWSTextractStartExpenseAnalysisRequest
+ @see AWSTextractStartExpenseAnalysisResponse
+ */
+- (void)startExpenseAnalysis:(AWSTextractStartExpenseAnalysisRequest *)request completionHandler:(void (^ _Nullable)(AWSTextractStartExpenseAnalysisResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 @end
 

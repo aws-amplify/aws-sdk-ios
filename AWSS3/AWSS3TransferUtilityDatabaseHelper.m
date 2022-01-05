@@ -17,50 +17,11 @@
 #import "AWSS3TransferUtilityDatabaseHelper.h"
 #import "AWSS3TransferUtility.h"
 #import "AWSS3TransferUtilityTasks.h"
+#import "AWSS3TransferUtility_private.h"
 
 //Constants for DB
 NSString *const AWSS3TransferUtilityDatabaseDirectory = @"/com/amazonaws/AWSS3TransferUtility/";
 NSString *const AWSS3TransferUtilityDatabaseName = @"transfer_utility_database";
-
-@interface AWSS3TransferUtilityTask()
-@property NSString *nsURLSessionID;
-@property NSString *file;
-@property int retryCount;
-@property NSString *transferType;
-@property (strong, nonatomic) NSString *transferID;
-@end
-
-@interface AWSS3TransferUtilityUploadTask()
-@property (strong, nonatomic) AWSS3TransferUtilityUploadExpression *expression;
-@property BOOL temporaryFileCreated;
-@property NSString *transferType;
-@property NSUInteger taskIdentifier;
-@end
-
-@interface AWSS3TransferUtilityMultiPartUploadTask()
-@property (strong, nonatomic) AWSS3TransferUtilityMultiPartUploadExpression *expression;
-@property NSString *nsURLSessionID;
-@property NSString * uploadID;
-@property NSString *file;
-@property BOOL temporaryFileCreated;
-@property NSNumber *contentLength;
-@property int retryCount;
-@property NSString *transferType;
-@end
-
-@interface AWSS3TransferUtilityDownloadTask()
-@property (strong, nonatomic) AWSS3TransferUtilityDownloadExpression *expression;
-@property NSUInteger taskIdentifier;
-@end
-
-@interface AWSS3TransferUtilityUploadSubTask()
-@property NSUInteger taskIdentifier;
-@property (strong, nonatomic) NSNumber *partNumber;
-@property NSString *file;
-@property int64_t totalBytesExpectedToSend;
-@property AWSS3TransferUtilityTransferStatusType status;
-@property NSString *transferType;
-@end
 
 #pragma mark - AWSS3 Transfer Utility Database Functions
 
@@ -321,7 +282,7 @@ NSString *const AWSS3TransferUtilityDatabaseName = @"transfer_utility_database";
                                           @"part_number": partNumber,
                                           @"multi_part_id": multiPartID,
                                           @"etag": eTag,
-                                          @"file": file,
+                                          @"file": [AWSS3TransferUtilityDatabaseHelper relativePathFromAbsolutePath:file],
                                           @"temporary_file_created": tempFileCreated,
                                           @"content_length": contentLength,
                                           @"status": [AWSS3TransferUtilityDatabaseHelper getStringRepresentation:status],
@@ -363,7 +324,7 @@ NSString *const AWSS3TransferUtilityDatabaseName = @"transfer_utility_database";
             [transfer setObject:@([rs intForColumn:@"part_number"]) forKey:@"part_number"];
             [transfer setObject:[rs stringForColumn:@"multi_part_id"] forKey:@"multi_part_id"];
             [transfer setObject:[rs stringForColumn:@"etag"] forKey:@"etag"];
-            [transfer setObject:[rs stringForColumn:@"file"] forKey:@"file"];
+            [transfer setObject:[AWSS3TransferUtilityDatabaseHelper absolutePathFromRelativePath:[rs stringForColumn:@"file"]] forKey:@"file"];
             [transfer setObject:@([rs intForColumn:@"temporary_file_created"]) forKey:@"temporary_file_created"];
             [transfer setObject:@([rs intForColumn:@"content_length"]) forKey:@"content_length"];
             [transfer setObject:@([rs intForColumn:@"retry_count"]) forKey:@"retry_count"];
@@ -433,5 +394,19 @@ NSString *const AWSS3TransferUtilityDatabaseName = @"transfer_utility_database";
     }
     return AWSS3TransferUtilityTransferStatusUnknown;
 }
+
++ (NSString*)absolutePathFromRelativePath:(NSString*)relativePath
+{
+    if (relativePath.length == 0) {
+        return  relativePath;
+    }
+    return [NSHomeDirectory() stringByAppendingPathComponent:relativePath];
+}
+
++ (NSString*)relativePathFromAbsolutePath:(NSString*)absolutePath
+{
+    return [absolutePath stringByReplacingOccurrencesOfString:NSHomeDirectory() withString:@""];
+}
+
 @end
 

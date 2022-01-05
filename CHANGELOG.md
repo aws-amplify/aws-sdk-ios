@@ -1,14 +1,242 @@
----
+# AWS Mobile SDK for iOS CHANGELOG
 
-MOVE THIS SECTION TO THE CORRECT LOCATION
+## Unreleased
+
+-Features for next release
+
+## 2.26.7
+
+### New features
+
+- **AWSMobileClient**
+  - Add DeleteUser API to AWSMobileClient (See [PR #3948](https://github.com/aws-amplify/aws-sdk-ios/pull/3948))
+
+### Bug Fixes
+
+- **AWSMobileClient**
+  - Reset completion sources in AWSMobileClient (See [PR #3732](https://github.com/aws-amplify/aws-sdk-ios/pull/3732))
+  - Crash fix in AWSMobileClient for call to leave DispatchGroup (See [PR #3951](https://github.com/aws-amplify/aws-sdk-ios/pull/3951))
+
+- **AWSIoT**
+  - Adds leeway in unit tests (See [PR #3952](https://github.com/aws-amplify/aws-sdk-ios/pull/3952))
+
+## 2.26.6
+
+### Bug Fixes
+- Return Swift optionals from Objective C methods that can return nil ([PR #3912)](https://github.com/aws-amplify/aws-sdk-ios/pull/3912))
+- **AWSMobileClient**
+  - fix(AWSMobileClient): eliminates thread blocking in operations ([PR #3872](https://github.com/aws-amplify/aws-sdk-ios/pull/3872))
+
+### Misc. Updates
+- Model updates for the following services
+  - AWSRekognition
+  - AWSSageMakerRuntime
+  - AWSDynamoDB
+  - AWSTextract
+  - AWSPinpoint
+  - AWSAutoScaling
+  - AWSLambda
+  - AWSTranslate
+  - AWSSQS
+  - AWSElasticLoadBalancingv2
+
+## 2.26.5
+
+### New features
+- **AWSCore**
+  - Support for `ap-southeast-3` - Asia Pacific (Jakarta) (see [AWS Regional Services List](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for a list of services supported in the region)
 
 ### Misc. Updates
 
 - Model updates for the following services
----AWSLocation
-# AWS Mobile SDK for iOS CHANGELOG
+  - AWSLocation
+  - AWSDynamoDB
+  - AWSTranslate
+  - AWSLambda
+  - AWSSNS
+  
+## 2.26.4
 
-## Unreleased
+### Bug Fixes
+
+- **AWSIoT**
+  - fix(AWSIoT): adds back Message type ([PR #3852](https://github.com/aws-amplify/aws-sdk-ios/pull/3852))
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSAutoScaling
+  - AWSTextract
+  - AWSConnectParticipant
+  - AWSConnect
+  - AWSTranscribe
+  - AWSRekognition
+  - AWSTranslate
+  
+## 2.26.3
+
+### Misc. Updates
+
+- **AWSChime**
+  - feat(AWSChimeSDKIdentity): update models to latest ([PR #3834](https://github.com/aws-amplify/aws-sdk-ios/pull/3834))
+  - feat(AWSChimeSDKMessaging): update models to latest ([PR #3835](https://github.com/aws-amplify/aws-sdk-ios/pull/3835))
+
+- **AWSConnect**
+  - feat(AWSConnect): update models to latest ([PR #3831](https://github.com/aws-amplify/aws-sdk-ios/pull/3831))
+
+- **AWSIoT**
+  - feat(AWSIoT): update models to latest ([PR #3782](https://github.com/aws-amplify/aws-sdk-ios/pull/3782))
+
+### Bug Fixes
+
+- **AWSS3**
+  - Removes tasks from completed dictionary and clears progress and completion handlers ([PR #3833](https://github.com/aws-amplify/aws-sdk-ios/pull/3833))
+  - Fixes for a regression found with integration tests on main branch ([PR #3838](https://github.com/aws-amplify/aws-sdk-ios/pull/3838))
+
+## 2.26.2
+
+### Bug Fixes
+
+- **AWSCore**
+  - Handle special characters in AWSSignatureV4Signer (See [PR #3763](https://github.com/aws-amplify/aws-sdk-ios/pull/3763))
+  
+- **AWSS3**
+  - Saving relative path of files in the DB to avoid issues arising with sandbox path changing after app restarts. [PR #3794](https://github.com/aws-amplify/aws-sdk-ios/pull/3794)
+  - Makes `propagateHeaderInformation:requestHeaders:` function public [PR #3720](https://github.com/aws-amplify/aws-sdk-ios/pull/3720)
+  - Makes transferUtilityConfiguration public as read-only so properties like bucket can be accessed [PR #3789](https://github.com/aws-amplify/aws-sdk-ios/pull/3789)
+  - Moves suspended tasks from in progress dictionary to waiting dictionary during recovery process [PR #3818](https://github.com/aws-amplify/aws-sdk-ios/pull/3818)
+
+- **AWSIoT**
+  - Fixes crash caused by a race condition in IoT [PR #3823](https://github.com/aws-amplify/aws-sdk-ios/pull/3823)
+
+### Misc. Updates
+
+- Support Xcode 13.0.0 for CircleCI build ([PR #3803](https://github.com/aws-amplify/aws-sdk-ios/pull/3803))
+
+- **AWSIoT**
+  - Adds support to read settings from `awsconfiguration.json` [PR #3815](https://github.com/aws-amplify/aws-sdk-ios/pull/3815)
+
+- Model updates for the following services
+  - AWSFirehose
+  - AWSElasticLoadBalancingv2
+  - AWSAutoScaling
+  - AWSLocation
+  - AWSKMS
+
+## 2.26.1
+
+### Bug Fixes
+
+- **Core**
+  - Defines NS_BLOCK_ASSERTIONS and NDEBUG for Release builds  ([PR #3787](https://github.com/aws-amplify/aws-sdk-ios/pull/3787))
+
+- **AWSS3**
+  
+  - Rewrite of method which creates partial files for multipart upload process
+  - Adds test coverage for new code
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSChimeSDKMessaging
+  - AWSCloudWatchLogs
+  - AWSComprehend
+  - AWSConnect
+  - AWSEC2
+  - AWSElasticLoadBalancingv2
+  - AWSFirehose
+  - AWSIoTDataPlane
+  - AWSKMS
+  - AWSLambda
+  - AWSPinpoint
+  - AWSPolly
+  - AWSSageMakerRuntime
+  - AWSSQS
+  - AWSTranscribe
+  
+## 2.26.0
+
+### New Features
+
+- **AWSS3**
+   - Marks enumerate blocks methods as deprecated and provides and alternative which works with Swift. (See [PR #3726](https://github.com/aws-amplify/aws-sdk-ios/pull/3726))
+
+## 2.25.0
+
+### New Features
+- **AWSIoT**
+  - AWSIoT now supports retained messages ([PR #3681](https://github.com/aws-amplify/aws-sdk-ios/pull/3681))
+
+### Breaking Changes
+  - IoT: updates nullability status for ackCallback for publishing messages
+
+## 2.24.5
+
+### New Features
+
+- **AWSChimeSDK**
+  - Add AWSChimeSDKMessaging and AWSChimeSDKIdentity SDK (See [PR #3711](https://github.com/aws-amplify/aws-sdk-ios/pull/3711))
+
+### Bug Fixes
+
+- **AWSChimeSDK**
+  - Use correct Chime endpoints (See [PR #3713](https://github.com/aws-amplify/aws-sdk-ios/pull/3713))
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSAutoScaling
+  - AWSRekognition
+  - AWSConnect
+  - AWSTranscribe
+  - AWSElasticLoadBalancing
+  - AWSIoT
+  - AWSTextract
+
+## 2.24.4
+
+### Features
+
+- **AWSMobileClient**
+  - Sign out with revoke token ([PR #3638](https://github.com/aws-amplify/aws-sdk-ios/pull/3638))
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSEC2
+  - AWSElasticLoadBalancing
+  - AWSLambda
+  - AWSLocation
+
+## 2.24.3
+
+### Bug fixes
+
+- **AWSTranscribing**
+  - Fixed build issue due to import statements. [PR #3655](https://github.com/aws-amplify/aws-sdk-ios/pull/3655)
+- **AWSMobileClient (HostedUI)**
+  - Fixed an issue Base64-decoding claims containing non-ASCII characters ([PR #3533](https://github.com/aws-amplify/aws-sdk-ios/pull/3533)). Thanks, [@NivisUnder7](https://github.com/NivisUnder7)!
+- **AWSLocation**
+  - AWSLocation Blob deserialization ([PR #3651](https://github.com/aws-amplify/aws-sdk-ios/pull/3651))
+  - fixes Blob handling by limiting change to Location ([PR #3664](https://github.com/aws-amplify/aws-sdk-ios/pull/3664))
+- **AWSIoT**
+  - imports for private headers were not found ([PR #3655](https://github.com/aws-amplify/aws-sdk-ios/pull/3655))
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSAutoScaling
+  - AWSCognitoIdentityProvider
+  - AWSConnect
+  - AWSEC2
+  - AWSKMS
+  - AWSSTS
+  - AWSSQS
+  - AWSElasticLoadBalancing
+  - AWSSNS
+  - AWSLambda
+
+## 2.24.2
 
 ### Bug fixes
 - Fix for decoding AWSPinpointEndpointProfile when it includes attributes ([PR #3601](https://github.com/aws-amplify/aws-sdk-ios/pull/3601))
@@ -23,6 +251,14 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 - Model updates for the following services
   - AWSEC2
   - AWSTranscribe
+  - AWSLocation
+  - AWSRekognition
+  - AWSAutoScaling
+  - AWSCloudWatchLogs
+  - AWSIoT
+  - AWSSQS
+  - AWSSNS
+  - AWSPolly
 
 - **AWSS3**
 	- Added option to use Content-MD5 for multipart uploads with AWSS3TransferUtility (`useContentMD5` in `AWSS3TransferUtilityMultiPartUploadExpression`)

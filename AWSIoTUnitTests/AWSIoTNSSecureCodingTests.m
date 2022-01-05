@@ -29,6 +29,7 @@
 - (void) test_AWSIoTAddThingToThingGroupRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTAddThingToThingGroupResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTAddThingsToThingGroupParams API_AVAILABLE(ios(11));
+- (void) test_AWSIoTAggregationType API_AVAILABLE(ios(11));
 - (void) test_AWSIoTAlertTarget API_AVAILABLE(ios(11));
 - (void) test_AWSIoTAllowed API_AVAILABLE(ios(11));
 - (void) test_AWSIoTAssetPropertyTimestamp API_AVAILABLE(ios(11));
@@ -69,6 +70,8 @@
 - (void) test_AWSIoTBehaviorModelTrainingSummary API_AVAILABLE(ios(11));
 - (void) test_AWSIoTBillingGroupMetadata API_AVAILABLE(ios(11));
 - (void) test_AWSIoTBillingGroupProperties API_AVAILABLE(ios(11));
+- (void) test_AWSIoTBucket API_AVAILABLE(ios(11));
+- (void) test_AWSIoTBucketsAggregationType API_AVAILABLE(ios(11));
 - (void) test_AWSIoTCACertificate API_AVAILABLE(ios(11));
 - (void) test_AWSIoTCACertificateDescription API_AVAILABLE(ios(11));
 - (void) test_AWSIoTCancelAuditMitigationActionsTaskRequest API_AVAILABLE(ios(11));
@@ -111,8 +114,12 @@
 - (void) test_AWSIoTCreateDomainConfigurationResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTCreateDynamicThingGroupRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTCreateDynamicThingGroupResponse API_AVAILABLE(ios(11));
+- (void) test_AWSIoTCreateFleetMetricRequest API_AVAILABLE(ios(11));
+- (void) test_AWSIoTCreateFleetMetricResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTCreateJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTCreateJobResponse API_AVAILABLE(ios(11));
+- (void) test_AWSIoTCreateJobTemplateRequest API_AVAILABLE(ios(11));
+- (void) test_AWSIoTCreateJobTemplateResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTCreateKeysAndCertificateRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTCreateKeysAndCertificateResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTCreateMitigationActionRequest API_AVAILABLE(ios(11));
@@ -166,8 +173,10 @@
 - (void) test_AWSIoTDeleteDomainConfigurationResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDeleteDynamicThingGroupRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDeleteDynamicThingGroupResponse API_AVAILABLE(ios(11));
+- (void) test_AWSIoTDeleteFleetMetricRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDeleteJobExecutionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDeleteJobRequest API_AVAILABLE(ios(11));
+- (void) test_AWSIoTDeleteJobTemplateRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDeleteMitigationActionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDeleteMitigationActionResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDeleteOTAUpdateRequest API_AVAILABLE(ios(11));
@@ -233,12 +242,16 @@
 - (void) test_AWSIoTDescribeEndpointResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDescribeEventConfigurationsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDescribeEventConfigurationsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSIoTDescribeFleetMetricRequest API_AVAILABLE(ios(11));
+- (void) test_AWSIoTDescribeFleetMetricResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDescribeIndexRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDescribeIndexResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDescribeJobExecutionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDescribeJobExecutionResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDescribeJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDescribeJobResponse API_AVAILABLE(ios(11));
+- (void) test_AWSIoTDescribeJobTemplateRequest API_AVAILABLE(ios(11));
+- (void) test_AWSIoTDescribeJobTemplateResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDescribeMitigationActionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDescribeMitigationActionResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDescribeProvisioningTemplateRequest API_AVAILABLE(ios(11));
@@ -286,8 +299,11 @@
 - (void) test_AWSIoTField API_AVAILABLE(ios(11));
 - (void) test_AWSIoTFileLocation API_AVAILABLE(ios(11));
 - (void) test_AWSIoTFirehoseAction API_AVAILABLE(ios(11));
+- (void) test_AWSIoTFleetMetricNameAndArn API_AVAILABLE(ios(11));
 - (void) test_AWSIoTGetBehaviorModelTrainingSummariesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTGetBehaviorModelTrainingSummariesResponse API_AVAILABLE(ios(11));
+- (void) test_AWSIoTGetBucketsAggregationRequest API_AVAILABLE(ios(11));
+- (void) test_AWSIoTGetBucketsAggregationResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTGetCardinalityRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTGetCardinalityResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTGetEffectivePoliciesRequest API_AVAILABLE(ios(11));
@@ -337,6 +353,7 @@
 - (void) test_AWSIoTJobExecutionsRolloutConfig API_AVAILABLE(ios(11));
 - (void) test_AWSIoTJobProcessDetails API_AVAILABLE(ios(11));
 - (void) test_AWSIoTJobSummary API_AVAILABLE(ios(11));
+- (void) test_AWSIoTJobTemplateSummary API_AVAILABLE(ios(11));
 - (void) test_AWSIoTKafkaAction API_AVAILABLE(ios(11));
 - (void) test_AWSIoTKeyPair API_AVAILABLE(ios(11));
 - (void) test_AWSIoTKinesisAction API_AVAILABLE(ios(11));
@@ -375,12 +392,16 @@
 - (void) test_AWSIoTListDimensionsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListDomainConfigurationsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListDomainConfigurationsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSIoTListFleetMetricsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSIoTListFleetMetricsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListIndicesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListIndicesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListJobExecutionsForJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListJobExecutionsForJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListJobExecutionsForThingRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListJobExecutionsForThingResponse API_AVAILABLE(ios(11));
+- (void) test_AWSIoTListJobTemplatesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSIoTListJobTemplatesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListJobsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListJobsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListMitigationActionsRequest API_AVAILABLE(ios(11));
@@ -460,6 +481,7 @@
 - (void) test_AWSIoTOTAUpdateFile API_AVAILABLE(ios(11));
 - (void) test_AWSIoTOTAUpdateInfo API_AVAILABLE(ios(11));
 - (void) test_AWSIoTOTAUpdateSummary API_AVAILABLE(ios(11));
+- (void) test_AWSIoTOpenSearchAction API_AVAILABLE(ios(11));
 - (void) test_AWSIoTOutgoingCertificate API_AVAILABLE(ios(11));
 - (void) test_AWSIoTPercentPair API_AVAILABLE(ios(11));
 - (void) test_AWSIoTPolicy API_AVAILABLE(ios(11));
@@ -472,6 +494,8 @@
 - (void) test_AWSIoTPublishFindingToSnsParams API_AVAILABLE(ios(11));
 - (void) test_AWSIoTPutAssetPropertyValueEntry API_AVAILABLE(ios(11));
 - (void) test_AWSIoTPutItemInput API_AVAILABLE(ios(11));
+- (void) test_AWSIoTPutVerificationStateOnViolationRequest API_AVAILABLE(ios(11));
+- (void) test_AWSIoTPutVerificationStateOnViolationResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTRateIncreaseCriteria API_AVAILABLE(ios(11));
 - (void) test_AWSIoTRegisterCACertificateRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTRegisterCACertificateResponse API_AVAILABLE(ios(11));
@@ -537,6 +561,7 @@
 - (void) test_AWSIoTTagResourceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTTaskStatistics API_AVAILABLE(ios(11));
 - (void) test_AWSIoTTaskStatisticsForAuditCheck API_AVAILABLE(ios(11));
+- (void) test_AWSIoTTermsAggregation API_AVAILABLE(ios(11));
 - (void) test_AWSIoTTestAuthorizationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTTestAuthorizationResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTTestInvokeAuthorizerRequest API_AVAILABLE(ios(11));
@@ -590,6 +615,7 @@
 - (void) test_AWSIoTUpdateDynamicThingGroupResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTUpdateEventConfigurationsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTUpdateEventConfigurationsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSIoTUpdateFleetMetricRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTUpdateIndexingConfigurationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTUpdateIndexingConfigurationResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTUpdateJobRequest API_AVAILABLE(ios(11));
@@ -665,6 +691,10 @@
 
 - (void) test_AWSIoTAddThingsToThingGroupParams {
     [self validateSecureCodingForClass:[AWSIoTAddThingsToThingGroupParams class]];
+}
+
+- (void) test_AWSIoTAggregationType {
+    [self validateSecureCodingForClass:[AWSIoTAggregationType class]];
 }
 
 - (void) test_AWSIoTAlertTarget {
@@ -825,6 +855,14 @@
 
 - (void) test_AWSIoTBillingGroupProperties {
     [self validateSecureCodingForClass:[AWSIoTBillingGroupProperties class]];
+}
+
+- (void) test_AWSIoTBucket {
+    [self validateSecureCodingForClass:[AWSIoTBucket class]];
+}
+
+- (void) test_AWSIoTBucketsAggregationType {
+    [self validateSecureCodingForClass:[AWSIoTBucketsAggregationType class]];
 }
 
 - (void) test_AWSIoTCACertificate {
@@ -995,12 +1033,28 @@
     [self validateSecureCodingForClass:[AWSIoTCreateDynamicThingGroupResponse class]];
 }
 
+- (void) test_AWSIoTCreateFleetMetricRequest {
+    [self validateSecureCodingForClass:[AWSIoTCreateFleetMetricRequest class]];
+}
+
+- (void) test_AWSIoTCreateFleetMetricResponse {
+    [self validateSecureCodingForClass:[AWSIoTCreateFleetMetricResponse class]];
+}
+
 - (void) test_AWSIoTCreateJobRequest {
     [self validateSecureCodingForClass:[AWSIoTCreateJobRequest class]];
 }
 
 - (void) test_AWSIoTCreateJobResponse {
     [self validateSecureCodingForClass:[AWSIoTCreateJobResponse class]];
+}
+
+- (void) test_AWSIoTCreateJobTemplateRequest {
+    [self validateSecureCodingForClass:[AWSIoTCreateJobTemplateRequest class]];
+}
+
+- (void) test_AWSIoTCreateJobTemplateResponse {
+    [self validateSecureCodingForClass:[AWSIoTCreateJobTemplateResponse class]];
 }
 
 - (void) test_AWSIoTCreateKeysAndCertificateRequest {
@@ -1215,12 +1269,20 @@
     [self validateSecureCodingForClass:[AWSIoTDeleteDynamicThingGroupResponse class]];
 }
 
+- (void) test_AWSIoTDeleteFleetMetricRequest {
+    [self validateSecureCodingForClass:[AWSIoTDeleteFleetMetricRequest class]];
+}
+
 - (void) test_AWSIoTDeleteJobExecutionRequest {
     [self validateSecureCodingForClass:[AWSIoTDeleteJobExecutionRequest class]];
 }
 
 - (void) test_AWSIoTDeleteJobRequest {
     [self validateSecureCodingForClass:[AWSIoTDeleteJobRequest class]];
+}
+
+- (void) test_AWSIoTDeleteJobTemplateRequest {
+    [self validateSecureCodingForClass:[AWSIoTDeleteJobTemplateRequest class]];
 }
 
 - (void) test_AWSIoTDeleteMitigationActionRequest {
@@ -1483,6 +1545,14 @@
     [self validateSecureCodingForClass:[AWSIoTDescribeEventConfigurationsResponse class]];
 }
 
+- (void) test_AWSIoTDescribeFleetMetricRequest {
+    [self validateSecureCodingForClass:[AWSIoTDescribeFleetMetricRequest class]];
+}
+
+- (void) test_AWSIoTDescribeFleetMetricResponse {
+    [self validateSecureCodingForClass:[AWSIoTDescribeFleetMetricResponse class]];
+}
+
 - (void) test_AWSIoTDescribeIndexRequest {
     [self validateSecureCodingForClass:[AWSIoTDescribeIndexRequest class]];
 }
@@ -1505,6 +1575,14 @@
 
 - (void) test_AWSIoTDescribeJobResponse {
     [self validateSecureCodingForClass:[AWSIoTDescribeJobResponse class]];
+}
+
+- (void) test_AWSIoTDescribeJobTemplateRequest {
+    [self validateSecureCodingForClass:[AWSIoTDescribeJobTemplateRequest class]];
+}
+
+- (void) test_AWSIoTDescribeJobTemplateResponse {
+    [self validateSecureCodingForClass:[AWSIoTDescribeJobTemplateResponse class]];
 }
 
 - (void) test_AWSIoTDescribeMitigationActionRequest {
@@ -1695,12 +1773,24 @@
     [self validateSecureCodingForClass:[AWSIoTFirehoseAction class]];
 }
 
+- (void) test_AWSIoTFleetMetricNameAndArn {
+    [self validateSecureCodingForClass:[AWSIoTFleetMetricNameAndArn class]];
+}
+
 - (void) test_AWSIoTGetBehaviorModelTrainingSummariesRequest {
     [self validateSecureCodingForClass:[AWSIoTGetBehaviorModelTrainingSummariesRequest class]];
 }
 
 - (void) test_AWSIoTGetBehaviorModelTrainingSummariesResponse {
     [self validateSecureCodingForClass:[AWSIoTGetBehaviorModelTrainingSummariesResponse class]];
+}
+
+- (void) test_AWSIoTGetBucketsAggregationRequest {
+    [self validateSecureCodingForClass:[AWSIoTGetBucketsAggregationRequest class]];
+}
+
+- (void) test_AWSIoTGetBucketsAggregationResponse {
+    [self validateSecureCodingForClass:[AWSIoTGetBucketsAggregationResponse class]];
 }
 
 - (void) test_AWSIoTGetCardinalityRequest {
@@ -1899,6 +1989,10 @@
     [self validateSecureCodingForClass:[AWSIoTJobSummary class]];
 }
 
+- (void) test_AWSIoTJobTemplateSummary {
+    [self validateSecureCodingForClass:[AWSIoTJobTemplateSummary class]];
+}
+
 - (void) test_AWSIoTKafkaAction {
     [self validateSecureCodingForClass:[AWSIoTKafkaAction class]];
 }
@@ -2051,6 +2145,14 @@
     [self validateSecureCodingForClass:[AWSIoTListDomainConfigurationsResponse class]];
 }
 
+- (void) test_AWSIoTListFleetMetricsRequest {
+    [self validateSecureCodingForClass:[AWSIoTListFleetMetricsRequest class]];
+}
+
+- (void) test_AWSIoTListFleetMetricsResponse {
+    [self validateSecureCodingForClass:[AWSIoTListFleetMetricsResponse class]];
+}
+
 - (void) test_AWSIoTListIndicesRequest {
     [self validateSecureCodingForClass:[AWSIoTListIndicesRequest class]];
 }
@@ -2073,6 +2175,14 @@
 
 - (void) test_AWSIoTListJobExecutionsForThingResponse {
     [self validateSecureCodingForClass:[AWSIoTListJobExecutionsForThingResponse class]];
+}
+
+- (void) test_AWSIoTListJobTemplatesRequest {
+    [self validateSecureCodingForClass:[AWSIoTListJobTemplatesRequest class]];
+}
+
+- (void) test_AWSIoTListJobTemplatesResponse {
+    [self validateSecureCodingForClass:[AWSIoTListJobTemplatesResponse class]];
 }
 
 - (void) test_AWSIoTListJobsRequest {
@@ -2391,6 +2501,10 @@
     [self validateSecureCodingForClass:[AWSIoTOTAUpdateSummary class]];
 }
 
+- (void) test_AWSIoTOpenSearchAction {
+    [self validateSecureCodingForClass:[AWSIoTOpenSearchAction class]];
+}
+
 - (void) test_AWSIoTOutgoingCertificate {
     [self validateSecureCodingForClass:[AWSIoTOutgoingCertificate class]];
 }
@@ -2437,6 +2551,14 @@
 
 - (void) test_AWSIoTPutItemInput {
     [self validateSecureCodingForClass:[AWSIoTPutItemInput class]];
+}
+
+- (void) test_AWSIoTPutVerificationStateOnViolationRequest {
+    [self validateSecureCodingForClass:[AWSIoTPutVerificationStateOnViolationRequest class]];
+}
+
+- (void) test_AWSIoTPutVerificationStateOnViolationResponse {
+    [self validateSecureCodingForClass:[AWSIoTPutVerificationStateOnViolationResponse class]];
 }
 
 - (void) test_AWSIoTRateIncreaseCriteria {
@@ -2699,6 +2821,10 @@
     [self validateSecureCodingForClass:[AWSIoTTaskStatisticsForAuditCheck class]];
 }
 
+- (void) test_AWSIoTTermsAggregation {
+    [self validateSecureCodingForClass:[AWSIoTTermsAggregation class]];
+}
+
 - (void) test_AWSIoTTestAuthorizationRequest {
     [self validateSecureCodingForClass:[AWSIoTTestAuthorizationRequest class]];
 }
@@ -2909,6 +3035,10 @@
 
 - (void) test_AWSIoTUpdateEventConfigurationsResponse {
     [self validateSecureCodingForClass:[AWSIoTUpdateEventConfigurationsResponse class]];
+}
+
+- (void) test_AWSIoTUpdateFleetMetricRequest {
+    [self validateSecureCodingForClass:[AWSIoTUpdateFleetMetricRequest class]];
 }
 
 - (void) test_AWSIoTUpdateIndexingConfigurationRequest {

@@ -25,7 +25,7 @@
 #import "AWSComprehendResources.h"
 
 static NSString *const AWSInfoComprehend = @"Comprehend";
-NSString *const AWSComprehendSDKVersion = @"2.24.1";
+NSString *const AWSComprehendSDKVersion = @"2.26.7";
 
 
 @interface AWSComprehendResponseSerializer : AWSJSONResponseSerializer
@@ -1002,6 +1002,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSComprehendListDocumentClassifierSummariesResponse *> *)listDocumentClassifierSummaries:(AWSComprehendListDocumentClassifierSummariesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"ListDocumentClassifierSummaries"
+                   outputClass:[AWSComprehendListDocumentClassifierSummariesResponse class]];
+}
+
+- (void)listDocumentClassifierSummaries:(AWSComprehendListDocumentClassifierSummariesRequest *)request
+     completionHandler:(void (^)(AWSComprehendListDocumentClassifierSummariesResponse *response, NSError *error))completionHandler {
+    [[self listDocumentClassifierSummaries:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendListDocumentClassifierSummariesResponse *> * _Nonnull task) {
+        AWSComprehendListDocumentClassifierSummariesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSComprehendListDocumentClassifiersResponse *> *)listDocumentClassifiers:(AWSComprehendListDocumentClassifiersRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1084,6 +1107,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSComprehendListEntitiesDetectionJobsResponse *response, NSError *error))completionHandler {
     [[self listEntitiesDetectionJobs:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendListEntitiesDetectionJobsResponse *> * _Nonnull task) {
         AWSComprehendListEntitiesDetectionJobsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendListEntityRecognizerSummariesResponse *> *)listEntityRecognizerSummaries:(AWSComprehendListEntityRecognizerSummariesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"ListEntityRecognizerSummaries"
+                   outputClass:[AWSComprehendListEntityRecognizerSummariesResponse class]];
+}
+
+- (void)listEntityRecognizerSummaries:(AWSComprehendListEntityRecognizerSummariesRequest *)request
+     completionHandler:(void (^)(AWSComprehendListEntityRecognizerSummariesResponse *response, NSError *error))completionHandler {
+    [[self listEntityRecognizerSummaries:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendListEntityRecognizerSummariesResponse *> * _Nonnull task) {
+        AWSComprehendListEntityRecognizerSummariesResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
