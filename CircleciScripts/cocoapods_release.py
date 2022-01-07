@@ -25,4 +25,14 @@ for framework in frameworks:
         log(f"Could not publish {framework}: output: {out}; error: {err}")
         sys.exit(exit_code)
 
+    if framework == "AWSCore":
+        log(f"pod repo update after {framework}")
+        (exit_code, out, err) = run_command(
+            ["pod", "repo", "update"],
+            keepalive_interval=300,
+            timeout=3600,
+        )
+        if exit_code != 0:
+            log(f"Failed to update CocoaPods repo'; output={out}, error={err}")
+
 sys.exit(0)
