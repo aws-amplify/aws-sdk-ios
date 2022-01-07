@@ -4,6 +4,11 @@
 
 -Features for next release
 
+### Bug Fixes
+
+- **CI/CD**
+  - Fixes CocoaPods release step which reports `pod repo update` to run after AWSCore is pushed (See [PR #3961](https://github.com/aws-amplify/aws-sdk-ios/pull/3961))
+
 ## 2.26.7
 
 ### New features
