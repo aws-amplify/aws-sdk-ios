@@ -6,6 +6,9 @@
 
 ### Bug Fixes
 
+- **AWSMobileClient**
+  - Fix issue that caused access token to be revoked when user canceled hosted UI signout. (See [PR #3964](https://github.com/aws-amplify/aws-sdk-ios/pull/3964))
+
 - **CI/CD**
   - Fixes CocoaPods release step which reports `pod repo update` to run after AWSCore is pushed (See [PR #3961](https://github.com/aws-amplify/aws-sdk-ios/pull/3961))
 
