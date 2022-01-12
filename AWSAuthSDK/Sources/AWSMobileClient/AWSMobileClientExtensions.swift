@@ -508,9 +508,9 @@ extension AWSMobileClient {
         if (error != nil) {
             completionHandler(AWSMobileClientError.makeMobileClientError(from: error!))
         } else {
-            // If the token is successfully invalidated, we clear tokens locally and perform signout flow.
-            self.signOut()
-            completionHandler(nil)
+            // If the cookie is successfully invalidated, we attempt to
+            // revoke access tokens and then sign out locally.
+            revokeAccessTokensAndSignOutLocally(completionHandler: completionHandler)
         }
     }
     
@@ -546,30 +546,30 @@ extension AWSMobileClient {
     private func internalSignOut(presentationAnchor: ASPresentationAnchor? = nil,
                                  options: SignOutOptions = SignOutOptions(),
                         completionHandler: @escaping ((Error?) -> Void)) {
-        // If using hosted UI, we need to launch SFSafariVC/SFAuthSession/ASWebAuthenticationSession to invalidate token
+        // If using hosted UI, we need to launch SFSafariVC/SFAuthSession/ASWebAuthenticationSession to invalidate cookie
         if federationProvider == .hostedUI {
-            if options.invalidateTokens {
-                revokeIfSessionIsRevocable { _ in
-                    // Ensure UI actions are performed on the main thread since revoke token may be performed on a
-                    // background thread.
-                    DispatchQueue.main.async {
-                        if let anchor = presentationAnchor {
-                            self.hostedUISignOut(presentationAnchor: anchor, completionHandler: completionHandler)
-                        } else {
-                            self.hostedUILegacySignOut(completionHandler: completionHandler)
-                        }
-                    }
+            // Ensure UI actions are performed on the main thread since revoke token may be performed on a
+            // background thread.
+            DispatchQueue.main.async {
+                if let anchor = presentationAnchor {
+                    self.hostedUISignOut(presentationAnchor: anchor, completionHandler: completionHandler)
+                } else {
+                    self.hostedUILegacySignOut(completionHandler: completionHandler)
                 }
             }
             return
         }
         // If using userpools sign in and global sign out is specified, we try logging out the user from all devices.
         if federationProvider == .userPools && options.signOutGlobally == true {
-            let _ = self.userpoolOpsHelper.currentActiveUser!.globalSignOut().continueWith { (task) -> Any? in
+            let _ = self.userpoolOpsHelper.currentActiveUser!.globalSignOut().continueWith { [weak self] (task) -> Any? in
+                guard let self = self else {
+                    let message = "Unexpectedly encountered nil when unwrapping self. This should not happen."
+                    completionHandler(AWSMobileClientError.unknown(message: message))
+                    return nil
+                }
                 if task.result != nil {
-                    // If global signout is successful, we clear tokens locally and perform signout flow.
-                    self.signOut()
-                    completionHandler(nil)
+                    // If global signout is successful, we attempt to revoke access tokens as signout locally.
+                    self.revokeAccessTokensAndSignOutLocally(completionHandler: completionHandler)
                 } else if let error = task.error {
                     // If there is an error signing out globally, we notify the developer.
                     completionHandler(AWSMobileClientError.makeMobileClientError(from: error))
@@ -580,15 +580,19 @@ extension AWSMobileClient {
         }
         // If using userpools sign in (not global sign out or federated sign in), revoke the token before signing out
         if federationProvider == .userPools {
-            revokeIfSessionIsRevocable { _ in
-                self.signOut()
-                completionHandler(nil)
-            }
+            revokeAccessTokensAndSignOutLocally(completionHandler: completionHandler)
             return
         }
         // If signing in with federated sign in, perform local sign out
         signOut()
         completionHandler(nil)
+    }
+    
+    private func revokeAccessTokensAndSignOutLocally(completionHandler: @escaping ((Error?) -> Void)) {
+        revokeIfSessionIsRevocable { _ in
+            self.signOut()
+            completionHandler(nil)
+        }
     }
     
     /// Returns if the session is not revocable, attempts to revoke the token if it is.
