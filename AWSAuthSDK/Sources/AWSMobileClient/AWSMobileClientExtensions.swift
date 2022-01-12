@@ -568,7 +568,7 @@ extension AWSMobileClient {
                     return nil
                 }
                 if task.result != nil {
-                    // If global signout is successful, we attempt to revoke access tokens as signout locally.
+                    // If global signout is successful, we attempt to revoke access tokens and sign out locally.
                     self.revokeAccessTokensAndSignOutLocally(completionHandler: completionHandler)
                 } else if let error = task.error {
                     // If there is an error signing out globally, we notify the developer.
@@ -678,13 +678,28 @@ extension AWSMobileClient {
             completionHandler(AWSMobileClientError.invalidConfiguration(message: errorMessage))
             return
         }
-        let _ = currentActiveUser.delete().continueWith { (task) -> Any? in
+        let _ = currentActiveUser.delete().continueWith { [weak self] (task) -> Any? in
+            guard let self = self else {
+                let message = "Unexpectedly encountered nil when unwrapping self. This should not happen."
+                completionHandler(AWSMobileClientError.unknown(message: message))
+                return nil
+            }
             if task.result != nil {
                 // User was successfully deleted.
                 if signOut {
                     // If signOut is true (default), perform global signout and invalidate tokens.
-                    let signOutOptions = SignOutOptions(signOutGlobally: true, invalidateTokens: true)
-                    self.internalSignOut(options: signOutOptions, completionHandler: completionHandler)
+                    
+                    // In the case of hosted UI, we perform global signout, revoke access tokens, and sign out locally.
+                    // Launching a web session to remove the session cookie is unnessary because the user's
+                    // account is no longer valid to receive new tokens.
+                    if self.federationProvider == .hostedUI || self.federationProvider == .userPools {
+                        // Attempt global signout.  This will sign the user out of all devices and revoke all their refresh tokens.
+                        let _ = currentActiveUser.globalSignOut().continueWith { _ in
+                            // Attempt to revoke access tokens and sign out locally.
+                            self.revokeAccessTokensAndSignOutLocally(completionHandler: completionHandler)
+                            return nil
+                        }
+                    }
                 } else {
                     completionHandler(nil)
                 }
@@ -694,7 +709,6 @@ extension AWSMobileClient {
             }
             return nil
         }
-        return
     }
     
     internal func performUserPoolSuccessfulSignInTasks(session: AWSCognitoIdentityUserSession) {
