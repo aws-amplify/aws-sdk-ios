@@ -1,0 +1,6 @@
+framework module BlueAudioSourceiOS {
+  umbrella header "BlueAudioSourceiOS.h"
+
+  export *
+  module * { export * }
+}

@@ -16,7 +16,7 @@
 #import <XCTest/XCTest.h>
 #import "AWSTestUtility.h"
 #import "AWSPinpoint.h"
-#import "OCMock.h"
+#import <OCMock/OCMock.h>
 #import "AWSPinpointContext.h"
 
 NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpointAnalyticsClientErrorDomain";

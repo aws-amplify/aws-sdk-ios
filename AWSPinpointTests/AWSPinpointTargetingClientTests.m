@@ -16,7 +16,7 @@
 #import <XCTest/XCTest.h>
 #import "AWSTestUtility.h"
 #import "AWSPinpoint.h"
-#import "OCMock.h"
+#import <OCMock/OCMock.h>
 #import "AWSPinpointContext.h"
 #import "AWSPinpointEndpointProfile.h"
 #import "AWSPinpointNotificationManager.h"

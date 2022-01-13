@@ -15,7 +15,7 @@
 
 #import "AWSGZIPBaseTestCase.h"
 
-#import "OCMock.h"
+#import <OCMock/OCMock.h>
 #import "AWSTestUtility.h"
 #import "AWSKinesisService.h"
 #import "AWSGZIPTestHelper.h"

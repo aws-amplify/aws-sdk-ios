@@ -18,7 +18,7 @@
 #import "AWSPinpoint.h"
 #import "AWSTestUtility.h"
 #import "AWSPinpointContext.h"
-#import "OCMock.h"
+#import <OCMock/OCMock.h>
 
 static id _mockNSBundle;
 

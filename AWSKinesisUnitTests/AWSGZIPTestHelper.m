@@ -15,7 +15,7 @@
 
 #import "AWSGZIPTestHelper.h"
 
-#import "OCMock.h"
+#import <OCMock/OCMock.h>
 #import "AWSTestUtility.h"
 #import "AWSGZIPEncodingJSONRequestSerializer.h"
 
