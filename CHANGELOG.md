@@ -4,6 +4,10 @@
 
 -Features for next release
 
+### Breaking Changes
+
+- **AWSMobileClient**
+  - **Breaking Change** Remove the option to not signout when deleting a user.
 ### Bug Fixes
 
 - **AWSMobileClient**
