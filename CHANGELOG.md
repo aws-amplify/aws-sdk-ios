@@ -4,9 +4,14 @@
 
 -Features for next release
 
+### Breaking Changes
+
+- **AWSMobileClient**
+  - **Breaking Change** Remove the option to not signout when deleting a user.
 ### Bug Fixes
 
 - **AWSMobileClient**
+  - Prevent user from cancelling signout after account deletion with hosted UI. (See [PR #3965](https://github.com/aws-amplify/aws-sdk-ios/pull/3965))
   - Fix issue that caused access token to be revoked when user canceled hosted UI signout. (See [PR #3964](https://github.com/aws-amplify/aws-sdk-ios/pull/3964))
 
 - **CI/CD**
