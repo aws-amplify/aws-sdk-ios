@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -350,7 +350,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (void)batchUpdateDevicePosition:(AWSLocationBatchUpdateDevicePositionRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationBatchUpdateDevicePositionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters: <code>DeparturePostiton</code> and <code>DestinationPosition</code>. Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a route calculator resource</a>.</p><p>By default, a request that doesn't specify a departure time uses the best time of day to travel with the best traffic conditions when calculating the route.</p><p>Additional options include:</p><ul><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#departure-time">Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartureNow</code>. This calculates a route based on predictive traffic data at the given time. </p><note><p>You can't specify both <code>DepartureTime</code> and <code>DepartureNow</code> in a single request. Specifying both parameters returns a validation error.</p></note></li><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#travel-mode">Specifying a travel mode</a> using TravelMode. This lets you specify an additional route preference such as <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p></li></ul><p></p>
+ <p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters: <code>DeparturePosition</code> and <code>DestinationPosition</code>. Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a route calculator resource</a>.</p><p>By default, a request that doesn't specify a departure time uses the best time of day to travel with the best traffic conditions when calculating the route.</p><p>Additional options include:</p><ul><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html">Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartNow</code>. This calculates a route based on predictive traffic data at the given time. </p><note><p>You can't specify both <code>DepartureTime</code> and <code>DepartNow</code> in a single request. Specifying both parameters returns a validation error.</p></note></li><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying a travel mode</a> using TravelMode sets the transportation mode used to calculate the routes. This also lets you specify additional route preferences in <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the CalculateRoute service method.
 
@@ -362,7 +362,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (AWSTask<AWSLocationCalculateRouteResponse *> *)calculateRoute:(AWSLocationCalculateRouteRequest *)request;
 
 /**
- <p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters: <code>DeparturePostiton</code> and <code>DestinationPosition</code>. Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a route calculator resource</a>.</p><p>By default, a request that doesn't specify a departure time uses the best time of day to travel with the best traffic conditions when calculating the route.</p><p>Additional options include:</p><ul><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#departure-time">Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartureNow</code>. This calculates a route based on predictive traffic data at the given time. </p><note><p>You can't specify both <code>DepartureTime</code> and <code>DepartureNow</code> in a single request. Specifying both parameters returns a validation error.</p></note></li><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#travel-mode">Specifying a travel mode</a> using TravelMode. This lets you specify an additional route preference such as <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p></li></ul><p></p>
+ <p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters: <code>DeparturePosition</code> and <code>DestinationPosition</code>. Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a route calculator resource</a>.</p><p>By default, a request that doesn't specify a departure time uses the best time of day to travel with the best traffic conditions when calculating the route.</p><p>Additional options include:</p><ul><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html">Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartNow</code>. This calculates a route based on predictive traffic data at the given time. </p><note><p>You can't specify both <code>DepartureTime</code> and <code>DepartNow</code> in a single request. Specifying both parameters returns a validation error.</p></note></li><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying a travel mode</a> using TravelMode sets the transportation mode used to calculate the routes. This also lets you specify additional route preferences in <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the CalculateRoute service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -373,6 +373,31 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
  @see AWSLocationCalculateRouteResponse
  */
 - (void)calculateRoute:(AWSLocationCalculateRouteRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationCalculateRouteResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html"> Calculates a route matrix</a> given the following required parameters: <code>DeparturePositions</code> and <code>DestinationPositions</code>. <code>CalculateRouteMatrix</code> calculates routes and returns the travel time and travel distance from each departure position to each destination position in the request. For example, given departure positions A and B, and destination positions X and Y, <code>CalculateRouteMatrix</code> will return time and distance for routes from A to X, A to Y, B to X, and B to Y (in that order). The number of results returned (and routes calculated) will be the number of <code>DeparturePositions</code> times the number of <code>DestinationPositions</code>.</p><note><p>Your account is charged for each route calculated, not the number of requests.</p></note><p>Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a route calculator resource</a>.</p><p>By default, a request that doesn't specify a departure time uses the best time of day to travel with the best traffic conditions when calculating routes.</p><p>Additional options include:</p><ul><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html"> Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartNow</code>. This calculates routes based on predictive traffic data at the given time. </p><note><p>You can't specify both <code>DepartureTime</code> and <code>DepartNow</code> in a single request. Specifying both parameters returns a validation error.</p></note></li><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying a travel mode</a> using TravelMode sets the transportation mode used to calculate the routes. This also lets you specify additional route preferences in <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p></li></ul>
+ 
+ @param request A container for the necessary parameters to execute the CalculateRouteMatrix service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLocationCalculateRouteMatrixResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorResourceNotFound`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorThrottling`.
+ 
+ @see AWSLocationCalculateRouteMatrixRequest
+ @see AWSLocationCalculateRouteMatrixResponse
+ */
+- (AWSTask<AWSLocationCalculateRouteMatrixResponse *> *)calculateRouteMatrix:(AWSLocationCalculateRouteMatrixRequest *)request;
+
+/**
+ <p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html"> Calculates a route matrix</a> given the following required parameters: <code>DeparturePositions</code> and <code>DestinationPositions</code>. <code>CalculateRouteMatrix</code> calculates routes and returns the travel time and travel distance from each departure position to each destination position in the request. For example, given departure positions A and B, and destination positions X and Y, <code>CalculateRouteMatrix</code> will return time and distance for routes from A to X, A to Y, B to X, and B to Y (in that order). The number of results returned (and routes calculated) will be the number of <code>DeparturePositions</code> times the number of <code>DestinationPositions</code>.</p><note><p>Your account is charged for each route calculated, not the number of requests.</p></note><p>Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a route calculator resource</a>.</p><p>By default, a request that doesn't specify a departure time uses the best time of day to travel with the best traffic conditions when calculating routes.</p><p>Additional options include:</p><ul><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html"> Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartNow</code>. This calculates routes based on predictive traffic data at the given time. </p><note><p>You can't specify both <code>DepartureTime</code> and <code>DepartNow</code> in a single request. Specifying both parameters returns a validation error.</p></note></li><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying a travel mode</a> using TravelMode sets the transportation mode used to calculate the routes. This also lets you specify additional route preferences in <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p></li></ul>
+ 
+ @param request A container for the necessary parameters to execute the CalculateRouteMatrix service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorResourceNotFound`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorThrottling`.
+ 
+ @see AWSLocationCalculateRouteMatrixRequest
+ @see AWSLocationCalculateRouteMatrixResponse
+ */
+- (void)calculateRouteMatrix:(AWSLocationCalculateRouteMatrixRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationCalculateRouteMatrixResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Creates a geofence collection, which manages and stores geofences.</p>
@@ -400,7 +425,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (void)createGeofenceCollection:(AWSLocationCreateGeofenceCollectionRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationCreateGeofenceCollectionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a map resource in your AWS account, which provides map tiles of different styles sourced from global location data providers.</p>
+ <p>Creates a map resource in your AWS account, which provides map tiles of different styles sourced from global location data providers.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you may only use HERE as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateMap service method.
 
@@ -412,7 +437,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (AWSTask<AWSLocationCreateMapResponse *> *)createMap:(AWSLocationCreateMapRequest *)request;
 
 /**
- <p>Creates a map resource in your AWS account, which provides map tiles of different styles sourced from global location data providers.</p>
+ <p>Creates a map resource in your AWS account, which provides map tiles of different styles sourced from global location data providers.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you may only use HERE as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateMap service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -425,7 +450,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (void)createMap:(AWSLocationCreateMapRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationCreateMapResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p>
+ <p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you may only use HERE as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note>
  
  @param request A container for the necessary parameters to execute the CreatePlaceIndex service method.
 
@@ -437,7 +462,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (AWSTask<AWSLocationCreatePlaceIndexResponse *> *)createPlaceIndex:(AWSLocationCreatePlaceIndexRequest *)request;
 
 /**
- <p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p>
+ <p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you may only use HERE as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note>
  
  @param request A container for the necessary parameters to execute the CreatePlaceIndex service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -450,7 +475,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (void)createPlaceIndex:(AWSLocationCreatePlaceIndexRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationCreatePlaceIndexResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a route calculator resource in your AWS account.</p><p>You can send requests to a route calculator resource to estimate travel time, distance, and get directions. A route calculator sources traffic and road network data from your chosen data provider.</p>
+ <p>Creates a route calculator resource in your AWS account.</p><p>You can send requests to a route calculator resource to estimate travel time, distance, and get directions. A route calculator sources traffic and road network data from your chosen data provider.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you may only use HERE as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateRouteCalculator service method.
 
@@ -462,7 +487,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (AWSTask<AWSLocationCreateRouteCalculatorResponse *> *)createRouteCalculator:(AWSLocationCreateRouteCalculatorRequest *)request;
 
 /**
- <p>Creates a route calculator resource in your AWS account.</p><p>You can send requests to a route calculator resource to estimate travel time, distance, and get directions. A route calculator sources traffic and road network data from your chosen data provider.</p>
+ <p>Creates a route calculator resource in your AWS account.</p><p>You can send requests to a route calculator resource to estimate travel time, distance, and get directions. A route calculator sources traffic and road network data from your chosen data provider.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you may only use HERE as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateRouteCalculator service method.
  @param completionHandler The completion handler to call when the load request is complete.
