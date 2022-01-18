@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -11537,6 +11537,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
  <p>The date, in ISO 8601 format, when the journey was created.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable creationDate;
+
+/**
+ <p>The channel-specific configurations for the journey.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingJourneyChannelSettings * _Nullable journeyChannelSettings;
 
 /**
  <p>The date, in ISO 8601 format, when the journey was last modified.</p>
