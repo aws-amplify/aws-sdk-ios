@@ -20,6 +20,14 @@
 - **AWSS3**
   - Fixed an issue with Multi Part uploads when uploading from a file URL that contains a space (See [PR #3956](https://github.com/aws-amplify/aws-sdk-ios/pull/3956))
 
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSLocation
+  - AWSPinpoint
+  - AWSTranscribe
+  - AWSRekognition
+
 ## 2.26.7
 
 ### New features
