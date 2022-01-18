@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -923,7 +923,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable collectionArn;
 
 /**
- <p>Version number of the face detection model associated with the collection you are creating.</p>
+ <p>Latest face model being used with the collection. For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/face-detection-model.html">Model versioning</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable faceModelVersion;
 
@@ -2127,6 +2127,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  */
 @property (nonatomic, strong) NSString * _Nullable imageId;
 
+/**
+ <p> The version of the face detect and storage model that was used when indexing the face vector. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexFacesModelVersion;
+
 @end
 
 /**
@@ -3008,7 +3013,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>The version number of the face detection model that's associated with the input collection (<code>CollectionId</code>).</p>
+ <p>Latest face model being used with the collection. For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/face-detection-model.html">Model versioning</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable faceModelVersion;
 
@@ -3185,7 +3190,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable collectionIds;
 
 /**
- <p>Version numbers of the face detection models associated with the collections in the array <code>CollectionIds</code>. For example, the value of <code>FaceModelVersions[2]</code> is the version number for the face detection model used by the collection in <code>CollectionId[2]</code>.</p>
+ <p>Latest face models being used with the corresponding collections in the array. For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/face-detection-model.html">Model versioning</a>. For example, the value of <code>FaceModelVersions[2]</code> is the version number for the face detection model used by the collection in <code>CollectionId[2]</code>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable faceModelVersions;
 
@@ -3328,7 +3333,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>
+ <p>Latest face model being used with the collection. For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/face-detection-model.html">Model versioning</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable faceModelVersion;
 
@@ -3931,7 +3936,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSArray<AWSRekognitionFaceMatch *> * _Nullable faceMatches;
 
 /**
- <p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>
+ <p>Latest face model being used with the collection. For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/face-detection-model.html">Model versioning</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable faceModelVersion;
 
@@ -3987,7 +3992,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSArray<AWSRekognitionFaceMatch *> * _Nullable faceMatches;
 
 /**
- <p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>
+ <p>Latest face model being used with the collection. For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/face-detection-model.html">Model versioning</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable faceModelVersion;
 

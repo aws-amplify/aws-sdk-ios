@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -15649,6 +15649,10 @@
         \"RefreshOnSegmentUpdate\": {\
             \"shape\": \"__boolean\",\
             \"documentation\": \"<p>Specifies whether a journey should be refreshed on segment update.</p>\"\
+        },\
+        \"JourneyChannelSettings\": {\
+            \"shape\": \"JourneyChannelSettings\",\
+            \"documentation\": \"<p>The channel-specific configurations for the journey.</p>\"\
         }\
       },\
       \"documentation\": \"<p>Specifies the configuration and other settings for a journey.</p>\",\
