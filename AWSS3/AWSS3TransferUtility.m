@@ -1278,7 +1278,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                               partNumber:(long)partNumber
                               dataLength:(NSUInteger)dataLength
                                    error:(NSError **)error {
-    NSURL *fileURL = [NSURL URLWithString:fileName];
+    NSURL *fileURL = [NSURL fileURLWithPath: fileName isDirectory: false];
     NSUInteger offset = (partNumber - 1) * AWSS3TransferUtilityMultiPartSize;
 
     NSURL *partialFileURL = [self createPartialFile:fileURL offset:offset length:dataLength error:error];

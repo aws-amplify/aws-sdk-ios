@@ -1168,6 +1168,65 @@ class AWSS3TransferUtilityTests: XCTestCase {
             XCTAssertNil(error)
         }
     }
+
+    func testGoodFilePathWithSpacesMultipartUpload() {
+        let expectation = self.expectation(description: "The file was uploaded.")
+        let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "with-retry")
+        XCTAssertNotNil(transferUtility)
+
+        let filePath = NSTemporaryDirectory() + "test Good File Path Upload.tmp"
+        let fileURL = URL(fileURLWithPath: filePath)
+        FileManager.default.createFile(atPath: filePath, contents: "Test".data(using: .utf8), attributes: nil)
+
+        let expression = AWSS3TransferUtilityMultiPartUploadExpression()
+        let uuid:(String) = UUID().uuidString
+        let author:(String) = "integration test"
+        expression.setValue(author, forRequestHeader: "x-amz-meta-author");
+        expression.setValue(uuid, forRequestHeader: "x-amz-meta-id");
+        expression.progressBlock = { _, _ in }
+
+        //Create Completion Handler
+        let uploadCompletionHandler = { (task: AWSS3TransferUtilityMultiPartUploadTask, error: Error?) -> Void in
+            XCTAssertNil(error)
+
+            //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
+            let s3 = AWSS3.default()
+            let headObjectRequest = AWSS3HeadObjectRequest()
+            headObjectRequest?.bucket = generalTestBucket
+            headObjectRequest?.key = "test-spaces-Good-spaces-File-spaces-Path-spaces-Upload.txt"
+
+            s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
+                XCTAssertNil(task.error)
+                XCTAssertNotNil(task.result)
+                if (task.result != nil) {
+                    let output:(AWSS3HeadObjectOutput) = task.result!
+                    XCTAssertNotNil(output)
+                    XCTAssertNotNil(output.metadata)
+                    XCTAssertEqual(author, output.metadata?["author"])
+                    XCTAssertEqual(uuid, output.metadata?["id"])
+                }
+                expectation.fulfill()
+                return nil
+            })
+        }
+
+        transferUtility?.uploadUsingMultiPart(
+                                   fileURL: fileURL,
+                                   bucket: generalTestBucket,
+                                   key: "test-spaces-Good-spaces-File-spaces-Path-spaces-Upload.txt",
+                                   contentType: "text/plain",
+                                   expression: expression,
+                                   completionHandler: uploadCompletionHandler)
+            .continueWith { (task: AWSTask<AWSS3TransferUtilityMultiPartUploadTask>) -> Any? in
+                XCTAssertNil(task.error)
+                XCTAssertNotNil(task.result)
+                return nil
+            }.waitUntilFinished()
+
+        waitForExpectations(timeout: 90) { (error) in
+            XCTAssertNil(error)
+        }
+    }
     
     func testMultiPartUploadSmallFile() {
         let expectation = self.expectation(description: "The completion handler called.")
