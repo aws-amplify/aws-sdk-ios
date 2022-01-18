@@ -1,11 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSRekognition
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -27,6 +19,11 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 
 - **AWSIoT**
   - Adds leeway in unit tests (See [PR #3952](https://github.com/aws-amplify/aws-sdk-ios/pull/3952))
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSRekognition
 
 ## 2.26.6
 
