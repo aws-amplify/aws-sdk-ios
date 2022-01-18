@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -511,6 +511,150 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
              @"avoidFerries" : @"AvoidFerries",
              @"avoidTolls" : @"AvoidTolls",
              };
+}
+
+@end
+
+@implementation AWSLocationCalculateRouteMatrixRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"calculatorName" : @"CalculatorName",
+             @"carModeOptions" : @"CarModeOptions",
+             @"departNow" : @"DepartNow",
+             @"departurePositions" : @"DeparturePositions",
+             @"departureTime" : @"DepartureTime",
+             @"destinationPositions" : @"DestinationPositions",
+             @"distanceUnit" : @"DistanceUnit",
+             @"travelMode" : @"TravelMode",
+             @"truckModeOptions" : @"TruckModeOptions",
+             };
+}
+
++ (NSValueTransformer *)carModeOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLocationCalculateRouteCarModeOptions class]];
+}
+
++ (NSValueTransformer *)departureTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)distanceUnitJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Kilometers"] == NSOrderedSame) {
+            return @(AWSLocationDistanceUnitKilometers);
+        }
+        if ([value caseInsensitiveCompare:@"Miles"] == NSOrderedSame) {
+            return @(AWSLocationDistanceUnitMiles);
+        }
+        return @(AWSLocationDistanceUnitUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLocationDistanceUnitKilometers:
+                return @"Kilometers";
+            case AWSLocationDistanceUnitMiles:
+                return @"Miles";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)travelModeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Car"] == NSOrderedSame) {
+            return @(AWSLocationTravelModeCar);
+        }
+        if ([value caseInsensitiveCompare:@"Truck"] == NSOrderedSame) {
+            return @(AWSLocationTravelModeTruck);
+        }
+        if ([value caseInsensitiveCompare:@"Walking"] == NSOrderedSame) {
+            return @(AWSLocationTravelModeWalking);
+        }
+        return @(AWSLocationTravelModeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLocationTravelModeCar:
+                return @"Car";
+            case AWSLocationTravelModeTruck:
+                return @"Truck";
+            case AWSLocationTravelModeWalking:
+                return @"Walking";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)truckModeOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLocationCalculateRouteTruckModeOptions class]];
+}
+
+@end
+
+@implementation AWSLocationCalculateRouteMatrixResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"routeMatrix" : @"RouteMatrix",
+             @"snappedDeparturePositions" : @"SnappedDeparturePositions",
+             @"snappedDestinationPositions" : @"SnappedDestinationPositions",
+             @"summary" : @"Summary",
+             };
+}
+
++ (NSValueTransformer *)summaryJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLocationCalculateRouteMatrixSummary class]];
+}
+
+@end
+
+@implementation AWSLocationCalculateRouteMatrixSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dataSource" : @"DataSource",
+             @"distanceUnit" : @"DistanceUnit",
+             @"errorCount" : @"ErrorCount",
+             @"routeCount" : @"RouteCount",
+             };
+}
+
++ (NSValueTransformer *)distanceUnitJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Kilometers"] == NSOrderedSame) {
+            return @(AWSLocationDistanceUnitKilometers);
+        }
+        if ([value caseInsensitiveCompare:@"Miles"] == NSOrderedSame) {
+            return @(AWSLocationDistanceUnitMiles);
+        }
+        return @(AWSLocationDistanceUnitUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLocationDistanceUnitKilometers:
+                return @"Kilometers";
+            case AWSLocationDistanceUnitMiles:
+                return @"Miles";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -2858,6 +3002,82 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSLocationRouteMatrixEntry
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"distance" : @"Distance",
+             @"durationSeconds" : @"DurationSeconds",
+             @"error" : @"Error",
+             };
+}
+
++ (NSValueTransformer *)errorJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLocationRouteMatrixEntryError class]];
+}
+
+@end
+
+@implementation AWSLocationRouteMatrixEntryError
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"code" : @"Code",
+             @"message" : @"Message",
+             };
+}
+
++ (NSValueTransformer *)codeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"RouteNotFound"] == NSOrderedSame) {
+            return @(AWSLocationRouteMatrixErrorCodeRouteNotFound);
+        }
+        if ([value caseInsensitiveCompare:@"RouteTooLong"] == NSOrderedSame) {
+            return @(AWSLocationRouteMatrixErrorCodeRouteTooLong);
+        }
+        if ([value caseInsensitiveCompare:@"PositionsNotFound"] == NSOrderedSame) {
+            return @(AWSLocationRouteMatrixErrorCodePositionsNotFound);
+        }
+        if ([value caseInsensitiveCompare:@"DestinationPositionNotFound"] == NSOrderedSame) {
+            return @(AWSLocationRouteMatrixErrorCodeDestinationPositionNotFound);
+        }
+        if ([value caseInsensitiveCompare:@"DeparturePositionNotFound"] == NSOrderedSame) {
+            return @(AWSLocationRouteMatrixErrorCodeDeparturePositionNotFound);
+        }
+        if ([value caseInsensitiveCompare:@"OtherValidationError"] == NSOrderedSame) {
+            return @(AWSLocationRouteMatrixErrorCodeOtherValidationError);
+        }
+        return @(AWSLocationRouteMatrixErrorCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLocationRouteMatrixErrorCodeRouteNotFound:
+                return @"RouteNotFound";
+            case AWSLocationRouteMatrixErrorCodeRouteTooLong:
+                return @"RouteTooLong";
+            case AWSLocationRouteMatrixErrorCodePositionsNotFound:
+                return @"PositionsNotFound";
+            case AWSLocationRouteMatrixErrorCodeDestinationPositionNotFound:
+                return @"DestinationPositionNotFound";
+            case AWSLocationRouteMatrixErrorCodeDeparturePositionNotFound:
+                return @"DeparturePositionNotFound";
+            case AWSLocationRouteMatrixErrorCodeOtherValidationError:
+                return @"OtherValidationError";
+            default:
+                return nil;
+        }
     }];
 }
 

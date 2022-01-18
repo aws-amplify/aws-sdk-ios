@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -456,6 +456,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLocationCalculateRouteResponse *response, NSError *error))completionHandler {
     [[self calculateRoute:request] continueWithBlock:^id _Nullable(AWSTask<AWSLocationCalculateRouteResponse *> * _Nonnull task) {
         AWSLocationCalculateRouteResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLocationCalculateRouteMatrixResponse *> *)calculateRouteMatrix:(AWSLocationCalculateRouteMatrixRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/routes/v0/calculators/{CalculatorName}/calculate/route-matrix"
+                  targetPrefix:@""
+                 operationName:@"CalculateRouteMatrix"
+                   outputClass:[AWSLocationCalculateRouteMatrixResponse class]];
+}
+
+- (void)calculateRouteMatrix:(AWSLocationCalculateRouteMatrixRequest *)request
+     completionHandler:(void (^)(AWSLocationCalculateRouteMatrixResponse *response, NSError *error))completionHandler {
+    [[self calculateRouteMatrix:request] continueWithBlock:^id _Nullable(AWSTask<AWSLocationCalculateRouteMatrixResponse *> * _Nonnull task) {
+        AWSLocationCalculateRouteMatrixResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
