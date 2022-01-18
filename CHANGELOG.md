@@ -2,10 +2,7 @@
 
 MOVE THIS SECTION TO THE CORRECT LOCATION
 
-### Misc. Updates
 
-- Model updates for the following services
----AWSLocation
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -24,6 +21,14 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 
 - **CI/CD**
   - Fixes CocoaPods release step which reports `pod repo update` to run after AWSCore is pushed (See [PR #3961](https://github.com/aws-amplify/aws-sdk-ios/pull/3961))
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSLocation
+  - AWSPinpoint
+  - AWSTranscribe
+  - AWSRekognition
 
 ## 2.26.7
 
