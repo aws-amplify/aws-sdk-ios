@@ -17,7 +17,7 @@
     <a title="AWSLocation Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLocation 2.26.7 Docs</a> (90% documented)</p>
+        <p><a href="../index.html">AWSLocation 2.27.0 Docs</a> (89% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLocation.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -114,6 +114,15 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLocationCalculateRouteCarModeOptions.html">AWSLocationCalculateRouteCarModeOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCalculateRouteMatrixRequest.html">AWSLocationCalculateRouteMatrixRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCalculateRouteMatrixResponse.html">AWSLocationCalculateRouteMatrixResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCalculateRouteMatrixSummary.html">AWSLocationCalculateRouteMatrixSummary</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLocationCalculateRouteRequest.html">AWSLocationCalculateRouteRequest</a>
@@ -380,6 +389,12 @@
                 <a href="../Classes/AWSLocationResources.html">AWSLocationResources</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLocationRouteMatrixEntry.html">AWSLocationRouteMatrixEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationRouteMatrixEntryError.html">AWSLocationRouteMatrixEntryError</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLocationSearchForPositionResult.html">AWSLocationSearchForPositionResult</a>
               </li>
               <li class="nav-group-task">
@@ -514,6 +529,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSLocationPricingPlan.html">AWSLocationPricingPlan</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLocationRouteMatrixErrorCode.html">AWSLocationRouteMatrixErrorCode</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSLocationTravelMode.html">AWSLocationTravelMode</a>
@@ -1924,7 +1942,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters: <code>DeparturePostiton</code> and <code>DestinationPosition</code>. Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a route calculator resource</a>.</p><p>By default, a request that doesn&rsquo;t specify a departure time uses the best time of day to travel with the best traffic conditions when calculating the route.</p><p>Additional options include:</p><ul><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#departure-time">Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartureNow</code>. This calculates a route based on predictive traffic data at the given time. </p><note><p>You can&rsquo;t specify both <code>DepartureTime</code> and <code>DepartureNow</code> in a single request. Specifying both parameters returns a validation error.</p></note></li><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#travel-mode">Specifying a travel mode</a> using TravelMode. This lets you specify an additional route preference such as <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p></li></ul><p></p>
+                        <p><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters: <code>DeparturePosition</code> and <code>DestinationPosition</code>. Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a route calculator resource</a>.</p><p>By default, a request that doesn&rsquo;t specify a departure time uses the best time of day to travel with the best traffic conditions when calculating the route.</p><p>Additional options include:</p><ul><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html">Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartNow</code>. This calculates a route based on predictive traffic data at the given time. </p><note><p>You can&rsquo;t specify both <code>DepartureTime</code> and <code>DepartNow</code> in a single request. Specifying both parameters returns a validation error.</p></note></li><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying a travel mode</a> using TravelMode sets the transportation mode used to calculate the routes. This also lets you specify additional route preferences in <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p></li></ul></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCalculateRouteRequest</p>
@@ -1988,7 +2006,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters: <code>DeparturePostiton</code> and <code>DestinationPosition</code>. Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a route calculator resource</a>.</p><p>By default, a request that doesn&rsquo;t specify a departure time uses the best time of day to travel with the best traffic conditions when calculating the route.</p><p>Additional options include:</p><ul><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#departure-time">Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartureNow</code>. This calculates a route based on predictive traffic data at the given time. </p><note><p>You can&rsquo;t specify both <code>DepartureTime</code> and <code>DepartureNow</code> in a single request. Specifying both parameters returns a validation error.</p></note></li><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#travel-mode">Specifying a travel mode</a> using TravelMode. This lets you specify an additional route preference such as <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p></li></ul><p></p>
+                        <p><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters: <code>DeparturePosition</code> and <code>DestinationPosition</code>. Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a route calculator resource</a>.</p><p>By default, a request that doesn&rsquo;t specify a departure time uses the best time of day to travel with the best traffic conditions when calculating the route.</p><p>Additional options include:</p><ul><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html">Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartNow</code>. This calculates a route based on predictive traffic data at the given time. </p><note><p>You can&rsquo;t specify both <code>DepartureTime</code> and <code>DepartNow</code> in a single request. Specifying both parameters returns a validation error.</p></note></li><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying a travel mode</a> using TravelMode sets the transportation mode used to calculate the routes. This also lets you specify additional route preferences in <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p></li></ul></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCalculateRouteRequest</p>
@@ -2029,6 +2047,150 @@
                               <td>
                                 <div>
                                   <p>A container for the necessary parameters to execute the CalculateRoute service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorResourceNotFound</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocation(im)calculateRouteMatrix:"></a>
+                    <a name="//apple_ref/objc/Method/-calculateRouteMatrix:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocation(im)calculateRouteMatrix:">-calculateRouteMatrix:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html"> Calculates a route matrix</a> given the following required parameters: <code>DeparturePositions</code> and <code>DestinationPositions</code>. <code>CalculateRouteMatrix</code> calculates routes and returns the travel time and travel distance from each departure position to each destination position in the request. For example, given departure positions A and B, and destination positions X and Y, <code>CalculateRouteMatrix</code> will return time and distance for routes from A to X, A to Y, B to X, and B to Y (in that order). The number of results returned (and routes calculated) will be the number of <code>DeparturePositions</code> times the number of <code>DestinationPositions</code>.</p><note><p>Your account is charged for each route calculated, not the number of requests.</p></note><p>Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a route calculator resource</a>.</p><p>By default, a request that doesn&rsquo;t specify a departure time uses the best time of day to travel with the best traffic conditions when calculating routes.</p><p>Additional options include:</p><ul><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html"> Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartNow</code>. This calculates routes based on predictive traffic data at the given time. </p><note><p>You can&rsquo;t specify both <code>DepartureTime</code> and <code>DepartNow</code> in a single request. Specifying both parameters returns a validation error.</p></note></li><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying a travel mode</a> using TravelMode sets the transportation mode used to calculate the routes. This also lets you specify additional route preferences in <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p></li></ul></p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationCalculateRouteMatrixRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationCalculateRouteMatrixResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">calculateRouteMatrix</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLocationCalculateRouteMatrixRequest.html">AWSLocationCalculateRouteMatrixRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">calculateRouteMatrix</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationCalculateRouteMatrixRequest.html">AWSLocationCalculateRouteMatrixRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the CalculateRouteMatrix service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSLocationCalculateRouteMatrixResponse.html">AWSLocationCalculateRouteMatrixResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorResourceNotFound</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocation(im)calculateRouteMatrix:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-calculateRouteMatrix:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocation(im)calculateRouteMatrix:completionHandler:">-calculateRouteMatrix:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html"> Calculates a route matrix</a> given the following required parameters: <code>DeparturePositions</code> and <code>DestinationPositions</code>. <code>CalculateRouteMatrix</code> calculates routes and returns the travel time and travel distance from each departure position to each destination position in the request. For example, given departure positions A and B, and destination positions X and Y, <code>CalculateRouteMatrix</code> will return time and distance for routes from A to X, A to Y, B to X, and B to Y (in that order). The number of results returned (and routes calculated) will be the number of <code>DeparturePositions</code> times the number of <code>DestinationPositions</code>.</p><note><p>Your account is charged for each route calculated, not the number of requests.</p></note><p>Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a route calculator resource</a>.</p><p>By default, a request that doesn&rsquo;t specify a departure time uses the best time of day to travel with the best traffic conditions when calculating routes.</p><p>Additional options include:</p><ul><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html"> Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartNow</code>. This calculates routes based on predictive traffic data at the given time. </p><note><p>You can&rsquo;t specify both <code>DepartureTime</code> and <code>DepartNow</code> in a single request. Specifying both parameters returns a validation error.</p></note></li><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying a travel mode</a> using TravelMode sets the transportation mode used to calculate the routes. This also lets you specify additional route preferences in <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p></li></ul></p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationCalculateRouteMatrixRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationCalculateRouteMatrixResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">calculateRouteMatrix</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLocationCalculateRouteMatrixRequest.html">AWSLocationCalculateRouteMatrixRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+           <span class="nf">completionHandler</span><span class="p">:</span>
+               <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                   <span class="n"><a href="../Classes/AWSLocationCalculateRouteMatrixResponse.html">AWSLocationCalculateRouteMatrixResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                   <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">calculateRouteMatrix</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationCalculateRouteMatrixRequest.html">AWSLocationCalculateRouteMatrixRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationCalculateRouteMatrixResponse.html">AWSLocationCalculateRouteMatrixResponse</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the CalculateRouteMatrix service method.</p>
                                 </div>
                               </td>
                             </tr>
@@ -2209,7 +2371,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a map resource in your AWS account, which provides map tiles of different styles sourced from global location data providers.</p>
+                        <p><p>Creates a map resource in your AWS account, which provides map tiles of different styles sourced from global location data providers.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you may only use HERE as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCreateMapRequest</p>
@@ -2273,7 +2435,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a map resource in your AWS account, which provides map tiles of different styles sourced from global location data providers.</p>
+                        <p><p>Creates a map resource in your AWS account, which provides map tiles of different styles sourced from global location data providers.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you may only use HERE as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCreateMapRequest</p>
@@ -2350,7 +2512,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p>
+                        <p><p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you may only use HERE as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCreatePlaceIndexRequest</p>
@@ -2414,7 +2576,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p>
+                        <p><p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you may only use HERE as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCreatePlaceIndexRequest</p>
@@ -2491,7 +2653,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a route calculator resource in your AWS account.</p><p>You can send requests to a route calculator resource to estimate travel time, distance, and get directions. A route calculator sources traffic and road network data from your chosen data provider.</p>
+                        <p><p>Creates a route calculator resource in your AWS account.</p><p>You can send requests to a route calculator resource to estimate travel time, distance, and get directions. A route calculator sources traffic and road network data from your chosen data provider.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you may only use HERE as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCreateRouteCalculatorRequest</p>
@@ -2556,7 +2718,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a route calculator resource in your AWS account.</p><p>You can send requests to a route calculator resource to estimate travel time, distance, and get directions. A route calculator sources traffic and road network data from your chosen data provider.</p>
+                        <p><p>Creates a route calculator resource in your AWS account.</p><p>You can send requests to a route calculator resource to estimate travel time, distance, and get directions. A route calculator sources traffic and road network data from your chosen data provider.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you may only use HERE as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCreateRouteCalculatorRequest</p>
@@ -8180,7 +8342,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-01-04)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-01-19)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

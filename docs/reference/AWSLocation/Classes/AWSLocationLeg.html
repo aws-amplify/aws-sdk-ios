@@ -17,7 +17,7 @@
     <a title="AWSLocationLeg Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLocation 2.26.7 Docs</a> (90% documented)</p>
+        <p><a href="../index.html">AWSLocation 2.27.0 Docs</a> (89% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLocation.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -114,6 +114,15 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLocationCalculateRouteCarModeOptions.html">AWSLocationCalculateRouteCarModeOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCalculateRouteMatrixRequest.html">AWSLocationCalculateRouteMatrixRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCalculateRouteMatrixResponse.html">AWSLocationCalculateRouteMatrixResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCalculateRouteMatrixSummary.html">AWSLocationCalculateRouteMatrixSummary</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLocationCalculateRouteRequest.html">AWSLocationCalculateRouteRequest</a>
@@ -380,6 +389,12 @@
                 <a href="../Classes/AWSLocationResources.html">AWSLocationResources</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLocationRouteMatrixEntry.html">AWSLocationRouteMatrixEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationRouteMatrixEntryError.html">AWSLocationRouteMatrixEntryError</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLocationSearchForPositionResult.html">AWSLocationSearchForPositionResult</a>
               </li>
               <li class="nav-group-task">
@@ -516,6 +531,9 @@
                 <a href="../Enums/AWSLocationPricingPlan.html">AWSLocationPricingPlan</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSLocationRouteMatrixErrorCode.html">AWSLocationRouteMatrixErrorCode</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSLocationTravelMode.html">AWSLocationTravelMode</a>
               </li>
               <li class="nav-group-task">
@@ -544,7 +562,7 @@
 
                 </div>
               </div>
-            <p><p>Contains the calculated route&rsquo;s details for each path between a pair of positions. The number of legs returned corresponds to one fewer than the total number of positions in the request. </p><p>For example, a route with a departure position and destination position returns one leg with the positions <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road">snapped to a nearby road</a>:</p><ul><li><p>The <code>StartPosition</code> is the departure position.</p></li><li><p>The <code>EndPosition</code> is the destination position.</p></li></ul><p>A route with a waypoint between the departure and destination position returns two legs with the positions snapped to a nearby road:</p><ul><li><p>Leg 1: The <code>StartPosition</code> is the departure position . The <code>EndPosition</code> is the waypoint positon.</p></li><li><p>Leg 2: The <code>StartPosition</code> is the waypoint position. The <code>EndPosition</code> is the destination position.</p></li></ul>
+            <p><p>Contains the calculated route&rsquo;s details for each path between a pair of positions. The number of legs returned corresponds to one fewer than the total number of positions in the request. </p><p>For example, a route with a departure position and destination position returns one leg with the positions <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">snapped to a nearby road</a>:</p><ul><li><p>The <code>StartPosition</code> is the departure position.</p></li><li><p>The <code>EndPosition</code> is the destination position.</p></li></ul><p>A route with a waypoint between the departure and destination position returns two legs with the positions snapped to a nearby road:</p><ul><li><p>Leg 1: The <code>StartPosition</code> is the departure position . The <code>EndPosition</code> is the waypoint positon.</p></li><li><p>Leg 2: The <code>StartPosition</code> is the waypoint position. The <code>EndPosition</code> is the destination position.</p></li></ul>
 Required parameters: [Distance, DurationSeconds, EndPosition, StartPosition, Steps]</p>
 
           </section>
@@ -628,7 +646,7 @@ Required parameters: [Distance, DurationSeconds, EndPosition, StartPosition, Ste
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>The terminating position of the leg. Follows the format <code>[longitude,latitude]</code>.</p><note><p>If the <code>EndPosition</code> isn&rsquo;t located on a road, it&rsquo;s <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road">snapped to a nearby road</a>. </p></note></p>
+                        <p><p>The terminating position of the leg. Follows the format <code>[longitude,latitude]</code>.</p><note><p>If the <code>EndPosition</code> isn&rsquo;t located on a road, it&rsquo;s <a href="https://docs.aws.amazon.com/location/latest/developerguide/nap-to-nearby-road.html">snapped to a nearby road</a>. </p></note></p>
 
                       </div>
                       <div class="declaration">
@@ -692,7 +710,7 @@ Required parameters: [Distance, DurationSeconds, EndPosition, StartPosition, Ste
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>The starting position of the leg. Follows the format <code>[longitude,latitude]</code>.</p><note><p>If the <code>StartPosition</code> isn&rsquo;t located on a road, it&rsquo;s <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road">snapped to a nearby road</a>. </p></note></p>
+                        <p><p>The starting position of the leg. Follows the format <code>[longitude,latitude]</code>.</p><note><p>If the <code>StartPosition</code> isn&rsquo;t located on a road, it&rsquo;s <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">snapped to a nearby road</a>. </p></note></p>
 
                       </div>
                       <div class="declaration">
@@ -748,7 +766,7 @@ Required parameters: [Distance, DurationSeconds, EndPosition, StartPosition, Ste
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-01-04)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-01-19)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
