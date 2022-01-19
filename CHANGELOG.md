@@ -27,6 +27,7 @@
   - AWSPinpoint
   - AWSTranscribe
   - AWSRekognition
+  - **Breaking Change** AWSConnect
 
 ## 2.26.7
 
