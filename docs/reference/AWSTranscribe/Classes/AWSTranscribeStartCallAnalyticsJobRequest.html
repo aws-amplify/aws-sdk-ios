@@ -17,7 +17,7 @@
     <a title="AWSTranscribeStartCallAnalyticsJobRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTranscribe 2.26.7 Docs</a> (77% documented)</p>
+        <p><a href="../index.html">AWSTranscribe 2.27.0 Docs</a> (77% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTranscribe.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -606,7 +606,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The Amazon Resource Name (ARN) of the Amazon Web Services Key Management Service key used to encrypt the output of the call analytics job. The user calling the operation must have permission to use the specified KMS key.</p><p>You use either of the following to identify an Amazon Web Services KMS key in the current account:</p><ul><li><p>KMS Key ID: &ldquo;1234abcd-12ab-34cd-56ef-1234567890ab&rdquo;</p></li><li><p>KMS Key Alias: &ldquo;alias/ExampleAlias&rdquo;</p></li></ul><p> You can use either of the following to identify a KMS key in the current account or another account:</p><ul><li><p>Amazon Resource Name (ARN) of a KMS key in the current account or another account: &ldquo;arn:aws:kms:region:account ID:key/1234abcd-12ab-34cd-56ef1234567890ab&rdquo;</p></li><li><p>ARN of a KMS Key Alias: &ldquo;arn:aws:kms:region:account ID:alias/ExampleAlias&rdquo;</p></li></ul><p>If you don&rsquo;t specify an encryption key, the output of the call analytics job is encrypted with the default Amazon S3 key (SSE-S3).</p><p>If you specify a KMS key to encrypt your output, you must also specify an output location in the <code>OutputLocation</code> parameter. </p>
+                        <p>The Amazon Resource Name (ARN) of the Amazon Web Services Key Management Service key used to encrypt the output of the call analytics job. The user calling the operation must have permission to use the specified KMS key.</p><p>You use either of the following to identify an Amazon Web Services KMS key in the current account:</p><ul><li><p>KMS Key ID: &ldquo;1234abcd-12ab-34cd-56ef-1234567890ab&rdquo;</p></li><li><p>KMS Key Alias: &ldquo;alias/ExampleAlias&rdquo;</p></li></ul><p> You can use either of the following to identify a KMS key in the current account or another account:</p><ul><li><p>Amazon Resource Name (ARN) of a KMS key in the current account or another account: &ldquo;arn:aws:kms:region:account ID:key/1234abcd-12ab-34cd-56ef1234567890ab&rdquo;</p></li><li><p>ARN of a KMS Key Alias: &ldquo;arn:aws:kms:region:accountID:alias/ExampleAlias&rdquo;</p></li></ul><p>If you don&rsquo;t specify an encryption key, the output of the call analytics job is encrypted with the default Amazon S3 key (SSE-S3).</p><p>If you specify a KMS key to encrypt your output, you must also specify an output location in the <code>OutputLocation</code> parameter. </p>
 
                       </div>
                       <div class="declaration">
@@ -638,7 +638,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The Amazon S3 location where the output of the call analytics job is stored. You can provide the following location types to store the output of call analytics job:</p><ul><li><p>s3://DOC-EXAMPLE-BUCKET1</p><p> If you specify a bucket, Amazon Transcribe saves the output of the analytics job as a JSON file at the root level of the bucket.</p></li><li><p>s3://DOC-EXAMPLE-BUCKET1/folder/</p><p>f you specify a path, Amazon Transcribe saves the output of the analytics job as s3://DOC-EXAMPLE-BUCKET1/folder/your-transcription-job-name.json</p><p>If you specify a folder, you must provide a trailing slash.</p></li><li><p>s3://DOC-EXAMPLE-BUCKET1/folder/filename.json</p><p> If you provide a path that has the filename specified, Amazon Transcribe saves the output of the analytics job as s3://DOC-EXAMPLEBUCKET1/folder/filename.json</p></li></ul><p>You can specify an Amazon Web Services Key Management Service (KMS) key to encrypt the output of our analytics job using the <code>OutputEncryptionKMSKeyId</code> parameter. If you don&rsquo;t specify a KMS key, Amazon Transcribe uses the default Amazon S3 key for server-side encryption of the analytics job output that is placed in your S3 bucket.</p>
+                        <p>The Amazon S3 location where the output of the call analytics job is stored. You can provide the following location types to store the output of call analytics job:</p><ul><li><p>s3://DOC-EXAMPLE-BUCKET1</p><p> If you specify a bucket, Amazon Transcribe saves the output of the analytics job as a JSON file at the root level of the bucket.</p></li><li><p>s3://DOC-EXAMPLE-BUCKET1/folder/</p><p>f you specify a path, Amazon Transcribe saves the output of the analytics job as s3://DOC-EXAMPLE-BUCKET1/folder/your-transcription-job-name.json.</p><p>If you specify a folder, you must provide a trailing slash.</p></li><li><p>s3://DOC-EXAMPLE-BUCKET1/folder/filename.json.</p><p> If you provide a path that has the filename specified, Amazon Transcribe saves the output of the analytics job as s3://DOC-EXAMPLEBUCKET1/folder/filename.json.</p></li></ul><p>You can specify an Amazon Web Services Key Management Service (KMS) key to encrypt the output of our analytics job using the <code>OutputEncryptionKMSKeyId</code> parameter. If you don&rsquo;t specify a KMS key, Amazon Transcribe uses the default Amazon S3 key for server-side encryption of the analytics job output that is placed in your S3 bucket.</p>
 
                       </div>
                       <div class="declaration">
@@ -670,7 +670,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A <code>Settings</code> object that provides optional settings for a call analytics job. </p>
+                        <p>A <code>Settings</code> object that provides optional settings for a call analytics job.</p>
 
                       </div>
                       <div class="declaration">
@@ -694,7 +694,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-01-04)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-01-19)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
