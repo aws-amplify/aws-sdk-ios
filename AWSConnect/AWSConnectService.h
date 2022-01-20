@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 
 /**
- <p>Amazon Connect is a cloud-based contact center solution that you use to set up and manage a customer contact center and provide reliable customer engagement at any scale.</p><p>Amazon Connect provides metrics and real-time reporting that enable you to optimize contact routing. You can also resolve customer issues more efficiently by getting customers in touch with the appropriate agents.</p><p>There are limits to the number of Amazon Connect resources that you can create. There are also limits to the number of requests that you can make per second. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p><p>You can connect programmatically to an AWS service by using an endpoint. For a list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect Endpoints</a>.</p><note><p>Working with contact flows? Check out the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect Flow language</a>.</p></note>
+ <p>Amazon Connect is a cloud-based contact center solution that you use to set up and manage a customer contact center and provide reliable customer engagement at any scale.</p><p>Amazon Connect provides metrics and real-time reporting that enable you to optimize contact routing. You can also resolve customer issues more efficiently by getting customers in touch with the appropriate agents.</p><p>There are limits to the number of Amazon Connect resources that you can create. There are also limits to the number of requests that you can make per second. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p><p>You can connect programmatically to an Amazon Web Services service by using an endpoint. For a list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect Endpoints</a>.</p><note><p>Working with contact flows? Check out the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect Flow language</a>.</p></note>
  */
 @interface AWSConnect : AWSService
 
@@ -482,7 +482,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)createInstance:(AWSConnectCreateInstanceRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateInstanceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates an AWS resource association with an Amazon Connect instance.</p>
+ <p>Creates an Amazon Web Services resource association with an Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the CreateIntegrationAssociation service method.
 
@@ -494,7 +494,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectCreateIntegrationAssociationResponse *> *)createIntegrationAssociation:(AWSConnectCreateIntegrationAssociationRequest *)request;
 
 /**
- <p>Creates an AWS resource association with an Amazon Connect instance.</p>
+ <p>Creates an Amazon Web Services resource association with an Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the CreateIntegrationAssociation service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -773,7 +773,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)deleteInstance:(AWSConnectDeleteInstanceRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes an AWS resource association from an Amazon Connect instance. The association must not have any use cases associated with it.</p>
+ <p>Deletes an Amazon Web Services resource association from an Amazon Connect instance. The association must not have any use cases associated with it.</p>
  
  @param request A container for the necessary parameters to execute the DeleteIntegrationAssociation service method.
 
@@ -784,7 +784,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask *)deleteIntegrationAssociation:(AWSConnectDeleteIntegrationAssociationRequest *)request;
 
 /**
- <p>Deletes an AWS resource association from an Amazon Connect instance. The association must not have any use cases associated with it.</p>
+ <p>Deletes an Amazon Web Services resource association from an Amazon Connect instance. The association must not have any use cases associated with it.</p>
  
  @param request A container for the necessary parameters to execute the DeleteIntegrationAssociation service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1806,7 +1806,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listInstances:(AWSConnectListInstancesRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListInstancesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Provides summary information about the AWS resource associations for the specified Amazon Connect instance.</p>
+ <p>Provides summary information about the Amazon Web Services resource associations for the specified Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the ListIntegrationAssociations service method.
 
@@ -1818,7 +1818,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectListIntegrationAssociationsResponse *> *)listIntegrationAssociations:(AWSConnectListIntegrationAssociationsRequest *)request;
 
 /**
- <p>Provides summary information about the AWS resource associations for the specified Amazon Connect instance.</p>
+ <p>Provides summary information about the Amazon Web Services resource associations for the specified Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the ListIntegrationAssociations service method.
  @param completionHandler The completion handler to call when the load request is complete.
