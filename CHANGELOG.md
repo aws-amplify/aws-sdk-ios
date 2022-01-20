@@ -1,20 +1,13 @@
----
+# AWS Mobile SDK for iOS CHANGELOG
 
-MOVE THIS SECTION TO THE CORRECT LOCATION
+## Unreleased
 
 ### Misc. Updates
 
 - Model updates for the following services
 ---AWSConnect
-# AWS Mobile SDK for iOS CHANGELOG
-
-## Unreleased
-
--Features for next release
 
 ## 2.27.0
-
--Features for next release
 
 ### Breaking Changes
 
