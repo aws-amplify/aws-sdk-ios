@@ -816,6 +816,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"piiEntityTypes" : @"PiiEntityTypes",
              @"redactionOutput" : @"RedactionOutput",
              @"redactionType" : @"RedactionType",
              };
