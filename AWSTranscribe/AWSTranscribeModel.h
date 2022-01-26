@@ -132,6 +132,22 @@ typedef NS_ENUM(NSInteger, AWSTranscribeParticipantRole) {
     AWSTranscribeParticipantRoleCustomer,
 };
 
+typedef NS_ENUM(NSInteger, AWSTranscribePiiEntityType) {
+    AWSTranscribePiiEntityTypeUnknown,
+    AWSTranscribePiiEntityTypeBankAccountNumber,
+    AWSTranscribePiiEntityTypeBankRouting,
+    AWSTranscribePiiEntityTypeCreditDebitNumber,
+    AWSTranscribePiiEntityTypeCreditDebitCvv,
+    AWSTranscribePiiEntityTypeCreditDebitExpiry,
+    AWSTranscribePiiEntityTypePin,
+    AWSTranscribePiiEntityTypeEmail,
+    AWSTranscribePiiEntityTypeAddress,
+    AWSTranscribePiiEntityTypeName,
+    AWSTranscribePiiEntityTypePhone,
+    AWSTranscribePiiEntityTypeSsn,
+    AWSTranscribePiiEntityTypeAll,
+};
+
 typedef NS_ENUM(NSInteger, AWSTranscribeRedactionOutput) {
     AWSTranscribeRedactionOutputUnknown,
     AWSTranscribeRedactionOutputRedacted,
@@ -549,6 +565,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
  */
 @interface AWSTranscribeContentRedaction : AWSModel
 
+
+/**
+ <p>The types of personally identifiable information (PII) you want to redact in your transcript.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable piiEntityTypes;
 
 /**
  <p>The output transcript file stored in either the default S3 bucket or in a bucket you specify.</p><p>When you choose <code>redacted</code> Amazon Transcribe outputs only the redacted transcript.</p><p>When you choose <code>redacted_and_unredacted</code> Amazon Transcribe outputs both the redacted and unredacted transcripts.</p>
