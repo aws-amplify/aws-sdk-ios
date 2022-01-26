@@ -338,6 +338,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectAssociateDefaultVocabularyResponse *> *)associateDefaultVocabulary:(AWSConnectAssociateDefaultVocabularyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/default-vocabulary/{InstanceId}/{LanguageCode}"
+                  targetPrefix:@""
+                 operationName:@"AssociateDefaultVocabulary"
+                   outputClass:[AWSConnectAssociateDefaultVocabularyResponse class]];
+}
+
+- (void)associateDefaultVocabulary:(AWSConnectAssociateDefaultVocabularyRequest *)request
+     completionHandler:(void (^)(AWSConnectAssociateDefaultVocabularyResponse *response, NSError *error))completionHandler {
+    [[self associateDefaultVocabulary:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectAssociateDefaultVocabularyResponse *> * _Nonnull task) {
+        AWSConnectAssociateDefaultVocabularyResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectAssociateInstanceStorageConfigResponse *> *)associateInstanceStorageConfig:(AWSConnectAssociateInstanceStorageConfigRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -771,6 +794,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectCreateVocabularyResponse *> *)createVocabulary:(AWSConnectCreateVocabularyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/vocabulary/{InstanceId}"
+                  targetPrefix:@""
+                 operationName:@"CreateVocabulary"
+                   outputClass:[AWSConnectCreateVocabularyResponse class]];
+}
+
+- (void)createVocabulary:(AWSConnectCreateVocabularyRequest *)request
+     completionHandler:(void (^)(AWSConnectCreateVocabularyResponse *response, NSError *error))completionHandler {
+    [[self createVocabulary:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectCreateVocabularyResponse *> * _Nonnull task) {
+        AWSConnectCreateVocabularyResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)deleteContactFlow:(AWSConnectDeleteContactFlowRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
@@ -986,6 +1032,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectDeleteVocabularyResponse *> *)deleteVocabulary:(AWSConnectDeleteVocabularyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/vocabulary-remove/{InstanceId}/{VocabularyId}"
+                  targetPrefix:@""
+                 operationName:@"DeleteVocabulary"
+                   outputClass:[AWSConnectDeleteVocabularyResponse class]];
+}
+
+- (void)deleteVocabulary:(AWSConnectDeleteVocabularyRequest *)request
+     completionHandler:(void (^)(AWSConnectDeleteVocabularyResponse *response, NSError *error))completionHandler {
+    [[self deleteVocabulary:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDeleteVocabularyResponse *> * _Nonnull task) {
+        AWSConnectDeleteVocabularyResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
@@ -1327,6 +1396,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectDescribeUserHierarchyStructureResponse *response, NSError *error))completionHandler {
     [[self describeUserHierarchyStructure:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDescribeUserHierarchyStructureResponse *> * _Nonnull task) {
         AWSConnectDescribeUserHierarchyStructureResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectDescribeVocabularyResponse *> *)describeVocabulary:(AWSConnectDescribeVocabularyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/vocabulary/{InstanceId}/{VocabularyId}"
+                  targetPrefix:@""
+                 operationName:@"DescribeVocabulary"
+                   outputClass:[AWSConnectDescribeVocabularyResponse class]];
+}
+
+- (void)describeVocabulary:(AWSConnectDescribeVocabularyRequest *)request
+     completionHandler:(void (^)(AWSConnectDescribeVocabularyResponse *response, NSError *error))completionHandler {
+    [[self describeVocabulary:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDescribeVocabularyResponse *> * _Nonnull task) {
+        AWSConnectDescribeVocabularyResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1733,6 +1825,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectListContactReferencesResponse *response, NSError *error))completionHandler {
     [[self listContactReferences:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListContactReferencesResponse *> * _Nonnull task) {
         AWSConnectListContactReferencesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectListDefaultVocabulariesResponse *> *)listDefaultVocabularies:(AWSConnectListDefaultVocabulariesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/default-vocabulary-summary/{InstanceId}"
+                  targetPrefix:@""
+                 operationName:@"ListDefaultVocabularies"
+                   outputClass:[AWSConnectListDefaultVocabulariesResponse class]];
+}
+
+- (void)listDefaultVocabularies:(AWSConnectListDefaultVocabulariesRequest *)request
+     completionHandler:(void (^)(AWSConnectListDefaultVocabulariesResponse *response, NSError *error))completionHandler {
+    [[self listDefaultVocabularies:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListDefaultVocabulariesResponse *> * _Nonnull task) {
+        AWSConnectListDefaultVocabulariesResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -2239,6 +2354,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectResumeContactRecordingResponse *response, NSError *error))completionHandler {
     [[self resumeContactRecording:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectResumeContactRecordingResponse *> * _Nonnull task) {
         AWSConnectResumeContactRecordingResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectSearchVocabulariesResponse *> *)searchVocabularies:(AWSConnectSearchVocabulariesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/vocabulary-summary/{InstanceId}"
+                  targetPrefix:@""
+                 operationName:@"SearchVocabularies"
+                   outputClass:[AWSConnectSearchVocabulariesResponse class]];
+}
+
+- (void)searchVocabularies:(AWSConnectSearchVocabulariesRequest *)request
+     completionHandler:(void (^)(AWSConnectSearchVocabulariesResponse *response, NSError *error))completionHandler {
+    [[self searchVocabularies:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectSearchVocabulariesResponse *> * _Nonnull task) {
+        AWSConnectSearchVocabulariesResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

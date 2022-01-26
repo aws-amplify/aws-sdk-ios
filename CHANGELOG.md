@@ -1,11 +1,4 @@
 ---
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSTranscribe
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -13,6 +6,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ### Misc. Updates
 
 - Model updates for the following services
+---AWSTranscribe
 ---AWSConnect
 
 ## 2.27.0

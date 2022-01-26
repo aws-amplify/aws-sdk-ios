@@ -563,6 +563,39 @@ typedef NS_ENUM(NSInteger, AWSConnectUseCaseType) {
     AWSConnectUseCaseTypeConnectCampaigns,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectVocabularyLanguageCode) {
+    AWSConnectVocabularyLanguageCodeUnknown,
+    AWSConnectVocabularyLanguageCodeArAE,
+    AWSConnectVocabularyLanguageCodeDeCH,
+    AWSConnectVocabularyLanguageCodeDeDE,
+    AWSConnectVocabularyLanguageCodeEnAB,
+    AWSConnectVocabularyLanguageCodeEnAU,
+    AWSConnectVocabularyLanguageCodeEnGB,
+    AWSConnectVocabularyLanguageCodeEnIE,
+    AWSConnectVocabularyLanguageCodeEnIN,
+    AWSConnectVocabularyLanguageCodeEnUS,
+    AWSConnectVocabularyLanguageCodeEnWL,
+    AWSConnectVocabularyLanguageCodeEsES,
+    AWSConnectVocabularyLanguageCodeEsUS,
+    AWSConnectVocabularyLanguageCodeFrCA,
+    AWSConnectVocabularyLanguageCodeFrFR,
+    AWSConnectVocabularyLanguageCodeHiIN,
+    AWSConnectVocabularyLanguageCodeItIT,
+    AWSConnectVocabularyLanguageCodeJaJP,
+    AWSConnectVocabularyLanguageCodeKoKR,
+    AWSConnectVocabularyLanguageCodePtBR,
+    AWSConnectVocabularyLanguageCodePtPT,
+    AWSConnectVocabularyLanguageCodeZhCN,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectVocabularyState) {
+    AWSConnectVocabularyStateUnknown,
+    AWSConnectVocabularyStateCreationInProgress,
+    AWSConnectVocabularyStateActive,
+    AWSConnectVocabularyStateCreationFailed,
+    AWSConnectVocabularyStateDeleteInProgress,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
     AWSConnectVoiceRecordingTrackUnknown,
     AWSConnectVoiceRecordingTrackFromAgent,
@@ -576,6 +609,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectAnswerMachineDetectionConfig;
 @class AWSConnectAssociateApprovedOriginRequest;
 @class AWSConnectAssociateBotRequest;
+@class AWSConnectAssociateDefaultVocabularyRequest;
+@class AWSConnectAssociateDefaultVocabularyResponse;
 @class AWSConnectAssociateInstanceStorageConfigRequest;
 @class AWSConnectAssociateInstanceStorageConfigResponse;
 @class AWSConnectAssociateLambdaFunctionRequest;
@@ -619,10 +654,13 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectCreateUserHierarchyGroupResponse;
 @class AWSConnectCreateUserRequest;
 @class AWSConnectCreateUserResponse;
+@class AWSConnectCreateVocabularyRequest;
+@class AWSConnectCreateVocabularyResponse;
 @class AWSConnectCredentials;
 @class AWSConnectCurrentMetric;
 @class AWSConnectCurrentMetricData;
 @class AWSConnectCurrentMetricResult;
+@class AWSConnectDefaultVocabulary;
 @class AWSConnectDeleteContactFlowModuleRequest;
 @class AWSConnectDeleteContactFlowModuleResponse;
 @class AWSConnectDeleteContactFlowRequest;
@@ -634,6 +672,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDeleteUseCaseRequest;
 @class AWSConnectDeleteUserHierarchyGroupRequest;
 @class AWSConnectDeleteUserRequest;
+@class AWSConnectDeleteVocabularyRequest;
+@class AWSConnectDeleteVocabularyResponse;
 @class AWSConnectDescribeAgentStatusRequest;
 @class AWSConnectDescribeAgentStatusResponse;
 @class AWSConnectDescribeContactFlowModuleRequest;
@@ -664,6 +704,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDescribeUserHierarchyStructureResponse;
 @class AWSConnectDescribeUserRequest;
 @class AWSConnectDescribeUserResponse;
+@class AWSConnectDescribeVocabularyRequest;
+@class AWSConnectDescribeVocabularyResponse;
 @class AWSConnectDimensions;
 @class AWSConnectDisassociateApprovedOriginRequest;
 @class AWSConnectDisassociateBotRequest;
@@ -720,6 +762,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectListContactFlowsResponse;
 @class AWSConnectListContactReferencesRequest;
 @class AWSConnectListContactReferencesResponse;
+@class AWSConnectListDefaultVocabulariesRequest;
+@class AWSConnectListDefaultVocabulariesResponse;
 @class AWSConnectListHoursOfOperationsRequest;
 @class AWSConnectListHoursOfOperationsResponse;
 @class AWSConnectListInstanceAttributesRequest;
@@ -787,6 +831,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectRoutingProfileQueueReference;
 @class AWSConnectRoutingProfileSummary;
 @class AWSConnectS3Config;
+@class AWSConnectSearchVocabulariesRequest;
+@class AWSConnectSearchVocabulariesResponse;
 @class AWSConnectSecurityKey;
 @class AWSConnectSecurityProfile;
 @class AWSConnectSecurityProfileSummary;
@@ -854,6 +900,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectUserPhoneConfig;
 @class AWSConnectUserQuickConnectConfig;
 @class AWSConnectUserSummary;
+@class AWSConnectVocabulary;
+@class AWSConnectVocabularySummary;
 @class AWSConnectVoiceRecordingConfiguration;
 
 /**
@@ -1006,6 +1054,37 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The Amazon Lex V2 bot to associate with the instance.</p>
  */
 @property (nonatomic, strong) AWSConnectLexV2Bot * _Nullable lexV2Bot;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectAssociateDefaultVocabularyRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a></p>
+ */
+@property (nonatomic, assign) AWSConnectVocabularyLanguageCode languageCode;
+
+/**
+ <p>The identifier of the custom vocabulary. If this is empty, the default is set to none.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vocabularyId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectAssociateDefaultVocabularyResponse : AWSModel
+
 
 @end
 
@@ -2206,6 +2285,67 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ 
+ */
+@interface AWSConnectCreateVocabularyRequest : AWSRequest
+
+
+/**
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If a create request is received more than once with same client token, subsequent requests return the previous response without creating a vocabulary again.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with <code>Phrase</code>, <code>IPA</code>, <code>SoundsLike</code>, and <code>DisplayAs</code> fields. Separate the fields with TAB characters. The size limit is 50KB. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table">Create a custom vocabulary using a table</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable content;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a></p>
+ */
+@property (nonatomic, assign) AWSConnectVocabularyLanguageCode languageCode;
+
+/**
+ <p>The tags used to organize, track, or control access for this resource.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+/**
+ <p>A unique name of the custom vocabulary.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vocabularyName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectCreateVocabularyResponse : AWSModel
+
+
+/**
+ <p>The current state of the custom vocabulary.</p>
+ */
+@property (nonatomic, assign) AWSConnectVocabularyState state;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the custom vocabulary.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vocabularyArn;
+
+/**
+ <p>The identifier of the custom vocabulary.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vocabularyId;
+
+@end
+
+/**
  <p>Contains credentials to use for federation.</p>
  */
 @interface AWSConnectCredentials : AWSModel
@@ -2284,6 +2424,35 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The dimensions for the metrics.</p>
  */
 @property (nonatomic, strong) AWSConnectDimensions * _Nullable dimensions;
+
+@end
+
+/**
+ <p>Contains information about a default vocabulary.</p>
+ Required parameters: [InstanceId, LanguageCode, VocabularyId, VocabularyName]
+ */
+@interface AWSConnectDefaultVocabulary : AWSModel
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a></p>
+ */
+@property (nonatomic, assign) AWSConnectVocabularyLanguageCode languageCode;
+
+/**
+ <p>The identifier of the custom vocabulary.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vocabularyId;
+
+/**
+ <p>A unique name of the custom vocabulary.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vocabularyName;
 
 @end
 
@@ -2472,6 +2641,47 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The identifier of the user.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDeleteVocabularyRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier of the custom vocabulary.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vocabularyId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDeleteVocabularyResponse : AWSModel
+
+
+/**
+ <p>The current state of the custom vocabulary.</p>
+ */
+@property (nonatomic, assign) AWSConnectVocabularyState state;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the custom vocabulary.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vocabularyArn;
+
+/**
+ <p>The identifier of the custom vocabulary.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vocabularyId;
 
 @end
 
@@ -2932,6 +3142,37 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>Information about the user account and configuration settings.</p>
  */
 @property (nonatomic, strong) AWSConnectUser * _Nullable user;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDescribeVocabularyRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier of the custom vocabulary.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vocabularyId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDescribeVocabularyResponse : AWSModel
+
+
+/**
+ <p>A list of specific words that you want Contact Lens for Amazon Connect to recognize in your audio input. They are generally domain-specific words and phrases, words that Contact Lens is not recognizing, or proper nouns.</p>
+ */
+@property (nonatomic, strong) AWSConnectVocabulary * _Nullable vocabulary;
 
 @end
 
@@ -4293,6 +4534,52 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>Information about the contact flows.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectReferenceSummary *> * _Nullable referenceSummaryList;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListDefaultVocabulariesRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a></p>
+ */
+@property (nonatomic, assign) AWSConnectVocabularyLanguageCode languageCode;
+
+/**
+ <p>The maximum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListDefaultVocabulariesResponse : AWSModel
+
+
+/**
+ <p>A list of default vocabularies.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectDefaultVocabulary *> * _Nullable defaultVocabularyList;
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
@@ -5804,6 +6091,62 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ 
+ */
+@interface AWSConnectSearchVocabulariesRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a></p>
+ */
+@property (nonatomic, assign) AWSConnectVocabularyLanguageCode languageCode;
+
+/**
+ <p>The maximum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The starting pattern of the name of the vocabulary.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nameStartsWith;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The current state of the custom vocabulary.</p>
+ */
+@property (nonatomic, assign) AWSConnectVocabularyState state;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectSearchVocabulariesResponse : AWSModel
+
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The list of the available custom vocabularies.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectVocabularySummary *> * _Nullable vocabularySummaryList;
+
+@end
+
+/**
  <p>Configuration information of the security key.</p>
  */
 @interface AWSConnectSecurityKey : AWSModel
@@ -6459,7 +6802,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>TThe name of the contact flow.</p>
+ <p>The name of the contact flow.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
 
@@ -7368,6 +7711,104 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The Amazon Connect user name of the user account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
+
+@end
+
+/**
+ <p>Contains information about a custom vocabulary.</p>
+ Required parameters: [Name, Id, Arn, LanguageCode, State, LastModifiedTime]
+ */
+@interface AWSConnectVocabulary : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the custom vocabulary.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
+ <p>The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with <code>Phrase</code>, <code>IPA</code>, <code>SoundsLike</code>, and <code>DisplayAs</code> fields. Separate the fields with TAB characters. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table">Create a custom vocabulary using a table</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable content;
+
+/**
+ <p>The reason why the custom vocabulary was not created.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable failureReason;
+
+/**
+ <p>The identifier of the custom vocabulary.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a></p>
+ */
+@property (nonatomic, assign) AWSConnectVocabularyLanguageCode languageCode;
+
+/**
+ <p>The timestamp when the custom vocabulary was last modified.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastModifiedTime;
+
+/**
+ <p>A unique name of the custom vocabulary.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The current state of the custom vocabulary.</p>
+ */
+@property (nonatomic, assign) AWSConnectVocabularyState state;
+
+/**
+ <p>The tags used to organize, track, or control access for this resource.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ <p>Contains summary information about the custom vocabulary.</p>
+ Required parameters: [Name, Id, Arn, LanguageCode, State, LastModifiedTime]
+ */
+@interface AWSConnectVocabularySummary : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the custom vocabulary.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
+ <p>The reason why the custom vocabulary was not created.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable failureReason;
+
+/**
+ <p>The identifier of the custom vocabulary.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a></p>
+ */
+@property (nonatomic, assign) AWSConnectVocabularyLanguageCode languageCode;
+
+/**
+ <p>The timestamp when the custom vocabulary was last modified.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastModifiedTime;
+
+/**
+ <p>A unique name of the custom vocabulary.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The current state of the custom vocabulary.</p>
+ */
+@property (nonatomic, assign) AWSConnectVocabularyState state;
 
 @end
 

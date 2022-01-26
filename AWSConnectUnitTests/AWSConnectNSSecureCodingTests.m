@@ -25,6 +25,8 @@
 - (void) test_AWSConnectAnswerMachineDetectionConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateApprovedOriginRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateBotRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectAssociateDefaultVocabularyRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectAssociateDefaultVocabularyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateInstanceStorageConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateInstanceStorageConfigResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateLambdaFunctionRequest API_AVAILABLE(ios(11));
@@ -68,10 +70,13 @@
 - (void) test_AWSConnectCreateUserHierarchyGroupResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateUserRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateUserResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectCreateVocabularyRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectCreateVocabularyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCredentials API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCurrentMetric API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCurrentMetricData API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCurrentMetricResult API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDefaultVocabulary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteContactFlowModuleRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteContactFlowModuleResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteContactFlowRequest API_AVAILABLE(ios(11));
@@ -83,6 +88,8 @@
 - (void) test_AWSConnectDeleteUseCaseRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteUserHierarchyGroupRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteUserRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDeleteVocabularyRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDeleteVocabularyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeAgentStatusRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeAgentStatusResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeContactFlowModuleRequest API_AVAILABLE(ios(11));
@@ -113,6 +120,8 @@
 - (void) test_AWSConnectDescribeUserHierarchyStructureResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeUserRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeUserResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDescribeVocabularyRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDescribeVocabularyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDimensions API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDisassociateApprovedOriginRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDisassociateBotRequest API_AVAILABLE(ios(11));
@@ -169,6 +178,8 @@
 - (void) test_AWSConnectListContactFlowsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListContactReferencesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListContactReferencesResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectListDefaultVocabulariesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectListDefaultVocabulariesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListHoursOfOperationsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListHoursOfOperationsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListInstanceAttributesRequest API_AVAILABLE(ios(11));
@@ -236,6 +247,8 @@
 - (void) test_AWSConnectRoutingProfileQueueReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectRoutingProfileSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectS3Config API_AVAILABLE(ios(11));
+- (void) test_AWSConnectSearchVocabulariesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectSearchVocabulariesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSecurityKey API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSecurityProfile API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSecurityProfileSummary API_AVAILABLE(ios(11));
@@ -303,6 +316,8 @@
 - (void) test_AWSConnectUserPhoneConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUserQuickConnectConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUserSummary API_AVAILABLE(ios(11));
+- (void) test_AWSConnectVocabulary API_AVAILABLE(ios(11));
+- (void) test_AWSConnectVocabularySummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectVoiceRecordingConfiguration API_AVAILABLE(ios(11));
 
 @end
@@ -331,6 +346,14 @@
 
 - (void) test_AWSConnectAssociateBotRequest {
     [self validateSecureCodingForClass:[AWSConnectAssociateBotRequest class]];
+}
+
+- (void) test_AWSConnectAssociateDefaultVocabularyRequest {
+    [self validateSecureCodingForClass:[AWSConnectAssociateDefaultVocabularyRequest class]];
+}
+
+- (void) test_AWSConnectAssociateDefaultVocabularyResponse {
+    [self validateSecureCodingForClass:[AWSConnectAssociateDefaultVocabularyResponse class]];
 }
 
 - (void) test_AWSConnectAssociateInstanceStorageConfigRequest {
@@ -505,6 +528,14 @@
     [self validateSecureCodingForClass:[AWSConnectCreateUserResponse class]];
 }
 
+- (void) test_AWSConnectCreateVocabularyRequest {
+    [self validateSecureCodingForClass:[AWSConnectCreateVocabularyRequest class]];
+}
+
+- (void) test_AWSConnectCreateVocabularyResponse {
+    [self validateSecureCodingForClass:[AWSConnectCreateVocabularyResponse class]];
+}
+
 - (void) test_AWSConnectCredentials {
     [self validateSecureCodingForClass:[AWSConnectCredentials class]];
 }
@@ -519,6 +550,10 @@
 
 - (void) test_AWSConnectCurrentMetricResult {
     [self validateSecureCodingForClass:[AWSConnectCurrentMetricResult class]];
+}
+
+- (void) test_AWSConnectDefaultVocabulary {
+    [self validateSecureCodingForClass:[AWSConnectDefaultVocabulary class]];
 }
 
 - (void) test_AWSConnectDeleteContactFlowModuleRequest {
@@ -563,6 +598,14 @@
 
 - (void) test_AWSConnectDeleteUserRequest {
     [self validateSecureCodingForClass:[AWSConnectDeleteUserRequest class]];
+}
+
+- (void) test_AWSConnectDeleteVocabularyRequest {
+    [self validateSecureCodingForClass:[AWSConnectDeleteVocabularyRequest class]];
+}
+
+- (void) test_AWSConnectDeleteVocabularyResponse {
+    [self validateSecureCodingForClass:[AWSConnectDeleteVocabularyResponse class]];
 }
 
 - (void) test_AWSConnectDescribeAgentStatusRequest {
@@ -683,6 +726,14 @@
 
 - (void) test_AWSConnectDescribeUserResponse {
     [self validateSecureCodingForClass:[AWSConnectDescribeUserResponse class]];
+}
+
+- (void) test_AWSConnectDescribeVocabularyRequest {
+    [self validateSecureCodingForClass:[AWSConnectDescribeVocabularyRequest class]];
+}
+
+- (void) test_AWSConnectDescribeVocabularyResponse {
+    [self validateSecureCodingForClass:[AWSConnectDescribeVocabularyResponse class]];
 }
 
 - (void) test_AWSConnectDimensions {
@@ -907,6 +958,14 @@
 
 - (void) test_AWSConnectListContactReferencesResponse {
     [self validateSecureCodingForClass:[AWSConnectListContactReferencesResponse class]];
+}
+
+- (void) test_AWSConnectListDefaultVocabulariesRequest {
+    [self validateSecureCodingForClass:[AWSConnectListDefaultVocabulariesRequest class]];
+}
+
+- (void) test_AWSConnectListDefaultVocabulariesResponse {
+    [self validateSecureCodingForClass:[AWSConnectListDefaultVocabulariesResponse class]];
 }
 
 - (void) test_AWSConnectListHoursOfOperationsRequest {
@@ -1177,6 +1236,14 @@
     [self validateSecureCodingForClass:[AWSConnectS3Config class]];
 }
 
+- (void) test_AWSConnectSearchVocabulariesRequest {
+    [self validateSecureCodingForClass:[AWSConnectSearchVocabulariesRequest class]];
+}
+
+- (void) test_AWSConnectSearchVocabulariesResponse {
+    [self validateSecureCodingForClass:[AWSConnectSearchVocabulariesResponse class]];
+}
+
 - (void) test_AWSConnectSecurityKey {
     [self validateSecureCodingForClass:[AWSConnectSecurityKey class]];
 }
@@ -1443,6 +1510,14 @@
 
 - (void) test_AWSConnectUserSummary {
     [self validateSecureCodingForClass:[AWSConnectUserSummary class]];
+}
+
+- (void) test_AWSConnectVocabulary {
+    [self validateSecureCodingForClass:[AWSConnectVocabulary class]];
+}
+
+- (void) test_AWSConnectVocabularySummary {
+    [self validateSecureCodingForClass:[AWSConnectVocabularySummary class]];
 }
 
 - (void) test_AWSConnectVoiceRecordingConfiguration {

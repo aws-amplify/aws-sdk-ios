@@ -206,6 +206,146 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectAssociateDefaultVocabularyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"languageCode" : @"LanguageCode",
+             @"vocabularyId" : @"VocabularyId",
+             };
+}
+
++ (NSValueTransformer *)languageCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ar-AE"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeArAE);
+        }
+        if ([value caseInsensitiveCompare:@"de-CH"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeDeCH);
+        }
+        if ([value caseInsensitiveCompare:@"de-DE"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeDeDE);
+        }
+        if ([value caseInsensitiveCompare:@"en-AB"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnAB);
+        }
+        if ([value caseInsensitiveCompare:@"en-AU"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnAU);
+        }
+        if ([value caseInsensitiveCompare:@"en-GB"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnGB);
+        }
+        if ([value caseInsensitiveCompare:@"en-IE"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnIE);
+        }
+        if ([value caseInsensitiveCompare:@"en-IN"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnIN);
+        }
+        if ([value caseInsensitiveCompare:@"en-US"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnUS);
+        }
+        if ([value caseInsensitiveCompare:@"en-WL"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnWL);
+        }
+        if ([value caseInsensitiveCompare:@"es-ES"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEsES);
+        }
+        if ([value caseInsensitiveCompare:@"es-US"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEsUS);
+        }
+        if ([value caseInsensitiveCompare:@"fr-CA"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeFrCA);
+        }
+        if ([value caseInsensitiveCompare:@"fr-FR"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeFrFR);
+        }
+        if ([value caseInsensitiveCompare:@"hi-IN"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeHiIN);
+        }
+        if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeItIT);
+        }
+        if ([value caseInsensitiveCompare:@"ja-JP"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeJaJP);
+        }
+        if ([value caseInsensitiveCompare:@"ko-KR"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeKoKR);
+        }
+        if ([value caseInsensitiveCompare:@"pt-BR"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodePtBR);
+        }
+        if ([value caseInsensitiveCompare:@"pt-PT"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodePtPT);
+        }
+        if ([value caseInsensitiveCompare:@"zh-CN"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeZhCN);
+        }
+        return @(AWSConnectVocabularyLanguageCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectVocabularyLanguageCodeArAE:
+                return @"ar-AE";
+            case AWSConnectVocabularyLanguageCodeDeCH:
+                return @"de-CH";
+            case AWSConnectVocabularyLanguageCodeDeDE:
+                return @"de-DE";
+            case AWSConnectVocabularyLanguageCodeEnAB:
+                return @"en-AB";
+            case AWSConnectVocabularyLanguageCodeEnAU:
+                return @"en-AU";
+            case AWSConnectVocabularyLanguageCodeEnGB:
+                return @"en-GB";
+            case AWSConnectVocabularyLanguageCodeEnIE:
+                return @"en-IE";
+            case AWSConnectVocabularyLanguageCodeEnIN:
+                return @"en-IN";
+            case AWSConnectVocabularyLanguageCodeEnUS:
+                return @"en-US";
+            case AWSConnectVocabularyLanguageCodeEnWL:
+                return @"en-WL";
+            case AWSConnectVocabularyLanguageCodeEsES:
+                return @"es-ES";
+            case AWSConnectVocabularyLanguageCodeEsUS:
+                return @"es-US";
+            case AWSConnectVocabularyLanguageCodeFrCA:
+                return @"fr-CA";
+            case AWSConnectVocabularyLanguageCodeFrFR:
+                return @"fr-FR";
+            case AWSConnectVocabularyLanguageCodeHiIN:
+                return @"hi-IN";
+            case AWSConnectVocabularyLanguageCodeItIT:
+                return @"it-IT";
+            case AWSConnectVocabularyLanguageCodeJaJP:
+                return @"ja-JP";
+            case AWSConnectVocabularyLanguageCodeKoKR:
+                return @"ko-KR";
+            case AWSConnectVocabularyLanguageCodePtBR:
+                return @"pt-BR";
+            case AWSConnectVocabularyLanguageCodePtPT:
+                return @"pt-PT";
+            case AWSConnectVocabularyLanguageCodeZhCN:
+                return @"zh-CN";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSConnectAssociateDefaultVocabularyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
 @implementation AWSConnectAssociateInstanceStorageConfigRequest
 
 + (BOOL)supportsSecureCoding {
@@ -1588,6 +1728,188 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectCreateVocabularyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"clientToken" : @"ClientToken",
+             @"content" : @"Content",
+             @"instanceId" : @"InstanceId",
+             @"languageCode" : @"LanguageCode",
+             @"tags" : @"Tags",
+             @"vocabularyName" : @"VocabularyName",
+             };
+}
+
++ (NSValueTransformer *)languageCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ar-AE"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeArAE);
+        }
+        if ([value caseInsensitiveCompare:@"de-CH"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeDeCH);
+        }
+        if ([value caseInsensitiveCompare:@"de-DE"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeDeDE);
+        }
+        if ([value caseInsensitiveCompare:@"en-AB"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnAB);
+        }
+        if ([value caseInsensitiveCompare:@"en-AU"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnAU);
+        }
+        if ([value caseInsensitiveCompare:@"en-GB"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnGB);
+        }
+        if ([value caseInsensitiveCompare:@"en-IE"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnIE);
+        }
+        if ([value caseInsensitiveCompare:@"en-IN"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnIN);
+        }
+        if ([value caseInsensitiveCompare:@"en-US"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnUS);
+        }
+        if ([value caseInsensitiveCompare:@"en-WL"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnWL);
+        }
+        if ([value caseInsensitiveCompare:@"es-ES"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEsES);
+        }
+        if ([value caseInsensitiveCompare:@"es-US"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEsUS);
+        }
+        if ([value caseInsensitiveCompare:@"fr-CA"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeFrCA);
+        }
+        if ([value caseInsensitiveCompare:@"fr-FR"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeFrFR);
+        }
+        if ([value caseInsensitiveCompare:@"hi-IN"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeHiIN);
+        }
+        if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeItIT);
+        }
+        if ([value caseInsensitiveCompare:@"ja-JP"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeJaJP);
+        }
+        if ([value caseInsensitiveCompare:@"ko-KR"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeKoKR);
+        }
+        if ([value caseInsensitiveCompare:@"pt-BR"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodePtBR);
+        }
+        if ([value caseInsensitiveCompare:@"pt-PT"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodePtPT);
+        }
+        if ([value caseInsensitiveCompare:@"zh-CN"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeZhCN);
+        }
+        return @(AWSConnectVocabularyLanguageCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectVocabularyLanguageCodeArAE:
+                return @"ar-AE";
+            case AWSConnectVocabularyLanguageCodeDeCH:
+                return @"de-CH";
+            case AWSConnectVocabularyLanguageCodeDeDE:
+                return @"de-DE";
+            case AWSConnectVocabularyLanguageCodeEnAB:
+                return @"en-AB";
+            case AWSConnectVocabularyLanguageCodeEnAU:
+                return @"en-AU";
+            case AWSConnectVocabularyLanguageCodeEnGB:
+                return @"en-GB";
+            case AWSConnectVocabularyLanguageCodeEnIE:
+                return @"en-IE";
+            case AWSConnectVocabularyLanguageCodeEnIN:
+                return @"en-IN";
+            case AWSConnectVocabularyLanguageCodeEnUS:
+                return @"en-US";
+            case AWSConnectVocabularyLanguageCodeEnWL:
+                return @"en-WL";
+            case AWSConnectVocabularyLanguageCodeEsES:
+                return @"es-ES";
+            case AWSConnectVocabularyLanguageCodeEsUS:
+                return @"es-US";
+            case AWSConnectVocabularyLanguageCodeFrCA:
+                return @"fr-CA";
+            case AWSConnectVocabularyLanguageCodeFrFR:
+                return @"fr-FR";
+            case AWSConnectVocabularyLanguageCodeHiIN:
+                return @"hi-IN";
+            case AWSConnectVocabularyLanguageCodeItIT:
+                return @"it-IT";
+            case AWSConnectVocabularyLanguageCodeJaJP:
+                return @"ja-JP";
+            case AWSConnectVocabularyLanguageCodeKoKR:
+                return @"ko-KR";
+            case AWSConnectVocabularyLanguageCodePtBR:
+                return @"pt-BR";
+            case AWSConnectVocabularyLanguageCodePtPT:
+                return @"pt-PT";
+            case AWSConnectVocabularyLanguageCodeZhCN:
+                return @"zh-CN";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSConnectCreateVocabularyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"state" : @"State",
+             @"vocabularyArn" : @"VocabularyArn",
+             @"vocabularyId" : @"VocabularyId",
+             };
+}
+
++ (NSValueTransformer *)stateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CREATION_IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyStateCreationInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyStateActive);
+        }
+        if ([value caseInsensitiveCompare:@"CREATION_FAILED"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyStateCreationFailed);
+        }
+        if ([value caseInsensitiveCompare:@"DELETE_IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyStateDeleteInProgress);
+        }
+        return @(AWSConnectVocabularyStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectVocabularyStateCreationInProgress:
+                return @"CREATION_IN_PROGRESS";
+            case AWSConnectVocabularyStateActive:
+                return @"ACTIVE";
+            case AWSConnectVocabularyStateCreationFailed:
+                return @"CREATION_FAILED";
+            case AWSConnectVocabularyStateDeleteInProgress:
+                return @"DELETE_IN_PROGRESS";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSConnectCredentials
 
 + (BOOL)supportsSecureCoding {
@@ -1780,6 +2102,139 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectDefaultVocabulary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"languageCode" : @"LanguageCode",
+             @"vocabularyId" : @"VocabularyId",
+             @"vocabularyName" : @"VocabularyName",
+             };
+}
+
++ (NSValueTransformer *)languageCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ar-AE"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeArAE);
+        }
+        if ([value caseInsensitiveCompare:@"de-CH"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeDeCH);
+        }
+        if ([value caseInsensitiveCompare:@"de-DE"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeDeDE);
+        }
+        if ([value caseInsensitiveCompare:@"en-AB"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnAB);
+        }
+        if ([value caseInsensitiveCompare:@"en-AU"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnAU);
+        }
+        if ([value caseInsensitiveCompare:@"en-GB"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnGB);
+        }
+        if ([value caseInsensitiveCompare:@"en-IE"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnIE);
+        }
+        if ([value caseInsensitiveCompare:@"en-IN"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnIN);
+        }
+        if ([value caseInsensitiveCompare:@"en-US"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnUS);
+        }
+        if ([value caseInsensitiveCompare:@"en-WL"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnWL);
+        }
+        if ([value caseInsensitiveCompare:@"es-ES"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEsES);
+        }
+        if ([value caseInsensitiveCompare:@"es-US"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEsUS);
+        }
+        if ([value caseInsensitiveCompare:@"fr-CA"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeFrCA);
+        }
+        if ([value caseInsensitiveCompare:@"fr-FR"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeFrFR);
+        }
+        if ([value caseInsensitiveCompare:@"hi-IN"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeHiIN);
+        }
+        if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeItIT);
+        }
+        if ([value caseInsensitiveCompare:@"ja-JP"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeJaJP);
+        }
+        if ([value caseInsensitiveCompare:@"ko-KR"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeKoKR);
+        }
+        if ([value caseInsensitiveCompare:@"pt-BR"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodePtBR);
+        }
+        if ([value caseInsensitiveCompare:@"pt-PT"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodePtPT);
+        }
+        if ([value caseInsensitiveCompare:@"zh-CN"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeZhCN);
+        }
+        return @(AWSConnectVocabularyLanguageCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectVocabularyLanguageCodeArAE:
+                return @"ar-AE";
+            case AWSConnectVocabularyLanguageCodeDeCH:
+                return @"de-CH";
+            case AWSConnectVocabularyLanguageCodeDeDE:
+                return @"de-DE";
+            case AWSConnectVocabularyLanguageCodeEnAB:
+                return @"en-AB";
+            case AWSConnectVocabularyLanguageCodeEnAU:
+                return @"en-AU";
+            case AWSConnectVocabularyLanguageCodeEnGB:
+                return @"en-GB";
+            case AWSConnectVocabularyLanguageCodeEnIE:
+                return @"en-IE";
+            case AWSConnectVocabularyLanguageCodeEnIN:
+                return @"en-IN";
+            case AWSConnectVocabularyLanguageCodeEnUS:
+                return @"en-US";
+            case AWSConnectVocabularyLanguageCodeEnWL:
+                return @"en-WL";
+            case AWSConnectVocabularyLanguageCodeEsES:
+                return @"es-ES";
+            case AWSConnectVocabularyLanguageCodeEsUS:
+                return @"es-US";
+            case AWSConnectVocabularyLanguageCodeFrCA:
+                return @"fr-CA";
+            case AWSConnectVocabularyLanguageCodeFrFR:
+                return @"fr-FR";
+            case AWSConnectVocabularyLanguageCodeHiIN:
+                return @"hi-IN";
+            case AWSConnectVocabularyLanguageCodeItIT:
+                return @"it-IT";
+            case AWSConnectVocabularyLanguageCodeJaJP:
+                return @"ja-JP";
+            case AWSConnectVocabularyLanguageCodeKoKR:
+                return @"ko-KR";
+            case AWSConnectVocabularyLanguageCodePtBR:
+                return @"pt-BR";
+            case AWSConnectVocabularyLanguageCodePtPT:
+                return @"pt-PT";
+            case AWSConnectVocabularyLanguageCodeZhCN:
+                return @"zh-CN";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSConnectDeleteContactFlowModuleRequest
 
 + (BOOL)supportsSecureCoding {
@@ -1934,6 +2389,68 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"instanceId" : @"InstanceId",
              @"userId" : @"UserId",
              };
+}
+
+@end
+
+@implementation AWSConnectDeleteVocabularyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"vocabularyId" : @"VocabularyId",
+             };
+}
+
+@end
+
+@implementation AWSConnectDeleteVocabularyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"state" : @"State",
+             @"vocabularyArn" : @"VocabularyArn",
+             @"vocabularyId" : @"VocabularyId",
+             };
+}
+
++ (NSValueTransformer *)stateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CREATION_IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyStateCreationInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyStateActive);
+        }
+        if ([value caseInsensitiveCompare:@"CREATION_FAILED"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyStateCreationFailed);
+        }
+        if ([value caseInsensitiveCompare:@"DELETE_IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyStateDeleteInProgress);
+        }
+        return @(AWSConnectVocabularyStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectVocabularyStateCreationInProgress:
+                return @"CREATION_IN_PROGRESS";
+            case AWSConnectVocabularyStateActive:
+                return @"ACTIVE";
+            case AWSConnectVocabularyStateCreationFailed:
+                return @"CREATION_FAILED";
+            case AWSConnectVocabularyStateDeleteInProgress:
+                return @"DELETE_IN_PROGRESS";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -2515,6 +3032,39 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSValueTransformer *)userJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectUser class]];
+}
+
+@end
+
+@implementation AWSConnectDescribeVocabularyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"vocabularyId" : @"VocabularyId",
+             };
+}
+
+@end
+
+@implementation AWSConnectDescribeVocabularyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"vocabulary" : @"Vocabulary",
+             };
+}
+
++ (NSValueTransformer *)vocabularyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectVocabulary class]];
 }
 
 @end
@@ -4203,6 +4753,158 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSValueTransformer *)referenceSummaryListJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectReferenceSummary class]];
+}
+
+@end
+
+@implementation AWSConnectListDefaultVocabulariesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"languageCode" : @"LanguageCode",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)languageCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ar-AE"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeArAE);
+        }
+        if ([value caseInsensitiveCompare:@"de-CH"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeDeCH);
+        }
+        if ([value caseInsensitiveCompare:@"de-DE"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeDeDE);
+        }
+        if ([value caseInsensitiveCompare:@"en-AB"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnAB);
+        }
+        if ([value caseInsensitiveCompare:@"en-AU"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnAU);
+        }
+        if ([value caseInsensitiveCompare:@"en-GB"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnGB);
+        }
+        if ([value caseInsensitiveCompare:@"en-IE"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnIE);
+        }
+        if ([value caseInsensitiveCompare:@"en-IN"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnIN);
+        }
+        if ([value caseInsensitiveCompare:@"en-US"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnUS);
+        }
+        if ([value caseInsensitiveCompare:@"en-WL"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnWL);
+        }
+        if ([value caseInsensitiveCompare:@"es-ES"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEsES);
+        }
+        if ([value caseInsensitiveCompare:@"es-US"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEsUS);
+        }
+        if ([value caseInsensitiveCompare:@"fr-CA"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeFrCA);
+        }
+        if ([value caseInsensitiveCompare:@"fr-FR"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeFrFR);
+        }
+        if ([value caseInsensitiveCompare:@"hi-IN"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeHiIN);
+        }
+        if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeItIT);
+        }
+        if ([value caseInsensitiveCompare:@"ja-JP"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeJaJP);
+        }
+        if ([value caseInsensitiveCompare:@"ko-KR"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeKoKR);
+        }
+        if ([value caseInsensitiveCompare:@"pt-BR"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodePtBR);
+        }
+        if ([value caseInsensitiveCompare:@"pt-PT"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodePtPT);
+        }
+        if ([value caseInsensitiveCompare:@"zh-CN"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeZhCN);
+        }
+        return @(AWSConnectVocabularyLanguageCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectVocabularyLanguageCodeArAE:
+                return @"ar-AE";
+            case AWSConnectVocabularyLanguageCodeDeCH:
+                return @"de-CH";
+            case AWSConnectVocabularyLanguageCodeDeDE:
+                return @"de-DE";
+            case AWSConnectVocabularyLanguageCodeEnAB:
+                return @"en-AB";
+            case AWSConnectVocabularyLanguageCodeEnAU:
+                return @"en-AU";
+            case AWSConnectVocabularyLanguageCodeEnGB:
+                return @"en-GB";
+            case AWSConnectVocabularyLanguageCodeEnIE:
+                return @"en-IE";
+            case AWSConnectVocabularyLanguageCodeEnIN:
+                return @"en-IN";
+            case AWSConnectVocabularyLanguageCodeEnUS:
+                return @"en-US";
+            case AWSConnectVocabularyLanguageCodeEnWL:
+                return @"en-WL";
+            case AWSConnectVocabularyLanguageCodeEsES:
+                return @"es-ES";
+            case AWSConnectVocabularyLanguageCodeEsUS:
+                return @"es-US";
+            case AWSConnectVocabularyLanguageCodeFrCA:
+                return @"fr-CA";
+            case AWSConnectVocabularyLanguageCodeFrFR:
+                return @"fr-FR";
+            case AWSConnectVocabularyLanguageCodeHiIN:
+                return @"hi-IN";
+            case AWSConnectVocabularyLanguageCodeItIT:
+                return @"it-IT";
+            case AWSConnectVocabularyLanguageCodeJaJP:
+                return @"ja-JP";
+            case AWSConnectVocabularyLanguageCodeKoKR:
+                return @"ko-KR";
+            case AWSConnectVocabularyLanguageCodePtBR:
+                return @"pt-BR";
+            case AWSConnectVocabularyLanguageCodePtPT:
+                return @"pt-PT";
+            case AWSConnectVocabularyLanguageCodeZhCN:
+                return @"zh-CN";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSConnectListDefaultVocabulariesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"defaultVocabularyList" : @"DefaultVocabularyList",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)defaultVocabularyListJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectDefaultVocabulary class]];
 }
 
 @end
@@ -6872,6 +7574,191 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectSearchVocabulariesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"languageCode" : @"LanguageCode",
+             @"maxResults" : @"MaxResults",
+             @"nameStartsWith" : @"NameStartsWith",
+             @"nextToken" : @"NextToken",
+             @"state" : @"State",
+             };
+}
+
++ (NSValueTransformer *)languageCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ar-AE"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeArAE);
+        }
+        if ([value caseInsensitiveCompare:@"de-CH"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeDeCH);
+        }
+        if ([value caseInsensitiveCompare:@"de-DE"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeDeDE);
+        }
+        if ([value caseInsensitiveCompare:@"en-AB"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnAB);
+        }
+        if ([value caseInsensitiveCompare:@"en-AU"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnAU);
+        }
+        if ([value caseInsensitiveCompare:@"en-GB"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnGB);
+        }
+        if ([value caseInsensitiveCompare:@"en-IE"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnIE);
+        }
+        if ([value caseInsensitiveCompare:@"en-IN"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnIN);
+        }
+        if ([value caseInsensitiveCompare:@"en-US"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnUS);
+        }
+        if ([value caseInsensitiveCompare:@"en-WL"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnWL);
+        }
+        if ([value caseInsensitiveCompare:@"es-ES"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEsES);
+        }
+        if ([value caseInsensitiveCompare:@"es-US"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEsUS);
+        }
+        if ([value caseInsensitiveCompare:@"fr-CA"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeFrCA);
+        }
+        if ([value caseInsensitiveCompare:@"fr-FR"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeFrFR);
+        }
+        if ([value caseInsensitiveCompare:@"hi-IN"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeHiIN);
+        }
+        if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeItIT);
+        }
+        if ([value caseInsensitiveCompare:@"ja-JP"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeJaJP);
+        }
+        if ([value caseInsensitiveCompare:@"ko-KR"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeKoKR);
+        }
+        if ([value caseInsensitiveCompare:@"pt-BR"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodePtBR);
+        }
+        if ([value caseInsensitiveCompare:@"pt-PT"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodePtPT);
+        }
+        if ([value caseInsensitiveCompare:@"zh-CN"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeZhCN);
+        }
+        return @(AWSConnectVocabularyLanguageCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectVocabularyLanguageCodeArAE:
+                return @"ar-AE";
+            case AWSConnectVocabularyLanguageCodeDeCH:
+                return @"de-CH";
+            case AWSConnectVocabularyLanguageCodeDeDE:
+                return @"de-DE";
+            case AWSConnectVocabularyLanguageCodeEnAB:
+                return @"en-AB";
+            case AWSConnectVocabularyLanguageCodeEnAU:
+                return @"en-AU";
+            case AWSConnectVocabularyLanguageCodeEnGB:
+                return @"en-GB";
+            case AWSConnectVocabularyLanguageCodeEnIE:
+                return @"en-IE";
+            case AWSConnectVocabularyLanguageCodeEnIN:
+                return @"en-IN";
+            case AWSConnectVocabularyLanguageCodeEnUS:
+                return @"en-US";
+            case AWSConnectVocabularyLanguageCodeEnWL:
+                return @"en-WL";
+            case AWSConnectVocabularyLanguageCodeEsES:
+                return @"es-ES";
+            case AWSConnectVocabularyLanguageCodeEsUS:
+                return @"es-US";
+            case AWSConnectVocabularyLanguageCodeFrCA:
+                return @"fr-CA";
+            case AWSConnectVocabularyLanguageCodeFrFR:
+                return @"fr-FR";
+            case AWSConnectVocabularyLanguageCodeHiIN:
+                return @"hi-IN";
+            case AWSConnectVocabularyLanguageCodeItIT:
+                return @"it-IT";
+            case AWSConnectVocabularyLanguageCodeJaJP:
+                return @"ja-JP";
+            case AWSConnectVocabularyLanguageCodeKoKR:
+                return @"ko-KR";
+            case AWSConnectVocabularyLanguageCodePtBR:
+                return @"pt-BR";
+            case AWSConnectVocabularyLanguageCodePtPT:
+                return @"pt-PT";
+            case AWSConnectVocabularyLanguageCodeZhCN:
+                return @"zh-CN";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)stateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CREATION_IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyStateCreationInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyStateActive);
+        }
+        if ([value caseInsensitiveCompare:@"CREATION_FAILED"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyStateCreationFailed);
+        }
+        if ([value caseInsensitiveCompare:@"DELETE_IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyStateDeleteInProgress);
+        }
+        return @(AWSConnectVocabularyStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectVocabularyStateCreationInProgress:
+                return @"CREATION_IN_PROGRESS";
+            case AWSConnectVocabularyStateActive:
+                return @"ACTIVE";
+            case AWSConnectVocabularyStateCreationFailed:
+                return @"CREATION_FAILED";
+            case AWSConnectVocabularyStateDeleteInProgress:
+                return @"DELETE_IN_PROGRESS";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSConnectSearchVocabulariesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"vocabularySummaryList" : @"VocabularySummaryList",
+             };
+}
+
++ (NSValueTransformer *)vocabularySummaryListJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectVocabularySummary class]];
+}
+
+@end
+
 @implementation AWSConnectSecurityKey
 
 + (BOOL)supportsSecureCoding {
@@ -8249,6 +9136,358 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"identifier" : @"Id",
              @"username" : @"Username",
              };
+}
+
+@end
+
+@implementation AWSConnectVocabulary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"Arn",
+             @"content" : @"Content",
+             @"failureReason" : @"FailureReason",
+             @"identifier" : @"Id",
+             @"languageCode" : @"LanguageCode",
+             @"lastModifiedTime" : @"LastModifiedTime",
+             @"name" : @"Name",
+             @"state" : @"State",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)languageCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ar-AE"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeArAE);
+        }
+        if ([value caseInsensitiveCompare:@"de-CH"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeDeCH);
+        }
+        if ([value caseInsensitiveCompare:@"de-DE"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeDeDE);
+        }
+        if ([value caseInsensitiveCompare:@"en-AB"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnAB);
+        }
+        if ([value caseInsensitiveCompare:@"en-AU"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnAU);
+        }
+        if ([value caseInsensitiveCompare:@"en-GB"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnGB);
+        }
+        if ([value caseInsensitiveCompare:@"en-IE"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnIE);
+        }
+        if ([value caseInsensitiveCompare:@"en-IN"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnIN);
+        }
+        if ([value caseInsensitiveCompare:@"en-US"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnUS);
+        }
+        if ([value caseInsensitiveCompare:@"en-WL"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnWL);
+        }
+        if ([value caseInsensitiveCompare:@"es-ES"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEsES);
+        }
+        if ([value caseInsensitiveCompare:@"es-US"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEsUS);
+        }
+        if ([value caseInsensitiveCompare:@"fr-CA"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeFrCA);
+        }
+        if ([value caseInsensitiveCompare:@"fr-FR"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeFrFR);
+        }
+        if ([value caseInsensitiveCompare:@"hi-IN"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeHiIN);
+        }
+        if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeItIT);
+        }
+        if ([value caseInsensitiveCompare:@"ja-JP"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeJaJP);
+        }
+        if ([value caseInsensitiveCompare:@"ko-KR"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeKoKR);
+        }
+        if ([value caseInsensitiveCompare:@"pt-BR"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodePtBR);
+        }
+        if ([value caseInsensitiveCompare:@"pt-PT"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodePtPT);
+        }
+        if ([value caseInsensitiveCompare:@"zh-CN"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeZhCN);
+        }
+        return @(AWSConnectVocabularyLanguageCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectVocabularyLanguageCodeArAE:
+                return @"ar-AE";
+            case AWSConnectVocabularyLanguageCodeDeCH:
+                return @"de-CH";
+            case AWSConnectVocabularyLanguageCodeDeDE:
+                return @"de-DE";
+            case AWSConnectVocabularyLanguageCodeEnAB:
+                return @"en-AB";
+            case AWSConnectVocabularyLanguageCodeEnAU:
+                return @"en-AU";
+            case AWSConnectVocabularyLanguageCodeEnGB:
+                return @"en-GB";
+            case AWSConnectVocabularyLanguageCodeEnIE:
+                return @"en-IE";
+            case AWSConnectVocabularyLanguageCodeEnIN:
+                return @"en-IN";
+            case AWSConnectVocabularyLanguageCodeEnUS:
+                return @"en-US";
+            case AWSConnectVocabularyLanguageCodeEnWL:
+                return @"en-WL";
+            case AWSConnectVocabularyLanguageCodeEsES:
+                return @"es-ES";
+            case AWSConnectVocabularyLanguageCodeEsUS:
+                return @"es-US";
+            case AWSConnectVocabularyLanguageCodeFrCA:
+                return @"fr-CA";
+            case AWSConnectVocabularyLanguageCodeFrFR:
+                return @"fr-FR";
+            case AWSConnectVocabularyLanguageCodeHiIN:
+                return @"hi-IN";
+            case AWSConnectVocabularyLanguageCodeItIT:
+                return @"it-IT";
+            case AWSConnectVocabularyLanguageCodeJaJP:
+                return @"ja-JP";
+            case AWSConnectVocabularyLanguageCodeKoKR:
+                return @"ko-KR";
+            case AWSConnectVocabularyLanguageCodePtBR:
+                return @"pt-BR";
+            case AWSConnectVocabularyLanguageCodePtPT:
+                return @"pt-PT";
+            case AWSConnectVocabularyLanguageCodeZhCN:
+                return @"zh-CN";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)stateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CREATION_IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyStateCreationInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyStateActive);
+        }
+        if ([value caseInsensitiveCompare:@"CREATION_FAILED"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyStateCreationFailed);
+        }
+        if ([value caseInsensitiveCompare:@"DELETE_IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyStateDeleteInProgress);
+        }
+        return @(AWSConnectVocabularyStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectVocabularyStateCreationInProgress:
+                return @"CREATION_IN_PROGRESS";
+            case AWSConnectVocabularyStateActive:
+                return @"ACTIVE";
+            case AWSConnectVocabularyStateCreationFailed:
+                return @"CREATION_FAILED";
+            case AWSConnectVocabularyStateDeleteInProgress:
+                return @"DELETE_IN_PROGRESS";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSConnectVocabularySummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"Arn",
+             @"failureReason" : @"FailureReason",
+             @"identifier" : @"Id",
+             @"languageCode" : @"LanguageCode",
+             @"lastModifiedTime" : @"LastModifiedTime",
+             @"name" : @"Name",
+             @"state" : @"State",
+             };
+}
+
++ (NSValueTransformer *)languageCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ar-AE"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeArAE);
+        }
+        if ([value caseInsensitiveCompare:@"de-CH"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeDeCH);
+        }
+        if ([value caseInsensitiveCompare:@"de-DE"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeDeDE);
+        }
+        if ([value caseInsensitiveCompare:@"en-AB"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnAB);
+        }
+        if ([value caseInsensitiveCompare:@"en-AU"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnAU);
+        }
+        if ([value caseInsensitiveCompare:@"en-GB"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnGB);
+        }
+        if ([value caseInsensitiveCompare:@"en-IE"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnIE);
+        }
+        if ([value caseInsensitiveCompare:@"en-IN"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnIN);
+        }
+        if ([value caseInsensitiveCompare:@"en-US"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnUS);
+        }
+        if ([value caseInsensitiveCompare:@"en-WL"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEnWL);
+        }
+        if ([value caseInsensitiveCompare:@"es-ES"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEsES);
+        }
+        if ([value caseInsensitiveCompare:@"es-US"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeEsUS);
+        }
+        if ([value caseInsensitiveCompare:@"fr-CA"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeFrCA);
+        }
+        if ([value caseInsensitiveCompare:@"fr-FR"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeFrFR);
+        }
+        if ([value caseInsensitiveCompare:@"hi-IN"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeHiIN);
+        }
+        if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeItIT);
+        }
+        if ([value caseInsensitiveCompare:@"ja-JP"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeJaJP);
+        }
+        if ([value caseInsensitiveCompare:@"ko-KR"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeKoKR);
+        }
+        if ([value caseInsensitiveCompare:@"pt-BR"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodePtBR);
+        }
+        if ([value caseInsensitiveCompare:@"pt-PT"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodePtPT);
+        }
+        if ([value caseInsensitiveCompare:@"zh-CN"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyLanguageCodeZhCN);
+        }
+        return @(AWSConnectVocabularyLanguageCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectVocabularyLanguageCodeArAE:
+                return @"ar-AE";
+            case AWSConnectVocabularyLanguageCodeDeCH:
+                return @"de-CH";
+            case AWSConnectVocabularyLanguageCodeDeDE:
+                return @"de-DE";
+            case AWSConnectVocabularyLanguageCodeEnAB:
+                return @"en-AB";
+            case AWSConnectVocabularyLanguageCodeEnAU:
+                return @"en-AU";
+            case AWSConnectVocabularyLanguageCodeEnGB:
+                return @"en-GB";
+            case AWSConnectVocabularyLanguageCodeEnIE:
+                return @"en-IE";
+            case AWSConnectVocabularyLanguageCodeEnIN:
+                return @"en-IN";
+            case AWSConnectVocabularyLanguageCodeEnUS:
+                return @"en-US";
+            case AWSConnectVocabularyLanguageCodeEnWL:
+                return @"en-WL";
+            case AWSConnectVocabularyLanguageCodeEsES:
+                return @"es-ES";
+            case AWSConnectVocabularyLanguageCodeEsUS:
+                return @"es-US";
+            case AWSConnectVocabularyLanguageCodeFrCA:
+                return @"fr-CA";
+            case AWSConnectVocabularyLanguageCodeFrFR:
+                return @"fr-FR";
+            case AWSConnectVocabularyLanguageCodeHiIN:
+                return @"hi-IN";
+            case AWSConnectVocabularyLanguageCodeItIT:
+                return @"it-IT";
+            case AWSConnectVocabularyLanguageCodeJaJP:
+                return @"ja-JP";
+            case AWSConnectVocabularyLanguageCodeKoKR:
+                return @"ko-KR";
+            case AWSConnectVocabularyLanguageCodePtBR:
+                return @"pt-BR";
+            case AWSConnectVocabularyLanguageCodePtPT:
+                return @"pt-PT";
+            case AWSConnectVocabularyLanguageCodeZhCN:
+                return @"zh-CN";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)stateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CREATION_IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyStateCreationInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyStateActive);
+        }
+        if ([value caseInsensitiveCompare:@"CREATION_FAILED"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyStateCreationFailed);
+        }
+        if ([value caseInsensitiveCompare:@"DELETE_IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSConnectVocabularyStateDeleteInProgress);
+        }
+        return @(AWSConnectVocabularyStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectVocabularyStateCreationInProgress:
+                return @"CREATION_IN_PROGRESS";
+            case AWSConnectVocabularyStateActive:
+                return @"ACTIVE";
+            case AWSConnectVocabularyStateCreationFailed:
+                return @"CREATION_FAILED";
+            case AWSConnectVocabularyStateDeleteInProgress:
+                return @"DELETE_IN_PROGRESS";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
