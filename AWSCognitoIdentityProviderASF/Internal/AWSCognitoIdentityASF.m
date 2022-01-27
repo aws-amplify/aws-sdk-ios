@@ -160,12 +160,7 @@ static NSString *const AWSCognitoIdentityASFVersion= @"IOS20171114";
     NSString *minuteOffset = [localTimeZoneOffset substringFromIndex:[localTimeZoneOffset length] - 2];
     NSString *timezoneOffset = [NSString stringWithFormat:@"%@:%@",hourOffset,minuteOffset];
     NSString * locale = [[NSLocale preferredLanguages] objectAtIndex:0];
-    CTTelephonyNetworkInfo *networkInfo = [[CTTelephonyNetworkInfo alloc] init];
-    NSString * networkType = [networkInfo currentRadioAccessTechnology];
-    CTCarrier *cellularProvider = [networkInfo subscriberCellularProvider];
-    NSString *countryCode = cellularProvider.isoCountryCode;
-    BOOL hasSimCard = countryCode != nil;
-    NSString *carrier = [cellularProvider carrierName];
+
     NSString *fingerprint = [NSString stringWithFormat:@"Apple/%@/%@/-:%@/-/-:-/%@",
                              [AWSCognitoIdentityASF dashIfNil:[device model]],
                              [AWSCognitoIdentityASF dashIfNil:[AWSCognitoIdentityASF deviceName]],
@@ -190,10 +185,6 @@ static NSString *const AWSCognitoIdentityASFVersion= @"IOS20171114";
     [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityDeviceHeight value: [NSString stringWithFormat:@"%.0f",screenHeight]];
     [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityDeviceWidth value: [NSString stringWithFormat:@"%.0f",screenWidth]];
     [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityDeviceLanguage value: locale];
-    [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityCarrier value: carrier];
-    [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityNetworkType value: networkType];
-    [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityHasSimCard value:hasSimCard?@"true":@"false"];
-    
     [AWSCognitoIdentityASF addIfNotNil: contextData key:AWSCognitoIdentityDeviceFingerprint value:fingerprint];
     
     if(username == nil){
