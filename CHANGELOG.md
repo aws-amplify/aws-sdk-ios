@@ -6,11 +6,11 @@
 ### Misc. Updates
 
 - **AWSCognito**
-  - Removed unused values from AWSCognitoIdentityProviderASF calculation
+  - Removed unused values from AWSCognitoIdentityProviderASF calculation. (See [PR #3985](https://github.com/aws-amplify/aws-sdk-ios/pull/3985))
   
 - Model updates for the following services
----AWSTranscribe
----AWSConnect
+  - AWSTranscribe
+  - AWSConnect
 
 ## 2.27.0
 
