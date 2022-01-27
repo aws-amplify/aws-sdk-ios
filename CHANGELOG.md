@@ -5,6 +5,9 @@
 
 ### Misc. Updates
 
+- **AWSCognito**
+  - Removed unused values from AWSCognitoIdentityProviderASF calculation
+  
 - Model updates for the following services
 ---AWSTranscribe
 ---AWSConnect
