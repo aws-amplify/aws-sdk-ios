@@ -7827,6 +7827,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"attributes" : @"Attributes",
+             @"chatDurationInMinutes" : @"ChatDurationInMinutes",
              @"clientToken" : @"ClientToken",
              @"contactFlowId" : @"ContactFlowId",
              @"initialMessage" : @"InitialMessage",

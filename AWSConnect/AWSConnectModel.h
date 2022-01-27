@@ -6242,6 +6242,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
 /**
+ <p>The total duration of the newly started chat session. If not specified, the chat session duration defaults to 25 hour. The minumum configurable time is 60 minutes. The maximum configurable time is 10,080 minutes (7 days).</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable chatDurationInMinutes;
+
+/**
  <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
@@ -6802,7 +6807,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The name of the contact flow.</p>
+ <p>TThe name of the contact flow.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
 
