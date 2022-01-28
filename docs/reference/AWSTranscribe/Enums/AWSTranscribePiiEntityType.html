@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSTranscribeListTagsForResourceResponse Class Reference</title>
+    <title>AWSTranscribePiiEntityType Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSTranscribeListTagsForResourceResponse" class="dashAnchor"></a>
-    <a title="AWSTranscribeListTagsForResourceResponse Class Reference"></a>
+    <a name="//apple_ref/objc/Enum/AWSTranscribePiiEntityType" class="dashAnchor"></a>
+    <a title="AWSTranscribePiiEntityType Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSTranscribe 2.27.1 Docs</a> (76% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSTranscribe Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        AWSTranscribeListTagsForResourceResponse Class Reference
+        AWSTranscribePiiEntityType Enumeration Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -450,20 +450,35 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSTranscribeListTagsForResourceResponse</h1>
+            <h1>AWSTranscribePiiEntityType</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTranscribeListTagsForResourceResponse</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSTranscribePiiEntityType</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSTranscribePiiEntityTypeUnknown</span><span class="p">,</span>
+    <span class="n">AWSTranscribePiiEntityTypeBankAccountNumber</span><span class="p">,</span>
+    <span class="n">AWSTranscribePiiEntityTypeBankRouting</span><span class="p">,</span>
+    <span class="n">AWSTranscribePiiEntityTypeCreditDebitNumber</span><span class="p">,</span>
+    <span class="n">AWSTranscribePiiEntityTypeCreditDebitCvv</span><span class="p">,</span>
+    <span class="n">AWSTranscribePiiEntityTypeCreditDebitExpiry</span><span class="p">,</span>
+    <span class="n">AWSTranscribePiiEntityTypePin</span><span class="p">,</span>
+    <span class="n">AWSTranscribePiiEntityTypeEmail</span><span class="p">,</span>
+    <span class="n">AWSTranscribePiiEntityTypeAddress</span><span class="p">,</span>
+    <span class="n">AWSTranscribePiiEntityTypeName</span><span class="p">,</span>
+    <span class="n">AWSTranscribePiiEntityTypePhone</span><span class="p">,</span>
+    <span class="n">AWSTranscribePiiEntityTypeSsn</span><span class="p">,</span>
+    <span class="n">AWSTranscribePiiEntityTypeAll</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTranscribeListTagsForResourceResponse</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTranscribePiiEntityType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                 </div>
               </div>
-            
+            <p>Undocumented</p>
+
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -471,9 +486,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSTranscribeListTagsForResourceResponse(py)resourceArn"></a>
-                    <a name="//apple_ref/objc/Property/resourceArn" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTranscribeListTagsForResourceResponse(py)resourceArn">resourceArn</a>
+                    <a name="/c:@E@AWSTranscribePiiEntityType@AWSTranscribePiiEntityTypeUnknown"></a>
+                    <a name="//apple_ref/objc/Case/AWSTranscribePiiEntityTypeUnknown" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranscribePiiEntityType@AWSTranscribePiiEntityTypeUnknown">AWSTranscribePiiEntityTypeUnknown</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -481,19 +496,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Lists all tags associated with the given Amazon Resource Name (ARN). </p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">resourceArn</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTranscribePiiEntityTypeUnknown</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">resourceArn</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unknown</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
 
                         </div>
                       </div>
@@ -503,9 +518,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSTranscribeListTagsForResourceResponse(py)tags"></a>
-                    <a name="//apple_ref/objc/Property/tags" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTranscribeListTagsForResourceResponse(py)tags">tags</a>
+                    <a name="/c:@E@AWSTranscribePiiEntityType@AWSTranscribePiiEntityTypeBankAccountNumber"></a>
+                    <a name="//apple_ref/objc/Case/AWSTranscribePiiEntityTypeBankAccountNumber" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranscribePiiEntityType@AWSTranscribePiiEntityTypeBankAccountNumber">AWSTranscribePiiEntityTypeBankAccountNumber</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -513,19 +528,371 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Lists all tags associated with the given transcription job, vocabulary, or resource.</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/AWSTranscribeTag.html">AWSTranscribeTag</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">tags</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTranscribePiiEntityTypeBankAccountNumber</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">tags</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/AWSTranscribeTag.html">AWSTranscribeTag</a></span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">bankAccountNumber</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSTranscribePiiEntityType@AWSTranscribePiiEntityTypeBankRouting"></a>
+                    <a name="//apple_ref/objc/Case/AWSTranscribePiiEntityTypeBankRouting" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranscribePiiEntityType@AWSTranscribePiiEntityTypeBankRouting">AWSTranscribePiiEntityTypeBankRouting</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTranscribePiiEntityTypeBankRouting</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">bankRouting</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSTranscribePiiEntityType@AWSTranscribePiiEntityTypeCreditDebitNumber"></a>
+                    <a name="//apple_ref/objc/Case/AWSTranscribePiiEntityTypeCreditDebitNumber" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranscribePiiEntityType@AWSTranscribePiiEntityTypeCreditDebitNumber">AWSTranscribePiiEntityTypeCreditDebitNumber</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTranscribePiiEntityTypeCreditDebitNumber</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">creditDebitNumber</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSTranscribePiiEntityType@AWSTranscribePiiEntityTypeCreditDebitCvv"></a>
+                    <a name="//apple_ref/objc/Case/AWSTranscribePiiEntityTypeCreditDebitCvv" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranscribePiiEntityType@AWSTranscribePiiEntityTypeCreditDebitCvv">AWSTranscribePiiEntityTypeCreditDebitCvv</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTranscribePiiEntityTypeCreditDebitCvv</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">creditDebitCvv</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSTranscribePiiEntityType@AWSTranscribePiiEntityTypeCreditDebitExpiry"></a>
+                    <a name="//apple_ref/objc/Case/AWSTranscribePiiEntityTypeCreditDebitExpiry" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranscribePiiEntityType@AWSTranscribePiiEntityTypeCreditDebitExpiry">AWSTranscribePiiEntityTypeCreditDebitExpiry</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTranscribePiiEntityTypeCreditDebitExpiry</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">creditDebitExpiry</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSTranscribePiiEntityType@AWSTranscribePiiEntityTypePin"></a>
+                    <a name="//apple_ref/objc/Case/AWSTranscribePiiEntityTypePin" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranscribePiiEntityType@AWSTranscribePiiEntityTypePin">AWSTranscribePiiEntityTypePin</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTranscribePiiEntityTypePin</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">pin</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSTranscribePiiEntityType@AWSTranscribePiiEntityTypeEmail"></a>
+                    <a name="//apple_ref/objc/Case/AWSTranscribePiiEntityTypeEmail" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranscribePiiEntityType@AWSTranscribePiiEntityTypeEmail">AWSTranscribePiiEntityTypeEmail</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTranscribePiiEntityTypeEmail</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">email</span> <span class="o">=</span> <span class="mi">7</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSTranscribePiiEntityType@AWSTranscribePiiEntityTypeAddress"></a>
+                    <a name="//apple_ref/objc/Case/AWSTranscribePiiEntityTypeAddress" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranscribePiiEntityType@AWSTranscribePiiEntityTypeAddress">AWSTranscribePiiEntityTypeAddress</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTranscribePiiEntityTypeAddress</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">address</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSTranscribePiiEntityType@AWSTranscribePiiEntityTypeName"></a>
+                    <a name="//apple_ref/objc/Case/AWSTranscribePiiEntityTypeName" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranscribePiiEntityType@AWSTranscribePiiEntityTypeName">AWSTranscribePiiEntityTypeName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTranscribePiiEntityTypeName</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">name</span> <span class="o">=</span> <span class="mi">9</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSTranscribePiiEntityType@AWSTranscribePiiEntityTypePhone"></a>
+                    <a name="//apple_ref/objc/Case/AWSTranscribePiiEntityTypePhone" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranscribePiiEntityType@AWSTranscribePiiEntityTypePhone">AWSTranscribePiiEntityTypePhone</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTranscribePiiEntityTypePhone</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">phone</span> <span class="o">=</span> <span class="mi">10</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSTranscribePiiEntityType@AWSTranscribePiiEntityTypeSsn"></a>
+                    <a name="//apple_ref/objc/Case/AWSTranscribePiiEntityTypeSsn" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranscribePiiEntityType@AWSTranscribePiiEntityTypeSsn">AWSTranscribePiiEntityTypeSsn</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTranscribePiiEntityTypeSsn</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">ssn</span> <span class="o">=</span> <span class="mi">11</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSTranscribePiiEntityType@AWSTranscribePiiEntityTypeAll"></a>
+                    <a name="//apple_ref/objc/Case/AWSTranscribePiiEntityTypeAll" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranscribePiiEntityType@AWSTranscribePiiEntityTypeAll">AWSTranscribePiiEntityTypeAll</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTranscribePiiEntityTypeAll</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">all</span> <span class="o">=</span> <span class="mi">12</span></code></pre>
 
                         </div>
                       </div>
