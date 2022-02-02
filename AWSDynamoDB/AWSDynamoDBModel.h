@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -3296,7 +3296,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSDate * _Nullable latestRestorableDateTime;
 
 /**
- <p>The current state of point in time recovery:</p><ul><li><p><code>ENABLING</code> - Point in time recovery is being enabled.</p></li><li><p><code>ENABLED</code> - Point in time recovery is enabled.</p></li><li><p><code>DISABLED</code> - Point in time recovery is disabled.</p></li></ul>
+ <p>The current state of point in time recovery:</p><ul><li><p><code>ENABLED</code> - Point in time recovery is enabled.</p></li><li><p><code>DISABLED</code> - Point in time recovery is disabled.</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBPointInTimeRecoveryStatus pointInTimeRecoveryStatus;
 
