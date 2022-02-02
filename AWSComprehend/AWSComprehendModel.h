@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -268,6 +268,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendDeleteEndpointResponse;
 @class AWSComprehendDeleteEntityRecognizerRequest;
 @class AWSComprehendDeleteEntityRecognizerResponse;
+@class AWSComprehendDeleteResourcePolicyRequest;
+@class AWSComprehendDeleteResourcePolicyResponse;
 @class AWSComprehendDescribeDocumentClassificationJobRequest;
 @class AWSComprehendDescribeDocumentClassificationJobResponse;
 @class AWSComprehendDescribeDocumentClassifierRequest;
@@ -286,6 +288,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendDescribeKeyPhrasesDetectionJobResponse;
 @class AWSComprehendDescribePiiEntitiesDetectionJobRequest;
 @class AWSComprehendDescribePiiEntitiesDetectionJobResponse;
+@class AWSComprehendDescribeResourcePolicyRequest;
+@class AWSComprehendDescribeResourcePolicyResponse;
 @class AWSComprehendDescribeSentimentDetectionJobRequest;
 @class AWSComprehendDescribeSentimentDetectionJobResponse;
 @class AWSComprehendDescribeTopicsDetectionJobRequest;
@@ -335,6 +339,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendEntityTypesListItem;
 @class AWSComprehendEventsDetectionJobFilter;
 @class AWSComprehendEventsDetectionJobProperties;
+@class AWSComprehendImportModelRequest;
+@class AWSComprehendImportModelResponse;
 @class AWSComprehendInputDataConfig;
 @class AWSComprehendKeyPhrase;
 @class AWSComprehendKeyPhrasesDetectionJobFilter;
@@ -373,6 +379,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendPiiEntitiesDetectionJobProperties;
 @class AWSComprehendPiiEntity;
 @class AWSComprehendPiiOutputDataConfig;
+@class AWSComprehendPutResourcePolicyRequest;
+@class AWSComprehendPutResourcePolicyResponse;
 @class AWSComprehendRedactionConfig;
 @class AWSComprehendSentimentDetectionJobFilter;
 @class AWSComprehendSentimentDetectionJobProperties;
@@ -938,6 +946,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) NSString * _Nullable modelKmsKeyId;
 
 /**
+ <p>The resource-based policy to attach to your custom document classifier model. You can use this policy to allow another AWS account to import your custom model.</p><p>Provide your policy as a JSON body that you enter as a UTF-8 encoded string without line breaks. To provide valid JSON, enclose the attribute names and values in double quotes. If the JSON body is also enclosed in double quotes, then you must escape the double quotes that are inside the policy:</p><p><code>"{\"attribute\": \"value\", \"attribute\": [\"value\"]}"</code></p><p>To avoid escaping quotes, you can use single quotes to enclose the policy and double quotes to enclose the JSON names and values:</p><p><code>'{"attribute": "value", "attribute": ["value"]}'</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable modelPolicy;
+
+/**
  <p>Enables the addition of output results configuration parameters for custom classifier jobs.</p>
  */
 @property (nonatomic, strong) AWSComprehendDocumentClassifierOutputDataConfig * _Nullable outputDataConfig;
@@ -1060,6 +1073,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) NSString * _Nullable modelKmsKeyId;
 
 /**
+ <p>The JSON resource-based policy to attach to your custom entity recognizer model. You can use this policy to allow another AWS account to import your custom model.</p><p>Provide your JSON as a UTF-8 encoded string without line breaks. To provide valid JSON for your policy, enclose the attribute names and values in double quotes. If the JSON body is also enclosed in double quotes, then you must escape the double quotes that are inside the policy:</p><p><code>"{\"attribute\": \"value\", \"attribute\": [\"value\"]}"</code></p><p>To avoid escaping quotes, you can use single quotes to enclose the policy and double quotes to enclose the JSON names and values:</p><p><code>'{"attribute": "value", "attribute": ["value"]}'</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable modelPolicy;
+
+/**
  <p>The name given to the newly created recognizer. Recognizer names can be a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The name must be unique in the account/region.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable recognizerName;
@@ -1158,6 +1176,32 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  
  */
 @interface AWSComprehendDeleteEntityRecognizerResponse : AWSModel
+
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendDeleteResourcePolicyRequest : AWSRequest
+
+
+/**
+ <p>The revision ID of the policy to delete.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyRevisionId;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the custom model version that has the policy to delete.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendDeleteResourcePolicyResponse : AWSModel
 
 
 @end
@@ -1393,6 +1437,47 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>Provides information about a PII entities detection job.</p>
  */
 @property (nonatomic, strong) AWSComprehendPiiEntitiesDetectionJobProperties * _Nullable piiEntitiesDetectionJobProperties;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendDescribeResourcePolicyRequest : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the policy to describe.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendDescribeResourcePolicyResponse : AWSModel
+
+
+/**
+ <p>The time at which the policy was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationTime;
+
+/**
+ <p>The time at which the policy was last modified.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastModifiedTime;
+
+/**
+ <p>The revision ID of the policy. Each time you modify a policy, Amazon Comprehend assigns a new revision ID, and it deletes the prior version of the policy.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyRevisionId;
+
+/**
+ <p>The JSON body of the resource-based policy.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourcePolicy;
 
 @end
 
@@ -1892,6 +1977,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p> Provides output results configuration parameters for custom classifier jobs.</p>
  */
 @property (nonatomic, strong) AWSComprehendDocumentClassifierOutputDataConfig * _Nullable outputDataConfig;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the source model. This model was imported from a different AWS account to create the document classifier model in your AWS account.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceModelArn;
 
 /**
  <p>The status of the document classifier. If the status is <code>TRAINED</code> the classifier is ready to use. If the status is <code>FAILED</code> you can see additional information about why the classifier wasn't trained in the <code>Message</code> field.</p>
@@ -2612,6 +2702,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) AWSComprehendEntityRecognizerMetadata * _Nullable recognizerMetadata;
 
 /**
+ <p>The Amazon Resource Name (ARN) of the source model. This model was imported from a different AWS account to create the entity recognizer model in your AWS account.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceModelArn;
+
+/**
  <p>Provides the status of the entity recognizer.</p>
  */
 @property (nonatomic, assign) AWSComprehendModelStatus status;
@@ -2811,6 +2906,57 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>The types of events that are detected by the job.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable targetEventTypes;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendImportModelRequest : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that allows Amazon Comprehend to use Amazon Key Management Service (KMS) to encrypt or decrypt the custom model.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable dataAccessRoleArn;
+
+/**
+ <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable modelKmsKeyId;
+
+/**
+ <p>The name to assign to the custom model that is created in Amazon Comprehend by this import.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable modelName;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the custom model to import.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceModelArn;
+
+/**
+ <p>Tags to be associated with the custom model that is created by this import. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendTag *> * _Nullable tags;
+
+/**
+ <p>The version name given to the custom model that is created by this import. Version names can have a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The version name must be unique among all models with the same classifier name in the account/AWS Region.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable versionName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendImportModelResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the custom model being imported.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable modelArn;
 
 @end
 
@@ -3703,6 +3849,42 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>When you use the <code>PiiOutputDataConfig</code> object with asynchronous operations, you specify the Amazon S3 location where you want to write the output data. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable s3Uri;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendPutResourcePolicyRequest : AWSRequest
+
+
+/**
+ <p>The revision ID that Amazon Comprehend assigned to the policy that you are updating. If you are creating a new policy that has no prior version, don't use this parameter. Amazon Comprehend creates the revision ID for you.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyRevisionId;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the custom model to attach the policy to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+/**
+ <p>The JSON resource-based policy to attach to your custom model. Provide your JSON as a UTF-8 encoded string without line breaks. To provide valid JSON for your policy, enclose the attribute names and values in double quotes. If the JSON body is also enclosed in double quotes, then you must escape the double quotes that are inside the policy:</p><p><code>"{\"attribute\": \"value\", \"attribute\": [\"value\"]}"</code></p><p>To avoid escaping quotes, you can use single quotes to enclose the policy and double quotes to enclose the JSON names and values:</p><p><code>'{"attribute": "value", "attribute": ["value"]}'</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourcePolicy;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendPutResourcePolicyResponse : AWSModel
+
+
+/**
+ <p>The revision ID of the policy. Each time you modify a policy, Amazon Comprehend assigns a new revision ID, and it deletes the prior version of the policy.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyRevisionId;
 
 @end
 

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -864,6 +864,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"languageCode" : @"LanguageCode",
              @"mode" : @"Mode",
              @"modelKmsKeyId" : @"ModelKmsKeyId",
+             @"modelPolicy" : @"ModelPolicy",
              @"outputDataConfig" : @"OutputDataConfig",
              @"tags" : @"Tags",
              @"versionName" : @"VersionName",
@@ -1046,6 +1047,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"inputDataConfig" : @"InputDataConfig",
              @"languageCode" : @"LanguageCode",
              @"modelKmsKeyId" : @"ModelKmsKeyId",
+             @"modelPolicy" : @"ModelPolicy",
              @"recognizerName" : @"RecognizerName",
              @"tags" : @"Tags",
              @"versionName" : @"VersionName",
@@ -1212,6 +1214,29 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 @end
 
 @implementation AWSComprehendDeleteEntityRecognizerResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
+@implementation AWSComprehendDeleteResourcePolicyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"policyRevisionId" : @"PolicyRevisionId",
+             @"resourceArn" : @"ResourceArn",
+             };
+}
+
+@end
+
+@implementation AWSComprehendDeleteResourcePolicyResponse
 
 + (BOOL)supportsSecureCoding {
     return YES;
@@ -1503,6 +1528,53 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSValueTransformer *)piiEntitiesDetectionJobPropertiesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendPiiEntitiesDetectionJobProperties class]];
+}
+
+@end
+
+@implementation AWSComprehendDescribeResourcePolicyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"ResourceArn",
+             };
+}
+
+@end
+
+@implementation AWSComprehendDescribeResourcePolicyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"creationTime" : @"CreationTime",
+             @"lastModifiedTime" : @"LastModifiedTime",
+             @"policyRevisionId" : @"PolicyRevisionId",
+             @"resourcePolicy" : @"ResourcePolicy",
+             };
+}
+
++ (NSValueTransformer *)creationTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 @end
@@ -2465,6 +2537,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"mode" : @"Mode",
              @"modelKmsKeyId" : @"ModelKmsKeyId",
              @"outputDataConfig" : @"OutputDataConfig",
+             @"sourceModelArn" : @"SourceModelArn",
              @"status" : @"Status",
              @"submitTime" : @"SubmitTime",
              @"trainingEndTime" : @"TrainingEndTime",
@@ -3874,6 +3947,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"message" : @"Message",
              @"modelKmsKeyId" : @"ModelKmsKeyId",
              @"recognizerMetadata" : @"RecognizerMetadata",
+             @"sourceModelArn" : @"SourceModelArn",
              @"status" : @"Status",
              @"submitTime" : @"SubmitTime",
              @"trainingEndTime" : @"TrainingEndTime",
@@ -4380,6 +4454,43 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
+@end
+
+@implementation AWSComprehendImportModelRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dataAccessRoleArn" : @"DataAccessRoleArn",
+             @"modelKmsKeyId" : @"ModelKmsKeyId",
+             @"modelName" : @"ModelName",
+             @"sourceModelArn" : @"SourceModelArn",
+             @"tags" : @"Tags",
+             @"versionName" : @"VersionName",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendTag class]];
+}
+
+@end
+
+@implementation AWSComprehendImportModelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"modelArn" : @"ModelArn",
+             };
 }
 
 @end
@@ -5757,6 +5868,36 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 	return @{
              @"kmsKeyId" : @"KmsKeyId",
              @"s3Uri" : @"S3Uri",
+             };
+}
+
+@end
+
+@implementation AWSComprehendPutResourcePolicyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"policyRevisionId" : @"PolicyRevisionId",
+             @"resourceArn" : @"ResourceArn",
+             @"resourcePolicy" : @"ResourcePolicy",
+             };
+}
+
+@end
+
+@implementation AWSComprehendPutResourcePolicyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"policyRevisionId" : @"PolicyRevisionId",
              };
 }
 

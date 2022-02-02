@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -500,6 +500,31 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)deleteEntityRecognizer:(AWSComprehendDeleteEntityRecognizerRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendDeleteEntityRecognizerResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Deletes a resource-based policy that is attached to a custom model.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteResourcePolicy service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendDeleteResourcePolicyResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorResourceNotFound`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendDeleteResourcePolicyRequest
+ @see AWSComprehendDeleteResourcePolicyResponse
+ */
+- (AWSTask<AWSComprehendDeleteResourcePolicyResponse *> *)deleteResourcePolicy:(AWSComprehendDeleteResourcePolicyRequest *)request;
+
+/**
+ <p>Deletes a resource-based policy that is attached to a custom model.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteResourcePolicy service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorResourceNotFound`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendDeleteResourcePolicyRequest
+ @see AWSComprehendDeleteResourcePolicyResponse
+ */
+- (void)deleteResourcePolicy:(AWSComprehendDeleteResourcePolicyRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendDeleteResourcePolicyResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Gets the properties associated with a document classification job. Use this operation to get the status of a classification job.</p>
  
  @param request A container for the necessary parameters to execute the DescribeDocumentClassificationJob service method.
@@ -725,6 +750,31 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)describePiiEntitiesDetectionJob:(AWSComprehendDescribePiiEntitiesDetectionJobRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendDescribePiiEntitiesDetectionJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Gets the details of a resource-based policy that is attached to a custom model, including the JSON body of the policy.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeResourcePolicy service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendDescribeResourcePolicyResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorResourceNotFound`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendDescribeResourcePolicyRequest
+ @see AWSComprehendDescribeResourcePolicyResponse
+ */
+- (AWSTask<AWSComprehendDescribeResourcePolicyResponse *> *)describeResourcePolicy:(AWSComprehendDescribeResourcePolicyRequest *)request;
+
+/**
+ <p>Gets the details of a resource-based policy that is attached to a custom model, including the JSON body of the policy.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeResourcePolicy service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorResourceNotFound`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendDescribeResourcePolicyRequest
+ @see AWSComprehendDescribeResourcePolicyResponse
+ */
+- (void)describeResourcePolicy:(AWSComprehendDescribeResourcePolicyRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendDescribeResourcePolicyResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Gets the properties associated with a sentiment detection job. Use this operation to get the status of a detection job.</p>
  
  @param request A container for the necessary parameters to execute the DescribeSentimentDetectionJob service method.
@@ -923,6 +973,31 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  @see AWSComprehendDetectSyntaxResponse
  */
 - (void)detectSyntax:(AWSComprehendDetectSyntaxRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendDetectSyntaxResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Creates a new custom model that replicates a source custom model that you import. The source model can be in your AWS account or another one.</p><p>If the source model is in another AWS account, then it must have a resource-based policy that authorizes you to import it.</p><p>The source model must be in the same AWS region that you're using when you import. You can't import a model that's in a different region.</p>
+ 
+ @param request A container for the necessary parameters to execute the ImportModel service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendImportModelResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorResourceNotFound`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorResourceUnavailable`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorResourceLimitExceeded`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendImportModelRequest
+ @see AWSComprehendImportModelResponse
+ */
+- (AWSTask<AWSComprehendImportModelResponse *> *)importModel:(AWSComprehendImportModelRequest *)request;
+
+/**
+ <p>Creates a new custom model that replicates a source custom model that you import. The source model can be in your AWS account or another one.</p><p>If the source model is in another AWS account, then it must have a resource-based policy that authorizes you to import it.</p><p>The source model must be in the same AWS region that you're using when you import. You can't import a model that's in a different region.</p>
+ 
+ @param request A container for the necessary parameters to execute the ImportModel service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorResourceNotFound`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorResourceUnavailable`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorResourceLimitExceeded`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendImportModelRequest
+ @see AWSComprehendImportModelResponse
+ */
+- (void)importModel:(AWSComprehendImportModelRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendImportModelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Gets a list of the documentation classification jobs that you have submitted.</p>
@@ -1273,6 +1348,31 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  @see AWSComprehendListTopicsDetectionJobsResponse
  */
 - (void)listTopicsDetectionJobs:(AWSComprehendListTopicsDetectionJobsRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendListTopicsDetectionJobsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Attaches a resource-based policy to a custom model. You can use this policy to authorize an entity in another AWS account to import the custom model, which replicates it in Amazon Comprehend in their account.</p>
+ 
+ @param request A container for the necessary parameters to execute the PutResourcePolicy service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendPutResourcePolicyResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorResourceNotFound`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendPutResourcePolicyRequest
+ @see AWSComprehendPutResourcePolicyResponse
+ */
+- (AWSTask<AWSComprehendPutResourcePolicyResponse *> *)putResourcePolicy:(AWSComprehendPutResourcePolicyRequest *)request;
+
+/**
+ <p>Attaches a resource-based policy to a custom model. You can use this policy to authorize an entity in another AWS account to import the custom model, which replicates it in Amazon Comprehend in their account.</p>
+ 
+ @param request A container for the necessary parameters to execute the PutResourcePolicy service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorResourceNotFound`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendPutResourcePolicyRequest
+ @see AWSComprehendPutResourcePolicyResponse
+ */
+- (void)putResourcePolicy:(AWSComprehendPutResourcePolicyRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendPutResourcePolicyResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Starts an asynchronous document classification job. Use the operation to track the progress of the job.</p>
