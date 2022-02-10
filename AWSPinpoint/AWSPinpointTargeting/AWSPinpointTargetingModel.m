@@ -699,6 +699,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"arn" : @"Arn",
+             @"creationDate" : @"CreationDate",
              @"identifier" : @"Id",
              @"name" : @"Name",
              @"tags" : @"tags",
