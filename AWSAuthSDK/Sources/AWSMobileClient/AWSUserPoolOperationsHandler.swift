@@ -126,62 +126,6 @@ AWSCognitoUserPoolInternalDelegate {
         }
         return customAuthHandler!
     }
-
-    /// Check if the password completion source is waiting to be completed.
-    internal var isWaitingPasswordAuthentication: Bool {
-
-        return completionSourceQueue.sync {
-            return !didComplete(self.passwordAuthTaskCompletionSource)
-        }
-    }
-
-    internal func setCompletionPasswordAuth(
-        _ completionSource: AWSTaskCompletionSource<
-        AWSCognitoIdentityPasswordAuthenticationDetails>?) {
-
-        completionSourceQueue.sync(flags: .barrier) {
-            self.passwordAuthTaskCompletionSource = completionSource
-        }
-    }
-
-    /// Complete the password completion source and make it nil
-    internal func completePasswordAuth(
-        _ result: Result<
-        AWSCognitoIdentityPasswordAuthenticationDetails,
-        Error>) {
-
-        completionSourceQueue.sync(flags: .barrier) {
-            defer {
-                self.passwordAuthTaskCompletionSource = nil
-            }
-
-            guard let completion = self.passwordAuthTaskCompletionSource,
-            !completion.task.isCompleted else {
-                return
-            }
-            self.completeSource(completion, result: result)
-        }
-    }
-
-    private func completeSource<E>(_ source: AWSTaskCompletionSource<E>,
-                           result: Result<E, Error>) {
-        DispatchQueue.main.async {
-            do {
-                let data = try result.get()
-                source.set(result: data)
-            } catch {
-                source.set(error: error)
-            }
-        }
-
-    }
-
-    private func didComplete<E>(_ source: AWSTaskCompletionSource<E>?) -> Bool {
-        guard let task = source?.task else {
-            return true
-        }
-        return task.isCompleted
-    }
 }
 
 extension UserPoolOperationsHandler: AWSCognitoIdentityPasswordAuthentication {
