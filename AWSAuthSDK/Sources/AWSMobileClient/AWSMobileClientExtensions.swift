@@ -208,11 +208,12 @@ extension AWSMobileClient {
         if (validationData != nil) {
             validationAttributes = validationData!.map {AWSCognitoIdentityUserAttributeType.init(name: $0, value: $1) }
         }
-        if (self.userpoolOpsHelper.passwordAuthTaskCompletionSource != nil) {
-            let authDetails = AWSCognitoIdentityPasswordAuthenticationDetails(username: username, password: password)
-            authDetails?.validationData = validationAttributes
-            self.userpoolOpsHelper.passwordAuthTaskCompletionSource!.set(result: authDetails)
-            self.userpoolOpsHelper.passwordAuthTaskCompletionSource = nil
+        if (self.userpoolOpsHelper.isWaitingPasswordAuthentication) {
+            let authDetails = AWSCognitoIdentityPasswordAuthenticationDetails(
+                username: username,
+                password: password)!
+            authDetails.validationData = validationAttributes
+            self.userpoolOpsHelper.completePasswordAuth(.success(authDetails))
         } else if (self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource != nil) {
             let details = AWSCognitoIdentityCustomChallengeDetails(challengeResponses: ["USERNAME": username])
             details.initialChallengeName = "SRP_A"
@@ -653,11 +654,9 @@ extension AWSMobileClient {
     }
     
     internal func performUserPoolSignOut() {
-        if let task = self.userpoolOpsHelper.passwordAuthTaskCompletionSource?.task, !task.isCompleted {
-            let error = AWSMobileClientError.unableToSignIn(message: "Could not get end user to sign in.")
-            self.userpoolOpsHelper.passwordAuthTaskCompletionSource?.set(error: error)
-        }
-        self.userpoolOpsHelper.passwordAuthTaskCompletionSource = nil
+        let error = AWSMobileClientError.unableToSignIn(
+            message: "Could not get end user to sign in.")
+        self.userpoolOpsHelper.completePasswordAuth(.failure(error))
 
         if let task = self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource?.task, !task.isCompleted {
             let error = AWSMobileClientError.unableToSignIn(message: "Could not get end user to sign in.")
