@@ -26,6 +26,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0346DE7427B4F14B0042B11C /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B55D57121F44EC3F005A0E56 /* AWSCore.framework */; };
 		1708BF6C21C31AB800B2DA8C /* AWSMobileOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1708BF0D21C31AB200B2DA8C /* AWSMobileOptions.swift */; };
 		170AD35321921764004E1E88 /* AWSMobileClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 170AD35221921764004E1E88 /* AWSMobileClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		170C8BB51F43FEE200C2A1E4 /* AWSUserPoolsUIOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 1711A4BA1F43A461006105D3 /* AWSUserPoolsUIOperations.m */; };
@@ -1541,6 +1542,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0346DE7427B4F14B0042B11C /* AWSCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
