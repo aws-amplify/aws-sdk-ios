@@ -853,9 +853,9 @@ extension AWSMobileClient {
     /// When you receive a notifcation which is `signedOutFederatedTokensInvalid` or `signedOutUserPoolsTokensInvalid` you need to proovide SDK the token via `federate` method or call the `signIn` method and complete the sign-in flow. If you can't get the latest token from the user, you can call this method to un-block any waiting calls.
     public func releaseSignInWait() {
         if self.federationProvider == .userPools {
-            self.userpoolOpsHelper.passwordAuthTaskCompletionSource?.set(error: AWSMobileClientError.unableToSignIn(message: "Unable to get valid sign in session from the end user."))
-            self.userpoolOpsHelper.passwordAuthTaskCompletionSource = nil
-            self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource?.set(error: AWSMobileClientError.unableToSignIn(message: "Unable to get valid sign in session from the end user."))
+            let error = AWSMobileClientError.unableToSignIn(message: "Unable to get valid sign in session from the end user.")
+            self.userpoolOpsHelper.completePasswordAuth(.failure(error))
+            self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource?.set(error: error)
             self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource = nil
         } else if self.federationProvider == .hostedUI {
             self.pendingGetTokensCompletion?(nil, AWSMobileClientError.unableToSignIn(message: "Could not get valid token from the user."))
@@ -1082,7 +1082,9 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks {
         }
         switch self.currentUserState {
         case .signedIn, .signedOutUserPoolsTokenInvalid:
-            self.userpoolOpsHelper.passwordAuthTaskCompletionSource = passwordAuthenticationCompletionSource
+            self.userpoolOpsHelper.setPasswordAuthTaskCompletionSource(
+                passwordAuthenticationCompletionSource
+            )
             self.invalidateCachedTemporaryCredentials()
             self.mobileClientStatusChanged(userState: .signedOutUserPoolsTokenInvalid, additionalInfo: ["username":self.userPoolClient?.currentUser()?.username ?? ""])
         default:
@@ -1094,7 +1096,7 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks {
         if let error = error {
             invokeSignInCallback(signResult: nil, error: AWSMobileClientError.makeMobileClientError(from: error))
         }
-        self.userpoolOpsHelper.passwordAuthTaskCompletionSource = nil
+        self.userpoolOpsHelper.setPasswordAuthTaskCompletionSource(nil)
     }
     
     func getNewPasswordDetails(_ newPasswordRequiredInput: AWSCognitoIdentityNewPasswordRequiredInput,

@@ -50,9 +50,9 @@ extension UserPoolOperationsHandler {
             }
 
             guard let completion = self.passwordAuthTaskCompletionSource,
-                  !completion.task.isCompleted else {
-                      return
-                  }
+                  !didComplete(completion) else {
+                return
+            }
             self.completeSource(completion, result: result)
         }
     }
