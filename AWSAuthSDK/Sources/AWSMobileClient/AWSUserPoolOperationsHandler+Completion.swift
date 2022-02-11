@@ -61,13 +61,11 @@ extension UserPoolOperationsHandler {
         _ source: AWSTaskCompletionSource<E>,
         result: Result<E, Error>
     ) {
-        DispatchQueue.main.async {
-            do {
-                let data = try result.get()
-                source.set(result: data)
-            } catch {
-                source.set(error: error)
-            }
+        do {
+            let data = try result.get()
+            source.set(result: data)
+        } catch {
+            source.set(error: error)
         }
 
     }
