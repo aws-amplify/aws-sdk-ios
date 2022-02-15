@@ -1765,6 +1765,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @property (nonatomic, strong) NSString * _Nullable arn;
 
 /**
+ <p>The date and time when the Application was created.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable creationDate;
+
+/**
  <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable identifier;
