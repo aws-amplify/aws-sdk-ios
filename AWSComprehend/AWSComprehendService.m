@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -588,6 +588,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSComprehendDeleteResourcePolicyResponse *> *)deleteResourcePolicy:(AWSComprehendDeleteResourcePolicyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"DeleteResourcePolicy"
+                   outputClass:[AWSComprehendDeleteResourcePolicyResponse class]];
+}
+
+- (void)deleteResourcePolicy:(AWSComprehendDeleteResourcePolicyRequest *)request
+     completionHandler:(void (^)(AWSComprehendDeleteResourcePolicyResponse *response, NSError *error))completionHandler {
+    [[self deleteResourcePolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDeleteResourcePolicyResponse *> * _Nonnull task) {
+        AWSComprehendDeleteResourcePolicyResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSComprehendDescribeDocumentClassificationJobResponse *> *)describeDocumentClassificationJob:(AWSComprehendDescribeDocumentClassificationJobRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -795,6 +818,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSComprehendDescribeResourcePolicyResponse *> *)describeResourcePolicy:(AWSComprehendDescribeResourcePolicyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"DescribeResourcePolicy"
+                   outputClass:[AWSComprehendDescribeResourcePolicyResponse class]];
+}
+
+- (void)describeResourcePolicy:(AWSComprehendDescribeResourcePolicyRequest *)request
+     completionHandler:(void (^)(AWSComprehendDescribeResourcePolicyResponse *response, NSError *error))completionHandler {
+    [[self describeResourcePolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDescribeResourcePolicyResponse *> * _Nonnull task) {
+        AWSComprehendDescribeResourcePolicyResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSComprehendDescribeSentimentDetectionJobResponse *> *)describeSentimentDetectionJob:(AWSComprehendDescribeSentimentDetectionJobRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -969,6 +1015,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSComprehendDetectSyntaxResponse *response, NSError *error))completionHandler {
     [[self detectSyntax:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDetectSyntaxResponse *> * _Nonnull task) {
         AWSComprehendDetectSyntaxResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendImportModelResponse *> *)importModel:(AWSComprehendImportModelRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"ImportModel"
+                   outputClass:[AWSComprehendImportModelResponse class]];
+}
+
+- (void)importModel:(AWSComprehendImportModelRequest *)request
+     completionHandler:(void (^)(AWSComprehendImportModelResponse *response, NSError *error))completionHandler {
+    [[self importModel:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendImportModelResponse *> * _Nonnull task) {
+        AWSComprehendImportModelResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1291,6 +1360,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSComprehendListTopicsDetectionJobsResponse *response, NSError *error))completionHandler {
     [[self listTopicsDetectionJobs:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendListTopicsDetectionJobsResponse *> * _Nonnull task) {
         AWSComprehendListTopicsDetectionJobsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendPutResourcePolicyResponse *> *)putResourcePolicy:(AWSComprehendPutResourcePolicyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"PutResourcePolicy"
+                   outputClass:[AWSComprehendPutResourcePolicyResponse class]];
+}
+
+- (void)putResourcePolicy:(AWSComprehendPutResourcePolicyRequest *)request
+     completionHandler:(void (^)(AWSComprehendPutResourcePolicyResponse *response, NSError *error))completionHandler {
+    [[self putResourcePolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendPutResourcePolicyResponse *> * _Nonnull task) {
+        AWSComprehendPutResourcePolicyResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
