@@ -1,9 +1,17 @@
----
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
 
 -Features for next release
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSSNS
+  - AWSPinpoint
+  - AWSComprehend
+  - AWSDynamoDB
+  - AWSCognitoIdentityProvider
 
 ## 2.27.1
 
