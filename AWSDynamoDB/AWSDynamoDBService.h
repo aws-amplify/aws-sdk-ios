@@ -750,7 +750,7 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
 - (void)enableKinesisStreamingDestination:(AWSDynamoDBKinesisStreamingDestinationInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBKinesisStreamingDestinationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>This operation allows you to perform reads and singleton writes on data stored in DynamoDB, using PartiQL.</p>
+ <p>This operation allows you to perform reads and singleton writes on data stored in DynamoDB, using PartiQL.</p><p>For PartiQL reads (<code>SELECT</code> statement), if the total number of processed items exceeds the maximum dataset size limit of 1 MB, the read stops and results are returned to the user as a <code>LastEvaluatedKey</code> value to continue the read in a subsequent operation. If the filter criteria in <code>WHERE</code> clause does not match any data, the read will return an empty result set.</p><p>A single <code>SELECT</code> statement response can return up to the maximum number of items (if using the Limit parameter) or a maximum of 1 MB of data (and then apply any filtering to the results using <code>WHERE</code> clause). If <code>LastEvaluatedKey</code> is present in the response, you need to paginate the result set.</p>
  
  @param request A container for the necessary parameters to execute the ExecuteStatement service method.
 
@@ -762,7 +762,7 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
 - (AWSTask<AWSDynamoDBExecuteStatementOutput *> *)executeStatement:(AWSDynamoDBExecuteStatementInput *)request;
 
 /**
- <p>This operation allows you to perform reads and singleton writes on data stored in DynamoDB, using PartiQL.</p>
+ <p>This operation allows you to perform reads and singleton writes on data stored in DynamoDB, using PartiQL.</p><p>For PartiQL reads (<code>SELECT</code> statement), if the total number of processed items exceeds the maximum dataset size limit of 1 MB, the read stops and results are returned to the user as a <code>LastEvaluatedKey</code> value to continue the read in a subsequent operation. If the filter criteria in <code>WHERE</code> clause does not match any data, the read will return an empty result set.</p><p>A single <code>SELECT</code> statement response can return up to the maximum number of items (if using the Limit parameter) or a maximum of 1 MB of data (and then apply any filtering to the results using <code>WHERE</code> clause). If <code>LastEvaluatedKey</code> is present in the response, you need to paginate the result set.</p>
  
  @param request A container for the necessary parameters to execute the ExecuteStatement service method.
  @param completionHandler The completion handler to call when the load request is complete.
