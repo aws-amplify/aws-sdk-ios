@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -1383,8 +1383,30 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"formality" : @"Formality",
              @"profanity" : @"Profanity",
              };
+}
+
++ (NSValueTransformer *)formalityJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"FORMAL"] == NSOrderedSame) {
+            return @(AWSTranslateFormalityFormal);
+        }
+        if ([value caseInsensitiveCompare:@"INFORMAL"] == NSOrderedSame) {
+            return @(AWSTranslateFormalityInformal);
+        }
+        return @(AWSTranslateFormalityUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranslateFormalityFormal:
+                return @"FORMAL";
+            case AWSTranslateFormalityInformal:
+                return @"INFORMAL";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)profanityJSONTransformer {
