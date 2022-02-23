@@ -11,10 +11,6 @@
 // on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
 // express or implied. See the License for the specific language governing
 // permissions and limitations under the License.
-//
-//  AWSMobileResults.swift
-//  AWSMobileClient
-//
 
 import Foundation
 import AWSCognitoIdentityProvider
@@ -219,94 +215,5 @@ extension AWSMobileClientError {
         } else {
             return .unknown(message: message)
         }
-    }
-}
-
-/// Indicates sign in state of the user in the sign in process.
-public enum SignInState: String {
-    case unknown = "UNKNOWN"
-    case smsMFA = "CONFIRMATION_CODE"
-    case passwordVerifier = "PASSWORD_VERIFIER"
-    case customChallenge = "CUSTOM_CHALLENGE"
-    case deviceSRPAuth = "DEVICE_SRP_AUTH"
-    case devicePasswordVerifier = "DEVICE_PASSWORD_VERIFIER"
-    case adminNoSRPAuth = "ADMIN_NO_SRP_AUTH"
-    case newPasswordRequired = "NEW_PASSWORD_REQUIRED"
-    case signedIn = "SIGN_IN_COMPLETE"
-}
-
-/// Indicates the state of forgot password operation.
-public enum ForgotPasswordState {
-    case done, confirmationCodeSent
-}
-
-/// Contains the result of the forgot password operation.
-public struct ForgotPasswordResult {
-    public let forgotPasswordState: ForgotPasswordState
-    public let codeDeliveryDetails: UserCodeDeliveryDetails?
-    
-    internal init(forgotPasswordState: ForgotPasswordState, codeDeliveryDetails: UserCodeDeliveryDetails?) {
-        self.forgotPasswordState = forgotPasswordState
-        self.codeDeliveryDetails = codeDeliveryDetails
-    }
-}
-
-/// Indicates the state of user during the sign up operation.
-public enum SignUpConfirmationState {
-    case confirmed, unconfirmed, unknown
-}
-
-/// Contains the result of the sign in operation.
-public struct SignInResult {
-    public let signInState: SignInState
-    public let parameters: [String: String]
-    public let codeDetails: UserCodeDeliveryDetails?
-    
-    internal init(signInState: SignInState, parameters: [String: String] = [:], codeDetails: UserCodeDeliveryDetails? = nil) {
-        self.signInState = signInState
-        self.parameters = parameters
-        self.codeDetails = codeDetails
-    }
-}
-
-/// Contains the result of the sign up operation.
-public struct SignUpResult {
-    public let codeDeliveryDetails: UserCodeDeliveryDetails?
-    public let signUpConfirmationState: SignUpConfirmationState
-    
-    internal init(signUpState: SignUpConfirmationState, codeDeliveryDetails: UserCodeDeliveryDetails?){
-        self.codeDeliveryDetails = codeDeliveryDetails
-        self.signUpConfirmationState = signUpState
-    }
-}
-
-/// Describes the medium through which a code was sent to the user.
-public enum UserCodeDeliveryMedium {
-    case sms, email, unknown
-}
-
-/// Contains the details about where a code was sent to the user.
-public struct UserCodeDeliveryDetails {
-    public let deliveryMedium: UserCodeDeliveryMedium
-    public let destination: String?
-    public let attributeName: String?
-    
-    internal init(deliveryMedium: UserCodeDeliveryMedium, destination: String?, attributeName: String?) {
-        self.destination = destination
-        self.deliveryMedium = deliveryMedium
-        self.attributeName = attributeName
-    }
-    
-    public static func getUserCodeDeliveryDetails(_ deliveryDetails: AWSCognitoIdentityProviderCodeDeliveryDetailsType) -> UserCodeDeliveryDetails {
-        var codeDeliveryDetails: UserCodeDeliveryDetails?
-        switch(deliveryDetails.deliveryMedium) {
-        case .email:
-            codeDeliveryDetails = UserCodeDeliveryDetails(deliveryMedium: .email, destination: deliveryDetails.destination, attributeName: deliveryDetails.attributeName)
-        case .sms:
-            codeDeliveryDetails = UserCodeDeliveryDetails(deliveryMedium: .sms, destination: deliveryDetails.destination, attributeName: deliveryDetails.attributeName)
-        case .unknown:
-            codeDeliveryDetails = UserCodeDeliveryDetails(deliveryMedium: .unknown, destination: deliveryDetails.destination, attributeName: deliveryDetails.attributeName)
-        }
-        return codeDeliveryDetails!
     }
 }

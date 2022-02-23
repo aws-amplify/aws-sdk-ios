@@ -18,26 +18,9 @@
 
 import Foundation
 
-/// Indicates the user state.
-///
-/// - signedIn: The user is signed in through Cognito User Pools or a federation provider like Google, Facebook, etc.
-/// - signedOut: The user is signed out and does not have guest access.
-/// - signedOutFederatedTokensInvalid: The tokens associated with the federation provider like Google or Facebook have expired and need to re-submitted to `AWSMobileClient`. You can do that by calling the `federatedSignIn` method or by showing the drop in UI. If the end user is unable to sign in, call `releaseSignInWait` method to return an error to the calling API.
-/// - signedOutUserPoolsTokenInvalid: The Cognito User Pools tokens have expired and the end-user needs to sign in again. You can complete the sign in process using the `signIn` method or by showing the drop in UI. If the end user is unable to sign in, call `releaseSignInWait` method to return an error to the calling API.
-/// - guest: The user is signed out, but has guest access in the app.
-/// - unknown: The initial user state before `AWSMobileClient` is initialized.
-public enum UserState: String {
-    case signedIn, signedOut, signedOutFederatedTokensInvalid, signedOutUserPoolsTokenInvalid, guest, unknown
-}
-
 
 /// Callback type when registered to notifications for change in `UserState`. The dictionary contains information like `provider` which the user signed in with.
 public typealias UserStateChangeCallback = (UserState, [String: String]) -> Void
-
-/// Internal type to track what type of federation is active.
-enum FederationProvider: String {
-    case none, userPools, hostedUI, oidcFederation
-}
 
 
 /// `AWSMobileClient` is used for all auth related operations when your app is accessing AWS backend.
