@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -133,6 +133,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingLifecycleState) {
     AWSAutoScalingLifecycleStateWarmedTerminated,
     AWSAutoScalingLifecycleStateWarmedStopped,
     AWSAutoScalingLifecycleStateWarmedRunning,
+    AWSAutoScalingLifecycleStateWarmedHibernated,
 };
 
 typedef NS_ENUM(NSInteger, AWSAutoScalingLocalStorage) {
@@ -226,6 +227,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolState) {
     AWSAutoScalingWarmPoolStateUnknown,
     AWSAutoScalingWarmPoolStateStopped,
     AWSAutoScalingWarmPoolStateRunning,
+    AWSAutoScalingWarmPoolStateHibernated,
 };
 
 typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
@@ -325,6 +327,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @class AWSAutoScalingInstanceRefreshProgressDetails;
 @class AWSAutoScalingInstanceRefreshWarmPoolProgress;
 @class AWSAutoScalingInstanceRequirements;
+@class AWSAutoScalingInstanceReusePolicy;
 @class AWSAutoScalingInstancesDistribution;
 @class AWSAutoScalingLaunchConfiguration;
 @class AWSAutoScalingLaunchConfigurationNameType;
@@ -1161,7 +1164,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSString * _Nullable desiredCapacityType;
 
 /**
- <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed health check. The default value is <code>0</code>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period">Health check grace period</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>Conditional: Required if you are adding an <code>ELB</code> health check.</p>
+ <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed health check. The default value is <code>0</code>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period">Health check grace period</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>Required if you are adding an <code>ELB</code> health check.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable healthCheckGracePeriod;
 
@@ -2729,7 +2732,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) AWSAutoScalingNetworkInterfaceCountRequest * _Nullable networkInterfaceCount;
 
 /**
- <p>The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as <code>999999</code>. </p><p>Default: <code>20</code></p>
+ <p>The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as <code>999999</code>. </p><p>If you set <code>DesiredCapacityType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price. </p><p>Default: <code>20</code></p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable onDemandMaxPricePercentageOverLowestPrice;
 
@@ -2739,7 +2742,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable requireHibernateSupport;
 
 /**
- <p>The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as <code>999999</code>. </p><p>Default: <code>100</code></p>
+ <p>The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as <code>999999</code>. </p><p>If you set <code>DesiredCapacityType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price. </p><p>Default: <code>100</code></p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable spotMaxPricePercentageOverLowestPrice;
 
@@ -2752,6 +2755,19 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
  <p>The minimum and maximum number of vCPUs for an instance type.</p>
  */
 @property (nonatomic, strong) AWSAutoScalingVCpuCountRequest * _Nullable VCpuCount;
+
+@end
+
+/**
+ <p>Describes an instance reuse policy for a warm pool. </p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm pools for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ */
+@interface AWSAutoScalingInstanceReusePolicy : AWSModel
+
+
+/**
+ <p>Specifies whether instances in the Auto Scaling group can be returned to the warm pool on scale in. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable reuseOnScaleIn;
 
 @end
 
@@ -2991,12 +3007,12 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSString * _Nullable instanceType;
 
 /**
- <p>Provides the launch template to be used when launching the instance type specified in <code>InstanceType</code>. For example, some instance types might require a launch template with a different AMI. If not provided, Amazon EC2 Auto Scaling uses the launch template that's defined for your mixed instances policy. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-launch-template-overrides.html">Specifying a different launch template for an instance type</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
+ <p>Provides a launch template for the specified instance type or instance requirements. For example, some instance types might require a launch template with a different AMI. If not provided, Amazon EC2 Auto Scaling uses the launch template that's defined for your mixed instances policy. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-launch-template-overrides.html">Specifying a different launch template for an instance type</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
  */
 @property (nonatomic, strong) AWSAutoScalingLaunchTemplateSpecification * _Nullable launchTemplateSpecification;
 
 /**
- <p>The number of capacity units provided by the instance type specified in <code>InstanceType</code> in terms of virtual CPUs, memory, storage, throughput, or other relative performance characteristic. When a Spot or On-Demand Instance is launched, the capacity units count toward the desired capacity. Amazon EC2 Auto Scaling launches instances until the desired capacity is totally fulfilled, even if this results in an overage. For example, if there are two units remaining to fulfill capacity, and Amazon EC2 Auto Scaling can only launch an instance with a <code>WeightedCapacity</code> of five units, the instance is launched, and the desired capacity is exceeded by three units. For more information, see <a href="https://docs.aws.amazon.com/ec2-auto-scaling-mixed-instances-groups-instance-weighting.html">Instance weighting for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. Value must be in the range of 1–999.</p>
+ <p>The number of capacity units provided by the instance type specified in <code>InstanceType</code> in terms of virtual CPUs, memory, storage, throughput, or other relative performance characteristic. When a Spot or On-Demand Instance is launched, the capacity units count toward the desired capacity. Amazon EC2 Auto Scaling launches instances until the desired capacity is totally fulfilled, even if this results in an overage. For example, if there are two units remaining to fulfill capacity, and Amazon EC2 Auto Scaling can only launch an instance with a <code>WeightedCapacity</code> of five units, the instance is launched, and the desired capacity is exceeded by three units. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-instance-weighting.html">Configuring instance weighting for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. Value must be in the range of 1–999.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable weightedCapacity;
 
@@ -3026,7 +3042,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @end
 
 /**
- <p>Describes a lifecycle hook, which enables an Auto Scaling group to be aware of events in the Auto Scaling instance lifecycle, and then perform a custom action when the corresponding lifecycle event occurs.</p>
+ <p>Describes a lifecycle hook. A lifecycle hook lets you create solutions that are aware of events in the Auto Scaling instance lifecycle, and then perform a custom action on instances when the corresponding lifecycle event occurs.</p>
  */
 @interface AWSAutoScalingLifecycleHook : AWSModel
 
@@ -3072,7 +3088,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSString * _Nullable notificationTargetARN;
 
 /**
- <p>The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.</p>
+ <p>The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target (an Amazon SNS topic or an Amazon SQS queue).</p>
  */
 @property (nonatomic, strong) NSString * _Nullable roleARN;
 
@@ -3116,7 +3132,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSString * _Nullable notificationTargetARN;
 
 /**
- <p>The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue.</p>
+ <p>The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.</p><p>Valid only if the notification target is an Amazon SNS topic or an Amazon SQS queue. Required for new lifecycle hooks, but optional when updating existing hooks.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable roleARN;
 
@@ -3449,7 +3465,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 
 
 /**
- <p>The metric type. The following predefined metrics are available:</p><ul><li><p><code>ASGAverageCPUUtilization</code> - Average CPU utilization of the Auto Scaling group.</p></li><li><p><code>ASGAverageNetworkIn</code> - Average number of bytes received on all network interfaces by the Auto Scaling group.</p></li><li><p><code>ASGAverageNetworkOut</code> - Average number of bytes sent out on all network interfaces by the Auto Scaling group.</p></li><li><p><code>ALBRequestCountPerTarget</code> - Number of requests completed per target in an Application Load Balancer target group.</p></li></ul>
+ <p>The metric type. The following predefined metrics are available:</p><ul><li><p><code>ASGAverageCPUUtilization</code> - Average CPU utilization of the Auto Scaling group.</p></li><li><p><code>ASGAverageNetworkIn</code> - Average number of bytes received (per instance per minute) for the Auto Scaling group.</p></li><li><p><code>ASGAverageNetworkOut</code> - Average number of bytes sent out (per instance per minute) for the Auto Scaling group.</p></li><li><p><code>ALBRequestCountPerTarget</code> - Average Application Load Balancer request count (per target per minute) for your Auto Scaling group.</p></li></ul>
  */
 @property (nonatomic, assign) AWSAutoScalingMetricType predefinedMetricType;
 
@@ -3714,7 +3730,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSString * _Nullable notificationTargetARN;
 
 /**
- <p>The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue.</p><p>Required for new lifecycle hooks, but optional when updating existing hooks.</p>
+ <p>The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.</p><p>Valid only if the notification target is an Amazon SNS topic or an Amazon SQS queue. Required for new lifecycle hooks, but optional when updating existing hooks.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable roleARN;
 
@@ -3897,6 +3913,11 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
  <p>The name of the Auto Scaling group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable autoScalingGroupName;
+
+/**
+ <p>Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.</p>
+ */
+@property (nonatomic, strong) AWSAutoScalingInstanceReusePolicy * _Nullable instanceReusePolicy;
 
 /**
  <p>Specifies the maximum number of instances that are allowed to be in the warm pool or in any state except <code>Terminated</code> for the Auto Scaling group. This is an optional property. Specify it only if you do not want the warm pool size to be determined by the difference between the group's maximum capacity and its desired capacity. </p><important><p>If a value for <code>MaxGroupPreparedCapacity</code> is not specified, Amazon EC2 Auto Scaling launches and maintains the difference between the group's maximum capacity and its desired capacity. If you specify a value for <code>MaxGroupPreparedCapacity</code>, Amazon EC2 Auto Scaling uses the difference between the <code>MaxGroupPreparedCapacity</code> and the desired capacity instead. </p><p>The size of the warm pool is dynamic. Only when <code>MaxGroupPreparedCapacity</code> and <code>MinSize</code> are set to the same value does the warm pool have an absolute size.</p></important><p>If the desired capacity of the Auto Scaling group is higher than the <code>MaxGroupPreparedCapacity</code>, the capacity of the warm pool is 0, unless you specify a value for <code>MinSize</code>. To remove a value that you previously set, include the property but specify -1 for the value. </p>
@@ -4488,7 +4509,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) AWSAutoScalingPredefinedMetricSpecification * _Nullable predefinedMetricSpecification;
 
 /**
- <p>The target value for the metric.</p>
+ <p>The target value for the metric.</p><note><p>Some metrics are based on a count instead of a percentage, such as the request count for an Application Load Balancer or the number of messages in an SQS queue. If the scaling policy specifies one of these metrics, specify the target utilization as the optimal average request or message count per instance during any one-minute interval. </p></note>
  */
 @property (nonatomic, strong) NSNumber * _Nullable targetValue;
 
@@ -4572,7 +4593,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSString * _Nullable desiredCapacityType;
 
 /**
- <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed health check. The default value is <code>0</code>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period">Health check grace period</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>Conditional: Required if you are adding an <code>ELB</code> health check.</p>
+ <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed health check. The default value is <code>0</code>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period">Health check grace period</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>Required if you are adding an <code>ELB</code> health check.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable healthCheckGracePeriod;
 
@@ -4662,6 +4683,11 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
  */
 @interface AWSAutoScalingWarmPoolConfiguration : AWSModel
 
+
+/**
+ <p>The instance reuse policy.</p>
+ */
+@property (nonatomic, strong) AWSAutoScalingInstanceReusePolicy * _Nullable instanceReusePolicy;
 
 /**
  <p>The maximum number of instances that are allowed to be in the warm pool or in any state except <code>Terminated</code> for the Auto Scaling group.</p>
