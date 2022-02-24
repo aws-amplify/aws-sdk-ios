@@ -2332,6 +2332,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"consistentRead" : @"ConsistentRead",
+             @"limit" : @"Limit",
              @"nextToken" : @"NextToken",
              @"parameters" : @"Parameters",
              @"returnConsumedCapacity" : @"ReturnConsumedCapacity",
@@ -2381,6 +2382,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 	return @{
              @"consumedCapacity" : @"ConsumedCapacity",
              @"items" : @"Items",
+             @"lastEvaluatedKey" : @"LastEvaluatedKey",
              @"nextToken" : @"NextToken",
              };
 }
@@ -2394,6 +2396,14 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
         return [AWSModelUtility mapMTLArrayFromJSONArray:JSONArray withModelClass:[AWSDynamoDBAttributeValue class]];
     } reverseBlock:^id(id mapMTLArray) {
         return [AWSModelUtility JSONArrayFromMapMTLArray:mapMTLArray];
+    }];
+}
+
++ (NSValueTransformer *)lastEvaluatedKeyJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSDynamoDBAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
     }];
 }
 

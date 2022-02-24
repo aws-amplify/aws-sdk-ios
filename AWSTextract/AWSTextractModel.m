@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -222,6 +222,12 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
         if ([value caseInsensitiveCompare:@"SELECTION_ELEMENT"] == NSOrderedSame) {
             return @(AWSTextractBlockTypeSelectionElement);
         }
+        if ([value caseInsensitiveCompare:@"MERGED_CELL"] == NSOrderedSame) {
+            return @(AWSTextractBlockTypeMergedCell);
+        }
+        if ([value caseInsensitiveCompare:@"TITLE"] == NSOrderedSame) {
+            return @(AWSTextractBlockTypeTitle);
+        }
         return @(AWSTextractBlockTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -239,6 +245,10 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
                 return @"CELL";
             case AWSTextractBlockTypeSelectionElement:
                 return @"SELECTION_ELEMENT";
+            case AWSTextractBlockTypeMergedCell:
+                return @"MERGED_CELL";
+            case AWSTextractBlockTypeTitle:
+                return @"TITLE";
             default:
                 return nil;
         }
@@ -984,6 +994,12 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
         if ([value caseInsensitiveCompare:@"COMPLEX_FEATURES"] == NSOrderedSame) {
             return @(AWSTextractRelationshipTypeComplexFeatures);
         }
+        if ([value caseInsensitiveCompare:@"MERGED_CELL"] == NSOrderedSame) {
+            return @(AWSTextractRelationshipTypeMergedCell);
+        }
+        if ([value caseInsensitiveCompare:@"TITLE"] == NSOrderedSame) {
+            return @(AWSTextractRelationshipTypeTitle);
+        }
         return @(AWSTextractRelationshipTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -993,6 +1009,10 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
                 return @"CHILD";
             case AWSTextractRelationshipTypeComplexFeatures:
                 return @"COMPLEX_FEATURES";
+            case AWSTextractRelationshipTypeMergedCell:
+                return @"MERGED_CELL";
+            case AWSTextractRelationshipTypeTitle:
+                return @"TITLE";
             default:
                 return nil;
         }

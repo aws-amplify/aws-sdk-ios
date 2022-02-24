@@ -14,6 +14,7 @@
   - AWSCognitoIdentityProvider
   - AWSLambda
   - AWSTextract
+  - AWSTranslate
 
 ## 2.27.1
 
