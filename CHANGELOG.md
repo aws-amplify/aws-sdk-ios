@@ -1,12 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSLambda
----AWSTextract
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -21,6 +12,8 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSComprehend
   - AWSDynamoDB
   - AWSCognitoIdentityProvider
+  - AWSLambda
+  - AWSTextract
 
 ## 2.27.1
 
