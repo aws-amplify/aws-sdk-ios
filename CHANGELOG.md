@@ -1,11 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSAutoScaling
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -21,6 +13,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSDynamoDB
   - AWSCognitoIdentityProvider
   - AWSTranslate
+  - AWSAutoScaling
 
 ## 2.27.1
 
