@@ -234,6 +234,12 @@
 		B43CB23B27C71BDB00968F10 /* AWSMobileClient+Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43CB23927C71BDB00968F10 /* AWSMobileClient+Tokens.swift */; };
 		B43CB23D27C71C1100968F10 /* AWSMobileClient+Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43CB23C27C71C1100968F10 /* AWSMobileClient+Credentials.swift */; };
 		B43CB23E27C71C1100968F10 /* AWSMobileClient+Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43CB23C27C71C1100968F10 /* AWSMobileClient+Credentials.swift */; };
+		B43CB24627C722B300968F10 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43CB24527C722B300968F10 /* Device.swift */; };
+		B43CB24727C722B300968F10 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43CB24527C722B300968F10 /* Device.swift */; };
+		B43CB2BE27C722D500968F10 /* ListDevicesResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43CB2BD27C722D500968F10 /* ListDevicesResult.swift */; };
+		B43CB2BF27C722D500968F10 /* ListDevicesResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43CB2BD27C722D500968F10 /* ListDevicesResult.swift */; };
+		B43CB2C127C7230F00968F10 /* UpdateDeviceStatusResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43CB2C027C7230F00968F10 /* UpdateDeviceStatusResult.swift */; };
+		B43CB2C227C7230F00968F10 /* UpdateDeviceStatusResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43CB2C027C7230F00968F10 /* UpdateDeviceStatusResult.swift */; };
 		B4682160233D19DF00CB404D /* AWSUserPoolNewPasswordRequiredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B46820F6233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.m */; };
 		B4682161233D19DF00CB404D /* AWSUserPoolNewPasswordRequiredViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B468215F233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.h */; };
 		B49C891724B387C3009739FC /* AWSAppleSignIn.h in Headers */ = {isa = PBXBuildFile; fileRef = B49C891124B387C3009739FC /* AWSAppleSignIn.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1503,6 +1509,9 @@
 		B43CB23627C7196C00968F10 /* AWSMobileClient+AWSCognitoCredentialsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AWSMobileClient+AWSCognitoCredentialsProvider.swift"; sourceTree = "<group>"; };
 		B43CB23927C71BDB00968F10 /* AWSMobileClient+Tokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AWSMobileClient+Tokens.swift"; sourceTree = "<group>"; };
 		B43CB23C27C71C1100968F10 /* AWSMobileClient+Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AWSMobileClient+Credentials.swift"; sourceTree = "<group>"; };
+		B43CB24527C722B300968F10 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		B43CB2BD27C722D500968F10 /* ListDevicesResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDevicesResult.swift; sourceTree = "<group>"; };
+		B43CB2C027C7230F00968F10 /* UpdateDeviceStatusResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDeviceStatusResult.swift; sourceTree = "<group>"; };
 		B46820F6233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSUserPoolNewPasswordRequiredViewController.m; sourceTree = "<group>"; };
 		B468215F233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSUserPoolNewPasswordRequiredViewController.h; sourceTree = "<group>"; };
 		B49C889E24B38746009739FC /* AWSAppleSignIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSAppleSignIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2075,6 +2084,7 @@
 				B43CB21427C7105800968F10 /* AWSMobileClient+SignUp.swift */,
 				B43CB23927C71BDB00968F10 /* AWSMobileClient+Tokens.swift */,
 				B43CB22927C7158C00968F10 /* AWSMobileClient+UserAttributes.swift */,
+				1744D05A21FFD84E00A81008 /* DeviceOperations.swift */,
 			);
 			path = AWSMobileClientOperations;
 			sourceTree = "<group>";
@@ -2122,23 +2132,26 @@
 			isa = PBXGroup;
 			children = (
 				17D61F822166C784009B2B9C /* AWSMobileClientError.swift */,
+				B43CB24527C722B300968F10 /* Device.swift */,
 				B43CB17327C6F95700968F10 /* FederatedSignInOptions.swift */,
 				B4BC91D227C6F7C000354EB5 /* FederationProvider.swift */,
 				B43CB17F27C6FA1A00968F10 /* ForgotPasswordResult.swift */,
 				B43CB17C27C6F9F100968F10 /* ForgotPasswordState.swift */,
 				B43CB17627C6F97D00968F10 /* HostedUIOptions.swift */,
 				1708BF0D21C31AB200B2DA8C /* IdentityProvider.swift */,
+				B43CB2BD27C722D500968F10 /* ListDevicesResult.swift */,
+				B43CB20D27C70AF500968F10 /* SessionToken.swift */,
 				B43CB18527C6FA3B00968F10 /* SignInResult.swift */,
 				B43CB17927C6F9CB00968F10 /* SignInState.swift */,
 				B43CB16D27C6F90C00968F10 /* SignInUIOptions.swift */,
 				B43CB17027C6F93B00968F10 /* SignOutOptions.swift */,
 				B43CB18227C6FA2A00968F10 /* SignUpConfirmationState.swift */,
 				B43CB18827C6FA5000968F10 /* SignUpResult.swift */,
+				B43CB21127C70B3200968F10 /* Tokens.swift */,
+				B43CB2C027C7230F00968F10 /* UpdateDeviceStatusResult.swift */,
 				B43CB18E27C6FA7D00968F10 /* UserCodeDeliveryDetails.swift */,
 				B43CB18B27C6FA6400968F10 /* UserCodeDeliveryMedium.swift */,
 				B4BC91CF27C6F72400354EB5 /* UserState.swift */,
-				B43CB20D27C70AF500968F10 /* SessionToken.swift */,
-				B43CB21127C70B3200968F10 /* Tokens.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2313,7 +2326,6 @@
 				B402D00725815C550020B83B /* AWSMobileClientXCF.h */,
 				17D61FA6216BBC59009B2B9C /* AWSMobileClient.swift */,
 				179E0AD021656F3200E1F877 /* AWSMobileClientExtensions.swift */,
-				1744D05A21FFD84E00A81008 /* DeviceOperations.swift */,
 				B43CB22C27C715C700968F10 /* AWSMobileClientOperations */,
 				B43CB19327C7078900968F10 /* Helpers */,
 				170AD3D52195663C004E1E88 /* Internal */,
@@ -3948,6 +3960,7 @@
 			files = (
 				B43CB17B27C6F9CB00968F10 /* SignInState.swift in Sources */,
 				B43CB17E27C6F9F100968F10 /* ForgotPasswordState.swift in Sources */,
+				B43CB2BF27C722D500968F10 /* ListDevicesResult.swift in Sources */,
 				B43CB21327C70B3200968F10 /* Tokens.swift in Sources */,
 				B402CD292580672F0020B83B /* AWSMobileClientUserDetails.swift in Sources */,
 				B43CB17827C6F97D00968F10 /* HostedUIOptions.swift in Sources */,
@@ -3982,9 +3995,11 @@
 				B43CB16F27C6F90C00968F10 /* SignInUIOptions.swift in Sources */,
 				B402CD332580672F0020B83B /* AWSCognitoAuth.m in Sources */,
 				B43CB23B27C71BDB00968F10 /* AWSMobileClient+Tokens.swift in Sources */,
+				B43CB2C227C7230F00968F10 /* UpdateDeviceStatusResult.swift in Sources */,
 				B43CB21627C7105800968F10 /* AWSMobileClient+SignUp.swift in Sources */,
 				B43CB21927C7120400968F10 /* AWSMobileClient+SignOut.swift in Sources */,
 				B402CD342580672F0020B83B /* AWSUserPoolCustomAuthHandler.swift in Sources */,
+				B43CB24727C722B300968F10 /* Device.swift in Sources */,
 				B43CB19027C6FA7D00968F10 /* UserCodeDeliveryDetails.swift in Sources */,
 				B43CB18727C6FA3B00968F10 /* SignInResult.swift in Sources */,
 				B43CB17527C6F95700968F10 /* FederatedSignInOptions.swift in Sources */,
@@ -4045,6 +4060,7 @@
 			files = (
 				B43CB17A27C6F9CB00968F10 /* SignInState.swift in Sources */,
 				B43CB17D27C6F9F100968F10 /* ForgotPasswordState.swift in Sources */,
+				B43CB2BE27C722D500968F10 /* ListDevicesResult.swift in Sources */,
 				B43CB21227C70B3200968F10 /* Tokens.swift in Sources */,
 				B4031B79230F044A009EB524 /* AWSMobileClientUserDetails.swift in Sources */,
 				B43CB17727C6F97D00968F10 /* HostedUIOptions.swift in Sources */,
@@ -4079,9 +4095,11 @@
 				B43CB16E27C6F90C00968F10 /* SignInUIOptions.swift in Sources */,
 				177B8ADC21E52C730051068F /* AWSCognitoAuth.m in Sources */,
 				B43CB23A27C71BDB00968F10 /* AWSMobileClient+Tokens.swift in Sources */,
+				B43CB2C127C7230F00968F10 /* UpdateDeviceStatusResult.swift in Sources */,
 				B43CB21527C7105800968F10 /* AWSMobileClient+SignUp.swift in Sources */,
 				B43CB21827C7120400968F10 /* AWSMobileClient+SignOut.swift in Sources */,
 				B4B74C062332E3EB0024326F /* AWSUserPoolCustomAuthHandler.swift in Sources */,
+				B43CB24627C722B300968F10 /* Device.swift in Sources */,
 				B43CB18F27C6FA7D00968F10 /* UserCodeDeliveryDetails.swift in Sources */,
 				B43CB18627C6FA3B00968F10 /* SignInResult.swift in Sources */,
 				B43CB17427C6F95700968F10 /* FederatedSignInOptions.swift in Sources */,

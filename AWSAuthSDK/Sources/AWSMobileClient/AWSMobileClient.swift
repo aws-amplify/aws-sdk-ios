@@ -28,8 +28,7 @@ final public class AWSMobileClient: _AWSMobileClient {
     var cachedLoginsMap: [String: String] = [:]
     /// Internal variable used to make sure AWSMobileClient is initialized only once.
     internal var isInitialized: Bool = false
-    
-    internal var hostedUIConfigInternal: HostedUIOptions?
+
     internal var federationDisabled: Bool = false
     internal var customRoleArnInternal: String? = nil
     
@@ -74,7 +73,8 @@ final public class AWSMobileClient: _AWSMobileClient {
     
     internal weak var developerNavigationController: UINavigationController? = nil
     
-    var keychain: AWSUICKeyChainStore = AWSUICKeyChainStore.init(service: "\(String(describing: Bundle.main.bundleIdentifier)).AWSMobileClient")
+    var keychain: AWSUICKeyChainStore = AWSUICKeyChainStore.init(
+        service: "\(String(describing: Bundle.main.bundleIdentifier)).AWSMobileClient")
     
     internal var isCognitoAuthRegistered = false
     internal let CognitoAuthRegistrationKey = "AWSMobileClient"
@@ -123,12 +123,6 @@ final public class AWSMobileClient: _AWSMobileClient {
     /// - Returns: The default `AWSMobileClient` instance
     @objc public class func `default`() -> AWSMobileClient {
         return _sharedInstance
-    }
-
-    public func handleAuthResponse(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) {
-        if (isCognitoAuthRegistered) {
-            AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey).application(application, open: url, options: [:])
-        }
     }
 
     /// Initializes `AWSMobileClient` and determines the `UserState` for current user using cache.
@@ -223,7 +217,7 @@ final public class AWSMobileClient: _AWSMobileClient {
             
             let infoDictionaryMobileClient = self.awsInfo.rootInfoDictionary["Auth"] as? [String: [String: Any]]
             if let authFlowType = infoDictionaryMobileClient?["Default"]?["authenticationFlowType"] as? String,
-                authFlowType == "CUSTOM_AUTH" {
+               authFlowType == "CUSTOM_AUTH" {
                 self.userPoolClient?.isCustomAuth = true
             }
             
@@ -235,7 +229,7 @@ final public class AWSMobileClient: _AWSMobileClient {
                 self.internalCredentialsProvider?.setIdentityProviderManagerOnce(self)
                 self.registerConfigSignInProviders()
                 
-               if (self.internalCredentialsProvider?.identityId != nil) {
+                if (self.internalCredentialsProvider?.identityId != nil) {
                     if (federationProvider == .none) {
                         currentUserState = .guest
                         completionHandler(.guest, nil)
@@ -243,10 +237,10 @@ final public class AWSMobileClient: _AWSMobileClient {
                         currentUserState = .signedIn
                         completionHandler(.signedIn, nil)
                     }
-               } else  if (self.cachedLoginsMap.count > 0) {
-                currentUserState = .signedIn
-                completionHandler(.signedIn, nil)
-               } else {
+                } else  if (self.cachedLoginsMap.count > 0) {
+                    currentUserState = .signedIn
+                    completionHandler(.signedIn, nil)
+                } else {
                     currentUserState = .signedOut
                     completionHandler(.signedOut, nil)
                 }
@@ -261,11 +255,11 @@ final public class AWSMobileClient: _AWSMobileClient {
         }
     }
     
-    
     /// Adds a listener who receives notifications on user state change.
     ///
     /// - Parameters:
-    ///   - object: The object who intends to receive notification. A strong reference is held to the object and the developer is required to call `removeUserStateListener` to stop getting notifications and release the object.
+    ///   - object: The object who intends to receive notification. A strong reference is held to the object and the developer is
+    ///   required to call `removeUserStateListener` to stop getting notifications and release the object.
     ///   - callback: Callback describing the new user state.
     public func addUserStateListener(_ object: AnyObject, _ callback: @escaping UserStateChangeCallback)  {
         listeners.append((object, callback))
@@ -275,7 +269,7 @@ final public class AWSMobileClient: _AWSMobileClient {
     ///
     /// - Parameter object: The object to be de-registered from receiving notifications.
     public func removeUserStateListener(_ object: AnyObject) {
-         listeners = listeners.filter { return !($0.0 === object)}
+        listeners = listeners.filter { return !($0.0 === object)}
     }
     
     internal func mobileClientStatusChanged(userState: UserState, additionalInfo: [String: String]) {
@@ -283,87 +277,6 @@ final public class AWSMobileClient: _AWSMobileClient {
         for listener in listeners {
             listener.1(userState, additionalInfo)
         }
-    }
-    
-    internal func configureAndRegisterCognitoAuth(hostedUIOptions: HostedUIOptions,
-                                                 _ completionHandler: @escaping(UserState?, Error?) -> Void) {
-        loadOAuthURIQueryParametersFromKeychain()
-        
-        let infoDictionaryMobileClient = AWSInfo.default().rootInfoDictionary["Auth"] as? [String: [String: Any]]
-        let infoDictionary: [String: Any]? = infoDictionaryMobileClient?["Default"]?["OAuth"] as? [String: Any]
-        
-        let clientId = infoDictionary?["AppClientId"] as? String
-        let secret = infoDictionary?["AppClientSecret"] as? String
-        let webDomain = infoDictionary?["WebDomain"] as? String
-        let hostURL = "https://\(webDomain!)"
-        
-        let signInRedirectURI = infoDictionary?["SignInRedirectURI"] as? String
-        let signInURI = infoDictionary?["SignInURI"] as? String
-        if self.signInURIQueryParameters == nil {
-            self.signInURIQueryParameters = infoDictionary?["SignInURIQueryParameters"] as? [String: String]
-        }
-        
-        let signOutRedirectURI = infoDictionary?["SignOutRedirectURI"] as? String
-        let signOutURI = infoDictionary?["SignOutURI"] as? String
-        if self.signOutURIQueryParameters == nil {
-            self.signOutURIQueryParameters = infoDictionary?["SignOutURIQueryParameters"] as? [String: String]
-        }
-        
-        let tokensURI = infoDictionary?["TokenURI"] as? String
-        if self.tokenURIQueryParameters == nil {
-            self.tokenURIQueryParameters = infoDictionary?["TokenURIQueryParameters"] as? [String: String]
-        }
-        
-        let identityProvider = hostedUIOptions.identityProvider
-        let idpIdentifier = hostedUIOptions.idpIdentifier
-        
-        if hostedUIOptions.scopes != nil {
-            self.scopes = hostedUIOptions.scopes
-        } else {
-            self.scopes = infoDictionary?["Scopes"] as? [String]
-            self.clearHostedUIOptionsScopesFromKeychain()
-        }
-        
-        if hostedUIOptions.signInURIQueryParameters != nil {
-            self.signInURIQueryParameters = hostedUIOptions.signInURIQueryParameters
-        }
-        
-        if hostedUIOptions.tokenURIQueryParameters != nil {
-            self.tokenURIQueryParameters = hostedUIOptions.tokenURIQueryParameters
-        }
-        
-        if hostedUIOptions.signOutURIQueryParameters != nil {
-            self.signOutURIQueryParameters = hostedUIOptions.signOutURIQueryParameters
-        }
-        
-        saveOAuthURIQueryParametersInKeychain()
-        
-        if (clientId == nil || scopes == nil || signInRedirectURI == nil || signOutRedirectURI == nil) {
-            completionHandler(nil, AWSMobileClientError.invalidConfiguration(message: "Please provide all configuration parameters to use the hosted UI feature."))
-        }
-        
-        let cognitoAuthConfig: AWSCognitoAuthConfiguration = AWSCognitoAuthConfiguration.init(appClientId: clientId!,
-                                         appClientSecret: secret,
-                                         scopes: Set<String>(self.scopes!.map { $0 }),
-                                         signInRedirectUri: signInRedirectURI!,
-                                         signOutRedirectUri: signOutRedirectURI!,
-                                         webDomain: hostURL,
-                                         identityProvider: identityProvider,
-                                         idpIdentifier: idpIdentifier,
-                                         signInUri: signInURI,
-                                         signOutUri: signOutURI,
-                                         tokensUri: tokensURI,
-                                         signInUriQueryParameters: self.signInURIQueryParameters,
-                                         signOutUriQueryParameters: self.signOutURIQueryParameters,
-                                         tokenUriQueryParameters: self.tokenURIQueryParameters,
-                                         userPoolServiceConfiguration: AWSMobileClient.serviceConfiguration?.userPoolServiceConfiguration,
-                                         signInPrivateSession: hostedUIOptions.signInPrivateSession)
-
-        if (isCognitoAuthRegistered) {
-            AWSCognitoAuth.remove(forKey: CognitoAuthRegistrationKey)
-        }
-        AWSCognitoAuth.registerCognitoAuth(with: cognitoAuthConfig, forKey: CognitoAuthRegistrationKey)
-        isCognitoAuthRegistered = true
     }
 }
 
