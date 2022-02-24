@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -47,6 +47,12 @@ typedef NS_ENUM(NSInteger, AWSTranslateDirectionality) {
 typedef NS_ENUM(NSInteger, AWSTranslateEncryptionKeyType) {
     AWSTranslateEncryptionKeyTypeUnknown,
     AWSTranslateEncryptionKeyTypeKms,
+};
+
+typedef NS_ENUM(NSInteger, AWSTranslateFormality) {
+    AWSTranslateFormalityUnknown,
+    AWSTranslateFormalityFormal,
+    AWSTranslateFormalityInformal,
 };
 
 typedef NS_ENUM(NSInteger, AWSTranslateJobStatus) {
@@ -1160,6 +1166,11 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
  */
 @interface AWSTranslateTranslationSettings : AWSModel
 
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSTranslateFormality formality;
 
 /**
  <p>Enable the profanity setting if you want Amazon Translate to mask profane words and phrases in your translation output.</p><p>To mask profane words and phrases, Amazon Translate replaces them with the grawlix string “?$#@$“. This 5-character sequence is used for each profane word or phrase, regardless of the length or number of words.</p><p>Amazon Translate does not detect profanity in all of its supported languages. For languages that support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is.html#what-is-languages">Supported Languages and Language Codes in the Amazon Translate Developer Guide</a>.</p>
