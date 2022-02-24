@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -48,6 +48,8 @@ typedef NS_ENUM(NSInteger, AWSTextractBlockType) {
     AWSTextractBlockTypeTable,
     AWSTextractBlockTypeCell,
     AWSTextractBlockTypeSelectionElement,
+    AWSTextractBlockTypeMergedCell,
+    AWSTextractBlockTypeTitle,
 };
 
 typedef NS_ENUM(NSInteger, AWSTextractContentClassifier) {
@@ -60,6 +62,7 @@ typedef NS_ENUM(NSInteger, AWSTextractEntityType) {
     AWSTextractEntityTypeUnknown,
     AWSTextractEntityTypeKey,
     AWSTextractEntityTypeValue,
+    AWSTextractEntityTypeColumnHeader,
 };
 
 typedef NS_ENUM(NSInteger, AWSTextractFeatureType) {
@@ -81,6 +84,8 @@ typedef NS_ENUM(NSInteger, AWSTextractRelationshipType) {
     AWSTextractRelationshipTypeValue,
     AWSTextractRelationshipTypeChild,
     AWSTextractRelationshipTypeComplexFeatures,
+    AWSTextractRelationshipTypeMergedCell,
+    AWSTextractRelationshipTypeTitle,
 };
 
 typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
