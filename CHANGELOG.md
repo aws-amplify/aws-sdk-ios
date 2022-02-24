@@ -15,6 +15,7 @@
   - AWSLambda
   - AWSTextract
   - AWSTranslate
+  - AWSAutoScaling
 
 ## 2.27.1
 
