@@ -12,6 +12,7 @@
   - AWSComprehend
   - AWSDynamoDB
   - AWSCognitoIdentityProvider
+  - AWSTranslate
 
 ## 2.27.1
 
