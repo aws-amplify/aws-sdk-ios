@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -111,6 +111,7 @@
 - (void) test_AWSAutoScalingInstanceRefreshProgressDetails API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingInstanceRefreshWarmPoolProgress API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingInstanceRequirements API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingInstanceReusePolicy API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingInstancesDistribution API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingLaunchConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingLaunchConfigurationNameType API_AVAILABLE(ios(11));
@@ -551,6 +552,10 @@
 
 - (void) test_AWSAutoScalingInstanceRequirements {
     [self validateSecureCodingForClass:[AWSAutoScalingInstanceRequirements class]];
+}
+
+- (void) test_AWSAutoScalingInstanceReusePolicy {
+    [self validateSecureCodingForClass:[AWSAutoScalingInstanceReusePolicy class]];
 }
 
 - (void) test_AWSAutoScalingInstancesDistribution {
