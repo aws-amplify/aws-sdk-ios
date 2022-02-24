@@ -12,16 +12,8 @@
 // express or implied. See the License for the specific language governing
 // permissions and limitations under the License.
 //
-//  AWSMobileClientSwift.swift
-//  AWSMobileClient
-//
 
 import Foundation
-
-
-/// Callback type when registered to notifications for change in `UserState`. The dictionary contains information like `provider` which the user signed in with.
-public typealias UserStateChangeCallback = (UserState, [String: String]) -> Void
-
 
 /// `AWSMobileClient` is used for all auth related operations when your app is accessing AWS backend.
 final public class AWSMobileClient: _AWSMobileClient {
@@ -29,14 +21,6 @@ final public class AWSMobileClient: _AWSMobileClient {
     static var _sharedInstance: AWSMobileClient = AWSMobileClient(setDelegate: true)
 
     static var serviceConfiguration: CognitoServiceConfiguration? = nil
-
-    // MARK: Feature availability variables
-    
-    /// Determines if there is any Cognito Identity Pool available to federate against it.
-    internal var isAuthorizationAvailable: Bool = false
-    
-    /// Should be set to true if using AWSAuthUI / AWSIdentityManager-AWSSignInManager
-    internal var operateInLegacyMode: Bool = false
     
     // MARK: State handler variables
     
@@ -79,19 +63,6 @@ final public class AWSMobileClient: _AWSMobileClient {
     /// AWSMobileClient, thus invalidating all credentials calls.
     var credentialsFetchCancellationSource: AWSCancellationTokenSource = AWSCancellationTokenSource()
     
-    // MARK: AWSMobileClient helpers
-    
-    let ProviderKey: String = "provider"
-    let TokenKey: String = "token"
-    let LoginsMapKey: String = "loginsMap"
-    let FederationProviderKey: String = "federationProvider"
-    let SignInURIQueryParametersKey: String = "signInURIQueryParameters"
-    let TokenURIQueryParametersKey: String = "tokenURIQueryParameters"
-    let SignOutURIQueryParametersKey: String = "signOutURIQueryParameters"
-    let CustomRoleArnKey: String = "customRoleArn"
-    let FederationDisabledKey: String = "federationDisabled"
-    let HostedUIOptionsScopesKey: String = "hostedUIOptionsScopes"
-    
     /// The internal Cognito Credentials Provider
     var internalCredentialsProvider: AWSCognitoCredentialsProvider?
     
@@ -126,46 +97,8 @@ final public class AWSMobileClient: _AWSMobileClient {
     public var currentUserState: UserState = .unknown
     
     public var deviceOperations: DeviceOperations = DeviceOperations.sharedInstance
-    
-    /// Returns the username attribute of the access token for the current logged in user,  nil otherwise.
-    /// Note that the value stored may vary depending on how sign-in was performed.
-    /// @see https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html#amazon-cognito-user-pools-using-the-access-token
-    public var username: String? {
-        return self.userpoolOpsHelper.currentActiveUser?.username
-    }
 
-    public var userSub: String? {
-        guard  (isSignedIn && (federationProvider == .hostedUI || federationProvider == .userPools)) else {
-            return nil
-        }
 
-        guard let idToken = self.cachedLoginsMap.first?.value else {
-            return nil
-        }
-        let sessionToken = SessionToken(tokenString: idToken)
-        guard let sub = sessionToken.claims?["sub"] as? String else {
-            return nil
-        }
-        return sub
-    }
-    
-    /// The identity id associated with this provider. This value will be fetched from the keychain at startup. If you do not want to reuse the existing identity id, you must call the clearKeychain method. If the identityId is not fetched yet, it will return nil. Use `getIdentityId()` method to force a server fetch when identityId is not available.
-    override public var identityId: String? {
-        return self.internalCredentialsProvider?.identityId
-    }
-    
-    /// Returns true if there is a user currently signed in.
-    @objc public var isSignedIn: Bool {
-        get {
-            if (operateInLegacyMode) {
-                return self.isLoggedIn
-            } else {
-                return self.cachedLoginsMap.count > 0
-            }
-        }
-    }
-    
-    
     /// The singleton instance of `AWSMobileClient`.
     ///
     /// **Deprecation note:** use `AWSMobileClient.default()` since it communicates better the API intent.
@@ -197,19 +130,13 @@ final public class AWSMobileClient: _AWSMobileClient {
             AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey).application(application, open: url, options: [:])
         }
     }
-    
-    
+
     /// Initializes `AWSMobileClient` and determines the `UserState` for current user using cache.
     ///
     /// - Parameter completionHandler: Callback which describes current user's state.
     public func initialize(_ completionHandler: @escaping (UserState?, Error?) -> Void) {
         // Read awsconfiguration.json and set the credentials provider here
         initializationQueue.sync {
-            
-            if (operateInLegacyMode) {
-                completionHandler(nil, AWSMobileClientError.invalidState(message: "The AWSMobileClient is being used in the legacy mode. To use this initialize method please refer to the documentation."))
-                return
-            }
             
             if (isInitialized) {
                 completionHandler(self.currentUserState, nil)
@@ -302,8 +229,7 @@ final public class AWSMobileClient: _AWSMobileClient {
             
             let infoObject = AWSInfo.default().defaultServiceInfo("IdentityManager")
             if let credentialsProvider = infoObject?.cognitoCredentialsProvider {
-                
-                self.isAuthorizationAvailable = true
+
                 self.internalCredentialsProvider = credentialsProvider
                 self.update(self)
                 self.internalCredentialsProvider?.setIdentityProviderManagerOnce(self)
@@ -345,7 +271,6 @@ final public class AWSMobileClient: _AWSMobileClient {
         listeners.append((object, callback))
     }
     
-    
     /// Removes a registered listener. If no listener exists, call is ignored.
     ///
     /// - Parameter object: The object to be de-registered from receiving notifications.
@@ -360,124 +285,7 @@ final public class AWSMobileClient: _AWSMobileClient {
         }
     }
     
-    internal func getTokensForCognitoAuthSession(session: AWSCognitoAuthUserSession) -> Tokens {
-        return Tokens(idToken: SessionToken(tokenString: session.idToken?.tokenString),
-                      accessToken: SessionToken(tokenString: session.accessToken?.tokenString),
-                      refreshToken: SessionToken(tokenString: session.refreshToken?.tokenString),
-                      expiration: session.expirationTime)
-    }
-    
-    /// Shows a fully managed sign in screen which allows users to sign up and sign in.
-    ///
-    /// - Parameters:
-    ///   - presentationAnchor: The presentation Anchor to show the ASWEbAuthenticationSession
-    ///   - hostedUIOptions: The options object which allows showSignIn to present a hosted web UI.
-    ///   - completionHandler: The completion handler to be called when user finishes the sign in action.
-    @available(iOS 13, *)
-    public func showSignIn(presentationAnchor: ASPresentationAnchor,
-                           hostedUIOptions: HostedUIOptions,
-                           _ completionHandler: @escaping(UserState?, Error?) -> Void) {
-        if case .signedIn = self.currentUserState {
-            completionHandler(nil, AWSMobileClientError.invalidState(message: "There is already a user which is signed in. Please log out the user before calling showSignIn."))
-            return
-        }
-        developerNavigationController = nil
-        configureAndRegisterCognitoAuth(hostedUIOptions: hostedUIOptions, completionHandler)
-        
-        let cognitoAuth = AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey)
-        cognitoAuth.delegate = self
-        
-        // Clear the keychain if there is an existing user details
-        cognitoAuth.signOutLocally()
-        
-        cognitoAuth.launchSignIn(withWebUI: presentationAnchor) { (session, error) in
-            self.handleCognitoAuthGetSession(hostedUIOptions: hostedUIOptions,
-                                             session: session,
-                                             error: error,
-                                             completionHandler)
-        }
-    }
-    
-    /// Shows a fully managed sign in screen which allows users to sign up and sign in.
-    ///
-    /// - Parameters:
-    ///   - navigationController: The navigation controller which would act as the anchor for this UI.
-    ///   - signInUIOptions: The options object which allows changing logo, background color and if the user can cancel the sign in operation if using native auth UI. This options object will be ignored if `hostedUIOptions` is passed in.
-    ///   - hostedUIOptions: The options object which allows showSignIn to present a hosted web UI. If passed, `signInUIOptions` are ignored since they are applicable only to native UI.
-    ///   - completionHandler: The completion handler to be called when user finishes the sign in action.
-    public func showSignIn(navigationController: UINavigationController,
-                           signInUIOptions: SignInUIOptions = SignInUIOptions(),
-                           hostedUIOptions: HostedUIOptions? = nil,
-                           _ completionHandler: @escaping(UserState?, Error?) -> Void) {
-        
-        switch self.currentUserState {
-        case .signedIn:
-            completionHandler(nil, AWSMobileClientError.invalidState(message: "There is already a user which is signed in. Please log out the user before calling showSignIn."))
-            return
-        default:
-            break
-        }
-        if let hostedUIOptions = hostedUIOptions {
-            // Return early if the developer is trying private session without providing a presentation anchor. Private session
-            // is only available through ASWebAuthenticationSession which is supported through the api
-            // `showSignIn(presentationAnchor:hostedUIOptions:completionHandler:)`.
-            if hostedUIOptions.signInPrivateSession {
-                completionHandler(nil, AWSMobileClientError.invalidState(message: "Private session is only available if you use showSignIn(presentationAnchor:hostedUIOptions:completionHandler:) which is available for iOS > 13.0"))
-                return
-            }
-            developerNavigationController = navigationController
-            configureAndRegisterCognitoAuth(hostedUIOptions: hostedUIOptions, completionHandler)
-            
-            let cognitoAuth = AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey)
-            cognitoAuth.delegate = self
-            
-            // Clear the keychain if there is an existing user details
-            cognitoAuth.signOutLocally()
-            
-            cognitoAuth.launchSignIn(with: navigationController.viewControllers.first!) { (session, error) in
-                self.handleCognitoAuthGetSession(hostedUIOptions: hostedUIOptions,
-                                                 session: session,
-                                                 error: error,
-                                                 completionHandler)
-            }
-            
-        } else {
-            self.showSign(inScreen: navigationController, signInUIConfiguration: signInUIOptions, completionHandler: { providerName, token, error in
-                if error == nil {
-                    if (providerName == IdentityProvider.facebook.rawValue) || (providerName == IdentityProvider.google.rawValue || providerName == IdentityProvider.apple.rawValue) {
-                        self.federatedSignIn(providerName: providerName!, token: token!, completionHandler: completionHandler)
-                    } else {
-                        self.currentUser?.getSession().continueWith(block: { (task) -> Any? in
-                            if let session = task.result {
-                                self.performUserPoolSuccessfulSignInTasks(session: session)
-                                let tokenString = session.idToken!.tokenString
-                                self.mobileClientStatusChanged(userState: .signedIn,
-                                                               additionalInfo: [self.ProviderKey:self.userPoolClient!.identityProviderName,
-                                                                                self.TokenKey:tokenString])
-                                completionHandler(.signedIn, nil)
-                            } else {
-                                completionHandler(nil, task.error)
-                            }
-                            return nil
-                        })
-                    }
-                } else {
-                    if ((error! as NSError).domain == "AWSMobileClientError") {
-                        if error!._code == -1 {
-                            completionHandler(nil, AWSMobileClientError.invalidState(message: "AWSAuthUI dependency is required to show the signIn screen. Please import the dependency before using this API."))
-                            return
-                        } else if error!._code == -2 {
-                            completionHandler(nil, AWSMobileClientError.userCancelledSignIn(message: "The user cancelled the sign in operation."))
-                            return
-                        }
-                    }
-                    completionHandler(nil, error)
-                }
-            })
-        }
-    }
-    
-    private func configureAndRegisterCognitoAuth(hostedUIOptions: HostedUIOptions,
+    internal func configureAndRegisterCognitoAuth(hostedUIOptions: HostedUIOptions,
                                                  _ completionHandler: @escaping(UserState?, Error?) -> Void) {
         loadOAuthURIQueryParametersFromKeychain()
         
@@ -557,122 +365,6 @@ final public class AWSMobileClient: _AWSMobileClient {
         AWSCognitoAuth.registerCognitoAuth(with: cognitoAuthConfig, forKey: CognitoAuthRegistrationKey)
         isCognitoAuthRegistered = true
     }
-    
-    private func handleCognitoAuthGetSession(hostedUIOptions: HostedUIOptions,
-                                             session: AWSCognitoAuthUserSession?,
-                                             error: Error?,
-                                             _ completionHandler: @escaping(UserState?, Error?) -> Void) {
-        guard error == nil else {
-            completionHandler(nil, error)
-            return
-        }
-        guard let session = session else {
-            let unknownError = AWSMobileClientError.unknown(message: "Received nil value for session and no error from the service.")
-            completionHandler(nil, unknownError)
-            return
-        }
-        
-        var signInInfo = [String: String]()
-        var federationToken: String? = nil
-        if let idToken = session.idToken?.tokenString {
-            federationToken = idToken
-        } else if let accessToken = session.accessToken?.tokenString {
-            federationToken = accessToken
-        }
-        
-        guard federationToken != nil else {
-            completionHandler(nil, AWSMobileClientError.idTokenAndAcceessTokenNotIssued(message: "No ID token or access token was issued."))
-            return
-        }
-        
-        if let identityProvider = hostedUIOptions.identityProvider {
-            signInInfo["identityProvider"] = identityProvider
-        }
-        if let idpIdentifier = hostedUIOptions.idpIdentifier {
-            signInInfo["idpIdentifier"] = idpIdentifier
-        }
-        signInInfo[self.TokenKey] = session.accessToken!.tokenString
-        signInInfo[self.ProviderKey] = "OAuth"
-        
-        // Upon successful sign in, store scopes specified using HostedUIOptions in Keychain
-        if hostedUIOptions.scopes != nil {
-            self.saveHostedUIOptionsScopesInKeychain()
-        }
-        let federationProviderIdentifier = hostedUIOptions.federationProviderName
-        
-        self.performHostedUISuccessfulSignInTasks(disableFederation: hostedUIOptions.disableFederation, session: session, federationToken: federationToken!, federationProviderIdentifier: federationProviderIdentifier, signInInfo: &signInInfo)
-        self.mobileClientStatusChanged(userState: .signedIn, additionalInfo: signInInfo)
-        completionHandler(.signedIn, nil)
-        self.pendingGetTokensCompletion?(self.getTokensForCognitoAuthSession(session: session), nil)
-        self.pendingGetTokensCompletion = nil
-    }
-}
-
-// MARK: Inherited methods from AWSCognitoCredentialsProvider
-
-extension AWSMobileClient {
-    
-    
-    /// Asynchronously returns a valid AWS credentials or an error object if it cannot retrieve valid credentials. It should cache valid credentials as much as possible and refresh them when they are invalid.
-    ///
-    /// - Returns: A valid AWS credentials or an error object describing the error.
-    override public func credentials() -> AWSTask<AWSCredentials> {
-        let credentialsTaskCompletionSource: AWSTaskCompletionSource<AWSCredentials> = AWSTaskCompletionSource()
-        
-        self.getAWSCredentials { (credentials, error) in
-            if let credentials = credentials {
-                credentialsTaskCompletionSource.set(result: credentials)
-            } else if let error = error {
-                credentialsTaskCompletionSource.set(error: error)
-            }
-        }
-        return credentialsTaskCompletionSource.task
-    }
-    
-    
-    /// Invalidates the cached temporary AWS credentials. If the credentials provider does not cache temporary credentials, this operation is a no-op.
-    override public func invalidateCachedTemporaryCredentials() {
-        self.internalCredentialsProvider?.invalidateCachedTemporaryCredentials()
-    }
-    
-    
-    /// Get/retrieve the identity id for this provider. If an identity id is already set on this provider, no remote call is made and the identity will be returned as a result of the AWSTask (the identityId is also available as a property). If no identityId is set on this provider, one will be retrieved from the service.
-    ///
-    /// - Returns: Asynchronous task which contains the identity id or error.
-    override public func getIdentityId() -> AWSTask<NSString> {
-        guard self.internalCredentialsProvider != nil else {
-            return AWSTask(error: AWSMobileClientError.cognitoIdentityPoolNotConfigured(message: "Cannot get identityId since cognito credentials configuration is not available."))
-        }
-        let identityFetchTaskCompletionSource: AWSTaskCompletionSource<NSString> = AWSTaskCompletionSource()
-        self.internalCredentialsProvider?.getIdentityId().continueWith(block: { (task) -> Any? in
-            if let error = task.error {
-                if error._domain == AWSCognitoCredentialsProviderHelperErrorDomain
-                    && error._code == AWSCognitoCredentialsProviderHelperErrorType.identityIsNil.rawValue {
-                    identityFetchTaskCompletionSource.set(error: AWSMobileClientError.identityIdUnavailable(message: "Fetching identity id on another thread failed. Please retry by calling `getIdentityId()` method."))
-                } else {
-                    identityFetchTaskCompletionSource.set(error: error)
-                }
-            } else if let result = task.result {
-                identityFetchTaskCompletionSource.set(result: result)
-            }
-            return nil
-        })
-        
-        return identityFetchTaskCompletionSource.task
-    }
-    
-    
-    /// Clear the cached AWS credentials for this provider.
-    override public func clearCredentials() {
-        self.internalCredentialsProvider?.clearCredentials()
-    }
-    
-    
-    /// Clear ALL saved values for this provider (identityId, credentials, logins).
-    override public func clearKeychain() {
-        self.internalCredentialsProvider?.clearKeychain()
-    }
-    
 }
 
 // MARK:- AWSMobileClient Cognito configuration
