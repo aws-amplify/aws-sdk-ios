@@ -22,6 +22,6 @@ Pod::Spec.new do |s|
    s.dependency 'AWSCore', '2.27.1'
    s.dependency 'AWSCognitoIdentityProviderASF', '2.27.1'
 
-   s.source_files = 'AWSAuthSDK/Sources/AWSMobileClient/*.{h,m}', 'AWSAuthSDK/Sources/AWSMobileClient/Internal/*.{h,m}', 'AWSAuthSDK/Sources/AWSMobileClient/*.swift', 'AWSCognitoAuth/**/*.{h,m,c}', 'AWSAuthSDK/Sources/AWSMobileClient/Internal/*.swift'
+   s.source_files = 'AWSAuthSDK/Sources/AWSMobileClient/*.{h,m}', 'AWSAuthSDK/Sources/AWSMobileClient/Internal/*.{h,m}', 'AWSAuthSDK/Sources/AWSMobileClient/*.swift', 'AWSCognitoAuth/**/*.{h,m,c}', 'AWSAuthSDK/Sources/AWSMobileClient/Internal/*.swift', 'AWSAuthSDK/Sources/AWSMobileClient/Models/*.swift'
    s.public_header_files = 'AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.h', 'AWSAuthSDK/Sources/AWSMobileClient/Internal/_AWSMobileClient.h', 'AWSCognitoAuth/*.h', 'AWSAuthSDK/Sources/AWSMobileClient/Internal/AWSCognitoAuth+Extensions.h', 'AWSAuthSDK/Sources/AWSMobileClient/Internal/AWSCognitoCredentialsProvider+Extension.h', 'AWSAuthSDK/Sources/AWSMobileClient/Internal/AWSCognitoIdentityUserPool+Extension.h'
  end
