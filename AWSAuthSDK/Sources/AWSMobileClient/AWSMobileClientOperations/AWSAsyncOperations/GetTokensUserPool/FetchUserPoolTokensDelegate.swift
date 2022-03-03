@@ -15,19 +15,9 @@
 
 import Foundation
 
-protocol CognitoUserPoolBehavior {
-    func getIdentityUser(_ username: String) -> CognitoIdentityUserBehavior
-}
+protocol FetchUserPoolTokensDelegate: AnyObject {
 
-extension AWSCognitoIdentityUserPool: CognitoUserPoolBehavior {
-    func getIdentityUser(_ username: String) -> CognitoIdentityUserBehavior {
-        let user: AWSCognitoIdentityUser = getUser(username)
-        return user
-    }
-}
+    func tokenFetchNeedsAuthentication(operation: FetchUserPoolTokensOperation)
 
-extension AWSCognitoAuth: CognitoUserPoolBehavior {
-    func getIdentityUser(_ username: String) -> CognitoIdentityUserBehavior {
-        return self
-    }
+    func getCurrentUsername(operation: FetchUserPoolTokensOperation) -> String?
 }

@@ -15,19 +15,12 @@
 
 import Foundation
 
-protocol CognitoUserPoolBehavior {
-    func getIdentityUser(_ username: String) -> CognitoIdentityUserBehavior
-}
+class FetchHostedUITokensOperation: AWSAsyncOperation {
 
-extension AWSCognitoIdentityUserPool: CognitoUserPoolBehavior {
-    func getIdentityUser(_ username: String) -> CognitoIdentityUserBehavior {
-        let user: AWSCognitoIdentityUser = getUser(username)
-        return user
-    }
-}
+    // Used to identify the operation.
+    //
+    // Identifier is mainly used in logs to identify different
+    // operations and its lifecycle
+    private let identifier: String = UUID().uuidString
 
-extension AWSCognitoAuth: CognitoUserPoolBehavior {
-    func getIdentityUser(_ username: String) -> CognitoIdentityUserBehavior {
-        return self
-    }
 }
