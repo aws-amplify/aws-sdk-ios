@@ -16,6 +16,8 @@
 import Foundation
 import AWSCore
 
+public typealias TokenCompletion = (Tokens?, Error?) -> Void
+
 extension AWSMobileClient {
 
     /// Returns cached UserPools auth JWT tokens if valid.
@@ -24,24 +26,29 @@ extension AWSMobileClient {
     /// The call to wait will be synchronized so that if multiple threads call this method, they will block till the first thread gets the token.
     ///
     /// - Parameter completionHandler: Tokens if available, else error.
-    public func getTokens(_ completionHandler: @escaping (Tokens?, Error?) -> Void) {
+    public func getTokens(_ completionHandler: @escaping TokenCompletion) {
 
         switch self.federationProvider {
-        case .userPools, .hostedUI:
-            break
-        default:
-            completionHandler(nil, AWSMobileClientError.notSignedIn(message: notSignedInErrorMessage))
-            return
-        }
 
-        if self.federationProvider == .hostedUI {
+        case .userPools:
+            AWSMobileClientLogging.verbose("Adding FetchUserPoolTokensOperation operation")
+            let operation = FetchUserPoolTokensOperation(completion: completionHandler)
+            operation.delegate = self
+            operation.completionBlock = { [weak self] in
+                guard let index = self?.tokenOperations.firstIndex(of: operation) else {return}
+                self?.tokenOperations.remove(at: index)
+            }
+            tokenOperations.append(operation)
+            tokenFetchOperationQueue.addOperation(operation)
+
+        case .hostedUI:
             AWSMobileClientLogging.verbose("Invoking hostedUI getTokens")
             let operation = AWSAsyncBlockOperation { done in
                 AWSCognitoAuth(forKey: self.CognitoAuthRegistrationKey).getSession({ (session, error) in
                     if let sessionError = error,
-                        (sessionError as NSError).domain == AWSCognitoAuthErrorDomain,
-                        let errorType = AWSCognitoAuthClientErrorType(rawValue: (sessionError as NSError).code),
-                        (errorType == .errorExpiredRefreshToken) {
+                       (sessionError as NSError).domain == AWSCognitoAuthErrorDomain,
+                       let errorType = AWSCognitoAuthClientErrorType(rawValue: (sessionError as NSError).code),
+                       (errorType == .errorExpiredRefreshToken) {
                         self.pendingGetTokensCompletion = { tokens, error in
                             completionHandler(tokens, error)
                             done()
@@ -52,7 +59,7 @@ extension AWSMobileClient {
                             additionalInfo: [AWSMobileClientConstants.ProviderKey:"OAuth"])
                         return
                     } else if let session = session {
-                        completionHandler(self.getTokensForCognitoAuthSession(session: session), nil)
+                        completionHandler(session.mobileClientTokens, nil)
                         done()
                     } else {
                         completionHandler(nil, error)
@@ -61,56 +68,31 @@ extension AWSMobileClient {
                 })
             }
             tokenFetchOperationQueue.addOperation(operation)
+        default:
+            let message = AWSMobileClientConstants.notSignedInMessage
+            let error = AWSMobileClientError.notSignedIn(message: message)
+            completionHandler(nil, error)
+        }
+    }
+}
+
+extension AWSMobileClient: FetchUserPoolTokensDelegate {
+
+    func tokenFetchNeedsAuthentication(operation: FetchUserPoolTokensOperation) {
+        let state = self.currentUserState
+        guard state == .signedIn || state == .signedOutUserPoolsTokenInvalid else {
             return
         }
-        if self.federationProvider == .userPools {
-            AWSMobileClientLogging.verbose("Invoking userPools getTokens")
-            self.userpoolOpsHelper.userpoolClient?.delegate = self.userpoolOpsHelper
-            self.userpoolOpsHelper.authHelperDelegate = self
-            let operation = AWSAsyncBlockOperation { done in
-                self.currentUser?.getSession().continueWith(block: { (task) -> Any? in
-                    if let error = task.error {
-                        completionHandler(nil, error)
-                        self.invokeSignInCallback(signResult: nil, error: error)
-                    } else if let session = task.result {
-                        completionHandler(self.userSessionToTokens(userSession: session), nil)
-                        self.federationProvider = .userPools
-                        if (self.currentUserState != .signedIn) {
-                            self.mobileClientStatusChanged(userState: .signedIn, additionalInfo: [:])
-                        }
-                        self.invokeSignInCallback(signResult: SignInResult(signInState: .signedIn), error: nil)
-                    }
-                    defer {
-                        done()
-                    }
-                    return nil
-                })
-            }
-            tokenFetchOperationQueue.addOperation(operation)
-            return
-        }
+
+        self.invalidateCachedTemporaryCredentials()
+        self.mobileClientStatusChanged(
+            userState: .signedOutUserPoolsTokenInvalid,
+            additionalInfo: ["username":self.userPoolClient?.currentUser()?.username ?? ""])
     }
 
-    internal func userSessionToTokens(userSession: AWSCognitoIdentityUserSession) -> Tokens {
-        var idToken: SessionToken?
-        var accessToken: SessionToken?
-        var refreshToken: SessionToken?
-        if userSession.idToken != nil {
-            idToken = SessionToken(tokenString: userSession.idToken?.tokenString)
-        }
-        if userSession.accessToken != nil {
-            accessToken = SessionToken(tokenString: userSession.accessToken?.tokenString)
-        }
-        if userSession.refreshToken != nil {
-            refreshToken = SessionToken(tokenString: userSession.refreshToken?.tokenString)
-        }
-        return Tokens(idToken: idToken, accessToken: accessToken, refreshToken: refreshToken, expiration: userSession.expirationTime)
+    func getCurrentUsername(operation: FetchUserPoolTokensOperation) -> String? {
+        username
     }
 
-    internal func getTokensForCognitoAuthSession(session: AWSCognitoAuthUserSession) -> Tokens {
-        return Tokens(idToken: SessionToken(tokenString: session.idToken?.tokenString),
-                      accessToken: SessionToken(tokenString: session.accessToken?.tokenString),
-                      refreshToken: SessionToken(tokenString: session.refreshToken?.tokenString),
-                      expiration: session.expirationTime)
-    }
+
 }

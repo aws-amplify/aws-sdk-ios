@@ -90,7 +90,9 @@ final public class AWSMobileClient: _AWSMobileClient {
     /// Hold on to user password for custom auth. Password verification can
     /// come as the second step in custom auth.
     var userPassword: String? = nil
-    
+
+    var tokenOperations:[FetchUserPoolTokensOperation] = []
+
     // MARK: Public API variables
     
     /// Returns the current state of user. If MobileClient is not initialized, it will return `unknown`
@@ -322,6 +324,9 @@ final public class AWSMobileClient: _AWSMobileClient {
     
     internal func mobileClientStatusChanged(userState: UserState, additionalInfo: [String: String]) {
         self.currentUserState = userState
+        tokenOperations.forEach { op in
+            op.authStateChanged(currentUserState)
+        }
         for listener in listeners {
             listener.1(userState, additionalInfo)
         }

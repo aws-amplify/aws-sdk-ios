@@ -30,5 +30,13 @@ struct AWSMobileClientConstants {
     static let CustomRoleArnKey = "customRoleArn"
     static let FederationDisabledKey = "federationDisabled"
     static let HostedUIOptionsScopesKey = "hostedUIOptionsScopes"
-    static let ConfigurationKey: String = "configurationKey"
+    static let ConfigurationKey = "configurationKey"
+
+    static let notSignedInMessage = """
+    User is not signed in to Cognito User Pool, please sign in to use this API.
+    """
+
+    static let noValidSignInSession = """
+    Unable to get valid sign in session from the end user.
+    """
 }

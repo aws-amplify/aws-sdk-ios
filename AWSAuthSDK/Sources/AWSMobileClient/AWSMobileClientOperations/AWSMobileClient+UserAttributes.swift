@@ -18,10 +18,6 @@ import Foundation
 /// Extension to hold user attribute operations
 extension AWSMobileClient {
 
-    var notSignedInErrorMessage: String {
-        return "User is not signed in to Cognito User Pool, please sign in to use this API."
-    }
-
     /// Verify a user attribute like phone_number.
     ///
     /// This method is only valid for users signed in via UserPools (either directly or via HostedUI).
@@ -35,7 +31,9 @@ extension AWSMobileClient {
                                     clientMetaData: [String:String] = [:],
                                     completionHandler: @escaping ((UserCodeDeliveryDetails?, Error?) -> Void)) {
         guard self.federationProvider == .userPools || self.federationProvider == .hostedUI else {
-            completionHandler(nil, AWSMobileClientError.notSignedIn(message: notSignedInErrorMessage))
+            let message = AWSMobileClientConstants.notSignedInMessage
+            let error = AWSMobileClientError.notSignedIn(message: message)
+            completionHandler(nil, error)
             return
         }
         let userDetails = AWSMobileClientUserDetails(with: self.userpoolOpsHelper.currentActiveUser!)
@@ -55,7 +53,9 @@ extension AWSMobileClient {
                                      clientMetaData: [String:String] = [:],
                                      completionHandler: @escaping (([UserCodeDeliveryDetails]?, Error?) -> Void)) {
         guard self.federationProvider == .userPools || self.federationProvider == .hostedUI else {
-            completionHandler(nil, AWSMobileClientError.notSignedIn(message: notSignedInErrorMessage))
+            let message = AWSMobileClientConstants.notSignedInMessage
+            let error = AWSMobileClientError.notSignedIn(message: message)
+            completionHandler(nil, error)
             return
         }
         let userDetails = AWSMobileClientUserDetails(with: self.userpoolOpsHelper.currentActiveUser!)
@@ -69,11 +69,15 @@ extension AWSMobileClient {
     /// - Parameter completionHandler: completion handler which will be invoked when result is available.
     public func getUserAttributes(completionHandler: @escaping (([String: String]?, Error?) -> Void)) {
         guard self.federationProvider == .userPools || self.federationProvider == .hostedUI else {
-            completionHandler(nil, AWSMobileClientError.notSignedIn(message: notSignedInErrorMessage))
+            let message = AWSMobileClientConstants.notSignedInMessage
+            let error = AWSMobileClientError.notSignedIn(message: message)
+            completionHandler(nil, error)
             return
         }
         guard let currentActiveUser = self.userpoolOpsHelper.currentActiveUser else {
-            completionHandler(nil, AWSMobileClientError.notSignedIn(message: self.notSignedInErrorMessage))
+            let message = AWSMobileClientConstants.notSignedInMessage
+            let error = AWSMobileClientError.notSignedIn(message: message)
+            completionHandler(nil, error)
             return
         }
         self.getTokens { _, error in
@@ -96,7 +100,9 @@ extension AWSMobileClient {
     ///   - completionHandler: completionHandler which will be called when the result is avilable.
     public func confirmUpdateUserAttributes(attributeName: String, code: String, completionHandler: @escaping ((Error?) -> Void)) {
         guard self.federationProvider == .userPools || self.federationProvider == .hostedUI else {
-            completionHandler(AWSMobileClientError.notSignedIn(message: notSignedInErrorMessage))
+            let message = AWSMobileClientConstants.notSignedInMessage
+            let error = AWSMobileClientError.notSignedIn(message: message)
+            completionHandler(error)
             return
         }
         self.confirmVerifyUserAttribute(attributeName: attributeName, code: code, completionHandler: completionHandler)
@@ -112,7 +118,9 @@ extension AWSMobileClient {
     ///   - completionHandler: completionHandler which will be called when the result is avilable.
     public func confirmVerifyUserAttribute(attributeName: String, code: String, completionHandler: @escaping ((Error?) -> Void)) {
         guard self.federationProvider == .userPools || self.federationProvider == .hostedUI else {
-            completionHandler(AWSMobileClientError.notSignedIn(message: notSignedInErrorMessage))
+            let message = AWSMobileClientConstants.notSignedInMessage
+            let error = AWSMobileClientError.notSignedIn(message: message)
+            completionHandler(error)
             return
         }
         let userDetails = AWSMobileClientUserDetails(with: self.userpoolOpsHelper.currentActiveUser!)

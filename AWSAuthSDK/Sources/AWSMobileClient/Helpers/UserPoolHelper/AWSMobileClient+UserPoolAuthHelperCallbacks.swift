@@ -26,14 +26,17 @@ extension AWSMobileClient: UserPoolAuthHelperCallbacks {
         // to inform the user that the session is expired, because that is handled by
         // getCustomAuthenticationDetails.
         if(self.userPoolClient?.isCustomAuth ?? false) {
-            let authDetails = AWSCognitoIdentityPasswordAuthenticationDetails(username: self.currentUser?.username ?? "",
-                                                                              password: userPassword ?? "dummyPassword")
+            let authDetails = AWSCognitoIdentityPasswordAuthenticationDetails(
+                username: self.currentUser?.username ?? "",
+                password: userPassword ?? "dummyPassword")
             passwordAuthenticationCompletionSource.set(result: authDetails)
             userPassword = nil
             return
         }
         if (self.federationProvider != .userPools) {
-            passwordAuthenticationCompletionSource.set(error: AWSMobileClientError.notSignedIn(message: notSignedInErrorMessage))
+            let message = AWSMobileClientConstants.notSignedInMessage
+            let error = AWSMobileClientError.notSignedIn(message: message)
+            passwordAuthenticationCompletionSource.set(error: error)
         }
         switch self.currentUserState {
         case .signedIn, .signedOutUserPoolsTokenInvalid:
