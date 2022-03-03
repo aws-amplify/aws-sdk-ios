@@ -6,60 +6,6 @@
 import Foundation
 import AWSCognitoIdentityProvider
 
-
-/// The structure that holds information about a device.
-public struct Device {
-    
-    /// Device attributes
-    public let attributes: [String: String]?
-    
-    
-    /// The date this device was created.
-    public let createDate: Date?
-    
-    
-    /// The service generated unique identifier for device.
-    public let deviceKey: String?
-    
-    
-    /// The date this device was last authenticated.
-    public let lastAuthenticatedDate: Date?
-    
-    
-    /// The date this device was last updated.
-    public let lastModifiedDate: Date?
-    
-    internal init(attributes: [String: String]? = nil,
-                  createDate: Date? = nil,
-                  deviceKey: String? = nil,
-                  lastAuthenticatedDate: Date? = nil,
-                  lastModifiedDate: Date? = nil) {
-        self.attributes = attributes
-        self.createDate = createDate
-        self.deviceKey = deviceKey
-        self.lastAuthenticatedDate = lastAuthenticatedDate
-        self.lastModifiedDate = lastModifiedDate
-    }
-}
-
-
-/// The result object for `list` operation in `DeviceOperations`.
-public struct ListDevicesResult {
-    public let devices: [Device]?
-    public let paginationToken: String?
-    
-    internal init(devices: [Device]? = [], paginationToken: String?) {
-        self.devices = devices
-        self.paginationToken = paginationToken
-    }
-}
-
-/// The result object for `updateStatus` operation in `DeviceOperations`.
-public struct UpdateDeviceStatusResult {
-    
-}
-
-
 /// DeviceOperations is responsible for handling mobile device related operations for logged in user.
 public class DeviceOperations {
     
