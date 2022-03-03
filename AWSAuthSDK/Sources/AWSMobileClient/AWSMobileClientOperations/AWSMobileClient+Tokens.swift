@@ -14,6 +14,7 @@
 //
 
 import Foundation
+import AWSCore
 
 extension AWSMobileClient {
 
@@ -24,6 +25,7 @@ extension AWSMobileClient {
     ///
     /// - Parameter completionHandler: Tokens if available, else error.
     public func getTokens(_ completionHandler: @escaping (Tokens?, Error?) -> Void) {
+
         switch self.federationProvider {
         case .userPools, .hostedUI:
             break
@@ -33,6 +35,7 @@ extension AWSMobileClient {
         }
 
         if self.federationProvider == .hostedUI {
+            AWSMobileClientLogging.verbose("Invoking hostedUI getTokens")
             let operation = AWSAsyncBlockOperation { done in
                 AWSCognitoAuth(forKey: self.CognitoAuthRegistrationKey).getSession({ (session, error) in
                     if let sessionError = error,
@@ -61,6 +64,7 @@ extension AWSMobileClient {
             return
         }
         if self.federationProvider == .userPools {
+            AWSMobileClientLogging.verbose("Invoking userPools getTokens")
             self.userpoolOpsHelper.userpoolClient?.delegate = self.userpoolOpsHelper
             self.userpoolOpsHelper.authHelperDelegate = self
             let operation = AWSAsyncBlockOperation { done in
