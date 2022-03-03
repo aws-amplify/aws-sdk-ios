@@ -25,7 +25,6 @@ extension AWSMobileClient {
     ///
     /// - Parameter completionHandler: Tokens if available, else error.
     public func getTokens(_ completionHandler: @escaping (Tokens?, Error?) -> Void) {
-
         switch self.federationProvider {
         case .userPools, .hostedUI:
             break
