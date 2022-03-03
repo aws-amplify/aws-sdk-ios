@@ -2207,8 +2207,6 @@
 				B43CB18E27C6FA7D00968F10 /* UserCodeDeliveryDetails.swift */,
 				B43CB18B27C6FA6400968F10 /* UserCodeDeliveryMedium.swift */,
 				B4BC91CF27C6F72400354EB5 /* UserState.swift */,
-				B43CB20D27C70AF500968F10 /* SessionToken.swift */,
-				B43CB21127C70B3200968F10 /* Tokens.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
