@@ -17,7 +17,7 @@
     <a title="AWSCognitoIdentityProviderCreateUserPoolRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCognitoIdentityProvider 2.27.1 Docs</a> (77% documented)</p>
+        <p><a href="../index.html">AWSCognitoIdentityProvider 2.27.2 Docs</a> (77% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoIdentityProvider.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -1143,7 +1143,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Use this setting to define which verified available method a user can use to recover their password when they call <code>ForgotPassword</code>. It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.</p>
+                        <p>The available verified method a user can use to recover their password when they call <code>ForgotPassword</code>. You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn&rsquo;t qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.</p>
 
                       </div>
                       <div class="declaration">
@@ -1399,7 +1399,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>The Lambda trigger configuration information for the new user pool.</p><note><p>In a push model, event sources (such as Amazon S3 and custom applications) need permission to invoke a function. So you will need to make an extra call to add permission for these event sources to invoke your Lambda function.</p><p/><p>For more information on using the Lambda API to add permission, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html"> AddPermission </a>. </p><p>For adding permission using the CLI, see <a href="https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html"> add-permission </a>.</p></note></p>
+                        <p><p>The Lambda trigger configuration information for the new user pool.</p><note><p>In a push model, event sources (such as Amazon S3 and custom applications) need permission to invoke a function. So you must make an extra call to add permission for these event sources to invoke your Lambda function.</p><p/><p>For more information on using the Lambda API to add permission, see<a href="https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html"> AddPermission </a>. </p><p>For adding permission using the CLI, see<a href="https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html"> add-permission </a>.</p></note></p>
 
                       </div>
                       <div class="declaration">
@@ -1655,7 +1655,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Used to enable advanced security risk detection. Set the key <code>AdvancedSecurityMode</code> to the value &ldquo;AUDIT&rdquo;.</p>
+                        <p>Enables advanced security risk detection. Set the key <code>AdvancedSecurityMode</code> to the value &ldquo;AUDIT&rdquo;.</p>
 
                       </div>
                       <div class="declaration">
@@ -1719,7 +1719,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up.</p>
+                        <p>Specifies whether a user can use an email address or phone number as a username when they sign up.</p>
 
                       </div>
                       <div class="declaration">
@@ -1751,7 +1751,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>You can choose to set case sensitivity on the username input for the selected sign-in option. For example, when this is set to <code>False</code>, users will be able to sign in using either &ldquo;username&rdquo; or &ldquo;Username&rdquo;. This configuration is immutable once it has been set. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html">UsernameConfigurationType</a>.</p>
+                        <p>Case sensitivity on the username input for the selected sign-in option. For example, when case sensitivity is set to <code>False</code>, users can sign in using either &ldquo;username&rdquo; or &ldquo;Username&rdquo;. This configuration is immutable once it has been set. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html">UsernameConfigurationType</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -1807,7 +1807,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-01-28)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-03-03)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSCognitoIdentityProvider 2.27.1 Docs</a> (77% documented)</p>
+        <p><a href="index.html">AWSCognitoIdentityProvider 2.27.2 Docs</a> (77% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoIdentityProvider.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -2791,7 +2791,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The status response from the request to update the device, as an administrator.</p>
+                        <p>The status response to the request to update the device, as an administrator.</p>
 
                       </div>
                       <div class="declaration">
@@ -2957,7 +2957,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>The Amazon Pinpoint analytics configuration for collecting metrics for a user pool.</p><note><p>In regions where Pinpoint is not available, Cognito User Pools only supports sending events to Amazon Pinpoint projects in us-east-1. In regions where Pinpoint is available, Cognito User Pools will support sending events to Amazon Pinpoint projects within that same region. </p></note></p>
+                        <p><p>The Amazon Pinpoint analytics configuration for collecting metrics for a user pool.</p><note><p>In Regions where Pinpoint isn&rsquo;t available, User Pools only supports sending events to Amazon Pinpoint projects in us-east-1. In Regions where Pinpoint is available, User Pools will support sending events to Amazon Pinpoint projects within that same Region. </p></note></p>
 
                         <a href="Classes/AWSCognitoIdentityProviderAnalyticsConfigurationType.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2990,7 +2990,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>An Amazon Pinpoint analytics endpoint.</p><p>An endpoint uniquely identifies a mobile device, email address, or phone number that can receive messages from Amazon Pinpoint analytics.</p><note><p>Cognito User Pools only supports sending events to Amazon Pinpoint projects in the US East (N. Virginia) us-east-1 Region, regardless of the region in which the user pool resides.</p></note></p>
+                        <p><p>An Amazon Pinpoint analytics endpoint.</p><p>An endpoint uniquely identifies a mobile device, email address, or phone number that can receive messages from Amazon Pinpoint analytics.</p><note><p>Amazon Cognito User Pools only supports sending events to Amazon Pinpoint projects in the US East (N. Virginia) us-east-1 Region, regardless of the Region in which the user pool resides.</p></note></p>
 
                         <a href="Classes/AWSCognitoIdentityProviderAnalyticsMetadataType.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3321,7 +3321,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The compromised credentials actions type</p>
+                        <p>The compromised credentials actions type.</p>
 
 <p>Required parameters: [EventAction]</p>
 
@@ -4984,7 +4984,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The configuration for the user pool&rsquo;s device tracking.</p>
+                        <p><p>The device tracking configuration for a user pool. A user pool with device tracking deactivated returns a null value.</p><note><p>When you provide values for any DeviceConfiguration field, you activate device tracking.</p></note></p>
 
                         <a href="Classes/AWSCognitoIdentityProviderDeviceConfigurationType.html" class="slightly-smaller">See more</a>
                       </div>
@@ -5017,7 +5017,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The device verifier against which it will be authenticated.</p>
+                        <p>The device verifier against which it is authenticated.</p>
 
                         <a href="Classes/AWSCognitoIdentityProviderDeviceSecretVerifierConfigType.html" class="slightly-smaller">See more</a>
                       </div>
@@ -5116,7 +5116,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>The email configuration type. </p><note><p>Amazon Cognito has specific regions for use with Amazon SES. For more information on the supported regions, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-email.html">Email Settings for Amazon Cognito User Pools</a>.</p></note></p>
+                        <p><p>The email configuration type.</p><note><p>Amazon Cognito has specific Regions for use with Amazon Simple Email Service. For more information on the supported Regions, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-email.html">Email settings for Amazon Cognito user pools</a>.</p></note></p>
 
                         <a href="Classes/AWSCognitoIdentityProviderEmailConfigurationType.html" class="slightly-smaller">See more</a>
                       </div>
@@ -5353,7 +5353,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Represents the request to get the header information for the .csv file for the user import job.</p>
+                        <p>Represents the request to get the header information of the CSV file for the user import job.</p>
 
 <p>Required parameters: [UserPoolId]</p>
 
@@ -5388,7 +5388,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Represents the response from the server to the request to get the header information for the .csv file for the user import job.</p>
+                        <p>Represents the response from the server to the request to get the header information of the CSV file for the user import job.</p>
 
                         <a href="Classes/AWSCognitoIdentityProviderGetCSVHeaderResponse.html" class="slightly-smaller">See more</a>
                       </div>
@@ -5619,7 +5619,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Request to get a signing certificate from Cognito.</p>
+                        <p>Request to get a signing certificate from Amazon Cognito.</p>
 
 <p>Required parameters: [UserPoolId]</p>
 
@@ -5654,7 +5654,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Response from Cognito for a signing certificate request.</p>
+                        <p>Response from Amazon Cognito for a signing certificate request.</p>
 
                         <a href="Classes/AWSCognitoIdentityProviderGetSigningCertificateResponse.html" class="slightly-smaller">See more</a>
                       </div>
@@ -6880,7 +6880,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><i>This data type is no longer supported.</i> You can use it only for SMS MFA configurations. You can&rsquo;t use it for TOTP software token MFA configurations.</p>
+                        <p><i>This data type is no longer supported.</i> You can use it only for SMS multi-factor authentication (MFA) configurations. You can&rsquo;t use it for time-based one-time password (TOTP) software token MFA configurations.</p>
 
                         <a href="Classes/AWSCognitoIdentityProviderMFAOptionType.html" class="slightly-smaller">See more</a>
                       </div>
@@ -7049,7 +7049,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The minimum and maximum value of an attribute that is of the number data type.</p>
+                        <p>The minimum and maximum values of an attribute that is of the number data type.</p>
 
                         <a href="Classes/AWSCognitoIdentityProviderNumberAttributeConstraintsType.html" class="slightly-smaller">See more</a>
                       </div>
@@ -7251,7 +7251,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The response from the server when the Amazon Cognito Your User Pools service makes the request to resend a confirmation code.</p>
+                        <p>The response from the server when Amazon Cognito makes the request to resend a confirmation code.</p>
 
                         <a href="Classes/AWSCognitoIdentityProviderResendConfirmationCodeResponse.html" class="slightly-smaller">See more</a>
                       </div>
@@ -7549,7 +7549,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The type used for enabling SMS MFA at the user level. Phone numbers don&rsquo;t need to be verified to be used for SMS MFA. If an MFA type is enabled for a user, the user will be prompted for MFA during all sign in attempts, unless device tracking is turned on and the device has been trusted. If you would like MFA to be applied selectively based on the assessed risk level of sign in attempts, disable MFA for users and turn on Adaptive Authentication for the user pool.</p>
+                        <p>The type used for enabling SMS multi-factor authentication (MFA) at the user level. Phone numbers don&rsquo;t need to be verified to be used for SMS MFA. If an MFA type is activated for a user, the user will be prompted for MFA during all sign-in attempts, unless device tracking is turned on and the device has been trusted. If you would like MFA to be applied selectively based on the assessed risk level of sign-in attempts, deactivate MFA for users and turn on Adaptive Authentication for the user pool.</p>
 
                         <a href="Classes/AWSCognitoIdentityProviderSMSMfaSettingsType.html" class="slightly-smaller">See more</a>
                       </div>
@@ -8007,7 +8007,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The SMS configuration type that includes the settings the Cognito User Pool needs to call for the Amazon SNS service to send an SMS message from your account. The Cognito User Pool makes the request to the Amazon SNS Service by using an IAM role that you provide for your account.</p>
+                        <p>The SMS configuration type that includes the settings the Amazon Cognito User Pool must call for the Amazon Simple Notification Service service to send an SMS message from your Amazon Web Services account. The Amazon Cognito User Pool makes the request to the Amazon SNS Service by using an Identity and Access Management role that you provide for your Amazon Web Services account.</p>
 
 <p>Required parameters: [SnsCallerArn]</p>
 
@@ -8108,7 +8108,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The type used for enabling software token MFA at the user level. If an MFA type is enabled for a user, the user will be prompted for MFA during all sign in attempts, unless device tracking is turned on and the device has been trusted. If you would like MFA to be applied selectively based on the assessed risk level of sign in attempts, disable MFA for users and turn on Adaptive Authentication for the user pool.</p>
+                        <p>The type used for enabling software token MFA at the user level. If an MFA type is activated for a user, the user will be prompted for MFA during all sign-in attempts, unless device tracking is turned on and the device has been trusted. If you want MFA to be applied selectively based on the assessed risk level of sign-in attempts, deactivate MFA for users and turn on Adaptive Authentication for the user pool.</p>
 
                         <a href="Classes/AWSCognitoIdentityProviderSoftwareTokenMfaSettingsType.html" class="slightly-smaller">See more</a>
                       </div>
@@ -9095,7 +9095,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Contextual data such as the user&rsquo;s device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
+                        <p>Contextual data, such as the user&rsquo;s device fingerprint, IP address, or location, used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
 
                         <a href="Classes/AWSCognitoIdentityProviderUserContextDataType.html" class="slightly-smaller">See more</a>
                       </div>
@@ -9632,7 +9632,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Using the Amazon Cognito User Pools API, you can create a user pool to manage directories and users. You can authenticate a user to obtain tokens related to user identity and access policies.</p><p>This API reference provides information about user pools in Amazon Cognito User Pools.</p><p>For more information, see the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html">Amazon Cognito Documentation</a>.</p>
+                        <p>Using the Amazon Cognito user pools API, you can create a user pool to manage directories and users. You can authenticate a user to obtain tokens related to user identity and access policies.</p><p>This API reference provides information about user pools in Amazon Cognito user pools.</p><p>For more information, see the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html">Amazon Cognito Documentation</a>.</p>
 
                         <a href="Classes/AWSCognitoIdentityProvider.html" class="slightly-smaller">See more</a>
                       </div>
@@ -11363,7 +11363,7 @@ destination and delivery medium</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-01-28)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-03-03)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

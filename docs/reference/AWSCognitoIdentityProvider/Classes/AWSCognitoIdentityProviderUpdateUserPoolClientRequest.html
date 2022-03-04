@@ -17,7 +17,7 @@
     <a title="AWSCognitoIdentityProviderUpdateUserPoolClientRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCognitoIdentityProvider 2.27.1 Docs</a> (77% documented)</p>
+        <p><a href="../index.html">AWSCognitoIdentityProvider 2.27.2 Docs</a> (77% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoIdentityProvider.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -1143,7 +1143,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The time limit, after which the access token is no longer valid and cannot be used.</p>
+                        <p>The time limit after which the access token is no longer valid and can&rsquo;t be used.</p>
 
                       </div>
                       <div class="declaration">
@@ -1207,7 +1207,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set to true if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.</p>
+                        <p>Set to true if the client is allowed to follow the OAuth protocol when interacting with Amazon Cognito user pools.</p>
 
                       </div>
                       <div class="declaration">
@@ -1271,7 +1271,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.</p><note><p>In regions where Pinpoint is not available, Cognito User Pools only supports sending events to Amazon Pinpoint projects in us-east-1. In regions where Pinpoint is available, Cognito User Pools will support sending events to Amazon Pinpoint projects within that same region. </p></note></p>
+                        <p><p>The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.</p><note><p>In Amazon Web Services Regions where isn&rsquo;t available, User Pools only supports sending events to Amazon Pinpoint projects in us-east-1. In Regions where Pinpoint is available, User Pools will support sending events to Amazon Pinpoint projects within that same Region. </p></note></p>
 
                       </div>
                       <div class="declaration">
@@ -1303,7 +1303,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A list of allowed redirect (callback) URLs for the identity providers.</p><p>A redirect URI must:</p><ul><li><p>Be an absolute URI.</p></li><li><p>Be registered with the authorization server.</p></li><li><p>Not include a fragment component.</p></li></ul><p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p><p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p><p>App callback URLs such as myapp://example are also supported.</p>
+                        <p>A list of allowed redirect (callback) URLs for the identity providers.</p><p>A redirect URI must:</p><ul><li><p>Be an absolute URI.</p></li><li><p>Be registered with the authorization server.</p></li><li><p>Not include a fragment component.</p></li></ul><p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p><p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p><p>App callback URLs such as <code>myapp://example</code> are also supported.</p>
 
                       </div>
                       <div class="declaration">
@@ -1399,7 +1399,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p><p>A redirect URI must:</p><ul><li><p>Be an absolute URI.</p></li><li><p>Be registered with the authorization server.</p></li><li><p>Not include a fragment component.</p></li></ul><p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p><p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p><p>App callback URLs such as myapp://example are also supported.</p>
+                        <p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p><p>A redirect URI must:</p><ul><li><p>Be an absolute URI.</p></li><li><p>Be registered with the authorization server.</p></li><li><p>Not include a fragment component.</p></li></ul><p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p><p>Amazon Cognito requires HTTPS over HTTP except for <code>http://localhost</code> for testing purposes only.</p><p>App callback URLs such as <code>myapp://example</code> are also supported.</p>
 
                       </div>
                       <div class="declaration">
@@ -1431,7 +1431,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Enables or disables token revocation. For more information about revoking tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.</p>
+                        <p>Activates or deactivates token revocation. For more information about revoking tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -1463,7 +1463,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>The authentication flows that are supported by the user pool clients. Flow names without the <code>ALLOW_</code> prefix are deprecated in favor of new names with the <code>ALLOW_</code> prefix. Note that values with <code>ALLOW_</code> prefix cannot be used along with values without <code>ALLOW_</code> prefix.</p><p>Valid values include:</p><ul><li><p><code>ALLOW_ADMIN_USER_PASSWORD_AUTH</code>: Enable admin based user password authentication flow <code>ADMIN_USER_PASSWORD_AUTH</code>. This setting replaces the <code>ADMIN_NO_SRP_AUTH</code> setting. With this authentication flow, Cognito receives the password in the request instead of using the SRP (Secure Remote Password protocol) protocol to verify passwords.</p></li><li><p><code>ALLOW_CUSTOM_AUTH</code>: Enable Lambda trigger based authentication.</p></li><li><p><code>ALLOW_USER_PASSWORD_AUTH</code>: Enable user password-based authentication. In this flow, Cognito receives the password in the request instead of using the SRP protocol to verify passwords.</p></li><li><p><code>ALLOW_USER_SRP_AUTH</code>: Enable SRP based authentication.</p></li><li><p><code>ALLOW_REFRESH_TOKEN_AUTH</code>: Enable authflow to refresh tokens.</p></li></ul></p>
+                        <p><p>The authentication flows that are supported by the user pool clients. Flow names without the <code>ALLOW_</code> prefix are no longer supported in favor of new names with the <code>ALLOW_</code> prefix. Note that values with <code>ALLOW_</code> prefix must be used only along with values with the <code>ALLOW_</code> prefix.</p><p>Valid values include:</p><ul><li><p><code>ALLOW_ADMIN_USER_PASSWORD_AUTH</code>: Enable admin based user password authentication flow <code>ADMIN_USER_PASSWORD_AUTH</code>. This setting replaces the <code>ADMIN_NO_SRP_AUTH</code> setting. With this authentication flow, Amazon Cognito receives the password in the request instead of using the Secure Remote Password (SRP) protocol to verify passwords.</p></li><li><p><code>ALLOW_CUSTOM_AUTH</code>: Enable Lambda trigger based authentication.</p></li><li><p><code>ALLOW_USER_PASSWORD_AUTH</code>: Enable user password-based authentication. In this flow, Amazon Cognito receives the password in the request instead of using the SRP protocol to verify passwords.</p></li><li><p><code>ALLOW_USER_SRP_AUTH</code>: Enable SRP-based authentication.</p></li><li><p><code>ALLOW_REFRESH_TOKEN_AUTH</code>: Enable authflow to refresh tokens.</p></li></ul></p>
 
                       </div>
                       <div class="declaration">
@@ -1495,7 +1495,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The time limit, after which the ID token is no longer valid and cannot be used.</p>
+                        <p>The time limit after which the ID token is no longer valid and can&rsquo;t be used.</p>
 
                       </div>
                       <div class="declaration">
@@ -1559,7 +1559,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to <code>ENABLED</code> and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to <code>LEGACY</code>, those APIs will return a <code>UserNotFoundException</code> exception if the user does not exist in the user pool.</p><p>Valid values include:</p><ul><li><p><code>ENABLED</code> - This prevents user existence-related errors.</p></li><li><p><code>LEGACY</code> - This represents the old behavior of Cognito where user existence related errors are not prevented.</p></li></ul><note><p>After February 15th 2020, the value of <code>PreventUserExistenceErrors</code> will default to <code>ENABLED</code> for newly created user pool clients if no value is provided.</p></note></p>
+                        <p><p>Errors and responses that you want Amazon Cognito APIs to return during authentication, account confirmation, and password recovery when the user doesn&rsquo;t exist in the user pool. When set to <code>ENABLED</code> and the user doesn&rsquo;t exist, authentication returns an error indicating either the username or password was incorrect. Account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to <code>LEGACY</code>, those APIs return a <code>UserNotFoundException</code> exception if the user doesn&rsquo;t exist in the user pool.</p><p>Valid values include:</p><ul><li><p><code>ENABLED</code> - This prevents user existence-related errors.</p></li><li><p><code>LEGACY</code> - This represents the early behavior of Amazon Cognito where user existence related errors aren&rsquo;t prevented.</p></li></ul></p>
 
                       </div>
                       <div class="declaration">
@@ -1623,7 +1623,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The time limit, in days, after which the refresh token is no longer valid and cannot be used.</p>
+                        <p>The time limit, in days, after which the refresh token is no longer valid and can&rsquo;t be used.</p>
 
                       </div>
                       <div class="declaration">
@@ -1687,7 +1687,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The units in which the validity times are represented in. Default for RefreshToken is days, and default for ID and access tokens are hours.</p>
+                        <p>The units in which the validity times are represented. Default for RefreshToken is days, and default for ID and access tokens is hours.</p>
 
                       </div>
                       <div class="declaration">
@@ -1775,7 +1775,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-01-28)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-03-03)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
