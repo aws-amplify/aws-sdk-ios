@@ -18,44 +18,85 @@ import AWSCore
 
 struct AWSMobileClientLogging {
 
-    static func verbose(_ message: String) {
-        logMessage(message,
-                   level: .verbose,
-                   flag: .verbose)
+    static func verbose(
+        _ message: String,
+        file: StaticString = #file,
+        function: StaticString = #function,
+        line: Int = #line
+    ) {
+        logMessage(
+            message,
+            level: .verbose,
+            flag: .verbose,
+            file: file,
+            function: function,
+            line: line
+        )
+    }
+    
+    static func error(
+        _ message: String,
+        file: StaticString = #file,
+        function: StaticString = #function,
+        line: Int = #line
+    ) {
+        logMessage(
+            message,
+            level: .error,
+            flag: .error,
+            file: file,
+            function: function,
+            line: line
+        )
+    }
+    
+    static func warning(
+        _ message: String,
+        file: StaticString = #file,
+        function: StaticString = #function,
+        line: Int = #line
+    ) {
+        logMessage(
+            message,
+            level: .warning,
+            flag: .warning,
+            file: file,
+            function: function,
+            line: line
+        )
+    }
+    
+    static func info(
+        _ message: String,
+        file: StaticString = #file,
+        function: StaticString = #function,
+        line: Int = #line
+    ) {
+        logMessage(
+            message,
+            level: .info,
+            flag: .info,
+            file: file,
+            function: function,
+            line: line
+        )
     }
 
-    static func error(_ message: String) {
-        logMessage(message,
-                   level: .error,
-                   flag: .error)
-    }
-
-    static func warning(_ message: String) {
-        logMessage(message,
-                   level: .warning,
-                   flag: .warning)
-    }
-
-    static func info(_ message: String) {
-        logMessage(message,
-                   level: .info,
-                   flag: .info)
-    }
-
-    static func debug(_ message: String) {
-        logMessage(message,
-                   level: .debug,
-                   flag: .debug)
-    }
-
-    static func logMessage(_ message: String, level: AWSDDLogLevel, flag: AWSDDLogFlag) {
+    static func logMessage(
+        _ message: String,
+        level: AWSDDLogLevel,
+        flag: AWSDDLogFlag,
+        file: StaticString,
+        function: StaticString,
+        line: Int
+    ) {
         AWSDDLog.log(asynchronous: false,
                      level: level,
                      flag: flag,
                      context: 0,
-                     file: #file,
-                     function: #function,
-                     line: #line,
+                     file: file,
+                     function: function,
+                     line: line,
                      tag: nil,
                      format: message,
                      arguments: getVaList([]))
