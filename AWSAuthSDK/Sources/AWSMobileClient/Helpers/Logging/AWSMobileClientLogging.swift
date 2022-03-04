@@ -90,13 +90,15 @@ struct AWSMobileClientLogging {
         function: StaticString,
         line: Int
     ) {
+        let fileStr = "\(file)"
+        let functionStr = "\(function)"
         AWSDDLog.log(asynchronous: false,
                      level: level,
                      flag: flag,
                      context: 0,
-                     file: file,
-                     function: function,
-                     line: line,
+                     file: fileStr.cString(using: .utf8) ?? [],
+                     function: functionStr.cString(using: .utf8) ?? [],
+                     line: UInt(line),
                      tag: nil,
                      format: message,
                      arguments: getVaList([]))
