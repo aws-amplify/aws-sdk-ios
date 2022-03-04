@@ -199,265 +199,300 @@
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 52,
-      "symbol": "AWSTranslateJobStatus",
+      "symbol": "AWSTranslateFormality",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 52,
-      "symbol": "AWSTranslateJobStatus",
+      "symbol": "AWSTranslateFormality",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 53,
-      "symbol": "AWSTranslateJobStatus.AWSTranslateJobStatusUnknown",
+      "symbol": "AWSTranslateFormality.AWSTranslateFormalityUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 54,
-      "symbol": "AWSTranslateJobStatus.AWSTranslateJobStatusSubmitted",
+      "symbol": "AWSTranslateFormality.AWSTranslateFormalityFormal",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 55,
-      "symbol": "AWSTranslateJobStatus.AWSTranslateJobStatusInProgress",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
-      "line": 56,
-      "symbol": "AWSTranslateJobStatus.AWSTranslateJobStatusCompleted",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
-      "line": 57,
-      "symbol": "AWSTranslateJobStatus.AWSTranslateJobStatusCompletedWithError",
+      "symbol": "AWSTranslateFormality.AWSTranslateFormalityInformal",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 58,
-      "symbol": "AWSTranslateJobStatus.AWSTranslateJobStatusFailed",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSTranslateJobStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
+      "line": 58,
+      "symbol": "AWSTranslateJobStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 59,
-      "symbol": "AWSTranslateJobStatus.AWSTranslateJobStatusStopRequested",
+      "symbol": "AWSTranslateJobStatus.AWSTranslateJobStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 60,
-      "symbol": "AWSTranslateJobStatus.AWSTranslateJobStatusStopped",
+      "symbol": "AWSTranslateJobStatus.AWSTranslateJobStatusSubmitted",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
+      "line": 61,
+      "symbol": "AWSTranslateJobStatus.AWSTranslateJobStatusInProgress",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
+      "line": 62,
+      "symbol": "AWSTranslateJobStatus.AWSTranslateJobStatusCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 63,
-      "symbol": "AWSTranslateMergeStrategy",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
-      "line": 63,
-      "symbol": "AWSTranslateMergeStrategy",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSTranslateJobStatus.AWSTranslateJobStatusCompletedWithError",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 64,
-      "symbol": "AWSTranslateMergeStrategy.AWSTranslateMergeStrategyUnknown",
+      "symbol": "AWSTranslateJobStatus.AWSTranslateJobStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 65,
-      "symbol": "AWSTranslateMergeStrategy.AWSTranslateMergeStrategyOverwrite",
+      "symbol": "AWSTranslateJobStatus.AWSTranslateJobStatusStopRequested",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
-      "line": 68,
-      "symbol": "AWSTranslateParallelDataFormat",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
-      "line": 68,
-      "symbol": "AWSTranslateParallelDataFormat",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 66,
+      "symbol": "AWSTranslateJobStatus.AWSTranslateJobStatusStopped",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 69,
-      "symbol": "AWSTranslateParallelDataFormat.AWSTranslateParallelDataFormatUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSTranslateMergeStrategy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
+      "line": 69,
+      "symbol": "AWSTranslateMergeStrategy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 70,
-      "symbol": "AWSTranslateParallelDataFormat.AWSTranslateParallelDataFormatTsv",
+      "symbol": "AWSTranslateMergeStrategy.AWSTranslateMergeStrategyUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 71,
-      "symbol": "AWSTranslateParallelDataFormat.AWSTranslateParallelDataFormatCsv",
+      "symbol": "AWSTranslateMergeStrategy.AWSTranslateMergeStrategyOverwrite",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
-      "line": 72,
-      "symbol": "AWSTranslateParallelDataFormat.AWSTranslateParallelDataFormatTmx",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
-      "line": 75,
-      "symbol": "AWSTranslateParallelDataStatus",
+      "line": 74,
+      "symbol": "AWSTranslateParallelDataFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
-      "line": 75,
-      "symbol": "AWSTranslateParallelDataStatus",
+      "line": 74,
+      "symbol": "AWSTranslateParallelDataFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
+      "line": 75,
+      "symbol": "AWSTranslateParallelDataFormat.AWSTranslateParallelDataFormatUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 76,
-      "symbol": "AWSTranslateParallelDataStatus.AWSTranslateParallelDataStatusUnknown",
+      "symbol": "AWSTranslateParallelDataFormat.AWSTranslateParallelDataFormatTsv",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 77,
-      "symbol": "AWSTranslateParallelDataStatus.AWSTranslateParallelDataStatusCreating",
+      "symbol": "AWSTranslateParallelDataFormat.AWSTranslateParallelDataFormatCsv",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 78,
-      "symbol": "AWSTranslateParallelDataStatus.AWSTranslateParallelDataStatusUpdating",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
-      "line": 79,
-      "symbol": "AWSTranslateParallelDataStatus.AWSTranslateParallelDataStatusActive",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
-      "line": 80,
-      "symbol": "AWSTranslateParallelDataStatus.AWSTranslateParallelDataStatusDeleting",
+      "symbol": "AWSTranslateParallelDataFormat.AWSTranslateParallelDataFormatTmx",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 81,
-      "symbol": "AWSTranslateParallelDataStatus.AWSTranslateParallelDataStatusFailed",
+      "symbol": "AWSTranslateParallelDataStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
+      "line": 81,
+      "symbol": "AWSTranslateParallelDataStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
+      "line": 82,
+      "symbol": "AWSTranslateParallelDataStatus.AWSTranslateParallelDataStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
+      "line": 83,
+      "symbol": "AWSTranslateParallelDataStatus.AWSTranslateParallelDataStatusCreating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 84,
-      "symbol": "AWSTranslateProfanity",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
-      "line": 84,
-      "symbol": "AWSTranslateProfanity",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSTranslateParallelDataStatus.AWSTranslateParallelDataStatusUpdating",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 85,
-      "symbol": "AWSTranslateProfanity.AWSTranslateProfanityUnknown",
+      "symbol": "AWSTranslateParallelDataStatus.AWSTranslateParallelDataStatusActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 86,
-      "symbol": "AWSTranslateProfanity.AWSTranslateProfanityMask",
+      "symbol": "AWSTranslateParallelDataStatus.AWSTranslateParallelDataStatusDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
-      "line": 89,
-      "symbol": "AWSTranslateTerminologyDataFormat",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
-      "line": 89,
-      "symbol": "AWSTranslateTerminologyDataFormat",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 87,
+      "symbol": "AWSTranslateParallelDataStatus.AWSTranslateParallelDataStatusFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 90,
-      "symbol": "AWSTranslateTerminologyDataFormat.AWSTranslateTerminologyDataFormatUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSTranslateProfanity",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
+      "line": 90,
+      "symbol": "AWSTranslateProfanity",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 91,
-      "symbol": "AWSTranslateTerminologyDataFormat.AWSTranslateTerminologyDataFormatCsv",
+      "symbol": "AWSTranslateProfanity.AWSTranslateProfanityUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 92,
+      "symbol": "AWSTranslateProfanity.AWSTranslateProfanityMask",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
+      "line": 95,
+      "symbol": "AWSTranslateTerminologyDataFormat",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
+      "line": 95,
+      "symbol": "AWSTranslateTerminologyDataFormat",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
+      "line": 96,
+      "symbol": "AWSTranslateTerminologyDataFormat.AWSTranslateTerminologyDataFormatUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
+      "line": 97,
+      "symbol": "AWSTranslateTerminologyDataFormat.AWSTranslateTerminologyDataFormatCsv",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
+      "line": 98,
       "symbol": "AWSTranslateTerminologyDataFormat.AWSTranslateTerminologyDataFormatTmx",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
-      "line": 93,
+      "line": 99,
       "symbol": "AWSTranslateTerminologyDataFormat.AWSTranslateTerminologyDataFormatTsv",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
