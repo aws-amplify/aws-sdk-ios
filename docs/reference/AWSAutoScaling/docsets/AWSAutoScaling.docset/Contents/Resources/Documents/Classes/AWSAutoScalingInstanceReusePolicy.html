@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSAutoScalingFilter Class Reference</title>
+    <title>AWSAutoScalingInstanceReusePolicy Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSAutoScalingFilter" class="dashAnchor"></a>
-    <a title="AWSAutoScalingFilter Class Reference"></a>
+    <a name="//apple_ref/objc/Class/AWSAutoScalingInstanceReusePolicy" class="dashAnchor"></a>
+    <a title="AWSAutoScalingInstanceReusePolicy Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSAutoScaling 2.27.2 Docs</a> (81% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSAutoScaling Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        AWSAutoScalingFilter Class Reference
+        AWSAutoScalingInstanceReusePolicy Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -636,20 +636,20 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSAutoScalingFilter</h1>
+            <h1>AWSAutoScalingInstanceReusePolicy</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSAutoScalingFilter</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSAutoScalingInstanceReusePolicy</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSAutoScalingFilter</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSAutoScalingInstanceReusePolicy</span></code></pre>
 
                 </div>
               </div>
-            <p>Describes a filter that is used to return a more specific list of results from a describe operation.</p><p>If you specify multiple filters, the filters are automatically logically joined with an <code>AND</code>, and the request returns only the results that match all of the specified filters. </p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html">Tagging Auto Scaling groups and instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+            <p>Describes an instance reuse policy for a warm pool. </p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm pools for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
           </section>
           <section class="section task-group-section">
@@ -658,9 +658,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSAutoScalingFilter(py)name"></a>
-                    <a name="//apple_ref/objc/Property/name" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSAutoScalingFilter(py)name">name</a>
+                    <a name="/c:objc(cs)AWSAutoScalingInstanceReusePolicy(py)reuseOnScaleIn"></a>
+                    <a name="//apple_ref/objc/Property/reuseOnScaleIn" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSAutoScalingInstanceReusePolicy(py)reuseOnScaleIn">reuseOnScaleIn</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -668,51 +668,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>The name of the filter.</p><p>The valid values for <code>Name</code> depend on which API operation you&rsquo;re using with the filter (<a>DescribeAutoScalingGroups</a> or <a>DescribeTags</a>).</p><p><b>DescribeAutoScalingGroups</b></p><p>Valid values for <code>Name</code> include the following: </p><ul><li><p><code>tag-key</code> - Accepts tag keys. The results only include information about the Auto Scaling groups associated with these tag keys. </p></li><li><p><code>tag-value</code> - Accepts tag values. The results only include information about the Auto Scaling groups associated with these tag values. </p></li><li><p><code>tag:&lt;key&gt;</code> - Accepts the key/value combination of the tag. Use the tag key in the filter name and the tag value as the filter value. The results only include information about the Auto Scaling groups associated with the specified key/value combination. </p></li></ul><p><b>DescribeTags</b></p><p>Valid values for <code>Name</code> include the following: </p><ul><li><p><code>auto-scaling-group</code> - Accepts the names of Auto Scaling groups. The results only include information about the tags associated with these Auto Scaling groups. </p></li><li><p><code>key</code> - Accepts tag keys. The results only include information about the tags associated with these tag keys. </p></li><li><p><code>value</code> - Accepts tag values. The results only include information about the tags associated with these tag values. </p></li><li><p><code>propagate-at-launch</code> - Accepts a Boolean value, which specifies whether tags propagate to instances at launch. The results only include information about the tags associated with the specified Boolean value. </p></li></ul></p>
+                        <p>Specifies whether instances in the Auto Scaling group can be returned to the warm pool on scale in. </p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">name</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">reuseOnScaleIn</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)AWSAutoScalingFilter(py)values"></a>
-                    <a name="//apple_ref/objc/Property/values" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSAutoScalingFilter(py)values">values</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>One or more filter values. Filter values are case-sensitive. </p><p>If you specify multiple values for a filter, the values are automatically logically joined with an <code>OR</code>, and the request returns all results that match any of the specified values. For example, specify &ldquo;tag:environment&rdquo; for the filter name and &ldquo;production,development&rdquo; for the filter values to find Auto Scaling groups with the tag &ldquo;environment=production&rdquo; or &ldquo;environment=development&rdquo;.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">values</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">values</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">reuseOnScaleIn</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
