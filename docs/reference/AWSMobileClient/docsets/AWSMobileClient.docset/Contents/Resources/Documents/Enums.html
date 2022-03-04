@@ -17,7 +17,7 @@
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSMobileClient 2.27.1 Docs</a> (49% documented)</p>
+        <p><a href="index.html">AWSMobileClient 2.27.2 Docs</a> (52% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSMobileClient.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -150,9 +150,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClient9UserStateO"></a>
-                    <a name="//apple_ref/swift/Enum/UserState" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClient9UserStateO">UserState</a>
+                    <a name="/s:15AWSMobileClient0aB5ErrorO"></a>
+                    <a name="//apple_ref/swift/Enum/AWSMobileClientError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClient0aB5ErrorO">AWSMobileClientError</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -160,24 +160,43 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Indicates the user state.</p>
+                        <p>The error enum for <code><a href="Classes/AWSMobileClient.html">AWSMobileClient</a></code> errors.</p>
 
-<ul>
-<li>signedIn: The user is signed in through Cognito User Pools or a federation provider like Google, Facebook, etc.</li>
-<li>signedOut: The user is signed out and does not have guest access.</li>
-<li>signedOutFederatedTokensInvalid: The tokens associated with the federation provider like Google or Facebook have expired and need to re-submitted to <code><a href="Classes/AWSMobileClient.html">AWSMobileClient</a></code>. You can do that by calling the <code>federatedSignIn</code> method or by showing the drop in UI. If the end user is unable to sign in, call <code>releaseSignInWait</code> method to return an error to the calling API.</li>
-<li>signedOutUserPoolsTokenInvalid: The Cognito User Pools tokens have expired and the end-user needs to sign in again. You can complete the sign in process using the <code>signIn</code> method or by showing the drop in UI. If the end user is unable to sign in, call <code>releaseSignInWait</code> method to return an error to the calling API.</li>
-<li>guest: The user is signed out, but has guest access in the app.</li>
-<li>unknown: The initial user state before <code><a href="Classes/AWSMobileClient.html">AWSMobileClient</a></code> is initialized.</li>
-</ul>
-
-                        <a href="Enums/UserState.html" class="slightly-smaller">See more</a>
+                        <a href="Enums/AWSMobileClientError.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">UserState</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">AWSMobileClientError</span> <span class="p">:</span> <span class="kt">Error</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClient19ForgotPasswordStateO"></a>
+                    <a name="//apple_ref/swift/Enum/ForgotPasswordState" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClient19ForgotPasswordStateO">ForgotPasswordState</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indicates the state of forgot password operation.</p>
+
+                        <a href="Enums/ForgotPasswordState.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ForgotPasswordState</span></code></pre>
 
                         </div>
                       </div>
@@ -223,34 +242,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClient0aB5ErrorO"></a>
-                    <a name="//apple_ref/swift/Enum/AWSMobileClientError" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClient0aB5ErrorO">AWSMobileClientError</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The error enum for <code><a href="Classes/AWSMobileClient.html">AWSMobileClient</a></code> errors.</p>
-
-                        <a href="Enums/AWSMobileClientError.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">AWSMobileClientError</span> <span class="p">:</span> <span class="kt">Error</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:15AWSMobileClient11SignInStateO"></a>
                     <a name="//apple_ref/swift/Enum/SignInState" class="dashAnchor"></a>
                     <a class="token" href="#/s:15AWSMobileClient11SignInStateO">SignInState</a>
@@ -270,34 +261,6 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SignInState</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:15AWSMobileClient19ForgotPasswordStateO"></a>
-                    <a name="//apple_ref/swift/Enum/ForgotPasswordState" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClient19ForgotPasswordStateO">ForgotPasswordState</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Indicates the state of forgot password operation.</p>
-
-                        <a href="Enums/ForgotPasswordState.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ForgotPasswordState</span></code></pre>
 
                         </div>
                       </div>
@@ -360,12 +323,40 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClient9UserStateO"></a>
+                    <a name="//apple_ref/swift/Enum/UserState" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClient9UserStateO">UserState</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indicates the user state.</p>
+
+                        <a href="Enums/UserState.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">UserState</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-01-28)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-03-03)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
