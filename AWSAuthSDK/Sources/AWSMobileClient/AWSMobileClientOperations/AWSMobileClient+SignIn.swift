@@ -17,7 +17,6 @@ import Foundation
 
 extension AWSMobileClient {
 
-
     /// Signs in a user with the given username and password.
     ///
     /// - Parameters:

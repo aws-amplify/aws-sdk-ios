@@ -22,6 +22,7 @@ extension AWSMobileClient {
     public func getAWSCredentials(_ completionHandler: @escaping(AWSCredentials?, Error?) -> Void) {
         if self.internalCredentialsProvider == nil {
             completionHandler(nil, AWSMobileClientError.cognitoIdentityPoolNotConfigured(message: "There is no valid cognito identity pool configured in `awsconfiguration.json`."))
+            return
         }
 
         let cancellationToken = self.credentialsFetchCancellationSource
@@ -61,7 +62,7 @@ extension AWSMobileClient {
                         done()
                     }
                 } else if let result = task.result {
-                    if(self.federationProvider == .none && self.currentUserState != .guest) {
+                    if self.federationProvider == .none && self.currentUserState != .guest {
                         self.mobileClientStatusChanged(userState: .guest, additionalInfo: [:])
                     }
                     completionHandler(result, nil)
