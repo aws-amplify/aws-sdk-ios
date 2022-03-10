@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 
 /**
- <fullname>Amazon Elastic Compute Cloud</fullname><p>Amazon Elastic Compute Cloud (Amazon EC2) provides secure and resizable computing capacity in the AWS Cloud. Using Amazon EC2 eliminates the need to invest in hardware up front, so you can develop and deploy applications faster. Amazon Virtual Private Cloud (Amazon VPC) enables you to provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you've defined. Amazon Elastic Block Store (Amazon EBS) provides block level storage volumes for use with EC2 instances. EBS volumes are highly available and reliable storage volumes that can be attached to any running instance and used like a hard drive.</p><p>To learn more, see the following resources:</p><ul><li><p>Amazon EC2: <a href="http://aws.amazon.com/ec2">AmazonEC2 product page</a>, <a href="http://aws.amazon.com/documentation/ec2">Amazon EC2 documentation</a></p></li><li><p>Amazon EBS: <a href="http://aws.amazon.com/ebs">Amazon EBS product page</a>, <a href="http://aws.amazon.com/documentation/ebs">Amazon EBS documentation</a></p></li><li><p>Amazon VPC: <a href="http://aws.amazon.com/vpc">Amazon VPC product page</a>, <a href="http://aws.amazon.com/documentation/vpc">Amazon VPC documentation</a></p></li><li><p>AWS VPN: <a href="http://aws.amazon.com/vpn">AWS VPN product page</a>, <a href="http://aws.amazon.com/documentation/vpn">AWS VPN documentation</a></p></li></ul>
+ <fullname>Amazon Elastic Compute Cloud</fullname><p>Amazon Elastic Compute Cloud (Amazon EC2) provides secure and resizable computing capacity in the Amazon Web Services Cloud. Using Amazon EC2 eliminates the need to invest in hardware up front, so you can develop and deploy applications faster. Amazon Virtual Private Cloud (Amazon VPC) enables you to provision a logically isolated section of the Amazon Web Services Cloud where you can launch Amazon Web Services resources in a virtual network that you've defined. Amazon Elastic Block Store (Amazon EBS) provides block level storage volumes for use with EC2 instances. EBS volumes are highly available and reliable storage volumes that can be attached to any running instance and used like a hard drive.</p><p>To learn more, see the following resources:</p><ul><li><p>Amazon EC2: <a href="http://aws.amazon.com/ec2">AmazonEC2 product page</a>, <a href="http://aws.amazon.com/documentation/ec2">Amazon EC2 documentation</a></p></li><li><p>Amazon EBS: <a href="http://aws.amazon.com/ebs">Amazon EBS product page</a>, <a href="http://aws.amazon.com/documentation/ebs">Amazon EBS documentation</a></p></li><li><p>Amazon VPC: <a href="http://aws.amazon.com/vpc">Amazon VPC product page</a>, <a href="http://aws.amazon.com/documentation/vpc">Amazon VPC documentation</a></p></li><li><p>Amazon Web Services VPN: <a href="http://aws.amazon.com/vpn">Amazon Web Services VPN product page</a>, <a href="http://aws.amazon.com/documentation/vpn">Amazon Web Services VPN documentation</a></p></li></ul>
  */
 @interface AWSEC2 : AWSService
 
@@ -398,6 +398,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2AllocateHostsResult
  */
 - (void)allocateHosts:(AWSEC2AllocateHostsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AllocateHostsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool. For more information, see <a href="/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the AllocateIpamPoolCidr service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2AllocateIpamPoolCidrResult`.
+ 
+ @see AWSEC2AllocateIpamPoolCidrRequest
+ @see AWSEC2AllocateIpamPoolCidrResult
+ */
+- (AWSTask<AWSEC2AllocateIpamPoolCidrResult *> *)allocateIpamPoolCidr:(AWSEC2AllocateIpamPoolCidrRequest *)request;
+
+/**
+ <p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool. For more information, see <a href="/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the AllocateIpamPoolCidr service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2AllocateIpamPoolCidrRequest
+ @see AWSEC2AllocateIpamPoolCidrResult
+ */
+- (void)allocateIpamPoolCidr:(AWSEC2AllocateIpamPoolCidrRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AllocateIpamPoolCidrResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Applies a security group to the association between the target network and the Client VPN endpoint. This action replaces the existing security groups with the specified security groups.</p>
@@ -919,7 +944,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)authorizeClientVpnIngress:(AWSEC2AuthorizeClientVpnIngressRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AuthorizeClientVpnIngressResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>[VPC only] Adds the specified outbound (egress) rules to a security group for use with a VPC.</p><p>An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR address ranges, or to the instances that are associated with the specified destination security groups.</p><p>You specify a protocol for each rule (for example, TCP). For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes.</p><p>Rule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.</p><p>For information about VPC security group quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC quotas</a>.</p>
+ <p>[VPC only] Adds the specified outbound (egress) rules to a security group for use with a VPC.</p><p>An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR address ranges, or to the instances that are associated with the specified source security groups.</p><p>You specify a protocol for each rule (for example, TCP). For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes.</p><p>Rule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.</p><p>For information about VPC security group quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC quotas</a>.</p>
  
  @param request A container for the necessary parameters to execute the AuthorizeSecurityGroupEgress service method.
 
@@ -931,7 +956,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2AuthorizeSecurityGroupEgressResult *> *)authorizeSecurityGroupEgress:(AWSEC2AuthorizeSecurityGroupEgressRequest *)request;
 
 /**
- <p>[VPC only] Adds the specified outbound (egress) rules to a security group for use with a VPC.</p><p>An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR address ranges, or to the instances that are associated with the specified destination security groups.</p><p>You specify a protocol for each rule (for example, TCP). For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes.</p><p>Rule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.</p><p>For information about VPC security group quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC quotas</a>.</p>
+ <p>[VPC only] Adds the specified outbound (egress) rules to a security group for use with a VPC.</p><p>An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 CIDR address ranges, or to the instances that are associated with the specified source security groups.</p><p>You specify a protocol for each rule (for example, TCP). For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes.</p><p>Rule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.</p><p>For information about VPC security group quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC quotas</a>.</p>
  
  @param request A container for the necessary parameters to execute the AuthorizeSecurityGroupEgress service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1042,6 +1067,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2CancelCapacityReservationResult
  */
 - (void)cancelCapacityReservation:(AWSEC2CancelCapacityReservationRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CancelCapacityReservationResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Cancels one or more Capacity Reservation Fleets. When you cancel a Capacity Reservation Fleet, the following happens:</p><ul><li><p>The Capacity Reservation Fleet's status changes to <code>cancelled</code>.</p></li><li><p>The individual Capacity Reservations in the Fleet are cancelled. Instances running in the Capacity Reservations at the time of cancelling the Fleet continue to run in shared capacity.</p></li><li><p>The Fleet stops creating new Capacity Reservations.</p></li></ul>
+ 
+ @param request A container for the necessary parameters to execute the CancelCapacityReservationFleets service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CancelCapacityReservationFleetsResult`.
+ 
+ @see AWSEC2CancelCapacityReservationFleetsRequest
+ @see AWSEC2CancelCapacityReservationFleetsResult
+ */
+- (AWSTask<AWSEC2CancelCapacityReservationFleetsResult *> *)cancelCapacityReservationFleets:(AWSEC2CancelCapacityReservationFleetsRequest *)request;
+
+/**
+ <p>Cancels one or more Capacity Reservation Fleets. When you cancel a Capacity Reservation Fleet, the following happens:</p><ul><li><p>The Capacity Reservation Fleet's status changes to <code>cancelled</code>.</p></li><li><p>The individual Capacity Reservations in the Fleet are cancelled. Instances running in the Capacity Reservations at the time of cancelling the Fleet continue to run in shared capacity.</p></li><li><p>The Fleet stops creating new Capacity Reservations.</p></li></ul>
+ 
+ @param request A container for the necessary parameters to execute the CancelCapacityReservationFleets service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CancelCapacityReservationFleetsRequest
+ @see AWSEC2CancelCapacityReservationFleetsResult
+ */
+- (void)cancelCapacityReservationFleets:(AWSEC2CancelCapacityReservationFleetsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CancelCapacityReservationFleetsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Cancels an active conversion task. The task can be the import of an instance or volume. The action removes all artifacts of the conversion, including a partially uploaded volume or instance. If the conversion is complete or is in the process of transferring the final disk image, the command fails and returns an exception.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html">Importing a Virtual Machine Using the Amazon EC2 CLI</a>.</p>
@@ -1313,6 +1363,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createCapacityReservation:(AWSEC2CreateCapacityReservationRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateCapacityReservationResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Creates a Capacity Reservation Fleet. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-cr-fleets.html#create-crfleet">Create a Capacity Reservation Fleet</a> in the Amazon EC2 User Guide.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateCapacityReservationFleet service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateCapacityReservationFleetResult`.
+ 
+ @see AWSEC2CreateCapacityReservationFleetRequest
+ @see AWSEC2CreateCapacityReservationFleetResult
+ */
+- (AWSTask<AWSEC2CreateCapacityReservationFleetResult *> *)createCapacityReservationFleet:(AWSEC2CreateCapacityReservationFleetRequest *)request;
+
+/**
+ <p>Creates a Capacity Reservation Fleet. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-cr-fleets.html#create-crfleet">Create a Capacity Reservation Fleet</a> in the Amazon EC2 User Guide.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateCapacityReservationFleet service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateCapacityReservationFleetRequest
+ @see AWSEC2CreateCapacityReservationFleetResult
+ */
+- (void)createCapacityReservationFleet:(AWSEC2CreateCapacityReservationFleetRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateCapacityReservationFleetResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Creates a carrier gateway. For more information about carrier gateways, see <a href="https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway">Carrier gateways</a> in the <i>Amazon Web Services Wavelength Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateCarrierGateway service method.
@@ -1513,7 +1588,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createEgressOnlyInternetGateway:(AWSEC2CreateEgressOnlyInternetGatewayRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateEgressOnlyInternetGatewayResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Launches an EC2 Fleet.</p><p>You can create a single EC2 Fleet that includes multiple launch specifications that vary by instance type, AMI, Availability Zone, or subnet.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html">Launching an EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Launches an EC2 Fleet.</p><p>You can create a single EC2 Fleet that includes multiple launch specifications that vary by instance type, AMI, Availability Zone, or subnet.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html">EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateFleet service method.
 
@@ -1525,7 +1600,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateFleetResult *> *)createFleet:(AWSEC2CreateFleetRequest *)request;
 
 /**
- <p>Launches an EC2 Fleet.</p><p>You can create a single EC2 Fleet that includes multiple launch specifications that vary by instance type, AMI, Availability Zone, or subnet.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html">Launching an EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Launches an EC2 Fleet.</p><p>You can create a single EC2 Fleet that includes multiple launch specifications that vary by instance type, AMI, Availability Zone, or subnet.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html">EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateFleet service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1563,7 +1638,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createFlowLogs:(AWSEC2CreateFlowLogsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateFlowLogsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates an Amazon FPGA Image (AFI) from the specified design checkpoint (DCP).</p><p>The create operation is asynchronous. To verify that the AFI is ready for use, check the output logs.</p><p>An AFI contains the FPGA bitstream that is ready to download to an FPGA. You can securely deploy an AFI on multiple FPGA-accelerated instances. For more information, see the <a href="https://github.com/aws/aws-fpga/">AWS FPGA Hardware Development Kit</a>.</p>
+ <p>Creates an Amazon FPGA Image (AFI) from the specified design checkpoint (DCP).</p><p>The create operation is asynchronous. To verify that the AFI is ready for use, check the output logs.</p><p>An AFI contains the FPGA bitstream that is ready to download to an FPGA. You can securely deploy an AFI on multiple FPGA-accelerated instances. For more information, see the <a href="https://github.com/aws/aws-fpga/">Amazon Web Services FPGA Hardware Development Kit</a>.</p>
  
  @param request A container for the necessary parameters to execute the CreateFpgaImage service method.
 
@@ -1575,7 +1650,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateFpgaImageResult *> *)createFpgaImage:(AWSEC2CreateFpgaImageRequest *)request;
 
 /**
- <p>Creates an Amazon FPGA Image (AFI) from the specified design checkpoint (DCP).</p><p>The create operation is asynchronous. To verify that the AFI is ready for use, check the output logs.</p><p>An AFI contains the FPGA bitstream that is ready to download to an FPGA. You can securely deploy an AFI on multiple FPGA-accelerated instances. For more information, see the <a href="https://github.com/aws/aws-fpga/">AWS FPGA Hardware Development Kit</a>.</p>
+ <p>Creates an Amazon FPGA Image (AFI) from the specified design checkpoint (DCP).</p><p>The create operation is asynchronous. To verify that the AFI is ready for use, check the output logs.</p><p>An AFI contains the FPGA bitstream that is ready to download to an FPGA. You can securely deploy an AFI on multiple FPGA-accelerated instances. For more information, see the <a href="https://github.com/aws/aws-fpga/">Amazon Web Services FPGA Hardware Development Kit</a>.</p>
  
  @param request A container for the necessary parameters to execute the CreateFpgaImage service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1588,7 +1663,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createFpgaImage:(AWSEC2CreateFpgaImageRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateFpgaImageResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is either running or stopped.</p><p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the new AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI, the instance automatically launches with those additional volumes.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating Amazon EBS-Backed Linux AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is either running or stopped.</p><important><p>By default, Amazon EC2 shuts down and reboots the instance before creating the AMI to ensure that everything on the instance is stopped and in a consistent state during the creation process. If you're confident that your instance is in a consistent state appropriate for AMI creation, use the <b>NoReboot</b> parameter to prevent Amazon EC2 from shutting down and rebooting the instance. </p></important><p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the new AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI, the instance automatically launches with those additional volumes.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating Amazon EBS-Backed Linux AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateImage service method.
 
@@ -1600,7 +1675,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateImageResult *> *)createImage:(AWSEC2CreateImageRequest *)request;
 
 /**
- <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is either running or stopped.</p><p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the new AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI, the instance automatically launches with those additional volumes.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating Amazon EBS-Backed Linux AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is either running or stopped.</p><important><p>By default, Amazon EC2 shuts down and reboots the instance before creating the AMI to ensure that everything on the instance is stopped and in a consistent state during the creation process. If you're confident that your instance is in a consistent state appropriate for AMI creation, use the <b>NoReboot</b> parameter to prevent Amazon EC2 from shutting down and rebooting the instance. </p></important><p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the new AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI, the instance automatically launches with those additional volumes.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating Amazon EBS-Backed Linux AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateImage service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1688,6 +1763,81 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createInternetGateway:(AWSEC2CreateInternetGatewayRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateInternetGatewayResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Create an IPAM. Amazon VCP IP Address Manager (IPAM) is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization.</p><p>For more information, see <a href="/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateIpam service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateIpamResult`.
+ 
+ @see AWSEC2CreateIpamRequest
+ @see AWSEC2CreateIpamResult
+ */
+- (AWSTask<AWSEC2CreateIpamResult *> *)createIpam:(AWSEC2CreateIpamRequest *)request;
+
+/**
+ <p>Create an IPAM. Amazon VCP IP Address Manager (IPAM) is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization.</p><p>For more information, see <a href="/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateIpam service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateIpamRequest
+ @see AWSEC2CreateIpamResult
+ */
+- (void)createIpam:(AWSEC2CreateIpamRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateIpamResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Create an IP address pool for Amazon VPC IP Address Manager (IPAM). In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.</p><p>For more information, see <a href="/vpc/latest/ipam/create-top-ipam.html">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateIpamPool service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateIpamPoolResult`.
+ 
+ @see AWSEC2CreateIpamPoolRequest
+ @see AWSEC2CreateIpamPoolResult
+ */
+- (AWSTask<AWSEC2CreateIpamPoolResult *> *)createIpamPool:(AWSEC2CreateIpamPoolRequest *)request;
+
+/**
+ <p>Create an IP address pool for Amazon VPC IP Address Manager (IPAM). In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.</p><p>For more information, see <a href="/vpc/latest/ipam/create-top-ipam.html">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateIpamPool service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateIpamPoolRequest
+ @see AWSEC2CreateIpamPoolResult
+ */
+- (void)createIpamPool:(AWSEC2CreateIpamPoolRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateIpamPoolResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Create an IPAM scope. In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p><p>For more information, see <a href="/vpc/latest/ipam/add-scope-ipam.html">Add a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateIpamScope service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateIpamScopeResult`.
+ 
+ @see AWSEC2CreateIpamScopeRequest
+ @see AWSEC2CreateIpamScopeResult
+ */
+- (AWSTask<AWSEC2CreateIpamScopeResult *> *)createIpamScope:(AWSEC2CreateIpamScopeRequest *)request;
+
+/**
+ <p>Create an IPAM scope. In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p><p>For more information, see <a href="/vpc/latest/ipam/add-scope-ipam.html">Add a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateIpamScope service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateIpamScopeRequest
+ @see AWSEC2CreateIpamScopeResult
+ */
+- (void)createIpamScope:(AWSEC2CreateIpamScopeRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateIpamScopeResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Creates an ED25519 or 2048-bit RSA key pair with the specified name. Amazon EC2 stores the public key and displays the private key for you to save to a file. The private key is returned as an unencrypted PEM encoded PKCS#1 private key. If a key with the specified name already exists, Amazon EC2 returns an error.</p><p>The key pair returned to you is available only in the Amazon Web Services Region in which you create it. If you prefer, you can create your own key pair using a third-party tool and upload it to any Region using <a>ImportKeyPair</a>.</p><p>You can have up to 5,000 key pairs per Amazon Web Services Region.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 key pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateKeyPair service method.
@@ -1713,7 +1863,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createKeyPair:(AWSEC2CreateKeyPairRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2KeyPair * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a launch template. A launch template contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify a launch template instead of providing the launch parameters in the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launching an instance from a launch template</a>in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Creates a launch template. A launch template contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify a launch template instead of providing the launch parameters in the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launching an instance from a launch template</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateLaunchTemplate service method.
 
@@ -1725,7 +1875,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateLaunchTemplateResult *> *)createLaunchTemplate:(AWSEC2CreateLaunchTemplateRequest *)request;
 
 /**
- <p>Creates a launch template. A launch template contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify a launch template instead of providing the launch parameters in the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launching an instance from a launch template</a>in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Creates a launch template. A launch template contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify a launch template instead of providing the launch parameters in the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launching an instance from a launch template</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateLaunchTemplate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1910,6 +2060,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createNetworkAclEntry:(AWSEC2CreateNetworkAclEntryRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Creates a Network Access Scope.</p><p>Amazon Web Services Network Access Analyzer enables cloud networking and cloud operations teams to verify that their networks on Amazon Web Services conform to their network security and governance objectives. For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/network-access-analyzer/">Amazon Web Services Network Access Analyzer Guide</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateNetworkInsightsAccessScope service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateNetworkInsightsAccessScopeResult`.
+ 
+ @see AWSEC2CreateNetworkInsightsAccessScopeRequest
+ @see AWSEC2CreateNetworkInsightsAccessScopeResult
+ */
+- (AWSTask<AWSEC2CreateNetworkInsightsAccessScopeResult *> *)createNetworkInsightsAccessScope:(AWSEC2CreateNetworkInsightsAccessScopeRequest *)request;
+
+/**
+ <p>Creates a Network Access Scope.</p><p>Amazon Web Services Network Access Analyzer enables cloud networking and cloud operations teams to verify that their networks on Amazon Web Services conform to their network security and governance objectives. For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/network-access-analyzer/">Amazon Web Services Network Access Analyzer Guide</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateNetworkInsightsAccessScope service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateNetworkInsightsAccessScopeRequest
+ @see AWSEC2CreateNetworkInsightsAccessScopeResult
+ */
+- (void)createNetworkInsightsAccessScope:(AWSEC2CreateNetworkInsightsAccessScopeRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateNetworkInsightsAccessScopeResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Creates a path to analyze for reachability.</p><p>Reachability Analyzer enables you to analyze and debug network reachability between two resources in your virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/reachability/">What is Reachability Analyzer</a>.</p>
  
  @param request A container for the necessary parameters to execute the CreateNetworkInsightsPath service method.
@@ -2008,6 +2183,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2CreatePlacementGroupResult
  */
 - (void)createPlacementGroup:(AWSEC2CreatePlacementGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreatePlacementGroupResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Creates a public IPv4 address pool. A public IPv4 pool is an EC2 IP address pool required for the public IPv4 CIDRs that you own and bring to Amazon Web Services to manage with IPAM. IPv6 addresses you bring to Amazon Web Services, however, use IPAM pools only. To monitor the status of pool creation, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePublicIpv4Pools.html">DescribePublicIpv4Pools</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreatePublicIpv4Pool service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreatePublicIpv4PoolResult`.
+ 
+ @see AWSEC2CreatePublicIpv4PoolRequest
+ @see AWSEC2CreatePublicIpv4PoolResult
+ */
+- (AWSTask<AWSEC2CreatePublicIpv4PoolResult *> *)createPublicIpv4Pool:(AWSEC2CreatePublicIpv4PoolRequest *)request;
+
+/**
+ <p>Creates a public IPv4 address pool. A public IPv4 pool is an EC2 IP address pool required for the public IPv4 CIDRs that you own and bring to Amazon Web Services to manage with IPAM. IPv6 addresses you bring to Amazon Web Services, however, use IPAM pools only. To monitor the status of pool creation, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePublicIpv4Pools.html">DescribePublicIpv4Pools</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreatePublicIpv4Pool service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreatePublicIpv4PoolRequest
+ @see AWSEC2CreatePublicIpv4PoolResult
+ */
+- (void)createPublicIpv4Pool:(AWSEC2CreatePublicIpv4PoolRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreatePublicIpv4PoolResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Creates a root volume replacement task for an Amazon EC2 instance. The root volume can either be restored to its initial launch state, or it can be restored using a specific snapshot.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -2357,7 +2557,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createTrafficMirrorFilter:(AWSEC2CreateTrafficMirrorFilterRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateTrafficMirrorFilterResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a Traffic Mirror filter rule. </p><p>A Traffic Mirror rule defines the Traffic Mirror source traffic to mirror.</p><p>You need the Traffic Mirror filter ID when you create the rule.</p>
+ <p>Creates a Traffic Mirror filter rule.</p><p>A Traffic Mirror rule defines the Traffic Mirror source traffic to mirror.</p><p>You need the Traffic Mirror filter ID when you create the rule.</p>
  
  @param request A container for the necessary parameters to execute the CreateTrafficMirrorFilterRule service method.
 
@@ -2369,7 +2569,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateTrafficMirrorFilterRuleResult *> *)createTrafficMirrorFilterRule:(AWSEC2CreateTrafficMirrorFilterRuleRequest *)request;
 
 /**
- <p>Creates a Traffic Mirror filter rule. </p><p>A Traffic Mirror rule defines the Traffic Mirror source traffic to mirror.</p><p>You need the Traffic Mirror filter ID when you create the rule.</p>
+ <p>Creates a Traffic Mirror filter rule.</p><p>A Traffic Mirror rule defines the Traffic Mirror source traffic to mirror.</p><p>You need the Traffic Mirror filter ID when you create the rule.</p>
  
  @param request A container for the necessary parameters to execute the CreateTrafficMirrorFilterRule service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2707,7 +2907,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createVpc:(AWSEC2CreateVpcRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateVpcResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a VPC endpoint for a specified service. An endpoint enables you to create a private connection between your VPC and the service. The service may be provided by AWS, an AWS Marketplace Partner, or another AWS account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html">VPC Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>A <code>gateway</code> endpoint serves as a target for a route in your route table for traffic destined for the AWS service. You can specify an endpoint policy to attach to the endpoint, which will control access to the service from your VPC. You can also specify the VPC route tables that use the endpoint.</p><p>An <code>interface</code> endpoint is a network interface in your subnet that serves as an endpoint for communicating with the specified service. You can specify the subnets in which to create an endpoint, and the security groups to associate with the endpoint network interface.</p><p>A <code>GatewayLoadBalancer</code> endpoint is a network interface in your subnet that serves an endpoint for communicating with a Gateway Load Balancer that you've configured as a VPC endpoint service.</p><p>Use <a>DescribeVpcEndpointServices</a> to get a list of supported services.</p>
+ <p>Creates a VPC endpoint for a specified service. An endpoint enables you to create a private connection between your VPC and the service. The service may be provided by Amazon Web Services, an Amazon Web Services Marketplace Partner, or another Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html">VPC Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>A <code>gateway</code> endpoint serves as a target for a route in your route table for traffic destined for the Amazon Web Service. You can specify an endpoint policy to attach to the endpoint, which will control access to the service from your VPC. You can also specify the VPC route tables that use the endpoint.</p><p>An <code>interface</code> endpoint is a network interface in your subnet that serves as an endpoint for communicating with the specified service. You can specify the subnets in which to create an endpoint, and the security groups to associate with the endpoint network interface.</p><p>A <code>GatewayLoadBalancer</code> endpoint is a network interface in your subnet that serves an endpoint for communicating with a Gateway Load Balancer that you've configured as a VPC endpoint service.</p><p>Use <a>DescribeVpcEndpointServices</a> to get a list of supported services.</p>
  
  @param request A container for the necessary parameters to execute the CreateVpcEndpoint service method.
 
@@ -2719,7 +2919,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateVpcEndpointResult *> *)createVpcEndpoint:(AWSEC2CreateVpcEndpointRequest *)request;
 
 /**
- <p>Creates a VPC endpoint for a specified service. An endpoint enables you to create a private connection between your VPC and the service. The service may be provided by AWS, an AWS Marketplace Partner, or another AWS account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html">VPC Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>A <code>gateway</code> endpoint serves as a target for a route in your route table for traffic destined for the AWS service. You can specify an endpoint policy to attach to the endpoint, which will control access to the service from your VPC. You can also specify the VPC route tables that use the endpoint.</p><p>An <code>interface</code> endpoint is a network interface in your subnet that serves as an endpoint for communicating with the specified service. You can specify the subnets in which to create an endpoint, and the security groups to associate with the endpoint network interface.</p><p>A <code>GatewayLoadBalancer</code> endpoint is a network interface in your subnet that serves an endpoint for communicating with a Gateway Load Balancer that you've configured as a VPC endpoint service.</p><p>Use <a>DescribeVpcEndpointServices</a> to get a list of supported services.</p>
+ <p>Creates a VPC endpoint for a specified service. An endpoint enables you to create a private connection between your VPC and the service. The service may be provided by Amazon Web Services, an Amazon Web Services Marketplace Partner, or another Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html">VPC Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>A <code>gateway</code> endpoint serves as a target for a route in your route table for traffic destined for the Amazon Web Service. You can specify an endpoint policy to attach to the endpoint, which will control access to the service from your VPC. You can also specify the VPC route tables that use the endpoint.</p><p>An <code>interface</code> endpoint is a network interface in your subnet that serves as an endpoint for communicating with the specified service. You can specify the subnets in which to create an endpoint, and the security groups to associate with the endpoint network interface.</p><p>A <code>GatewayLoadBalancer</code> endpoint is a network interface in your subnet that serves an endpoint for communicating with a Gateway Load Balancer that you've configured as a VPC endpoint service.</p><p>Use <a>DescribeVpcEndpointServices</a> to get a list of supported services.</p>
  
  @param request A container for the necessary parameters to execute the CreateVpcEndpoint service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2757,7 +2957,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createVpcEndpointConnectionNotification:(AWSEC2CreateVpcEndpointConnectionNotificationRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateVpcEndpointConnectionNotificationResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a VPC endpoint service configuration to which service consumers (AWS accounts, IAM users, and IAM roles) can connect.</p><p>To create an endpoint service configuration, you must first create one of the following for your service:</p><ul><li><p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html">Network Load Balancer</a>. Service consumers connect to your service using an interface endpoint.</p></li><li><p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/introduction.html">Gateway Load Balancer</a>. Service consumers connect to your service using a Gateway Load Balancer endpoint.</p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC Endpoint Services</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. </p><p>If you set the private DNS name, you must prove that you own the private DNS domain name. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html">VPC Endpoint Service Private DNS Name Verification</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Creates a VPC endpoint service configuration to which service consumers (Amazon Web Services accounts, IAM users, and IAM roles) can connect.</p><p>To create an endpoint service configuration, you must first create one of the following for your service:</p><ul><li><p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html">Network Load Balancer</a>. Service consumers connect to your service using an interface endpoint.</p></li><li><p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/introduction.html">Gateway Load Balancer</a>. Service consumers connect to your service using a Gateway Load Balancer endpoint.</p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC Endpoint Services</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. </p><p>If you set the private DNS name, you must prove that you own the private DNS domain name. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html">VPC Endpoint Service Private DNS Name Verification</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateVpcEndpointServiceConfiguration service method.
 
@@ -2769,7 +2969,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateVpcEndpointServiceConfigurationResult *> *)createVpcEndpointServiceConfiguration:(AWSEC2CreateVpcEndpointServiceConfigurationRequest *)request;
 
 /**
- <p>Creates a VPC endpoint service configuration to which service consumers (AWS accounts, IAM users, and IAM roles) can connect.</p><p>To create an endpoint service configuration, you must first create one of the following for your service:</p><ul><li><p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html">Network Load Balancer</a>. Service consumers connect to your service using an interface endpoint.</p></li><li><p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/introduction.html">Gateway Load Balancer</a>. Service consumers connect to your service using a Gateway Load Balancer endpoint.</p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC Endpoint Services</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. </p><p>If you set the private DNS name, you must prove that you own the private DNS domain name. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html">VPC Endpoint Service Private DNS Name Verification</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Creates a VPC endpoint service configuration to which service consumers (Amazon Web Services accounts, IAM users, and IAM roles) can connect.</p><p>To create an endpoint service configuration, you must first create one of the following for your service:</p><ul><li><p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html">Network Load Balancer</a>. Service consumers connect to your service using an interface endpoint.</p></li><li><p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/introduction.html">Gateway Load Balancer</a>. Service consumers connect to your service using a Gateway Load Balancer endpoint.</p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC Endpoint Services</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. </p><p>If you set the private DNS name, you must prove that you own the private DNS domain name. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html">VPC Endpoint Service Private DNS Name Verification</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateVpcEndpointServiceConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3023,7 +3223,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deleteEgressOnlyInternetGateway:(AWSEC2DeleteEgressOnlyInternetGatewayRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteEgressOnlyInternetGatewayResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the specified EC2 Fleet.</p><p>After you delete an EC2 Fleet, it launches no new instances.</p><p>You must specify whether a deleted EC2 Fleet should also terminate its instances. If you choose to terminate the instances, the EC2 Fleet enters the <code>deleted_terminating</code> state. Otherwise, the EC2 Fleet enters the <code>deleted_running</code> state, and the instances continue to run until they are interrupted or you terminate them manually.</p><p>For <code>instant</code> fleets, EC2 Fleet must terminate the instances when the fleet is deleted. A deleted <code>instant</code> fleet with running instances is not supported.</p><p class="title"><b>Restrictions</b></p><ul><li><p>You can delete up to 25 <code>instant</code> fleets in a single request. If you exceed this number, no <code>instant</code> fleets are deleted and an error is returned. There is no restriction on the number of fleets of type <code>maintain</code> or <code>request</code> that can be deleted in a single request.</p></li><li><p>Up to 1000 instances can be terminated in a single request to delete <code>instant</code> fleets.</p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#delete-fleet">Deleting an EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Deletes the specified EC2 Fleet.</p><p>After you delete an EC2 Fleet, it launches no new instances.</p><p>You must specify whether a deleted EC2 Fleet should also terminate its instances. If you choose to terminate the instances, the EC2 Fleet enters the <code>deleted_terminating</code> state. Otherwise, the EC2 Fleet enters the <code>deleted_running</code> state, and the instances continue to run until they are interrupted or you terminate them manually.</p><p>For <code>instant</code> fleets, EC2 Fleet must terminate the instances when the fleet is deleted. A deleted <code>instant</code> fleet with running instances is not supported.</p><p class="title"><b>Restrictions</b></p><ul><li><p>You can delete up to 25 <code>instant</code> fleets in a single request. If you exceed this number, no <code>instant</code> fleets are deleted and an error is returned. There is no restriction on the number of fleets of type <code>maintain</code> or <code>request</code> that can be deleted in a single request.</p></li><li><p>Up to 1000 instances can be terminated in a single request to delete <code>instant</code> fleets.</p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#delete-fleet">Delete an EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DeleteFleets service method.
 
@@ -3035,7 +3235,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DeleteFleetsResult *> *)deleteFleets:(AWSEC2DeleteFleetsRequest *)request;
 
 /**
- <p>Deletes the specified EC2 Fleet.</p><p>After you delete an EC2 Fleet, it launches no new instances.</p><p>You must specify whether a deleted EC2 Fleet should also terminate its instances. If you choose to terminate the instances, the EC2 Fleet enters the <code>deleted_terminating</code> state. Otherwise, the EC2 Fleet enters the <code>deleted_running</code> state, and the instances continue to run until they are interrupted or you terminate them manually.</p><p>For <code>instant</code> fleets, EC2 Fleet must terminate the instances when the fleet is deleted. A deleted <code>instant</code> fleet with running instances is not supported.</p><p class="title"><b>Restrictions</b></p><ul><li><p>You can delete up to 25 <code>instant</code> fleets in a single request. If you exceed this number, no <code>instant</code> fleets are deleted and an error is returned. There is no restriction on the number of fleets of type <code>maintain</code> or <code>request</code> that can be deleted in a single request.</p></li><li><p>Up to 1000 instances can be terminated in a single request to delete <code>instant</code> fleets.</p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#delete-fleet">Deleting an EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Deletes the specified EC2 Fleet.</p><p>After you delete an EC2 Fleet, it launches no new instances.</p><p>You must specify whether a deleted EC2 Fleet should also terminate its instances. If you choose to terminate the instances, the EC2 Fleet enters the <code>deleted_terminating</code> state. Otherwise, the EC2 Fleet enters the <code>deleted_running</code> state, and the instances continue to run until they are interrupted or you terminate them manually.</p><p>For <code>instant</code> fleets, EC2 Fleet must terminate the instances when the fleet is deleted. A deleted <code>instant</code> fleet with running instances is not supported.</p><p class="title"><b>Restrictions</b></p><ul><li><p>You can delete up to 25 <code>instant</code> fleets in a single request. If you exceed this number, no <code>instant</code> fleets are deleted and an error is returned. There is no restriction on the number of fleets of type <code>maintain</code> or <code>request</code> that can be deleted in a single request.</p></li><li><p>Up to 1000 instances can be terminated in a single request to delete <code>instant</code> fleets.</p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#delete-fleet">Delete an EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DeleteFleets service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3143,6 +3343,81 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2DeleteInternetGatewayRequest
  */
 - (void)deleteInternetGateway:(AWSEC2DeleteInternetGatewayRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Delete an IPAM. Deleting an IPAM removes all monitored data associated with the IPAM including the historical data for CIDRs.</p><note><p>You cannot delete an IPAM if there are CIDRs provisioned to pools or if there are allocations in the pools within the IPAM. To deprovision pool CIDRs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html">DeprovisionIpamPoolCidr</a>. To release allocations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html">ReleaseIpamPoolAllocation</a>. </p></note><p>For more information, see <a href="/vpc/latest/ipam/delete-ipam.html">Delete an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteIpam service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteIpamResult`.
+ 
+ @see AWSEC2DeleteIpamRequest
+ @see AWSEC2DeleteIpamResult
+ */
+- (AWSTask<AWSEC2DeleteIpamResult *> *)deleteIpam:(AWSEC2DeleteIpamRequest *)request;
+
+/**
+ <p>Delete an IPAM. Deleting an IPAM removes all monitored data associated with the IPAM including the historical data for CIDRs.</p><note><p>You cannot delete an IPAM if there are CIDRs provisioned to pools or if there are allocations in the pools within the IPAM. To deprovision pool CIDRs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html">DeprovisionIpamPoolCidr</a>. To release allocations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html">ReleaseIpamPoolAllocation</a>. </p></note><p>For more information, see <a href="/vpc/latest/ipam/delete-ipam.html">Delete an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteIpam service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteIpamRequest
+ @see AWSEC2DeleteIpamResult
+ */
+- (void)deleteIpam:(AWSEC2DeleteIpamRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteIpamResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Delete an IPAM pool.</p><note><p>You cannot delete an IPAM pool if there are allocations in it or CIDRs provisioned to it. To release allocations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html">ReleaseIpamPoolAllocation</a>. To deprovision pool CIDRs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html">DeprovisionIpamPoolCidr</a>.</p></note><p>For more information, see <a href="/vpc/latest/ipam/delete-pool-ipam.html">Delete a pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteIpamPool service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteIpamPoolResult`.
+ 
+ @see AWSEC2DeleteIpamPoolRequest
+ @see AWSEC2DeleteIpamPoolResult
+ */
+- (AWSTask<AWSEC2DeleteIpamPoolResult *> *)deleteIpamPool:(AWSEC2DeleteIpamPoolRequest *)request;
+
+/**
+ <p>Delete an IPAM pool.</p><note><p>You cannot delete an IPAM pool if there are allocations in it or CIDRs provisioned to it. To release allocations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html">ReleaseIpamPoolAllocation</a>. To deprovision pool CIDRs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html">DeprovisionIpamPoolCidr</a>.</p></note><p>For more information, see <a href="/vpc/latest/ipam/delete-pool-ipam.html">Delete a pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteIpamPool service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteIpamPoolRequest
+ @see AWSEC2DeleteIpamPoolResult
+ */
+- (void)deleteIpamPool:(AWSEC2DeleteIpamPoolRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteIpamPoolResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Delete the scope for an IPAM. You cannot delete the default scopes.</p><p>For more information, see <a href="/vpc/latest/ipam/delete-scope-ipam.html">Delete a scope</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteIpamScope service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteIpamScopeResult`.
+ 
+ @see AWSEC2DeleteIpamScopeRequest
+ @see AWSEC2DeleteIpamScopeResult
+ */
+- (AWSTask<AWSEC2DeleteIpamScopeResult *> *)deleteIpamScope:(AWSEC2DeleteIpamScopeRequest *)request;
+
+/**
+ <p>Delete the scope for an IPAM. You cannot delete the default scopes.</p><p>For more information, see <a href="/vpc/latest/ipam/delete-scope-ipam.html">Delete a scope</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteIpamScope service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteIpamScopeRequest
+ @see AWSEC2DeleteIpamScopeResult
+ */
+- (void)deleteIpamScope:(AWSEC2DeleteIpamScopeRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteIpamScopeResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deletes the specified key pair, by removing the public key from Amazon EC2.</p>
@@ -3361,6 +3636,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deleteNetworkAclEntry:(AWSEC2DeleteNetworkAclEntryRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Deletes the specified Network Access Scope.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteNetworkInsightsAccessScope service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteNetworkInsightsAccessScopeResult`.
+ 
+ @see AWSEC2DeleteNetworkInsightsAccessScopeRequest
+ @see AWSEC2DeleteNetworkInsightsAccessScopeResult
+ */
+- (AWSTask<AWSEC2DeleteNetworkInsightsAccessScopeResult *> *)deleteNetworkInsightsAccessScope:(AWSEC2DeleteNetworkInsightsAccessScopeRequest *)request;
+
+/**
+ <p>Deletes the specified Network Access Scope.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteNetworkInsightsAccessScope service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteNetworkInsightsAccessScopeRequest
+ @see AWSEC2DeleteNetworkInsightsAccessScopeResult
+ */
+- (void)deleteNetworkInsightsAccessScope:(AWSEC2DeleteNetworkInsightsAccessScopeRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteNetworkInsightsAccessScopeResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes the specified Network Access Scope analysis.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteNetworkInsightsAccessScopeAnalysis service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteNetworkInsightsAccessScopeAnalysisResult`.
+ 
+ @see AWSEC2DeleteNetworkInsightsAccessScopeAnalysisRequest
+ @see AWSEC2DeleteNetworkInsightsAccessScopeAnalysisResult
+ */
+- (AWSTask<AWSEC2DeleteNetworkInsightsAccessScopeAnalysisResult *> *)deleteNetworkInsightsAccessScopeAnalysis:(AWSEC2DeleteNetworkInsightsAccessScopeAnalysisRequest *)request;
+
+/**
+ <p>Deletes the specified Network Access Scope analysis.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteNetworkInsightsAccessScopeAnalysis service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteNetworkInsightsAccessScopeAnalysisRequest
+ @see AWSEC2DeleteNetworkInsightsAccessScopeAnalysisResult
+ */
+- (void)deleteNetworkInsightsAccessScopeAnalysis:(AWSEC2DeleteNetworkInsightsAccessScopeAnalysisRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteNetworkInsightsAccessScopeAnalysisResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Deletes the specified network insights analysis.</p>
  
  @param request A container for the necessary parameters to execute the DeleteNetworkInsightsAnalysis service method.
@@ -3478,6 +3803,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2DeletePlacementGroupRequest
  */
 - (void)deletePlacementGroup:(AWSEC2DeletePlacementGroupRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Delete a public IPv4 pool. A public IPv4 pool is an EC2 IP address pool required for the public IPv4 CIDRs that you own and bring to Amazon Web Services to manage with IPAM. IPv6 addresses you bring to Amazon Web Services, however, use IPAM pools only.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeletePublicIpv4Pool service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeletePublicIpv4PoolResult`.
+ 
+ @see AWSEC2DeletePublicIpv4PoolRequest
+ @see AWSEC2DeletePublicIpv4PoolResult
+ */
+- (AWSTask<AWSEC2DeletePublicIpv4PoolResult *> *)deletePublicIpv4Pool:(AWSEC2DeletePublicIpv4PoolRequest *)request;
+
+/**
+ <p>Delete a public IPv4 pool. A public IPv4 pool is an EC2 IP address pool required for the public IPv4 CIDRs that you own and bring to Amazon Web Services to manage with IPAM. IPv6 addresses you bring to Amazon Web Services, however, use IPAM pools only.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeletePublicIpv4Pool service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeletePublicIpv4PoolRequest
+ @see AWSEC2DeletePublicIpv4PoolResult
+ */
+- (void)deletePublicIpv4Pool:(AWSEC2DeletePublicIpv4PoolRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeletePublicIpv4PoolResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deletes the queued purchases for the specified Reserved Instances.</p>
@@ -4244,7 +4594,57 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deprovisionByoipCidr:(AWSEC2DeprovisionByoipCidrRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeprovisionByoipCidrResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to launch new instances; however, it doesn't affect any instances that you've already launched from the AMI. You'll continue to incur usage costs for those instances until you terminate them.</p><p>When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was created for the root volume of the instance during the AMI creation process. When you deregister an instance store-backed AMI, it doesn't affect the files that you uploaded to Amazon S3 when you created the AMI.</p>
+ <p>Deprovision a CIDR provisioned from an IPAM pool. If you deprovision a CIDR from a pool that has a source pool, the CIDR is recycled back into the source pool. For more information, see <a href="/vpc/latest/ipam/depro-pool-cidr-ipam.html">Deprovision pool CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeprovisionIpamPoolCidr service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeprovisionIpamPoolCidrResult`.
+ 
+ @see AWSEC2DeprovisionIpamPoolCidrRequest
+ @see AWSEC2DeprovisionIpamPoolCidrResult
+ */
+- (AWSTask<AWSEC2DeprovisionIpamPoolCidrResult *> *)deprovisionIpamPoolCidr:(AWSEC2DeprovisionIpamPoolCidrRequest *)request;
+
+/**
+ <p>Deprovision a CIDR provisioned from an IPAM pool. If you deprovision a CIDR from a pool that has a source pool, the CIDR is recycled back into the source pool. For more information, see <a href="/vpc/latest/ipam/depro-pool-cidr-ipam.html">Deprovision pool CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeprovisionIpamPoolCidr service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeprovisionIpamPoolCidrRequest
+ @see AWSEC2DeprovisionIpamPoolCidrResult
+ */
+- (void)deprovisionIpamPoolCidr:(AWSEC2DeprovisionIpamPoolCidrRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeprovisionIpamPoolCidrResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deprovision a CIDR from a public IPv4 pool.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeprovisionPublicIpv4PoolCidr service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeprovisionPublicIpv4PoolCidrResult`.
+ 
+ @see AWSEC2DeprovisionPublicIpv4PoolCidrRequest
+ @see AWSEC2DeprovisionPublicIpv4PoolCidrResult
+ */
+- (AWSTask<AWSEC2DeprovisionPublicIpv4PoolCidrResult *> *)deprovisionPublicIpv4PoolCidr:(AWSEC2DeprovisionPublicIpv4PoolCidrRequest *)request;
+
+/**
+ <p>Deprovision a CIDR from a public IPv4 pool.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeprovisionPublicIpv4PoolCidr service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeprovisionPublicIpv4PoolCidrRequest
+ @see AWSEC2DeprovisionPublicIpv4PoolCidrResult
+ */
+- (void)deprovisionPublicIpv4PoolCidr:(AWSEC2DeprovisionPublicIpv4PoolCidrRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeprovisionPublicIpv4PoolCidrResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to launch new instances.</p><p>If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is retained in the Recycle Bin for the specified retention period. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in the Amazon Elastic Compute Cloud User Guide.</p><p>When you deregister an AMI, it doesn't affect any instances that you've already launched from the AMI. You'll continue to incur usage costs for those instances until you terminate them.</p><p>When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was created for the root volume of the instance during the AMI creation process. When you deregister an instance store-backed AMI, it doesn't affect the files that you uploaded to Amazon S3 when you created the AMI.</p>
  
  @param request A container for the necessary parameters to execute the DeregisterImage service method.
 
@@ -4255,7 +4655,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask *)deregisterImage:(AWSEC2DeregisterImageRequest *)request;
 
 /**
- <p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to launch new instances; however, it doesn't affect any instances that you've already launched from the AMI. You'll continue to incur usage costs for those instances until you terminate them.</p><p>When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was created for the root volume of the instance during the AMI creation process. When you deregister an instance store-backed AMI, it doesn't affect the files that you uploaded to Amazon S3 when you created the AMI.</p>
+ <p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to launch new instances.</p><p>If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is retained in the Recycle Bin for the specified retention period. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in the Amazon Elastic Compute Cloud User Guide.</p><p>When you deregister an AMI, it doesn't affect any instances that you've already launched from the AMI. You'll continue to incur usage costs for those instances until you terminate them.</p><p>When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was created for the root volume of the instance during the AMI creation process. When you deregister an instance store-backed AMI, it doesn't affect the files that you uploaded to Amazon S3 when you created the AMI.</p>
  
  @param request A container for the necessary parameters to execute the DeregisterImage service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4266,7 +4666,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deregisterImage:(AWSEC2DeregisterImageRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>c</p><p>Deregisters tag keys to prevent tags that have the specified tag keys from being included in scheduled event notifications for resources in the Region.</p>
+ <p>Deregisters tag keys to prevent tags that have the specified tag keys from being included in scheduled event notifications for resources in the Region.</p>
  
  @param request A container for the necessary parameters to execute the DeregisterInstanceEventNotificationAttributes service method.
 
@@ -4278,7 +4678,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DeregisterInstanceEventNotificationAttributesResult *> *)deregisterInstanceEventNotificationAttributes:(AWSEC2DeregisterInstanceEventNotificationAttributesRequest *)request;
 
 /**
- <p>c</p><p>Deregisters tag keys to prevent tags that have the specified tag keys from being included in scheduled event notifications for resources in the Region.</p>
+ <p>Deregisters tag keys to prevent tags that have the specified tag keys from being included in scheduled event notifications for resources in the Region.</p>
  
  @param request A container for the necessary parameters to execute the DeregisterInstanceEventNotificationAttributes service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4341,7 +4741,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deregisterTransitGatewayMulticastGroupSources:(AWSEC2DeregisterTransitGatewayMulticastGroupSourcesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeregisterTransitGatewayMulticastGroupSourcesResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes attributes of your AWS account. The following are the supported account attributes:</p><ul><li><p><code>supported-platforms</code>: Indicates whether your account can launch instances into EC2-Classic and EC2-VPC, or only into EC2-VPC.</p></li><li><p><code>default-vpc</code>: The ID of the default VPC for your account, or <code>none</code>.</p></li><li><p><code>max-instances</code>: This attribute is no longer supported. The returned value does not reflect your actual vCPU limit for running On-Demand Instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-on-demand-instances.html#ec2-on-demand-instances-limits">On-Demand Instance Limits</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></li><li><p><code>vpc-max-security-groups-per-interface</code>: The maximum number of security groups that you can assign to a network interface.</p></li><li><p><code>max-elastic-ips</code>: The maximum number of Elastic IP addresses that you can allocate for use with EC2-Classic. </p></li><li><p><code>vpc-max-elastic-ips</code>: The maximum number of Elastic IP addresses that you can allocate for use with EC2-VPC.</p></li></ul>
+ <p>Describes attributes of your Amazon Web Services account. The following are the supported account attributes:</p><ul><li><p><code>supported-platforms</code>: Indicates whether your account can launch instances into EC2-Classic and EC2-VPC, or only into EC2-VPC.</p></li><li><p><code>default-vpc</code>: The ID of the default VPC for your account, or <code>none</code>.</p></li><li><p><code>max-instances</code>: This attribute is no longer supported. The returned value does not reflect your actual vCPU limit for running On-Demand Instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-on-demand-instances.html#ec2-on-demand-instances-limits">On-Demand Instance Limits</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></li><li><p><code>vpc-max-security-groups-per-interface</code>: The maximum number of security groups that you can assign to a network interface.</p></li><li><p><code>max-elastic-ips</code>: The maximum number of Elastic IP addresses that you can allocate for use with EC2-Classic. </p></li><li><p><code>vpc-max-elastic-ips</code>: The maximum number of Elastic IP addresses that you can allocate for use with EC2-VPC.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the DescribeAccountAttributes service method.
 
@@ -4353,7 +4753,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeAccountAttributesResult *> *)describeAccountAttributes:(AWSEC2DescribeAccountAttributesRequest *)request;
 
 /**
- <p>Describes attributes of your AWS account. The following are the supported account attributes:</p><ul><li><p><code>supported-platforms</code>: Indicates whether your account can launch instances into EC2-Classic and EC2-VPC, or only into EC2-VPC.</p></li><li><p><code>default-vpc</code>: The ID of the default VPC for your account, or <code>none</code>.</p></li><li><p><code>max-instances</code>: This attribute is no longer supported. The returned value does not reflect your actual vCPU limit for running On-Demand Instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-on-demand-instances.html#ec2-on-demand-instances-limits">On-Demand Instance Limits</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></li><li><p><code>vpc-max-security-groups-per-interface</code>: The maximum number of security groups that you can assign to a network interface.</p></li><li><p><code>max-elastic-ips</code>: The maximum number of Elastic IP addresses that you can allocate for use with EC2-Classic. </p></li><li><p><code>vpc-max-elastic-ips</code>: The maximum number of Elastic IP addresses that you can allocate for use with EC2-VPC.</p></li></ul>
+ <p>Describes attributes of your Amazon Web Services account. The following are the supported account attributes:</p><ul><li><p><code>supported-platforms</code>: Indicates whether your account can launch instances into EC2-Classic and EC2-VPC, or only into EC2-VPC.</p></li><li><p><code>default-vpc</code>: The ID of the default VPC for your account, or <code>none</code>.</p></li><li><p><code>max-instances</code>: This attribute is no longer supported. The returned value does not reflect your actual vCPU limit for running On-Demand Instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-on-demand-instances.html#ec2-on-demand-instances-limits">On-Demand Instance Limits</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></li><li><p><code>vpc-max-security-groups-per-interface</code>: The maximum number of security groups that you can assign to a network interface.</p></li><li><p><code>max-elastic-ips</code>: The maximum number of Elastic IP addresses that you can allocate for use with EC2-Classic. </p></li><li><p><code>vpc-max-elastic-ips</code>: The maximum number of Elastic IP addresses that you can allocate for use with EC2-VPC.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the DescribeAccountAttributes service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4441,7 +4841,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeAggregateIdFormat:(AWSEC2DescribeAggregateIdFormatRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeAggregateIdFormatResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes the Availability Zones, Local Zones, and Wavelength Zones that are available to you. If there is an event impacting a zone, you can use this request to view the state and any provided messages for that zone.</p><p>For more information about Availability Zones, Local Zones, and Wavelength Zones, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Regions, Zones and Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Describes the Availability Zones, Local Zones, and Wavelength Zones that are available to you. If there is an event impacting a zone, you can use this request to view the state and any provided messages for that zone.</p><p>For more information about Availability Zones, Local Zones, and Wavelength Zones, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Regions and zones</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeAvailabilityZones service method.
 
@@ -4453,7 +4853,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeAvailabilityZonesResult *> *)describeAvailabilityZones:(AWSEC2DescribeAvailabilityZonesRequest *)request;
 
 /**
- <p>Describes the Availability Zones, Local Zones, and Wavelength Zones that are available to you. If there is an event impacting a zone, you can use this request to view the state and any provided messages for that zone.</p><p>For more information about Availability Zones, Local Zones, and Wavelength Zones, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Regions, Zones and Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Describes the Availability Zones, Local Zones, and Wavelength Zones that are available to you. If there is an event impacting a zone, you can use this request to view the state and any provided messages for that zone.</p><p>For more information about Availability Zones, Local Zones, and Wavelength Zones, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Regions and zones</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeAvailabilityZones service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4514,6 +4914,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2DescribeByoipCidrsResult
  */
 - (void)describeByoipCidrs:(AWSEC2DescribeByoipCidrsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeByoipCidrsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes one or more Capacity Reservation Fleets.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeCapacityReservationFleets service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeCapacityReservationFleetsResult`.
+ 
+ @see AWSEC2DescribeCapacityReservationFleetsRequest
+ @see AWSEC2DescribeCapacityReservationFleetsResult
+ */
+- (AWSTask<AWSEC2DescribeCapacityReservationFleetsResult *> *)describeCapacityReservationFleets:(AWSEC2DescribeCapacityReservationFleetsRequest *)request;
+
+/**
+ <p>Describes one or more Capacity Reservation Fleets.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeCapacityReservationFleets service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeCapacityReservationFleetsRequest
+ @see AWSEC2DescribeCapacityReservationFleetsResult
+ */
+- (void)describeCapacityReservationFleets:(AWSEC2DescribeCapacityReservationFleetsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeCapacityReservationFleetsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Describes one or more of your Capacity Reservations. The results describe only the Capacity Reservations in the Amazon Web Services Region that you're currently using.</p>
@@ -4916,6 +5341,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeExportTasks:(AWSEC2DescribeExportTasksRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeExportTasksResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Describe details for Windows AMIs that are configured for faster launching.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeFastLaunchImages service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeFastLaunchImagesResult`.
+ 
+ @see AWSEC2DescribeFastLaunchImagesRequest
+ @see AWSEC2DescribeFastLaunchImagesResult
+ */
+- (AWSTask<AWSEC2DescribeFastLaunchImagesResult *> *)describeFastLaunchImages:(AWSEC2DescribeFastLaunchImagesRequest *)request;
+
+/**
+ <p>Describe details for Windows AMIs that are configured for faster launching.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeFastLaunchImages service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeFastLaunchImagesRequest
+ @see AWSEC2DescribeFastLaunchImagesResult
+ */
+- (void)describeFastLaunchImages:(AWSEC2DescribeFastLaunchImagesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeFastLaunchImagesResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Describes the state of fast snapshot restores for your snapshots.</p>
  
  @param request A container for the necessary parameters to execute the DescribeFastSnapshotRestores service method.
@@ -4941,7 +5391,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeFastSnapshotRestores:(AWSEC2DescribeFastSnapshotRestoresRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeFastSnapshotRestoresResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes the events for the specified EC2 Fleet during the specified time.</p><p>EC2 Fleet events are delayed by up to 30 seconds before they can be described. This ensures that you can query by the last evaluated time and not miss a recorded event. EC2 Fleet events are available for 48 hours.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html#monitor-ec2-fleet">Monitoring your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Describes the events for the specified EC2 Fleet during the specified time.</p><p>EC2 Fleet events are delayed by up to 30 seconds before they can be described. This ensures that you can query by the last evaluated time and not miss a recorded event. EC2 Fleet events are available for 48 hours.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/fleet-monitor.html">Monitor fleet events using Amazon EventBridge</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeFleetHistory service method.
 
@@ -4953,7 +5403,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeFleetHistoryResult *> *)describeFleetHistory:(AWSEC2DescribeFleetHistoryRequest *)request;
 
 /**
- <p>Describes the events for the specified EC2 Fleet during the specified time.</p><p>EC2 Fleet events are delayed by up to 30 seconds before they can be described. This ensures that you can query by the last evaluated time and not miss a recorded event. EC2 Fleet events are available for 48 hours.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html#monitor-ec2-fleet">Monitoring your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Describes the events for the specified EC2 Fleet during the specified time.</p><p>EC2 Fleet events are delayed by up to 30 seconds before they can be described. This ensures that you can query by the last evaluated time and not miss a recorded event. EC2 Fleet events are available for 48 hours.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/fleet-monitor.html">Monitor fleet events using Amazon EventBridge</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeFleetHistory service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4966,7 +5416,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeFleetHistory:(AWSEC2DescribeFleetHistoryRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeFleetHistoryResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes the running instances for the specified EC2 Fleet.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html#monitor-ec2-fleet">Monitoring your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Describes the running instances for the specified EC2 Fleet.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet">Monitor your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeFleetInstances service method.
 
@@ -4978,7 +5428,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeFleetInstancesResult *> *)describeFleetInstances:(AWSEC2DescribeFleetInstancesRequest *)request;
 
 /**
- <p>Describes the running instances for the specified EC2 Fleet.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html#monitor-ec2-fleet">Monitoring your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Describes the running instances for the specified EC2 Fleet.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet">Monitor your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeFleetInstances service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4991,7 +5441,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeFleetInstances:(AWSEC2DescribeFleetInstancesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeFleetInstancesResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes the specified EC2 Fleets or all of your EC2 Fleets.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html#monitor-ec2-fleet">Monitoring your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Describes the specified EC2 Fleets or all of your EC2 Fleets.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet">Monitor your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeFleets service method.
 
@@ -5003,7 +5453,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeFleetsResult *> *)describeFleets:(AWSEC2DescribeFleetsRequest *)request;
 
 /**
- <p>Describes the specified EC2 Fleets or all of your EC2 Fleets.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html#monitor-ec2-fleet">Monitoring your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Describes the specified EC2 Fleets or all of your EC2 Fleets.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet">Monitor your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeFleets service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5066,7 +5516,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeFpgaImageAttribute:(AWSEC2DescribeFpgaImageAttributeRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeFpgaImageAttributeResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes the Amazon FPGA Images (AFIs) available to you. These include public AFIs, private AFIs that you own, and AFIs owned by other AWS accounts for which you have load permissions.</p>
+ <p>Describes the Amazon FPGA Images (AFIs) available to you. These include public AFIs, private AFIs that you own, and AFIs owned by other Amazon Web Services accounts for which you have load permissions.</p>
  
  @param request A container for the necessary parameters to execute the DescribeFpgaImages service method.
 
@@ -5078,7 +5528,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeFpgaImagesResult *> *)describeFpgaImages:(AWSEC2DescribeFpgaImagesRequest *)request;
 
 /**
- <p>Describes the Amazon FPGA Images (AFIs) available to you. These include public AFIs, private AFIs that you own, and AFIs owned by other AWS accounts for which you have load permissions.</p>
+ <p>Describes the Amazon FPGA Images (AFIs) available to you. These include public AFIs, private AFIs that you own, and AFIs owned by other Amazon Web Services accounts for which you have load permissions.</p>
  
  @param request A container for the necessary parameters to execute the DescribeFpgaImages service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5191,7 +5641,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeIamInstanceProfileAssociations:(AWSEC2DescribeIamInstanceProfileAssociationsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeIamInstanceProfileAssociationsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes the ID format settings for your resources on a per-Region basis, for example, to view which resource types are enabled for longer IDs. This request only returns information about resource types whose ID formats can be modified; it does not return information about other resource types.</p><p>The following resource types support longer IDs: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code> | <code>snapshot</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>. </p><p>These settings apply to the IAM user who makes the request; they do not apply to the entire AWS account. By default, an IAM user defaults to the same settings as the root user, unless they explicitly override the settings by running the <a>ModifyIdFormat</a> command. Resources created with longer IDs are visible to all IAM users, regardless of these settings and provided that they have permission to use the relevant <code>Describe</code> command for the resource type.</p>
+ <p>Describes the ID format settings for your resources on a per-Region basis, for example, to view which resource types are enabled for longer IDs. This request only returns information about resource types whose ID formats can be modified; it does not return information about other resource types.</p><p>The following resource types support longer IDs: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code> | <code>snapshot</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>. </p><p>These settings apply to the IAM user who makes the request; they do not apply to the entire Amazon Web Services account. By default, an IAM user defaults to the same settings as the root user, unless they explicitly override the settings by running the <a>ModifyIdFormat</a> command. Resources created with longer IDs are visible to all IAM users, regardless of these settings and provided that they have permission to use the relevant <code>Describe</code> command for the resource type.</p>
  
  @param request A container for the necessary parameters to execute the DescribeIdFormat service method.
 
@@ -5203,7 +5653,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeIdFormatResult *> *)describeIdFormat:(AWSEC2DescribeIdFormatRequest *)request;
 
 /**
- <p>Describes the ID format settings for your resources on a per-Region basis, for example, to view which resource types are enabled for longer IDs. This request only returns information about resource types whose ID formats can be modified; it does not return information about other resource types.</p><p>The following resource types support longer IDs: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code> | <code>snapshot</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>. </p><p>These settings apply to the IAM user who makes the request; they do not apply to the entire AWS account. By default, an IAM user defaults to the same settings as the root user, unless they explicitly override the settings by running the <a>ModifyIdFormat</a> command. Resources created with longer IDs are visible to all IAM users, regardless of these settings and provided that they have permission to use the relevant <code>Describe</code> command for the resource type.</p>
+ <p>Describes the ID format settings for your resources on a per-Region basis, for example, to view which resource types are enabled for longer IDs. This request only returns information about resource types whose ID formats can be modified; it does not return information about other resource types.</p><p>The following resource types support longer IDs: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code> | <code>snapshot</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>. </p><p>These settings apply to the IAM user who makes the request; they do not apply to the entire Amazon Web Services account. By default, an IAM user defaults to the same settings as the root user, unless they explicitly override the settings by running the <a>ModifyIdFormat</a> command. Resources created with longer IDs are visible to all IAM users, regardless of these settings and provided that they have permission to use the relevant <code>Describe</code> command for the resource type.</p>
  
  @param request A container for the necessary parameters to execute the DescribeIdFormat service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5441,7 +5891,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeInstanceEventWindows:(AWSEC2DescribeInstanceEventWindowsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeInstanceEventWindowsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes the status of the specified instances or all of your instances. By default, only running instances are described, unless you specifically indicate to return the status of all instances.</p><p>Instance status includes the following components:</p><ul><li><p><b>Status checks</b> - Amazon EC2 performs status checks on running EC2 instances to identify hardware and software issues. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html">Status checks for your instances</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html">Troubleshooting instances with failed status checks</a> in the <i>Amazon EC2 User Guide</i>.</p></li><li><p><b>Scheduled events</b> - Amazon EC2 can schedule events (such as reboot, stop, or terminate) for your instances related to hardware issues, software updates, or system maintenance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html">Scheduled events for your instances</a> in the <i>Amazon EC2 User Guide</i>.</p></li><li><p><b>Instance state</b> - You can manage your instances from the moment you launch them through their termination. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p></li></ul>
+ <p>Describes the status of the specified instances or all of your instances. By default, only running instances are described, unless you specifically indicate to return the status of all instances.</p><p>Instance status includes the following components:</p><ul><li><p><b>Status checks</b> - Amazon EC2 performs status checks on running EC2 instances to identify hardware and software issues. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html">Status checks for your instances</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html">Troubleshoot instances with failed status checks</a> in the <i>Amazon EC2 User Guide</i>.</p></li><li><p><b>Scheduled events</b> - Amazon EC2 can schedule events (such as reboot, stop, or terminate) for your instances related to hardware issues, software updates, or system maintenance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html">Scheduled events for your instances</a> in the <i>Amazon EC2 User Guide</i>.</p></li><li><p><b>Instance state</b> - You can manage your instances from the moment you launch them through their termination. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the DescribeInstanceStatus service method.
 
@@ -5453,7 +5903,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeInstanceStatusResult *> *)describeInstanceStatus:(AWSEC2DescribeInstanceStatusRequest *)request;
 
 /**
- <p>Describes the status of the specified instances or all of your instances. By default, only running instances are described, unless you specifically indicate to return the status of all instances.</p><p>Instance status includes the following components:</p><ul><li><p><b>Status checks</b> - Amazon EC2 performs status checks on running EC2 instances to identify hardware and software issues. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html">Status checks for your instances</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html">Troubleshooting instances with failed status checks</a> in the <i>Amazon EC2 User Guide</i>.</p></li><li><p><b>Scheduled events</b> - Amazon EC2 can schedule events (such as reboot, stop, or terminate) for your instances related to hardware issues, software updates, or system maintenance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html">Scheduled events for your instances</a> in the <i>Amazon EC2 User Guide</i>.</p></li><li><p><b>Instance state</b> - You can manage your instances from the moment you launch them through their termination. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p></li></ul>
+ <p>Describes the status of the specified instances or all of your instances. By default, only running instances are described, unless you specifically indicate to return the status of all instances.</p><p>Instance status includes the following components:</p><ul><li><p><b>Status checks</b> - Amazon EC2 performs status checks on running EC2 instances to identify hardware and software issues. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html">Status checks for your instances</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html">Troubleshoot instances with failed status checks</a> in the <i>Amazon EC2 User Guide</i>.</p></li><li><p><b>Scheduled events</b> - Amazon EC2 can schedule events (such as reboot, stop, or terminate) for your instances related to hardware issues, software updates, or system maintenance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html">Scheduled events for your instances</a> in the <i>Amazon EC2 User Guide</i>.</p></li><li><p><b>Instance state</b> - You can manage your instances from the moment you launch them through their termination. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the DescribeInstanceStatus service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5564,6 +6014,81 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2DescribeInternetGatewaysResult
  */
 - (void)describeInternetGateways:(AWSEC2DescribeInternetGatewaysRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeInternetGatewaysResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Get information about your IPAM pools.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeIpamPools service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeIpamPoolsResult`.
+ 
+ @see AWSEC2DescribeIpamPoolsRequest
+ @see AWSEC2DescribeIpamPoolsResult
+ */
+- (AWSTask<AWSEC2DescribeIpamPoolsResult *> *)describeIpamPools:(AWSEC2DescribeIpamPoolsRequest *)request;
+
+/**
+ <p>Get information about your IPAM pools.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeIpamPools service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeIpamPoolsRequest
+ @see AWSEC2DescribeIpamPoolsResult
+ */
+- (void)describeIpamPools:(AWSEC2DescribeIpamPoolsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeIpamPoolsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Get information about your IPAM scopes.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeIpamScopes service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeIpamScopesResult`.
+ 
+ @see AWSEC2DescribeIpamScopesRequest
+ @see AWSEC2DescribeIpamScopesResult
+ */
+- (AWSTask<AWSEC2DescribeIpamScopesResult *> *)describeIpamScopes:(AWSEC2DescribeIpamScopesRequest *)request;
+
+/**
+ <p>Get information about your IPAM scopes.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeIpamScopes service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeIpamScopesRequest
+ @see AWSEC2DescribeIpamScopesResult
+ */
+- (void)describeIpamScopes:(AWSEC2DescribeIpamScopesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeIpamScopesResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Get information about your IPAM pools.</p><p>For more information, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeIpams service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeIpamsResult`.
+ 
+ @see AWSEC2DescribeIpamsRequest
+ @see AWSEC2DescribeIpamsResult
+ */
+- (AWSTask<AWSEC2DescribeIpamsResult *> *)describeIpams:(AWSEC2DescribeIpamsRequest *)request;
+
+/**
+ <p>Get information about your IPAM pools.</p><p>For more information, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeIpams service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeIpamsRequest
+ @see AWSEC2DescribeIpamsResult
+ */
+- (void)describeIpams:(AWSEC2DescribeIpamsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeIpamsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Describes your IPv6 address pools.</p>
@@ -5916,6 +6441,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeNetworkAcls:(AWSEC2DescribeNetworkAclsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeNetworkAclsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Describes the specified Network Access Scope analyses.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeNetworkInsightsAccessScopeAnalyses service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeNetworkInsightsAccessScopeAnalysesResult`.
+ 
+ @see AWSEC2DescribeNetworkInsightsAccessScopeAnalysesRequest
+ @see AWSEC2DescribeNetworkInsightsAccessScopeAnalysesResult
+ */
+- (AWSTask<AWSEC2DescribeNetworkInsightsAccessScopeAnalysesResult *> *)describeNetworkInsightsAccessScopeAnalyses:(AWSEC2DescribeNetworkInsightsAccessScopeAnalysesRequest *)request;
+
+/**
+ <p>Describes the specified Network Access Scope analyses.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeNetworkInsightsAccessScopeAnalyses service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeNetworkInsightsAccessScopeAnalysesRequest
+ @see AWSEC2DescribeNetworkInsightsAccessScopeAnalysesResult
+ */
+- (void)describeNetworkInsightsAccessScopeAnalyses:(AWSEC2DescribeNetworkInsightsAccessScopeAnalysesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeNetworkInsightsAccessScopeAnalysesResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes the specified Network Access Scopes.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeNetworkInsightsAccessScopes service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeNetworkInsightsAccessScopesResult`.
+ 
+ @see AWSEC2DescribeNetworkInsightsAccessScopesRequest
+ @see AWSEC2DescribeNetworkInsightsAccessScopesResult
+ */
+- (AWSTask<AWSEC2DescribeNetworkInsightsAccessScopesResult *> *)describeNetworkInsightsAccessScopes:(AWSEC2DescribeNetworkInsightsAccessScopesRequest *)request;
+
+/**
+ <p>Describes the specified Network Access Scopes.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeNetworkInsightsAccessScopes service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeNetworkInsightsAccessScopesRequest
+ @see AWSEC2DescribeNetworkInsightsAccessScopesResult
+ */
+- (void)describeNetworkInsightsAccessScopes:(AWSEC2DescribeNetworkInsightsAccessScopesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeNetworkInsightsAccessScopesResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Describes one or more of your network insights analyses.</p>
  
  @param request A container for the necessary parameters to execute the DescribeNetworkInsightsAnalyses service method.
@@ -6141,7 +6716,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describePublicIpv4Pools:(AWSEC2DescribePublicIpv4PoolsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribePublicIpv4PoolsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes the Regions that are enabled for your account, or all Regions.</p><p>For a list of the Regions supported by Amazon EC2, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region"> Regions and Endpoints</a>.</p><p>For information about enabling and disabling Regions for your account, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html">Managing AWS Regions</a> in the <i>AWS General Reference</i>.</p>
+ <p>Describes the Regions that are enabled for your account, or all Regions.</p><p>For a list of the Regions supported by Amazon EC2, see <a href="https://docs.aws.amazon.com/general/latest/gr/ec2-service.html"> Amazon Elastic Compute Cloud endpoints and quotas</a>.</p><p>For information about enabling and disabling Regions for your account, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html">Managing Amazon Web Services Regions</a> in the <i>Amazon Web Services General Reference</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeRegions service method.
 
@@ -6153,7 +6728,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeRegionsResult *> *)describeRegions:(AWSEC2DescribeRegionsRequest *)request;
 
 /**
- <p>Describes the Regions that are enabled for your account, or all Regions.</p><p>For a list of the Regions supported by Amazon EC2, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region"> Regions and Endpoints</a>.</p><p>For information about enabling and disabling Regions for your account, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html">Managing AWS Regions</a> in the <i>AWS General Reference</i>.</p>
+ <p>Describes the Regions that are enabled for your account, or all Regions.</p><p>For a list of the Regions supported by Amazon EC2, see <a href="https://docs.aws.amazon.com/general/latest/gr/ec2-service.html"> Amazon Elastic Compute Cloud endpoints and quotas</a>.</p><p>For information about enabling and disabling Regions for your account, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html">Managing Amazon Web Services Regions</a> in the <i>Amazon Web Services General Reference</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeRegions service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -6466,6 +7041,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeSnapshotAttribute:(AWSEC2DescribeSnapshotAttributeRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeSnapshotAttributeResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Describes the storage tier status of one or more Amazon EBS snapshots.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeSnapshotTierStatus service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeSnapshotTierStatusResult`.
+ 
+ @see AWSEC2DescribeSnapshotTierStatusRequest
+ @see AWSEC2DescribeSnapshotTierStatusResult
+ */
+- (AWSTask<AWSEC2DescribeSnapshotTierStatusResult *> *)describeSnapshotTierStatus:(AWSEC2DescribeSnapshotTierStatusRequest *)request;
+
+/**
+ <p>Describes the storage tier status of one or more Amazon EBS snapshots.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeSnapshotTierStatus service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeSnapshotTierStatusRequest
+ @see AWSEC2DescribeSnapshotTierStatusResult
+ */
+- (void)describeSnapshotTierStatus:(AWSEC2DescribeSnapshotTierStatusRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeSnapshotTierStatusResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Describes the specified EBS snapshots available to you or all of the EBS snapshots available to you.</p><p>The snapshots available to you include public snapshots, private snapshots that you own, and private snapshots owned by other Amazon Web Services accounts for which you have explicit create volume permissions.</p><p>The create volume permissions fall into the following categories:</p><ul><li><p><i>public</i>: The owner of the snapshot granted create volume permissions for the snapshot to the <code>all</code> group. All Amazon Web Services accounts have create volume permissions for these snapshots.</p></li><li><p><i>explicit</i>: The owner of the snapshot granted create volume permissions to a specific Amazon Web Services account.</p></li><li><p><i>implicit</i>: An Amazon Web Services account has implicit create volume permissions for all snapshots it owns.</p></li></ul><p>The list of snapshots returned can be filtered by specifying snapshot IDs, snapshot owners, or Amazon Web Services accounts with create volume permissions. If no options are specified, Amazon EC2 returns all snapshots for which you have create volume permissions.</p><p>If you specify one or more snapshot IDs, only snapshots that have the specified IDs are returned. If you specify an invalid snapshot ID, an error is returned. If you specify a snapshot ID for which you do not have access, it is not included in the returned results.</p><p>If you specify one or more snapshot owners using the <code>OwnerIds</code> option, only snapshots from the specified owners and for which you have access are returned. The results can include the Amazon Web Services account IDs of the specified owners, <code>amazon</code> for snapshots owned by Amazon, or <code>self</code> for snapshots that you own.</p><p>If you specify a list of restorable users, only snapshots with create snapshot permissions for those users are returned. You can specify Amazon Web Services account IDs (if you own the snapshots), <code>self</code> for snapshots for which you own or have explicit permissions, or <code>all</code> for public snapshots.</p><p>If you are describing a long list of snapshots, we recommend that you paginate the output to make the list more manageable. The <code>MaxResults</code> parameter sets the maximum number of results returned in a single page. If the list of results exceeds your <code>MaxResults</code> value, then that number of results is returned along with a <code>NextToken</code> value that can be passed to a subsequent <code>DescribeSnapshots</code> request to retrieve the remaining results.</p><p>To get the state of fast snapshot restores for a snapshot, use <a>DescribeFastSnapshotRestores</a>.</p><p>For more information about EBS snapshots, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html">Amazon EBS snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeSnapshots service method.
@@ -6541,7 +7141,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeSpotFleetInstances:(AWSEC2DescribeSpotFleetInstancesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeSpotFleetInstancesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes the events for the specified Spot Fleet request during the specified time.</p><p>Spot Fleet events are delayed by up to 30 seconds before they can be described. This ensures that you can query by the last evaluated time and not miss a recorded event. Spot Fleet events are available for 48 hours.</p>
+ <p>Describes the events for the specified Spot Fleet request during the specified time.</p><p>Spot Fleet events are delayed by up to 30 seconds before they can be described. This ensures that you can query by the last evaluated time and not miss a recorded event. Spot Fleet events are available for 48 hours.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/fleet-monitor.html">Monitor fleet events using Amazon EventBridge</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeSpotFleetRequestHistory service method.
 
@@ -6553,7 +7153,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeSpotFleetRequestHistoryResponse *> *)describeSpotFleetRequestHistory:(AWSEC2DescribeSpotFleetRequestHistoryRequest *)request;
 
 /**
- <p>Describes the events for the specified Spot Fleet request during the specified time.</p><p>Spot Fleet events are delayed by up to 30 seconds before they can be described. This ensures that you can query by the last evaluated time and not miss a recorded event. Spot Fleet events are available for 48 hours.</p>
+ <p>Describes the events for the specified Spot Fleet request during the specified time.</p><p>Spot Fleet events are delayed by up to 30 seconds before they can be described. This ensures that you can query by the last evaluated time and not miss a recorded event. Spot Fleet events are available for 48 hours.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/fleet-monitor.html">Monitor fleet events using Amazon EventBridge</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeSpotFleetRequestHistory service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -6641,7 +7241,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeSpotPriceHistory:(AWSEC2DescribeSpotPriceHistoryRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeSpotPriceHistoryResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>[VPC only] Describes the stale security group rules for security groups in a specified VPC. Rules are stale when they reference a deleted security group in a peer VPC, or a security group in a peer VPC for which the VPC peering connection has been deleted.</p>
+ <p>[VPC only] Describes the stale security group rules for security groups in a specified VPC. Rules are stale when they reference a deleted security group in the same VPC or in a peer VPC, or if they reference a security group in a peer VPC for which the VPC peering connection has been deleted.</p>
  
  @param request A container for the necessary parameters to execute the DescribeStaleSecurityGroups service method.
 
@@ -6653,7 +7253,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeStaleSecurityGroupsResult *> *)describeStaleSecurityGroups:(AWSEC2DescribeStaleSecurityGroupsRequest *)request;
 
 /**
- <p>[VPC only] Describes the stale security group rules for security groups in a specified VPC. Rules are stale when they reference a deleted security group in a peer VPC, or a security group in a peer VPC for which the VPC peering connection has been deleted.</p>
+ <p>[VPC only] Describes the stale security group rules for security groups in a specified VPC. Rules are stale when they reference a deleted security group in the same VPC or in a peer VPC, or if they reference a security group in a peer VPC for which the VPC peering connection has been deleted.</p>
  
  @param request A container for the necessary parameters to execute the DescribeStaleSecurityGroups service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -7607,6 +8207,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)disableEbsEncryptionByDefault:(AWSEC2DisableEbsEncryptionByDefaultRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisableEbsEncryptionByDefaultResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Discontinue faster launching for a Windows AMI, and clean up existing pre-provisioned snapshots. When you disable faster launching, the AMI uses the standard launch process for each instance. All pre-provisioned snapshots must be removed before you can enable faster launching again.</p><note><p>To change these settings, you must own the AMI.</p></note>
+ 
+ @param request A container for the necessary parameters to execute the DisableFastLaunch service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DisableFastLaunchResult`.
+ 
+ @see AWSEC2DisableFastLaunchRequest
+ @see AWSEC2DisableFastLaunchResult
+ */
+- (AWSTask<AWSEC2DisableFastLaunchResult *> *)disableFastLaunch:(AWSEC2DisableFastLaunchRequest *)request;
+
+/**
+ <p>Discontinue faster launching for a Windows AMI, and clean up existing pre-provisioned snapshots. When you disable faster launching, the AMI uses the standard launch process for each instance. All pre-provisioned snapshots must be removed before you can enable faster launching again.</p><note><p>To change these settings, you must own the AMI.</p></note>
+ 
+ @param request A container for the necessary parameters to execute the DisableFastLaunch service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DisableFastLaunchRequest
+ @see AWSEC2DisableFastLaunchResult
+ */
+- (void)disableFastLaunch:(AWSEC2DisableFastLaunchRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisableFastLaunchResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Disables fast snapshot restores for the specified snapshots in the specified Availability Zones.</p>
  
  @param request A container for the necessary parameters to execute the DisableFastSnapshotRestores service method.
@@ -7655,6 +8280,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2DisableImageDeprecationResult
  */
 - (void)disableImageDeprecation:(AWSEC2DisableImageDeprecationRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisableImageDeprecationResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Disable the IPAM account. For more information, see <a href="/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the DisableIpamOrganizationAdminAccount service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DisableIpamOrganizationAdminAccountResult`.
+ 
+ @see AWSEC2DisableIpamOrganizationAdminAccountRequest
+ @see AWSEC2DisableIpamOrganizationAdminAccountResult
+ */
+- (AWSTask<AWSEC2DisableIpamOrganizationAdminAccountResult *> *)disableIpamOrganizationAdminAccount:(AWSEC2DisableIpamOrganizationAdminAccountRequest *)request;
+
+/**
+ <p>Disable the IPAM account. For more information, see <a href="/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the DisableIpamOrganizationAdminAccount service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DisableIpamOrganizationAdminAccountRequest
+ @see AWSEC2DisableIpamOrganizationAdminAccountResult
+ */
+- (void)disableIpamOrganizationAdminAccount:(AWSEC2DisableIpamOrganizationAdminAccountRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisableIpamOrganizationAdminAccountResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Disables access to the EC2 serial console of all instances for your account. By default, access to the EC2 serial console is disabled for your account. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access">Manage account access to the EC2 serial console</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -8073,6 +8723,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)enableEbsEncryptionByDefault:(AWSEC2EnableEbsEncryptionByDefaultRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2EnableEbsEncryptionByDefaultResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>When you enable faster launching for a Windows AMI, images are pre-provisioned, using snapshots to launch instances up to 65% faster. To create the optimized Windows image, Amazon EC2 launches an instance and runs through Sysprep steps, rebooting as required. Then it creates a set of reserved snapshots that are used for subsequent launches. The reserved snapshots are automatically replenished as they are used, depending on your settings for launch frequency.</p><note><p>To change these settings, you must own the AMI.</p></note>
+ 
+ @param request A container for the necessary parameters to execute the EnableFastLaunch service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2EnableFastLaunchResult`.
+ 
+ @see AWSEC2EnableFastLaunchRequest
+ @see AWSEC2EnableFastLaunchResult
+ */
+- (AWSTask<AWSEC2EnableFastLaunchResult *> *)enableFastLaunch:(AWSEC2EnableFastLaunchRequest *)request;
+
+/**
+ <p>When you enable faster launching for a Windows AMI, images are pre-provisioned, using snapshots to launch instances up to 65% faster. To create the optimized Windows image, Amazon EC2 launches an instance and runs through Sysprep steps, rebooting as required. Then it creates a set of reserved snapshots that are used for subsequent launches. The reserved snapshots are automatically replenished as they are used, depending on your settings for launch frequency.</p><note><p>To change these settings, you must own the AMI.</p></note>
+ 
+ @param request A container for the necessary parameters to execute the EnableFastLaunch service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2EnableFastLaunchRequest
+ @see AWSEC2EnableFastLaunchResult
+ */
+- (void)enableFastLaunch:(AWSEC2EnableFastLaunchRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2EnableFastLaunchResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Enables fast snapshot restores for the specified snapshots in the specified Availability Zones.</p><p>You get the full benefit of fast snapshot restores after they enter the <code>enabled</code> state. To get the current state of fast snapshot restores, use <a>DescribeFastSnapshotRestores</a>. To disable fast snapshot restores, use <a>DisableFastSnapshotRestores</a>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-fast-snapshot-restore.html">Amazon EBS fast snapshot restore</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the EnableFastSnapshotRestores service method.
@@ -8121,6 +8796,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2EnableImageDeprecationResult
  */
 - (void)enableImageDeprecation:(AWSEC2EnableImageDeprecationRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2EnableImageDeprecationResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Enable an Organizations member account as the IPAM admin account. You cannot select the Organizations management account as the IPAM admin account. For more information, see <a href="/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the EnableIpamOrganizationAdminAccount service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2EnableIpamOrganizationAdminAccountResult`.
+ 
+ @see AWSEC2EnableIpamOrganizationAdminAccountRequest
+ @see AWSEC2EnableIpamOrganizationAdminAccountResult
+ */
+- (AWSTask<AWSEC2EnableIpamOrganizationAdminAccountResult *> *)enableIpamOrganizationAdminAccount:(AWSEC2EnableIpamOrganizationAdminAccountRequest *)request;
+
+/**
+ <p>Enable an Organizations member account as the IPAM admin account. You cannot select the Organizations management account as the IPAM admin account. For more information, see <a href="/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the EnableIpamOrganizationAdminAccount service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2EnableIpamOrganizationAdminAccountRequest
+ @see AWSEC2EnableIpamOrganizationAdminAccountResult
+ */
+- (void)enableIpamOrganizationAdminAccount:(AWSEC2EnableIpamOrganizationAdminAccountRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2EnableIpamOrganizationAdminAccountResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Enables access to the EC2 serial console of all instances for your account. By default, access to the EC2 serial console is disabled for your account. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access">Manage account access to the EC2 serial console</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -8667,6 +9367,131 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)getHostReservationPurchasePreview:(AWSEC2GetHostReservationPurchasePreviewRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetHostReservationPurchasePreviewResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Returns a list of instance types with the specified instance attributes. You can use the response to preview the instance types without launching instances. Note that the response does not consider capacity.</p><p>When you specify multiple parameters, you get instance types that satisfy all of the specified parameters. If you specify multiple values for a parameter, you get instance types that satisfy any of the specified values.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html#spotfleet-get-instance-types-from-instance-requirements">Preview instance types with specified attributes</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot placement score</a> in the <i>Amazon EC2 User Guide</i>, and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html">Creating an Auto Scaling group using attribute-based instance type selection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetInstanceTypesFromInstanceRequirements service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetInstanceTypesFromInstanceRequirementsResult`.
+ 
+ @see AWSEC2GetInstanceTypesFromInstanceRequirementsRequest
+ @see AWSEC2GetInstanceTypesFromInstanceRequirementsResult
+ */
+- (AWSTask<AWSEC2GetInstanceTypesFromInstanceRequirementsResult *> *)getInstanceTypesFromInstanceRequirements:(AWSEC2GetInstanceTypesFromInstanceRequirementsRequest *)request;
+
+/**
+ <p>Returns a list of instance types with the specified instance attributes. You can use the response to preview the instance types without launching instances. Note that the response does not consider capacity.</p><p>When you specify multiple parameters, you get instance types that satisfy all of the specified parameters. If you specify multiple values for a parameter, you get instance types that satisfy any of the specified values.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html#spotfleet-get-instance-types-from-instance-requirements">Preview instance types with specified attributes</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot placement score</a> in the <i>Amazon EC2 User Guide</i>, and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html">Creating an Auto Scaling group using attribute-based instance type selection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetInstanceTypesFromInstanceRequirements service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetInstanceTypesFromInstanceRequirementsRequest
+ @see AWSEC2GetInstanceTypesFromInstanceRequirementsResult
+ */
+- (void)getInstanceTypesFromInstanceRequirements:(AWSEC2GetInstanceTypesFromInstanceRequirementsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetInstanceTypesFromInstanceRequirementsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Retrieve historical information about a CIDR within an IPAM scope. For more information, see <a href="/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetIpamAddressHistory service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetIpamAddressHistoryResult`.
+ 
+ @see AWSEC2GetIpamAddressHistoryRequest
+ @see AWSEC2GetIpamAddressHistoryResult
+ */
+- (AWSTask<AWSEC2GetIpamAddressHistoryResult *> *)getIpamAddressHistory:(AWSEC2GetIpamAddressHistoryRequest *)request;
+
+/**
+ <p>Retrieve historical information about a CIDR within an IPAM scope. For more information, see <a href="/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetIpamAddressHistory service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetIpamAddressHistoryRequest
+ @see AWSEC2GetIpamAddressHistoryResult
+ */
+- (void)getIpamAddressHistory:(AWSEC2GetIpamAddressHistoryRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetIpamAddressHistoryResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Get a list of all the CIDR allocations in an IPAM pool.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetIpamPoolAllocations service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetIpamPoolAllocationsResult`.
+ 
+ @see AWSEC2GetIpamPoolAllocationsRequest
+ @see AWSEC2GetIpamPoolAllocationsResult
+ */
+- (AWSTask<AWSEC2GetIpamPoolAllocationsResult *> *)getIpamPoolAllocations:(AWSEC2GetIpamPoolAllocationsRequest *)request;
+
+/**
+ <p>Get a list of all the CIDR allocations in an IPAM pool.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetIpamPoolAllocations service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetIpamPoolAllocationsRequest
+ @see AWSEC2GetIpamPoolAllocationsResult
+ */
+- (void)getIpamPoolAllocations:(AWSEC2GetIpamPoolAllocationsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetIpamPoolAllocationsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Get the CIDRs provisioned to an IPAM pool.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetIpamPoolCidrs service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetIpamPoolCidrsResult`.
+ 
+ @see AWSEC2GetIpamPoolCidrsRequest
+ @see AWSEC2GetIpamPoolCidrsResult
+ */
+- (AWSTask<AWSEC2GetIpamPoolCidrsResult *> *)getIpamPoolCidrs:(AWSEC2GetIpamPoolCidrsRequest *)request;
+
+/**
+ <p>Get the CIDRs provisioned to an IPAM pool.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetIpamPoolCidrs service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetIpamPoolCidrsRequest
+ @see AWSEC2GetIpamPoolCidrsResult
+ */
+- (void)getIpamPoolCidrs:(AWSEC2GetIpamPoolCidrsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetIpamPoolCidrsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Get information about the resources in a scope.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetIpamResourceCidrs service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetIpamResourceCidrsResult`.
+ 
+ @see AWSEC2GetIpamResourceCidrsRequest
+ @see AWSEC2GetIpamResourceCidrsResult
+ */
+- (AWSTask<AWSEC2GetIpamResourceCidrsResult *> *)getIpamResourceCidrs:(AWSEC2GetIpamResourceCidrsRequest *)request;
+
+/**
+ <p>Get information about the resources in a scope.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetIpamResourceCidrs service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetIpamResourceCidrsRequest
+ @see AWSEC2GetIpamResourceCidrsResult
+ */
+- (void)getIpamResourceCidrs:(AWSEC2GetIpamResourceCidrsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetIpamResourceCidrsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Retrieves the configuration data of the specified instance. You can use this data to create a launch template. </p><p>This action calls on other describe actions to get instance information. Depending on your instance configuration, you may need to allow the following actions in your IAM policy: DescribeSpotInstanceRequests, DescribeInstanceCreditSpecifications, DescribeVolumes, DescribeInstanceAttribute, and DescribeElasticGpus. Or, you can allow <code>describe*</code> depending on your instance requirements.</p>
  
  @param request A container for the necessary parameters to execute the GetLaunchTemplateData service method.
@@ -8742,6 +9567,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)getManagedPrefixListEntries:(AWSEC2GetManagedPrefixListEntriesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetManagedPrefixListEntriesResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Gets the findings for the specified Network Access Scope analysis.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetNetworkInsightsAccessScopeAnalysisFindings service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetNetworkInsightsAccessScopeAnalysisFindingsResult`.
+ 
+ @see AWSEC2GetNetworkInsightsAccessScopeAnalysisFindingsRequest
+ @see AWSEC2GetNetworkInsightsAccessScopeAnalysisFindingsResult
+ */
+- (AWSTask<AWSEC2GetNetworkInsightsAccessScopeAnalysisFindingsResult *> *)getNetworkInsightsAccessScopeAnalysisFindings:(AWSEC2GetNetworkInsightsAccessScopeAnalysisFindingsRequest *)request;
+
+/**
+ <p>Gets the findings for the specified Network Access Scope analysis.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetNetworkInsightsAccessScopeAnalysisFindings service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetNetworkInsightsAccessScopeAnalysisFindingsRequest
+ @see AWSEC2GetNetworkInsightsAccessScopeAnalysisFindingsResult
+ */
+- (void)getNetworkInsightsAccessScopeAnalysisFindings:(AWSEC2GetNetworkInsightsAccessScopeAnalysisFindingsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetNetworkInsightsAccessScopeAnalysisFindingsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Gets the content for the specified Network Access Scope.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetNetworkInsightsAccessScopeContent service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetNetworkInsightsAccessScopeContentResult`.
+ 
+ @see AWSEC2GetNetworkInsightsAccessScopeContentRequest
+ @see AWSEC2GetNetworkInsightsAccessScopeContentResult
+ */
+- (AWSTask<AWSEC2GetNetworkInsightsAccessScopeContentResult *> *)getNetworkInsightsAccessScopeContent:(AWSEC2GetNetworkInsightsAccessScopeContentRequest *)request;
+
+/**
+ <p>Gets the content for the specified Network Access Scope.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetNetworkInsightsAccessScopeContent service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetNetworkInsightsAccessScopeContentRequest
+ @see AWSEC2GetNetworkInsightsAccessScopeContentResult
+ */
+- (void)getNetworkInsightsAccessScopeContent:(AWSEC2GetNetworkInsightsAccessScopeContentRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetNetworkInsightsAccessScopeContentResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Retrieves the encrypted administrator password for a running Windows instance.</p><p>The Windows password is generated at boot by the <code>EC2Config</code> service or <code>EC2Launch</code> scripts (Windows Server 2016 and later). This usually only happens the first time an instance is launched. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/UsingConfig_WinAMI.html">EC2Config</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2launch.html">EC2Launch</a> in the <i>Amazon EC2 User Guide</i>.</p><p>For the <code>EC2Config</code> service, the password is not generated for rebundled AMIs unless <code>Ec2SetPassword</code> is enabled before bundling.</p><p>The password is encrypted using the key pair that you specified when you launched the instance. You must provide the corresponding key pair file.</p><p>When you launch an instance, password generation and encryption may take a few minutes. If you try to retrieve the password before it's available, the output returns an empty string. We recommend that you wait up to 15 minutes after launching an instance before trying to retrieve the generated password.</p>
  
  @param request A container for the necessary parameters to execute the GetPasswordData service method.
@@ -8815,6 +9690,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2GetSerialConsoleAccessStatusResult
  */
 - (void)getSerialConsoleAccessStatus:(AWSEC2GetSerialConsoleAccessStatusRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetSerialConsoleAccessStatusResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Calculates the Spot placement score for a Region or Availability Zone based on the specified target capacity and compute requirements.</p><p>You can specify your compute requirements either by using <code>InstanceRequirementsWithMetadata</code> and letting Amazon EC2 choose the optimal instance types to fulfill your Spot request, or you can specify the instance types by using <code>InstanceTypes</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot placement score</a> in the Amazon EC2 User Guide.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetSpotPlacementScores service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetSpotPlacementScoresResult`.
+ 
+ @see AWSEC2GetSpotPlacementScoresRequest
+ @see AWSEC2GetSpotPlacementScoresResult
+ */
+- (AWSTask<AWSEC2GetSpotPlacementScoresResult *> *)getSpotPlacementScores:(AWSEC2GetSpotPlacementScoresRequest *)request;
+
+/**
+ <p>Calculates the Spot placement score for a Region or Availability Zone based on the specified target capacity and compute requirements.</p><p>You can specify your compute requirements either by using <code>InstanceRequirementsWithMetadata</code> and letting Amazon EC2 choose the optimal instance types to fulfill your Spot request, or you can specify the instance types by using <code>InstanceTypes</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot placement score</a> in the Amazon EC2 User Guide.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetSpotPlacementScores service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetSpotPlacementScoresRequest
+ @see AWSEC2GetSpotPlacementScoresResult
+ */
+- (void)getSpotPlacementScores:(AWSEC2GetSpotPlacementScoresRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetSpotPlacementScoresResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Gets information about the subnet CIDR reservations.</p>
@@ -8967,7 +9867,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)getTransitGatewayRouteTablePropagations:(AWSEC2GetTransitGatewayRouteTablePropagationsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetTransitGatewayRouteTablePropagationsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Download an AWS-provided sample configuration file to be used with the customer gateway device specified for your Site-to-Site VPN connection.</p>
+ <p>Download an Amazon Web Services-provided sample configuration file to be used with the customer gateway device specified for your Site-to-Site VPN connection.</p>
  
  @param request A container for the necessary parameters to execute the GetVpnConnectionDeviceSampleConfiguration service method.
 
@@ -8979,7 +9879,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2GetVpnConnectionDeviceSampleConfigurationResult *> *)getVpnConnectionDeviceSampleConfiguration:(AWSEC2GetVpnConnectionDeviceSampleConfigurationRequest *)request;
 
 /**
- <p>Download an AWS-provided sample configuration file to be used with the customer gateway device specified for your Site-to-Site VPN connection.</p>
+ <p>Download an Amazon Web Services-provided sample configuration file to be used with the customer gateway device specified for your Site-to-Site VPN connection.</p>
  
  @param request A container for the necessary parameters to execute the GetVpnConnectionDeviceSampleConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -9167,6 +10067,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)importVolume:(AWSEC2ImportVolumeRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ImportVolumeResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Lists one or more AMIs that are currently in the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in the Amazon Elastic Compute Cloud User Guide.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListImagesInRecycleBin service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ListImagesInRecycleBinResult`.
+ 
+ @see AWSEC2ListImagesInRecycleBinRequest
+ @see AWSEC2ListImagesInRecycleBinResult
+ */
+- (AWSTask<AWSEC2ListImagesInRecycleBinResult *> *)listImagesInRecycleBin:(AWSEC2ListImagesInRecycleBinRequest *)request;
+
+/**
+ <p>Lists one or more AMIs that are currently in the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in the Amazon Elastic Compute Cloud User Guide.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListImagesInRecycleBin service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ListImagesInRecycleBinRequest
+ @see AWSEC2ListImagesInRecycleBinResult
+ */
+- (void)listImagesInRecycleBin:(AWSEC2ListImagesInRecycleBinRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ListImagesInRecycleBinResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Lists one or more snapshots that are currently in the Recycle Bin.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListSnapshotsInRecycleBin service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ListSnapshotsInRecycleBinResult`.
+ 
+ @see AWSEC2ListSnapshotsInRecycleBinRequest
+ @see AWSEC2ListSnapshotsInRecycleBinResult
+ */
+- (AWSTask<AWSEC2ListSnapshotsInRecycleBinResult *> *)listSnapshotsInRecycleBin:(AWSEC2ListSnapshotsInRecycleBinRequest *)request;
+
+/**
+ <p>Lists one or more snapshots that are currently in the Recycle Bin.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListSnapshotsInRecycleBin service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ListSnapshotsInRecycleBinRequest
+ @see AWSEC2ListSnapshotsInRecycleBinResult
+ */
+- (void)listSnapshotsInRecycleBin:(AWSEC2ListSnapshotsInRecycleBinRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ListSnapshotsInRecycleBinResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Modifies an attribute of the specified Elastic IP address. For requirements, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS">Using reverse DNS for email applications</a>.</p>
  
  @param request A container for the necessary parameters to execute the ModifyAddressAttribute service method.
@@ -9240,6 +10190,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2ModifyCapacityReservationResult
  */
 - (void)modifyCapacityReservation:(AWSEC2ModifyCapacityReservationRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyCapacityReservationResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Modifies a Capacity Reservation Fleet.</p><p>When you modify the total target capacity of a Capacity Reservation Fleet, the Fleet automatically creates new Capacity Reservations, or modifies or cancels existing Capacity Reservations in the Fleet to meet the new total target capacity. When you modify the end date for the Fleet, the end dates for all of the individual Capacity Reservations in the Fleet are updated accordingly.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyCapacityReservationFleet service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyCapacityReservationFleetResult`.
+ 
+ @see AWSEC2ModifyCapacityReservationFleetRequest
+ @see AWSEC2ModifyCapacityReservationFleetResult
+ */
+- (AWSTask<AWSEC2ModifyCapacityReservationFleetResult *> *)modifyCapacityReservationFleet:(AWSEC2ModifyCapacityReservationFleetRequest *)request;
+
+/**
+ <p>Modifies a Capacity Reservation Fleet.</p><p>When you modify the total target capacity of a Capacity Reservation Fleet, the Fleet automatically creates new Capacity Reservations, or modifies or cancels existing Capacity Reservations in the Fleet to meet the new total target capacity. When you modify the end date for the Fleet, the end dates for all of the individual Capacity Reservations in the Fleet are updated accordingly.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyCapacityReservationFleet service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyCapacityReservationFleetRequest
+ @see AWSEC2ModifyCapacityReservationFleetResult
+ */
+- (void)modifyCapacityReservationFleet:(AWSEC2ModifyCapacityReservationFleetRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyCapacityReservationFleetResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Modifies the specified Client VPN endpoint. Modifying the DNS server resets existing client connections.</p>
@@ -9392,7 +10367,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)modifyHosts:(AWSEC2ModifyHostsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyHostsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Modifies the ID format for the specified resource on a per-Region basis. You can specify that resources should receive longer IDs (17-character IDs) when they are created.</p><p>This request can only be used to modify longer ID settings for resource types that are within the opt-in period. Resources currently in their opt-in period include: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p><p>This setting applies to the IAM user who makes the request; it does not apply to the entire AWS account. By default, an IAM user defaults to the same settings as the root user. If you're using this action as the root user, then these settings apply to the entire account, unless an IAM user explicitly overrides these settings for themselves. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource IDs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>Resources created with longer IDs are visible to all IAM roles and users, regardless of these settings and provided that they have permission to use the relevant <code>Describe</code> command for the resource type.</p>
+ <p>Modifies the ID format for the specified resource on a per-Region basis. You can specify that resources should receive longer IDs (17-character IDs) when they are created.</p><p>This request can only be used to modify longer ID settings for resource types that are within the opt-in period. Resources currently in their opt-in period include: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p><p>This setting applies to the IAM user who makes the request; it does not apply to the entire Amazon Web Services account. By default, an IAM user defaults to the same settings as the root user. If you're using this action as the root user, then these settings apply to the entire account, unless an IAM user explicitly overrides these settings for themselves. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource IDs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>Resources created with longer IDs are visible to all IAM roles and users, regardless of these settings and provided that they have permission to use the relevant <code>Describe</code> command for the resource type.</p>
  
  @param request A container for the necessary parameters to execute the ModifyIdFormat service method.
 
@@ -9403,7 +10378,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask *)modifyIdFormat:(AWSEC2ModifyIdFormatRequest *)request;
 
 /**
- <p>Modifies the ID format for the specified resource on a per-Region basis. You can specify that resources should receive longer IDs (17-character IDs) when they are created.</p><p>This request can only be used to modify longer ID settings for resource types that are within the opt-in period. Resources currently in their opt-in period include: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p><p>This setting applies to the IAM user who makes the request; it does not apply to the entire AWS account. By default, an IAM user defaults to the same settings as the root user. If you're using this action as the root user, then these settings apply to the entire account, unless an IAM user explicitly overrides these settings for themselves. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource IDs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>Resources created with longer IDs are visible to all IAM roles and users, regardless of these settings and provided that they have permission to use the relevant <code>Describe</code> command for the resource type.</p>
+ <p>Modifies the ID format for the specified resource on a per-Region basis. You can specify that resources should receive longer IDs (17-character IDs) when they are created.</p><p>This request can only be used to modify longer ID settings for resource types that are within the opt-in period. Resources currently in their opt-in period include: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p><p>This setting applies to the IAM user who makes the request; it does not apply to the entire Amazon Web Services account. By default, an IAM user defaults to the same settings as the root user. If you're using this action as the root user, then these settings apply to the entire account, unless an IAM user explicitly overrides these settings for themselves. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource IDs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>Resources created with longer IDs are visible to all IAM roles and users, regardless of these settings and provided that they have permission to use the relevant <code>Describe</code> command for the resource type.</p>
  
  @param request A container for the necessary parameters to execute the ModifyIdFormat service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -9458,7 +10433,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)modifyImageAttribute:(AWSEC2ModifyImageAttributeRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Modifies the specified attribute of the specified instance. You can specify only one attribute at a time.</p><p><b>Note: </b>Using this action to change the security groups associated with an elastic network interface (ENI) attached to an instance in a VPC can result in an error if the instance has more than one ENI. To change the security groups associated with an ENI attached to an instance that has multiple ENIs, we recommend that you use the <a>ModifyNetworkInterfaceAttribute</a> action.</p><p>To modify some attributes, the instance must be stopped. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html">Modifying attributes of a stopped instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Modifies the specified attribute of the specified instance. You can specify only one attribute at a time.</p><p><b>Note: </b>Using this action to change the security groups associated with an elastic network interface (ENI) attached to an instance in a VPC can result in an error if the instance has more than one ENI. To change the security groups associated with an ENI attached to an instance that has multiple ENIs, we recommend that you use the <a>ModifyNetworkInterfaceAttribute</a> action.</p><p>To modify some attributes, the instance must be stopped. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html">Modify a stopped instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ModifyInstanceAttribute service method.
 
@@ -9469,7 +10444,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask *)modifyInstanceAttribute:(AWSEC2ModifyInstanceAttributeRequest *)request;
 
 /**
- <p>Modifies the specified attribute of the specified instance. You can specify only one attribute at a time.</p><p><b>Note: </b>Using this action to change the security groups associated with an elastic network interface (ENI) attached to an instance in a VPC can result in an error if the instance has more than one ENI. To change the security groups associated with an ENI attached to an instance that has multiple ENIs, we recommend that you use the <a>ModifyNetworkInterfaceAttribute</a> action.</p><p>To modify some attributes, the instance must be stopped. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html">Modifying attributes of a stopped instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Modifies the specified attribute of the specified instance. You can specify only one attribute at a time.</p><p><b>Note: </b>Using this action to change the security groups associated with an elastic network interface (ENI) attached to an instance in a VPC can result in an error if the instance has more than one ENI. To change the security groups associated with an ENI attached to an instance that has multiple ENIs, we recommend that you use the <a>ModifyNetworkInterfaceAttribute</a> action.</p><p>To modify some attributes, the instance must be stopped. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html">Modify a stopped instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ModifyInstanceAttribute service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -9630,6 +10605,106 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)modifyInstancePlacement:(AWSEC2ModifyInstancePlacementRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyInstancePlacementResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Modify the configurations of an IPAM. </p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyIpam service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyIpamResult`.
+ 
+ @see AWSEC2ModifyIpamRequest
+ @see AWSEC2ModifyIpamResult
+ */
+- (AWSTask<AWSEC2ModifyIpamResult *> *)modifyIpam:(AWSEC2ModifyIpamRequest *)request;
+
+/**
+ <p>Modify the configurations of an IPAM. </p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyIpam service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyIpamRequest
+ @see AWSEC2ModifyIpamResult
+ */
+- (void)modifyIpam:(AWSEC2ModifyIpamRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyIpamResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Modify the configurations of an IPAM pool.</p><p>For more information, see <a href="/vpc/latest/ipam/mod-pool-ipam.html">Modify a pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyIpamPool service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyIpamPoolResult`.
+ 
+ @see AWSEC2ModifyIpamPoolRequest
+ @see AWSEC2ModifyIpamPoolResult
+ */
+- (AWSTask<AWSEC2ModifyIpamPoolResult *> *)modifyIpamPool:(AWSEC2ModifyIpamPoolRequest *)request;
+
+/**
+ <p>Modify the configurations of an IPAM pool.</p><p>For more information, see <a href="/vpc/latest/ipam/mod-pool-ipam.html">Modify a pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyIpamPool service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyIpamPoolRequest
+ @see AWSEC2ModifyIpamPoolResult
+ */
+- (void)modifyIpamPool:(AWSEC2ModifyIpamPoolRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyIpamPoolResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Modify a resource CIDR. You can use this action to transfer resource CIDRs between scopes and ignore resource CIDRs that you do not want to manage. If set to false, the resource will not be tracked for overlap, it cannot be auto-imported into a pool, and it will be removed from any pool it has an allocation in.</p><p>For more information, see <a href="/vpc/latest/ipam/move-resource-ipam.html">Move resource CIDRs between scopes</a> and <a href="/vpc/latest/ipam/change-monitoring-state-ipam.html">Change the monitoring state of resource CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyIpamResourceCidr service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyIpamResourceCidrResult`.
+ 
+ @see AWSEC2ModifyIpamResourceCidrRequest
+ @see AWSEC2ModifyIpamResourceCidrResult
+ */
+- (AWSTask<AWSEC2ModifyIpamResourceCidrResult *> *)modifyIpamResourceCidr:(AWSEC2ModifyIpamResourceCidrRequest *)request;
+
+/**
+ <p>Modify a resource CIDR. You can use this action to transfer resource CIDRs between scopes and ignore resource CIDRs that you do not want to manage. If set to false, the resource will not be tracked for overlap, it cannot be auto-imported into a pool, and it will be removed from any pool it has an allocation in.</p><p>For more information, see <a href="/vpc/latest/ipam/move-resource-ipam.html">Move resource CIDRs between scopes</a> and <a href="/vpc/latest/ipam/change-monitoring-state-ipam.html">Change the monitoring state of resource CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyIpamResourceCidr service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyIpamResourceCidrRequest
+ @see AWSEC2ModifyIpamResourceCidrResult
+ */
+- (void)modifyIpamResourceCidr:(AWSEC2ModifyIpamResourceCidrRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyIpamResourceCidrResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Modify an IPAM scope.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyIpamScope service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyIpamScopeResult`.
+ 
+ @see AWSEC2ModifyIpamScopeRequest
+ @see AWSEC2ModifyIpamScopeResult
+ */
+- (AWSTask<AWSEC2ModifyIpamScopeResult *> *)modifyIpamScope:(AWSEC2ModifyIpamScopeRequest *)request;
+
+/**
+ <p>Modify an IPAM scope.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyIpamScope service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyIpamScopeRequest
+ @see AWSEC2ModifyIpamScopeResult
+ */
+- (void)modifyIpamScope:(AWSEC2ModifyIpamScopeRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyIpamScopeResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Modifies a launch template. You can specify which version of the launch template to set as the default version. When launching an instance, the default version applies when a launch template version is not specified.</p>
  
  @param request A container for the necessary parameters to execute the ModifyLaunchTemplate service method.
@@ -9700,6 +10775,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2ModifyNetworkInterfaceAttributeRequest
  */
 - (void)modifyNetworkInterfaceAttribute:(AWSEC2ModifyNetworkInterfaceAttributeRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Modifies the options for instance hostnames for the specified instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyPrivateDnsNameOptions service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyPrivateDnsNameOptionsResult`.
+ 
+ @see AWSEC2ModifyPrivateDnsNameOptionsRequest
+ @see AWSEC2ModifyPrivateDnsNameOptionsResult
+ */
+- (AWSTask<AWSEC2ModifyPrivateDnsNameOptionsResult *> *)modifyPrivateDnsNameOptions:(AWSEC2ModifyPrivateDnsNameOptionsRequest *)request;
+
+/**
+ <p>Modifies the options for instance hostnames for the specified instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyPrivateDnsNameOptions service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyPrivateDnsNameOptionsRequest
+ @see AWSEC2ModifyPrivateDnsNameOptionsResult
+ */
+- (void)modifyPrivateDnsNameOptions:(AWSEC2ModifyPrivateDnsNameOptionsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyPrivateDnsNameOptionsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Modifies the Availability Zone, instance count, instance type, or network platform (EC2-Classic or EC2-VPC) of your Reserved Instances. The Reserved Instances to be modified must be identical, except for Availability Zone, network platform, and instance type.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -9774,6 +10874,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)modifySnapshotAttribute:(AWSEC2ModifySnapshotAttributeRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Archives an Amazon EBS snapshot. When you archive a snapshot, it is converted to a full snapshot that includes all of the blocks of data that were written to the volume at the time the snapshot was created, and moved from the standard tier to the archive tier. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-archive.html">Archive Amazon EBS snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifySnapshotTier service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifySnapshotTierResult`.
+ 
+ @see AWSEC2ModifySnapshotTierRequest
+ @see AWSEC2ModifySnapshotTierResult
+ */
+- (AWSTask<AWSEC2ModifySnapshotTierResult *> *)modifySnapshotTier:(AWSEC2ModifySnapshotTierRequest *)request;
+
+/**
+ <p>Archives an Amazon EBS snapshot. When you archive a snapshot, it is converted to a full snapshot that includes all of the blocks of data that were written to the volume at the time the snapshot was created, and moved from the standard tier to the archive tier. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-archive.html">Archive Amazon EBS snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifySnapshotTier service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifySnapshotTierRequest
+ @see AWSEC2ModifySnapshotTierResult
+ */
+- (void)modifySnapshotTier:(AWSEC2ModifySnapshotTierRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifySnapshotTierResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Modifies the specified Spot Fleet request.</p><p>You can only modify a Spot Fleet request of type <code>maintain</code>.</p><p>While the Spot Fleet request is being modified, it is in the <code>modifying</code> state.</p><p>To scale up your Spot Fleet, increase its target capacity. The Spot Fleet launches the additional Spot Instances according to the allocation strategy for the Spot Fleet request. If the allocation strategy is <code>lowestPrice</code>, the Spot Fleet launches instances using the Spot Instance pool with the lowest price. If the allocation strategy is <code>diversified</code>, the Spot Fleet distributes the instances across the Spot Instance pools. If the allocation strategy is <code>capacityOptimized</code>, Spot Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching.</p><p>To scale down your Spot Fleet, decrease its target capacity. First, the Spot Fleet cancels any open requests that exceed the new target capacity. You can request that the Spot Fleet terminate Spot Instances until the size of the fleet no longer exceeds the new target capacity. If the allocation strategy is <code>lowestPrice</code>, the Spot Fleet terminates the instances with the highest price per unit. If the allocation strategy is <code>capacityOptimized</code>, the Spot Fleet terminates the instances in the Spot Instance pools that have the least available Spot Instance capacity. If the allocation strategy is <code>diversified</code>, the Spot Fleet terminates instances across the Spot Instance pools. Alternatively, you can request that the Spot Fleet keep the fleet at its current size, but not replace any Spot Instances that are interrupted or that you terminate manually.</p><p>If you are finished with your Spot Fleet for now, but will use it again later, you can set the target capacity to 0.</p>
  
  @param request A container for the necessary parameters to execute the ModifySpotFleetRequest service method.
@@ -9799,7 +10924,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)modifySpotFleetRequest:(AWSEC2ModifySpotFleetRequestRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifySpotFleetRequestResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Modifies a subnet attribute. You can only modify one attribute at a time.</p>
+ <p>Modifies a subnet attribute. You can only modify one attribute at a time.</p><p>Use this action to modify subnets on Amazon Web Services Outposts.</p><ul><li><p>To modify a subnet on an Outpost rack, set both <code>MapCustomerOwnedIpOnLaunch</code> and <code>CustomerOwnedIpv4Pool</code>. These two parameters act as a single attribute.</p></li><li><p>To modify a subnet on an Outpost server, set either <code>EnableLniAtDeviceIndex</code> or <code>DisableLniAtDeviceIndex</code>.</p></li></ul><p>For more information about Amazon Web Services Outposts, see the following:</p><ul><li><p><a href="https://docs.aws.amazon.com/outposts/latest/userguide/how-servers-work.html">Outpost servers</a></p></li><li><p><a href="https://docs.aws.amazon.com/outposts/latest/userguide/how-racks-work.html">Outpost racks</a></p></li></ul>
  
  @param request A container for the necessary parameters to execute the ModifySubnetAttribute service method.
 
@@ -9810,7 +10935,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask *)modifySubnetAttribute:(AWSEC2ModifySubnetAttributeRequest *)request;
 
 /**
- <p>Modifies a subnet attribute. You can only modify one attribute at a time.</p>
+ <p>Modifies a subnet attribute. You can only modify one attribute at a time.</p><p>Use this action to modify subnets on Amazon Web Services Outposts.</p><ul><li><p>To modify a subnet on an Outpost rack, set both <code>MapCustomerOwnedIpOnLaunch</code> and <code>CustomerOwnedIpv4Pool</code>. These two parameters act as a single attribute.</p></li><li><p>To modify a subnet on an Outpost server, set either <code>EnableLniAtDeviceIndex</code> or <code>DisableLniAtDeviceIndex</code>.</p></li></ul><p>For more information about Amazon Web Services Outposts, see the following:</p><ul><li><p><a href="https://docs.aws.amazon.com/outposts/latest/userguide/how-servers-work.html">Outpost servers</a></p></li><li><p><a href="https://docs.aws.amazon.com/outposts/latest/userguide/how-racks-work.html">Outpost racks</a></p></li></ul>
  
  @param request A container for the necessary parameters to execute the ModifySubnetAttribute service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -9821,7 +10946,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)modifySubnetAttribute:(AWSEC2ModifySubnetAttributeRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Allows or restricts mirroring network services.</p><p> By default, Amazon DNS network services are not eligible for Traffic Mirror. Use <code>AddNetworkServices</code> to add network services to a Traffic Mirror filter. When a network service is added to the Traffic Mirror filter, all traffic related to that network service will be mirrored. When you no longer want to mirror network services, use <code>RemoveNetworkServices</code> to remove the network services from the Traffic Mirror filter. </p><p>For information about filter rule properties, see <a href="https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html">Network Services</a> in the <i>Traffic Mirroring User Guide </i>.</p>
+ <p>Allows or restricts mirroring network services.</p><p> By default, Amazon DNS network services are not eligible for Traffic Mirror. Use <code>AddNetworkServices</code> to add network services to a Traffic Mirror filter. When a network service is added to the Traffic Mirror filter, all traffic related to that network service will be mirrored. When you no longer want to mirror network services, use <code>RemoveNetworkServices</code> to remove the network services from the Traffic Mirror filter. </p>
  
  @param request A container for the necessary parameters to execute the ModifyTrafficMirrorFilterNetworkServices service method.
 
@@ -9833,7 +10958,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2ModifyTrafficMirrorFilterNetworkServicesResult *> *)modifyTrafficMirrorFilterNetworkServices:(AWSEC2ModifyTrafficMirrorFilterNetworkServicesRequest *)request;
 
 /**
- <p>Allows or restricts mirroring network services.</p><p> By default, Amazon DNS network services are not eligible for Traffic Mirror. Use <code>AddNetworkServices</code> to add network services to a Traffic Mirror filter. When a network service is added to the Traffic Mirror filter, all traffic related to that network service will be mirrored. When you no longer want to mirror network services, use <code>RemoveNetworkServices</code> to remove the network services from the Traffic Mirror filter. </p><p>For information about filter rule properties, see <a href="https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html">Network Services</a> in the <i>Traffic Mirroring User Guide </i>.</p>
+ <p>Allows or restricts mirroring network services.</p><p> By default, Amazon DNS network services are not eligible for Traffic Mirror. Use <code>AddNetworkServices</code> to add network services to a Traffic Mirror filter. When a network service is added to the Traffic Mirror filter, all traffic related to that network service will be mirrored. When you no longer want to mirror network services, use <code>RemoveNetworkServices</code> to remove the network services from the Traffic Mirror filter. </p>
  
  @param request A container for the necessary parameters to execute the ModifyTrafficMirrorFilterNetworkServices service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -10115,7 +11240,32 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)modifyVpcEndpointServiceConfiguration:(AWSEC2ModifyVpcEndpointServiceConfigurationRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyVpcEndpointServiceConfigurationResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Modifies the permissions for your <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC endpoint service</a>. You can add or remove permissions for service consumers (IAM users, IAM roles, and AWS accounts) to connect to your endpoint service.</p><p>If you grant permissions to all principals, the service is public. Any users who know the name of a public service can send a request to attach an endpoint. If the service does not require manual approval, attachments are automatically approved.</p>
+ <p>Modifies the payer responsibility for your VPC endpoint service.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVpcEndpointServicePayerResponsibility service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyVpcEndpointServicePayerResponsibilityResult`.
+ 
+ @see AWSEC2ModifyVpcEndpointServicePayerResponsibilityRequest
+ @see AWSEC2ModifyVpcEndpointServicePayerResponsibilityResult
+ */
+- (AWSTask<AWSEC2ModifyVpcEndpointServicePayerResponsibilityResult *> *)modifyVpcEndpointServicePayerResponsibility:(AWSEC2ModifyVpcEndpointServicePayerResponsibilityRequest *)request;
+
+/**
+ <p>Modifies the payer responsibility for your VPC endpoint service.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVpcEndpointServicePayerResponsibility service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyVpcEndpointServicePayerResponsibilityRequest
+ @see AWSEC2ModifyVpcEndpointServicePayerResponsibilityResult
+ */
+- (void)modifyVpcEndpointServicePayerResponsibility:(AWSEC2ModifyVpcEndpointServicePayerResponsibilityRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyVpcEndpointServicePayerResponsibilityResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Modifies the permissions for your <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC endpoint service</a>. You can add or remove permissions for service consumers (IAM users, IAM roles, and Amazon Web Services accounts) to connect to your endpoint service.</p><p>If you grant permissions to all principals, the service is public. Any users who know the name of a public service can send a request to attach an endpoint. If the service does not require manual approval, attachments are automatically approved.</p>
  
  @param request A container for the necessary parameters to execute the ModifyVpcEndpointServicePermissions service method.
 
@@ -10127,7 +11277,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2ModifyVpcEndpointServicePermissionsResult *> *)modifyVpcEndpointServicePermissions:(AWSEC2ModifyVpcEndpointServicePermissionsRequest *)request;
 
 /**
- <p>Modifies the permissions for your <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC endpoint service</a>. You can add or remove permissions for service consumers (IAM users, IAM roles, and AWS accounts) to connect to your endpoint service.</p><p>If you grant permissions to all principals, the service is public. Any users who know the name of a public service can send a request to attach an endpoint. If the service does not require manual approval, attachments are automatically approved.</p>
+ <p>Modifies the permissions for your <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC endpoint service</a>. You can add or remove permissions for service consumers (IAM users, IAM roles, and Amazon Web Services accounts) to connect to your endpoint service.</p><p>If you grant permissions to all principals, the service is public. Any users who know the name of a public service can send a request to attach an endpoint. If the service does not require manual approval, attachments are automatically approved.</p>
  
  @param request A container for the necessary parameters to execute the ModifyVpcEndpointServicePermissions service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -10290,7 +11440,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)modifyVpnTunnelOptions:(AWSEC2ModifyVpnTunnelOptionsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyVpnTunnelOptionsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Enables detailed monitoring for a running instance. Otherwise, basic monitoring is enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitoring your instances and volumes</a> in the <i>Amazon EC2 User Guide</i>.</p><p>To disable detailed monitoring, see .</p>
+ <p>Enables detailed monitoring for a running instance. Otherwise, basic monitoring is enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitor your instances using CloudWatch</a> in the <i>Amazon EC2 User Guide</i>.</p><p>To disable detailed monitoring, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_UnmonitorInstances.html">UnmonitorInstances</a>.</p>
  
  @param request A container for the necessary parameters to execute the MonitorInstances service method.
 
@@ -10302,7 +11452,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2MonitorInstancesResult *> *)monitorInstances:(AWSEC2MonitorInstancesRequest *)request;
 
 /**
- <p>Enables detailed monitoring for a running instance. Otherwise, basic monitoring is enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitoring your instances and volumes</a> in the <i>Amazon EC2 User Guide</i>.</p><p>To disable detailed monitoring, see .</p>
+ <p>Enables detailed monitoring for a running instance. Otherwise, basic monitoring is enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitor your instances using CloudWatch</a> in the <i>Amazon EC2 User Guide</i>.</p><p>To disable detailed monitoring, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_UnmonitorInstances.html">UnmonitorInstances</a>.</p>
  
  @param request A container for the necessary parameters to execute the MonitorInstances service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -10340,6 +11490,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)moveAddressToVpc:(AWSEC2MoveAddressToVpcRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2MoveAddressToVpcResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Move an BYOIP IPv4 CIDR to IPAM from a public IPv4 pool.</p>
+ 
+ @param request A container for the necessary parameters to execute the MoveByoipCidrToIpam service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2MoveByoipCidrToIpamResult`.
+ 
+ @see AWSEC2MoveByoipCidrToIpamRequest
+ @see AWSEC2MoveByoipCidrToIpamResult
+ */
+- (AWSTask<AWSEC2MoveByoipCidrToIpamResult *> *)moveByoipCidrToIpam:(AWSEC2MoveByoipCidrToIpamRequest *)request;
+
+/**
+ <p>Move an BYOIP IPv4 CIDR to IPAM from a public IPv4 pool.</p>
+ 
+ @param request A container for the necessary parameters to execute the MoveByoipCidrToIpam service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2MoveByoipCidrToIpamRequest
+ @see AWSEC2MoveByoipCidrToIpamResult
+ */
+- (void)moveByoipCidrToIpam:(AWSEC2MoveByoipCidrToIpamRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2MoveByoipCidrToIpamResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Provisions an IPv4 or IPv6 address range for use with your Amazon Web Services resources through bring your own IP addresses (BYOIP) and creates a corresponding address pool. After the address range is provisioned, it is ready to be advertised using <a>AdvertiseByoipCidr</a>.</p><p>Amazon Web Services verifies that you own the address range and are authorized to advertise it. You must ensure that the address range is registered to you and that you created an RPKI ROA to authorize Amazon ASNs 16509 and 14618 to advertise the address range. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring your own IP addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>Provisioning an address range is an asynchronous operation, so the call returns immediately, but the address range is not ready to use until its status changes from <code>pending-provision</code> to <code>provisioned</code>. To monitor the status of an address range, use <a>DescribeByoipCidrs</a>. To allocate an Elastic IP address from your IPv4 address pool, use <a>AllocateAddress</a> with either the specific address from the address pool or the ID of the address pool.</p>
  
  @param request A container for the necessary parameters to execute the ProvisionByoipCidr service method.
@@ -10363,6 +11538,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2ProvisionByoipCidrResult
  */
 - (void)provisionByoipCidr:(AWSEC2ProvisionByoipCidrRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ProvisionByoipCidrResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Provision a CIDR to an IPAM pool. You can use thsi action to provision new CIDRs to a top-level pool or to transfer a CIDR from a top-level pool to a pool within it.</p><p>For more information, see <a href="/vpc/latest/ipam/prov-cidr-ipam.html">Provision CIDRs to pools</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the ProvisionIpamPoolCidr service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ProvisionIpamPoolCidrResult`.
+ 
+ @see AWSEC2ProvisionIpamPoolCidrRequest
+ @see AWSEC2ProvisionIpamPoolCidrResult
+ */
+- (AWSTask<AWSEC2ProvisionIpamPoolCidrResult *> *)provisionIpamPoolCidr:(AWSEC2ProvisionIpamPoolCidrRequest *)request;
+
+/**
+ <p>Provision a CIDR to an IPAM pool. You can use thsi action to provision new CIDRs to a top-level pool or to transfer a CIDR from a top-level pool to a pool within it.</p><p>For more information, see <a href="/vpc/latest/ipam/prov-cidr-ipam.html">Provision CIDRs to pools</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the ProvisionIpamPoolCidr service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ProvisionIpamPoolCidrRequest
+ @see AWSEC2ProvisionIpamPoolCidrResult
+ */
+- (void)provisionIpamPoolCidr:(AWSEC2ProvisionIpamPoolCidrRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ProvisionIpamPoolCidrResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Provision a CIDR to a public IPv4 pool.</p><p>For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the ProvisionPublicIpv4PoolCidr service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ProvisionPublicIpv4PoolCidrResult`.
+ 
+ @see AWSEC2ProvisionPublicIpv4PoolCidrRequest
+ @see AWSEC2ProvisionPublicIpv4PoolCidrResult
+ */
+- (AWSTask<AWSEC2ProvisionPublicIpv4PoolCidrResult *> *)provisionPublicIpv4PoolCidr:(AWSEC2ProvisionPublicIpv4PoolCidrRequest *)request;
+
+/**
+ <p>Provision a CIDR to a public IPv4 pool.</p><p>For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the ProvisionPublicIpv4PoolCidr service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ProvisionPublicIpv4PoolCidrRequest
+ @see AWSEC2ProvisionPublicIpv4PoolCidrResult
+ */
+- (void)provisionPublicIpv4PoolCidr:(AWSEC2ProvisionPublicIpv4PoolCidrRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ProvisionPublicIpv4PoolCidrResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Purchase a reservation with configurations that match those of your Dedicated Host. You must have active Dedicated Hosts in your account before you purchase a reservation. This action results in the specified reservation being purchased and charged to your account.</p>
@@ -10440,7 +11665,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)purchaseScheduledInstances:(AWSEC2PurchaseScheduledInstancesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2PurchaseScheduledInstancesResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Requests a reboot of the specified instances. This operation is asynchronous; it only queues a request to reboot the specified instances. The operation succeeds if the instances are valid and belong to you. Requests to reboot terminated instances are ignored.</p><p>If an instance does not cleanly shut down within a few minutes, Amazon EC2 performs a hard reboot.</p><p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html">Getting console output and rebooting instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Requests a reboot of the specified instances. This operation is asynchronous; it only queues a request to reboot the specified instances. The operation succeeds if the instances are valid and belong to you. Requests to reboot terminated instances are ignored.</p><p>If an instance does not cleanly shut down within a few minutes, Amazon EC2 performs a hard reboot.</p><p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html">Troubleshoot an unreachable instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the RebootInstances service method.
 
@@ -10451,7 +11676,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask *)rebootInstances:(AWSEC2RebootInstancesRequest *)request;
 
 /**
- <p>Requests a reboot of the specified instances. This operation is asynchronous; it only queues a request to reboot the specified instances. The operation succeeds if the instances are valid and belong to you. Requests to reboot terminated instances are ignored.</p><p>If an instance does not cleanly shut down within a few minutes, Amazon EC2 performs a hard reboot.</p><p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html">Getting console output and rebooting instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Requests a reboot of the specified instances. This operation is asynchronous; it only queues a request to reboot the specified instances. The operation succeeds if the instances are valid and belong to you. Requests to reboot terminated instances are ignored.</p><p>If an instance does not cleanly shut down within a few minutes, Amazon EC2 performs a hard reboot.</p><p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html">Troubleshoot an unreachable instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the RebootInstances service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -10487,7 +11712,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)registerImage:(AWSEC2RegisterImageRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2RegisterImageResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Registers a set of tag keys to include in scheduled event notifications for your resources. </p><p>To remove tags, use .</p>
+ <p>Registers a set of tag keys to include in scheduled event notifications for your resources. </p><p>To remove tags, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeregisterInstanceEventNotificationAttributes.html">DeregisterInstanceEventNotificationAttributes</a>.</p>
  
  @param request A container for the necessary parameters to execute the RegisterInstanceEventNotificationAttributes service method.
 
@@ -10499,7 +11724,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2RegisterInstanceEventNotificationAttributesResult *> *)registerInstanceEventNotificationAttributes:(AWSEC2RegisterInstanceEventNotificationAttributesRequest *)request;
 
 /**
- <p>Registers a set of tag keys to include in scheduled event notifications for your resources. </p><p>To remove tags, use .</p>
+ <p>Registers a set of tag keys to include in scheduled event notifications for your resources. </p><p>To remove tags, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeregisterInstanceEventNotificationAttributes.html">DeregisterInstanceEventNotificationAttributes</a>.</p>
  
  @param request A container for the necessary parameters to execute the RegisterInstanceEventNotificationAttributes service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -10732,6 +11957,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2ReleaseHostsResult
  */
 - (void)releaseHosts:(AWSEC2ReleaseHostsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ReleaseHostsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Release an allocation within an IPAM pool. You can only use this action to release manual allocations. To remove an allocation for a resource without deleting the resource, set its monitored state to false using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamResourceCidr.html">ModifyIpamResourceCidr</a>. For more information, see <a href="/vpc/latest/ipam/release-pool-alloc-ipam.html">Release an allocation</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the ReleaseIpamPoolAllocation service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ReleaseIpamPoolAllocationResult`.
+ 
+ @see AWSEC2ReleaseIpamPoolAllocationRequest
+ @see AWSEC2ReleaseIpamPoolAllocationResult
+ */
+- (AWSTask<AWSEC2ReleaseIpamPoolAllocationResult *> *)releaseIpamPoolAllocation:(AWSEC2ReleaseIpamPoolAllocationRequest *)request;
+
+/**
+ <p>Release an allocation within an IPAM pool. You can only use this action to release manual allocations. To remove an allocation for a resource without deleting the resource, set its monitored state to false using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamResourceCidr.html">ModifyIpamResourceCidr</a>. For more information, see <a href="/vpc/latest/ipam/release-pool-alloc-ipam.html">Release an allocation</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the ReleaseIpamPoolAllocation service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ReleaseIpamPoolAllocationRequest
+ @see AWSEC2ReleaseIpamPoolAllocationResult
+ */
+- (void)releaseIpamPoolAllocation:(AWSEC2ReleaseIpamPoolAllocationRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ReleaseIpamPoolAllocationResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Replaces an IAM instance profile for the specified running instance. You can use this action to change the IAM instance profile that's associated with an instance without having to disassociate the existing IAM instance profile first.</p><p>Use <a>DescribeIamInstanceProfileAssociations</a> to get the association ID.</p>
@@ -11138,6 +12388,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)restoreAddressToClassic:(AWSEC2RestoreAddressToClassicRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2RestoreAddressToClassicResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Restores an AMI from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in the Amazon Elastic Compute Cloud User Guide.</p>
+ 
+ @param request A container for the necessary parameters to execute the RestoreImageFromRecycleBin service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2RestoreImageFromRecycleBinResult`.
+ 
+ @see AWSEC2RestoreImageFromRecycleBinRequest
+ @see AWSEC2RestoreImageFromRecycleBinResult
+ */
+- (AWSTask<AWSEC2RestoreImageFromRecycleBinResult *> *)restoreImageFromRecycleBin:(AWSEC2RestoreImageFromRecycleBinRequest *)request;
+
+/**
+ <p>Restores an AMI from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in the Amazon Elastic Compute Cloud User Guide.</p>
+ 
+ @param request A container for the necessary parameters to execute the RestoreImageFromRecycleBin service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2RestoreImageFromRecycleBinRequest
+ @see AWSEC2RestoreImageFromRecycleBinResult
+ */
+- (void)restoreImageFromRecycleBin:(AWSEC2RestoreImageFromRecycleBinRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2RestoreImageFromRecycleBinResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Restores the entries from a previous version of a managed prefix list to a new version of the prefix list.</p>
  
  @param request A container for the necessary parameters to execute the RestoreManagedPrefixListVersion service method.
@@ -11161,6 +12436,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2RestoreManagedPrefixListVersionResult
  */
 - (void)restoreManagedPrefixListVersion:(AWSEC2RestoreManagedPrefixListVersionRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2RestoreManagedPrefixListVersionResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Restores a snapshot from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-snaps.html#recycle-bin-restore-snaps">Restore snapshots from the Recycle Bin</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the RestoreSnapshotFromRecycleBin service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2RestoreSnapshotFromRecycleBinResult`.
+ 
+ @see AWSEC2RestoreSnapshotFromRecycleBinRequest
+ @see AWSEC2RestoreSnapshotFromRecycleBinResult
+ */
+- (AWSTask<AWSEC2RestoreSnapshotFromRecycleBinResult *> *)restoreSnapshotFromRecycleBin:(AWSEC2RestoreSnapshotFromRecycleBinRequest *)request;
+
+/**
+ <p>Restores a snapshot from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-snaps.html#recycle-bin-restore-snaps">Restore snapshots from the Recycle Bin</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the RestoreSnapshotFromRecycleBin service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2RestoreSnapshotFromRecycleBinRequest
+ @see AWSEC2RestoreSnapshotFromRecycleBinResult
+ */
+- (void)restoreSnapshotFromRecycleBin:(AWSEC2RestoreSnapshotFromRecycleBinRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2RestoreSnapshotFromRecycleBinResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Restores an archived Amazon EBS snapshot for use temporarily or permanently, or modifies the restore period or restore type for a snapshot that was previously temporarily restored.</p><p>For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-snapshot-archiving.html#restore-archived-snapshot"> Restore an archived snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-snapshot-archiving.html#modify-temp-restore-period"> modify the restore period or restore type for a temporarily restored snapshot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the RestoreSnapshotTier service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2RestoreSnapshotTierResult`.
+ 
+ @see AWSEC2RestoreSnapshotTierRequest
+ @see AWSEC2RestoreSnapshotTierResult
+ */
+- (AWSTask<AWSEC2RestoreSnapshotTierResult *> *)restoreSnapshotTier:(AWSEC2RestoreSnapshotTierRequest *)request;
+
+/**
+ <p>Restores an archived Amazon EBS snapshot for use temporarily or permanently, or modifies the restore period or restore type for a snapshot that was previously temporarily restored.</p><p>For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-snapshot-archiving.html#restore-archived-snapshot"> Restore an archived snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-snapshot-archiving.html#modify-temp-restore-period"> modify the restore period or restore type for a temporarily restored snapshot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the RestoreSnapshotTier service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2RestoreSnapshotTierRequest
+ @see AWSEC2RestoreSnapshotTierResult
+ */
+- (void)restoreSnapshotTier:(AWSEC2RestoreSnapshotTierRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2RestoreSnapshotTierResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Removes an ingress authorization rule from a Client VPN endpoint. </p>
@@ -11363,7 +12688,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)searchTransitGatewayRoutes:(AWSEC2SearchTransitGatewayRoutesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2SearchTransitGatewayRoutesResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sends a diagnostic interrupt to the specified Amazon EC2 instance to trigger a <i>kernel panic</i> (on Linux instances), or a <i>blue screen</i>/<i>stop error</i> (on Windows instances). For instances based on Intel and AMD processors, the interrupt is received as a <i>non-maskable interrupt</i> (NMI).</p><p>In general, the operating system crashes and reboots when a kernel panic or stop error is triggered. The operating system can also be configured to perform diagnostic tasks, such as generating a memory dump file, loading a secondary kernel, or obtaining a call trace.</p><p>Before sending a diagnostic interrupt to your instance, ensure that its operating system is configured to perform the required diagnostic tasks.</p><p>For more information about configuring your operating system to generate a crash dump when a kernel panic or stop error occurs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/diagnostic-interrupt.html">Send a diagnostic interrupt</a> (Linux instances) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/diagnostic-interrupt.html">Send a Diagnostic Interrupt</a> (Windows instances).</p>
+ <p>Sends a diagnostic interrupt to the specified Amazon EC2 instance to trigger a <i>kernel panic</i> (on Linux instances), or a <i>blue screen</i>/<i>stop error</i> (on Windows instances). For instances based on Intel and AMD processors, the interrupt is received as a <i>non-maskable interrupt</i> (NMI).</p><p>In general, the operating system crashes and reboots when a kernel panic or stop error is triggered. The operating system can also be configured to perform diagnostic tasks, such as generating a memory dump file, loading a secondary kernel, or obtaining a call trace.</p><p>Before sending a diagnostic interrupt to your instance, ensure that its operating system is configured to perform the required diagnostic tasks.</p><p>For more information about configuring your operating system to generate a crash dump when a kernel panic or stop error occurs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/diagnostic-interrupt.html">Send a diagnostic interrupt (for advanced users)</a> (Linux instances) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/diagnostic-interrupt.html">Send a diagnostic interrupt (for advanced users)</a> (Windows instances).</p>
  
  @param request A container for the necessary parameters to execute the SendDiagnosticInterrupt service method.
 
@@ -11374,7 +12699,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask *)sendDiagnosticInterrupt:(AWSEC2SendDiagnosticInterruptRequest *)request;
 
 /**
- <p>Sends a diagnostic interrupt to the specified Amazon EC2 instance to trigger a <i>kernel panic</i> (on Linux instances), or a <i>blue screen</i>/<i>stop error</i> (on Windows instances). For instances based on Intel and AMD processors, the interrupt is received as a <i>non-maskable interrupt</i> (NMI).</p><p>In general, the operating system crashes and reboots when a kernel panic or stop error is triggered. The operating system can also be configured to perform diagnostic tasks, such as generating a memory dump file, loading a secondary kernel, or obtaining a call trace.</p><p>Before sending a diagnostic interrupt to your instance, ensure that its operating system is configured to perform the required diagnostic tasks.</p><p>For more information about configuring your operating system to generate a crash dump when a kernel panic or stop error occurs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/diagnostic-interrupt.html">Send a diagnostic interrupt</a> (Linux instances) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/diagnostic-interrupt.html">Send a Diagnostic Interrupt</a> (Windows instances).</p>
+ <p>Sends a diagnostic interrupt to the specified Amazon EC2 instance to trigger a <i>kernel panic</i> (on Linux instances), or a <i>blue screen</i>/<i>stop error</i> (on Windows instances). For instances based on Intel and AMD processors, the interrupt is received as a <i>non-maskable interrupt</i> (NMI).</p><p>In general, the operating system crashes and reboots when a kernel panic or stop error is triggered. The operating system can also be configured to perform diagnostic tasks, such as generating a memory dump file, loading a secondary kernel, or obtaining a call trace.</p><p>Before sending a diagnostic interrupt to your instance, ensure that its operating system is configured to perform the required diagnostic tasks.</p><p>For more information about configuring your operating system to generate a crash dump when a kernel panic or stop error occurs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/diagnostic-interrupt.html">Send a diagnostic interrupt (for advanced users)</a> (Linux instances) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/diagnostic-interrupt.html">Send a diagnostic interrupt (for advanced users)</a> (Windows instances).</p>
  
  @param request A container for the necessary parameters to execute the SendDiagnosticInterrupt service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -11385,7 +12710,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)sendDiagnosticInterrupt:(AWSEC2SendDiagnosticInterruptRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Starts an Amazon EBS-backed instance that you've previously stopped.</p><p>Instances that use Amazon EBS volumes as their root devices can be quickly stopped and started. When an instance is stopped, the compute resources are released and you are not billed for instance usage. However, your root partition Amazon EBS volume remains and continues to persist your data, and you are charged for Amazon EBS volume usage. You can restart your instance at any time. Every time you start your instance, Amazon EC2 charges a one-minute minimum for instance usage, and thereafter charges per second for instance usage.</p><p>Before stopping an instance, make sure it is in a state from which it can be restarted. Stopping an instance does not preserve data stored in RAM.</p><p>Performing this operation on an instance that uses an instance store as its root device returns an error.</p><p>If you attempt to start a T3 instance with <code>host</code> tenancy and the <code>unlimted</code> CPU credit option, the request fails. The <code>unlimited</code> CPU credit option is not supported on Dedicated Hosts. Before you start the instance, either change its CPU credit option to <code>standard</code>, or change its tenancy to <code>default</code> or <code>dedicated</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stopping instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Starts an Amazon EBS-backed instance that you've previously stopped.</p><p>Instances that use Amazon EBS volumes as their root devices can be quickly stopped and started. When an instance is stopped, the compute resources are released and you are not billed for instance usage. However, your root partition Amazon EBS volume remains and continues to persist your data, and you are charged for Amazon EBS volume usage. You can restart your instance at any time. Every time you start your instance, Amazon EC2 charges a one-minute minimum for instance usage, and thereafter charges per second for instance usage.</p><p>Before stopping an instance, make sure it is in a state from which it can be restarted. Stopping an instance does not preserve data stored in RAM.</p><p>Performing this operation on an instance that uses an instance store as its root device returns an error.</p><p>If you attempt to start a T3 instance with <code>host</code> tenancy and the <code>unlimted</code> CPU credit option, the request fails. The <code>unlimited</code> CPU credit option is not supported on Dedicated Hosts. Before you start the instance, either change its CPU credit option to <code>standard</code>, or change its tenancy to <code>default</code> or <code>dedicated</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stop and start your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the StartInstances service method.
 
@@ -11397,7 +12722,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2StartInstancesResult *> *)startInstances:(AWSEC2StartInstancesRequest *)request;
 
 /**
- <p>Starts an Amazon EBS-backed instance that you've previously stopped.</p><p>Instances that use Amazon EBS volumes as their root devices can be quickly stopped and started. When an instance is stopped, the compute resources are released and you are not billed for instance usage. However, your root partition Amazon EBS volume remains and continues to persist your data, and you are charged for Amazon EBS volume usage. You can restart your instance at any time. Every time you start your instance, Amazon EC2 charges a one-minute minimum for instance usage, and thereafter charges per second for instance usage.</p><p>Before stopping an instance, make sure it is in a state from which it can be restarted. Stopping an instance does not preserve data stored in RAM.</p><p>Performing this operation on an instance that uses an instance store as its root device returns an error.</p><p>If you attempt to start a T3 instance with <code>host</code> tenancy and the <code>unlimted</code> CPU credit option, the request fails. The <code>unlimited</code> CPU credit option is not supported on Dedicated Hosts. Before you start the instance, either change its CPU credit option to <code>standard</code>, or change its tenancy to <code>default</code> or <code>dedicated</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stopping instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Starts an Amazon EBS-backed instance that you've previously stopped.</p><p>Instances that use Amazon EBS volumes as their root devices can be quickly stopped and started. When an instance is stopped, the compute resources are released and you are not billed for instance usage. However, your root partition Amazon EBS volume remains and continues to persist your data, and you are charged for Amazon EBS volume usage. You can restart your instance at any time. Every time you start your instance, Amazon EC2 charges a one-minute minimum for instance usage, and thereafter charges per second for instance usage.</p><p>Before stopping an instance, make sure it is in a state from which it can be restarted. Stopping an instance does not preserve data stored in RAM.</p><p>Performing this operation on an instance that uses an instance store as its root device returns an error.</p><p>If you attempt to start a T3 instance with <code>host</code> tenancy and the <code>unlimted</code> CPU credit option, the request fails. The <code>unlimited</code> CPU credit option is not supported on Dedicated Hosts. Before you start the instance, either change its CPU credit option to <code>standard</code>, or change its tenancy to <code>default</code> or <code>dedicated</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stop and start your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the StartInstances service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -11408,6 +12733,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2StartInstancesResult
  */
 - (void)startInstances:(AWSEC2StartInstancesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2StartInstancesResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Starts analyzing the specified Network Access Scope.</p>
+ 
+ @param request A container for the necessary parameters to execute the StartNetworkInsightsAccessScopeAnalysis service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2StartNetworkInsightsAccessScopeAnalysisResult`.
+ 
+ @see AWSEC2StartNetworkInsightsAccessScopeAnalysisRequest
+ @see AWSEC2StartNetworkInsightsAccessScopeAnalysisResult
+ */
+- (AWSTask<AWSEC2StartNetworkInsightsAccessScopeAnalysisResult *> *)startNetworkInsightsAccessScopeAnalysis:(AWSEC2StartNetworkInsightsAccessScopeAnalysisRequest *)request;
+
+/**
+ <p>Starts analyzing the specified Network Access Scope.</p>
+ 
+ @param request A container for the necessary parameters to execute the StartNetworkInsightsAccessScopeAnalysis service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2StartNetworkInsightsAccessScopeAnalysisRequest
+ @see AWSEC2StartNetworkInsightsAccessScopeAnalysisResult
+ */
+- (void)startNetworkInsightsAccessScopeAnalysis:(AWSEC2StartNetworkInsightsAccessScopeAnalysisRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2StartNetworkInsightsAccessScopeAnalysisResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Starts analyzing the specified path. If the path is reachable, the operation returns the shortest feasible path.</p>
@@ -11460,7 +12810,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)startVpcEndpointServicePrivateDnsVerification:(AWSEC2StartVpcEndpointServicePrivateDnsVerificationRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2StartVpcEndpointServicePrivateDnsVerificationResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Stops an Amazon EBS-backed instance.</p><p>You can use the Stop action to hibernate an instance if the instance is <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#enabling-hibernation">enabled for hibernation</a> and it meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the <i>Amazon EC2 User Guide</i>.</p><p>We don't charge usage for a stopped instance, or data transfer fees; however, your root partition Amazon EBS volume remains and continues to persist your data, and you are charged for Amazon EBS volume usage. Every time you start your instance, Amazon EC2 charges a one-minute minimum for instance usage, and thereafter charges per second for instance usage.</p><p>You can't stop or hibernate instance store-backed instances. You can't use the Stop action to hibernate Spot Instances, but you can specify that Amazon EC2 should hibernate Spot Instances when they are interrupted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html#hibernate-spot-instances">Hibernating interrupted Spot Instances</a> in the <i>Amazon EC2 User Guide</i>.</p><p>When you stop or hibernate an instance, we shut it down. You can restart your instance at any time. Before stopping or hibernating an instance, make sure it is in a state from which it can be restarted. Stopping an instance does not preserve data stored in RAM, but hibernating an instance does preserve data stored in RAM. If an instance cannot hibernate successfully, a normal shutdown occurs.</p><p>Stopping and hibernating an instance is different to rebooting or terminating it. For example, when you stop or hibernate an instance, the root device and any other devices attached to the instance persist. When you terminate an instance, the root device and any other devices attached during the instance launch are automatically deleted. For more information about the differences between rebooting, stopping, hibernating, and terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p><p>When you stop an instance, we attempt to shut it down forcibly after a short while. If your instance appears stuck in the stopping state after a period of time, there may be an issue with the underlying host computer. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html">Troubleshooting stopping your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Stops an Amazon EBS-backed instance.</p><p>You can use the Stop action to hibernate an instance if the instance is <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#enabling-hibernation">enabled for hibernation</a> and it meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the <i>Amazon EC2 User Guide</i>.</p><p>We don't charge usage for a stopped instance, or data transfer fees; however, your root partition Amazon EBS volume remains and continues to persist your data, and you are charged for Amazon EBS volume usage. Every time you start your instance, Amazon EC2 charges a one-minute minimum for instance usage, and thereafter charges per second for instance usage.</p><p>You can't stop or hibernate instance store-backed instances. You can't use the Stop action to hibernate Spot Instances, but you can specify that Amazon EC2 should hibernate Spot Instances when they are interrupted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html#hibernate-spot-instances">Hibernating interrupted Spot Instances</a> in the <i>Amazon EC2 User Guide</i>.</p><p>When you stop or hibernate an instance, we shut it down. You can restart your instance at any time. Before stopping or hibernating an instance, make sure it is in a state from which it can be restarted. Stopping an instance does not preserve data stored in RAM, but hibernating an instance does preserve data stored in RAM. If an instance cannot hibernate successfully, a normal shutdown occurs.</p><p>Stopping and hibernating an instance is different to rebooting or terminating it. For example, when you stop or hibernate an instance, the root device and any other devices attached to the instance persist. When you terminate an instance, the root device and any other devices attached during the instance launch are automatically deleted. For more information about the differences between rebooting, stopping, hibernating, and terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p><p>When you stop an instance, we attempt to shut it down forcibly after a short while. If your instance appears stuck in the stopping state after a period of time, there may be an issue with the underlying host computer. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html">Troubleshoot stopping your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the StopInstances service method.
 
@@ -11472,7 +12822,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2StopInstancesResult *> *)stopInstances:(AWSEC2StopInstancesRequest *)request;
 
 /**
- <p>Stops an Amazon EBS-backed instance.</p><p>You can use the Stop action to hibernate an instance if the instance is <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#enabling-hibernation">enabled for hibernation</a> and it meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the <i>Amazon EC2 User Guide</i>.</p><p>We don't charge usage for a stopped instance, or data transfer fees; however, your root partition Amazon EBS volume remains and continues to persist your data, and you are charged for Amazon EBS volume usage. Every time you start your instance, Amazon EC2 charges a one-minute minimum for instance usage, and thereafter charges per second for instance usage.</p><p>You can't stop or hibernate instance store-backed instances. You can't use the Stop action to hibernate Spot Instances, but you can specify that Amazon EC2 should hibernate Spot Instances when they are interrupted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html#hibernate-spot-instances">Hibernating interrupted Spot Instances</a> in the <i>Amazon EC2 User Guide</i>.</p><p>When you stop or hibernate an instance, we shut it down. You can restart your instance at any time. Before stopping or hibernating an instance, make sure it is in a state from which it can be restarted. Stopping an instance does not preserve data stored in RAM, but hibernating an instance does preserve data stored in RAM. If an instance cannot hibernate successfully, a normal shutdown occurs.</p><p>Stopping and hibernating an instance is different to rebooting or terminating it. For example, when you stop or hibernate an instance, the root device and any other devices attached to the instance persist. When you terminate an instance, the root device and any other devices attached during the instance launch are automatically deleted. For more information about the differences between rebooting, stopping, hibernating, and terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p><p>When you stop an instance, we attempt to shut it down forcibly after a short while. If your instance appears stuck in the stopping state after a period of time, there may be an issue with the underlying host computer. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html">Troubleshooting stopping your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Stops an Amazon EBS-backed instance.</p><p>You can use the Stop action to hibernate an instance if the instance is <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#enabling-hibernation">enabled for hibernation</a> and it meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the <i>Amazon EC2 User Guide</i>.</p><p>We don't charge usage for a stopped instance, or data transfer fees; however, your root partition Amazon EBS volume remains and continues to persist your data, and you are charged for Amazon EBS volume usage. Every time you start your instance, Amazon EC2 charges a one-minute minimum for instance usage, and thereafter charges per second for instance usage.</p><p>You can't stop or hibernate instance store-backed instances. You can't use the Stop action to hibernate Spot Instances, but you can specify that Amazon EC2 should hibernate Spot Instances when they are interrupted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html#hibernate-spot-instances">Hibernating interrupted Spot Instances</a> in the <i>Amazon EC2 User Guide</i>.</p><p>When you stop or hibernate an instance, we shut it down. You can restart your instance at any time. Before stopping or hibernating an instance, make sure it is in a state from which it can be restarted. Stopping an instance does not preserve data stored in RAM, but hibernating an instance does preserve data stored in RAM. If an instance cannot hibernate successfully, a normal shutdown occurs.</p><p>Stopping and hibernating an instance is different to rebooting or terminating it. For example, when you stop or hibernate an instance, the root device and any other devices attached to the instance persist. When you terminate an instance, the root device and any other devices attached during the instance launch are automatically deleted. For more information about the differences between rebooting, stopping, hibernating, and terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p><p>When you stop an instance, we attempt to shut it down forcibly after a short while. If your instance appears stuck in the stopping state after a period of time, there may be an issue with the underlying host computer. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html">Troubleshoot stopping your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the StopInstances service method.
  @param completionHandler The completion handler to call when the load request is complete.
