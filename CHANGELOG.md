@@ -2,11 +2,14 @@
 
 ## Unreleased
 
--Features for next release
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSSTS
+  - AWSConnect
+  - AWSEC2
 
 ## 2.27.2
-
--Features for next release
 
 ### Bug Fixes
 
