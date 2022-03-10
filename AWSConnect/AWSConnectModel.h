@@ -211,6 +211,7 @@ typedef NS_ENUM(NSInteger, AWSConnectInstanceStorageResourceType) {
     AWSConnectInstanceStorageResourceTypeMediaStreams,
     AWSConnectInstanceStorageResourceTypeContactTraceRecords,
     AWSConnectInstanceStorageResourceTypeAgentEvents,
+    AWSConnectInstanceStorageResourceTypeRealTimeContactAnalysisSegments,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectIntegrationType) {
