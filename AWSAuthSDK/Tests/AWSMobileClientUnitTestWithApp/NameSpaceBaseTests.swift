@@ -84,7 +84,7 @@ class NameSpaceBaseTests: XCTestCase {
                              appClientID: String = "",
                              identityPoolID: String = "") {
         let configValue = "\(userPoolID)#\(appClientID)#\(identityPoolID)"
-        self.keychain.setString(configValue, forKey: AWSMobileClient.default().configurationKey)
+        self.keychain.setString(configValue, forKey: AWSMobileClientConstants.ConfigurationKey)
     }
 }
 
