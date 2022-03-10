@@ -8,6 +8,8 @@
   - AWSSTS
   - AWSConnect
   - AWSEC2
+  - AWSComprehend
+  - AWSTranscribe
 
 ## 2.27.2
 
