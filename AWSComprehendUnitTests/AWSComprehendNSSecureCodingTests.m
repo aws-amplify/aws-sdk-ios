@@ -78,6 +78,8 @@
 - (void) test_AWSComprehendDescribeResourcePolicyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDescribeSentimentDetectionJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDescribeSentimentDetectionJobResponse API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendDescribeTargetedSentimentDetectionJobRequest API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendDescribeTargetedSentimentDetectionJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDescribeTopicsDetectionJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDescribeTopicsDetectionJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDetectDominantLanguageRequest API_AVAILABLE(ios(11));
@@ -157,6 +159,8 @@
 - (void) test_AWSComprehendListSentimentDetectionJobsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendListTagsForResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendListTagsForResourceResponse API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendListTargetedSentimentDetectionJobsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendListTargetedSentimentDetectionJobsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendListTopicsDetectionJobsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendListTopicsDetectionJobsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendOutputDataConfig API_AVAILABLE(ios(11));
@@ -185,6 +189,8 @@
 - (void) test_AWSComprehendStartPiiEntitiesDetectionJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendStartSentimentDetectionJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendStartSentimentDetectionJobResponse API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendStartTargetedSentimentDetectionJobRequest API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendStartTargetedSentimentDetectionJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendStartTopicsDetectionJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendStartTopicsDetectionJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendStopDominantLanguageDetectionJobRequest API_AVAILABLE(ios(11));
@@ -199,6 +205,8 @@
 - (void) test_AWSComprehendStopPiiEntitiesDetectionJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendStopSentimentDetectionJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendStopSentimentDetectionJobResponse API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendStopTargetedSentimentDetectionJobRequest API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendStopTargetedSentimentDetectionJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendStopTrainingDocumentClassifierRequest API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendStopTrainingDocumentClassifierResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendStopTrainingEntityRecognizerRequest API_AVAILABLE(ios(11));
@@ -207,6 +215,8 @@
 - (void) test_AWSComprehendTag API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendTagResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendTagResourceResponse API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendTargetedSentimentDetectionJobFilter API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendTargetedSentimentDetectionJobProperties API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendTopicsDetectionJobFilter API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendTopicsDetectionJobProperties API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendUntagResourceRequest API_AVAILABLE(ios(11));
@@ -453,6 +463,14 @@
 
 - (void) test_AWSComprehendDescribeSentimentDetectionJobResponse {
     [self validateSecureCodingForClass:[AWSComprehendDescribeSentimentDetectionJobResponse class]];
+}
+
+- (void) test_AWSComprehendDescribeTargetedSentimentDetectionJobRequest {
+    [self validateSecureCodingForClass:[AWSComprehendDescribeTargetedSentimentDetectionJobRequest class]];
+}
+
+- (void) test_AWSComprehendDescribeTargetedSentimentDetectionJobResponse {
+    [self validateSecureCodingForClass:[AWSComprehendDescribeTargetedSentimentDetectionJobResponse class]];
 }
 
 - (void) test_AWSComprehendDescribeTopicsDetectionJobRequest {
@@ -771,6 +789,14 @@
     [self validateSecureCodingForClass:[AWSComprehendListTagsForResourceResponse class]];
 }
 
+- (void) test_AWSComprehendListTargetedSentimentDetectionJobsRequest {
+    [self validateSecureCodingForClass:[AWSComprehendListTargetedSentimentDetectionJobsRequest class]];
+}
+
+- (void) test_AWSComprehendListTargetedSentimentDetectionJobsResponse {
+    [self validateSecureCodingForClass:[AWSComprehendListTargetedSentimentDetectionJobsResponse class]];
+}
+
 - (void) test_AWSComprehendListTopicsDetectionJobsRequest {
     [self validateSecureCodingForClass:[AWSComprehendListTopicsDetectionJobsRequest class]];
 }
@@ -883,6 +909,14 @@
     [self validateSecureCodingForClass:[AWSComprehendStartSentimentDetectionJobResponse class]];
 }
 
+- (void) test_AWSComprehendStartTargetedSentimentDetectionJobRequest {
+    [self validateSecureCodingForClass:[AWSComprehendStartTargetedSentimentDetectionJobRequest class]];
+}
+
+- (void) test_AWSComprehendStartTargetedSentimentDetectionJobResponse {
+    [self validateSecureCodingForClass:[AWSComprehendStartTargetedSentimentDetectionJobResponse class]];
+}
+
 - (void) test_AWSComprehendStartTopicsDetectionJobRequest {
     [self validateSecureCodingForClass:[AWSComprehendStartTopicsDetectionJobRequest class]];
 }
@@ -939,6 +973,14 @@
     [self validateSecureCodingForClass:[AWSComprehendStopSentimentDetectionJobResponse class]];
 }
 
+- (void) test_AWSComprehendStopTargetedSentimentDetectionJobRequest {
+    [self validateSecureCodingForClass:[AWSComprehendStopTargetedSentimentDetectionJobRequest class]];
+}
+
+- (void) test_AWSComprehendStopTargetedSentimentDetectionJobResponse {
+    [self validateSecureCodingForClass:[AWSComprehendStopTargetedSentimentDetectionJobResponse class]];
+}
+
 - (void) test_AWSComprehendStopTrainingDocumentClassifierRequest {
     [self validateSecureCodingForClass:[AWSComprehendStopTrainingDocumentClassifierRequest class]];
 }
@@ -969,6 +1011,14 @@
 
 - (void) test_AWSComprehendTagResourceResponse {
     [self validateSecureCodingForClass:[AWSComprehendTagResourceResponse class]];
+}
+
+- (void) test_AWSComprehendTargetedSentimentDetectionJobFilter {
+    [self validateSecureCodingForClass:[AWSComprehendTargetedSentimentDetectionJobFilter class]];
+}
+
+- (void) test_AWSComprehendTargetedSentimentDetectionJobProperties {
+    [self validateSecureCodingForClass:[AWSComprehendTargetedSentimentDetectionJobProperties class]];
 }
 
 - (void) test_AWSComprehendTopicsDetectionJobFilter {

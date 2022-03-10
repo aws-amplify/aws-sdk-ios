@@ -1257,6 +1257,54 @@ static id mockNetworking = nil;
     [AWSComprehend removeComprehendForKey:key];
 }
 
+- (void)testDescribeTargetedSentimentDetectionJob {
+    NSString *key = @"testDescribeTargetedSentimentDetectionJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSComprehend registerComprehendWithConfiguration:configuration forKey:key];
+
+    AWSComprehend *awsClient = [AWSComprehend ComprehendForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSComprehend ComprehendForKey:key] describeTargetedSentimentDetectionJob:[AWSComprehendDescribeTargetedSentimentDetectionJobRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSComprehend removeComprehendForKey:key];
+}
+
+- (void)testDescribeTargetedSentimentDetectionJobCompletionHandler {
+    NSString *key = @"testDescribeTargetedSentimentDetectionJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSComprehend registerComprehendWithConfiguration:configuration forKey:key];
+
+    AWSComprehend *awsClient = [AWSComprehend ComprehendForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSComprehend ComprehendForKey:key] describeTargetedSentimentDetectionJob:[AWSComprehendDescribeTargetedSentimentDetectionJobRequest new] completionHandler:^(AWSComprehendDescribeTargetedSentimentDetectionJobResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSComprehend removeComprehendForKey:key];
+}
+
 - (void)testDescribeTopicsDetectionJob {
     NSString *key = @"testDescribeTopicsDetectionJob";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -2265,6 +2313,54 @@ static id mockNetworking = nil;
     [AWSComprehend removeComprehendForKey:key];
 }
 
+- (void)testListTargetedSentimentDetectionJobs {
+    NSString *key = @"testListTargetedSentimentDetectionJobs";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSComprehend registerComprehendWithConfiguration:configuration forKey:key];
+
+    AWSComprehend *awsClient = [AWSComprehend ComprehendForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSComprehend ComprehendForKey:key] listTargetedSentimentDetectionJobs:[AWSComprehendListTargetedSentimentDetectionJobsRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSComprehend removeComprehendForKey:key];
+}
+
+- (void)testListTargetedSentimentDetectionJobsCompletionHandler {
+    NSString *key = @"testListTargetedSentimentDetectionJobs";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSComprehend registerComprehendWithConfiguration:configuration forKey:key];
+
+    AWSComprehend *awsClient = [AWSComprehend ComprehendForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSComprehend ComprehendForKey:key] listTargetedSentimentDetectionJobs:[AWSComprehendListTargetedSentimentDetectionJobsRequest new] completionHandler:^(AWSComprehendListTargetedSentimentDetectionJobsResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSComprehend removeComprehendForKey:key];
+}
+
 - (void)testListTopicsDetectionJobs {
     NSString *key = @"testListTopicsDetectionJobs";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -2697,6 +2793,54 @@ static id mockNetworking = nil;
     [AWSComprehend removeComprehendForKey:key];
 }
 
+- (void)testStartTargetedSentimentDetectionJob {
+    NSString *key = @"testStartTargetedSentimentDetectionJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSComprehend registerComprehendWithConfiguration:configuration forKey:key];
+
+    AWSComprehend *awsClient = [AWSComprehend ComprehendForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSComprehend ComprehendForKey:key] startTargetedSentimentDetectionJob:[AWSComprehendStartTargetedSentimentDetectionJobRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSComprehend removeComprehendForKey:key];
+}
+
+- (void)testStartTargetedSentimentDetectionJobCompletionHandler {
+    NSString *key = @"testStartTargetedSentimentDetectionJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSComprehend registerComprehendWithConfiguration:configuration forKey:key];
+
+    AWSComprehend *awsClient = [AWSComprehend ComprehendForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSComprehend ComprehendForKey:key] startTargetedSentimentDetectionJob:[AWSComprehendStartTargetedSentimentDetectionJobRequest new] completionHandler:^(AWSComprehendStartTargetedSentimentDetectionJobResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSComprehend removeComprehendForKey:key];
+}
+
 - (void)testStartTopicsDetectionJob {
     NSString *key = @"testStartTopicsDetectionJob";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -3020,6 +3164,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSComprehend ComprehendForKey:key] stopSentimentDetectionJob:[AWSComprehendStopSentimentDetectionJobRequest new] completionHandler:^(AWSComprehendStopSentimentDetectionJobResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSComprehend removeComprehendForKey:key];
+}
+
+- (void)testStopTargetedSentimentDetectionJob {
+    NSString *key = @"testStopTargetedSentimentDetectionJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSComprehend registerComprehendWithConfiguration:configuration forKey:key];
+
+    AWSComprehend *awsClient = [AWSComprehend ComprehendForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSComprehend ComprehendForKey:key] stopTargetedSentimentDetectionJob:[AWSComprehendStopTargetedSentimentDetectionJobRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSComprehend removeComprehendForKey:key];
+}
+
+- (void)testStopTargetedSentimentDetectionJobCompletionHandler {
+    NSString *key = @"testStopTargetedSentimentDetectionJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSComprehend registerComprehendWithConfiguration:configuration forKey:key];
+
+    AWSComprehend *awsClient = [AWSComprehend ComprehendForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSComprehend ComprehendForKey:key] stopTargetedSentimentDetectionJob:[AWSComprehendStopTargetedSentimentDetectionJobRequest new] completionHandler:^(AWSComprehendStopTargetedSentimentDetectionJobResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
