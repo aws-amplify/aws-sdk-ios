@@ -17,7 +17,7 @@
     <a title="AWSComprehend Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSComprehend 2.27.2 Docs</a> (82% documented)</p>
+        <p><a href="../index.html">AWSComprehend 2.27.3 Docs</a> (83% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSComprehend.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -219,6 +219,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSComprehendDescribeSentimentDetectionJobResponse.html">AWSComprehendDescribeSentimentDetectionJobResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendDescribeTargetedSentimentDetectionJobRequest.html">AWSComprehendDescribeTargetedSentimentDetectionJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendDescribeTargetedSentimentDetectionJobResponse.html">AWSComprehendDescribeTargetedSentimentDetectionJobResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSComprehendDescribeTopicsDetectionJobRequest.html">AWSComprehendDescribeTopicsDetectionJobRequest</a>
@@ -458,6 +464,12 @@
                 <a href="../Classes/AWSComprehendListTagsForResourceResponse.html">AWSComprehendListTagsForResourceResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendListTargetedSentimentDetectionJobsRequest.html">AWSComprehendListTargetedSentimentDetectionJobsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendListTargetedSentimentDetectionJobsResponse.html">AWSComprehendListTargetedSentimentDetectionJobsResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSComprehendListTopicsDetectionJobsRequest.html">AWSComprehendListTopicsDetectionJobsRequest</a>
               </li>
               <li class="nav-group-task">
@@ -545,6 +557,12 @@
                 <a href="../Classes/AWSComprehendStartSentimentDetectionJobResponse.html">AWSComprehendStartSentimentDetectionJobResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendStartTargetedSentimentDetectionJobRequest.html">AWSComprehendStartTargetedSentimentDetectionJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendStartTargetedSentimentDetectionJobResponse.html">AWSComprehendStartTargetedSentimentDetectionJobResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSComprehendStartTopicsDetectionJobRequest.html">AWSComprehendStartTopicsDetectionJobRequest</a>
               </li>
               <li class="nav-group-task">
@@ -587,6 +605,12 @@
                 <a href="../Classes/AWSComprehendStopSentimentDetectionJobResponse.html">AWSComprehendStopSentimentDetectionJobResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendStopTargetedSentimentDetectionJobRequest.html">AWSComprehendStopTargetedSentimentDetectionJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendStopTargetedSentimentDetectionJobResponse.html">AWSComprehendStopTargetedSentimentDetectionJobResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSComprehendStopTrainingDocumentClassifierRequest.html">AWSComprehendStopTrainingDocumentClassifierRequest</a>
               </li>
               <li class="nav-group-task">
@@ -609,6 +633,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes.html#/c:objc(cs)AWSComprehendTagResourceResponse">AWSComprehendTagResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendTargetedSentimentDetectionJobFilter.html">AWSComprehendTargetedSentimentDetectionJobFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendTargetedSentimentDetectionJobProperties.html">AWSComprehendTargetedSentimentDetectionJobProperties</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSComprehendTopicsDetectionJobFilter.html">AWSComprehendTopicsDetectionJobFilter</a>
@@ -4701,6 +4731,154 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSComprehend(im)describeTargetedSentimentDetectionJob:"></a>
+                    <a name="//apple_ref/objc/Method/-describeTargetedSentimentDetectionJob:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSComprehend(im)describeTargetedSentimentDetectionJob:">-describeTargetedSentimentDetectionJob:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the properties associated with a targeted sentiment detection job. Use this operation to get the status of the job.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendDescribeTargetedSentimentDetectionJobRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendDescribeTargetedSentimentDetectionJobResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">describeTargetedSentimentDetectionJob</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSComprehendDescribeTargetedSentimentDetectionJobRequest.html">AWSComprehendDescribeTargetedSentimentDetectionJobRequest</a></span> <span class="o">*</span><span class="p">)</span>
+        <span class="n">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeTargetedSentimentDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeTargetedSentimentDetectionJobRequest.html">AWSComprehendDescribeTargetedSentimentDetectionJobRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DescribeTargetedSentimentDetectionJob service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSComprehendDescribeTargetedSentimentDetectionJobResponse.html">AWSComprehendDescribeTargetedSentimentDetectionJobResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSComprehendErrorDomain">AWSComprehendErrorDomain</a></code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorJobNotFound</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSComprehend(im)describeTargetedSentimentDetectionJob:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-describeTargetedSentimentDetectionJob:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSComprehend(im)describeTargetedSentimentDetectionJob:completionHandler:">-describeTargetedSentimentDetectionJob:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the properties associated with a targeted sentiment detection job. Use this operation to get the status of the job.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendDescribeTargetedSentimentDetectionJobRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendDescribeTargetedSentimentDetectionJobResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="nf">describeTargetedSentimentDetectionJob</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSComprehendDescribeTargetedSentimentDetectionJobRequest.html">AWSComprehendDescribeTargetedSentimentDetectionJobRequest</a></span> <span class="o">*</span><span class="p">)</span>
+            <span class="n">request</span>
+                        <span class="n">completionHandler</span><span class="o">:</span>
+                            <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                                <span class="n"><a href="../Classes/AWSComprehendDescribeTargetedSentimentDetectionJobResponse.html">AWSComprehendDescribeTargetedSentimentDetectionJobResponse</a></span>
+                                    <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                                <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeTargetedSentimentDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeTargetedSentimentDetectionJobRequest.html">AWSComprehendDescribeTargetedSentimentDetectionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeTargetedSentimentDetectionJobResponse.html">AWSComprehendDescribeTargetedSentimentDetectionJobResponse</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DescribeTargetedSentimentDetectionJob service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSComprehendErrorDomain">AWSComprehendErrorDomain</a></code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorJobNotFound</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSComprehend(im)describeTopicsDetectionJob:"></a>
                     <a name="//apple_ref/objc/Method/-describeTopicsDetectionJob:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSComprehend(im)describeTopicsDetectionJob:">-describeTopicsDetectionJob:<wbr></a>
@@ -7718,6 +7896,153 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSComprehend(im)listTargetedSentimentDetectionJobs:"></a>
+                    <a name="//apple_ref/objc/Method/-listTargetedSentimentDetectionJobs:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSComprehend(im)listTargetedSentimentDetectionJobs:">-listTargetedSentimentDetectionJobs:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets a list of targeted sentiment detection jobs that you have submitted.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendListTargetedSentimentDetectionJobsRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendListTargetedSentimentDetectionJobsResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">listTargetedSentimentDetectionJobs</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSComprehendListTargetedSentimentDetectionJobsRequest.html">AWSComprehendListTargetedSentimentDetectionJobsRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTargetedSentimentDetectionJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListTargetedSentimentDetectionJobsRequest.html">AWSComprehendListTargetedSentimentDetectionJobsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListTargetedSentimentDetectionJobs service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSComprehendListTargetedSentimentDetectionJobsResponse.html">AWSComprehendListTargetedSentimentDetectionJobsResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSComprehendErrorDomain">AWSComprehendErrorDomain</a></code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorInvalidFilter</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSComprehend(im)listTargetedSentimentDetectionJobs:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-listTargetedSentimentDetectionJobs:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSComprehend(im)listTargetedSentimentDetectionJobs:completionHandler:">-listTargetedSentimentDetectionJobs:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets a list of targeted sentiment detection jobs that you have submitted.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendListTargetedSentimentDetectionJobsRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendListTargetedSentimentDetectionJobsResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="nf">listTargetedSentimentDetectionJobs</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSComprehendListTargetedSentimentDetectionJobsRequest.html">AWSComprehendListTargetedSentimentDetectionJobsRequest</a></span> <span class="o">*</span><span class="p">)</span>
+            <span class="n">request</span>
+                     <span class="n">completionHandler</span><span class="o">:</span>
+                         <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                             <span class="n"><a href="../Classes/AWSComprehendListTargetedSentimentDetectionJobsResponse.html">AWSComprehendListTargetedSentimentDetectionJobsResponse</a></span>
+                                 <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                             <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTargetedSentimentDetectionJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListTargetedSentimentDetectionJobsRequest.html">AWSComprehendListTargetedSentimentDetectionJobsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListTargetedSentimentDetectionJobsResponse.html">AWSComprehendListTargetedSentimentDetectionJobsResponse</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListTargetedSentimentDetectionJobs service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSComprehendErrorDomain">AWSComprehendErrorDomain</a></code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorInvalidFilter</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSComprehend(im)listTopicsDetectionJobs:"></a>
                     <a name="//apple_ref/objc/Method/-listTopicsDetectionJobs:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSComprehend(im)listTopicsDetectionJobs:">-listTopicsDetectionJobs:<wbr></a>
@@ -8886,7 +9211,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Starts an asynchronous sentiment detection job for a collection of documents. use the operation to track the status of a job.</p>
+                        <p>Starts an asynchronous sentiment detection job for a collection of documents. Use the operation to track the status of a job.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSComprehendStartSentimentDetectionJobRequest</p>
@@ -8951,7 +9276,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Starts an asynchronous sentiment detection job for a collection of documents. use the operation to track the status of a job.</p>
+                        <p>Starts an asynchronous sentiment detection job for a collection of documents. Use the operation to track the status of a job.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSComprehendStartSentimentDetectionJobRequest</p>
@@ -8995,6 +9320,153 @@
                               <td>
                                 <div>
                                   <p>A container for the necessary parameters to execute the StartSentimentDetectionJob service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSComprehendErrorDomain">AWSComprehendErrorDomain</a></code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorTooManyTags</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSComprehend(im)startTargetedSentimentDetectionJob:"></a>
+                    <a name="//apple_ref/objc/Method/-startTargetedSentimentDetectionJob:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSComprehend(im)startTargetedSentimentDetectionJob:">-startTargetedSentimentDetectionJob:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Starts an asynchronous targeted sentiment detection job for a collection of documents. Use the operation to track the status of a job.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendStartTargetedSentimentDetectionJobRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendStartTargetedSentimentDetectionJobResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">startTargetedSentimentDetectionJob</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSComprehendStartTargetedSentimentDetectionJobRequest.html">AWSComprehendStartTargetedSentimentDetectionJobRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startTargetedSentimentDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStartTargetedSentimentDetectionJobRequest.html">AWSComprehendStartTargetedSentimentDetectionJobRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the StartTargetedSentimentDetectionJob service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSComprehendStartTargetedSentimentDetectionJobResponse.html">AWSComprehendStartTargetedSentimentDetectionJobResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSComprehendErrorDomain">AWSComprehendErrorDomain</a></code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorTooManyTags</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSComprehend(im)startTargetedSentimentDetectionJob:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-startTargetedSentimentDetectionJob:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSComprehend(im)startTargetedSentimentDetectionJob:completionHandler:">-startTargetedSentimentDetectionJob:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Starts an asynchronous targeted sentiment detection job for a collection of documents. Use the operation to track the status of a job.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendStartTargetedSentimentDetectionJobRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendStartTargetedSentimentDetectionJobResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="nf">startTargetedSentimentDetectionJob</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSComprehendStartTargetedSentimentDetectionJobRequest.html">AWSComprehendStartTargetedSentimentDetectionJobRequest</a></span> <span class="o">*</span><span class="p">)</span>
+            <span class="n">request</span>
+                     <span class="n">completionHandler</span><span class="o">:</span>
+                         <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                             <span class="n"><a href="../Classes/AWSComprehendStartTargetedSentimentDetectionJobResponse.html">AWSComprehendStartTargetedSentimentDetectionJobResponse</a></span>
+                                 <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                             <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startTargetedSentimentDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStartTargetedSentimentDetectionJobRequest.html">AWSComprehendStartTargetedSentimentDetectionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStartTargetedSentimentDetectionJobResponse.html">AWSComprehendStartTargetedSentimentDetectionJobResponse</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the StartTargetedSentimentDetectionJob service method.</p>
                                 </div>
                               </td>
                             </tr>
@@ -10034,6 +10506,152 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSComprehend(im)stopTargetedSentimentDetectionJob:"></a>
+                    <a name="//apple_ref/objc/Method/-stopTargetedSentimentDetectionJob:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSComprehend(im)stopTargetedSentimentDetectionJob:">-stopTargetedSentimentDetectionJob:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Stops a targeted sentiment detection job in progress.</p><p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the <code>STOPPED</code> state.</p><p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400 Internal Request Exception. </p><p>When a job is stopped, any documents already processed are written to the output location.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendStopTargetedSentimentDetectionJobRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendStopTargetedSentimentDetectionJobResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">stopTargetedSentimentDetectionJob</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSComprehendStopTargetedSentimentDetectionJobRequest.html">AWSComprehendStopTargetedSentimentDetectionJobRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopTargetedSentimentDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStopTargetedSentimentDetectionJobRequest.html">AWSComprehendStopTargetedSentimentDetectionJobRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the StopTargetedSentimentDetectionJob service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSComprehendStopTargetedSentimentDetectionJobResponse.html">AWSComprehendStopTargetedSentimentDetectionJobResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSComprehendErrorDomain">AWSComprehendErrorDomain</a></code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorJobNotFound</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSComprehend(im)stopTargetedSentimentDetectionJob:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-stopTargetedSentimentDetectionJob:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSComprehend(im)stopTargetedSentimentDetectionJob:completionHandler:">-stopTargetedSentimentDetectionJob:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Stops a targeted sentiment detection job in progress.</p><p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the <code>STOPPED</code> state.</p><p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400 Internal Request Exception. </p><p>When a job is stopped, any documents already processed are written to the output location.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendStopTargetedSentimentDetectionJobRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendStopTargetedSentimentDetectionJobResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="nf">stopTargetedSentimentDetectionJob</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSComprehendStopTargetedSentimentDetectionJobRequest.html">AWSComprehendStopTargetedSentimentDetectionJobRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+                    <span class="nf">completionHandler</span><span class="p">:</span>
+                        <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                            <span class="n"><a href="../Classes/AWSComprehendStopTargetedSentimentDetectionJobResponse.html">AWSComprehendStopTargetedSentimentDetectionJobResponse</a></span>
+                                <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                            <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopTargetedSentimentDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStopTargetedSentimentDetectionJobRequest.html">AWSComprehendStopTargetedSentimentDetectionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStopTargetedSentimentDetectionJobResponse.html">AWSComprehendStopTargetedSentimentDetectionJobResponse</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the StopTargetedSentimentDetectionJob service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSComprehendErrorDomain">AWSComprehendErrorDomain</a></code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorJobNotFound</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSComprehend(im)stopTrainingDocumentClassifier:"></a>
                     <a name="//apple_ref/objc/Method/-stopTrainingDocumentClassifier:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSComprehend(im)stopTrainingDocumentClassifier:">-stopTrainingDocumentClassifier:<wbr></a>
@@ -10750,7 +11368,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-03-04)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-03-11)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
