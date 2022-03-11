@@ -488,6 +488,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable principal;
 
 /**
+ <p>The identifier for your organization in Organizations. Use this to grant permissions to all the Amazon Web Services accounts under this organization.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable principalOrgID;
+
+/**
  <p>Specify a version or alias to add permissions to a published version of the function.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable qualifier;
