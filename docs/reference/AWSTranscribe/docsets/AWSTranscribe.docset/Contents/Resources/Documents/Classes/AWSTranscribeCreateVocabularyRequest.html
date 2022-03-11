@@ -17,7 +17,7 @@
     <a title="AWSTranscribeCreateVocabularyRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTranscribe 2.27.2 Docs</a> (76% documented)</p>
+        <p><a href="../index.html">AWSTranscribe 2.27.3 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTranscribe.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -481,7 +481,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see <a>table-language-matrix</a>.</p>
+                        <p>The language code that represents the language of the entries in your custom vocabulary. Each vocabulary must contain terms in only one language. For a list of languages and their corresponding language codes, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -513,7 +513,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An array of strings that contains the vocabulary entries. </p>
+                        <p>Use this flag to include a list of terms within your request.</p><p>Note that if you include <code>Phrases</code> in your request, you cannot use <code>VocabularyFileUri</code>; you must choose one or the other.</p>
 
                       </div>
                       <div class="declaration">
@@ -545,7 +545,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Adds one or more tags, each in the form of a key:value pair, to a new Amazon Transcribe vocabulary at the time you create this new vocabulary.</p>
+                        <p>Adds one or more tags, each in the form of a key:value pair, to a new custom vocabulary at the time you create this new vocabulary.</p>
 
                       </div>
                       <div class="declaration">
@@ -577,7 +577,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The S3 location of the text file that contains the definition of the custom vocabulary. The URI must be in the same region as the API endpoint that you are calling. The general form is:</p><p><code>https://s3.&lt;Amazon Web Services-region&gt;.amazonaws.com/&lt;AWSDOC-EXAMPLE-BUCKET&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt; </code></p><p>For example:</p><p><code>https://s3.us-east-1.amazonaws.com/AWSDOC-EXAMPLE-BUCKET/vocab.txt</code></p><p>For more information about S3 object names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object Keys</a> in the <i>Amazon S3 Developer Guide</i>.</p><p>For more information about custom vocabularies, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html">Custom vocabularies</a>.</p>
+                        <p>The S3 location of the text file that contains your custom vocabulary. The URI must be located in the same region as the API endpoint you&rsquo;re calling.</p><p>Here&rsquo;s an example URI path:</p><p><code>https://s3.us-east-1.amazonaws.com/my-s3-bucket/my-vocab-file.txt</code></p><p>Note that if you include <code>VocabularyFileUri</code> in your request, you cannot use the <code>Phrases</code> flag; you must choose one or the other.</p>
 
                       </div>
                       <div class="declaration">
@@ -609,7 +609,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The name of the vocabulary. The name must be unique within an Amazon Web Services account. The name is case sensitive. If you try to create a vocabulary with the same name as a previous vocabulary you will receive a <code>ConflictException</code> error.</p>
+                        <p>The name of your new vocabulary.</p><p>This name is case sensitive, cannot contain spaces, and must be unique within an Amazon Web Services account. If you try to create a vocabulary with the same name as a previous vocabulary, you get a <code>ConflictException</code> error.</p>
 
                       </div>
                       <div class="declaration">
@@ -633,7 +633,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-03-04)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-03-11)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

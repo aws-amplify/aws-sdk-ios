@@ -17,7 +17,7 @@
     <a title="AWSTranscribeCreateVocabularyFilterRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTranscribe 2.27.2 Docs</a> (76% documented)</p>
+        <p><a href="../index.html">AWSTranscribe 2.27.3 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTranscribe.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -513,7 +513,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Adds one or more tags, each in the form of a key:value pair, to a new Amazon Transcribe vocabulary filter at the time you create this new vocabulary filter.</p>
+                        <p>Adds one or more tags, each in the form of a key:value pair, to a new vocabulary filter at the time you create this new vocabulary filter.</p>
 
                       </div>
                       <div class="declaration">
@@ -545,7 +545,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The Amazon S3 location of a text file used as input to create the vocabulary filter. Only use characters from the character set defined for custom vocabularies. For a list of character sets, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character Sets for Custom Vocabularies</a>.</p><p>The specified file must be less than 50 KB of UTF-8 characters.</p><p>If you provide the location of a list of words in the <code>VocabularyFilterFileUri</code> parameter, you can&rsquo;t use the <code>Words</code> parameter.</p>
+                        <p>The Amazon S3 location of a text file used as input to create the vocabulary filter. Only use characters from the character set defined for custom vocabularies. For a list of character sets, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character Sets for Custom Vocabularies</a>.</p><p>Your vocabulary filter file must be less than 50 KB in size.</p><p>Note that if you include <code>VocabularyFilterFileUri</code> in your request, you cannot use <code>Words</code>; you must choose one or the other.</p>
 
                       </div>
                       <div class="declaration">
@@ -577,7 +577,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The vocabulary filter name. The name must be unique within the account that contains it. If you try to create a vocabulary filter with the same name as another vocabulary filter, you get a <code>ConflictException</code> error.</p>
+                        <p>The name of your new vocabulary filter.</p><p>This name is case sensitive, cannot contain spaces, and must be unique within an Amazon Web Services account. If you try to create a vocabulary filter with the same name as a previous vocabulary filter, you get a <code>ConflictException</code> error.</p>
 
                       </div>
                       <div class="declaration">
@@ -609,7 +609,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The words to use in the vocabulary filter. Only use characters from the character set defined for custom vocabularies. For a list of character sets, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character Sets for Custom Vocabularies</a>.</p><p>If you provide a list of words in the <code>Words</code> parameter, you can&rsquo;t use the <code>VocabularyFilterFileUri</code> parameter.</p>
+                        <p>The words you want in your vocabulary filter. Only use characters specified in the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character sets</a> for the language you&rsquo;re transcribing.</p><p>Note that if you include <code>Words</code> in your request, you cannot use <code>VocabularyFilterFileUri</code>; you must choose one or the other.</p>
 
                       </div>
                       <div class="declaration">
@@ -633,7 +633,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-03-04)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-03-11)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
