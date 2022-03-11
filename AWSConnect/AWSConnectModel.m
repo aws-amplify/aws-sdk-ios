@@ -7853,6 +7853,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"initialMessage" : @"InitialMessage",
              @"instanceId" : @"InstanceId",
              @"participantDetails" : @"ParticipantDetails",
+             @"supportedMessagingContentTypes" : @"SupportedMessagingContentTypes",
              };
 }
 
