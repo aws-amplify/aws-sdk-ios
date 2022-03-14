@@ -27,7 +27,6 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
-      enableThreadSanitizer = "YES"
       codeCoverageEnabled = "YES">
       <MacroExpansion>
          <BuildableReference
