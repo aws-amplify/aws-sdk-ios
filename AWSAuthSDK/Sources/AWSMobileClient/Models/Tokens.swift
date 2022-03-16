@@ -14,6 +14,7 @@
 //
 
 import Foundation
+import AWSCognitoIdentityProvider
 
 /// Contains the tokens for an active sign in session.
 public struct Tokens {
@@ -30,4 +31,23 @@ public struct Tokens {
     /// Expiration date if available.
     public let expiration: Date?
 
+}
+
+extension AWSCognitoIdentityUserSession {
+
+    var mobileClientTokens: Tokens {
+        return Tokens(idToken: SessionToken(tokenString: idToken?.tokenString),
+                      accessToken: SessionToken(tokenString: accessToken?.tokenString),
+                      refreshToken: SessionToken(tokenString: refreshToken?.tokenString),
+                      expiration: expirationTime)
+    }
+}
+
+extension AWSCognitoAuthUserSession {
+    var mobileClientTokens: Tokens {
+        return Tokens(idToken: SessionToken(tokenString: idToken?.tokenString),
+                      accessToken: SessionToken(tokenString: accessToken?.tokenString),
+                      refreshToken: SessionToken(tokenString: refreshToken?.tokenString),
+                      expiration: expirationTime)
+    }
 }

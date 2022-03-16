@@ -174,7 +174,7 @@ extension AWSMobileClient {
         self.performHostedUISuccessfulSignInTasks(disableFederation: hostedUIOptions.disableFederation, session: session, federationToken: federationToken!, federationProviderIdentifier: federationProviderIdentifier, signInInfo: &signInInfo)
         self.mobileClientStatusChanged(userState: .signedIn, additionalInfo: signInInfo)
         completionHandler(.signedIn, nil)
-        self.pendingGetTokensCompletion?(self.getTokensForCognitoAuthSession(session: session), nil)
+        self.pendingGetTokensCompletion?(session.mobileClientTokens, nil)
         self.pendingGetTokensCompletion = nil
     }
 

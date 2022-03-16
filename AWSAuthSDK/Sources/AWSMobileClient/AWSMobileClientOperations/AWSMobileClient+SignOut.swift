@@ -70,10 +70,13 @@ extension AWSMobileClient {
     /// you need to provide SDK the token via `federate` method or call the `signIn` method and complete the sign-in flow.
     /// If you can't get the latest token from the user, you can call this method to un-block any waiting calls.
     public func releaseSignInWait() {
+        tokenOperations.forEach { item in
+            item.acceptEvent(.releaseWait)
+        }
         if self.federationProvider == .userPools {
-            self.userpoolOpsHelper.passwordAuthTaskCompletionSource?.set(error: AWSMobileClientError.unableToSignIn(message: "Unable to get valid sign in session from the end user."))
+            self.userpoolOpsHelper.passwordAuthTaskCompletionSource?.set(error: AWSMobileClientError.unableToSignIn(message: AWSMobileClientConstants.noValidSignInSession))
             self.userpoolOpsHelper.passwordAuthTaskCompletionSource = nil
-            self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource?.set(error: AWSMobileClientError.unableToSignIn(message: "Unable to get valid sign in session from the end user."))
+            self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource?.set(error: AWSMobileClientError.unableToSignIn(message: AWSMobileClientConstants.noValidSignInSession))
             self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource = nil
         } else if self.federationProvider == .hostedUI {
             self.pendingGetTokensCompletion?(nil, AWSMobileClientError.unableToSignIn(message: "Could not get valid token from the user."))
