@@ -2431,7 +2431,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)startChatContact:(AWSConnectStartChatContactRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectStartChatContactResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Starts recording the contact when the agent joins the call. StartContactRecording is a one-time action. For example, if you use StopContactRecording to stop recording an ongoing call, you can't use StartContactRecording to restart it. For scenarios where the recording has started and you want to suspend and resume it, such as when collecting sensitive information (for example, a credit card number), use SuspendContactRecording and ResumeContactRecording.</p><p>You can use this API to override the recording behavior configured in the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-recording-behavior.html">Set recording behavior</a> block.</p><p>Only voice recordings are supported at this time.</p>
+ <p>Starts recording the contact: </p><ul><li><p>If the API is called <i>before</i> the agent joins the call, recording starts when the agent joins the call.</p></li><li><p>If the API is called <i>after</i> the agent joins the call, recording starts at the time of the API call.</p></li></ul><p>StartContactRecording is a one-time action. For example, if you use StopContactRecording to stop recording an ongoing call, you can't use StartContactRecording to restart it. For scenarios where the recording has started and you want to suspend and resume it, such as when collecting sensitive information (for example, a credit card number), use SuspendContactRecording and ResumeContactRecording.</p><p>You can use this API to override the recording behavior configured in the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-recording-behavior.html">Set recording behavior</a> block.</p><p>Only voice recordings are supported at this time.</p>
  
  @param request A container for the necessary parameters to execute the StartContactRecording service method.
 
@@ -2443,7 +2443,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectStartContactRecordingResponse *> *)startContactRecording:(AWSConnectStartContactRecordingRequest *)request;
 
 /**
- <p>Starts recording the contact when the agent joins the call. StartContactRecording is a one-time action. For example, if you use StopContactRecording to stop recording an ongoing call, you can't use StartContactRecording to restart it. For scenarios where the recording has started and you want to suspend and resume it, such as when collecting sensitive information (for example, a credit card number), use SuspendContactRecording and ResumeContactRecording.</p><p>You can use this API to override the recording behavior configured in the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-recording-behavior.html">Set recording behavior</a> block.</p><p>Only voice recordings are supported at this time.</p>
+ <p>Starts recording the contact: </p><ul><li><p>If the API is called <i>before</i> the agent joins the call, recording starts when the agent joins the call.</p></li><li><p>If the API is called <i>after</i> the agent joins the call, recording starts at the time of the API call.</p></li></ul><p>StartContactRecording is a one-time action. For example, if you use StopContactRecording to stop recording an ongoing call, you can't use StartContactRecording to restart it. For scenarios where the recording has started and you want to suspend and resume it, such as when collecting sensitive information (for example, a credit card number), use SuspendContactRecording and ResumeContactRecording.</p><p>You can use this API to override the recording behavior configured in the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-recording-behavior.html">Set recording behavior</a> block.</p><p>Only voice recordings are supported at this time.</p>
  
  @param request A container for the necessary parameters to execute the StartContactRecording service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2531,7 +2531,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)startTaskContact:(AWSConnectStartTaskContactRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectStartTaskContactResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Ends the specified contact.</p>
+ <p>Ends the specified contact. This call does not work for the following initiation methods:</p><ul><li><p>CALLBACK</p></li><li><p>DISCONNECT</p></li><li><p>TRANSFER</p></li><li><p>QUEUE_TRANSFER</p></li></ul>
  
  @param request A container for the necessary parameters to execute the StopContact service method.
 
@@ -2543,7 +2543,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectStopContactResponse *> *)stopContact:(AWSConnectStopContactRequest *)request;
 
 /**
- <p>Ends the specified contact.</p>
+ <p>Ends the specified contact. This call does not work for the following initiation methods:</p><ul><li><p>CALLBACK</p></li><li><p>DISCONNECT</p></li><li><p>TRANSFER</p></li><li><p>QUEUE_TRANSFER</p></li></ul>
  
  @param request A container for the necessary parameters to execute the StopContact service method.
  @param completionHandler The completion handler to call when the load request is complete.

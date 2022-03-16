@@ -1292,7 +1292,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable content;
 
 /**
- <p>The type of the content. Supported types are text and plain.</p>
+ <p>The type of the content. Supported types are <code>text/plain</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable contentType;
 
@@ -6271,6 +6271,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>Information identifying the participant.</p>
  */
 @property (nonatomic, strong) AWSConnectParticipantDetails * _Nullable participantDetails;
+
+/**
+ <p>The supported chat message content types. Content types can be text/plain or both text/plain and text/markdown.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable supportedMessagingContentTypes;
 
 @end
 
