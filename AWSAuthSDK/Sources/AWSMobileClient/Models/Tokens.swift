@@ -36,30 +36,18 @@ public struct Tokens {
 extension AWSCognitoIdentityUserSession {
 
     var mobileClientTokens: Tokens {
-        var idToken: SessionToken?
-        var accessToken: SessionToken?
-        var refreshToken: SessionToken?
-        if let token = self.idToken {
-            idToken = SessionToken(tokenString: token.tokenString)
-        }
-        if let token = self.accessToken {
-            accessToken = SessionToken(tokenString: token.tokenString)
-        }
-        if let token = self.refreshToken {
-            refreshToken = SessionToken(tokenString: token.tokenString)
-        }
-        return Tokens(idToken: idToken,
-                      accessToken: accessToken,
-                      refreshToken: refreshToken,
-                      expiration: self.expirationTime)
+        return Tokens(idToken: SessionToken(tokenString: idToken?.tokenString),
+                      accessToken: SessionToken(tokenString: accessToken?.tokenString),
+                      refreshToken: SessionToken(tokenString: refreshToken?.tokenString),
+                      expiration: expirationTime)
     }
 }
 
 extension AWSCognitoAuthUserSession {
     var mobileClientTokens: Tokens {
-        return Tokens(idToken: SessionToken(tokenString: self.idToken?.tokenString),
-                      accessToken: SessionToken(tokenString: self.accessToken?.tokenString),
-                      refreshToken: SessionToken(tokenString: self.refreshToken?.tokenString),
-                      expiration: self.expirationTime)
+        return Tokens(idToken: SessionToken(tokenString: idToken?.tokenString),
+                      accessToken: SessionToken(tokenString: accessToken?.tokenString),
+                      refreshToken: SessionToken(tokenString: refreshToken?.tokenString),
+                      expiration: expirationTime)
     }
 }
