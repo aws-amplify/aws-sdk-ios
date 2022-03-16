@@ -98,6 +98,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"eventSourceToken" : @"EventSourceToken",
              @"functionName" : @"FunctionName",
              @"principal" : @"Principal",
+             @"principalOrgID" : @"PrincipalOrgID",
              @"qualifier" : @"Qualifier",
              @"revisionId" : @"RevisionId",
              @"sourceAccount" : @"SourceAccount",
