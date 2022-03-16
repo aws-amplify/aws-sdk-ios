@@ -11988,6 +11988,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"cascade" : @"Cascade",
              @"dryRun" : @"DryRun",
              @"ipamId" : @"IpamId",
              };
