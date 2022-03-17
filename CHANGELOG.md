@@ -6,11 +6,14 @@
 
 ### Misc. Updates
 
+- **AWSMobileClient**
+  - chore: Modified getToken flow for userpool signIn (See [PR #4022](https://github.com/aws-amplify/aws-sdk-ios/pull/4022))
+
 - Model updates for the following services
----AWSConnect
----AWSLambda
----AWSLocation
----AWSCognitoIdentityProvider
+  - AWSConnect
+  - AWSLambda
+  - AWSLocation
+  - AWSCognitoIdentityProvider
 
 ## 2.27.3
 
