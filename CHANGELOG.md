@@ -6,8 +6,6 @@
 
 ## 2.27.4
 
--Features for next release
-
 ### Misc. Updates
 
 - **AWSMobileClient**
