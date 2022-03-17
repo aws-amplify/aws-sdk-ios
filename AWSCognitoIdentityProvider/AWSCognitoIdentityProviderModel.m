@@ -5026,6 +5026,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 	return @{
              @"externalId" : @"ExternalId",
              @"snsCallerArn" : @"SnsCallerArn",
+             @"snsRegion" : @"SnsRegion",
              };
 }
 
