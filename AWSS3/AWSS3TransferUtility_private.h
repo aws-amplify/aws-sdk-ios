@@ -20,7 +20,7 @@
 @interface AWSS3TransferUtilityTask()
 
 @property (strong, nonatomic) NSURLSessionTask *sessionTask;
-@property (readwrite) NSUInteger taskIdentifier;
+@property (nonatomic, readwrite) NSUInteger taskIdentifier;
 @property (strong, nonatomic) NSString *transferID;
 @property (strong, nonatomic) NSString *bucket;
 @property (strong, nonatomic) NSString *key;
@@ -53,11 +53,13 @@
 @property (copy) NSString * uploadID;
 @property BOOL cancelled;
 @property BOOL temporaryFileCreated;
+@property (readonly) BOOL isDone;
 @property NSMutableDictionary <NSNumber *, AWSS3TransferUtilityUploadSubTask *> *waitingPartsDictionary;
 @property (strong, nonatomic) NSMutableSet <AWSS3TransferUtilityUploadSubTask *> *completedPartsSet;
 @property (strong, nonatomic) NSMutableDictionary <NSNumber *, AWSS3TransferUtilityUploadSubTask *> *inProgressPartsDictionary;
 @property int partNumber;
 @property NSNumber *contentLength;
+
 
 @end
 

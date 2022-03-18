@@ -64,7 +64,7 @@
         //Pause called on a transfer that is not in progress. No op.
         return;
     }
-    
+
     [self.sessionTask suspend];
     self.status = AWSS3TransferUtilityTransferStatusPaused;
     [AWSS3TransferUtilityDatabaseHelper updateTransferRequestInDB:self.transferID
@@ -132,6 +132,10 @@
     return self;
 }
 
+- (BOOL)isDone {
+    return _waitingPartsDictionary.count == 0 && _inProgressPartsDictionary.count == 0;
+}
+
 - (AWSS3TransferUtilityMultiPartUploadExpression *)expression {
     if (!_expression) {
         _expression = [AWSS3TransferUtilityMultiPartUploadExpression new];
@@ -156,7 +160,10 @@
 }
 
 - (void)resume {
-    if (self.status != AWSS3TransferUtilityTransferStatusPaused ) {
+    // no parts should be paused. instead all in progress part uploads should be canceled and
+    // replaced with a new subtask which has not been started so that resuming will instead
+    // start up to the number up to the concurrency limit.
+    if (self.status != AWSS3TransferUtilityTransferStatusPaused) {
         //Resume called on a transfer that hasn't been paused. No op.
         return;
     }
@@ -173,6 +180,7 @@
                                                         databaseQueue:self.databaseQueue];
         [subTask.sessionTask resume];
     }
+
     self.status = AWSS3TransferUtilityTransferStatusInProgress;
     //Update the Master Record
     [AWSS3TransferUtilityDatabaseHelper updateTransferRequestInDB:self.transferID
@@ -189,9 +197,18 @@
         //Pause called on a transfer that is not in progresss. No op.
         return;
     }
-    
+
     for (NSNumber *key in [self.inProgressPartsDictionary allKeys]) {
+        // all in progress tasks should be cancelled and a new subtask should replace it which is
+        // put in the waiting dictionary and set with that status with a URLSessionTask which
+        // has not been started.
+
+        // then resuming should start uploading a number of parts up to the concurrency limit.
+
         AWSS3TransferUtilityUploadSubTask *subTask = [self.inProgressPartsDictionary objectForKey:key];
+        if (!subTask) {
+            continue;
+        }
         [subTask.sessionTask suspend];
         subTask.status = AWSS3TransferUtilityTransferStatusPaused;
         
@@ -214,7 +231,7 @@
                                                     databaseQueue:self.databaseQueue];
 }
 
--(void) setCompletionHandler:(AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock)completionHandler {
+- (void)setCompletionHandler:(AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock)completionHandler {
     
     self.expression.completionHandler = completionHandler;
     //If the task has already completed successfully
