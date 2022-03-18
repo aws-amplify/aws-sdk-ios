@@ -2,7 +2,7 @@
   "warnings": [
     {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
-      "line": 99,
+      "line": 101,
       "symbol": "AWSMobileClient.deviceOperations",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -22,83 +22,6 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClientOperations/AWSAsyncBlockOperation.swift",
-      "line": 10,
-      "symbol": "AWSAsyncBlockDoneClosure",
-      "symbol_kind": "source.lang.swift.decl.typealias",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClientOperations/AWSAsyncBlockOperation.swift",
-      "line": 11,
-      "symbol": "AWSAsyncBlockClosure",
-      "symbol_kind": "source.lang.swift.decl.typealias",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClientOperations/AWSAsyncBlockOperation.swift",
-      "line": 13,
-      "symbol": "AWSAsyncBlockOperation",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClientOperations/AWSAsyncBlockOperation.swift",
-      "line": 17,
-      "symbol": "AWSAsyncBlockOperation.isReady",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClientOperations/AWSAsyncBlockOperation.swift",
-      "line": 21,
-      "symbol": "AWSAsyncBlockOperation.isExecuting",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClientOperations/AWSAsyncBlockOperation.swift",
-      "line": 25,
-      "symbol": "AWSAsyncBlockOperation.isFinished",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClientOperations/AWSAsyncBlockOperation.swift",
-      "line": 29,
-      "symbol": "AWSAsyncBlockOperation.isCancelled",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClientOperations/AWSAsyncBlockOperation.swift",
-      "line": 33,
-      "symbol": "AWSAsyncBlockOperation.init(asyncBlock:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClientOperations/AWSAsyncBlockOperation.swift",
-      "line": 38,
-      "symbol": "AWSAsyncBlockOperation.isAsynchronous",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClientOperations/AWSAsyncBlockOperation.swift",
-      "line": 40,
-      "symbol": "AWSAsyncBlockOperation.start()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClientOperations/AWSAsyncBlockOperation.swift",
-      "line": 53,
-      "symbol": "AWSAsyncBlockOperation.cancel()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClientOperations/AWSMobileClient+SignInUI.swift",
       "line": 280,
       "symbol": "AWSMobileClient.getViewController()",
@@ -110,6 +33,13 @@
       "line": 288,
       "symbol": "AWSMobileClient.shouldLaunchSignInVCIfRefreshTokenIsExpired()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClientOperations/AWSMobileClient+Tokens.swift",
+      "line": 19,
+      "symbol": "TokenCompletion",
+      "symbol_kind": "source.lang.swift.decl.typealias",
       "warning": "undocumented"
     },
     {
