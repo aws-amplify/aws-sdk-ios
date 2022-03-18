@@ -2,8 +2,13 @@
 
 ## Unreleased
 
-
 -Features for next release
+
+### Misc. Updates
+
+- **AWSCore**
+  - Improves `AWSSynchronizedMutableDictionary` and adds unit tests (See [PR #4051](https://github.com/aws-amplify/aws-sdk-ios/pull/4051))
+
 
 ## 2.27.4
 
