@@ -31,7 +31,7 @@ class FetchUserPoolTokensOperation: AWSAsyncOperation {
     // Holds an instance of the user pool low level SDK
     //
     private let userPool: CognitoUserPoolBehavior
-    
+
     public weak var delegate: FetchUserPoolTokensDelegate?
     private var tokenFetchState: TokenFetchState = .notStarted
 
@@ -167,7 +167,7 @@ class FetchUserPoolTokensOperation: AWSAsyncOperation {
         let error = AWSMobileClientError.notSignedIn(message: message)
         finishWithError(error: error)
     }
-    
+
     private func finishWithResult(tokens: Tokens) {
         AWSMobileClientLogging.verbose("\(self.identifier) Success")
         completion(tokens, nil)
