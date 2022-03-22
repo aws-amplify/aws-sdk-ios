@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -474,7 +474,8 @@
         \"sv-SE\",\
         \"tr-TR\",\
         \"en-NZ\",\
-        \"en-ZA\"\
+        \"en-ZA\",\
+        \"ca-ES\"\
       ]\
     },\
     \"LanguageCodeList\":{\
@@ -968,7 +969,7 @@
         },\
         \"ContentType\":{\
           \"shape\":\"ContentType\",\
-          \"documentation\":\"<p> Specifies the type audio stream. This should reflect the <code>OutputFormat</code> parameter in your request. </p> <ul> <li> <p> If you request <code>mp3</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/mpeg. </p> </li> <li> <p> If you request <code>ogg_vorbis</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/ogg. </p> </li> <li> <p> If you request <code>pcm</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format. </p> </li> <li> <p>If you request <code>json</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/json.</p> </li> </ul> <p> </p>\",\
+          \"documentation\":\"<p> Specifies the type audio stream. This should reflect the <code>OutputFormat</code> parameter in your request. </p> <ul> <li> <p> If you request <code>mp3</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/mpeg. </p> </li> <li> <p> If you request <code>ogg_vorbis</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/ogg. </p> </li> <li> <p> If you request <code>pcm</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format. </p> </li> <li> <p>If you request <code>json</code> as the <code>OutputFormat</code>, the <code>ContentType</code> returned is application/x-json-stream.</p> </li> </ul> <p> </p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-Type\"\
         },\
@@ -1131,7 +1132,8 @@
         \"Zeina\",\
         \"Zhiyu\",\
         \"Aria\",\
-        \"Ayanda\"\
+        \"Ayanda\",\
+        \"Arlet\"\
       ]\
     },\
     \"VoiceList\":{\
