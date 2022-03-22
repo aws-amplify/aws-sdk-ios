@@ -1,18 +1,12 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSLocation
----AWSPolly
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
 
+### Misc. Updates
 
--Features for next release
+- Model updates for the following services
+  - AWSLocation
+  - AWSPolly
 
 ## 2.27.4
 
