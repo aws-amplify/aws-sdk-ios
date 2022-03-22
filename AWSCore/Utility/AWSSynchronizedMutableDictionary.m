@@ -27,12 +27,7 @@
 @implementation AWSSynchronizedMutableDictionary
 
 - (instancetype)init {
-    self = [self initWithDictionary:@{}.mutableCopy];
-    return self;
-}
-
-- (instancetype)initWithDictionary:(NSMutableDictionary *)dictionary {
-    dispatch_queue_t queue = dispatch_queue_create("com.acme.atomic-age.dictionary", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_queue_t queue = dispatch_queue_create("com.amazon.aws.atomic.dictionary", DISPATCH_QUEUE_CONCURRENT);
     NSUUID *syncKey = [NSUUID new];
     self = [self initWithDictionary:@{}.mutableCopy queue:queue syncKey:syncKey];
     return self;

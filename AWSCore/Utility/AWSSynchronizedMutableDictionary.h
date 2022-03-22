@@ -24,9 +24,6 @@
 /// Create new instance.
 - (instancetype)init;
 
-/// Create new instance with a given mutable dictionary.
-- (instancetype)initWithDictionary:(NSMutableDictionary<KeyType, ObjectType> *)dictionary;
-
 /// Creates another dictionary which syncs on the same queue.
 - (instancetype)syncedDictionary;
 
