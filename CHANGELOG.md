@@ -2,8 +2,11 @@
 
 ## Unreleased
 
+### Misc. Updates
 
--Features for next release
+- Model updates for the following services
+  - AWSLocation
+  - AWSPolly
 
 ## 2.27.4
 
