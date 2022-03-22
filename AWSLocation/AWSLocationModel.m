@@ -1896,6 +1896,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 	return @{
              @"deviceId" : @"DeviceId",
              @"endTimeExclusive" : @"EndTimeExclusive",
+             @"maxResults" : @"MaxResults",
              @"nextToken" : @"NextToken",
              @"startTimeInclusive" : @"StartTimeInclusive",
              @"trackerName" : @"TrackerName",
