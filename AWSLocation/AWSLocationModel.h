@@ -1811,6 +1811,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSDate * _Nullable endTimeExclusive;
 
 /**
+ <p>An optional limit for the number of device positions returned in a single call.</p><p>Default value: <code>100</code></p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
  <p>The pagination token specifying which page of results to return in the response. If no token is provided, the default page is the first page. </p><p>Default value: <code>null</code></p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
