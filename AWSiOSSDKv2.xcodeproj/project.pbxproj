@@ -189,6 +189,7 @@
 		03ABC52826CC5FA500C4216E /* AWSS3TransferUtilityBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 03ABC52626CC5FA500C4216E /* AWSS3TransferUtilityBlocks.m */; };
 		03ABC52B26CC5FE000C4216E /* AWSS3TransferUtility+EnumerateBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC52926CC5FE000C4216E /* AWSS3TransferUtility+EnumerateBlocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		03ABC52C26CC5FE000C4216E /* AWSS3TransferUtility+EnumerateBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 03ABC52A26CC5FE000C4216E /* AWSS3TransferUtility+EnumerateBlocks.m */; };
+		03AEFCBD27AE0115005095BC /* AWSSynchronizedMutableDictionaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03AEFCBC27AE0115005095BC /* AWSSynchronizedMutableDictionaryTests.m */; };
 		03B83FB52729C3CA004D5426 /* AWSS3TransferUtility_private.h in Headers */ = {isa = PBXBuildFile; fileRef = 03B83FB42729C3AE004D5426 /* AWSS3TransferUtility_private.h */; };
 		03D33F2626C5E492006DDCEB /* AWSS3CreateMultipartUploadRequest+RequestHeaders.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D33F2426C5E492006DDCEB /* AWSS3CreateMultipartUploadRequest+RequestHeaders.m */; };
 		03D33F2726C5E492006DDCEB /* AWSS3CreateMultipartUploadRequest+RequestHeaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 03D33F2526C5E492006DDCEB /* AWSS3CreateMultipartUploadRequest+RequestHeaders.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -2736,6 +2737,7 @@
 		03ABC52626CC5FA500C4216E /* AWSS3TransferUtilityBlocks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSS3TransferUtilityBlocks.m; sourceTree = "<group>"; };
 		03ABC52926CC5FE000C4216E /* AWSS3TransferUtility+EnumerateBlocks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSS3TransferUtility+EnumerateBlocks.h"; sourceTree = "<group>"; };
 		03ABC52A26CC5FE000C4216E /* AWSS3TransferUtility+EnumerateBlocks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AWSS3TransferUtility+EnumerateBlocks.m"; sourceTree = "<group>"; };
+		03AEFCBC27AE0115005095BC /* AWSSynchronizedMutableDictionaryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSSynchronizedMutableDictionaryTests.m; sourceTree = "<group>"; };
 		03B83FB42729C3AE004D5426 /* AWSS3TransferUtility_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSS3TransferUtility_private.h; sourceTree = "<group>"; };
 		03D33F2426C5E492006DDCEB /* AWSS3CreateMultipartUploadRequest+RequestHeaders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AWSS3CreateMultipartUploadRequest+RequestHeaders.m"; sourceTree = "<group>"; };
 		03D33F2526C5E492006DDCEB /* AWSS3CreateMultipartUploadRequest+RequestHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AWSS3CreateMultipartUploadRequest+RequestHeaders.h"; sourceTree = "<group>"; };
@@ -5095,6 +5097,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03AEFCBB27AE00EE005095BC /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				03AEFCBC27AE0115005095BC /* AWSSynchronizedMutableDictionaryTests.m */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		1778554420F9A72800D083BB /* AWSKinesisVideo */ = {
 			isa = PBXGroup;
 			children = (
@@ -6579,6 +6589,7 @@
 				2171ECCC254C76E800FAB22F /* Serialization */,
 				21C913252667CD1C00233AF9 /* Service */,
 				FA7A5707230911470093A523 /* SigV4Tests */,
+				03AEFCBB27AE00EE005095BC /* Utility */,
 			);
 			path = AWSCoreUnitTests;
 			sourceTree = "<group>";
@@ -12659,6 +12670,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03AEFCBD27AE0115005095BC /* AWSSynchronizedMutableDictionaryTests.m in Sources */,
 				FA0A61CD22FE3B2400B051BE /* AWSURLSessionManagerTests.m in Sources */,
 				CE5603E01C6BC7C700B4E00B /* AWSGeneralCognitoIdentityTests.m in Sources */,
 				FA7A44BD23046B8900F55D7A /* SigV4Tests.swift in Sources */,
