@@ -32,7 +32,6 @@ extension AWSCognitoIdentityUser: CognitoIdentityUserBehavior {
             return nil
         }
     }
-
 }
 
 extension AWSCognitoAuth: CognitoIdentityUserBehavior {

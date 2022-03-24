@@ -141,11 +141,7 @@ class FetchUserPoolTokensOperation: AWSAsyncOperation {
             case .success(let tokens):
                 self.acceptEvent(.tokenFetched(tokens))
             case .failure(let error):
-                // If the error returned is `InvalidAuthenticationDelegate` it means that userPool
-                // client is trying to get authentication details, which means that the refresh
-                // token is expired. In this case, we let the delegate know that it require
-                // re-authentication and wait for the user to signIn.
-                if (error as NSError).isAuthDelegateError {
+                if (error as NSError).didTokenExpire {
                     AWSMobileClientLogging.verbose("\(self.identifier) Need re-authentication")
                     self.acceptEvent(.tokenExpired)
 
@@ -182,7 +178,17 @@ class FetchUserPoolTokensOperation: AWSAsyncOperation {
 }
 
 extension NSError {
-    var isAuthDelegateError: Bool {
+
+    // The underlying SDK returns different errors when the user token is expired based on the signIn
+    // mechanism.
+    //
+    // In case if user is signedin via non-HostedUI method and if the error returned is
+    // `InvalidAuthenticationDelegate` it means that userPool client is trying to get
+    // authentication details, which means that the refresh token is expired.
+    // On the other hand if the user is signedin via HostedUI, the SDK returns
+    // `errorExpiredRefreshToken` when the token expire.
+    //
+    var didTokenExpire: Bool {
         let authCode = AWSCognitoIdentityClientErrorType.providerClientErrorInvalidAuthenticationDelegate.rawValue
         if domain == AWSCognitoIdentityProviderErrorDomain,
            code == authCode  {
