@@ -1727,6 +1727,10 @@
         \"Architectures\":{\
           \"shape\":\"ArchitecturesList\",\
           \"documentation\":\"<p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>\"\
+        },\
+        \"EphemeralStorage\":{\
+          \"shape\":\"EphemeralStorage\",\
+          \"documentation\":\"<p>The size of the functionâs /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10240 MB.</p>\"\
         }\
       }\
     },\
@@ -2075,6 +2079,22 @@
       \"key\":{\"shape\":\"EnvironmentVariableName\"},\
       \"value\":{\"shape\":\"EnvironmentVariableValue\"},\
       \"sensitive\":true\
+    },\
+    \"EphemeralStorage\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Size\"],\
+      \"members\":{\
+        \"Size\":{\
+          \"shape\":\"EphemeralStorageSize\",\
+          \"documentation\":\"<p>The size of the functionâs /tmp directory.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The size of the functionâs /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10240 MB.</p>\"\
+    },\
+    \"EphemeralStorageSize\":{\
+      \"type\":\"integer\",\
+      \"max\":10240,\
+      \"min\":512\
     },\
     \"EventSourceMappingConfiguration\":{\
       \"type\":\"structure\",\
@@ -2430,6 +2450,10 @@
         \"Architectures\":{\
           \"shape\":\"ArchitecturesList\",\
           \"documentation\":\"<p>The instruction set architecture that the function supports. Architecture is a string array with one of the valid values. The default architecture value is <code>x86_64</code>.</p>\"\
+        },\
+        \"EphemeralStorage\":{\
+          \"shape\":\"EphemeralStorage\",\
+          \"documentation\":\"<p>The size of the functionâs /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10240 MB.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Details about a function's configuration.</p>\"\
@@ -4981,6 +5005,10 @@
         \"ImageConfig\":{\
           \"shape\":\"ImageConfig\",\
           \"documentation\":\"<p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/images-parms.html\\\">Container image configuration values</a> that override the values in the container image Docker file.</p>\"\
+        },\
+        \"EphemeralStorage\":{\
+          \"shape\":\"EphemeralStorage\",\
+          \"documentation\":\"<p>The size of the functionâs /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10240 MB.</p>\"\
         }\
       }\
     },\

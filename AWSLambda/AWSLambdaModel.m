@@ -410,6 +410,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"deadLetterConfig" : @"DeadLetterConfig",
              @"detail" : @"Description",
              @"environment" : @"Environment",
+             @"ephemeralStorage" : @"EphemeralStorage",
              @"fileSystemConfigs" : @"FileSystemConfigs",
              @"functionName" : @"FunctionName",
              @"handler" : @"Handler",
@@ -438,6 +439,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)environmentJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaEnvironment class]];
+}
+
++ (NSValueTransformer *)ephemeralStorageJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaEphemeralStorage class]];
 }
 
 + (NSValueTransformer *)fileSystemConfigsJSONTransformer {
@@ -844,6 +849,20 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 @end
 
+@implementation AWSLambdaEphemeralStorage
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"size" : @"Size",
+             };
+}
+
+@end
+
 @implementation AWSLambdaEventSourceMappingConfiguration
 
 + (BOOL)supportsSecureCoding {
@@ -1034,6 +1053,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"deadLetterConfig" : @"DeadLetterConfig",
              @"detail" : @"Description",
              @"environment" : @"Environment",
+             @"ephemeralStorage" : @"EphemeralStorage",
              @"fileSystemConfigs" : @"FileSystemConfigs",
              @"functionArn" : @"FunctionArn",
              @"functionName" : @"FunctionName",
@@ -1069,6 +1089,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)environmentJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaEnvironmentResponse class]];
+}
+
++ (NSValueTransformer *)ephemeralStorageJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaEphemeralStorage class]];
 }
 
 + (NSValueTransformer *)fileSystemConfigsJSONTransformer {
@@ -3476,6 +3500,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"deadLetterConfig" : @"DeadLetterConfig",
              @"detail" : @"Description",
              @"environment" : @"Environment",
+             @"ephemeralStorage" : @"EphemeralStorage",
              @"fileSystemConfigs" : @"FileSystemConfigs",
              @"functionName" : @"FunctionName",
              @"handler" : @"Handler",
@@ -3498,6 +3523,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)environmentJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaEnvironment class]];
+}
+
++ (NSValueTransformer *)ephemeralStorageJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaEphemeralStorage class]];
 }
 
 + (NSValueTransformer *)fileSystemConfigsJSONTransformer {
