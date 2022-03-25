@@ -43,6 +43,7 @@
 - (void) test_AWSEC2ActiveInstance API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AddIpamOperatingRegion API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AddPrefixListEntry API_AVAILABLE(ios(11));
+- (void) test_AWSEC2AdditionalDetail API_AVAILABLE(ios(11));
 - (void) test_AWSEC2Address API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AddressAttribute API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AdvertiseByoipCidrRequest API_AVAILABLE(ios(11));
@@ -1569,6 +1570,7 @@
 - (void) test_AWSEC2TransitGatewayRouteTable API_AVAILABLE(ios(11));
 - (void) test_AWSEC2TransitGatewayRouteTableAssociation API_AVAILABLE(ios(11));
 - (void) test_AWSEC2TransitGatewayRouteTablePropagation API_AVAILABLE(ios(11));
+- (void) test_AWSEC2TransitGatewayRouteTableRoute API_AVAILABLE(ios(11));
 - (void) test_AWSEC2TransitGatewayVpcAttachment API_AVAILABLE(ios(11));
 - (void) test_AWSEC2TransitGatewayVpcAttachmentOptions API_AVAILABLE(ios(11));
 - (void) test_AWSEC2TrunkInterfaceAssociation API_AVAILABLE(ios(11));
@@ -1726,6 +1728,10 @@
 
 - (void) test_AWSEC2AddPrefixListEntry {
     [self validateSecureCodingForClass:[AWSEC2AddPrefixListEntry class]];
+}
+
+- (void) test_AWSEC2AdditionalDetail {
+    [self validateSecureCodingForClass:[AWSEC2AdditionalDetail class]];
 }
 
 - (void) test_AWSEC2Address {
@@ -7830,6 +7836,10 @@
 
 - (void) test_AWSEC2TransitGatewayRouteTablePropagation {
     [self validateSecureCodingForClass:[AWSEC2TransitGatewayRouteTablePropagation class]];
+}
+
+- (void) test_AWSEC2TransitGatewayRouteTableRoute {
+    [self validateSecureCodingForClass:[AWSEC2TransitGatewayRouteTableRoute class]];
 }
 
 - (void) test_AWSEC2TransitGatewayVpcAttachment {
