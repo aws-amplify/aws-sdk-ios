@@ -1,12 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSTranscribe
----AWSLambda
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -16,6 +7,9 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 - Model updates for the following services
   - AWSLocation
   - AWSPolly
+  - AWSEC2
+  - AWSLambda
+  - AWSTranscribe
 
 ## 2.27.4
 
