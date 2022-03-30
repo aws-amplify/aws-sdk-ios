@@ -10555,6 +10555,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)modifyInstanceEventWindow:(AWSEC2ModifyInstanceEventWindowRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyInstanceEventWindowResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Modifies the recovery behavior of your instance to disable simplified automatic recovery or set the recovery behavior to default. The default configuration will not enable simplified automatic recovery for an unsupported instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery">Simplified automatic recovery</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyInstanceMaintenanceOptions service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyInstanceMaintenanceOptionsResult`.
+ 
+ @see AWSEC2ModifyInstanceMaintenanceOptionsRequest
+ @see AWSEC2ModifyInstanceMaintenanceOptionsResult
+ */
+- (AWSTask<AWSEC2ModifyInstanceMaintenanceOptionsResult *> *)modifyInstanceMaintenanceOptions:(AWSEC2ModifyInstanceMaintenanceOptionsRequest *)request;
+
+/**
+ <p>Modifies the recovery behavior of your instance to disable simplified automatic recovery or set the recovery behavior to default. The default configuration will not enable simplified automatic recovery for an unsupported instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery">Simplified automatic recovery</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyInstanceMaintenanceOptions service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyInstanceMaintenanceOptionsRequest
+ @see AWSEC2ModifyInstanceMaintenanceOptionsResult
+ */
+- (void)modifyInstanceMaintenanceOptions:(AWSEC2ModifyInstanceMaintenanceOptionsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyInstanceMaintenanceOptionsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Modify the instance metadata parameters on a running or stopped instance. When you modify the parameters on a stopped instance, they are applied when the instance is started. When you modify the parameters on a running instance, the API responds with a state of “pending”. After the parameter modifications are successfully applied to the instance, the state of the modifications changes from “pending” to “applied” in subsequent describe-instances API calls. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ModifyInstanceMetadataOptions service method.

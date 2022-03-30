@@ -41824,6 +41824,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"keyName" : @"KeyName",
              @"launchTime" : @"LaunchTime",
              @"licenses" : @"Licenses",
+             @"maintenanceOptions" : @"MaintenanceOptions",
              @"metadataOptions" : @"MetadataOptions",
              @"monitoring" : @"Monitoring",
              @"networkInterfaces" : @"NetworkInterfaces",
@@ -44430,6 +44431,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2LicenseConfiguration class]];
 }
 
++ (NSValueTransformer *)maintenanceOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2InstanceMaintenanceOptions class]];
+}
+
 + (NSValueTransformer *)metadataOptionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2InstanceMetadataOptionsResponse class]];
 }
@@ -45285,6 +45290,76 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"ipv6Prefix" : @"Ipv6Prefix",
              };
+}
+
+@end
+
+@implementation AWSEC2InstanceMaintenanceOptions
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"autoRecovery" : @"AutoRecovery",
+             };
+}
+
++ (NSValueTransformer *)autoRecoveryJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"disabled"] == NSOrderedSame) {
+            return @(AWSEC2InstanceAutoRecoveryStateDisabled);
+        }
+        if ([value caseInsensitiveCompare:@"default"] == NSOrderedSame) {
+            return @(AWSEC2InstanceAutoRecoveryStateDefault);
+        }
+        return @(AWSEC2InstanceAutoRecoveryStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2InstanceAutoRecoveryStateDisabled:
+                return @"disabled";
+            case AWSEC2InstanceAutoRecoveryStateDefault:
+                return @"default";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSEC2InstanceMaintenanceOptionsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"autoRecovery" : @"AutoRecovery",
+             };
+}
+
++ (NSValueTransformer *)autoRecoveryJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"disabled"] == NSOrderedSame) {
+            return @(AWSEC2InstanceAutoRecoveryStateDisabled);
+        }
+        if ([value caseInsensitiveCompare:@"default"] == NSOrderedSame) {
+            return @(AWSEC2InstanceAutoRecoveryStateDefault);
+        }
+        return @(AWSEC2InstanceAutoRecoveryStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2InstanceAutoRecoveryStateDisabled:
+                return @"disabled";
+            case AWSEC2InstanceAutoRecoveryStateDefault:
+                return @"default";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -55805,6 +55880,76 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2LaunchTemplateInstanceMaintenanceOptions
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"autoRecovery" : @"AutoRecovery",
+             };
+}
+
++ (NSValueTransformer *)autoRecoveryJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"default"] == NSOrderedSame) {
+            return @(AWSEC2LaunchTemplateAutoRecoveryStateDefault);
+        }
+        if ([value caseInsensitiveCompare:@"disabled"] == NSOrderedSame) {
+            return @(AWSEC2LaunchTemplateAutoRecoveryStateDisabled);
+        }
+        return @(AWSEC2LaunchTemplateAutoRecoveryStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2LaunchTemplateAutoRecoveryStateDefault:
+                return @"default";
+            case AWSEC2LaunchTemplateAutoRecoveryStateDisabled:
+                return @"disabled";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSEC2LaunchTemplateInstanceMaintenanceOptionsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"autoRecovery" : @"AutoRecovery",
+             };
+}
+
++ (NSValueTransformer *)autoRecoveryJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"default"] == NSOrderedSame) {
+            return @(AWSEC2LaunchTemplateAutoRecoveryStateDefault);
+        }
+        if ([value caseInsensitiveCompare:@"disabled"] == NSOrderedSame) {
+            return @(AWSEC2LaunchTemplateAutoRecoveryStateDisabled);
+        }
+        return @(AWSEC2LaunchTemplateAutoRecoveryStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2LaunchTemplateAutoRecoveryStateDefault:
+                return @"default";
+            case AWSEC2LaunchTemplateAutoRecoveryStateDisabled:
+                return @"disabled";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSEC2LaunchTemplateInstanceMarketOptions
 
 + (BOOL)supportsSecureCoding {
@@ -61415,6 +61560,79 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)instanceEventWindowJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2InstanceEventWindow class]];
+}
+
+@end
+
+@implementation AWSEC2ModifyInstanceMaintenanceOptionsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"autoRecovery" : @"AutoRecovery",
+             @"dryRun" : @"DryRun",
+             @"instanceId" : @"InstanceId",
+             };
+}
+
++ (NSValueTransformer *)autoRecoveryJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"disabled"] == NSOrderedSame) {
+            return @(AWSEC2InstanceAutoRecoveryStateDisabled);
+        }
+        if ([value caseInsensitiveCompare:@"default"] == NSOrderedSame) {
+            return @(AWSEC2InstanceAutoRecoveryStateDefault);
+        }
+        return @(AWSEC2InstanceAutoRecoveryStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2InstanceAutoRecoveryStateDisabled:
+                return @"disabled";
+            case AWSEC2InstanceAutoRecoveryStateDefault:
+                return @"default";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSEC2ModifyInstanceMaintenanceOptionsResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"autoRecovery" : @"AutoRecovery",
+             @"instanceId" : @"InstanceId",
+             };
+}
+
++ (NSValueTransformer *)autoRecoveryJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"disabled"] == NSOrderedSame) {
+            return @(AWSEC2InstanceAutoRecoveryStateDisabled);
+        }
+        if ([value caseInsensitiveCompare:@"default"] == NSOrderedSame) {
+            return @(AWSEC2InstanceAutoRecoveryStateDefault);
+        }
+        return @(AWSEC2InstanceAutoRecoveryStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2InstanceAutoRecoveryStateDisabled:
+                return @"disabled";
+            case AWSEC2InstanceAutoRecoveryStateDefault:
+                return @"default";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -67142,6 +67360,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"kernelId" : @"KernelId",
              @"keyName" : @"KeyName",
              @"licenseSpecifications" : @"LicenseSpecifications",
+             @"maintenanceOptions" : @"MaintenanceOptions",
              @"metadataOptions" : @"MetadataOptions",
              @"monitoring" : @"Monitoring",
              @"networkInterfaces" : @"NetworkInterfaces",
@@ -69658,6 +69877,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)licenseSpecificationsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2LaunchTemplateLicenseConfigurationRequest class]];
+}
+
++ (NSValueTransformer *)maintenanceOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2LaunchTemplateInstanceMaintenanceOptionsRequest class]];
 }
 
 + (NSValueTransformer *)metadataOptionsJSONTransformer {
@@ -83347,6 +83570,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"kernelId" : @"KernelId",
              @"keyName" : @"KeyName",
              @"licenseSpecifications" : @"LicenseSpecifications",
+             @"maintenanceOptions" : @"MaintenanceOptions",
              @"metadataOptions" : @"MetadataOptions",
              @"monitoring" : @"Monitoring",
              @"networkInterfaces" : @"NetworkInterfaces",
@@ -85865,6 +86089,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2LaunchTemplateLicenseConfiguration class]];
 }
 
++ (NSValueTransformer *)maintenanceOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2LaunchTemplateInstanceMaintenanceOptions class]];
+}
+
 + (NSValueTransformer *)metadataOptionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2LaunchTemplateInstanceMetadataOptions class]];
 }
@@ -86496,6 +86724,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"keyName" : @"KeyName",
              @"launchTemplate" : @"LaunchTemplate",
              @"licenseSpecifications" : @"LicenseSpecifications",
+             @"maintenanceOptions" : @"MaintenanceOptions",
              @"maxCount" : @"MaxCount",
              @"metadataOptions" : @"MetadataOptions",
              @"minCount" : @"MinCount",
@@ -89020,6 +89249,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)licenseSpecificationsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2LicenseConfigurationRequest class]];
+}
+
++ (NSValueTransformer *)maintenanceOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2InstanceMaintenanceOptionsRequest class]];
 }
 
 + (NSValueTransformer *)metadataOptionsJSONTransformer {

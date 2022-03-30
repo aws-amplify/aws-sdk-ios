@@ -832,6 +832,12 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceAttributeName) {
     AWSEC2InstanceAttributeNameEnclaveOptions,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2InstanceAutoRecoveryState) {
+    AWSEC2InstanceAutoRecoveryStateUnknown,
+    AWSEC2InstanceAutoRecoveryStateDisabled,
+    AWSEC2InstanceAutoRecoveryStateDefault,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2InstanceEventWindowState) {
     AWSEC2InstanceEventWindowStateUnknown,
     AWSEC2InstanceEventWindowStateCreating,
@@ -1549,6 +1555,12 @@ typedef NS_ENUM(NSInteger, AWSEC2KeyType) {
     AWSEC2KeyTypeUnknown,
     AWSEC2KeyTypeRsa,
     AWSEC2KeyTypeEd25519,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2LaunchTemplateAutoRecoveryState) {
+    AWSEC2LaunchTemplateAutoRecoveryStateUnknown,
+    AWSEC2LaunchTemplateAutoRecoveryStateDefault,
+    AWSEC2LaunchTemplateAutoRecoveryStateDisabled,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2LaunchTemplateErrorCode) {
@@ -3574,6 +3586,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2InstanceIpv6Address;
 @class AWSEC2InstanceIpv6AddressRequest;
 @class AWSEC2InstanceIpv6Prefix;
+@class AWSEC2InstanceMaintenanceOptions;
+@class AWSEC2InstanceMaintenanceOptionsRequest;
 @class AWSEC2InstanceMarketOptionsRequest;
 @class AWSEC2InstanceMetadataOptionsRequest;
 @class AWSEC2InstanceMetadataOptionsResponse;
@@ -3650,6 +3664,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2LaunchTemplateHibernationOptionsRequest;
 @class AWSEC2LaunchTemplateIamInstanceProfileSpecification;
 @class AWSEC2LaunchTemplateIamInstanceProfileSpecificationRequest;
+@class AWSEC2LaunchTemplateInstanceMaintenanceOptions;
+@class AWSEC2LaunchTemplateInstanceMaintenanceOptionsRequest;
 @class AWSEC2LaunchTemplateInstanceMarketOptions;
 @class AWSEC2LaunchTemplateInstanceMarketOptionsRequest;
 @class AWSEC2LaunchTemplateInstanceMetadataOptions;
@@ -3726,6 +3742,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2ModifyInstanceEventStartTimeResult;
 @class AWSEC2ModifyInstanceEventWindowRequest;
 @class AWSEC2ModifyInstanceEventWindowResult;
+@class AWSEC2ModifyInstanceMaintenanceOptionsRequest;
+@class AWSEC2ModifyInstanceMaintenanceOptionsResult;
 @class AWSEC2ModifyInstanceMetadataOptionsRequest;
 @class AWSEC2ModifyInstanceMetadataOptionsResult;
 @class AWSEC2ModifyInstancePlacementRequest;
@@ -28673,6 +28691,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2LicenseConfiguration *> * _Nullable licenses;
 
 /**
+ <p>Provides information on the recovery and maintenance options of your instance.</p>
+ */
+@property (nonatomic, strong) AWSEC2InstanceMaintenanceOptions * _Nullable maintenanceOptions;
+
+/**
  <p>The metadata options for the instance.</p>
  */
 @property (nonatomic, strong) AWSEC2InstanceMetadataOptionsResponse * _Nullable metadataOptions;
@@ -29301,6 +29324,32 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>One or more IPv6 prefixes assigned to the network interface.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipv6Prefix;
+
+@end
+
+/**
+ <p>The maintenance options for the instance.</p>
+ */
+@interface AWSEC2InstanceMaintenanceOptions : AWSModel
+
+
+/**
+ <p>Provides information on the current automatic recovery behavior of your instance.</p>
+ */
+@property (nonatomic, assign) AWSEC2InstanceAutoRecoveryState autoRecovery;
+
+@end
+
+/**
+ <p>The maintenance options for the instance.</p>
+ */
+@interface AWSEC2InstanceMaintenanceOptionsRequest : AWSModel
+
+
+/**
+ <p>Disables the automatic recovery behavior of your instance or sets it to default. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery">Simplified automatic recovery</a>.</p>
+ */
+@property (nonatomic, assign) AWSEC2InstanceAutoRecoveryState autoRecovery;
 
 @end
 
@@ -31810,6 +31859,32 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>The maintenance options of your instance.</p>
+ */
+@interface AWSEC2LaunchTemplateInstanceMaintenanceOptions : AWSModel
+
+
+/**
+ <p>Disables the automatic recovery behavior of your instance or sets it to default.</p>
+ */
+@property (nonatomic, assign) AWSEC2LaunchTemplateAutoRecoveryState autoRecovery;
+
+@end
+
+/**
+ <p>The maintenance options of your instance.</p>
+ */
+@interface AWSEC2LaunchTemplateInstanceMaintenanceOptionsRequest : AWSModel
+
+
+/**
+ <p>Disables the automatic recovery behavior of your instance or sets it to default. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery">Simplified automatic recovery</a>.</p>
+ */
+@property (nonatomic, assign) AWSEC2LaunchTemplateAutoRecoveryState autoRecovery;
+
+@end
+
+/**
  <p>The market (purchasing) option for the instances.</p>
  */
 @interface AWSEC2LaunchTemplateInstanceMarketOptions : AWSModel
@@ -33544,7 +33619,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
+ <p>If the request succeeds, the response returns <code>true</code>. If the request fails, no response is returned, and instead an error message is returned.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable returned;
 
@@ -34031,6 +34106,47 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the event window.</p>
  */
 @property (nonatomic, strong) AWSEC2InstanceEventWindow * _Nullable instanceEventWindow;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyInstanceMaintenanceOptionsRequest : AWSRequest
+
+
+/**
+ <p>Disables the automatic recovery behavior of your instance or sets it to default.</p>
+ */
+@property (nonatomic, assign) AWSEC2InstanceAutoRecoveryState autoRecovery;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyInstanceMaintenanceOptionsResult : AWSModel
+
+
+/**
+ <p>Provides information on the current automatic recovery behavior of your instance.</p>
+ */
+@property (nonatomic, assign) AWSEC2InstanceAutoRecoveryState autoRecovery;
+
+/**
+ <p>The ID of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
 
 @end
 
@@ -34750,7 +34866,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
+ <p>If the request succeeds, the response returns <code>true</code>. If the request fails, no response is returned, and instead an error message is returned.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable returned;
 
@@ -39677,6 +39793,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2LaunchTemplateLicenseConfigurationRequest *> * _Nullable licenseSpecifications;
 
 /**
+ <p>The maintenance options for the instance.</p>
+ */
+@property (nonatomic, strong) AWSEC2LaunchTemplateInstanceMaintenanceOptionsRequest * _Nullable maintenanceOptions;
+
+/**
  <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSEC2LaunchTemplateInstanceMetadataOptionsRequest * _Nullable metadataOptions;
@@ -40554,7 +40675,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The attribute to reset.</p><important><p>You can only reset the following attributes: <code>kernel</code> | <code>ramdisk</code> | <code>sourceDestCheck</code>. To change an instance attribute, use <a>ModifyInstanceAttribute</a>.</p></important>
+ <p>The attribute to reset.</p><important><p>You can only reset the following attributes: <code>kernel</code> | <code>ramdisk</code> | <code>sourceDestCheck</code>.</p></important>
  */
 @property (nonatomic, assign) AWSEC2InstanceAttributeName attribute;
 
@@ -40771,6 +40892,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The license configurations.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2LaunchTemplateLicenseConfiguration *> * _Nullable licenseSpecifications;
+
+/**
+ <p>The maintenance options for your instance.</p>
+ */
+@property (nonatomic, strong) AWSEC2LaunchTemplateInstanceMaintenanceOptions * _Nullable maintenanceOptions;
 
 /**
  <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -41593,6 +41719,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The license configurations.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2LicenseConfigurationRequest *> * _Nullable licenseSpecifications;
+
+/**
+ <p>The maintenance and recovery options for the instance.</p>
+ */
+@property (nonatomic, strong) AWSEC2InstanceMaintenanceOptionsRequest * _Nullable maintenanceOptions;
 
 /**
  <p>The maximum number of instances to launch. If you specify more instances than Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches the largest possible number of instances above <code>MinCount</code>.</p><p>Constraints: Between 1 and the maximum number you're allowed for the specified instance type. For more information about the default limits, and how to request an increase, see <a href="http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2">How many instances can I run in Amazon EC2</a> in the Amazon EC2 FAQ.</p>

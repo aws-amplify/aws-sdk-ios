@@ -9891,6 +9891,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2ModifyInstanceMaintenanceOptionsResult *> *)modifyInstanceMaintenanceOptions:(AWSEC2ModifyInstanceMaintenanceOptionsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ModifyInstanceMaintenanceOptions"
+                   outputClass:[AWSEC2ModifyInstanceMaintenanceOptionsResult class]];
+}
+
+- (void)modifyInstanceMaintenanceOptions:(AWSEC2ModifyInstanceMaintenanceOptionsRequest *)request
+     completionHandler:(void (^)(AWSEC2ModifyInstanceMaintenanceOptionsResult *response, NSError *error))completionHandler {
+    [[self modifyInstanceMaintenanceOptions:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ModifyInstanceMaintenanceOptionsResult *> * _Nonnull task) {
+        AWSEC2ModifyInstanceMaintenanceOptionsResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2ModifyInstanceMetadataOptionsResult *> *)modifyInstanceMetadataOptions:(AWSEC2ModifyInstanceMetadataOptionsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
