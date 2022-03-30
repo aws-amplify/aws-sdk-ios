@@ -18,21 +18,14 @@ import Foundation
 
 class MockUser: CognitoIdentityUserBehavior {
 
-    let result: Result<AWSCognitoIdentityUserSession, Error>
+    let result: Result<Tokens, Error>
 
-    init(result: Result<AWSCognitoIdentityUserSession, Error>) {
+    init(result: Result<Tokens, Error>) {
         self.result = result
     }
 
-    func getSession() -> AWSTask<AWSCognitoIdentityUserSession> {
-        let completion = AWSTaskCompletionSource<AWSCognitoIdentityUserSession>()
-        switch result {
-        case .success(let result):
-            completion.set(result: result)
-        case .failure(let error):
-            completion.set(error: error)
-        }
-        return completion.task
+    func getUserPoolToken(completion: @escaping (Result<Tokens, Error>) -> Void) {
+        completion(result)
     }
 }
 

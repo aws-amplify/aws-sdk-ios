@@ -35,7 +35,7 @@ class FetchTokensOperationTests: XCTestCase {
         let operationQueue = OperationQueue()
         let expectation = expectation(description: "Operation should complete")
         let session = AWSCognitoIdentityUserSession()
-        let mockUser = MockUser(result: .success(session))
+        let mockUser = MockUser(result: .success(session.mobileClientTokens))
         let mockUserPool = MockUserPool(user: mockUser)
         let delegate = MockDelegate()
         delegate.username = "testusername"
@@ -63,7 +63,7 @@ class FetchTokensOperationTests: XCTestCase {
         let operationQueue = OperationQueue()
         let expectation = expectation(description: "Operation should complete")
         let session = AWSCognitoIdentityUserSession()
-        let mockUser = MockUser(result: .success(session))
+        let mockUser = MockUser(result: .success(session.mobileClientTokens))
         let mockUserPool = MockUserPool(user: mockUser)
         let delegate = MockDelegate()
         delegate.username = nil

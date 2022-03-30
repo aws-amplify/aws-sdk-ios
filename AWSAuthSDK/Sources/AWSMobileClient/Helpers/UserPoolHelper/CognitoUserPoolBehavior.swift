@@ -25,3 +25,9 @@ extension AWSCognitoIdentityUserPool: CognitoUserPoolBehavior {
         return user
     }
 }
+
+extension AWSCognitoAuth: CognitoUserPoolBehavior {
+    func getIdentityUser(_ username: String) -> CognitoIdentityUserBehavior {
+        return self
+    }
+}

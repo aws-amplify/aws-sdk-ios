@@ -6,6 +6,9 @@
 
 ### Misc. Updates
 
+- **AWSMobileClient**
+  - chore: Modified getToken flow for hostedUI signIn (See [PR #4049](https://github.com/aws-amplify/aws-sdk-ios/pull/4049))
+
 - Model updates for the following services
   - AWSLocation
   - AWSPolly

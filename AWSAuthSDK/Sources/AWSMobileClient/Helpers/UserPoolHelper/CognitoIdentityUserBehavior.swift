@@ -17,7 +17,32 @@ import Foundation
 
 protocol CognitoIdentityUserBehavior {
 
-    func getSession() -> AWSTask<AWSCognitoIdentityUserSession>
+    func getUserPoolToken(completion: @escaping (Result<Tokens, Error>) -> Void)
 }
 
-extension AWSCognitoIdentityUser: CognitoIdentityUserBehavior {}
+extension AWSCognitoIdentityUser: CognitoIdentityUserBehavior {
+
+    func getUserPoolToken(completion: @escaping (Result<Tokens, Error>) -> Void) {
+        self.getSession().continueWith { task in
+            if let result = task.result {
+                completion(.success(result.mobileClientTokens))
+            } else if let error = task.error {
+                completion(.failure(error))
+            }
+            return nil
+        }
+    }
+}
+
+extension AWSCognitoAuth: CognitoIdentityUserBehavior {
+
+    func getUserPoolToken(completion: @escaping (Result<Tokens, Error>) -> Void) {
+        self.getSession{ session, error in
+            if let result = session {
+                completion(.success(result.mobileClientTokens))
+            } else if let error = error {
+                completion(.failure(error))
+            }
+        }
+    }
+}

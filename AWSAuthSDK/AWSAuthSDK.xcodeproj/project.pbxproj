@@ -2213,11 +2213,9 @@
 		B47478DC27CECFEC004C427C /* AWSAsyncOperations */ = {
 			isa = PBXGroup;
 			children = (
+				B4E1A3C127E00F3C006F9877 /* GetTokensUserPool */,
 				030D030A273C810800F6718E /* AWSAsyncBlockOperation.swift */,
 				B412D00727DAF2C9000A28FE /* AWSAsyncOperation.swift */,
-				B44979C127D16A81009FA751 /* FetchUserPoolTokensDelegate.swift */,
-				B4497A3727D16A81009FA751 /* FetchUserPoolTokensOperation.swift */,
-				B45934C227DBBA1C003E5E41 /* FetchUserPoolTokensOperation+States.swift */,
 			);
 			path = AWSAsyncOperations;
 			sourceTree = "<group>";
@@ -2291,6 +2289,16 @@
 				B4E0DF4627D16744008ADCEC /* AWSMobileClientLogging.swift */,
 			);
 			path = Logging;
+			sourceTree = "<group>";
+		};
+		B4E1A3C127E00F3C006F9877 /* GetTokensUserPool */ = {
+			isa = PBXGroup;
+			children = (
+				B44979C127D16A81009FA751 /* FetchUserPoolTokensDelegate.swift */,
+				B4497A3727D16A81009FA751 /* FetchUserPoolTokensOperation.swift */,
+				B45934C227DBBA1C003E5E41 /* FetchUserPoolTokensOperation+States.swift */,
+			);
+			path = GetTokensUserPool;
 			sourceTree = "<group>";
 		};
 		B5345D101F366AFA009C1041 /* AWSAuthUI */ = {

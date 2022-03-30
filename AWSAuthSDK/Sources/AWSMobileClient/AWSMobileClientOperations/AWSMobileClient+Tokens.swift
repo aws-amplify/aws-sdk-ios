@@ -43,30 +43,15 @@ extension AWSMobileClient {
 
         case .hostedUI:
             AWSMobileClientLogging.verbose("Invoking hostedUI getTokens")
-            let operation = AWSAsyncBlockOperation { done in
-                AWSCognitoAuth(forKey: self.CognitoAuthRegistrationKey).getSession({ (session, error) in
-                    if let sessionError = error,
-                       (sessionError as NSError).domain == AWSCognitoAuthErrorDomain,
-                       let errorType = AWSCognitoAuthClientErrorType(rawValue: (sessionError as NSError).code),
-                       (errorType == .errorExpiredRefreshToken) {
-                        self.pendingGetTokensCompletion = { tokens, error in
-                            completionHandler(tokens, error)
-                            done()
-                        }
-                        self.invalidateCachedTemporaryCredentials()
-                        self.mobileClientStatusChanged(
-                            userState: .signedOutUserPoolsTokenInvalid,
-                            additionalInfo: [AWSMobileClientConstants.ProviderKey:"OAuth"])
-                        return
-                    } else if let session = session {
-                        completionHandler(session.mobileClientTokens, nil)
-                        done()
-                    } else {
-                        completionHandler(nil, error)
-                        done()
-                    }
-                })
+            let operation = FetchUserPoolTokensOperation(
+                userPool: AWSCognitoAuth(forKey: self.CognitoAuthRegistrationKey),
+                completion: completionHandler)
+            operation.delegate = self
+            operation.completionBlock = { [weak self] in
+                guard let index = self?.tokenOperations.firstIndex(of: operation) else {return}
+                self?.tokenOperations.remove(at: index)
             }
+            tokenOperations.append(operation)
             tokenFetchOperationQueue.addOperation(operation)
         default:
             let message = AWSMobileClientConstants.notSignedInMessage
@@ -85,9 +70,15 @@ extension AWSMobileClient: FetchUserPoolTokensDelegate {
         }
 
         self.invalidateCachedTemporaryCredentials()
+        let aditionalInfo: [String: String]
+        if federationProvider == .userPools {
+            aditionalInfo = ["username":self.userPoolClient?.currentUser()?.username ?? ""]
+        } else {
+            aditionalInfo = [AWSMobileClientConstants.ProviderKey:"OAuth"]
+        }
         self.mobileClientStatusChanged(
             userState: .signedOutUserPoolsTokenInvalid,
-            additionalInfo: ["username":self.userPoolClient?.currentUser()?.username ?? ""])
+            additionalInfo: aditionalInfo)
     }
 
     func getCurrentUsername(operation: FetchUserPoolTokensOperation) -> String? {
