@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -27,7 +27,6 @@
 static NSString *const AWSInfoIoT = @"IoT";
 NSString *const AWSIoTSDKVersion = @"2.27.4";
 
-static NSString *const AWSIoTEndpoint = @"Endpoint";
 
 @interface AWSIoTResponseSerializer : AWSJSONResponseSerializer
 
@@ -49,6 +48,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"IndexNotReadyException" : @(AWSIoTErrorIndexNotReady),
                             @"InternalException" : @(AWSIoTErrorInternal),
                             @"InternalFailureException" : @(AWSIoTErrorInternalFailure),
+                            @"InternalServerException" : @(AWSIoTErrorInternalServer),
                             @"InvalidAggregationException" : @(AWSIoTErrorInvalidAggregation),
                             @"InvalidQueryException" : @(AWSIoTErrorInvalidQuery),
                             @"InvalidRequestException" : @(AWSIoTErrorInvalidRequest),
@@ -184,19 +184,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     dispatch_once(&onceToken, ^{
         AWSServiceConfiguration *serviceConfiguration = nil;
         AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] defaultServiceInfo:AWSInfoIoT];
-
-        AWSEndpoint *endpoint = nil;
-        NSString *endpointURLString = [serviceInfo.infoDictionary objectForKey:AWSIoTEndpoint];
-        if (endpointURLString) {
-            endpoint = [[AWSEndpoint alloc] initWithURLString:endpointURLString];
-        }
-
-        if (serviceInfo && endpoint) {
-            serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
-                                                                          endpoint:endpoint
-                                                               credentialsProvider:serviceInfo.cognitoCredentialsProvider];
-        } else if (serviceInfo) {
-
+        if (serviceInfo) {
             serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
                                                                credentialsProvider:serviceInfo.cognitoCredentialsProvider];
         }
@@ -2534,6 +2522,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTDescribeManagedJobTemplateResponse *> *)describeManagedJobTemplate:(AWSIoTDescribeManagedJobTemplateRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/managed-job-templates/{templateName}"
+                  targetPrefix:@""
+                 operationName:@"DescribeManagedJobTemplate"
+                   outputClass:[AWSIoTDescribeManagedJobTemplateResponse class]];
+}
+
+- (void)describeManagedJobTemplate:(AWSIoTDescribeManagedJobTemplateRequest *)request
+     completionHandler:(void (^)(AWSIoTDescribeManagedJobTemplateResponse *response, NSError *error))completionHandler {
+    [[self describeManagedJobTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeManagedJobTemplateResponse *> * _Nonnull task) {
+        AWSIoTDescribeManagedJobTemplateResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTDescribeMitigationActionResponse *> *)describeMitigationAction:(AWSIoTDescribeMitigationActionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -3808,6 +3819,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTListJobsResponse *response, NSError *error))completionHandler {
     [[self listJobs:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListJobsResponse *> * _Nonnull task) {
         AWSIoTListJobsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListManagedJobTemplatesResponse *> *)listManagedJobTemplates:(AWSIoTListManagedJobTemplatesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/managed-job-templates"
+                  targetPrefix:@""
+                 operationName:@"ListManagedJobTemplates"
+                   outputClass:[AWSIoTListManagedJobTemplatesResponse class]];
+}
+
+- (void)listManagedJobTemplates:(AWSIoTListManagedJobTemplatesRequest *)request
+     completionHandler:(void (^)(AWSIoTListManagedJobTemplatesResponse *response, NSError *error))completionHandler {
+    [[self listManagedJobTemplates:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListManagedJobTemplatesResponse *> * _Nonnull task) {
+        AWSIoTListManagedJobTemplatesResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

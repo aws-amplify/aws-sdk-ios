@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -1187,6 +1187,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"authorizerFunctionArn" : @"authorizerFunctionArn",
              @"authorizerName" : @"authorizerName",
              @"creationDate" : @"creationDate",
+             @"enableCachingForHttp" : @"enableCachingForHttp",
              @"lastModifiedDate" : @"lastModifiedDate",
              @"signingDisabled" : @"signingDisabled",
              @"status" : @"status",
@@ -2362,6 +2363,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 	return @{
              @"authorizerFunctionArn" : @"authorizerFunctionArn",
              @"authorizerName" : @"authorizerName",
+             @"enableCachingForHttp" : @"enableCachingForHttp",
              @"signingDisabled" : @"signingDisabled",
              @"status" : @"status",
              @"tags" : @"tags",
@@ -2922,7 +2924,9 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"abortConfig" : @"abortConfig",
              @"detail" : @"description",
              @"document" : @"document",
+             @"documentParameters" : @"documentParameters",
              @"documentSource" : @"documentSource",
+             @"jobExecutionsRetryConfig" : @"jobExecutionsRetryConfig",
              @"jobExecutionsRolloutConfig" : @"jobExecutionsRolloutConfig",
              @"jobId" : @"jobId",
              @"jobTemplateArn" : @"jobTemplateArn",
@@ -2937,6 +2941,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSValueTransformer *)abortConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTAbortConfig class]];
+}
+
++ (NSValueTransformer *)jobExecutionsRetryConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTJobExecutionsRetryConfig class]];
 }
 
 + (NSValueTransformer *)jobExecutionsRolloutConfigJSONTransformer {
@@ -3007,6 +3015,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"document" : @"document",
              @"documentSource" : @"documentSource",
              @"jobArn" : @"jobArn",
+             @"jobExecutionsRetryConfig" : @"jobExecutionsRetryConfig",
              @"jobExecutionsRolloutConfig" : @"jobExecutionsRolloutConfig",
              @"jobTemplateId" : @"jobTemplateId",
              @"presignedUrlConfig" : @"presignedUrlConfig",
@@ -3017,6 +3026,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSValueTransformer *)abortConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTAbortConfig class]];
+}
+
++ (NSValueTransformer *)jobExecutionsRetryConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTJobExecutionsRetryConfig class]];
 }
 
 + (NSValueTransformer *)jobExecutionsRolloutConfigJSONTransformer {
@@ -4517,6 +4530,15 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
         if ([value caseInsensitiveCompare:@"THING_GROUP"] == NSOrderedSame) {
             return @(AWSIoTLogTargetTypeThingGroup);
         }
+        if ([value caseInsensitiveCompare:@"CLIENT_ID"] == NSOrderedSame) {
+            return @(AWSIoTLogTargetTypeClientId);
+        }
+        if ([value caseInsensitiveCompare:@"SOURCE_IP"] == NSOrderedSame) {
+            return @(AWSIoTLogTargetTypeSourceIp);
+        }
+        if ([value caseInsensitiveCompare:@"PRINCIPAL_ID"] == NSOrderedSame) {
+            return @(AWSIoTLogTargetTypePrincipalId);
+        }
         return @(AWSIoTLogTargetTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -4524,6 +4546,12 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
                 return @"DEFAULT";
             case AWSIoTLogTargetTypeThingGroup:
                 return @"THING_GROUP";
+            case AWSIoTLogTargetTypeClientId:
+                return @"CLIENT_ID";
+            case AWSIoTLogTargetTypeSourceIp:
+                return @"SOURCE_IP";
+            case AWSIoTLogTargetTypePrincipalId:
+                return @"PRINCIPAL_ID";
             default:
                 return nil;
         }
@@ -5803,6 +5831,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"detail" : @"description",
              @"document" : @"document",
              @"documentSource" : @"documentSource",
+             @"jobExecutionsRetryConfig" : @"jobExecutionsRetryConfig",
              @"jobExecutionsRolloutConfig" : @"jobExecutionsRolloutConfig",
              @"jobTemplateArn" : @"jobTemplateArn",
              @"jobTemplateId" : @"jobTemplateId",
@@ -5823,6 +5852,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
     }];
 }
 
++ (NSValueTransformer *)jobExecutionsRetryConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTJobExecutionsRetryConfig class]];
+}
+
 + (NSValueTransformer *)jobExecutionsRolloutConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTJobExecutionsRolloutConfig class]];
 }
@@ -5833,6 +5866,45 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSValueTransformer *)timeoutConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTTimeoutConfig class]];
+}
+
+@end
+
+@implementation AWSIoTDescribeManagedJobTemplateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"templateName" : @"templateName",
+             @"templateVersion" : @"templateVersion",
+             };
+}
+
+@end
+
+@implementation AWSIoTDescribeManagedJobTemplateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"detail" : @"description",
+             @"document" : @"document",
+             @"documentParameters" : @"documentParameters",
+             @"environments" : @"environments",
+             @"templateArn" : @"templateArn",
+             @"templateName" : @"templateName",
+             @"templateVersion" : @"templateVersion",
+             };
+}
+
++ (NSValueTransformer *)documentParametersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTDocumentParameter class]];
 }
 
 @end
@@ -6800,6 +6872,24 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"ruleName" : @"ruleName",
+             };
+}
+
+@end
+
+@implementation AWSIoTDocumentParameter
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"detail" : @"description",
+             @"example" : @"example",
+             @"key" : @"key",
+             @"optionalValue" : @"optional",
+             @"regex" : @"regex",
              };
 }
 
@@ -8004,8 +8094,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"completedAt" : @"completedAt",
              @"createdAt" : @"createdAt",
              @"detail" : @"description",
+             @"documentParameters" : @"documentParameters",
              @"forceCanceled" : @"forceCanceled",
              @"jobArn" : @"jobArn",
+             @"jobExecutionsRetryConfig" : @"jobExecutionsRetryConfig",
              @"jobExecutionsRolloutConfig" : @"jobExecutionsRolloutConfig",
              @"jobId" : @"jobId",
              @"jobProcessDetails" : @"jobProcessDetails",
@@ -8039,6 +8131,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
++ (NSValueTransformer *)jobExecutionsRetryConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTJobExecutionsRetryConfig class]];
 }
 
 + (NSValueTransformer *)jobExecutionsRolloutConfigJSONTransformer {
@@ -8247,6 +8343,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"executionNumber" : @"executionNumber",
              @"lastUpdatedAt" : @"lastUpdatedAt",
              @"queuedAt" : @"queuedAt",
+             @"retryAttempt" : @"retryAttempt",
              @"startedAt" : @"startedAt",
              @"status" : @"status",
              };
@@ -8363,6 +8460,24 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSValueTransformer *)jobExecutionSummaryJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTJobExecutionSummary class]];
+}
+
+@end
+
+@implementation AWSIoTJobExecutionsRetryConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"criteriaList" : @"criteriaList",
+             };
+}
+
++ (NSValueTransformer *)criteriaListJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTRetryCriteria class]];
 }
 
 @end
@@ -9681,6 +9796,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"jobId" : @"jobId",
              @"maxResults" : @"maxResults",
              @"namespaceId" : @"namespaceId",
              @"nextToken" : @"nextToken",
@@ -9882,6 +9998,41 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSValueTransformer *)jobsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTJobSummary class]];
+}
+
+@end
+
+@implementation AWSIoTListManagedJobTemplatesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxResults" : @"maxResults",
+             @"nextToken" : @"nextToken",
+             @"templateName" : @"templateName",
+             };
+}
+
+@end
+
+@implementation AWSIoTListManagedJobTemplatesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"managedJobTemplates" : @"managedJobTemplates",
+             @"nextToken" : @"nextToken",
+             };
+}
+
++ (NSValueTransformer *)managedJobTemplatesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTManagedJobTemplateSummary class]];
 }
 
 @end
@@ -11043,6 +11194,15 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
         if ([value caseInsensitiveCompare:@"THING_GROUP"] == NSOrderedSame) {
             return @(AWSIoTLogTargetTypeThingGroup);
         }
+        if ([value caseInsensitiveCompare:@"CLIENT_ID"] == NSOrderedSame) {
+            return @(AWSIoTLogTargetTypeClientId);
+        }
+        if ([value caseInsensitiveCompare:@"SOURCE_IP"] == NSOrderedSame) {
+            return @(AWSIoTLogTargetTypeSourceIp);
+        }
+        if ([value caseInsensitiveCompare:@"PRINCIPAL_ID"] == NSOrderedSame) {
+            return @(AWSIoTLogTargetTypePrincipalId);
+        }
         return @(AWSIoTLogTargetTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -11050,6 +11210,12 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
                 return @"DEFAULT";
             case AWSIoTLogTargetTypeThingGroup:
                 return @"THING_GROUP";
+            case AWSIoTLogTargetTypeClientId:
+                return @"CLIENT_ID";
+            case AWSIoTLogTargetTypeSourceIp:
+                return @"SOURCE_IP";
+            case AWSIoTLogTargetTypePrincipalId:
+                return @"PRINCIPAL_ID";
             default:
                 return nil;
         }
@@ -11212,6 +11378,15 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
         if ([value caseInsensitiveCompare:@"THING_GROUP"] == NSOrderedSame) {
             return @(AWSIoTLogTargetTypeThingGroup);
         }
+        if ([value caseInsensitiveCompare:@"CLIENT_ID"] == NSOrderedSame) {
+            return @(AWSIoTLogTargetTypeClientId);
+        }
+        if ([value caseInsensitiveCompare:@"SOURCE_IP"] == NSOrderedSame) {
+            return @(AWSIoTLogTargetTypeSourceIp);
+        }
+        if ([value caseInsensitiveCompare:@"PRINCIPAL_ID"] == NSOrderedSame) {
+            return @(AWSIoTLogTargetTypePrincipalId);
+        }
         return @(AWSIoTLogTargetTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -11219,6 +11394,12 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
                 return @"DEFAULT";
             case AWSIoTLogTargetTypeThingGroup:
                 return @"THING_GROUP";
+            case AWSIoTLogTargetTypeClientId:
+                return @"CLIENT_ID";
+            case AWSIoTLogTargetTypeSourceIp:
+                return @"SOURCE_IP";
+            case AWSIoTLogTargetTypePrincipalId:
+                return @"PRINCIPAL_ID";
             default:
                 return nil;
         }
@@ -11369,6 +11550,24 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSIoTManagedJobTemplateSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"detail" : @"description",
+             @"environments" : @"environments",
+             @"templateArn" : @"templateArn",
+             @"templateName" : @"templateName",
+             @"templateVersion" : @"templateVersion",
+             };
 }
 
 @end
@@ -12574,6 +12773,47 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTRetryCriteria
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"failureType" : @"failureType",
+             @"numberOfRetries" : @"numberOfRetries",
+             };
+}
+
++ (NSValueTransformer *)failureTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSIoTRetryableFailureTypeFailed);
+        }
+        if ([value caseInsensitiveCompare:@"TIMED_OUT"] == NSOrderedSame) {
+            return @(AWSIoTRetryableFailureTypeTimedOut);
+        }
+        if ([value caseInsensitiveCompare:@"ALL"] == NSOrderedSame) {
+            return @(AWSIoTRetryableFailureTypeAll);
+        }
+        return @(AWSIoTRetryableFailureTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTRetryableFailureTypeFailed:
+                return @"FAILED";
+            case AWSIoTRetryableFailureTypeTimedOut:
+                return @"TIMED_OUT";
+            case AWSIoTRetryableFailureTypeAll:
+                return @"ALL";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSIoTRoleAliasDescription
 
 + (BOOL)supportsSecureCoding {
@@ -13757,6 +13997,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 	return @{
              @"attributes" : @"attributes",
              @"connectivity" : @"connectivity",
+             @"deviceDefender" : @"deviceDefender",
              @"shadow" : @"shadow",
              @"thingGroupNames" : @"thingGroupNames",
              @"thingId" : @"thingId",
@@ -13890,7 +14131,9 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"customFields" : @"customFields",
+             @"deviceDefenderIndexingMode" : @"deviceDefenderIndexingMode",
              @"managedFields" : @"managedFields",
+             @"namedShadowIndexingMode" : @"namedShadowIndexingMode",
              @"thingConnectivityIndexingMode" : @"thingConnectivityIndexingMode",
              @"thingIndexingMode" : @"thingIndexingMode",
              };
@@ -13900,8 +14143,50 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTField class]];
 }
 
++ (NSValueTransformer *)deviceDefenderIndexingModeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"OFF"] == NSOrderedSame) {
+            return @(AWSIoTDeviceDefenderIndexingModeOff);
+        }
+        if ([value caseInsensitiveCompare:@"VIOLATIONS"] == NSOrderedSame) {
+            return @(AWSIoTDeviceDefenderIndexingModeViolations);
+        }
+        return @(AWSIoTDeviceDefenderIndexingModeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTDeviceDefenderIndexingModeOff:
+                return @"OFF";
+            case AWSIoTDeviceDefenderIndexingModeViolations:
+                return @"VIOLATIONS";
+            default:
+                return nil;
+        }
+    }];
+}
+
 + (NSValueTransformer *)managedFieldsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTField class]];
+}
+
++ (NSValueTransformer *)namedShadowIndexingModeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"OFF"] == NSOrderedSame) {
+            return @(AWSIoTNamedShadowIndexingModeOff);
+        }
+        if ([value caseInsensitiveCompare:@"ON"] == NSOrderedSame) {
+            return @(AWSIoTNamedShadowIndexingModeOn);
+        }
+        return @(AWSIoTNamedShadowIndexingModeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTNamedShadowIndexingModeOff:
+                return @"OFF";
+            case AWSIoTNamedShadowIndexingModeOn:
+                return @"ON";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)thingConnectivityIndexingModeJSONTransformer {
@@ -14565,6 +14850,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 	return @{
              @"authorizerFunctionArn" : @"authorizerFunctionArn",
              @"authorizerName" : @"authorizerName",
+             @"enableCachingForHttp" : @"enableCachingForHttp",
              @"status" : @"status",
              @"tokenKeyName" : @"tokenKeyName",
              @"tokenSigningPublicKeys" : @"tokenSigningPublicKeys",
@@ -15308,6 +15594,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 	return @{
              @"abortConfig" : @"abortConfig",
              @"detail" : @"description",
+             @"jobExecutionsRetryConfig" : @"jobExecutionsRetryConfig",
              @"jobExecutionsRolloutConfig" : @"jobExecutionsRolloutConfig",
              @"jobId" : @"jobId",
              @"namespaceId" : @"namespaceId",
@@ -15318,6 +15605,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSValueTransformer *)abortConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTAbortConfig class]];
+}
+
++ (NSValueTransformer *)jobExecutionsRetryConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTJobExecutionsRetryConfig class]];
 }
 
 + (NSValueTransformer *)jobExecutionsRolloutConfigJSONTransformer {
