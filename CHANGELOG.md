@@ -4,6 +4,10 @@
 
 -Features for next release
 
+## 2.27.5
+
+-Features for next release
+
 ### Misc. Updates
 
 - **AWSMobileClient**

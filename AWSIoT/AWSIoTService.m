@@ -25,7 +25,7 @@
 #import "AWSIoTResources.h"
 
 static NSString *const AWSInfoIoT = @"IoT";
-NSString *const AWSIoTSDKVersion = @"2.27.4";
+NSString *const AWSIoTSDKVersion = @"2.27.5";
 
 static NSString *const AWSIoTEndpoint = @"Endpoint";
 
