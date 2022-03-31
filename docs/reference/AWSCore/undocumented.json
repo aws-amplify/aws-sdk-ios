@@ -6324,35 +6324,77 @@
     {
       "file": "/Users/distiller/project/AWSCore/Utility/AWSSynchronizedMutableDictionary.h",
       "line": 20,
+      "symbol": "AWSSynchronizedMutableDictionary.allKeys",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSCore/Utility/AWSSynchronizedMutableDictionary.h",
+      "line": 21,
+      "symbol": "AWSSynchronizedMutableDictionary.allValues",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSCore/Utility/AWSSynchronizedMutableDictionary.h",
+      "line": 22,
+      "symbol": "AWSSynchronizedMutableDictionary.instanceKey",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSCore/Utility/AWSSynchronizedMutableDictionary.h",
+      "line": 30,
       "symbol": "AWSSynchronizedMutableDictionary.-objectForKey:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Utility/AWSSynchronizedMutableDictionary.h",
-      "line": 21,
-      "symbol": "AWSSynchronizedMutableDictionary.-removeObjectForKey:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSCore/Utility/AWSSynchronizedMutableDictionary.h",
-      "line": 22,
-      "symbol": "AWSSynchronizedMutableDictionary.-removeObject:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSCore/Utility/AWSSynchronizedMutableDictionary.h",
-      "line": 23,
+      "line": 31,
       "symbol": "AWSSynchronizedMutableDictionary.-setObject:forKey:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Utility/AWSSynchronizedMutableDictionary.h",
-      "line": 24,
-      "symbol": "AWSSynchronizedMutableDictionary.-allKeys",
+      "line": 33,
+      "symbol": "AWSSynchronizedMutableDictionary.-removeObject:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSCore/Utility/AWSSynchronizedMutableDictionary.h",
+      "line": 34,
+      "symbol": "AWSSynchronizedMutableDictionary.-removeObjectForKey:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSCore/Utility/AWSSynchronizedMutableDictionary.h",
+      "line": 35,
+      "symbol": "AWSSynchronizedMutableDictionary.-removeAllObjects",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSCore/Utility/AWSSynchronizedMutableDictionary.h",
+      "line": 37,
+      "symbol": "AWSSynchronizedMutableDictionary.-mutateWithBlock:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSCore/Utility/AWSSynchronizedMutableDictionary.h",
+      "line": 38,
+      "symbol": "AWSSynchronizedMutableDictionary.+mutateSyncedDictionaries:withBlock:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSCore/Utility/AWSSynchronizedMutableDictionary.h",
+      "line": 41,
+      "symbol": "AWSSynchronizedMutableDictionary.-isEqualToAWSSynchronizedMutableDictionary:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
