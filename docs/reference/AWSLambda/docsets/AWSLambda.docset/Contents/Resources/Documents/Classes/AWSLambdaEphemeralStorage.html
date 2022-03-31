@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSLambdaInvokeAsyncResponse Class Reference</title>
+    <title>AWSLambdaEphemeralStorage Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSLambdaInvokeAsyncResponse" class="dashAnchor"></a>
-    <a title="AWSLambdaInvokeAsyncResponse Class Reference"></a>
+    <a name="//apple_ref/objc/Class/AWSLambdaEphemeralStorage" class="dashAnchor"></a>
+    <a title="AWSLambdaEphemeralStorage Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSLambda 2.27.5 Docs</a> (78% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSLambda Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        AWSLambdaInvokeAsyncResponse Class Reference
+        AWSLambdaEphemeralStorage Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -540,20 +540,22 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSLambdaInvokeAsyncResponse</h1>
+            <h1>AWSLambdaEphemeralStorage</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLambdaInvokeAsyncResponse</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLambdaEphemeralStorage</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLambdaInvokeAsyncResponse</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLambdaEphemeralStorage</span></code></pre>
 
                 </div>
               </div>
-            <p>A success response (<code>202 Accepted</code>) indicates that the request is queued for invocation. </p>
+            <p>The size of the function’s /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10240 MB.</p>
+
+<p>Required parameters: [Size]</p>
 
           </section>
           <section class="section task-group-section">
@@ -562,9 +564,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSLambdaInvokeAsyncResponse(py)status"></a>
-                    <a name="//apple_ref/objc/Property/status" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambdaInvokeAsyncResponse(py)status">status</a>
+                    <a name="/c:objc(cs)AWSLambdaEphemeralStorage(py)size"></a>
+                    <a name="//apple_ref/objc/Property/size" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaEphemeralStorage(py)size">size</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -572,19 +574,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The status code.</p>
+                        <p>The size of the function’s /tmp directory.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">status</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">size</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">status</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
