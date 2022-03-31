@@ -38,21 +38,12 @@ extension AWSMobileClient: UserPoolAuthHelperCallbacks {
             let error = AWSMobileClientError.notSignedIn(message: message)
             passwordAuthenticationCompletionSource.set(error: error)
         }
-        switch self.currentUserState {
-        case .signedIn, .signedOutUserPoolsTokenInvalid:
-            self.userpoolOpsHelper.passwordAuthTaskCompletionSource = passwordAuthenticationCompletionSource
-            self.invalidateCachedTemporaryCredentials()
-            self.mobileClientStatusChanged(userState: .signedOutUserPoolsTokenInvalid, additionalInfo: ["username":self.userPoolClient?.currentUser()?.username ?? ""])
-        default:
-            break
-        }
     }
 
     func didCompletePasswordStepWithError(_ error: Error?) {
         if let error = error {
             invokeSignInCallback(signResult: nil, error: AWSMobileClientError.makeMobileClientError(from: error))
         }
-        self.userpoolOpsHelper.passwordAuthTaskCompletionSource = nil
     }
 
     func getNewPasswordDetails(_ newPasswordRequiredInput: AWSCognitoIdentityNewPasswordRequiredInput,

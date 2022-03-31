@@ -34,7 +34,7 @@ extension AWSMobileClient {
         developerNavigationController = nil
         configureAndRegisterCognitoAuth(hostedUIOptions: hostedUIOptions, completionHandler)
 
-        let cognitoAuth = AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey)
+        let cognitoAuth = AWSCognitoAuth.init(forKey: AWSMobileClientConstants.CognitoAuthRegistrationKey)
         cognitoAuth.delegate = self
 
         // Clear the keychain if there is an existing user details
@@ -78,7 +78,7 @@ extension AWSMobileClient {
             developerNavigationController = navigationController
             configureAndRegisterCognitoAuth(hostedUIOptions: hostedUIOptions, completionHandler)
 
-            let cognitoAuth = AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey)
+            let cognitoAuth = AWSCognitoAuth.init(forKey: AWSMobileClientConstants.CognitoAuthRegistrationKey)
             cognitoAuth.delegate = self
 
             // Clear the keychain if there is an existing user details
@@ -174,8 +174,6 @@ extension AWSMobileClient {
         self.performHostedUISuccessfulSignInTasks(disableFederation: hostedUIOptions.disableFederation, session: session, federationToken: federationToken!, federationProviderIdentifier: federationProviderIdentifier, signInInfo: &signInInfo)
         self.mobileClientStatusChanged(userState: .signedIn, additionalInfo: signInInfo)
         completionHandler(.signedIn, nil)
-        self.pendingGetTokensCompletion?(session.mobileClientTokens, nil)
-        self.pendingGetTokensCompletion = nil
     }
 
     private func performHostedUISuccessfulSignInTasks(disableFederation: Bool = false,
@@ -268,9 +266,9 @@ extension AWSMobileClient {
                                          signInPrivateSession: hostedUIOptions.signInPrivateSession)
 
         if (isCognitoAuthRegistered) {
-            AWSCognitoAuth.remove(forKey: CognitoAuthRegistrationKey)
+            AWSCognitoAuth.remove(forKey: AWSMobileClientConstants.CognitoAuthRegistrationKey)
         }
-        AWSCognitoAuth.registerCognitoAuth(with: cognitoAuthConfig, forKey: CognitoAuthRegistrationKey)
+        AWSCognitoAuth.registerCognitoAuth(with: cognitoAuthConfig, forKey: AWSMobileClientConstants.CognitoAuthRegistrationKey)
         isCognitoAuthRegistered = true
     }
 }

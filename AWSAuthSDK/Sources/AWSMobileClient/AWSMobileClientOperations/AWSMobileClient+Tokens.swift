@@ -44,7 +44,7 @@ extension AWSMobileClient {
         case .hostedUI:
             AWSMobileClientLogging.verbose("Invoking hostedUI getTokens")
             let operation = FetchUserPoolTokensOperation(
-                userPool: AWSCognitoAuth(forKey: self.CognitoAuthRegistrationKey),
+                userPool: AWSCognitoAuth(forKey: AWSMobileClientConstants.CognitoAuthRegistrationKey),
                 completion: completionHandler)
             operation.delegate = self
             operation.completionBlock = { [weak self] in

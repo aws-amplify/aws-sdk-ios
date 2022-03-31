@@ -68,16 +68,12 @@ final public class AWSMobileClient: _AWSMobileClient {
     // Used as lock when AWSCredentials are requested
     internal var pendingAWSCredentialsCompletion: ((AWSCredentials?, Error?) -> Void)? = nil
     
-    // Used as lock when waiting for tokens, currently used by hostedUI auth
-    internal var pendingGetTokensCompletion: ((Tokens?, Error?) -> Void)? = nil
-    
     internal weak var developerNavigationController: UINavigationController? = nil
     
     var keychain: AWSUICKeyChainStore = AWSUICKeyChainStore.init(
         service: "\(String(describing: Bundle.main.bundleIdentifier)).AWSMobileClient")
     
     internal var isCognitoAuthRegistered = false
-    internal let CognitoAuthRegistrationKey = "AWSMobileClient"
     
     /// The registered listeners who want to observe change in `UserState`.
     var listeners: [(AnyObject, UserStateChangeCallback)] = []
@@ -257,11 +253,11 @@ final public class AWSMobileClient: _AWSMobileClient {
                                                                          signInPrivateSession: false)
                 
                 if (isCognitoAuthRegistered) {
-                    AWSCognitoAuth.remove(forKey: CognitoAuthRegistrationKey)
+                    AWSCognitoAuth.remove(forKey: AWSMobileClientConstants.CognitoAuthRegistrationKey)
                 }
-                AWSCognitoAuth.registerCognitoAuth(with: cognitoAuthConfig, forKey: CognitoAuthRegistrationKey)
+                AWSCognitoAuth.registerCognitoAuth(with: cognitoAuthConfig, forKey: AWSMobileClientConstants.CognitoAuthRegistrationKey)
                 isCognitoAuthRegistered = true
-                let cognitoAuth = AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey)
+                let cognitoAuth = AWSCognitoAuth.init(forKey: AWSMobileClientConstants.CognitoAuthRegistrationKey)
                 cognitoAuth.delegate = self
             }
             

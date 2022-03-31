@@ -48,12 +48,7 @@ extension AWSMobileClient {
         if (validationData != nil) {
             validationAttributes = validationData!.map {AWSCognitoIdentityUserAttributeType.init(name: $0, value: $1) }
         }
-        if (self.userpoolOpsHelper.passwordAuthTaskCompletionSource != nil) {
-            let authDetails = AWSCognitoIdentityPasswordAuthenticationDetails(username: username, password: password)
-            authDetails?.validationData = validationAttributes
-            self.userpoolOpsHelper.passwordAuthTaskCompletionSource!.set(result: authDetails)
-            self.userpoolOpsHelper.passwordAuthTaskCompletionSource = nil
-        } else if (self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource != nil) {
+        if (self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource != nil) {
             let details = AWSCognitoIdentityCustomChallengeDetails(challengeResponses: ["USERNAME": username])
             details.initialChallengeName = "SRP_A"
             self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource?.set(result: details)

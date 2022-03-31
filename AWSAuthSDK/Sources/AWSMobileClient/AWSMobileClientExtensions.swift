@@ -72,7 +72,7 @@ extension AWSMobileClient {
 
     public func handleAuthResponse(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) {
         if (isCognitoAuthRegistered) {
-            AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey).application(application, open: url, options: [:])
+            AWSCognitoAuth.init(forKey: AWSMobileClientConstants.CognitoAuthRegistrationKey).application(application, open: url, options: [:])
         }
     }
 

@@ -49,7 +49,7 @@ extension AWSMobileClient {
     public func signOut() {
         self.credentialsFetchCancellationSource.cancel()
         if federationProvider == .hostedUI {
-            AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey).signOutLocallyAndClearLastKnownUser()
+            AWSCognitoAuth.init(forKey: AWSMobileClientConstants.CognitoAuthRegistrationKey).signOutLocallyAndClearLastKnownUser()
         }
         self.cachedLoginsMap = [:]
         self.customRoleArnInternal = nil
@@ -74,13 +74,8 @@ extension AWSMobileClient {
             item.acceptEvent(.releaseWait)
         }
         if self.federationProvider == .userPools {
-            self.userpoolOpsHelper.passwordAuthTaskCompletionSource?.set(error: AWSMobileClientError.unableToSignIn(message: AWSMobileClientConstants.noValidSignInSession))
-            self.userpoolOpsHelper.passwordAuthTaskCompletionSource = nil
             self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource?.set(error: AWSMobileClientError.unableToSignIn(message: AWSMobileClientConstants.noValidSignInSession))
             self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource = nil
-        } else if self.federationProvider == .hostedUI {
-            self.pendingGetTokensCompletion?(nil, AWSMobileClientError.unableToSignIn(message: "Could not get valid token from the user."))
-            self.pendingGetTokensCompletion = nil
         } else if self.federationProvider == .oidcFederation {
             self.pendingAWSCredentialsCompletion?(nil, AWSMobileClientError.unableToSignIn(message: "Could not get valid federation token from the user."))
             self.pendingAWSCredentialsCompletion = nil
@@ -170,7 +165,7 @@ extension AWSMobileClient {
     private func hostedUISignOut(presentationAnchor: ASPresentationAnchor,
                                  completionHandler: @escaping ((Error?) -> Void)) {
         if #available(iOS 13, *) {
-            AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey).signOut(withWebUI: presentationAnchor) { (error) in
+            AWSCognitoAuth.init(forKey: AWSMobileClientConstants.CognitoAuthRegistrationKey).signOut(withWebUI: presentationAnchor) { (error) in
                 self.handleHostedUISignOutResult(error, completionHandler: completionHandler)
             }
         } else {
@@ -180,17 +175,12 @@ extension AWSMobileClient {
     }
 
     private func hostedUILegacySignOut(completionHandler: @escaping ((Error?) -> Void)) {
-        AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey).signOut { (error) in
+        AWSCognitoAuth.init(forKey: AWSMobileClientConstants.CognitoAuthRegistrationKey).signOut { (error) in
             self.handleHostedUISignOutResult(error, completionHandler: completionHandler)
         }
     }
 
     internal func performUserPoolSignOut() {
-        if let task = self.userpoolOpsHelper.passwordAuthTaskCompletionSource?.task, !task.isCompleted {
-            let error = AWSMobileClientError.unableToSignIn(message: "Could not get end user to sign in.")
-            self.userpoolOpsHelper.passwordAuthTaskCompletionSource?.set(error: error)
-        }
-        self.userpoolOpsHelper.passwordAuthTaskCompletionSource = nil
 
         if let task = self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource?.task, !task.isCompleted {
             let error = AWSMobileClientError.unableToSignIn(message: "Could not get end user to sign in.")
