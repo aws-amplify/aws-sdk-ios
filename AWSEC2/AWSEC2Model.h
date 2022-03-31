@@ -2602,6 +2602,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2ActiveInstance;
 @class AWSEC2AddIpamOperatingRegion;
 @class AWSEC2AddPrefixListEntry;
+@class AWSEC2AdditionalDetail;
 @class AWSEC2Address;
 @class AWSEC2AddressAttribute;
 @class AWSEC2AdvertiseByoipCidrRequest;
@@ -4128,6 +4129,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2TransitGatewayRouteTable;
 @class AWSEC2TransitGatewayRouteTableAssociation;
 @class AWSEC2TransitGatewayRouteTablePropagation;
+@class AWSEC2TransitGatewayRouteTableRoute;
 @class AWSEC2TransitGatewayVpcAttachment;
 @class AWSEC2TransitGatewayVpcAttachmentOptions;
 @class AWSEC2TrunkInterfaceAssociation;
@@ -4628,6 +4630,24 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>A description for the entry.</p><p>Constraints: Up to 255 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable detail;
+
+@end
+
+/**
+ <p>Describes an additional detail for a path analysis.</p>
+ */
+@interface AWSEC2AdditionalDetail : AWSModel
+
+
+/**
+ <p>The information type.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable additionalDetailType;
+
+/**
+ <p>The path component.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable component;
 
 @end
 
@@ -5199,7 +5219,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable networkInterfaceId;
 
 /**
- <p>Describes how the route was created. The following are possible values:</p><ul><li><p><code>CreateRouteTable</code> - The route was automatically created when the route table was created.</p></li><li><p><code>CreateRoute</code> - The route was manually added to the route table.</p></li><li><p><code>EnableVgwRoutePropagation</code> - The route was propagated by route propagation.</p></li></ul>
+ <p>Describes how the route was created. The following are the possible values:</p><ul><li><p>CreateRouteTable - The route was automatically created when the route table was created.</p></li><li><p>CreateRoute - The route was manually added to the route table.</p></li><li><p>EnableVgwRoutePropagation - The route was propagated by route propagation.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable origin;
 
@@ -5227,7 +5247,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable cidr;
 
 /**
- <p>The direction. The following are possible values:</p><ul><li><p>egress</p></li><li><p>ingress</p></li></ul>
+ <p>The direction. The following are the possible values:</p><ul><li><p>egress</p></li><li><p>ingress</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable direction;
 
@@ -18466,7 +18486,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The filters. The following are possible values:</p><ul><li><p>PathFound - A Boolean value that indicates whether a feasible path is found.</p></li><li><p>Status - The status of the analysis (running | succeeded | failed).</p></li></ul>
+ <p>The filters. The following are the possible values:</p><ul><li><p>PathFound - A Boolean value that indicates whether a feasible path is found.</p></li><li><p>Status - The status of the analysis (running | succeeded | failed).</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -18522,7 +18542,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The filters. The following are possible values:</p><ul><li><p>Destination - The ID of the resource.</p></li><li><p>DestinationPort - The destination port.</p></li><li><p>Name - The path name.</p></li><li><p>Protocol - The protocol.</p></li><li><p>Source - The ID of the resource.</p></li></ul>
+ <p>The filters. The following are the possible values:</p><ul><li><p>Destination - The ID of the resource.</p></li><li><p>DestinationPort - The destination port.</p></li><li><p>Name - The path name.</p></li><li><p>Protocol - The protocol.</p></li><li><p>Source - The ID of the resource.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -23824,7 +23844,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable destinationVpc;
 
 /**
- <p>The direction. The following are possible values:</p><ul><li><p>egress</p></li><li><p>ingress</p></li></ul>
+ <p>The direction. The following are the possible values:</p><ul><li><p>egress</p></li><li><p>ingress</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable direction;
 
@@ -23962,6 +23982,26 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The route table for the subnet.</p>
  */
 @property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable subnetRouteTable;
+
+/**
+ <p>The transit gateway.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable transitGateway;
+
+/**
+ <p>The transit gateway attachment.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable transitGatewayAttachment;
+
+/**
+ <p>The transit gateway route table.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable transitGatewayRouteTable;
+
+/**
+ <p>The transit gateway route table route.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayRouteTableRoute * _Nullable transitGatewayRouteTableRoute;
 
 /**
  <p>The component VPC.</p>
@@ -37160,6 +37200,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2AnalysisAclRule * _Nullable aclRule;
 
 /**
+ <p>The additional details.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2AdditionalDetail *> * _Nullable additionalDetails;
+
+/**
  <p>The resource to which the path component is attached.</p>
  */
 @property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable attachedTo;
@@ -37208,6 +37253,16 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The subnet.</p>
  */
 @property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable subnet;
+
+/**
+ <p>Describes a path component.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable transitGateway;
+
+/**
+ <p>The route in a transit gateway route table.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayRouteTableRoute * _Nullable transitGatewayRouteTableRoute;
 
 /**
  <p>The component VPC.</p>
@@ -46274,6 +46329,49 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the attachment.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable transitGatewayAttachmentId;
+
+@end
+
+/**
+ <p>Describes a route in a transit gateway route table.</p>
+ */
+@interface AWSEC2TransitGatewayRouteTableRoute : AWSModel
+
+
+/**
+ <p>The ID of the route attachment.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable attachmentId;
+
+/**
+ <p>The CIDR block used for destination matches.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationCidr;
+
+/**
+ <p>The ID of the prefix list.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable prefixListId;
+
+/**
+ <p>The ID of the resource for the route attachment.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceId;
+
+/**
+ <p>The resource type for the route attachment.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceType;
+
+/**
+ <p>The route origin. The following are the possible values:</p><ul><li><p>static</p></li><li><p>propagated</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable routeOrigin;
+
+/**
+ <p>The state of the route.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable state;
 
 @end
 

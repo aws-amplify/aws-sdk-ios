@@ -6270,6 +6270,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"formats" : @"Formats",
+             @"outputStartIndex" : @"OutputStartIndex",
              };
 }
 
@@ -6284,6 +6285,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"formats" : @"Formats",
+             @"outputStartIndex" : @"OutputStartIndex",
              @"subtitleFileUris" : @"SubtitleFileUris",
              };
 }

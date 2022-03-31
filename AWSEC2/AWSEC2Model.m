@@ -457,6 +457,25 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 @end
 
+@implementation AWSEC2AdditionalDetail
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"additionalDetailType" : @"AdditionalDetailType",
+             @"component" : @"Component",
+             };
+}
+
++ (NSValueTransformer *)componentJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AnalysisComponent class]];
+}
+
+@end
+
 @implementation AWSEC2Address
 
 + (BOOL)supportsSecureCoding {
@@ -27136,6 +27155,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"state" : @"State",
              @"subnet" : @"Subnet",
              @"subnetRouteTable" : @"SubnetRouteTable",
+             @"transitGateway" : @"TransitGateway",
+             @"transitGatewayAttachment" : @"TransitGatewayAttachment",
+             @"transitGatewayRouteTable" : @"TransitGatewayRouteTable",
+             @"transitGatewayRouteTableRoute" : @"TransitGatewayRouteTableRoute",
              @"vpc" : @"Vpc",
              @"vpcEndpoint" : @"VpcEndpoint",
              @"vpcPeeringConnection" : @"VpcPeeringConnection",
@@ -27246,6 +27269,22 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)subnetRouteTableJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AnalysisComponent class]];
+}
+
++ (NSValueTransformer *)transitGatewayJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AnalysisComponent class]];
+}
+
++ (NSValueTransformer *)transitGatewayAttachmentJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AnalysisComponent class]];
+}
+
++ (NSValueTransformer *)transitGatewayRouteTableJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AnalysisComponent class]];
+}
+
++ (NSValueTransformer *)transitGatewayRouteTableRouteJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2TransitGatewayRouteTableRoute class]];
 }
 
 + (NSValueTransformer *)vpcJSONTransformer {
@@ -64733,6 +64772,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"aclRule" : @"AclRule",
+             @"additionalDetails" : @"AdditionalDetails",
              @"attachedTo" : @"AttachedTo",
              @"component" : @"Component",
              @"destinationVpc" : @"DestinationVpc",
@@ -64743,12 +64783,18 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"sequenceNumber" : @"SequenceNumber",
              @"sourceVpc" : @"SourceVpc",
              @"subnet" : @"Subnet",
+             @"transitGateway" : @"TransitGateway",
+             @"transitGatewayRouteTableRoute" : @"TransitGatewayRouteTableRoute",
              @"vpc" : @"Vpc",
              };
 }
 
 + (NSValueTransformer *)aclRuleJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AnalysisAclRule class]];
+}
+
++ (NSValueTransformer *)additionalDetailsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2AdditionalDetail class]];
 }
 
 + (NSValueTransformer *)attachedToJSONTransformer {
@@ -64785,6 +64831,14 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)subnetJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AnalysisComponent class]];
+}
+
++ (NSValueTransformer *)transitGatewayJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AnalysisComponent class]];
+}
+
++ (NSValueTransformer *)transitGatewayRouteTableRouteJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2TransitGatewayRouteTableRoute class]];
 }
 
 + (NSValueTransformer *)vpcJSONTransformer {
@@ -100836,6 +100890,26 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSEC2TransitGatewayRouteTableRoute
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"attachmentId" : @"AttachmentId",
+             @"destinationCidr" : @"DestinationCidr",
+             @"prefixListId" : @"PrefixListId",
+             @"resourceId" : @"ResourceId",
+             @"resourceType" : @"ResourceType",
+             @"routeOrigin" : @"RouteOrigin",
+             @"state" : @"State",
+             };
 }
 
 @end

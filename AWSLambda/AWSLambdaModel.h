@@ -254,6 +254,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaEnvironment;
 @class AWSLambdaEnvironmentError;
 @class AWSLambdaEnvironmentResponse;
+@class AWSLambdaEphemeralStorage;
 @class AWSLambdaEventSourceMappingConfiguration;
 @class AWSLambdaFileSystemConfig;
 @class AWSLambdaFilter;
@@ -871,6 +872,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) AWSLambdaEnvironment * _Nullable environment;
 
 /**
+ <p>The size of the function’s /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10240 MB.</p>
+ */
+@property (nonatomic, strong) AWSLambdaEphemeralStorage * _Nullable ephemeralStorage;
+
+/**
  <p>Connection settings for an Amazon EFS file system.</p>
  */
 @property (nonatomic, strong) NSArray<AWSLambdaFileSystemConfig *> * _Nullable fileSystemConfigs;
@@ -1178,6 +1184,20 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
+ <p>The size of the function’s /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10240 MB.</p>
+ Required parameters: [Size]
+ */
+@interface AWSLambdaEphemeralStorage : AWSModel
+
+
+/**
+ <p>The size of the function’s /tmp directory.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable size;
+
+@end
+
+/**
  <p>A mapping between an Amazon Web Services resource and a Lambda function. For details, see <a>CreateEventSourceMapping</a>.</p>
  */
 @interface AWSLambdaEventSourceMappingConfiguration : AWSModel
@@ -1441,6 +1461,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">environment variables</a>.</p>
  */
 @property (nonatomic, strong) AWSLambdaEnvironmentResponse * _Nullable environment;
+
+/**
+ <p>The size of the function’s /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10240 MB.</p>
+ */
+@property (nonatomic, strong) AWSLambdaEphemeralStorage * _Nullable ephemeralStorage;
 
 /**
  <p>Connection settings for an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a>.</p>
@@ -3538,6 +3563,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>Environment variables that are accessible from function code during execution.</p>
  */
 @property (nonatomic, strong) AWSLambdaEnvironment * _Nullable environment;
+
+/**
+ <p>The size of the function’s /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10240 MB.</p>
+ */
+@property (nonatomic, strong) AWSLambdaEphemeralStorage * _Nullable ephemeralStorage;
 
 /**
  <p>Connection settings for an Amazon EFS file system.</p>

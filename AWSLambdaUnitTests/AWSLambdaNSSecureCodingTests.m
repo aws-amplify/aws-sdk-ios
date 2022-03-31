@@ -51,6 +51,7 @@
 - (void) test_AWSLambdaEnvironment API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaEnvironmentError API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaEnvironmentResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaEphemeralStorage API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaEventSourceMappingConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaFileSystemConfig API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaFilter API_AVAILABLE(ios(11));
@@ -276,6 +277,10 @@
 
 - (void) test_AWSLambdaEnvironmentResponse {
     [self validateSecureCodingForClass:[AWSLambdaEnvironmentResponse class]];
+}
+
+- (void) test_AWSLambdaEphemeralStorage {
+    [self validateSecureCodingForClass:[AWSLambdaEphemeralStorage class]];
 }
 
 - (void) test_AWSLambdaEventSourceMappingConfiguration {
