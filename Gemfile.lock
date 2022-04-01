@@ -113,9 +113,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  cocoapods
-  jazzy
-  xcpretty
+  cocoapods (= 1.11.3)
+  cocoapods-downloader (= 1.6.3)
+  jazzy (= 0.14.2)
+  xcpretty (= 0.3.0)
 
 BUNDLED WITH
    2.3.7
