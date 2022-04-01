@@ -261,9 +261,9 @@ jobs:
     macos:
       xcode: "13.2.1"
     steps:
-      - restore_gem
       - skip_job_unless_required
       - checkout_with_cache
+      - restore_gem
       - run:
           name: Git GC
           command: git gc
@@ -309,9 +309,9 @@ jobs:
         type: string
     description: Run non-integration tests for << parameters.scheme >>
     steps:
-      - restore_gem
       - skip_job_unless_required
       - checkout_with_cache
+      - restore_gem
       - set_environment_variables
       - pre_start_simulator
       - make_artifacts_directory
@@ -363,9 +363,9 @@ jobs:
         type: string
     description: Run integration tests for << parameters.scheme >>
     steps:
-      - restore_gem
       - skip_job_unless_required
       - checkout_with_cache
+      - restore_gem
       - skip_test_job_by_commit_message
       - set_environment_variables
       - pre_start_simulator
@@ -464,9 +464,9 @@ jobs:
     macos:
       xcode: "13.2.1"
     steps:
-      - restore_gem
       - skip_job_unless_required
       - checkout_with_cache
+      - restore_gem
       - run:
           name: Release CocoaPods
           command: python3 ./CircleciScripts/cocoapods_release.py
@@ -476,9 +476,9 @@ jobs:
     macos:
       xcode: "13.2.1"
     steps:
-      - restore_gem
       - skip_job_unless_required
       - checkout_with_cache
+      - restore_gem
       - run:
           name: Generate documents
           command: bash ./CircleciScripts/generate_documentation.sh
