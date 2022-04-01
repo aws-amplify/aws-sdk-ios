@@ -598,6 +598,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"EARLY_MEDIA"] == NSOrderedSame) {
             return @(AWSConnectInstanceAttributeTypeEarlyMedia);
         }
+        if ([value caseInsensitiveCompare:@"MULTI_PARTY_CONFERENCE"] == NSOrderedSame) {
+            return @(AWSConnectInstanceAttributeTypeMultiPartyConference);
+        }
         return @(AWSConnectInstanceAttributeTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -615,6 +618,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"USE_CUSTOM_TTS_VOICES";
             case AWSConnectInstanceAttributeTypeEarlyMedia:
                 return @"EARLY_MEDIA";
+            case AWSConnectInstanceAttributeTypeMultiPartyConference:
+                return @"MULTI_PARTY_CONFERENCE";
             default:
                 return nil;
         }
@@ -2661,6 +2666,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"EARLY_MEDIA"] == NSOrderedSame) {
             return @(AWSConnectInstanceAttributeTypeEarlyMedia);
         }
+        if ([value caseInsensitiveCompare:@"MULTI_PARTY_CONFERENCE"] == NSOrderedSame) {
+            return @(AWSConnectInstanceAttributeTypeMultiPartyConference);
+        }
         return @(AWSConnectInstanceAttributeTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2678,6 +2686,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"USE_CUSTOM_TTS_VOICES";
             case AWSConnectInstanceAttributeTypeEarlyMedia:
                 return @"EARLY_MEDIA";
+            case AWSConnectInstanceAttributeTypeMultiPartyConference:
+                return @"MULTI_PARTY_CONFERENCE";
             default:
                 return nil;
         }
@@ -8551,6 +8561,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"EARLY_MEDIA"] == NSOrderedSame) {
             return @(AWSConnectInstanceAttributeTypeEarlyMedia);
         }
+        if ([value caseInsensitiveCompare:@"MULTI_PARTY_CONFERENCE"] == NSOrderedSame) {
+            return @(AWSConnectInstanceAttributeTypeMultiPartyConference);
+        }
         return @(AWSConnectInstanceAttributeTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -8568,6 +8581,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"USE_CUSTOM_TTS_VOICES";
             case AWSConnectInstanceAttributeTypeEarlyMedia:
                 return @"EARLY_MEDIA";
+            case AWSConnectInstanceAttributeTypeMultiPartyConference:
+                return @"MULTI_PARTY_CONFERENCE";
             default:
                 return nil;
         }
