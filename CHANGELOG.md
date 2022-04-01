@@ -2,11 +2,12 @@
 
 ## Unreleased
 
--Features for next release
+### Misc. Updates
+
+- **AWSMobileClient**
+  - chore: Remove unused completion handler and cleanup (See [PR #4067](https://github.com/aws-amplify/aws-sdk-ios/pull/4067))
 
 ## 2.27.5
-
--Features for next release
 
 ### Misc. Updates
 
