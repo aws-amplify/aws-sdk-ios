@@ -464,9 +464,9 @@ jobs:
     macos:
       xcode: "13.2.1"
     steps:
-      - restore_gem
       - skip_job_unless_required
       - checkout_with_cache
+      - restore_gem
       - run:
           name: Release CocoaPods
           command: python3 ./CircleciScripts/cocoapods_release.py
