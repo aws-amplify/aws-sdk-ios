@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -252,6 +252,8 @@
 - (void) test_AWSIoTDescribeJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDescribeJobTemplateRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDescribeJobTemplateResponse API_AVAILABLE(ios(11));
+- (void) test_AWSIoTDescribeManagedJobTemplateRequest API_AVAILABLE(ios(11));
+- (void) test_AWSIoTDescribeManagedJobTemplateResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDescribeMitigationActionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDescribeMitigationActionResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDescribeProvisioningTemplateRequest API_AVAILABLE(ios(11));
@@ -286,6 +288,7 @@
 - (void) test_AWSIoTDetectMitigationActionsTaskSummary API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDetectMitigationActionsTaskTarget API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDisableTopicRuleRequest API_AVAILABLE(ios(11));
+- (void) test_AWSIoTDocumentParameter API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDomainConfigurationSummary API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDynamoDBAction API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDynamoDBv2Action API_AVAILABLE(ios(11));
@@ -350,6 +353,7 @@
 - (void) test_AWSIoTJobExecutionSummary API_AVAILABLE(ios(11));
 - (void) test_AWSIoTJobExecutionSummaryForJob API_AVAILABLE(ios(11));
 - (void) test_AWSIoTJobExecutionSummaryForThing API_AVAILABLE(ios(11));
+- (void) test_AWSIoTJobExecutionsRetryConfig API_AVAILABLE(ios(11));
 - (void) test_AWSIoTJobExecutionsRolloutConfig API_AVAILABLE(ios(11));
 - (void) test_AWSIoTJobProcessDetails API_AVAILABLE(ios(11));
 - (void) test_AWSIoTJobSummary API_AVAILABLE(ios(11));
@@ -404,6 +408,10 @@
 - (void) test_AWSIoTListJobTemplatesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListJobsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListJobsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSIoTListManagedJobTemplatesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSIoTListManagedJobTemplatesResponse API_AVAILABLE(ios(11));
+- (void) test_AWSIoTListMetricValuesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSIoTListMetricValuesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListMitigationActionsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListMitigationActionsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListOTAUpdatesRequest API_AVAILABLE(ios(11));
@@ -470,6 +478,8 @@
 - (void) test_AWSIoTLogTargetConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSIoTLoggingOptionsPayload API_AVAILABLE(ios(11));
 - (void) test_AWSIoTMachineLearningDetectionConfig API_AVAILABLE(ios(11));
+- (void) test_AWSIoTManagedJobTemplateSummary API_AVAILABLE(ios(11));
+- (void) test_AWSIoTMetricDatum API_AVAILABLE(ios(11));
 - (void) test_AWSIoTMetricDimension API_AVAILABLE(ios(11));
 - (void) test_AWSIoTMetricToRetain API_AVAILABLE(ios(11));
 - (void) test_AWSIoTMetricValue API_AVAILABLE(ios(11));
@@ -516,6 +526,7 @@
 - (void) test_AWSIoTReplaceTopicRuleRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTRepublishAction API_AVAILABLE(ios(11));
 - (void) test_AWSIoTResourceIdentifier API_AVAILABLE(ios(11));
+- (void) test_AWSIoTRetryCriteria API_AVAILABLE(ios(11));
 - (void) test_AWSIoTRoleAliasDescription API_AVAILABLE(ios(11));
 - (void) test_AWSIoTS3Action API_AVAILABLE(ios(11));
 - (void) test_AWSIoTS3Destination API_AVAILABLE(ios(11));
@@ -1585,6 +1596,14 @@
     [self validateSecureCodingForClass:[AWSIoTDescribeJobTemplateResponse class]];
 }
 
+- (void) test_AWSIoTDescribeManagedJobTemplateRequest {
+    [self validateSecureCodingForClass:[AWSIoTDescribeManagedJobTemplateRequest class]];
+}
+
+- (void) test_AWSIoTDescribeManagedJobTemplateResponse {
+    [self validateSecureCodingForClass:[AWSIoTDescribeManagedJobTemplateResponse class]];
+}
+
 - (void) test_AWSIoTDescribeMitigationActionRequest {
     [self validateSecureCodingForClass:[AWSIoTDescribeMitigationActionRequest class]];
 }
@@ -1719,6 +1738,10 @@
 
 - (void) test_AWSIoTDisableTopicRuleRequest {
     [self validateSecureCodingForClass:[AWSIoTDisableTopicRuleRequest class]];
+}
+
+- (void) test_AWSIoTDocumentParameter {
+    [self validateSecureCodingForClass:[AWSIoTDocumentParameter class]];
 }
 
 - (void) test_AWSIoTDomainConfigurationSummary {
@@ -1977,6 +2000,10 @@
     [self validateSecureCodingForClass:[AWSIoTJobExecutionSummaryForThing class]];
 }
 
+- (void) test_AWSIoTJobExecutionsRetryConfig {
+    [self validateSecureCodingForClass:[AWSIoTJobExecutionsRetryConfig class]];
+}
+
 - (void) test_AWSIoTJobExecutionsRolloutConfig {
     [self validateSecureCodingForClass:[AWSIoTJobExecutionsRolloutConfig class]];
 }
@@ -2191,6 +2218,22 @@
 
 - (void) test_AWSIoTListJobsResponse {
     [self validateSecureCodingForClass:[AWSIoTListJobsResponse class]];
+}
+
+- (void) test_AWSIoTListManagedJobTemplatesRequest {
+    [self validateSecureCodingForClass:[AWSIoTListManagedJobTemplatesRequest class]];
+}
+
+- (void) test_AWSIoTListManagedJobTemplatesResponse {
+    [self validateSecureCodingForClass:[AWSIoTListManagedJobTemplatesResponse class]];
+}
+
+- (void) test_AWSIoTListMetricValuesRequest {
+    [self validateSecureCodingForClass:[AWSIoTListMetricValuesRequest class]];
+}
+
+- (void) test_AWSIoTListMetricValuesResponse {
+    [self validateSecureCodingForClass:[AWSIoTListMetricValuesResponse class]];
 }
 
 - (void) test_AWSIoTListMitigationActionsRequest {
@@ -2457,6 +2500,14 @@
     [self validateSecureCodingForClass:[AWSIoTMachineLearningDetectionConfig class]];
 }
 
+- (void) test_AWSIoTManagedJobTemplateSummary {
+    [self validateSecureCodingForClass:[AWSIoTManagedJobTemplateSummary class]];
+}
+
+- (void) test_AWSIoTMetricDatum {
+    [self validateSecureCodingForClass:[AWSIoTMetricDatum class]];
+}
+
 - (void) test_AWSIoTMetricDimension {
     [self validateSecureCodingForClass:[AWSIoTMetricDimension class]];
 }
@@ -2639,6 +2690,10 @@
 
 - (void) test_AWSIoTResourceIdentifier {
     [self validateSecureCodingForClass:[AWSIoTResourceIdentifier class]];
+}
+
+- (void) test_AWSIoTRetryCriteria {
+    [self validateSecureCodingForClass:[AWSIoTRetryCriteria class]];
 }
 
 - (void) test_AWSIoTRoleAliasDescription {
