@@ -325,6 +325,31 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)createFunction:(AWSLambdaCreateFunctionRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaFunctionConfiguration * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Creates a Lambda function URL with the specified configuration parameters. A function URL is a dedicated HTTP(S) endpoint that you can use to invoke your function.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateFunctionUrlConfig service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLambdaCreateFunctionUrlConfigResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorResourceConflict`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorService`, `AWSLambdaErrorTooManyRequests`.
+ 
+ @see AWSLambdaCreateFunctionUrlConfigRequest
+ @see AWSLambdaCreateFunctionUrlConfigResponse
+ */
+- (AWSTask<AWSLambdaCreateFunctionUrlConfigResponse *> *)createFunctionUrlConfig:(AWSLambdaCreateFunctionUrlConfigRequest *)request;
+
+/**
+ <p>Creates a Lambda function URL with the specified configuration parameters. A function URL is a dedicated HTTP(S) endpoint that you can use to invoke your function.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateFunctionUrlConfig service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorResourceConflict`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorService`, `AWSLambdaErrorTooManyRequests`.
+ 
+ @see AWSLambdaCreateFunctionUrlConfigRequest
+ @see AWSLambdaCreateFunctionUrlConfigResponse
+ */
+- (void)createFunctionUrlConfig:(AWSLambdaCreateFunctionUrlConfigRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaCreateFunctionUrlConfigResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Deletes a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
  
  @param request A container for the necessary parameters to execute the DeleteAlias service method.
@@ -483,6 +508,28 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
  @see AWSLambdaDeleteFunctionEventInvokeConfigRequest
  */
 - (void)deleteFunctionEventInvokeConfig:(AWSLambdaDeleteFunctionEventInvokeConfigRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes a Lambda function URL. When you delete a function URL, you can't recover it. Creating a new function URL results in a different URL address.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteFunctionUrlConfig service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorResourceConflict`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorService`, `AWSLambdaErrorTooManyRequests`.
+ 
+ @see AWSLambdaDeleteFunctionUrlConfigRequest
+ */
+- (AWSTask *)deleteFunctionUrlConfig:(AWSLambdaDeleteFunctionUrlConfigRequest *)request;
+
+/**
+ <p>Deletes a Lambda function URL. When you delete a function URL, you can't recover it. Creating a new function URL results in a different URL address.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteFunctionUrlConfig service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorResourceConflict`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorService`, `AWSLambdaErrorTooManyRequests`.
+ 
+ @see AWSLambdaDeleteFunctionUrlConfigRequest
+ */
+- (void)deleteFunctionUrlConfig:(AWSLambdaDeleteFunctionUrlConfigRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deletes a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>. Deleted versions can no longer be viewed or added to functions. To avoid breaking functions, a copy of the version remains in Lambda until no functions refer to it.</p>
@@ -752,6 +799,31 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
  @see AWSLambdaFunctionEventInvokeConfig
  */
 - (void)getFunctionEventInvokeConfig:(AWSLambdaGetFunctionEventInvokeConfigRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaFunctionEventInvokeConfig * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Returns details about a Lambda function URL.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetFunctionUrlConfig service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLambdaGetFunctionUrlConfigResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorTooManyRequests`.
+ 
+ @see AWSLambdaGetFunctionUrlConfigRequest
+ @see AWSLambdaGetFunctionUrlConfigResponse
+ */
+- (AWSTask<AWSLambdaGetFunctionUrlConfigResponse *> *)getFunctionUrlConfig:(AWSLambdaGetFunctionUrlConfigRequest *)request;
+
+/**
+ <p>Returns details about a Lambda function URL.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetFunctionUrlConfig service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorTooManyRequests`.
+ 
+ @see AWSLambdaGetFunctionUrlConfigRequest
+ @see AWSLambdaGetFunctionUrlConfigResponse
+ */
+- (void)getFunctionUrlConfig:(AWSLambdaGetFunctionUrlConfigRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaGetFunctionUrlConfigResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>, with a link to download the layer archive that's valid for 10 minutes.</p>
@@ -1027,6 +1099,31 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
  @see AWSLambdaListFunctionEventInvokeConfigsResponse
  */
 - (void)listFunctionEventInvokeConfigs:(AWSLambdaListFunctionEventInvokeConfigsRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaListFunctionEventInvokeConfigsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Returns a list of Lambda function URLs for the specified function.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListFunctionUrlConfigs service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLambdaListFunctionUrlConfigsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorTooManyRequests`.
+ 
+ @see AWSLambdaListFunctionUrlConfigsRequest
+ @see AWSLambdaListFunctionUrlConfigsResponse
+ */
+- (AWSTask<AWSLambdaListFunctionUrlConfigsResponse *> *)listFunctionUrlConfigs:(AWSLambdaListFunctionUrlConfigsRequest *)request;
+
+/**
+ <p>Returns a list of Lambda function URLs for the specified function.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListFunctionUrlConfigs service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorTooManyRequests`.
+ 
+ @see AWSLambdaListFunctionUrlConfigsRequest
+ @see AWSLambdaListFunctionUrlConfigsResponse
+ */
+- (void)listFunctionUrlConfigs:(AWSLambdaListFunctionUrlConfigsRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaListFunctionUrlConfigsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Returns a list of Lambda functions, with the version-specific configuration of each. Lambda returns up to 50 functions per call.</p><p>Set <code>FunctionVersion</code> to <code>ALL</code> to include all published versions of each function in addition to the unpublished version. </p><note><p>The <code>ListFunctions</code> action returns a subset of the <a>FunctionConfiguration</a> fields. To get the additional fields (State, StateReasonCode, StateReason, LastUpdateStatus, LastUpdateStatusReason, LastUpdateStatusReasonCode) for a function or version, use <a>GetFunction</a>.</p></note>
@@ -1590,6 +1687,31 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
  @see AWSLambdaFunctionEventInvokeConfig
  */
 - (void)updateFunctionEventInvokeConfig:(AWSLambdaUpdateFunctionEventInvokeConfigRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaFunctionEventInvokeConfig * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Updates the configuration for a Lambda function URL.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateFunctionUrlConfig service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLambdaUpdateFunctionUrlConfigResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorResourceConflict`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorService`, `AWSLambdaErrorTooManyRequests`.
+ 
+ @see AWSLambdaUpdateFunctionUrlConfigRequest
+ @see AWSLambdaUpdateFunctionUrlConfigResponse
+ */
+- (AWSTask<AWSLambdaUpdateFunctionUrlConfigResponse *> *)updateFunctionUrlConfig:(AWSLambdaUpdateFunctionUrlConfigRequest *)request;
+
+/**
+ <p>Updates the configuration for a Lambda function URL.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateFunctionUrlConfig service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorResourceConflict`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorService`, `AWSLambdaErrorTooManyRequests`.
+ 
+ @see AWSLambdaUpdateFunctionUrlConfigRequest
+ @see AWSLambdaUpdateFunctionUrlConfigResponse
+ */
+- (void)updateFunctionUrlConfig:(AWSLambdaUpdateFunctionUrlConfigRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaUpdateFunctionUrlConfigResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 @end
 
