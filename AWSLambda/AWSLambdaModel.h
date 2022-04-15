@@ -88,6 +88,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaFunctionResponseType) {
     AWSLambdaFunctionResponseTypeReportBatchItemFailures,
 };
 
+typedef NS_ENUM(NSInteger, AWSLambdaFunctionUrlAuthType) {
+    AWSLambdaFunctionUrlAuthTypeUnknown,
+    AWSLambdaFunctionUrlAuthTypeNone,
+    AWSLambdaFunctionUrlAuthTypeAwsIam,
+};
+
 typedef NS_ENUM(NSInteger, AWSLambdaFunctionVersion) {
     AWSLambdaFunctionVersionUnknown,
     AWSLambdaFunctionVersionAll,
@@ -234,11 +240,14 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaCodeSigningConfig;
 @class AWSLambdaCodeSigningPolicies;
 @class AWSLambdaConcurrency;
+@class AWSLambdaCors;
 @class AWSLambdaCreateAliasRequest;
 @class AWSLambdaCreateCodeSigningConfigRequest;
 @class AWSLambdaCreateCodeSigningConfigResponse;
 @class AWSLambdaCreateEventSourceMappingRequest;
 @class AWSLambdaCreateFunctionRequest;
+@class AWSLambdaCreateFunctionUrlConfigRequest;
+@class AWSLambdaCreateFunctionUrlConfigResponse;
 @class AWSLambdaDeadLetterConfig;
 @class AWSLambdaDeleteAliasRequest;
 @class AWSLambdaDeleteCodeSigningConfigRequest;
@@ -248,6 +257,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaDeleteFunctionConcurrencyRequest;
 @class AWSLambdaDeleteFunctionEventInvokeConfigRequest;
 @class AWSLambdaDeleteFunctionRequest;
+@class AWSLambdaDeleteFunctionUrlConfigRequest;
 @class AWSLambdaDeleteLayerVersionRequest;
 @class AWSLambdaDeleteProvisionedConcurrencyConfigRequest;
 @class AWSLambdaDestinationConfig;
@@ -263,6 +273,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaFunctionCodeLocation;
 @class AWSLambdaFunctionConfiguration;
 @class AWSLambdaFunctionEventInvokeConfig;
+@class AWSLambdaFunctionUrlConfig;
 @class AWSLambdaGetAccountSettingsRequest;
 @class AWSLambdaGetAccountSettingsResponse;
 @class AWSLambdaGetAliasRequest;
@@ -277,6 +288,8 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaGetFunctionEventInvokeConfigRequest;
 @class AWSLambdaGetFunctionRequest;
 @class AWSLambdaGetFunctionResponse;
+@class AWSLambdaGetFunctionUrlConfigRequest;
+@class AWSLambdaGetFunctionUrlConfigResponse;
 @class AWSLambdaGetLayerVersionByArnRequest;
 @class AWSLambdaGetLayerVersionPolicyRequest;
 @class AWSLambdaGetLayerVersionPolicyResponse;
@@ -306,6 +319,8 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaListEventSourceMappingsResponse;
 @class AWSLambdaListFunctionEventInvokeConfigsRequest;
 @class AWSLambdaListFunctionEventInvokeConfigsResponse;
+@class AWSLambdaListFunctionUrlConfigsRequest;
+@class AWSLambdaListFunctionUrlConfigsResponse;
 @class AWSLambdaListFunctionsByCodeSigningConfigRequest;
 @class AWSLambdaListFunctionsByCodeSigningConfigResponse;
 @class AWSLambdaListFunctionsRequest;
@@ -347,6 +362,8 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaUpdateFunctionCodeRequest;
 @class AWSLambdaUpdateFunctionConfigurationRequest;
 @class AWSLambdaUpdateFunctionEventInvokeConfigRequest;
+@class AWSLambdaUpdateFunctionUrlConfigRequest;
+@class AWSLambdaUpdateFunctionUrlConfigResponse;
 @class AWSLambdaVpcConfig;
 @class AWSLambdaVpcConfigResponse;
 
@@ -482,6 +499,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The name of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionName;
+
+/**
+ <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+ */
+@property (nonatomic, assign) AWSLambdaFunctionUrlAuthType functionUrlAuthType;
 
 /**
  <p>The Amazon Web Services service or account that invokes the function. If you specify a service, use <code>SourceArn</code> or <code>SourceAccount</code> to limit who can invoke the function through that service.</p>
@@ -660,6 +682,44 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The number of concurrent executions that are reserved for this function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html">Managing Concurrency</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable reservedConcurrentExecutions;
+
+@end
+
+/**
+ <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings for your Lambda function URL. Use CORS to grant access to your function URL from any origin. You can also use CORS to control access for specific HTTP headers and methods in requests to your function URL.</p>
+ */
+@interface AWSLambdaCors : AWSModel
+
+
+/**
+ <p>Whether to allow cookies or other credentials in requests to your function URL. The default is <code>false</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable allowCredentials;
+
+/**
+ <p>The HTTP headers that origins can include in requests to your function URL. For example: <code>Date</code>, <code>Keep-Alive</code>, <code>X-Custom-Header</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable allowHeaders;
+
+/**
+ <p>The HTTP methods that are allowed when calling your function URL. For example: <code>GET</code>, <code>POST</code>, <code>DELETE</code>, or the wildcard character (<code>*</code>).</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable allowMethods;
+
+/**
+ <p>The origins that can access your function URL. You can list any number of specific origins, separated by a comma. For example: <code>https://www.example.com</code>, <code>http://localhost:60905</code>.</p><p>Alternatively, you can grant access to all origins using the wildcard character (<code>*</code>).</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable allowOrigins;
+
+/**
+ <p>The HTTP headers in your function response that you want to expose to origins that call your function URL. For example: <code>Date</code>, <code>Keep-Alive</code>, <code>X-Custom-Header</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable exposeHeaders;
+
+/**
+ <p>The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to <code>0</code>, which means that the browser doesn't cache results.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxAge;
 
 @end
 
@@ -954,6 +1014,67 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
+ 
+ */
+@interface AWSLambdaCreateFunctionUrlConfigRequest : AWSRequest
+
+
+/**
+ <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+ */
+@property (nonatomic, assign) AWSLambdaFunctionUrlAuthType authType;
+
+/**
+ <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>
+ */
+@property (nonatomic, strong) AWSLambdaCors * _Nullable cors;
+
+/**
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionName;
+
+/**
+ <p>The alias name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable qualifier;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaCreateFunctionUrlConfigResponse : AWSModel
+
+
+/**
+ <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+ */
+@property (nonatomic, assign) AWSLambdaFunctionUrlAuthType authType;
+
+/**
+ <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>
+ */
+@property (nonatomic, strong) AWSLambdaCors * _Nullable cors;
+
+/**
+ <p>When the function URL was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable creationTime;
+
+/**
+ <p>The Amazon Resource Name (ARN) of your function.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionArn;
+
+/**
+ <p>The HTTP URL endpoint for your function.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionUrl;
+
+@end
+
+/**
  <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">dead-letter queue</a> for failed asynchronous invocations.</p>
  */
 @interface AWSLambdaDeadLetterConfig : AWSModel
@@ -1075,6 +1196,24 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 /**
  <p>Specify a version to delete. You can't delete a version that's referenced by an alias.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable qualifier;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaDeleteFunctionUrlConfigRequest : AWSRequest
+
+
+/**
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionName;
+
+/**
+ <p>The alias name.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable qualifier;
 
@@ -1633,6 +1772,45 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
+ <p>Details about a Lambda function URL.</p>
+ Required parameters: [FunctionUrl, FunctionArn, CreationTime, LastModifiedTime, AuthType]
+ */
+@interface AWSLambdaFunctionUrlConfig : AWSModel
+
+
+/**
+ <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+ */
+@property (nonatomic, assign) AWSLambdaFunctionUrlAuthType authType;
+
+/**
+ <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>
+ */
+@property (nonatomic, strong) AWSLambdaCors * _Nullable cors;
+
+/**
+ <p>When the function URL was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable creationTime;
+
+/**
+ <p>The Amazon Resource Name (ARN) of your function.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionArn;
+
+/**
+ <p>The HTTP URL endpoint for your function.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionUrl;
+
+/**
+ <p>When the function URL configuration was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastModifiedTime;
+
+@end
+
+/**
  
  */
 @interface AWSLambdaGetAccountSettingsRequest : AWSRequest
@@ -1851,6 +2029,62 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaGetFunctionUrlConfigRequest : AWSRequest
+
+
+/**
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionName;
+
+/**
+ <p>The alias name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable qualifier;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaGetFunctionUrlConfigResponse : AWSModel
+
+
+/**
+ <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+ */
+@property (nonatomic, assign) AWSLambdaFunctionUrlAuthType authType;
+
+/**
+ <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>
+ */
+@property (nonatomic, strong) AWSLambdaCors * _Nullable cors;
+
+/**
+ <p>When the function URL was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable creationTime;
+
+/**
+ <p>The Amazon Resource Name (ARN) of your function.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionArn;
+
+/**
+ <p>The HTTP URL endpoint for your function.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionUrl;
+
+/**
+ <p>When the function URL configuration was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastModifiedTime;
 
 @end
 
@@ -2543,6 +2777,47 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>A list of configurations.</p>
  */
 @property (nonatomic, strong) NSArray<AWSLambdaFunctionEventInvokeConfig *> * _Nullable functionEventInvokeConfigs;
+
+/**
+ <p>The pagination token that's included if more results are available.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextMarker;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaListFunctionUrlConfigsRequest : AWSRequest
+
+
+/**
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionName;
+
+/**
+ <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable marker;
+
+/**
+ <p>The maximum number of function URLs to return in the response. Note that <code>ListFunctionUrlConfigs</code> returns a maximum of 50 items in each response, even if you set the number higher.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxItems;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaListFunctionUrlConfigsResponse : AWSModel
+
+
+/**
+ <p>A list of function URL configurations.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSLambdaFunctionUrlConfig *> * _Nullable functionUrlConfigs;
 
 /**
  <p>The pagination token that's included if more results are available.</p>
@@ -3666,6 +3941,72 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>A version number or alias name.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable qualifier;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaUpdateFunctionUrlConfigRequest : AWSRequest
+
+
+/**
+ <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+ */
+@property (nonatomic, assign) AWSLambdaFunctionUrlAuthType authType;
+
+/**
+ <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>
+ */
+@property (nonatomic, strong) AWSLambdaCors * _Nullable cors;
+
+/**
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionName;
+
+/**
+ <p>The alias name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable qualifier;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaUpdateFunctionUrlConfigResponse : AWSModel
+
+
+/**
+ <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+ */
+@property (nonatomic, assign) AWSLambdaFunctionUrlAuthType authType;
+
+/**
+ <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>
+ */
+@property (nonatomic, strong) AWSLambdaCors * _Nullable cors;
+
+/**
+ <p>When the function URL was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable creationTime;
+
+/**
+ <p>The Amazon Resource Name (ARN) of your function.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionArn;
+
+/**
+ <p>The HTTP URL endpoint for your function.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionUrl;
+
+/**
+ <p>When the function URL configuration was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastModifiedTime;
 
 @end
 

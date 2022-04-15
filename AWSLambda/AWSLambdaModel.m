@@ -97,6 +97,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"action" : @"Action",
              @"eventSourceToken" : @"EventSourceToken",
              @"functionName" : @"FunctionName",
+             @"functionUrlAuthType" : @"FunctionUrlAuthType",
              @"principal" : @"Principal",
              @"principalOrgID" : @"PrincipalOrgID",
              @"qualifier" : @"Qualifier",
@@ -105,6 +106,27 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"sourceArn" : @"SourceArn",
              @"statementId" : @"StatementId",
              };
+}
+
++ (NSValueTransformer *)functionUrlAuthTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
+            return @(AWSLambdaFunctionUrlAuthTypeNone);
+        }
+        if ([value caseInsensitiveCompare:@"AWS_IAM"] == NSOrderedSame) {
+            return @(AWSLambdaFunctionUrlAuthTypeAwsIam);
+        }
+        return @(AWSLambdaFunctionUrlAuthTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaFunctionUrlAuthTypeNone:
+                return @"NONE";
+            case AWSLambdaFunctionUrlAuthTypeAwsIam:
+                return @"AWS_IAM";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -245,6 +267,25 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"reservedConcurrentExecutions" : @"ReservedConcurrentExecutions",
+             };
+}
+
+@end
+
+@implementation AWSLambdaCors
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"allowCredentials" : @"AllowCredentials",
+             @"allowHeaders" : @"AllowHeaders",
+             @"allowMethods" : @"AllowMethods",
+             @"allowOrigins" : @"AllowOrigins",
+             @"exposeHeaders" : @"ExposeHeaders",
+             @"maxAge" : @"MaxAge",
              };
 }
 
@@ -625,6 +666,91 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 @end
 
+@implementation AWSLambdaCreateFunctionUrlConfigRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"authType" : @"AuthType",
+             @"cors" : @"Cors",
+             @"functionName" : @"FunctionName",
+             @"qualifier" : @"Qualifier",
+             };
+}
+
++ (NSValueTransformer *)authTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
+            return @(AWSLambdaFunctionUrlAuthTypeNone);
+        }
+        if ([value caseInsensitiveCompare:@"AWS_IAM"] == NSOrderedSame) {
+            return @(AWSLambdaFunctionUrlAuthTypeAwsIam);
+        }
+        return @(AWSLambdaFunctionUrlAuthTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaFunctionUrlAuthTypeNone:
+                return @"NONE";
+            case AWSLambdaFunctionUrlAuthTypeAwsIam:
+                return @"AWS_IAM";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)corsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaCors class]];
+}
+
+@end
+
+@implementation AWSLambdaCreateFunctionUrlConfigResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"authType" : @"AuthType",
+             @"cors" : @"Cors",
+             @"creationTime" : @"CreationTime",
+             @"functionArn" : @"FunctionArn",
+             @"functionUrl" : @"FunctionUrl",
+             };
+}
+
++ (NSValueTransformer *)authTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
+            return @(AWSLambdaFunctionUrlAuthTypeNone);
+        }
+        if ([value caseInsensitiveCompare:@"AWS_IAM"] == NSOrderedSame) {
+            return @(AWSLambdaFunctionUrlAuthTypeAwsIam);
+        }
+        return @(AWSLambdaFunctionUrlAuthTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaFunctionUrlAuthTypeNone:
+                return @"NONE";
+            case AWSLambdaFunctionUrlAuthTypeAwsIam:
+                return @"AWS_IAM";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)corsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaCors class]];
+}
+
+@end
+
 @implementation AWSLambdaDeadLetterConfig
 
 + (BOOL)supportsSecureCoding {
@@ -734,6 +860,21 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 @end
 
 @implementation AWSLambdaDeleteFunctionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"functionName" : @"FunctionName",
+             @"qualifier" : @"Qualifier",
+             };
+}
+
+@end
+
+@implementation AWSLambdaDeleteFunctionUrlConfigRequest
 
 + (BOOL)supportsSecureCoding {
     return YES;
@@ -1503,6 +1644,50 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 @end
 
+@implementation AWSLambdaFunctionUrlConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"authType" : @"AuthType",
+             @"cors" : @"Cors",
+             @"creationTime" : @"CreationTime",
+             @"functionArn" : @"FunctionArn",
+             @"functionUrl" : @"FunctionUrl",
+             @"lastModifiedTime" : @"LastModifiedTime",
+             };
+}
+
++ (NSValueTransformer *)authTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
+            return @(AWSLambdaFunctionUrlAuthTypeNone);
+        }
+        if ([value caseInsensitiveCompare:@"AWS_IAM"] == NSOrderedSame) {
+            return @(AWSLambdaFunctionUrlAuthTypeAwsIam);
+        }
+        return @(AWSLambdaFunctionUrlAuthTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaFunctionUrlAuthTypeNone:
+                return @"NONE";
+            case AWSLambdaFunctionUrlAuthTypeAwsIam:
+                return @"AWS_IAM";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)corsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaCors class]];
+}
+
+@end
+
 @implementation AWSLambdaGetAccountSettingsRequest
 
 + (BOOL)supportsSecureCoding {
@@ -1722,6 +1907,65 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)configurationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaFunctionConfiguration class]];
+}
+
+@end
+
+@implementation AWSLambdaGetFunctionUrlConfigRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"functionName" : @"FunctionName",
+             @"qualifier" : @"Qualifier",
+             };
+}
+
+@end
+
+@implementation AWSLambdaGetFunctionUrlConfigResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"authType" : @"AuthType",
+             @"cors" : @"Cors",
+             @"creationTime" : @"CreationTime",
+             @"functionArn" : @"FunctionArn",
+             @"functionUrl" : @"FunctionUrl",
+             @"lastModifiedTime" : @"LastModifiedTime",
+             };
+}
+
++ (NSValueTransformer *)authTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
+            return @(AWSLambdaFunctionUrlAuthTypeNone);
+        }
+        if ([value caseInsensitiveCompare:@"AWS_IAM"] == NSOrderedSame) {
+            return @(AWSLambdaFunctionUrlAuthTypeAwsIam);
+        }
+        return @(AWSLambdaFunctionUrlAuthTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaFunctionUrlAuthTypeNone:
+                return @"NONE";
+            case AWSLambdaFunctionUrlAuthTypeAwsIam:
+                return @"AWS_IAM";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)corsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaCors class]];
 }
 
 @end
@@ -2297,6 +2541,41 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)functionEventInvokeConfigsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaFunctionEventInvokeConfig class]];
+}
+
+@end
+
+@implementation AWSLambdaListFunctionUrlConfigsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"functionName" : @"FunctionName",
+             @"marker" : @"Marker",
+             @"maxItems" : @"MaxItems",
+             };
+}
+
+@end
+
+@implementation AWSLambdaListFunctionUrlConfigsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"functionUrlConfigs" : @"FunctionUrlConfigs",
+             @"nextMarker" : @"NextMarker",
+             };
+}
+
++ (NSValueTransformer *)functionUrlConfigsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaFunctionUrlConfig class]];
 }
 
 @end
@@ -3706,6 +3985,92 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)destinationConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaDestinationConfig class]];
+}
+
+@end
+
+@implementation AWSLambdaUpdateFunctionUrlConfigRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"authType" : @"AuthType",
+             @"cors" : @"Cors",
+             @"functionName" : @"FunctionName",
+             @"qualifier" : @"Qualifier",
+             };
+}
+
++ (NSValueTransformer *)authTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
+            return @(AWSLambdaFunctionUrlAuthTypeNone);
+        }
+        if ([value caseInsensitiveCompare:@"AWS_IAM"] == NSOrderedSame) {
+            return @(AWSLambdaFunctionUrlAuthTypeAwsIam);
+        }
+        return @(AWSLambdaFunctionUrlAuthTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaFunctionUrlAuthTypeNone:
+                return @"NONE";
+            case AWSLambdaFunctionUrlAuthTypeAwsIam:
+                return @"AWS_IAM";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)corsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaCors class]];
+}
+
+@end
+
+@implementation AWSLambdaUpdateFunctionUrlConfigResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"authType" : @"AuthType",
+             @"cors" : @"Cors",
+             @"creationTime" : @"CreationTime",
+             @"functionArn" : @"FunctionArn",
+             @"functionUrl" : @"FunctionUrl",
+             @"lastModifiedTime" : @"LastModifiedTime",
+             };
+}
+
++ (NSValueTransformer *)authTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
+            return @(AWSLambdaFunctionUrlAuthTypeNone);
+        }
+        if ([value caseInsensitiveCompare:@"AWS_IAM"] == NSOrderedSame) {
+            return @(AWSLambdaFunctionUrlAuthTypeAwsIam);
+        }
+        return @(AWSLambdaFunctionUrlAuthTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaFunctionUrlAuthTypeNone:
+                return @"NONE";
+            case AWSLambdaFunctionUrlAuthTypeAwsIam:
+                return @"AWS_IAM";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)corsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaCors class]];
 }
 
 @end
