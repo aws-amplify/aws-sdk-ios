@@ -4,6 +4,15 @@
 
 -Features for next release
 
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSEC2
+  - AWSLambda
+  - AWSIoT
+  - AWSConnect
+  - AWSIoTDataPlane
+
 ## 2.27.6
 
 ### Misc. Updates
