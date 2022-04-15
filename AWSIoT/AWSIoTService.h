@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -635,7 +635,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createBillingGroup:(AWSIoTCreateBillingGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateBillingGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates an X.509 certificate using the specified certificate signing request.</p><p><b>Note:</b> The CSR must include a public key that is either an RSA key with a length of at least 2048 bits or an ECC key from NIST P-256 or NIST P-384 curves. </p><p><b>Note:</b> Reusing the same certificate signing request (CSR) results in a distinct certificate.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateCertificateFromCsr</a> action.</p><p>You can create multiple certificates in a batch by creating a directory, copying multiple .csr files into that directory, and then specifying that directory on the command line. The following commands show how to create a batch of certificates given a batch of CSRs.</p><p>Assuming a set of CSRs are located inside of the directory my-csr-directory:</p><p>On Linux and OS X, the command is:</p><p>$ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</p><p>This command lists all of the CSRs in my-csr-directory and pipes each CSR file name to the aws iot create-certificate-from-csr Amazon Web Services CLI command to create a certificate for the corresponding CSR.</p><p>The aws iot create-certificate-from-csr part of the command can also be run in parallel to speed up the certificate creation process:</p><p>$ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</p><p>On Windows PowerShell, the command to create certificates for all CSRs in my-csr-directory is:</p><p>&gt; ls -Name my-csr-directory | %{aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/$_}</p><p>On a Windows command prompt, the command to create certificates for all CSRs in my-csr-directory is:</p><p>&gt; forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr --certificate-signing-request file://@path"</p>
+ <p>Creates an X.509 certificate using the specified certificate signing request.</p><p><b>Note:</b> The CSR must include a public key that is either an RSA key with a length of at least 2048 bits or an ECC key from NIST P-256, NIST P-384, or NIST P-512 curves. For supported certificates, consult <a href="https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms"> Certificate signing algorithms supported by IoT</a>.</p><p><b>Note:</b> Reusing the same certificate signing request (CSR) results in a distinct certificate.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateCertificateFromCsr</a> action.</p><p>You can create multiple certificates in a batch by creating a directory, copying multiple .csr files into that directory, and then specifying that directory on the command line. The following commands show how to create a batch of certificates given a batch of CSRs.</p><p>Assuming a set of CSRs are located inside of the directory my-csr-directory:</p><p>On Linux and OS X, the command is:</p><p>$ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</p><p>This command lists all of the CSRs in my-csr-directory and pipes each CSR file name to the aws iot create-certificate-from-csr Amazon Web Services CLI command to create a certificate for the corresponding CSR.</p><p>The aws iot create-certificate-from-csr part of the command can also be run in parallel to speed up the certificate creation process:</p><p>$ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</p><p>On Windows PowerShell, the command to create certificates for all CSRs in my-csr-directory is:</p><p>&gt; ls -Name my-csr-directory | %{aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/$_}</p><p>On a Windows command prompt, the command to create certificates for all CSRs in my-csr-directory is:</p><p>&gt; forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr --certificate-signing-request file://@path"</p>
  
  @param request A container for the necessary parameters to execute the CreateCertificateFromCsr service method.
 
@@ -647,7 +647,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateCertificateFromCsrResponse *> *)createCertificateFromCsr:(AWSIoTCreateCertificateFromCsrRequest *)request;
 
 /**
- <p>Creates an X.509 certificate using the specified certificate signing request.</p><p><b>Note:</b> The CSR must include a public key that is either an RSA key with a length of at least 2048 bits or an ECC key from NIST P-256 or NIST P-384 curves. </p><p><b>Note:</b> Reusing the same certificate signing request (CSR) results in a distinct certificate.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateCertificateFromCsr</a> action.</p><p>You can create multiple certificates in a batch by creating a directory, copying multiple .csr files into that directory, and then specifying that directory on the command line. The following commands show how to create a batch of certificates given a batch of CSRs.</p><p>Assuming a set of CSRs are located inside of the directory my-csr-directory:</p><p>On Linux and OS X, the command is:</p><p>$ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</p><p>This command lists all of the CSRs in my-csr-directory and pipes each CSR file name to the aws iot create-certificate-from-csr Amazon Web Services CLI command to create a certificate for the corresponding CSR.</p><p>The aws iot create-certificate-from-csr part of the command can also be run in parallel to speed up the certificate creation process:</p><p>$ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</p><p>On Windows PowerShell, the command to create certificates for all CSRs in my-csr-directory is:</p><p>&gt; ls -Name my-csr-directory | %{aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/$_}</p><p>On a Windows command prompt, the command to create certificates for all CSRs in my-csr-directory is:</p><p>&gt; forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr --certificate-signing-request file://@path"</p>
+ <p>Creates an X.509 certificate using the specified certificate signing request.</p><p><b>Note:</b> The CSR must include a public key that is either an RSA key with a length of at least 2048 bits or an ECC key from NIST P-256, NIST P-384, or NIST P-512 curves. For supported certificates, consult <a href="https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms"> Certificate signing algorithms supported by IoT</a>.</p><p><b>Note:</b> Reusing the same certificate signing request (CSR) results in a distinct certificate.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateCertificateFromCsr</a> action.</p><p>You can create multiple certificates in a batch by creating a directory, copying multiple .csr files into that directory, and then specifying that directory on the command line. The following commands show how to create a batch of certificates given a batch of CSRs.</p><p>Assuming a set of CSRs are located inside of the directory my-csr-directory:</p><p>On Linux and OS X, the command is:</p><p>$ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</p><p>This command lists all of the CSRs in my-csr-directory and pipes each CSR file name to the aws iot create-certificate-from-csr Amazon Web Services CLI command to create a certificate for the corresponding CSR.</p><p>The aws iot create-certificate-from-csr part of the command can also be run in parallel to speed up the certificate creation process:</p><p>$ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</p><p>On Windows PowerShell, the command to create certificates for all CSRs in my-csr-directory is:</p><p>&gt; ls -Name my-csr-directory | %{aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/$_}</p><p>On a Windows command prompt, the command to create certificates for all CSRs in my-csr-directory is:</p><p>&gt; forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr --certificate-signing-request file://@path"</p>
  
  @param request A container for the necessary parameters to execute the CreateCertificateFromCsr service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2555,6 +2555,31 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeJobTemplate:(AWSIoTDescribeJobTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeJobTemplateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>View details of a managed job template.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeManagedJobTemplate service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTDescribeManagedJobTemplateResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalServer`.
+ 
+ @see AWSIoTDescribeManagedJobTemplateRequest
+ @see AWSIoTDescribeManagedJobTemplateResponse
+ */
+- (AWSTask<AWSIoTDescribeManagedJobTemplateResponse *> *)describeManagedJobTemplate:(AWSIoTDescribeManagedJobTemplateRequest *)request;
+
+/**
+ <p>View details of a managed job template.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeManagedJobTemplate service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalServer`.
+ 
+ @see AWSIoTDescribeManagedJobTemplateRequest
+ @see AWSIoTDescribeManagedJobTemplateResponse
+ */
+- (void)describeManagedJobTemplate:(AWSIoTDescribeManagedJobTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeManagedJobTemplateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Gets information about a mitigation action.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeMitigationAction</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeMitigationAction service method.
@@ -3943,6 +3968,56 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listJobs:(AWSIoTListJobsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListJobsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Returns a list of managed job templates.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListManagedJobTemplates service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTListManagedJobTemplatesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalServer`.
+ 
+ @see AWSIoTListManagedJobTemplatesRequest
+ @see AWSIoTListManagedJobTemplatesResponse
+ */
+- (AWSTask<AWSIoTListManagedJobTemplatesResponse *> *)listManagedJobTemplates:(AWSIoTListManagedJobTemplatesRequest *)request;
+
+/**
+ <p>Returns a list of managed job templates.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListManagedJobTemplates service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalServer`.
+ 
+ @see AWSIoTListManagedJobTemplatesRequest
+ @see AWSIoTListManagedJobTemplatesResponse
+ */
+- (void)listManagedJobTemplates:(AWSIoTListManagedJobTemplatesRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListManagedJobTemplatesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Lists the values reported for an IoT Device Defender metric (device-side metric, cloud-side metric, or custom metric) by the given thing during the specified time period.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListMetricValues service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTListMetricValuesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`, `AWSIoTErrorResourceNotFound`.
+ 
+ @see AWSIoTListMetricValuesRequest
+ @see AWSIoTListMetricValuesResponse
+ */
+- (AWSTask<AWSIoTListMetricValuesResponse *> *)listMetricValues:(AWSIoTListMetricValuesRequest *)request;
+
+/**
+ <p>Lists the values reported for an IoT Device Defender metric (device-side metric, cloud-side metric, or custom metric) by the given thing during the specified time period.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListMetricValues service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`, `AWSIoTErrorResourceNotFound`.
+ 
+ @see AWSIoTListMetricValuesRequest
+ @see AWSIoTListMetricValuesResponse
+ */
+- (void)listMetricValues:(AWSIoTListMetricValuesRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListMetricValuesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Gets a list of all mitigation actions that match the specified filter criteria.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListMitigationActions</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListMitigationActions service method.
@@ -4793,7 +4868,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)registerCertificate:(AWSIoTRegisterCertificateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTRegisterCertificateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Register a certificate that does not have a certificate authority (CA).</p>
+ <p>Register a certificate that does not have a certificate authority (CA). For supported certificates, consult <a href="https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms"> Certificate signing algorithms supported by IoT</a>. </p>
  
  @param request A container for the necessary parameters to execute the RegisterCertificateWithoutCA service method.
 
@@ -4805,7 +4880,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTRegisterCertificateWithoutCAResponse *> *)registerCertificateWithoutCA:(AWSIoTRegisterCertificateWithoutCARequest *)request;
 
 /**
- <p>Register a certificate that does not have a certificate authority (CA).</p>
+ <p>Register a certificate that does not have a certificate authority (CA). For supported certificates, consult <a href="https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms"> Certificate signing algorithms supported by IoT</a>. </p>
  
  @param request A container for the necessary parameters to execute the RegisterCertificateWithoutCA service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4865,7 +4940,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)rejectCertificateTransfer:(AWSIoTRejectCertificateTransferRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Removes the given thing from the billing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RemoveThingFromBillingGroup</a> action.</p>
+ <p>Removes the given thing from the billing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RemoveThingFromBillingGroup</a> action.</p><note><p>This call is asynchronous. It might take several seconds for the detachment to propagate.</p></note>
  
  @param request A container for the necessary parameters to execute the RemoveThingFromBillingGroup service method.
 
@@ -4877,7 +4952,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTRemoveThingFromBillingGroupResponse *> *)removeThingFromBillingGroup:(AWSIoTRemoveThingFromBillingGroupRequest *)request;
 
 /**
- <p>Removes the given thing from the billing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RemoveThingFromBillingGroup</a> action.</p>
+ <p>Removes the given thing from the billing group.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RemoveThingFromBillingGroup</a> action.</p><note><p>This call is asynchronous. It might take several seconds for the detachment to propagate.</p></note>
  
  @param request A container for the necessary parameters to execute the RemoveThingFromBillingGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
