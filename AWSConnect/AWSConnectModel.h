@@ -194,6 +194,7 @@ typedef NS_ENUM(NSInteger, AWSConnectInstanceAttributeType) {
     AWSConnectInstanceAttributeTypeAutoResolveBestVoices,
     AWSConnectInstanceAttributeTypeUseCustomTtsVoices,
     AWSConnectInstanceAttributeTypeEarlyMedia,
+    AWSConnectInstanceAttributeTypeMultiPartyConference,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectInstanceStatus) {
