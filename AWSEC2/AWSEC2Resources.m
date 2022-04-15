@@ -594,7 +594,7 @@
       },\
       \"input\":{\"shape\":\"CreateCustomerGatewayRequest\"},\
       \"output\":{\"shape\":\"CreateCustomerGatewayResult\"},\
-      \"documentation\":\"<p>Provides information to Amazon Web Services about your VPN customer gateway device. The customer gateway is the appliance at your end of the VPN connection. (The device on the Amazon Web Services side of the VPN connection is the virtual private gateway.) You must provide the internet-routable IP address of the customer gateway's external interface. The IP address must be static and can be behind a device performing network address translation (NAT).</p> <p>For devices that use Border Gateway Protocol (BGP), you can also provide the device's BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your network. If you don't have an ASN already, you can use a private ASN (in the 64512 - 65534 range).</p> <note> <p>Amazon EC2 supports all 4-byte ASN numbers in the range of 1 - 2147483647, with the exception of the following:</p> <ul> <li> <p>7224 - reserved in the <code>us-east-1</code> Region</p> </li> <li> <p>9059 - reserved in the <code>eu-west-1</code> Region</p> </li> <li> <p>17943 - reserved in the <code>ap-southeast-1</code> Region</p> </li> <li> <p>10124 - reserved in the <code>ap-northeast-1</code> Region</p> </li> </ul> </note> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\\\">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p> <important> <p>To create more than one customer gateway with the same VPN type, IP address, and BGP ASN, specify a unique device name for each customer gateway. Identical requests return information about the existing customer gateway and do not create new customer gateways.</p> </important>\"\
+      \"documentation\":\"<p>Provides information to Amazon Web Services about your VPN customer gateway device. The customer gateway is the appliance at your end of the VPN connection. (The device on the Amazon Web Services side of the VPN connection is the virtual private gateway.) You must provide the internet-routable IP address of the customer gateway's external interface. The IP address must be static and can be behind a device performing network address translation (NAT).</p> <p>For devices that use Border Gateway Protocol (BGP), you can also provide the device's BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your network. If you don't have an ASN already, you can use a private ASN. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpn/latest/s2svpn/cgw-options.html\\\">Customer gateway options for your Site-to-Site VPN connection</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p> <p>To create more than one customer gateway with the same VPN type, IP address, and BGP ASN, specify a unique device name for each customer gateway. An identical request returns information about the existing customer gateway; it doesn't create a new customer gateway.</p>\"\
     },\
     \"CreateDefaultSubnet\":{\
       \"name\":\"CreateDefaultSubnet\",\
@@ -674,7 +674,7 @@
       },\
       \"input\":{\"shape\":\"CreateImageRequest\"},\
       \"output\":{\"shape\":\"CreateImageResult\"},\
-      \"documentation\":\"<p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is either running or stopped.</p> <important> <p>By default, Amazon EC2 shuts down and reboots the instance before creating the AMI to ensure that everything on the instance is stopped and in a consistent state during the creation process. If you're confident that your instance is in a consistent state appropriate for AMI creation, use the <b>NoReboot</b> parameter to prevent Amazon EC2 from shutting down and rebooting the instance. </p> </important> <p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the new AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI, the instance automatically launches with those additional volumes.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html\\\">Creating Amazon EBS-Backed Linux AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is either running or stopped.</p> <p>By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it can take snapshots of the attached volumes while data is at rest, in order to ensure a consistent state. You can set the <code>NoReboot</code> parameter to <code>true</code> in the API request, or use the <code>--no-reboot</code> option in the CLI to prevent Amazon EC2 from shutting down and rebooting the instance.</p> <important> <p>If you choose to bypass the shutdown and reboot process by setting the <code>NoReboot</code> parameter to <code>true</code> in the API request, or by using the <code>--no-reboot</code> option in the CLI, we can't guarantee the file system integrity of the created image.</p> </important> <p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the new AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI, the instance automatically launches with those additional volumes.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html\\\">Creating Amazon EBS-Backed Linux AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
     },\
     \"CreateInstanceEventWindow\":{\
       \"name\":\"CreateInstanceEventWindow\",\
@@ -714,7 +714,7 @@
       },\
       \"input\":{\"shape\":\"CreateIpamRequest\"},\
       \"output\":{\"shape\":\"CreateIpamResult\"},\
-      \"documentation\":\"<p>Create an IPAM. Amazon VCP IP Address Manager (IPAM) is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization.</p> <p>For more information, see <a href=\\\"/vpc/latest/ipam/create-ipam.html\\\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
+      \"documentation\":\"<p>Create an IPAM. Amazon VPC IP Address Manager (IPAM) is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization.</p> <p>For more information, see <a href=\\\"/vpc/latest/ipam/create-ipam.html\\\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
     },\
     \"CreateIpamPool\":{\
       \"name\":\"CreateIpamPool\",\
@@ -754,7 +754,7 @@
       },\
       \"input\":{\"shape\":\"CreateLaunchTemplateRequest\"},\
       \"output\":{\"shape\":\"CreateLaunchTemplateResult\"},\
-      \"documentation\":\"<p>Creates a launch template. A launch template contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify a launch template instead of providing the launch parameters in the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\\\">Launching an instance from a launch template</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Creates a launch template.</p> <p>A launch template contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify a launch template instead of providing the launch parameters in the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\\\">Launching an instance from a launch template</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>If you want to clone an existing launch template as the basis for creating a new launch template, you can use the Amazon EC2 console. The API, SDKs, and CLI do not support cloning a template. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template-from-existing-launch-template\\\">Create a launch template from an existing launch template</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
     },\
     \"CreateLaunchTemplateVersion\":{\
       \"name\":\"CreateLaunchTemplateVersion\",\
@@ -1172,7 +1172,7 @@
       },\
       \"input\":{\"shape\":\"CreateVpcEndpointRequest\"},\
       \"output\":{\"shape\":\"CreateVpcEndpointResult\"},\
-      \"documentation\":\"<p>Creates a VPC endpoint for a specified service. An endpoint enables you to create a private connection between your VPC and the service. The service may be provided by Amazon Web Services, an Amazon Web Services Marketplace Partner, or another Amazon Web Services account. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html\\\">VPC Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p> <p>A <code>gateway</code> endpoint serves as a target for a route in your route table for traffic destined for the Amazon Web Service. You can specify an endpoint policy to attach to the endpoint, which will control access to the service from your VPC. You can also specify the VPC route tables that use the endpoint.</p> <p>An <code>interface</code> endpoint is a network interface in your subnet that serves as an endpoint for communicating with the specified service. You can specify the subnets in which to create an endpoint, and the security groups to associate with the endpoint network interface.</p> <p>A <code>GatewayLoadBalancer</code> endpoint is a network interface in your subnet that serves an endpoint for communicating with a Gateway Load Balancer that you've configured as a VPC endpoint service.</p> <p>Use <a>DescribeVpcEndpointServices</a> to get a list of supported services.</p>\"\
+      \"documentation\":\"<p>Creates a VPC endpoint for a specified service. An endpoint enables you to create a private connection between your VPC and the service. The service may be provided by Amazon Web Services, an Amazon Web Services Marketplace Partner, or another Amazon Web Services account. For more information, see the <a href=\\\"https://docs.aws.amazon.com/vpc/latest/privatelink/\\\">Amazon Web Services PrivateLink Guide</a>.</p>\"\
     },\
     \"CreateVpcEndpointConnectionNotification\":{\
       \"name\":\"CreateVpcEndpointConnectionNotification\",\
@@ -1192,7 +1192,7 @@
       },\
       \"input\":{\"shape\":\"CreateVpcEndpointServiceConfigurationRequest\"},\
       \"output\":{\"shape\":\"CreateVpcEndpointServiceConfigurationResult\"},\
-      \"documentation\":\"<p>Creates a VPC endpoint service configuration to which service consumers (Amazon Web Services accounts, IAM users, and IAM roles) can connect.</p> <p>To create an endpoint service configuration, you must first create one of the following for your service:</p> <ul> <li> <p>A <a href=\\\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html\\\">Network Load Balancer</a>. Service consumers connect to your service using an interface endpoint.</p> </li> <li> <p>A <a href=\\\"https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/introduction.html\\\">Gateway Load Balancer</a>. Service consumers connect to your service using a Gateway Load Balancer endpoint.</p> </li> </ul> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html\\\">VPC Endpoint Services</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. </p> <p>If you set the private DNS name, you must prove that you own the private DNS domain name. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html\\\">VPC Endpoint Service Private DNS Name Verification</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts, IAM users, and IAM roles) can connect.</p> <p>Before you create an endpoint service, you must create one of the following for your service:</p> <ul> <li> <p>A <a href=\\\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/\\\">Network Load Balancer</a>. Service consumers connect to your service using an interface endpoint.</p> </li> <li> <p>A <a href=\\\"https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/\\\">Gateway Load Balancer</a>. Service consumers connect to your service using a Gateway Load Balancer endpoint.</p> </li> </ul> <p>If you set the private DNS name, you must prove that you own the private DNS domain name.</p> <p>For more information, see the <a href=\\\"https://docs.aws.amazon.com/vpc/latest/privatelink/\\\">Amazon Web Services PrivateLink Guide</a>.</p>\"\
     },\
     \"CreateVpcPeeringConnection\":{\
       \"name\":\"CreateVpcPeeringConnection\",\
@@ -1348,7 +1348,7 @@
       },\
       \"input\":{\"shape\":\"DeleteIpamRequest\"},\
       \"output\":{\"shape\":\"DeleteIpamResult\"},\
-      \"documentation\":\"<p>Delete an IPAM. Deleting an IPAM removes all monitored data associated with the IPAM including the historical data for CIDRs.</p> <note> <p>You cannot delete an IPAM if there are CIDRs provisioned to pools or if there are allocations in the pools within the IPAM. To deprovision pool CIDRs, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html\\\">DeprovisionIpamPoolCidr</a>. To release allocations, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html\\\">ReleaseIpamPoolAllocation</a>. </p> </note> <p>For more information, see <a href=\\\"/vpc/latest/ipam/delete-ipam.html\\\">Delete an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
+      \"documentation\":\"<p>Delete an IPAM. Deleting an IPAM removes all monitored data associated with the IPAM including the historical data for CIDRs.</p> <p>For more information, see <a href=\\\"/vpc/latest/ipam/delete-ipam.html\\\">Delete an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
     },\
     \"DeleteIpamPool\":{\
       \"name\":\"DeleteIpamPool\",\
@@ -4230,6 +4230,16 @@
       \"output\":{\"shape\":\"ModifyInstanceEventWindowResult\"},\
       \"documentation\":\"<p>Modifies the specified event window.</p> <p>You can define either a set of time ranges or a cron expression when modifying the event window, but not both.</p> <p>To modify the targets associated with the event window, use the <a>AssociateInstanceEventWindow</a> and <a>DisassociateInstanceEventWindow</a> API.</p> <p>If Amazon Web Services has already scheduled an event, modifying an event window won't change the time of the scheduled event.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html\\\">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
     },\
+    \"ModifyInstanceMaintenanceOptions\":{\
+      \"name\":\"ModifyInstanceMaintenanceOptions\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"ModifyInstanceMaintenanceOptionsRequest\"},\
+      \"output\":{\"shape\":\"ModifyInstanceMaintenanceOptionsResult\"},\
+      \"documentation\":\"<p>Modifies the recovery behavior of your instance to disable simplified automatic recovery or set the recovery behavior to default. The default configuration will not enable simplified automatic recovery for an unsupported instance type. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery\\\">Simplified automatic recovery</a>.</p>\"\
+    },\
     \"ModifyInstanceMetadataOptions\":{\
       \"name\":\"ModifyInstanceMetadataOptions\",\
       \"http\":{\
@@ -4455,7 +4465,7 @@
       },\
       \"input\":{\"shape\":\"ModifyVolumeRequest\"},\
       \"output\":{\"shape\":\"ModifyVolumeResult\"},\
-      \"documentation\":\"<p>You can modify several parameters of an existing EBS volume, including volume size, volume type, and IOPS capacity. If your EBS volume is attached to a current-generation EC2 instance type, you might be able to apply these changes without stopping the instance or detaching the volume from it. For more information about modifying EBS volumes, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modify-volume.html\\\">Amazon EBS Elastic Volumes</a> (Linux instances) or <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-modify-volume.html\\\">Amazon EBS Elastic Volumes</a> (Windows instances).</p> <p>When you complete a resize operation on your volume, you need to extend the volume's file-system size to take advantage of the new storage capacity. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#recognize-expanded-volume-linux\\\">Extend a Linux file system</a> or <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html#recognize-expanded-volume-windows\\\">Extend a Windows file system</a>.</p> <p> You can use CloudWatch Events to check the status of a modification to an EBS volume. For information about CloudWatch Events, see the <a href=\\\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/\\\">Amazon CloudWatch Events User Guide</a>. You can also track the status of a modification using <a>DescribeVolumesModifications</a>. For information about tracking status changes using either method, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-modifications.html\\\">Monitor the progress of volume modifications</a>.</p> <p>With previous-generation instance types, resizing an EBS volume might require detaching and reattaching the volume or stopping and restarting the instance.</p> <p>If you reach the maximum volume modification rate per volume limit, you must wait at least six hours before applying further modifications to the affected EBS volume.</p>\"\
+      \"documentation\":\"<p>You can modify several parameters of an existing EBS volume, including volume size, volume type, and IOPS capacity. If your EBS volume is attached to a current-generation EC2 instance type, you might be able to apply these changes without stopping the instance or detaching the volume from it. For more information about modifying EBS volumes, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modify-volume.html\\\">Amazon EBS Elastic Volumes</a> (Linux instances) or <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-modify-volume.html\\\">Amazon EBS Elastic Volumes</a> (Windows instances).</p> <p>When you complete a resize operation on your volume, you need to extend the volume's file-system size to take advantage of the new storage capacity. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#recognize-expanded-volume-linux\\\">Extend a Linux file system</a> or <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html#recognize-expanded-volume-windows\\\">Extend a Windows file system</a>.</p> <p> You can use CloudWatch Events to check the status of a modification to an EBS volume. For information about CloudWatch Events, see the <a href=\\\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/\\\">Amazon CloudWatch Events User Guide</a>. You can also track the status of a modification using <a>DescribeVolumesModifications</a>. For information about tracking status changes using either method, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-modifications.html\\\">Monitor the progress of volume modifications</a>.</p> <p>With previous-generation instance types, resizing an EBS volume might require detaching and reattaching the volume or stopping and restarting the instance.</p> <p>After modifying a volume, you must wait at least six hours and ensure that the volume is in the <code>in-use</code> or <code>available</code> state before you can modify the same volume. This is sometimes referred to as a cooldown period.</p>\"\
     },\
     \"ModifyVolumeAttribute\":{\
       \"name\":\"ModifyVolumeAttribute\",\
@@ -4483,7 +4493,7 @@
       },\
       \"input\":{\"shape\":\"ModifyVpcEndpointRequest\"},\
       \"output\":{\"shape\":\"ModifyVpcEndpointResult\"},\
-      \"documentation\":\"<p>Modifies attributes of a specified VPC endpoint. The attributes that you can modify depend on the type of VPC endpoint (interface, gateway, or Gateway Load Balancer). For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html\\\">VPC Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Modifies attributes of a specified VPC endpoint. The attributes that you can modify depend on the type of VPC endpoint (interface, gateway, or Gateway Load Balancer). For more information, see the <a href=\\\"https://docs.aws.amazon.com/vpc/latest/privatelink/\\\">Amazon Web Services PrivateLink Guide</a>.</p>\"\
     },\
     \"ModifyVpcEndpointConnectionNotification\":{\
       \"name\":\"ModifyVpcEndpointConnectionNotification\",\
@@ -4503,7 +4513,7 @@
       },\
       \"input\":{\"shape\":\"ModifyVpcEndpointServiceConfigurationRequest\"},\
       \"output\":{\"shape\":\"ModifyVpcEndpointServiceConfigurationResult\"},\
-      \"documentation\":\"<p>Modifies the attributes of your VPC endpoint service configuration. You can change the Network Load Balancers or Gateway Load Balancers for your service, and you can specify whether acceptance is required for requests to connect to your endpoint service through an interface VPC endpoint.</p> <p>If you set or modify the private DNS name, you must prove that you own the private DNS domain name. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html\\\">VPC Endpoint Service Private DNS Name Verification</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Modifies the attributes of your VPC endpoint service configuration. You can change the Network Load Balancers or Gateway Load Balancers for your service, and you can specify whether acceptance is required for requests to connect to your endpoint service through an interface VPC endpoint.</p> <p>If you set or modify the private DNS name, you must prove that you own the private DNS domain name.</p>\"\
     },\
     \"ModifyVpcEndpointServicePayerResponsibility\":{\
       \"name\":\"ModifyVpcEndpointServicePayerResponsibility\",\
@@ -4523,7 +4533,7 @@
       },\
       \"input\":{\"shape\":\"ModifyVpcEndpointServicePermissionsRequest\"},\
       \"output\":{\"shape\":\"ModifyVpcEndpointServicePermissionsResult\"},\
-      \"documentation\":\"<p>Modifies the permissions for your <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html\\\">VPC endpoint service</a>. You can add or remove permissions for service consumers (IAM users, IAM roles, and Amazon Web Services accounts) to connect to your endpoint service.</p> <p>If you grant permissions to all principals, the service is public. Any users who know the name of a public service can send a request to attach an endpoint. If the service does not require manual approval, attachments are automatically approved.</p>\"\
+      \"documentation\":\"<p>Modifies the permissions for your VPC endpoint service. You can add or remove permissions for service consumers (IAM users, IAM roles, and Amazon Web Services accounts) to connect to your endpoint service.</p> <p>If you grant permissions to all principals, the service is public. Any users who know the name of a public service can send a request to attach an endpoint. If the service does not require manual approval, attachments are automatically approved.</p>\"\
     },\
     \"ModifyVpcPeeringConnectionOptions\":{\
       \"name\":\"ModifyVpcPeeringConnectionOptions\",\
@@ -5133,7 +5143,7 @@
       },\
       \"input\":{\"shape\":\"StartVpcEndpointServicePrivateDnsVerificationRequest\"},\
       \"output\":{\"shape\":\"StartVpcEndpointServicePrivateDnsVerificationResult\"},\
-      \"documentation\":\"<p>Initiates the verification process to prove that the service provider owns the private DNS name domain for the endpoint service.</p> <p>The service provider must successfully perform the verification before the consumer can use the name to access the service.</p> <p>Before the service provider runs this command, they must add a record to the DNS server. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html#add-dns-txt-record\\\">Adding a TXT Record to Your Domain's DNS Server </a> in the <i>Amazon VPC User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Initiates the verification process to prove that the service provider owns the private DNS name domain for the endpoint service.</p> <p>The service provider must successfully perform the verification before the consumer can use the name to access the service.</p> <p>Before the service provider runs this command, they must add a record to the DNS server.</p>\"\
     },\
     \"StopInstances\":{\
       \"name\":\"StopInstances\",\
@@ -11067,7 +11077,7 @@
         },\
         \"NoReboot\":{\
           \"shape\":\"Boolean\",\
-          \"documentation\":\"<p>By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image. If the <code>No Reboot</code> option is set, Amazon EC2 doesn't shut down the instance before creating the image. Without a reboot, the AMI will be crash consistent (all the volumes are snapshotted at the same time), but not application consistent (all the operating system buffers are not flushed to disk before the snapshots are created).</p>\",\
+          \"documentation\":\"<p>By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it can take snapshots of the attached volumes while data is at rest, in order to ensure a consistent state. You can set the <code>NoReboot</code> parameter to <code>true</code> in the API request, or use the <code>--no-reboot</code> option in the CLI to prevent Amazon EC2 from shutting down and rebooting the instance.</p> <important> <p>If you choose to bypass the shutdown and reboot process by setting the <code>NoReboot</code> parameter to <code>true</code> in the API request, or by using the <code>--no-reboot</code> option in the CLI, we can't guarantee the file system integrity of the created image.</p> </important> <p>Default: <code>false</code> (follow standard reboot process)</p>\",\
           \"locationName\":\"noReboot\"\
         },\
         \"TagSpecifications\":{\
@@ -11367,7 +11377,7 @@
         },\
         \"KeyType\":{\
           \"shape\":\"KeyType\",\
-          \"documentation\":\"<p>The type of key pair. Note that ED25519 keys are not supported for Windows instances, EC2 Instance Connect, and EC2 Serial Console.</p> <p>Default: <code>rsa</code> </p>\"\
+          \"documentation\":\"<p>The type of key pair. Note that ED25519 keys are not supported for Windows instances.</p> <p>Default: <code>rsa</code> </p>\"\
         },\
         \"TagSpecifications\":{\
           \"shape\":\"TagSpecificationList\",\
@@ -13446,7 +13456,7 @@
         },\
         \"AcceptanceRequired\":{\
           \"shape\":\"Boolean\",\
-          \"documentation\":\"<p>Indicates whether requests from service consumers to create an endpoint to your service must be accepted. To accept a request, use <a>AcceptVpcEndpointConnections</a>.</p>\"\
+          \"documentation\":\"<p>Indicates whether requests from service consumers to create an endpoint to your service must be accepted manually.</p>\"\
         },\
         \"PrivateDnsName\":{\
           \"shape\":\"String\",\
@@ -17466,7 +17476,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>The filters.</p> <ul> <li> <p> <code>architecture</code> - The image architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code>).</p> </li> <li> <p> <code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates whether the Amazon EBS volume is deleted on instance termination.</p> </li> <li> <p> <code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p> </li> <li> <p> <code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the Amazon EBS volume.</p> </li> <li> <p> <code>block-device-mapping.volume-size</code> - The volume size of the Amazon EBS volume, in GiB.</p> </li> <li> <p> <code>block-device-mapping.volume-type</code> - The volume type of the Amazon EBS volume (<code>io1</code> | <code>io2</code> | <code>gp2</code> | <code>gp3</code> | <code>sc1 </code>| <code>st1</code> | <code>standard</code>).</p> </li> <li> <p> <code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the Amazon EBS volume is encrypted.</p> </li> <li> <p> <code>description</code> - The description of the image (provided during image creation).</p> </li> <li> <p> <code>ena-support</code> - A Boolean that indicates whether enhanced networking with ENA is enabled.</p> </li> <li> <p> <code>hypervisor</code> - The hypervisor type (<code>ovm</code> | <code>xen</code>).</p> </li> <li> <p> <code>image-id</code> - The ID of the image.</p> </li> <li> <p> <code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code> | <code>ramdisk</code>).</p> </li> <li> <p> <code>is-public</code> - A Boolean that indicates whether the image is public.</p> </li> <li> <p> <code>kernel-id</code> - The kernel ID.</p> </li> <li> <p> <code>manifest-location</code> - The location of the image manifest.</p> </li> <li> <p> <code>name</code> - The name of the AMI (provided during image creation).</p> </li> <li> <p> <code>owner-alias</code> - The owner alias (<code>amazon</code> | <code>aws-marketplace</code>). The valid aliases are defined in an Amazon-maintained list. This is not the Amazon Web Services account alias that can be set using the IAM console. We recommend that you use the <b>Owner</b> request parameter instead of this filter.</p> </li> <li> <p> <code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend that you use the <b>Owner</b> request parameter instead of this filter.</p> </li> <li> <p> <code>platform</code> - The platform. To only list Windows-based AMIs, use <code>windows</code>.</p> </li> <li> <p> <code>product-code</code> - The product code.</p> </li> <li> <p> <code>product-code.type</code> - The type of the product code (<code>marketplace</code>).</p> </li> <li> <p> <code>ramdisk-id</code> - The RAM disk ID.</p> </li> <li> <p> <code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p> </li> <li> <p> <code>root-device-type</code> - The type of the root device volume (<code>ebs</code> | <code>instance-store</code>).</p> </li> <li> <p> <code>state</code> - The state of the image (<code>available</code> | <code>pending</code> | <code>failed</code>).</p> </li> <li> <p> <code>state-reason-code</code> - The reason code for the state change.</p> </li> <li> <p> <code>state-reason-message</code> - The message for the state change.</p> </li> <li> <p> <code>sriov-net-support</code> - A value of <code>simple</code> indicates that enhanced networking with the Intel 82599 VF interface is enabled.</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>virtualization-type</code> - The virtualization type (<code>paravirtual</code> | <code>hvm</code>).</p> </li> </ul>\",\
+          \"documentation\":\"<p>The filters.</p> <ul> <li> <p> <code>architecture</code> - The image architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code>).</p> </li> <li> <p> <code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates whether the Amazon EBS volume is deleted on instance termination.</p> </li> <li> <p> <code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p> </li> <li> <p> <code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the Amazon EBS volume.</p> </li> <li> <p> <code>block-device-mapping.volume-size</code> - The volume size of the Amazon EBS volume, in GiB.</p> </li> <li> <p> <code>block-device-mapping.volume-type</code> - The volume type of the Amazon EBS volume (<code>io1</code> | <code>io2</code> | <code>gp2</code> | <code>gp3</code> | <code>sc1 </code>| <code>st1</code> | <code>standard</code>).</p> </li> <li> <p> <code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the Amazon EBS volume is encrypted.</p> </li> <li> <p> <code>creation-date</code> - The time when the image was created, in the ISO 8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <code>2021-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for example, <code>2021-09-29T*</code>, which matches an entire day.</p> </li> <li> <p> <code>description</code> - The description of the image (provided during image creation).</p> </li> <li> <p> <code>ena-support</code> - A Boolean that indicates whether enhanced networking with ENA is enabled.</p> </li> <li> <p> <code>hypervisor</code> - The hypervisor type (<code>ovm</code> | <code>xen</code>).</p> </li> <li> <p> <code>image-id</code> - The ID of the image.</p> </li> <li> <p> <code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code> | <code>ramdisk</code>).</p> </li> <li> <p> <code>is-public</code> - A Boolean that indicates whether the image is public.</p> </li> <li> <p> <code>kernel-id</code> - The kernel ID.</p> </li> <li> <p> <code>manifest-location</code> - The location of the image manifest.</p> </li> <li> <p> <code>name</code> - The name of the AMI (provided during image creation).</p> </li> <li> <p> <code>owner-alias</code> - The owner alias (<code>amazon</code> | <code>aws-marketplace</code>). The valid aliases are defined in an Amazon-maintained list. This is not the Amazon Web Services account alias that can be set using the IAM console. We recommend that you use the <b>Owner</b> request parameter instead of this filter.</p> </li> <li> <p> <code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend that you use the <b>Owner</b> request parameter instead of this filter.</p> </li> <li> <p> <code>platform</code> - The platform. To only list Windows-based AMIs, use <code>windows</code>.</p> </li> <li> <p> <code>product-code</code> - The product code.</p> </li> <li> <p> <code>product-code.type</code> - The type of the product code (<code>marketplace</code>).</p> </li> <li> <p> <code>ramdisk-id</code> - The RAM disk ID.</p> </li> <li> <p> <code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p> </li> <li> <p> <code>root-device-type</code> - The type of the root device volume (<code>ebs</code> | <code>instance-store</code>).</p> </li> <li> <p> <code>state</code> - The state of the image (<code>available</code> | <code>pending</code> | <code>failed</code>).</p> </li> <li> <p> <code>state-reason-code</code> - The reason code for the state change.</p> </li> <li> <p> <code>state-reason-message</code> - The message for the state change.</p> </li> <li> <p> <code>sriov-net-support</code> - A value of <code>simple</code> indicates that enhanced networking with the Intel 82599 VF interface is enabled.</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>virtualization-type</code> - The virtualization type (<code>paravirtual</code> | <code>hvm</code>).</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"ImageIds\":{\
@@ -18430,7 +18440,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>local-address</code> - The local address.</p> </li> <li> <p> <code>local-bgp-asn</code> - The Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the local gateway.</p> </li> <li> <p> <code>local-gateway-id</code> - The ID of the local gateway.</p> </li> <li> <p> <code>local-gateway-virtual-interface-id</code> - The ID of the virtual interface.</p> </li> <li> <p> <code>local-gateway-virtual-interface-group-id</code> - The ID of the virtual interface group.</p> </li> <li> <p> <code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway virtual interface.</p> </li> <li> <p> <code>peer-address</code> - The peer address.</p> </li> <li> <p> <code>peer-bgp-asn</code> - The peer BGP ASN.</p> </li> <li> <p> <code>vlan</code> - The ID of the VLAN.</p> </li> </ul>\",\
+          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>local-address</code> - The local address.</p> </li> <li> <p> <code>local-bgp-asn</code> - The Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the local gateway.</p> </li> <li> <p> <code>local-gateway-id</code> - The ID of the local gateway.</p> </li> <li> <p> <code>local-gateway-virtual-interface-id</code> - The ID of the virtual interface.</p> </li> <li> <p> <code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway virtual interface.</p> </li> <li> <p> <code>peer-address</code> - The peer address.</p> </li> <li> <p> <code>peer-bgp-asn</code> - The peer BGP ASN.</p> </li> <li> <p> <code>vlan</code> - The ID of the VLAN.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"MaxResults\":{\
@@ -22811,7 +22821,7 @@
         },\
         \"OutpostArn\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The ARN of the Outpost on which the snapshot is stored.</p>\",\
+          \"documentation\":\"<p>The ARN of the Outpost on which the snapshot is stored.</p> <p>This parameter is only supported on <code>BlockDeviceMapping</code> objects called by <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html\\\"> CreateImage</a>.</p>\",\
           \"locationName\":\"outpostArn\"\
         },\
         \"Encrypted\":{\
@@ -28977,6 +28987,11 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The IPv6 address assigned to the instance.</p>\",\
           \"locationName\":\"ipv6Address\"\
+        },\
+        \"MaintenanceOptions\":{\
+          \"shape\":\"InstanceMaintenanceOptions\",\
+          \"documentation\":\"<p>Provides information on the recovery and maintenance options of your instance.</p>\",\
+          \"locationName\":\"maintenanceOptions\"\
         }\
       },\
       \"documentation\":\"<p>Describes an instance.</p>\"\
@@ -29085,6 +29100,13 @@
         \"sriovNetSupport\",\
         \"enaSupport\",\
         \"enclaveOptions\"\
+      ]\
+    },\
+    \"InstanceAutoRecoveryState\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"disabled\",\
+        \"default\"\
       ]\
     },\
     \"InstanceBlockDeviceMapping\":{\
@@ -29617,6 +29639,27 @@
         \"shape\":\"Instance\",\
         \"locationName\":\"item\"\
       }\
+    },\
+    \"InstanceMaintenanceOptions\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"AutoRecovery\":{\
+          \"shape\":\"InstanceAutoRecoveryState\",\
+          \"documentation\":\"<p>Provides information on the current automatic recovery behavior of your instance.</p>\",\
+          \"locationName\":\"autoRecovery\"\
+        }\
+      },\
+      \"documentation\":\"<p>The maintenance options for the instance.</p>\"\
+    },\
+    \"InstanceMaintenanceOptionsRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"AutoRecovery\":{\
+          \"shape\":\"InstanceAutoRecoveryState\",\
+          \"documentation\":\"<p>Disables the automatic recovery behavior of your instance or sets it to default. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery\\\">Simplified automatic recovery</a>.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The maintenance options for the instance.</p>\"\
     },\
     \"InstanceMarketOptionsRequest\":{\
       \"type\":\"structure\",\
@@ -31040,7 +31083,29 @@
         \"z1d.3xlarge\",\
         \"z1d.6xlarge\",\
         \"z1d.12xlarge\",\
-        \"z1d.metal\"\
+        \"z1d.metal\",\
+        \"x2idn.16xlarge\",\
+        \"x2idn.24xlarge\",\
+        \"x2idn.32xlarge\",\
+        \"x2iedn.xlarge\",\
+        \"x2iedn.2xlarge\",\
+        \"x2iedn.4xlarge\",\
+        \"x2iedn.8xlarge\",\
+        \"x2iedn.16xlarge\",\
+        \"x2iedn.24xlarge\",\
+        \"x2iedn.32xlarge\",\
+        \"c6a.large\",\
+        \"c6a.xlarge\",\
+        \"c6a.2xlarge\",\
+        \"c6a.4xlarge\",\
+        \"c6a.8xlarge\",\
+        \"c6a.12xlarge\",\
+        \"c6a.16xlarge\",\
+        \"c6a.24xlarge\",\
+        \"c6a.32xlarge\",\
+        \"c6a.48xlarge\",\
+        \"c6a.metal\",\
+        \"m6a.metal\"\
       ]\
     },\
     \"InstanceTypeHypervisor\":{\
@@ -32701,6 +32766,13 @@
       },\
       \"documentation\":\"<p>Describes a launch template and overrides.</p>\"\
     },\
+    \"LaunchTemplateAutoRecoveryState\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"default\",\
+        \"disabled\"\
+      ]\
+    },\
     \"LaunchTemplateBlockDeviceMapping\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -33076,6 +33148,27 @@
         \"shape\":\"LaunchTemplateId\",\
         \"locationName\":\"item\"\
       }\
+    },\
+    \"LaunchTemplateInstanceMaintenanceOptions\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"AutoRecovery\":{\
+          \"shape\":\"LaunchTemplateAutoRecoveryState\",\
+          \"documentation\":\"<p>Disables the automatic recovery behavior of your instance or sets it to default.</p>\",\
+          \"locationName\":\"autoRecovery\"\
+        }\
+      },\
+      \"documentation\":\"<p>The maintenance options of your instance.</p>\"\
+    },\
+    \"LaunchTemplateInstanceMaintenanceOptionsRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"AutoRecovery\":{\
+          \"shape\":\"LaunchTemplateAutoRecoveryState\",\
+          \"documentation\":\"<p>Disables the automatic recovery behavior of your instance or sets it to default. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery\\\">Simplified automatic recovery</a>.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The maintenance options of your instance.</p>\"\
     },\
     \"LaunchTemplateInstanceMarketOptions\":{\
       \"type\":\"structure\",\
@@ -34940,7 +35033,7 @@
       \"members\":{\
         \"Return\":{\
           \"shape\":\"Boolean\",\
-          \"documentation\":\"<p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>\",\
+          \"documentation\":\"<p>If the request succeeds, the response returns <code>true</code>. If the request fails, no response is returned, and instead an error message is returned.</p>\",\
           \"locationName\":\"return\"\
         }\
       }\
@@ -35369,6 +35462,39 @@
           \"shape\":\"InstanceEventWindow\",\
           \"documentation\":\"<p>Information about the event window.</p>\",\
           \"locationName\":\"instanceEventWindow\"\
+        }\
+      }\
+    },\
+    \"ModifyInstanceMaintenanceOptionsRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"InstanceId\"],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The ID of the instance.</p>\"\
+        },\
+        \"AutoRecovery\":{\
+          \"shape\":\"InstanceAutoRecoveryState\",\
+          \"documentation\":\"<p>Disables the automatic recovery behavior of your instance or sets it to default.</p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"ModifyInstanceMaintenanceOptionsResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the instance.</p>\",\
+          \"locationName\":\"instanceId\"\
+        },\
+        \"AutoRecovery\":{\
+          \"shape\":\"InstanceAutoRecoveryState\",\
+          \"documentation\":\"<p>Provides information on the current automatic recovery behavior of your instance.</p>\",\
+          \"locationName\":\"autoRecovery\"\
         }\
       }\
     },\
@@ -35974,7 +36100,7 @@
       \"members\":{\
         \"Return\":{\
           \"shape\":\"Boolean\",\
-          \"documentation\":\"<p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>\",\
+          \"documentation\":\"<p>If the request succeeds, the response returns <code>true</code>. If the request fails, no response is returned, and instead an error message is returned.</p>\",\
           \"locationName\":\"return\"\
         }\
       },\
@@ -39423,7 +39549,7 @@
           \"locationName\":\"name\"\
         }\
       },\
-      \"documentation\":\"<p>Information about the private DNS name for the service endpoint. For more information about these parameters, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/ndpoint-services-dns-validation.html\\\">VPC Endpoint Service Private DNS Name Verification</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Information about the private DNS name for the service endpoint.</p>\"\
     },\
     \"PrivateDnsNameOptionsOnLaunch\":{\
       \"type\":\"structure\",\
@@ -41265,9 +41391,13 @@
         \"PrivateDnsNameOptions\":{\
           \"shape\":\"LaunchTemplatePrivateDnsNameOptionsRequest\",\
           \"documentation\":\"<p>The options for the instance hostname. The default values are inherited from the subnet.</p>\"\
+        },\
+        \"MaintenanceOptions\":{\
+          \"shape\":\"LaunchTemplateInstanceMaintenanceOptionsRequest\",\
+          \"documentation\":\"<p>The maintenance options for the instance.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>The information to include in the launch template.</p>\"\
+      \"documentation\":\"<p>The information to include in the launch template.</p> <note> <p>You must specify at least one parameter for the launch template data.</p> </note>\"\
     },\
     \"RequestSpotFleetRequest\":{\
       \"type\":\"structure\",\
@@ -42171,7 +42301,7 @@
       \"members\":{\
         \"Attribute\":{\
           \"shape\":\"InstanceAttributeName\",\
-          \"documentation\":\"<p>The attribute to reset.</p> <important> <p>You can only reset the following attributes: <code>kernel</code> | <code>ramdisk</code> | <code>sourceDestCheck</code>. To change an instance attribute, use <a>ModifyInstanceAttribute</a>.</p> </important>\",\
+          \"documentation\":\"<p>The attribute to reset.</p> <important> <p>You can only reset the following attributes: <code>kernel</code> | <code>ramdisk</code> | <code>sourceDestCheck</code>.</p> </important>\",\
           \"locationName\":\"attribute\"\
         },\
         \"DryRun\":{\
@@ -42528,6 +42658,11 @@
           \"shape\":\"LaunchTemplatePrivateDnsNameOptions\",\
           \"documentation\":\"<p>The options for the instance hostname.</p>\",\
           \"locationName\":\"privateDnsNameOptions\"\
+        },\
+        \"MaintenanceOptions\":{\
+          \"shape\":\"LaunchTemplateInstanceMaintenanceOptions\",\
+          \"documentation\":\"<p>The maintenance options for your instance.</p>\",\
+          \"locationName\":\"maintenanceOptions\"\
         }\
       },\
       \"documentation\":\"<p>The information for a launch template. </p>\"\
@@ -43266,7 +43401,7 @@
         },\
         \"UserData\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The user data to make available to the instance. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html\\\">Run commands on your Linux instance at launch</a> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html\\\">Run commands on your Windows instance at launch</a>. If you are using a command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text. User data is limited to 16 KB.</p>\"\
+          \"documentation\":\"<p>The user data script to make available to the instance. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html\\\">Run commands on your Linux instance at launch</a> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html\\\">Run commands on your Windows instance at launch</a>. If you are using a command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text. User data is limited to 16 KB.</p>\"\
         },\
         \"AdditionalInfo\":{\
           \"shape\":\"String\",\
@@ -43368,6 +43503,10 @@
         \"PrivateDnsNameOptions\":{\
           \"shape\":\"PrivateDnsNameOptionsRequest\",\
           \"documentation\":\"<p>The options for the instance hostname. The default values are inherited from the subnet.</p>\"\
+        },\
+        \"MaintenanceOptions\":{\
+          \"shape\":\"InstanceMaintenanceOptionsRequest\",\
+          \"documentation\":\"<p>The maintenance and recovery options for the instance.</p>\"\
         }\
       }\
     },\

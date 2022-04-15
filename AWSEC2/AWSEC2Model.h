@@ -832,6 +832,12 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceAttributeName) {
     AWSEC2InstanceAttributeNameEnclaveOptions,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2InstanceAutoRecoveryState) {
+    AWSEC2InstanceAutoRecoveryStateUnknown,
+    AWSEC2InstanceAutoRecoveryStateDisabled,
+    AWSEC2InstanceAutoRecoveryStateDefault,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2InstanceEventWindowState) {
     AWSEC2InstanceEventWindowStateUnknown,
     AWSEC2InstanceEventWindowStateCreating,
@@ -1404,6 +1410,28 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeZ1D_6xlarge,
     AWSEC2InstanceTypeZ1D_12xlarge,
     AWSEC2InstanceTypeZ1D_metal,
+    AWSEC2InstanceTypeX2Idn_16xlarge,
+    AWSEC2InstanceTypeX2Idn_24xlarge,
+    AWSEC2InstanceTypeX2Idn_32xlarge,
+    AWSEC2InstanceTypeX2Iedn_xlarge,
+    AWSEC2InstanceTypeX2Iedn_2xlarge,
+    AWSEC2InstanceTypeX2Iedn_4xlarge,
+    AWSEC2InstanceTypeX2Iedn_8xlarge,
+    AWSEC2InstanceTypeX2Iedn_16xlarge,
+    AWSEC2InstanceTypeX2Iedn_24xlarge,
+    AWSEC2InstanceTypeX2Iedn_32xlarge,
+    AWSEC2InstanceTypeC6A_large,
+    AWSEC2InstanceTypeC6A_xlarge,
+    AWSEC2InstanceTypeC6A_2xlarge,
+    AWSEC2InstanceTypeC6A_4xlarge,
+    AWSEC2InstanceTypeC6A_8xlarge,
+    AWSEC2InstanceTypeC6A_12xlarge,
+    AWSEC2InstanceTypeC6A_16xlarge,
+    AWSEC2InstanceTypeC6A_24xlarge,
+    AWSEC2InstanceTypeC6A_32xlarge,
+    AWSEC2InstanceTypeC6A_48xlarge,
+    AWSEC2InstanceTypeC6A_metal,
+    AWSEC2InstanceTypeM6A_metal,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2InstanceTypeHypervisor) {
@@ -1549,6 +1577,12 @@ typedef NS_ENUM(NSInteger, AWSEC2KeyType) {
     AWSEC2KeyTypeUnknown,
     AWSEC2KeyTypeRsa,
     AWSEC2KeyTypeEd25519,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2LaunchTemplateAutoRecoveryState) {
+    AWSEC2LaunchTemplateAutoRecoveryStateUnknown,
+    AWSEC2LaunchTemplateAutoRecoveryStateDefault,
+    AWSEC2LaunchTemplateAutoRecoveryStateDisabled,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2LaunchTemplateErrorCode) {
@@ -3574,6 +3608,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2InstanceIpv6Address;
 @class AWSEC2InstanceIpv6AddressRequest;
 @class AWSEC2InstanceIpv6Prefix;
+@class AWSEC2InstanceMaintenanceOptions;
+@class AWSEC2InstanceMaintenanceOptionsRequest;
 @class AWSEC2InstanceMarketOptionsRequest;
 @class AWSEC2InstanceMetadataOptionsRequest;
 @class AWSEC2InstanceMetadataOptionsResponse;
@@ -3650,6 +3686,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2LaunchTemplateHibernationOptionsRequest;
 @class AWSEC2LaunchTemplateIamInstanceProfileSpecification;
 @class AWSEC2LaunchTemplateIamInstanceProfileSpecificationRequest;
+@class AWSEC2LaunchTemplateInstanceMaintenanceOptions;
+@class AWSEC2LaunchTemplateInstanceMaintenanceOptionsRequest;
 @class AWSEC2LaunchTemplateInstanceMarketOptions;
 @class AWSEC2LaunchTemplateInstanceMarketOptionsRequest;
 @class AWSEC2LaunchTemplateInstanceMetadataOptions;
@@ -3726,6 +3764,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2ModifyInstanceEventStartTimeResult;
 @class AWSEC2ModifyInstanceEventWindowRequest;
 @class AWSEC2ModifyInstanceEventWindowResult;
+@class AWSEC2ModifyInstanceMaintenanceOptionsRequest;
+@class AWSEC2ModifyInstanceMaintenanceOptionsResult;
 @class AWSEC2ModifyInstanceMetadataOptionsRequest;
 @class AWSEC2ModifyInstanceMetadataOptionsResult;
 @class AWSEC2ModifyInstancePlacementRequest;
@@ -9656,7 +9696,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image. If the <code>No Reboot</code> option is set, Amazon EC2 doesn't shut down the instance before creating the image. Without a reboot, the AMI will be crash consistent (all the volumes are snapshotted at the same time), but not application consistent (all the operating system buffers are not flushed to disk before the snapshots are created).</p>
+ <p>By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it can take snapshots of the attached volumes while data is at rest, in order to ensure a consistent state. You can set the <code>NoReboot</code> parameter to <code>true</code> in the API request, or use the <code>--no-reboot</code> option in the CLI to prevent Amazon EC2 from shutting down and rebooting the instance.</p><important><p>If you choose to bypass the shutdown and reboot process by setting the <code>NoReboot</code> parameter to <code>true</code> in the API request, or by using the <code>--no-reboot</code> option in the CLI, we can't guarantee the file system integrity of the created image.</p></important><p>Default: <code>false</code> (follow standard reboot process)</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable noReboot;
 
@@ -10008,7 +10048,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable keyName;
 
 /**
- <p>The type of key pair. Note that ED25519 keys are not supported for Windows instances, EC2 Instance Connect, and EC2 Serial Console.</p><p>Default: <code>rsa</code></p>
+ <p>The type of key pair. Note that ED25519 keys are not supported for Windows instances.</p><p>Default: <code>rsa</code></p>
  */
 @property (nonatomic, assign) AWSEC2KeyType keyType;
 
@@ -12383,7 +12423,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Indicates whether requests from service consumers to create an endpoint to your service must be accepted. To accept a request, use <a>AcceptVpcEndpointConnections</a>.</p>
+ <p>Indicates whether requests from service consumers to create an endpoint to your service must be accepted manually.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable acceptanceRequired;
 
@@ -16918,7 +16958,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable executableUsers;
 
 /**
- <p>The filters.</p><ul><li><p><code>architecture</code> - The image architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code>).</p></li><li><p><code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates whether the Amazon EBS volume is deleted on instance termination.</p></li><li><p><code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p></li><li><p><code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the Amazon EBS volume.</p></li><li><p><code>block-device-mapping.volume-size</code> - The volume size of the Amazon EBS volume, in GiB.</p></li><li><p><code>block-device-mapping.volume-type</code> - The volume type of the Amazon EBS volume (<code>io1</code> | <code>io2</code> | <code>gp2</code> | <code>gp3</code> | <code>sc1 </code>| <code>st1</code> | <code>standard</code>).</p></li><li><p><code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the Amazon EBS volume is encrypted.</p></li><li><p><code>description</code> - The description of the image (provided during image creation).</p></li><li><p><code>ena-support</code> - A Boolean that indicates whether enhanced networking with ENA is enabled.</p></li><li><p><code>hypervisor</code> - The hypervisor type (<code>ovm</code> | <code>xen</code>).</p></li><li><p><code>image-id</code> - The ID of the image.</p></li><li><p><code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code> | <code>ramdisk</code>).</p></li><li><p><code>is-public</code> - A Boolean that indicates whether the image is public.</p></li><li><p><code>kernel-id</code> - The kernel ID.</p></li><li><p><code>manifest-location</code> - The location of the image manifest.</p></li><li><p><code>name</code> - The name of the AMI (provided during image creation).</p></li><li><p><code>owner-alias</code> - The owner alias (<code>amazon</code> | <code>aws-marketplace</code>). The valid aliases are defined in an Amazon-maintained list. This is not the Amazon Web Services account alias that can be set using the IAM console. We recommend that you use the <b>Owner</b> request parameter instead of this filter.</p></li><li><p><code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend that you use the <b>Owner</b> request parameter instead of this filter.</p></li><li><p><code>platform</code> - The platform. To only list Windows-based AMIs, use <code>windows</code>.</p></li><li><p><code>product-code</code> - The product code.</p></li><li><p><code>product-code.type</code> - The type of the product code (<code>marketplace</code>).</p></li><li><p><code>ramdisk-id</code> - The RAM disk ID.</p></li><li><p><code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p></li><li><p><code>root-device-type</code> - The type of the root device volume (<code>ebs</code> | <code>instance-store</code>).</p></li><li><p><code>state</code> - The state of the image (<code>available</code> | <code>pending</code> | <code>failed</code>).</p></li><li><p><code>state-reason-code</code> - The reason code for the state change.</p></li><li><p><code>state-reason-message</code> - The message for the state change.</p></li><li><p><code>sriov-net-support</code> - A value of <code>simple</code> indicates that enhanced networking with the Intel 82599 VF interface is enabled.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>virtualization-type</code> - The virtualization type (<code>paravirtual</code> | <code>hvm</code>).</p></li></ul>
+ <p>The filters.</p><ul><li><p><code>architecture</code> - The image architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code>).</p></li><li><p><code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates whether the Amazon EBS volume is deleted on instance termination.</p></li><li><p><code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p></li><li><p><code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the Amazon EBS volume.</p></li><li><p><code>block-device-mapping.volume-size</code> - The volume size of the Amazon EBS volume, in GiB.</p></li><li><p><code>block-device-mapping.volume-type</code> - The volume type of the Amazon EBS volume (<code>io1</code> | <code>io2</code> | <code>gp2</code> | <code>gp3</code> | <code>sc1 </code>| <code>st1</code> | <code>standard</code>).</p></li><li><p><code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the Amazon EBS volume is encrypted.</p></li><li><p><code>creation-date</code> - The time when the image was created, in the ISO 8601 format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <code>2021-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for example, <code>2021-09-29T*</code>, which matches an entire day.</p></li><li><p><code>description</code> - The description of the image (provided during image creation).</p></li><li><p><code>ena-support</code> - A Boolean that indicates whether enhanced networking with ENA is enabled.</p></li><li><p><code>hypervisor</code> - The hypervisor type (<code>ovm</code> | <code>xen</code>).</p></li><li><p><code>image-id</code> - The ID of the image.</p></li><li><p><code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code> | <code>ramdisk</code>).</p></li><li><p><code>is-public</code> - A Boolean that indicates whether the image is public.</p></li><li><p><code>kernel-id</code> - The kernel ID.</p></li><li><p><code>manifest-location</code> - The location of the image manifest.</p></li><li><p><code>name</code> - The name of the AMI (provided during image creation).</p></li><li><p><code>owner-alias</code> - The owner alias (<code>amazon</code> | <code>aws-marketplace</code>). The valid aliases are defined in an Amazon-maintained list. This is not the Amazon Web Services account alias that can be set using the IAM console. We recommend that you use the <b>Owner</b> request parameter instead of this filter.</p></li><li><p><code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend that you use the <b>Owner</b> request parameter instead of this filter.</p></li><li><p><code>platform</code> - The platform. To only list Windows-based AMIs, use <code>windows</code>.</p></li><li><p><code>product-code</code> - The product code.</p></li><li><p><code>product-code.type</code> - The type of the product code (<code>marketplace</code>).</p></li><li><p><code>ramdisk-id</code> - The RAM disk ID.</p></li><li><p><code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p></li><li><p><code>root-device-type</code> - The type of the root device volume (<code>ebs</code> | <code>instance-store</code>).</p></li><li><p><code>state</code> - The state of the image (<code>available</code> | <code>pending</code> | <code>failed</code>).</p></li><li><p><code>state-reason-code</code> - The reason code for the state change.</p></li><li><p><code>state-reason-message</code> - The message for the state change.</p></li><li><p><code>sriov-net-support</code> - A value of <code>simple</code> indicates that enhanced networking with the Intel 82599 VF interface is enabled.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>virtualization-type</code> - The virtualization type (<code>paravirtual</code> | <code>hvm</code>).</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -18053,7 +18093,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters.</p><ul><li><p><code>local-address</code> - The local address.</p></li><li><p><code>local-bgp-asn</code> - The Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the local gateway.</p></li><li><p><code>local-gateway-id</code> - The ID of the local gateway.</p></li><li><p><code>local-gateway-virtual-interface-id</code> - The ID of the virtual interface.</p></li><li><p><code>local-gateway-virtual-interface-group-id</code> - The ID of the virtual interface group.</p></li><li><p><code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway virtual interface.</p></li><li><p><code>peer-address</code> - The peer address.</p></li><li><p><code>peer-bgp-asn</code> - The peer BGP ASN.</p></li><li><p><code>vlan</code> - The ID of the VLAN.</p></li></ul>
+ <p>One or more filters.</p><ul><li><p><code>local-address</code> - The local address.</p></li><li><p><code>local-bgp-asn</code> - The Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the local gateway.</p></li><li><p><code>local-gateway-id</code> - The ID of the local gateway.</p></li><li><p><code>local-gateway-virtual-interface-id</code> - The ID of the virtual interface.</p></li><li><p><code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway virtual interface.</p></li><li><p><code>peer-address</code> - The peer address.</p></li><li><p><code>peer-bgp-asn</code> - The peer BGP ASN.</p></li><li><p><code>vlan</code> - The ID of the VLAN.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -22893,7 +22933,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
 /**
- <p>The ARN of the Outpost on which the snapshot is stored.</p>
+ <p>The ARN of the Outpost on which the snapshot is stored.</p><p>This parameter is only supported on <code>BlockDeviceMapping</code> objects called by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html"> CreateImage</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable outpostArn;
 
@@ -28673,6 +28713,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2LicenseConfiguration *> * _Nullable licenses;
 
 /**
+ <p>Provides information on the recovery and maintenance options of your instance.</p>
+ */
+@property (nonatomic, strong) AWSEC2InstanceMaintenanceOptions * _Nullable maintenanceOptions;
+
+/**
  <p>The metadata options for the instance.</p>
  */
 @property (nonatomic, strong) AWSEC2InstanceMetadataOptionsResponse * _Nullable metadataOptions;
@@ -29301,6 +29346,32 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>One or more IPv6 prefixes assigned to the network interface.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipv6Prefix;
+
+@end
+
+/**
+ <p>The maintenance options for the instance.</p>
+ */
+@interface AWSEC2InstanceMaintenanceOptions : AWSModel
+
+
+/**
+ <p>Provides information on the current automatic recovery behavior of your instance.</p>
+ */
+@property (nonatomic, assign) AWSEC2InstanceAutoRecoveryState autoRecovery;
+
+@end
+
+/**
+ <p>The maintenance options for the instance.</p>
+ */
+@interface AWSEC2InstanceMaintenanceOptionsRequest : AWSModel
+
+
+/**
+ <p>Disables the automatic recovery behavior of your instance or sets it to default. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery">Simplified automatic recovery</a>.</p>
+ */
+@property (nonatomic, assign) AWSEC2InstanceAutoRecoveryState autoRecovery;
 
 @end
 
@@ -31810,6 +31881,32 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>The maintenance options of your instance.</p>
+ */
+@interface AWSEC2LaunchTemplateInstanceMaintenanceOptions : AWSModel
+
+
+/**
+ <p>Disables the automatic recovery behavior of your instance or sets it to default.</p>
+ */
+@property (nonatomic, assign) AWSEC2LaunchTemplateAutoRecoveryState autoRecovery;
+
+@end
+
+/**
+ <p>The maintenance options of your instance.</p>
+ */
+@interface AWSEC2LaunchTemplateInstanceMaintenanceOptionsRequest : AWSModel
+
+
+/**
+ <p>Disables the automatic recovery behavior of your instance or sets it to default. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery">Simplified automatic recovery</a>.</p>
+ */
+@property (nonatomic, assign) AWSEC2LaunchTemplateAutoRecoveryState autoRecovery;
+
+@end
+
+/**
  <p>The market (purchasing) option for the instances.</p>
  */
 @interface AWSEC2LaunchTemplateInstanceMarketOptions : AWSModel
@@ -33544,7 +33641,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
+ <p>If the request succeeds, the response returns <code>true</code>. If the request fails, no response is returned, and instead an error message is returned.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable returned;
 
@@ -34031,6 +34128,47 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the event window.</p>
  */
 @property (nonatomic, strong) AWSEC2InstanceEventWindow * _Nullable instanceEventWindow;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyInstanceMaintenanceOptionsRequest : AWSRequest
+
+
+/**
+ <p>Disables the automatic recovery behavior of your instance or sets it to default.</p>
+ */
+@property (nonatomic, assign) AWSEC2InstanceAutoRecoveryState autoRecovery;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyInstanceMaintenanceOptionsResult : AWSModel
+
+
+/**
+ <p>Provides information on the current automatic recovery behavior of your instance.</p>
+ */
+@property (nonatomic, assign) AWSEC2InstanceAutoRecoveryState autoRecovery;
+
+/**
+ <p>The ID of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
 
 @end
 
@@ -34750,7 +34888,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
+ <p>If the request succeeds, the response returns <code>true</code>. If the request fails, no response is returned, and instead an error message is returned.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable returned;
 
@@ -37904,7 +38042,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Information about the private DNS name for the service endpoint. For more information about these parameters, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/ndpoint-services-dns-validation.html">VPC Endpoint Service Private DNS Name Verification</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Information about the private DNS name for the service endpoint.</p>
  */
 @interface AWSEC2PrivateDnsNameConfiguration : AWSModel
 
@@ -39576,7 +39714,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>The information to include in the launch template.</p>
+ <p>The information to include in the launch template.</p><note><p>You must specify at least one parameter for the launch template data.</p></note>
  */
 @interface AWSEC2RequestLaunchTemplateData : AWSModel
 
@@ -39675,6 +39813,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The license configurations.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2LaunchTemplateLicenseConfigurationRequest *> * _Nullable licenseSpecifications;
+
+/**
+ <p>The maintenance options for the instance.</p>
+ */
+@property (nonatomic, strong) AWSEC2LaunchTemplateInstanceMaintenanceOptionsRequest * _Nullable maintenanceOptions;
 
 /**
  <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -40554,7 +40697,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The attribute to reset.</p><important><p>You can only reset the following attributes: <code>kernel</code> | <code>ramdisk</code> | <code>sourceDestCheck</code>. To change an instance attribute, use <a>ModifyInstanceAttribute</a>.</p></important>
+ <p>The attribute to reset.</p><important><p>You can only reset the following attributes: <code>kernel</code> | <code>ramdisk</code> | <code>sourceDestCheck</code>.</p></important>
  */
 @property (nonatomic, assign) AWSEC2InstanceAttributeName attribute;
 
@@ -40771,6 +40914,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The license configurations.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2LaunchTemplateLicenseConfiguration *> * _Nullable licenseSpecifications;
+
+/**
+ <p>The maintenance options for your instance.</p>
+ */
+@property (nonatomic, strong) AWSEC2LaunchTemplateInstanceMaintenanceOptions * _Nullable maintenanceOptions;
 
 /**
  <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -41595,6 +41743,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2LicenseConfigurationRequest *> * _Nullable licenseSpecifications;
 
 /**
+ <p>The maintenance and recovery options for the instance.</p>
+ */
+@property (nonatomic, strong) AWSEC2InstanceMaintenanceOptionsRequest * _Nullable maintenanceOptions;
+
+/**
  <p>The maximum number of instances to launch. If you specify more instances than Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches the largest possible number of instances above <code>MinCount</code>.</p><p>Constraints: Between 1 and the maximum number you're allowed for the specified instance type. For more information about the default limits, and how to request an increase, see <a href="http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2">How many instances can I run in Amazon EC2</a> in the Amazon EC2 FAQ.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxCount;
@@ -41660,7 +41813,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
 
 /**
- <p>The user data to make available to the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Run commands on your Linux instance at launch</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html">Run commands on your Windows instance at launch</a>. If you are using a command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text. User data is limited to 16 KB.</p>
+ <p>The user data script to make available to the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Run commands on your Linux instance at launch</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html">Run commands on your Windows instance at launch</a>. If you are using a command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text. User data is limited to 16 KB.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userData;
 
