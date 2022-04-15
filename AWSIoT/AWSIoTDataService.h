@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -200,7 +200,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTDataSDKVersion;
 - (void)deleteThingShadow:(AWSIoTDataDeleteThingShadowRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDataDeleteThingShadowResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets the details of a single retained message for the specified topic.</p><p>This action returns the message payload of the retained message, which can incur messaging costs. To list only the topic names of the retained messages, call <a href="/iot/latest/developerguide/API_iotdata_ListRetainedMessages.html">ListRetainedMessages</a>.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions">GetRetainedMessage</a> action.</p><p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">IoT Core pricing - Messaging</a>.</p>
+ <p>Gets the details of a single retained message for the specified topic.</p><p>This action returns the message payload of the retained message, which can incur messaging costs. To list only the topic names of the retained messages, call <a href="/iot/latest/developerguide/API_iotdata_ListRetainedMessages.html">ListRetainedMessages</a>.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions">GetRetainedMessage</a> action.</p><p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">Amazon Web Services IoT Core pricing - Messaging</a>.</p>
  
  @param request A container for the necessary parameters to execute the GetRetainedMessage service method.
 
@@ -212,7 +212,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTDataSDKVersion;
 - (AWSTask<AWSIoTDataGetRetainedMessageResponse *> *)getRetainedMessage:(AWSIoTDataGetRetainedMessageRequest *)request;
 
 /**
- <p>Gets the details of a single retained message for the specified topic.</p><p>This action returns the message payload of the retained message, which can incur messaging costs. To list only the topic names of the retained messages, call <a href="/iot/latest/developerguide/API_iotdata_ListRetainedMessages.html">ListRetainedMessages</a>.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions">GetRetainedMessage</a> action.</p><p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">IoT Core pricing - Messaging</a>.</p>
+ <p>Gets the details of a single retained message for the specified topic.</p><p>This action returns the message payload of the retained message, which can incur messaging costs. To list only the topic names of the retained messages, call <a href="/iot/latest/developerguide/API_iotdata_ListRetainedMessages.html">ListRetainedMessages</a>.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions">GetRetainedMessage</a> action.</p><p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">Amazon Web Services IoT Core pricing - Messaging</a>.</p>
  
  @param request A container for the necessary parameters to execute the GetRetainedMessage service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -275,7 +275,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTDataSDKVersion;
 - (void)listNamedShadowsForThing:(AWSIoTDataListNamedShadowsForThingRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDataListNamedShadowsForThingResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists summary information about the retained messages stored for the account.</p><p>This action returns only the topic names of the retained messages. It doesn't return any message payloads. Although this action doesn't return a message payload, it can still incur messaging costs.</p><p>To get the message payload of a retained message, call <a href="https://docs.aws.amazon.com/iot/latest/developerguide/API_iotdata_GetRetainedMessage.html">GetRetainedMessage</a> with the topic name of the retained message.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions">ListRetainedMessages</a> action.</p><p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">IoT Core pricing - Messaging</a>.</p>
+ <p>Lists summary information about the retained messages stored for the account.</p><p>This action returns only the topic names of the retained messages. It doesn't return any message payloads. Although this action doesn't return a message payload, it can still incur messaging costs.</p><p>To get the message payload of a retained message, call <a href="https://docs.aws.amazon.com/iot/latest/developerguide/API_iotdata_GetRetainedMessage.html">GetRetainedMessage</a> with the topic name of the retained message.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions">ListRetainedMessages</a> action.</p><p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">Amazon Web Services IoT Core pricing - Messaging</a>.</p>
  
  @param request A container for the necessary parameters to execute the ListRetainedMessages service method.
 
@@ -287,7 +287,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTDataSDKVersion;
 - (AWSTask<AWSIoTDataListRetainedMessagesResponse *> *)listRetainedMessages:(AWSIoTDataListRetainedMessagesRequest *)request;
 
 /**
- <p>Lists summary information about the retained messages stored for the account.</p><p>This action returns only the topic names of the retained messages. It doesn't return any message payloads. Although this action doesn't return a message payload, it can still incur messaging costs.</p><p>To get the message payload of a retained message, call <a href="https://docs.aws.amazon.com/iot/latest/developerguide/API_iotdata_GetRetainedMessage.html">GetRetainedMessage</a> with the topic name of the retained message.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions">ListRetainedMessages</a> action.</p><p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">IoT Core pricing - Messaging</a>.</p>
+ <p>Lists summary information about the retained messages stored for the account.</p><p>This action returns only the topic names of the retained messages. It doesn't return any message payloads. Although this action doesn't return a message payload, it can still incur messaging costs.</p><p>To get the message payload of a retained message, call <a href="https://docs.aws.amazon.com/iot/latest/developerguide/API_iotdata_GetRetainedMessage.html">GetRetainedMessage</a> with the topic name of the retained message.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions">ListRetainedMessages</a> action.</p><p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">Amazon Web Services IoT Core pricing - Messaging</a>.</p>
  
  @param request A container for the necessary parameters to execute the ListRetainedMessages service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -300,7 +300,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTDataSDKVersion;
 - (void)listRetainedMessages:(AWSIoTDataListRetainedMessagesRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDataListRetainedMessagesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Publishes an MQTT message.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">Publish</a> action.</p><p>For more information about MQTT messages, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html">MQTT Protocol</a> in the IoT Developer Guide.</p><p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">IoT Core pricing - Messaging</a>.</p>
+ <p>Publishes an MQTT message.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">Publish</a> action.</p><p>For more information about MQTT messages, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html">MQTT Protocol</a> in the IoT Developer Guide.</p><p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">Amazon Web Services IoT Core pricing - Messaging</a>.</p>
  
  @param request A container for the necessary parameters to execute the Publish service method.
 
@@ -311,7 +311,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTDataSDKVersion;
 - (AWSTask *)publish:(AWSIoTDataPublishRequest *)request;
 
 /**
- <p>Publishes an MQTT message.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">Publish</a> action.</p><p>For more information about MQTT messages, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html">MQTT Protocol</a> in the IoT Developer Guide.</p><p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">IoT Core pricing - Messaging</a>.</p>
+ <p>Publishes an MQTT message.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">Publish</a> action.</p><p>For more information about MQTT messages, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html">MQTT Protocol</a> in the IoT Developer Guide.</p><p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">Amazon Web Services IoT Core pricing - Messaging</a>.</p>
  
  @param request A container for the necessary parameters to execute the Publish service method.
  @param completionHandler The completion handler to call when the load request is complete.

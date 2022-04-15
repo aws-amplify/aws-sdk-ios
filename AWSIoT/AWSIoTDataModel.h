@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -247,7 +247,7 @@ typedef NS_ENUM(NSInteger, AWSIoTDataErrorType) {
 
 
 /**
- <p>The message body. MQTT accepts text, binary, and empty (null) message payloads.</p><p>Publishing an empty (null) payload with <b>retain</b> = <code>true</code> deletes the retained message identified by <b>topic</b> from IoT Core.</p>
+ <p>The message body. MQTT accepts text, binary, and empty (null) message payloads.</p><p>Publishing an empty (null) payload with <b>retain</b> = <code>true</code> deletes the retained message identified by <b>topic</b> from Amazon Web Services IoT Core.</p>
  */
 @property (nonatomic, strong) id _Nullable payload;
 
