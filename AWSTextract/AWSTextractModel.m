@@ -29,6 +29,7 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
              @"document" : @"Document",
              @"featureTypes" : @"FeatureTypes",
              @"humanLoopConfig" : @"HumanLoopConfig",
+             @"queriesConfig" : @"QueriesConfig",
              };
 }
 
@@ -38,6 +39,10 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 + (NSValueTransformer *)humanLoopConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractHumanLoopConfig class]];
+}
+
++ (NSValueTransformer *)queriesConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractQueriesConfig class]];
 }
 
 @end
@@ -190,6 +195,7 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
              @"geometry" : @"Geometry",
              @"identifier" : @"Id",
              @"page" : @"Page",
+             @"query" : @"Query",
              @"relationships" : @"Relationships",
              @"rowIndex" : @"RowIndex",
              @"rowSpan" : @"RowSpan",
@@ -228,6 +234,12 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
         if ([value caseInsensitiveCompare:@"TITLE"] == NSOrderedSame) {
             return @(AWSTextractBlockTypeTitle);
         }
+        if ([value caseInsensitiveCompare:@"QUERY"] == NSOrderedSame) {
+            return @(AWSTextractBlockTypeQuery);
+        }
+        if ([value caseInsensitiveCompare:@"QUERY_RESULT"] == NSOrderedSame) {
+            return @(AWSTextractBlockTypeQueryResult);
+        }
         return @(AWSTextractBlockTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -249,6 +261,10 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
                 return @"MERGED_CELL";
             case AWSTextractBlockTypeTitle:
                 return @"TITLE";
+            case AWSTextractBlockTypeQuery:
+                return @"QUERY";
+            case AWSTextractBlockTypeQueryResult:
+                return @"QUERY_RESULT";
             default:
                 return nil;
         }
@@ -257,6 +273,10 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 + (NSValueTransformer *)geometryJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractGeometry class]];
+}
+
++ (NSValueTransformer *)queryJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractQuery class]];
 }
 
 + (NSValueTransformer *)relationshipsJSONTransformer {
@@ -970,6 +990,40 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 @end
 
+@implementation AWSTextractQueriesConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"queries" : @"Queries",
+             };
+}
+
++ (NSValueTransformer *)queriesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTextractQuery class]];
+}
+
+@end
+
+@implementation AWSTextractQuery
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"alias" : @"Alias",
+             @"pages" : @"Pages",
+             @"text" : @"Text",
+             };
+}
+
+@end
+
 @implementation AWSTextractRelationship
 
 + (BOOL)supportsSecureCoding {
@@ -1000,6 +1054,9 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
         if ([value caseInsensitiveCompare:@"TITLE"] == NSOrderedSame) {
             return @(AWSTextractRelationshipTypeTitle);
         }
+        if ([value caseInsensitiveCompare:@"ANSWER"] == NSOrderedSame) {
+            return @(AWSTextractRelationshipTypeAnswer);
+        }
         return @(AWSTextractRelationshipTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1013,6 +1070,8 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
                 return @"MERGED_CELL";
             case AWSTextractRelationshipTypeTitle:
                 return @"TITLE";
+            case AWSTextractRelationshipTypeAnswer:
+                return @"ANSWER";
             default:
                 return nil;
         }
@@ -1052,6 +1111,7 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
              @"KMSKeyId" : @"KMSKeyId",
              @"notificationChannel" : @"NotificationChannel",
              @"outputConfig" : @"OutputConfig",
+             @"queriesConfig" : @"QueriesConfig",
              };
 }
 
@@ -1065,6 +1125,10 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 + (NSValueTransformer *)outputConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractOutputConfig class]];
+}
+
++ (NSValueTransformer *)queriesConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractQueriesConfig class]];
 }
 
 @end
