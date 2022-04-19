@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -58,6 +58,8 @@
 - (void) test_AWSKMSGenerateDataKeyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSKMSGenerateDataKeyWithoutPlaintextRequest API_AVAILABLE(ios(11));
 - (void) test_AWSKMSGenerateDataKeyWithoutPlaintextResponse API_AVAILABLE(ios(11));
+- (void) test_AWSKMSGenerateMacRequest API_AVAILABLE(ios(11));
+- (void) test_AWSKMSGenerateMacResponse API_AVAILABLE(ios(11));
 - (void) test_AWSKMSGenerateRandomRequest API_AVAILABLE(ios(11));
 - (void) test_AWSKMSGenerateRandomResponse API_AVAILABLE(ios(11));
 - (void) test_AWSKMSGetKeyPolicyRequest API_AVAILABLE(ios(11));
@@ -106,6 +108,8 @@
 - (void) test_AWSKMSUpdateCustomKeyStoreResponse API_AVAILABLE(ios(11));
 - (void) test_AWSKMSUpdateKeyDescriptionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSKMSUpdatePrimaryRegionRequest API_AVAILABLE(ios(11));
+- (void) test_AWSKMSVerifyMacRequest API_AVAILABLE(ios(11));
+- (void) test_AWSKMSVerifyMacResponse API_AVAILABLE(ios(11));
 - (void) test_AWSKMSVerifyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSKMSVerifyResponse API_AVAILABLE(ios(11));
 
@@ -267,6 +271,14 @@
 
 - (void) test_AWSKMSGenerateDataKeyWithoutPlaintextResponse {
     [self validateSecureCodingForClass:[AWSKMSGenerateDataKeyWithoutPlaintextResponse class]];
+}
+
+- (void) test_AWSKMSGenerateMacRequest {
+    [self validateSecureCodingForClass:[AWSKMSGenerateMacRequest class]];
+}
+
+- (void) test_AWSKMSGenerateMacResponse {
+    [self validateSecureCodingForClass:[AWSKMSGenerateMacResponse class]];
 }
 
 - (void) test_AWSKMSGenerateRandomRequest {
@@ -459,6 +471,14 @@
 
 - (void) test_AWSKMSUpdatePrimaryRegionRequest {
     [self validateSecureCodingForClass:[AWSKMSUpdatePrimaryRegionRequest class]];
+}
+
+- (void) test_AWSKMSVerifyMacRequest {
+    [self validateSecureCodingForClass:[AWSKMSVerifyMacRequest class]];
+}
+
+- (void) test_AWSKMSVerifyMacResponse {
+    [self validateSecureCodingForClass:[AWSKMSVerifyMacResponse class]];
 }
 
 - (void) test_AWSKMSVerifyRequest {

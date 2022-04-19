@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -64,6 +64,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InvalidKeyUsageException" : @(AWSKMSErrorInvalidKeyUsage),
                             @"InvalidMarkerException" : @(AWSKMSErrorInvalidMarker),
                             @"KMSInternalException" : @(AWSKMSErrorKMSInternal),
+                            @"KMSInvalidMacException" : @(AWSKMSErrorKMSInvalidMac),
                             @"KMSInvalidSignatureException" : @(AWSKMSErrorKMSInvalidSignature),
                             @"KMSInvalidStateException" : @(AWSKMSErrorKMSInvalidState),
                             @"KeyUnavailableException" : @(AWSKMSErrorKeyUnavailable),
@@ -805,6 +806,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSKMSGenerateMacResponse *> *)generateMac:(AWSKMSGenerateMacRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"TrentService"
+                 operationName:@"GenerateMac"
+                   outputClass:[AWSKMSGenerateMacResponse class]];
+}
+
+- (void)generateMac:(AWSKMSGenerateMacRequest *)request
+     completionHandler:(void (^)(AWSKMSGenerateMacResponse *response, NSError *error))completionHandler {
+    [[self generateMac:request] continueWithBlock:^id _Nullable(AWSTask<AWSKMSGenerateMacResponse *> * _Nonnull task) {
+        AWSKMSGenerateMacResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSKMSGenerateRandomResponse *> *)generateRandom:(AWSKMSGenerateRandomRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1385,6 +1409,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSKMSVerifyResponse *response, NSError *error))completionHandler {
     [[self verify:request] continueWithBlock:^id _Nullable(AWSTask<AWSKMSVerifyResponse *> * _Nonnull task) {
         AWSKMSVerifyResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSKMSVerifyMacResponse *> *)verifyMac:(AWSKMSVerifyMacRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"TrentService"
+                 operationName:@"VerifyMac"
+                   outputClass:[AWSKMSVerifyMacResponse class]];
+}
+
+- (void)verifyMac:(AWSKMSVerifyMacRequest *)request
+     completionHandler:(void (^)(AWSKMSVerifyMacResponse *response, NSError *error))completionHandler {
+    [[self verifyMac:request] continueWithBlock:^id _Nullable(AWSTask<AWSKMSVerifyMacResponse *> * _Nonnull task) {
+        AWSKMSVerifyMacResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
