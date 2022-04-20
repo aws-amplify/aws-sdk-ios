@@ -31,14 +31,19 @@
 - (void) test_AWSConnectAssociateInstanceStorageConfigResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateLambdaFunctionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateLexBotRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectAssociatePhoneNumberContactFlowRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateQueueQuickConnectsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateRoutingProfileQueuesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateSecurityKeyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateSecurityKeyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAttachmentReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAttribute API_AVAILABLE(ios(11));
+- (void) test_AWSConnectAvailableNumberSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectChatMessage API_AVAILABLE(ios(11));
 - (void) test_AWSConnectChatStreamingConfiguration API_AVAILABLE(ios(11));
+- (void) test_AWSConnectClaimPhoneNumberRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectClaimPhoneNumberResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectClaimedPhoneNumberSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectContact API_AVAILABLE(ios(11));
 - (void) test_AWSConnectContactFlow API_AVAILABLE(ios(11));
 - (void) test_AWSConnectContactFlowModule API_AVAILABLE(ios(11));
@@ -106,6 +111,8 @@
 - (void) test_AWSConnectDescribeInstanceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeInstanceStorageConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeInstanceStorageConfigResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDescribePhoneNumberRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDescribePhoneNumberResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeQueueRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeQueueResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeQuickConnectRequest API_AVAILABLE(ios(11));
@@ -128,6 +135,7 @@
 - (void) test_AWSConnectDisassociateInstanceStorageConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDisassociateLambdaFunctionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDisassociateLexBotRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDisassociatePhoneNumberContactFlowRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDisassociateQueueQuickConnectsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDisassociateRoutingProfileQueuesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDisassociateSecurityKeyRequest API_AVAILABLE(ios(11));
@@ -196,6 +204,9 @@
 - (void) test_AWSConnectListLexBotsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListPhoneNumbersRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListPhoneNumbersResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectListPhoneNumbersSummary API_AVAILABLE(ios(11));
+- (void) test_AWSConnectListPhoneNumbersV2Request API_AVAILABLE(ios(11));
+- (void) test_AWSConnectListPhoneNumbersV2Response API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListPromptsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListPromptsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListQueueQuickConnectsRequest API_AVAILABLE(ios(11));
@@ -226,6 +237,7 @@
 - (void) test_AWSConnectOutboundCallerConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectParticipantDetails API_AVAILABLE(ios(11));
 - (void) test_AWSConnectPhoneNumberQuickConnectConfig API_AVAILABLE(ios(11));
+- (void) test_AWSConnectPhoneNumberStatus API_AVAILABLE(ios(11));
 - (void) test_AWSConnectPhoneNumberSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectProblemDetail API_AVAILABLE(ios(11));
 - (void) test_AWSConnectPromptSummary API_AVAILABLE(ios(11));
@@ -239,6 +251,7 @@
 - (void) test_AWSConnectQuickConnectSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectReferenceSummary API_AVAILABLE(ios(11));
+- (void) test_AWSConnectReleasePhoneNumberRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectResumeContactRecordingRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectResumeContactRecordingResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectRoutingProfile API_AVAILABLE(ios(11));
@@ -247,6 +260,8 @@
 - (void) test_AWSConnectRoutingProfileQueueReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectRoutingProfileSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectS3Config API_AVAILABLE(ios(11));
+- (void) test_AWSConnectSearchAvailablePhoneNumbersRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectSearchAvailablePhoneNumbersResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSearchVocabulariesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSearchVocabulariesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSecurityKey API_AVAILABLE(ios(11));
@@ -290,6 +305,8 @@
 - (void) test_AWSConnectUpdateHoursOfOperationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateInstanceAttributeRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateInstanceStorageConfigRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUpdatePhoneNumberRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUpdatePhoneNumberResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateQueueHoursOfOperationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateQueueMaxContactsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateQueueNameRequest API_AVAILABLE(ios(11));
@@ -372,6 +389,10 @@
     [self validateSecureCodingForClass:[AWSConnectAssociateLexBotRequest class]];
 }
 
+- (void) test_AWSConnectAssociatePhoneNumberContactFlowRequest {
+    [self validateSecureCodingForClass:[AWSConnectAssociatePhoneNumberContactFlowRequest class]];
+}
+
 - (void) test_AWSConnectAssociateQueueQuickConnectsRequest {
     [self validateSecureCodingForClass:[AWSConnectAssociateQueueQuickConnectsRequest class]];
 }
@@ -396,12 +417,28 @@
     [self validateSecureCodingForClass:[AWSConnectAttribute class]];
 }
 
+- (void) test_AWSConnectAvailableNumberSummary {
+    [self validateSecureCodingForClass:[AWSConnectAvailableNumberSummary class]];
+}
+
 - (void) test_AWSConnectChatMessage {
     [self validateSecureCodingForClass:[AWSConnectChatMessage class]];
 }
 
 - (void) test_AWSConnectChatStreamingConfiguration {
     [self validateSecureCodingForClass:[AWSConnectChatStreamingConfiguration class]];
+}
+
+- (void) test_AWSConnectClaimPhoneNumberRequest {
+    [self validateSecureCodingForClass:[AWSConnectClaimPhoneNumberRequest class]];
+}
+
+- (void) test_AWSConnectClaimPhoneNumberResponse {
+    [self validateSecureCodingForClass:[AWSConnectClaimPhoneNumberResponse class]];
+}
+
+- (void) test_AWSConnectClaimedPhoneNumberSummary {
+    [self validateSecureCodingForClass:[AWSConnectClaimedPhoneNumberSummary class]];
 }
 
 - (void) test_AWSConnectContact {
@@ -672,6 +709,14 @@
     [self validateSecureCodingForClass:[AWSConnectDescribeInstanceStorageConfigResponse class]];
 }
 
+- (void) test_AWSConnectDescribePhoneNumberRequest {
+    [self validateSecureCodingForClass:[AWSConnectDescribePhoneNumberRequest class]];
+}
+
+- (void) test_AWSConnectDescribePhoneNumberResponse {
+    [self validateSecureCodingForClass:[AWSConnectDescribePhoneNumberResponse class]];
+}
+
 - (void) test_AWSConnectDescribeQueueRequest {
     [self validateSecureCodingForClass:[AWSConnectDescribeQueueRequest class]];
 }
@@ -758,6 +803,10 @@
 
 - (void) test_AWSConnectDisassociateLexBotRequest {
     [self validateSecureCodingForClass:[AWSConnectDisassociateLexBotRequest class]];
+}
+
+- (void) test_AWSConnectDisassociatePhoneNumberContactFlowRequest {
+    [self validateSecureCodingForClass:[AWSConnectDisassociatePhoneNumberContactFlowRequest class]];
 }
 
 - (void) test_AWSConnectDisassociateQueueQuickConnectsRequest {
@@ -1032,6 +1081,18 @@
     [self validateSecureCodingForClass:[AWSConnectListPhoneNumbersResponse class]];
 }
 
+- (void) test_AWSConnectListPhoneNumbersSummary {
+    [self validateSecureCodingForClass:[AWSConnectListPhoneNumbersSummary class]];
+}
+
+- (void) test_AWSConnectListPhoneNumbersV2Request {
+    [self validateSecureCodingForClass:[AWSConnectListPhoneNumbersV2Request class]];
+}
+
+- (void) test_AWSConnectListPhoneNumbersV2Response {
+    [self validateSecureCodingForClass:[AWSConnectListPhoneNumbersV2Response class]];
+}
+
 - (void) test_AWSConnectListPromptsRequest {
     [self validateSecureCodingForClass:[AWSConnectListPromptsRequest class]];
 }
@@ -1152,6 +1213,10 @@
     [self validateSecureCodingForClass:[AWSConnectPhoneNumberQuickConnectConfig class]];
 }
 
+- (void) test_AWSConnectPhoneNumberStatus {
+    [self validateSecureCodingForClass:[AWSConnectPhoneNumberStatus class]];
+}
+
 - (void) test_AWSConnectPhoneNumberSummary {
     [self validateSecureCodingForClass:[AWSConnectPhoneNumberSummary class]];
 }
@@ -1204,6 +1269,10 @@
     [self validateSecureCodingForClass:[AWSConnectReferenceSummary class]];
 }
 
+- (void) test_AWSConnectReleasePhoneNumberRequest {
+    [self validateSecureCodingForClass:[AWSConnectReleasePhoneNumberRequest class]];
+}
+
 - (void) test_AWSConnectResumeContactRecordingRequest {
     [self validateSecureCodingForClass:[AWSConnectResumeContactRecordingRequest class]];
 }
@@ -1234,6 +1303,14 @@
 
 - (void) test_AWSConnectS3Config {
     [self validateSecureCodingForClass:[AWSConnectS3Config class]];
+}
+
+- (void) test_AWSConnectSearchAvailablePhoneNumbersRequest {
+    [self validateSecureCodingForClass:[AWSConnectSearchAvailablePhoneNumbersRequest class]];
+}
+
+- (void) test_AWSConnectSearchAvailablePhoneNumbersResponse {
+    [self validateSecureCodingForClass:[AWSConnectSearchAvailablePhoneNumbersResponse class]];
 }
 
 - (void) test_AWSConnectSearchVocabulariesRequest {
@@ -1406,6 +1483,14 @@
 
 - (void) test_AWSConnectUpdateInstanceStorageConfigRequest {
     [self validateSecureCodingForClass:[AWSConnectUpdateInstanceStorageConfigRequest class]];
+}
+
+- (void) test_AWSConnectUpdatePhoneNumberRequest {
+    [self validateSecureCodingForClass:[AWSConnectUpdatePhoneNumberRequest class]];
+}
+
+- (void) test_AWSConnectUpdatePhoneNumberResponse {
+    [self validateSecureCodingForClass:[AWSConnectUpdatePhoneNumberResponse class]];
 }
 
 - (void) test_AWSConnectUpdateQueueHoursOfOperationRequest {
