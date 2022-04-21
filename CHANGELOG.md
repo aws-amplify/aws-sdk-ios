@@ -12,6 +12,10 @@
   - AWSIoT
   - AWSConnect
   - AWSIoTDataPlane
+  - AWSKMS
+  - AWSPolly
+  - AWSTextract
+  - AWSAutoScaling
 
 ## 2.27.6
 
