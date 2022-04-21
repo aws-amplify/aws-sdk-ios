@@ -50,6 +50,8 @@ typedef NS_ENUM(NSInteger, AWSTextractBlockType) {
     AWSTextractBlockTypeSelectionElement,
     AWSTextractBlockTypeMergedCell,
     AWSTextractBlockTypeTitle,
+    AWSTextractBlockTypeQuery,
+    AWSTextractBlockTypeQueryResult,
 };
 
 typedef NS_ENUM(NSInteger, AWSTextractContentClassifier) {
@@ -69,6 +71,7 @@ typedef NS_ENUM(NSInteger, AWSTextractFeatureType) {
     AWSTextractFeatureTypeUnknown,
     AWSTextractFeatureTypeTables,
     AWSTextractFeatureTypeForms,
+    AWSTextractFeatureTypeQueries,
 };
 
 typedef NS_ENUM(NSInteger, AWSTextractJobStatus) {
@@ -86,6 +89,7 @@ typedef NS_ENUM(NSInteger, AWSTextractRelationshipType) {
     AWSTextractRelationshipTypeComplexFeatures,
     AWSTextractRelationshipTypeMergedCell,
     AWSTextractRelationshipTypeTitle,
+    AWSTextractRelationshipTypeAnswer,
 };
 
 typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
@@ -141,6 +145,8 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 @class AWSTextractNotificationChannel;
 @class AWSTextractOutputConfig;
 @class AWSTextractPoint;
+@class AWSTextractQueriesConfig;
+@class AWSTextractQuery;
 @class AWSTextractRelationship;
 @class AWSTextractS3Object;
 @class AWSTextractStartDocumentAnalysisRequest;
@@ -158,7 +164,7 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 
 
 /**
- <p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI to call Amazon Textract operations, you can't pass image bytes. The document must be an image in JPEG or PNG format.</p><p>If you're using an AWS SDK to call Amazon Textract, you might not need to base64-encode image bytes that are passed using the <code>Bytes</code> field. </p>
+ <p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI to call Amazon Textract operations, you can't pass image bytes. The document must be an image in JPEG, PNG, PDF, or TIFF format.</p><p>If you're using an AWS SDK to call Amazon Textract, you might not need to base64-encode image bytes that are passed using the <code>Bytes</code> field. </p>
  */
 @property (nonatomic, strong) AWSTextractDocument * _Nullable document;
 
@@ -171,6 +177,11 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
  <p>Sets the configuration for the human in the loop workflow for analyzing documents.</p>
  */
 @property (nonatomic, strong) AWSTextractHumanLoopConfig * _Nullable humanLoopConfig;
+
+/**
+ <p>Contains Queries and the alias for those Queries, as determined by the input. </p>
+ */
+@property (nonatomic, strong) AWSTextractQueriesConfig * _Nullable queriesConfig;
 
 @end
 
@@ -300,7 +311,7 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 
 
 /**
- <p>The type of text item that's recognized. In operations for text detection, the following types are returned:</p><ul><li><p><i>PAGE</i> - Contains a list of the LINE <code>Block</code> objects that are detected on a document page.</p></li><li><p><i>WORD</i> - A word detected on a document page. A word is one or more ISO basic Latin script characters that aren't separated by spaces.</p></li><li><p><i>LINE</i> - A string of tab-delimited, contiguous words that are detected on a document page.</p></li></ul><p>In text analysis operations, the following types are returned:</p><ul><li><p><i>PAGE</i> - Contains a list of child <code>Block</code> objects that are detected on a document page.</p></li><li><p><i>KEY_VALUE_SET</i> - Stores the KEY and VALUE <code>Block</code> objects for linked text that's detected on a document page. Use the <code>EntityType</code> field to determine if a KEY_VALUE_SET object is a KEY <code>Block</code> object or a VALUE <code>Block</code> object. </p></li><li><p><i>WORD</i> - A word that's detected on a document page. A word is one or more ISO basic Latin script characters that aren't separated by spaces.</p></li><li><p><i>LINE</i> - A string of tab-delimited, contiguous words that are detected on a document page.</p></li><li><p><i>TABLE</i> - A table that's detected on a document page. A table is grid-based information with two or more rows or columns, with a cell span of one row and one column each. </p></li><li><p><i>CELL</i> - A cell within a detected table. The cell is the parent of the block that contains the text in the cell.</p></li><li><p><i>SELECTION_ELEMENT</i> - A selection element such as an option button (radio button) or a check box that's detected on a document page. Use the value of <code>SelectionStatus</code> to determine the status of the selection element.</p></li></ul>
+ <p>The type of text item that's recognized. In operations for text detection, the following types are returned:</p><ul><li><p><i>PAGE</i> - Contains a list of the LINE <code>Block</code> objects that are detected on a document page.</p></li><li><p><i>WORD</i> - A word detected on a document page. A word is one or more ISO basic Latin script characters that aren't separated by spaces.</p></li><li><p><i>LINE</i> - A string of tab-delimited, contiguous words that are detected on a document page.</p></li></ul><p>In text analysis operations, the following types are returned:</p><ul><li><p><i>PAGE</i> - Contains a list of child <code>Block</code> objects that are detected on a document page.</p></li><li><p><i>KEY_VALUE_SET</i> - Stores the KEY and VALUE <code>Block</code> objects for linked text that's detected on a document page. Use the <code>EntityType</code> field to determine if a KEY_VALUE_SET object is a KEY <code>Block</code> object or a VALUE <code>Block</code> object. </p></li><li><p><i>WORD</i> - A word that's detected on a document page. A word is one or more ISO basic Latin script characters that aren't separated by spaces.</p></li><li><p><i>LINE</i> - A string of tab-delimited, contiguous words that are detected on a document page.</p></li><li><p><i>TABLE</i> - A table that's detected on a document page. A table is grid-based information with two or more rows or columns, with a cell span of one row and one column each. </p></li><li><p><i>CELL</i> - A cell within a detected table. The cell is the parent of the block that contains the text in the cell.</p></li><li><p><i>SELECTION_ELEMENT</i> - A selection element such as an option button (radio button) or a check box that's detected on a document page. Use the value of <code>SelectionStatus</code> to determine the status of the selection element.</p></li><li><p><i>QUERY</i> - A question asked during the call of AnalyzeDocument. Contains an alias and an ID that attachs it to its answer.</p></li><li><p><i>QUERY_RESULT</i> - A response to a question asked during the call of analyze document. Comes with an alias and ID for ease of locating in a response. Also contains location and confidence score.</p></li></ul>
  */
 @property (nonatomic, assign) AWSTextractBlockType blockType;
 
@@ -338,6 +349,11 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
  <p>The page on which a block was detected. <code>Page</code> is returned by asynchronous operations. Page values greater than 1 are only returned for multipage documents that are in PDF or TIFF format. A scanned image (JPEG/PNG), even if it contains multiple document pages, is considered to be a single-page document. The value of <code>Page</code> is always 1. Synchronous operations don't return <code>Page</code> because every input document is considered to be a single-page document.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable page;
+
+/**
+ <p/>
+ */
+@property (nonatomic, strong) AWSTextractQuery * _Nullable query;
 
 /**
  <p>A list of child blocks of the current block. For example, a LINE object has child blocks for each WORD block that's part of the line of text. There aren't Relationship objects in the list for relationships that don't exist, such as when the current block has no child blocks. The list size can be the following:</p><ul><li><p>0 - The block has no child blocks.</p></li><li><p>1 - The block has child blocks.</p></li></ul>
@@ -989,6 +1005,44 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 @end
 
 /**
+ <p/>
+ Required parameters: [Queries]
+ */
+@interface AWSTextractQueriesConfig : AWSModel
+
+
+/**
+ <p/>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractQuery *> * _Nullable queries;
+
+@end
+
+/**
+ <p>Each query contains the question you want to ask in the Text and the alias you want to associate.</p>
+ Required parameters: [Text]
+ */
+@interface AWSTextractQuery : AWSModel
+
+
+/**
+ <p>Alias attached to the query, for ease of location.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable alias;
+
+/**
+ <p>List of pages associated with the query. The following is a list of rules for using this parameter.</p><ul><li><p>If a page is not specified, it is set to <code>["1"]</code> by default.</p></li><li><p>The following characters are allowed in the parameter's string: <code>0 1 2 3 4 5 6 7 8 9 - *</code>. No whitespace is allowed.</p></li><li><p>When using <code>*</code> to indicate all pages, it must be the only element in the string.</p></li><li><p>You can use page intervals, such as <code>[“1-3”, “1-1”, “4-*”]</code>. Where <code>*</code> indicates last page of document.</p></li><li><p>Specified pages must be greater than 0 and less than or equal to the number of pages in the document.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable pages;
+
+/**
+ <p>Question that Amazon Textract will apply to the document. An example would be "What is the customer's SSN?"</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable text;
+
+@end
+
+/**
  <p>Information about how blocks are related to each other. A <code>Block</code> object contains 0 or more <code>Relation</code> objects in a list, <code>Relationships</code>. For more information, see <a>Block</a>.</p><p>The <code>Type</code> element provides the type of the relationship for all blocks in the <code>IDs</code> array. </p>
  */
 @interface AWSTextractRelationship : AWSModel
@@ -1069,6 +1123,11 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
  <p>Sets if the output will go to a customer defined bucket. By default, Amazon Textract will save the results internally to be accessed by the GetDocumentAnalysis operation.</p>
  */
 @property (nonatomic, strong) AWSTextractOutputConfig * _Nullable outputConfig;
+
+/**
+ <p/>
+ */
+@property (nonatomic, strong) AWSTextractQueriesConfig * _Nullable queriesConfig;
 
 @end
 

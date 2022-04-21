@@ -55,6 +55,8 @@
 - (void) test_AWSTextractNotificationChannel API_AVAILABLE(ios(11));
 - (void) test_AWSTextractOutputConfig API_AVAILABLE(ios(11));
 - (void) test_AWSTextractPoint API_AVAILABLE(ios(11));
+- (void) test_AWSTextractQueriesConfig API_AVAILABLE(ios(11));
+- (void) test_AWSTextractQuery API_AVAILABLE(ios(11));
 - (void) test_AWSTextractRelationship API_AVAILABLE(ios(11));
 - (void) test_AWSTextractS3Object API_AVAILABLE(ios(11));
 - (void) test_AWSTextractStartDocumentAnalysisRequest API_AVAILABLE(ios(11));
@@ -211,6 +213,14 @@
 
 - (void) test_AWSTextractPoint {
     [self validateSecureCodingForClass:[AWSTextractPoint class]];
+}
+
+- (void) test_AWSTextractQueriesConfig {
+    [self validateSecureCodingForClass:[AWSTextractQueriesConfig class]];
+}
+
+- (void) test_AWSTextractQuery {
+    [self validateSecureCodingForClass:[AWSTextractQuery class]];
 }
 
 - (void) test_AWSTextractRelationship {
