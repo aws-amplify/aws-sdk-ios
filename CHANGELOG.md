@@ -1,14 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSKMS
----AWSPolly
----AWSTextract
----AWSAutoScaling
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -23,6 +12,10 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSIoT
   - AWSConnect
   - AWSIoTDataPlane
+  - AWSKMS
+  - AWSPolly
+  - AWSTextract
+  - AWSAutoScaling
 
 ## 2.27.6
 
