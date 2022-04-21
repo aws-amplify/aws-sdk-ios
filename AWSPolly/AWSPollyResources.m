@@ -475,7 +475,8 @@
         \"tr-TR\",\
         \"en-NZ\",\
         \"en-ZA\",\
-        \"ca-ES\"\
+        \"ca-ES\",\
+        \"de-AT\"\
       ]\
     },\
     \"LanguageCodeList\":{\
@@ -1133,7 +1134,8 @@
         \"Zhiyu\",\
         \"Aria\",\
         \"Ayanda\",\
-        \"Arlet\"\
+        \"Arlet\",\
+        \"Hannah\"\
       ]\
     },\
     \"VoiceList\":{\
