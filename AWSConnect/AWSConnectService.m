@@ -428,6 +428,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask *)associatePhoneNumberContactFlow:(AWSConnectAssociatePhoneNumberContactFlowRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/phone-number/{PhoneNumberId}/contact-flow"
+                  targetPrefix:@""
+                 operationName:@"AssociatePhoneNumberContactFlow"
+                   outputClass:nil];
+}
+
+- (void)associatePhoneNumberContactFlow:(AWSConnectAssociatePhoneNumberContactFlowRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self associatePhoneNumberContactFlow:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)associateQueueQuickConnects:(AWSConnectAssociateQueueQuickConnectsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -485,6 +507,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectAssociateSecurityKeyResponse *response, NSError *error))completionHandler {
     [[self associateSecurityKey:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectAssociateSecurityKeyResponse *> * _Nonnull task) {
         AWSConnectAssociateSecurityKeyResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectClaimPhoneNumberResponse *> *)claimPhoneNumber:(AWSConnectClaimPhoneNumberRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/phone-number/claim"
+                  targetPrefix:@""
+                 operationName:@"ClaimPhoneNumber"
+                   outputClass:[AWSConnectClaimPhoneNumberResponse class]];
+}
+
+- (void)claimPhoneNumber:(AWSConnectClaimPhoneNumberRequest *)request
+     completionHandler:(void (^)(AWSConnectClaimPhoneNumberResponse *response, NSError *error))completionHandler {
+    [[self claimPhoneNumber:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectClaimPhoneNumberResponse *> * _Nonnull task) {
+        AWSConnectClaimPhoneNumberResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1245,6 +1290,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectDescribePhoneNumberResponse *> *)describePhoneNumber:(AWSConnectDescribePhoneNumberRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/phone-number/{PhoneNumberId}"
+                  targetPrefix:@""
+                 operationName:@"DescribePhoneNumber"
+                   outputClass:[AWSConnectDescribePhoneNumberResponse class]];
+}
+
+- (void)describePhoneNumber:(AWSConnectDescribePhoneNumberRequest *)request
+     completionHandler:(void (^)(AWSConnectDescribePhoneNumberResponse *response, NSError *error))completionHandler {
+    [[self describePhoneNumber:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDescribePhoneNumberResponse *> * _Nonnull task) {
+        AWSConnectDescribePhoneNumberResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectDescribeQueueResponse *> *)describeQueue:(AWSConnectDescribeQueueRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -1529,6 +1597,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)disassociateLexBot:(AWSConnectDisassociateLexBotRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self disassociateLexBot:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)disassociatePhoneNumberContactFlow:(AWSConnectDisassociatePhoneNumberContactFlowRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/phone-number/{PhoneNumberId}/contact-flow"
+                  targetPrefix:@""
+                 operationName:@"DisassociatePhoneNumberContactFlow"
+                   outputClass:nil];
+}
+
+- (void)disassociatePhoneNumberContactFlow:(AWSConnectDisassociatePhoneNumberContactFlowRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self disassociatePhoneNumberContactFlow:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -2042,6 +2132,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectListPhoneNumbersV2Response *> *)listPhoneNumbersV2:(AWSConnectListPhoneNumbersV2Request *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/phone-number/list"
+                  targetPrefix:@""
+                 operationName:@"ListPhoneNumbersV2"
+                   outputClass:[AWSConnectListPhoneNumbersV2Response class]];
+}
+
+- (void)listPhoneNumbersV2:(AWSConnectListPhoneNumbersV2Request *)request
+     completionHandler:(void (^)(AWSConnectListPhoneNumbersV2Response *response, NSError *error))completionHandler {
+    [[self listPhoneNumbersV2:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListPhoneNumbersV2Response *> * _Nonnull task) {
+        AWSConnectListPhoneNumbersV2Response *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectListPromptsResponse *> *)listPrompts:(AWSConnectListPromptsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -2341,6 +2454,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask *)releasePhoneNumber:(AWSConnectReleasePhoneNumberRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/phone-number/{PhoneNumberId}"
+                  targetPrefix:@""
+                 operationName:@"ReleasePhoneNumber"
+                   outputClass:nil];
+}
+
+- (void)releasePhoneNumber:(AWSConnectReleasePhoneNumberRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self releasePhoneNumber:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectResumeContactRecordingResponse *> *)resumeContactRecording:(AWSConnectResumeContactRecordingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -2354,6 +2489,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectResumeContactRecordingResponse *response, NSError *error))completionHandler {
     [[self resumeContactRecording:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectResumeContactRecordingResponse *> * _Nonnull task) {
         AWSConnectResumeContactRecordingResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectSearchAvailablePhoneNumbersResponse *> *)searchAvailablePhoneNumbers:(AWSConnectSearchAvailablePhoneNumbersRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/phone-number/search-available"
+                  targetPrefix:@""
+                 operationName:@"SearchAvailablePhoneNumbers"
+                   outputClass:[AWSConnectSearchAvailablePhoneNumbersResponse class]];
+}
+
+- (void)searchAvailablePhoneNumbers:(AWSConnectSearchAvailablePhoneNumbersRequest *)request
+     completionHandler:(void (^)(AWSConnectSearchAvailablePhoneNumbersResponse *response, NSError *error))completionHandler {
+    [[self searchAvailablePhoneNumbers:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectSearchAvailablePhoneNumbersResponse *> * _Nonnull task) {
+        AWSConnectSearchAvailablePhoneNumbersResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectSearchUsersResponse *> *)searchUsers:(AWSConnectSearchUsersRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/search-users"
+                  targetPrefix:@""
+                 operationName:@"SearchUsers"
+                   outputClass:[AWSConnectSearchUsersResponse class]];
+}
+
+- (void)searchUsers:(AWSConnectSearchUsersRequest *)request
+     completionHandler:(void (^)(AWSConnectSearchUsersResponse *response, NSError *error))completionHandler {
+    [[self searchUsers:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectSearchUsersResponse *> * _Nonnull task) {
+        AWSConnectSearchUsersResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -2901,6 +3082,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectUpdatePhoneNumberResponse *> *)updatePhoneNumber:(AWSConnectUpdatePhoneNumberRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/phone-number/{PhoneNumberId}"
+                  targetPrefix:@""
+                 operationName:@"UpdatePhoneNumber"
+                   outputClass:[AWSConnectUpdatePhoneNumberResponse class]];
+}
+
+- (void)updatePhoneNumber:(AWSConnectUpdatePhoneNumberRequest *)request
+     completionHandler:(void (^)(AWSConnectUpdatePhoneNumberResponse *response, NSError *error))completionHandler {
+    [[self updatePhoneNumber:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectUpdatePhoneNumberResponse *> * _Nonnull task) {
+        AWSConnectUpdatePhoneNumberResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
