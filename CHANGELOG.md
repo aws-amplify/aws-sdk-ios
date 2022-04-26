@@ -4,6 +4,10 @@
 
 -Features for next release
 
+## 2.27.7
+
+-Features for next release
+
 ### Misc. Updates
 
 - Model updates for the following services
