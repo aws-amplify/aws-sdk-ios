@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## Pinpoint
+
+- fix: Updates Pinpoint to allow for push events for received and opened (See [PR #4105](https://github.com/aws-amplify/aws-sdk-ios/pull/4105))
+
 -Features for next release
 
 ## 2.27.7
