@@ -358,8 +358,12 @@ NSString *const AWSPinpointJourneyKey = @"journey";
     return eventType;
 }
 
+- (AWSPinpointPushActionType) pushActionTypeOfApplicationState:(UIApplicationState) state {
+    return [self pushActionTypeOfApplicationState:state pushEvent:AWSPinpointPushEventReceived];
+}
+
 - (AWSPinpointPushActionType) pushActionTypeOfApplicationState:(UIApplicationState) state
-                                                     pushEvent:(AWSPinpointPushEvent)pushEvent{
+                                                     pushEvent:(AWSPinpointPushEvent)pushEvent {
     AWSPinpointPushActionType pushActionType = AWSPinpointPushActionTypeUnknown;
     switch (state) {
         case UIApplicationStateActive:
