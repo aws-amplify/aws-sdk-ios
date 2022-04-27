@@ -428,6 +428,36 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionConnectedHomeSettings
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"labels" : @"Labels",
+             @"minConfidence" : @"MinConfidence",
+             };
+}
+
+@end
+
+@implementation AWSRekognitionConnectedHomeSettingsForUpdate
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"labels" : @"Labels",
+             @"minConfidence" : @"MinConfidence",
+             };
+}
+
+@end
+
 @implementation AWSRekognitionContentModerationDetection
 
 + (BOOL)supportsSecureCoding {
@@ -630,21 +660,37 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dataSharingPreference" : @"DataSharingPreference",
              @"input" : @"Input",
+             @"kmsKeyId" : @"KmsKeyId",
              @"name" : @"Name",
+             @"notificationChannel" : @"NotificationChannel",
              @"output" : @"Output",
+             @"regionsOfInterest" : @"RegionsOfInterest",
              @"roleArn" : @"RoleArn",
              @"settings" : @"Settings",
              @"tags" : @"Tags",
              };
 }
 
++ (NSValueTransformer *)dataSharingPreferenceJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionStreamProcessorDataSharingPreference class]];
+}
+
 + (NSValueTransformer *)inputJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionStreamProcessorInput class]];
 }
 
++ (NSValueTransformer *)notificationChannelJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionStreamProcessorNotificationChannel class]];
+}
+
 + (NSValueTransformer *)outputJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionStreamProcessorOutput class]];
+}
+
++ (NSValueTransformer *)regionsOfInterestJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionRegionOfInterest class]];
 }
 
 + (NSValueTransformer *)settingsJSONTransformer {
@@ -1406,10 +1452,14 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"creationTimestamp" : @"CreationTimestamp",
+             @"dataSharingPreference" : @"DataSharingPreference",
              @"input" : @"Input",
+             @"kmsKeyId" : @"KmsKeyId",
              @"lastUpdateTimestamp" : @"LastUpdateTimestamp",
              @"name" : @"Name",
+             @"notificationChannel" : @"NotificationChannel",
              @"output" : @"Output",
+             @"regionsOfInterest" : @"RegionsOfInterest",
              @"roleArn" : @"RoleArn",
              @"settings" : @"Settings",
              @"status" : @"Status",
@@ -1426,6 +1476,10 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
     }];
 }
 
++ (NSValueTransformer *)dataSharingPreferenceJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionStreamProcessorDataSharingPreference class]];
+}
+
 + (NSValueTransformer *)inputJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionStreamProcessorInput class]];
 }
@@ -1438,8 +1492,16 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
     }];
 }
 
++ (NSValueTransformer *)notificationChannelJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionStreamProcessorNotificationChannel class]];
+}
+
 + (NSValueTransformer *)outputJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionStreamProcessorOutput class]];
+}
+
++ (NSValueTransformer *)regionsOfInterestJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionRegionOfInterest class]];
 }
 
 + (NSValueTransformer *)settingsJSONTransformer {
@@ -1463,6 +1525,9 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
         if ([value caseInsensitiveCompare:@"STOPPING"] == NSOrderedSame) {
             return @(AWSRekognitionStreamProcessorStatusStopping);
         }
+        if ([value caseInsensitiveCompare:@"UPDATING"] == NSOrderedSame) {
+            return @(AWSRekognitionStreamProcessorStatusUpdating);
+        }
         return @(AWSRekognitionStreamProcessorStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1476,6 +1541,8 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
                 return @"FAILED";
             case AWSRekognitionStreamProcessorStatusStopping:
                 return @"STOPPING";
+            case AWSRekognitionStreamProcessorStatusUpdating:
+                return @"UPDATING";
             default:
                 return nil;
         }
@@ -3257,6 +3324,21 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionKinesisVideoStreamStartSelector
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"fragmentNumber" : @"FragmentNumber",
+             @"producerTimestamp" : @"ProducerTimestamp",
+             };
+}
+
+@end
+
 @implementation AWSRekognitionKnownGender
 
 + (BOOL)supportsSecureCoding {
@@ -4272,11 +4354,31 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"boundingBox" : @"BoundingBox",
+             @"polygon" : @"Polygon",
              };
 }
 
 + (NSValueTransformer *)boundingBoxJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionBoundingBox class]];
+}
+
++ (NSValueTransformer *)polygonJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionPoint class]];
+}
+
+@end
+
+@implementation AWSRekognitionS3Destination
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"bucket" : @"Bucket",
+             @"keyPrefix" : @"KeyPrefix",
+             };
 }
 
 @end
@@ -4973,7 +5075,17 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"name" : @"Name",
+             @"startSelector" : @"StartSelector",
+             @"stopSelector" : @"StopSelector",
              };
+}
+
++ (NSValueTransformer *)startSelectorJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionStreamProcessingStartSelector class]];
+}
+
++ (NSValueTransformer *)stopSelectorJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionStreamProcessingStopSelector class]];
 }
 
 @end
@@ -4982,6 +5094,12 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (BOOL)supportsSecureCoding {
     return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"sessionId" : @"SessionId",
+             };
 }
 
 @end
@@ -5178,6 +5296,38 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionStreamProcessingStartSelector
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"KVSStreamStartSelector" : @"KVSStreamStartSelector",
+             };
+}
+
++ (NSValueTransformer *)KVSStreamStartSelectorJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionKinesisVideoStreamStartSelector class]];
+}
+
+@end
+
+@implementation AWSRekognitionStreamProcessingStopSelector
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxDurationInSeconds" : @"MaxDurationInSeconds",
+             };
+}
+
+@end
+
 @implementation AWSRekognitionStreamProcessor
 
 + (BOOL)supportsSecureCoding {
@@ -5208,6 +5358,9 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
         if ([value caseInsensitiveCompare:@"STOPPING"] == NSOrderedSame) {
             return @(AWSRekognitionStreamProcessorStatusStopping);
         }
+        if ([value caseInsensitiveCompare:@"UPDATING"] == NSOrderedSame) {
+            return @(AWSRekognitionStreamProcessorStatusUpdating);
+        }
         return @(AWSRekognitionStreamProcessorStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -5221,10 +5374,26 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
                 return @"FAILED";
             case AWSRekognitionStreamProcessorStatusStopping:
                 return @"STOPPING";
+            case AWSRekognitionStreamProcessorStatusUpdating:
+                return @"UPDATING";
             default:
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSRekognitionStreamProcessorDataSharingPreference
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"optIn" : @"OptIn",
+             };
 }
 
 @end
@@ -5247,6 +5416,20 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionStreamProcessorNotificationChannel
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"SNSTopicArn" : @"SNSTopicArn",
+             };
+}
+
+@end
+
 @implementation AWSRekognitionStreamProcessorOutput
 
 + (BOOL)supportsSecureCoding {
@@ -5256,11 +5439,16 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"kinesisDataStream" : @"KinesisDataStream",
+             @"s3Destination" : @"S3Destination",
              };
 }
 
 + (NSValueTransformer *)kinesisDataStreamJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionKinesisDataStream class]];
+}
+
++ (NSValueTransformer *)s3DestinationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionS3Destination class]];
 }
 
 @end
@@ -5273,12 +5461,35 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"connectedHome" : @"ConnectedHome",
              @"faceSearch" : @"FaceSearch",
              };
 }
 
++ (NSValueTransformer *)connectedHomeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionConnectedHomeSettings class]];
+}
+
 + (NSValueTransformer *)faceSearchJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionFaceSearchSettings class]];
+}
+
+@end
+
+@implementation AWSRekognitionStreamProcessorSettingsForUpdate
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"connectedHomeForUpdate" : @"ConnectedHomeForUpdate",
+             };
+}
+
++ (NSValueTransformer *)connectedHomeForUpdateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionConnectedHomeSettingsForUpdate class]];
 }
 
 @end
@@ -5618,6 +5829,44 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 @end
 
 @implementation AWSRekognitionUpdateDatasetEntriesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
+@implementation AWSRekognitionUpdateStreamProcessorRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dataSharingPreferenceForUpdate" : @"DataSharingPreferenceForUpdate",
+             @"name" : @"Name",
+             @"parametersToDelete" : @"ParametersToDelete",
+             @"regionsOfInterestForUpdate" : @"RegionsOfInterestForUpdate",
+             @"settingsForUpdate" : @"SettingsForUpdate",
+             };
+}
+
++ (NSValueTransformer *)dataSharingPreferenceForUpdateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionStreamProcessorDataSharingPreference class]];
+}
+
++ (NSValueTransformer *)regionsOfInterestForUpdateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionRegionOfInterest class]];
+}
+
++ (NSValueTransformer *)settingsForUpdateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionStreamProcessorSettingsForUpdate class]];
+}
+
+@end
+
+@implementation AWSRekognitionUpdateStreamProcessorResponse
 
 + (BOOL)supportsSecureCoding {
     return YES;

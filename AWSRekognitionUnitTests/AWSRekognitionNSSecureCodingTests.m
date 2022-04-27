@@ -33,6 +33,8 @@
 - (void) test_AWSRekognitionCompareFacesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionComparedFace API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionComparedSourceImageFace API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionConnectedHomeSettings API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionConnectedHomeSettingsForUpdate API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionContentModerationDetection API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionCoversBodyPart API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionCreateCollectionRequest API_AVAILABLE(ios(11));
@@ -134,6 +136,7 @@
 - (void) test_AWSRekognitionInstance API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionKinesisDataStream API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionKinesisVideoStream API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionKinesisVideoStreamStartSelector API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionKnownGender API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionLabel API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionLabelDetection API_AVAILABLE(ios(11));
@@ -170,6 +173,7 @@
 - (void) test_AWSRekognitionRecognizeCelebritiesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionRecognizeCelebritiesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionRegionOfInterest API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionS3Destination API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionS3Object API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionSearchFacesByImageRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionSearchFacesByImageResponse API_AVAILABLE(ios(11));
@@ -207,10 +211,15 @@
 - (void) test_AWSRekognitionStopProjectVersionResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionStopStreamProcessorRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionStopStreamProcessorResponse API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionStreamProcessingStartSelector API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionStreamProcessingStopSelector API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionStreamProcessor API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionStreamProcessorDataSharingPreference API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionStreamProcessorInput API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionStreamProcessorNotificationChannel API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionStreamProcessorOutput API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionStreamProcessorSettings API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionStreamProcessorSettingsForUpdate API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionSummary API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionSunglasses API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionTagResourceRequest API_AVAILABLE(ios(11));
@@ -227,6 +236,8 @@
 - (void) test_AWSRekognitionUntagResourceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionUpdateDatasetEntriesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionUpdateDatasetEntriesResponse API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionUpdateStreamProcessorRequest API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionUpdateStreamProcessorResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionValidationData API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionVideo API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionVideoMetadata API_AVAILABLE(ios(11));
@@ -289,6 +300,14 @@
 
 - (void) test_AWSRekognitionComparedSourceImageFace {
     [self validateSecureCodingForClass:[AWSRekognitionComparedSourceImageFace class]];
+}
+
+- (void) test_AWSRekognitionConnectedHomeSettings {
+    [self validateSecureCodingForClass:[AWSRekognitionConnectedHomeSettings class]];
+}
+
+- (void) test_AWSRekognitionConnectedHomeSettingsForUpdate {
+    [self validateSecureCodingForClass:[AWSRekognitionConnectedHomeSettingsForUpdate class]];
 }
 
 - (void) test_AWSRekognitionContentModerationDetection {
@@ -695,6 +714,10 @@
     [self validateSecureCodingForClass:[AWSRekognitionKinesisVideoStream class]];
 }
 
+- (void) test_AWSRekognitionKinesisVideoStreamStartSelector {
+    [self validateSecureCodingForClass:[AWSRekognitionKinesisVideoStreamStartSelector class]];
+}
+
 - (void) test_AWSRekognitionKnownGender {
     [self validateSecureCodingForClass:[AWSRekognitionKnownGender class]];
 }
@@ -837,6 +860,10 @@
 
 - (void) test_AWSRekognitionRegionOfInterest {
     [self validateSecureCodingForClass:[AWSRekognitionRegionOfInterest class]];
+}
+
+- (void) test_AWSRekognitionS3Destination {
+    [self validateSecureCodingForClass:[AWSRekognitionS3Destination class]];
 }
 
 - (void) test_AWSRekognitionS3Object {
@@ -987,12 +1014,28 @@
     [self validateSecureCodingForClass:[AWSRekognitionStopStreamProcessorResponse class]];
 }
 
+- (void) test_AWSRekognitionStreamProcessingStartSelector {
+    [self validateSecureCodingForClass:[AWSRekognitionStreamProcessingStartSelector class]];
+}
+
+- (void) test_AWSRekognitionStreamProcessingStopSelector {
+    [self validateSecureCodingForClass:[AWSRekognitionStreamProcessingStopSelector class]];
+}
+
 - (void) test_AWSRekognitionStreamProcessor {
     [self validateSecureCodingForClass:[AWSRekognitionStreamProcessor class]];
 }
 
+- (void) test_AWSRekognitionStreamProcessorDataSharingPreference {
+    [self validateSecureCodingForClass:[AWSRekognitionStreamProcessorDataSharingPreference class]];
+}
+
 - (void) test_AWSRekognitionStreamProcessorInput {
     [self validateSecureCodingForClass:[AWSRekognitionStreamProcessorInput class]];
+}
+
+- (void) test_AWSRekognitionStreamProcessorNotificationChannel {
+    [self validateSecureCodingForClass:[AWSRekognitionStreamProcessorNotificationChannel class]];
 }
 
 - (void) test_AWSRekognitionStreamProcessorOutput {
@@ -1001,6 +1044,10 @@
 
 - (void) test_AWSRekognitionStreamProcessorSettings {
     [self validateSecureCodingForClass:[AWSRekognitionStreamProcessorSettings class]];
+}
+
+- (void) test_AWSRekognitionStreamProcessorSettingsForUpdate {
+    [self validateSecureCodingForClass:[AWSRekognitionStreamProcessorSettingsForUpdate class]];
 }
 
 - (void) test_AWSRekognitionSummary {
@@ -1065,6 +1112,14 @@
 
 - (void) test_AWSRekognitionUpdateDatasetEntriesResponse {
     [self validateSecureCodingForClass:[AWSRekognitionUpdateDatasetEntriesResponse class]];
+}
+
+- (void) test_AWSRekognitionUpdateStreamProcessorRequest {
+    [self validateSecureCodingForClass:[AWSRekognitionUpdateStreamProcessorRequest class]];
+}
+
+- (void) test_AWSRekognitionUpdateStreamProcessorResponse {
+    [self validateSecureCodingForClass:[AWSRekognitionUpdateStreamProcessorResponse class]];
 }
 
 - (void) test_AWSRekognitionValidationData {
