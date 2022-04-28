@@ -8958,10 +8958,32 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"dryRun" : @"DryRun",
+             @"keyFormat" : @"KeyFormat",
              @"keyName" : @"KeyName",
              @"keyType" : @"KeyType",
              @"tagSpecifications" : @"TagSpecifications",
              };
+}
+
++ (NSValueTransformer *)keyFormatJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"pem"] == NSOrderedSame) {
+            return @(AWSEC2KeyFormatPem);
+        }
+        if ([value caseInsensitiveCompare:@"ppk"] == NSOrderedSame) {
+            return @(AWSEC2KeyFormatPpk);
+        }
+        return @(AWSEC2KeyFormatUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2KeyFormatPem:
+                return @"pem";
+            case AWSEC2KeyFormatPpk:
+                return @"ppk";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)keyTypeJSONTransformer {
@@ -18991,6 +19013,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"dryRun" : @"DryRun",
              @"filters" : @"Filters",
+             @"includePublicKey" : @"IncludePublicKey",
              @"keyNames" : @"KeyNames",
              @"keyPairIds" : @"KeyPairIds",
              };
@@ -53906,12 +53929,22 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"createTime" : @"CreateTime",
              @"keyFingerprint" : @"KeyFingerprint",
              @"keyName" : @"KeyName",
              @"keyPairId" : @"KeyPairId",
              @"keyType" : @"KeyType",
+             @"publicKey" : @"PublicKey",
              @"tags" : @"Tags",
              };
+}
+
++ (NSValueTransformer *)createTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+        return [NSDate aws_dateFromString:str];
+    } reverseBlock:^id(NSDate *date) {
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
+    }];
 }
 
 + (NSValueTransformer *)keyTypeJSONTransformer {
