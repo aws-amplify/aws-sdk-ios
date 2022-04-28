@@ -41,6 +41,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointPushEventSourceType) {
     AWSPinpointPushEventSourceTypeUnknown
 };
 
+typedef NS_ENUM(NSInteger, AWSPinpointPushEvent) {
+    AWSPinpointPushEventReceived,
+    AWSPinpointPushEventOpened
+};
+
 #pragma mark - Notification Helpers
 /**
  Returns a Boolean indicating whether the app is currently registered for remote notifications.
@@ -106,6 +111,26 @@ typedef NS_ENUM(NSInteger, AWSPinpointPushEventSourceType) {
 - (void)interceptDidReceiveRemoteNotification:(NSDictionary *)userInfo;
 
 /**
+ For iOS 9 and below, invoke this method from the `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)`
+ application delegate method.
+
+ For iOS 10 and above, invoke this method from the `userNotificationCenter(_:willPresent:withCompletionHandler:)` and
+ `userNotificationCenter(_:didReceive:withCompletionHandler:)` UserNotificationCenter methods. When invoking this method
+ from `willPresent`, pass in `notification.request.content.userInfo` as userInfo. When invoking this method on
+ `didReceive`, pass in `response.notification.request.content.userInfo` as `userInfo`.
+
+ The Pinpoint targeting client must intercept this callback in order to report campaign analytics correctly.
+
+ @param userInfo    A dictionary that contains information related to the remote notification, potentially including a
+ badge number for the app icon, an alert sound, an alert message to display to the user, a notification identifier, and
+ custom data. The provider originates it as a JSON-defined dictionary that iOS converts to an `NSDictionary` object; the
+ dictionary may contain only property-list objects plus `NSNull`.
+ @param pushEvent  Event for push which is either `received` or `opened`.
+ */
+- (void)interceptDidReceiveRemoteNotification:(NSDictionary *)userInfo
+                                    pushEvent:(AWSPinpointPushEvent)pushEvent;
+
+/**
  Invoke this method from the `application:didReceiveRemoteNotification:fetchCompletionHandler:shouldHandleNotificationDeepLink:`
  application delegate method.
 
@@ -121,7 +146,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointPushEventSourceType) {
  the fetch result value that best describes the results of your download operation. You must call this handler and
  should do so as soon as possible. For a list of possible values, see the UIBackgroundFetchResult type.
  @param handleDeepLink  Whether or not notification manager should attempt to open the remote notification deeplink, if
- present
+ present.
  */
 - (void)interceptDidReceiveRemoteNotification:(NSDictionary *)userInfo
                        fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
@@ -148,6 +173,31 @@ typedef NS_ENUM(NSInteger, AWSPinpointPushEventSourceType) {
  present
  */
 - (void)interceptDidReceiveRemoteNotification:(NSDictionary *)userInfo
+             shouldHandleNotificationDeepLink:(BOOL) handleDeepLink;
+
+/**
+ For iOS 9 and below, intercept the `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` application
+ delegate.
+
+ For iOS 10 and above, invoke this method from the `userNotificationCenter(_:willPresent:withCompletionHandler:)` and
+ `userNotificationCenter(_:didReceive:withCompletionHandler:)` UserNotificationCenter methods. When invoking this method
+ from `willPresent`, pass in `notification.request.content.userInfo` as userInfo. When invoking this method on
+ `didReceive`, pass in `response.notification.request.content.userInfo` as `userInfo`.
+
+ The Pinpoint targeting client must intercept this callback in order to report campaign analytics correctly. Optionally
+ specify 'shouldHandleNotificationDeepLink' to control whether or not the notification manager should attempt to open
+ the remote notification deeplink, if present.
+
+ @param userInfo        A dictionary that contains information related to the remote notification, potentially including
+ a badge number for the app icon, an alert sound, an alert message to display to the user, a notification identifier,
+ and custom data. The provider originates it as a JSON-defined dictionary that iOS converts to an `NSDictionary` object;
+ the dictionary may contain only property-list objects plus `NSNull`.
+ @param handleDeepLink  Whether or not notification manager should attempt to open the remote notification deeplink, if
+ present.
+ @param pushEvent  Event for push which is either `received` or `opened`.
+ */
+- (void)interceptDidReceiveRemoteNotification:(NSDictionary *)userInfo
+                                    pushEvent:(AWSPinpointPushEvent)pushEvent
              shouldHandleNotificationDeepLink:(BOOL) handleDeepLink;
 
 @end

@@ -129,19 +129,38 @@ NSString *const AWSPinpointJourneyKey = @"journey";
 }
 
 - (void)interceptDidReceiveRemoteNotification:(NSDictionary *)userInfo
+                                    pushEvent:(AWSPinpointPushEvent)pushEvent {
+    [self interceptDidReceiveRemoteNotification:userInfo shouldHandleNotificationDeepLink:YES];
+}
+
+- (void)interceptDidReceiveRemoteNotification:(NSDictionary *)userInfo
                        fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler {
     [self interceptDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler shouldHandleNotificationDeepLink:YES];
 }
 
 - (void)interceptDidReceiveRemoteNotification:(NSDictionary *)userInfo
              shouldHandleNotificationDeepLink:(BOOL) handleDeepLink {
-    [self handleNotificationReceived:[UIApplication sharedApplication] withNotification:userInfo shouldHandleNotificationDeepLink:handleDeepLink];
+    [self interceptDidReceiveRemoteNotification:userInfo
+                                      pushEvent:AWSPinpointPushEventReceived
+               shouldHandleNotificationDeepLink:handleDeepLink];
+}
+
+- (void)interceptDidReceiveRemoteNotification:(NSDictionary *)userInfo
+                                    pushEvent:(AWSPinpointPushEvent)pushEvent
+             shouldHandleNotificationDeepLink:(BOOL) handleDeepLink {
+    [self handleNotificationReceived:[UIApplication sharedApplication]
+                    withNotification:userInfo
+                           pushEvent:pushEvent
+    shouldHandleNotificationDeepLink:handleDeepLink];
 }
 
 - (void)interceptDidReceiveRemoteNotification:(NSDictionary *)userInfo
                        fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
              shouldHandleNotificationDeepLink:(BOOL) handleDeepLink {
-    [self handleNotificationReceived:[UIApplication sharedApplication] withNotification:userInfo shouldHandleNotificationDeepLink:handleDeepLink];
+    [self handleNotificationReceived:[UIApplication sharedApplication]
+                    withNotification:userInfo
+                           pushEvent:AWSPinpointPushEventReceived
+    shouldHandleNotificationDeepLink:handleDeepLink];
     //We must rely on the user calling the completion handler because if we call it ourselves as well as the user it would cause a crash due to calling it twice.
 }
 
@@ -164,12 +183,14 @@ NSString *const AWSPinpointJourneyKey = @"journey";
 
 - (void)handleNotificationReceived:(UIApplication *) app
                   withNotification:(NSDictionary *) userInfo
+                         pushEvent:(AWSPinpointPushEvent)pushEvent
   shouldHandleNotificationDeepLink:(BOOL) shouldHandleNotificationDeepLink {
     UIApplicationState state = [app applicationState];
     NSDictionary *metadata = [self getMetadataFromUserInfo:userInfo];
     AWSPinpointPushEventSourceType eventSourceType = [self getEventSourceTypeFromUserInfo:userInfo];
     
-    AWSPinpointPushActionType pushActionType = [self pushActionTypeOfApplicationState:state];
+    AWSPinpointPushActionType pushActionType = [self pushActionTypeOfApplicationState:state
+                                                                            pushEvent:pushEvent];
     switch (pushActionType) {
         case AWSPinpointPushActionTypeOpened: {
             AWSDDLogVerbose(@"App launched from received notification.");
@@ -338,10 +359,17 @@ NSString *const AWSPinpointJourneyKey = @"journey";
 }
 
 - (AWSPinpointPushActionType) pushActionTypeOfApplicationState:(UIApplicationState) state {
+    return [self pushActionTypeOfApplicationState:state pushEvent:AWSPinpointPushEventReceived];
+}
+
+- (AWSPinpointPushActionType) pushActionTypeOfApplicationState:(UIApplicationState) state
+                                                     pushEvent:(AWSPinpointPushEvent)pushEvent {
     AWSPinpointPushActionType pushActionType = AWSPinpointPushActionTypeUnknown;
     switch (state) {
         case UIApplicationStateActive:
-            pushActionType = AWSPinpointPushActionTypeReceivedForeground;
+            pushActionType = pushEvent == AWSPinpointPushEventReceived ?
+                AWSPinpointPushActionTypeReceivedForeground :
+                AWSPinpointPushActionTypeOpened;
             break;
         case UIApplicationStateBackground:
             pushActionType = AWSPinpointPushActionTypeReceivedBackground;
