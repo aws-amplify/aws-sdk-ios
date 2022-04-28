@@ -17,7 +17,7 @@
     <a title="AWSDynamoDB Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSDynamoDB 2.27.5 Docs</a> (79% documented)</p>
+        <p><a href="../index.html">AWSDynamoDB 2.27.7 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSDynamoDB.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -861,9 +861,9 @@
 <p><em>Objective-C</em></p>
 <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
      <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                                                     <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+                                                                                                     <span class="nf">identityPoolId</span><span class="p">:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
      <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                          <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+                                                                          <span class="nf">credentialsProvider</span><span class="p">:</span><span class="n">credentialsProvider</span><span class="p">];</span>
      <span class="p">[</span><span class="n">AWSServiceManager</span> <span class="nf">defaultServiceManager</span><span class="p">].</span><span class="n">defaultServiceConfiguration</span> <span class="o">=</span> <span class="n">configuration</span><span class="p">;</span>
 
      <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
@@ -890,7 +890,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="p">`</span><span class="nv">default</span><span class="p">`()</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="err">`</span><span class="k">default</span><span class="err">`</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
 
                         </div>
                       </div>
@@ -932,9 +932,9 @@
 <p><em>Objective-C</em></p>
 <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
     <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                                                    <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+                                                                                                    <span class="nf">identityPoolId</span><span class="p">:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
     <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSWest2</span>
-                                                                         <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+                                                                         <span class="nf">credentialsProvider</span><span class="p">:</span><span class="n">credentialsProvider</span><span class="p">];</span>
 
     <span class="p">[</span><span class="n">AWSDynamoDB</span> <span class="nf">registerDynamoDBWithConfiguration</span><span class="p">:</span><span class="n">configuration</span> <span class="nf">forKey</span><span class="p">:</span><span class="s">@"USWest2DynamoDB"</span><span class="p">];</span>
 
@@ -1037,9 +1037,9 @@
 <p><em>Objective-C</em></p>
 <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
     <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                                                    <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+                                                                                                    <span class="nf">identityPoolId</span><span class="p">:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
     <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSWest2</span>
-                                                                         <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+                                                                         <span class="nf">credentialsProvider</span><span class="p">:</span><span class="n">credentialsProvider</span><span class="p">];</span>
 
     <span class="p">[</span><span class="n">AWSDynamoDB</span> <span class="nf">registerDynamoDBWithConfiguration</span><span class="p">:</span><span class="n">configuration</span> <span class="nf">forKey</span><span class="p">:</span><span class="s">@"USWest2DynamoDB"</span><span class="p">];</span>
 
@@ -1067,7 +1067,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1257,7 +1257,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchExecuteStatement</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBBatchExecuteStatementInput.html">AWSDynamoDBBatchExecuteStatementInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBBatchExecuteStatementOutput.html">AWSDynamoDBBatchExecuteStatementOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchExecuteStatement</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBBatchExecuteStatementInput.html">AWSDynamoDBBatchExecuteStatementInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBBatchExecuteStatementOutput.html">AWSDynamoDBBatchExecuteStatementOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1398,7 +1398,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchGetItem</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBBatchGetItemInput.html">AWSDynamoDBBatchGetItemInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBBatchGetItemOutput.html">AWSDynamoDBBatchGetItemOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchGetItem</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBBatchGetItemInput.html">AWSDynamoDBBatchGetItemInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBBatchGetItemOutput.html">AWSDynamoDBBatchGetItemOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1539,7 +1539,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchWriteItem</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBBatchWriteItemInput.html">AWSDynamoDBBatchWriteItemInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBBatchWriteItemOutput.html">AWSDynamoDBBatchWriteItemOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchWriteItem</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBBatchWriteItemInput.html">AWSDynamoDBBatchWriteItemInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBBatchWriteItemOutput.html">AWSDynamoDBBatchWriteItemOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1680,7 +1680,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createBackup</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBCreateBackupInput.html">AWSDynamoDBCreateBackupInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBCreateBackupOutput.html">AWSDynamoDBCreateBackupOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createBackup</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBCreateBackupInput.html">AWSDynamoDBCreateBackupInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBCreateBackupOutput.html">AWSDynamoDBCreateBackupOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1821,7 +1821,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createGlobalTable</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBCreateGlobalTableInput.html">AWSDynamoDBCreateGlobalTableInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBCreateGlobalTableOutput.html">AWSDynamoDBCreateGlobalTableOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createGlobalTable</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBCreateGlobalTableInput.html">AWSDynamoDBCreateGlobalTableInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBCreateGlobalTableOutput.html">AWSDynamoDBCreateGlobalTableOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1962,7 +1962,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createTable</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBCreateTableInput.html">AWSDynamoDBCreateTableInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBCreateTableOutput.html">AWSDynamoDBCreateTableOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createTable</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBCreateTableInput.html">AWSDynamoDBCreateTableInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBCreateTableOutput.html">AWSDynamoDBCreateTableOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2103,7 +2103,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteBackup</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDeleteBackupInput.html">AWSDynamoDBDeleteBackupInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDeleteBackupOutput.html">AWSDynamoDBDeleteBackupOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteBackup</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDeleteBackupInput.html">AWSDynamoDBDeleteBackupInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDeleteBackupOutput.html">AWSDynamoDBDeleteBackupOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2243,7 +2243,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteItem</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDeleteItemInput.html">AWSDynamoDBDeleteItemInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDeleteItemOutput.html">AWSDynamoDBDeleteItemOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteItem</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDeleteItemInput.html">AWSDynamoDBDeleteItemInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDeleteItemOutput.html">AWSDynamoDBDeleteItemOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2384,7 +2384,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteTable</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDeleteTableInput.html">AWSDynamoDBDeleteTableInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDeleteTableOutput.html">AWSDynamoDBDeleteTableOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteTable</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDeleteTableInput.html">AWSDynamoDBDeleteTableInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDeleteTableOutput.html">AWSDynamoDBDeleteTableOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2525,7 +2525,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeBackup</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeBackupInput.html">AWSDynamoDBDescribeBackupInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeBackupOutput.html">AWSDynamoDBDescribeBackupOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeBackup</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeBackupInput.html">AWSDynamoDBDescribeBackupInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeBackupOutput.html">AWSDynamoDBDescribeBackupOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2669,7 +2669,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeContinuousBackups</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeContinuousBackupsInput.html">AWSDynamoDBDescribeContinuousBackupsInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeContinuousBackupsOutput.html">AWSDynamoDBDescribeContinuousBackupsOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeContinuousBackups</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeContinuousBackupsInput.html">AWSDynamoDBDescribeContinuousBackupsInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeContinuousBackupsOutput.html">AWSDynamoDBDescribeContinuousBackupsOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2814,7 +2814,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeContributorInsights</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeContributorInsightsInput.html">AWSDynamoDBDescribeContributorInsightsInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeContributorInsightsOutput.html">AWSDynamoDBDescribeContributorInsightsOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeContributorInsights</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeContributorInsightsInput.html">AWSDynamoDBDescribeContributorInsightsInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeContributorInsightsOutput.html">AWSDynamoDBDescribeContributorInsightsOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2955,7 +2955,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeEndpoints</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSDynamoDBDescribeEndpointsRequest">AWSDynamoDBDescribeEndpointsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeEndpointsResponse.html">AWSDynamoDBDescribeEndpointsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeEndpoints</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSDynamoDBDescribeEndpointsRequest">AWSDynamoDBDescribeEndpointsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeEndpointsResponse.html">AWSDynamoDBDescribeEndpointsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3096,7 +3096,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeExport</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeExportInput.html">AWSDynamoDBDescribeExportInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeExportOutput.html">AWSDynamoDBDescribeExportOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeExport</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeExportInput.html">AWSDynamoDBDescribeExportInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeExportOutput.html">AWSDynamoDBDescribeExportOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3239,7 +3239,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeGlobalTable</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeGlobalTableInput.html">AWSDynamoDBDescribeGlobalTableInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeGlobalTableOutput.html">AWSDynamoDBDescribeGlobalTableOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeGlobalTable</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeGlobalTableInput.html">AWSDynamoDBDescribeGlobalTableInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeGlobalTableOutput.html">AWSDynamoDBDescribeGlobalTableOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3384,7 +3384,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeGlobalTableSettings</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeGlobalTableSettingsInput.html">AWSDynamoDBDescribeGlobalTableSettingsInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeGlobalTableSettingsOutput.html">AWSDynamoDBDescribeGlobalTableSettingsOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeGlobalTableSettings</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeGlobalTableSettingsInput.html">AWSDynamoDBDescribeGlobalTableSettingsInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeGlobalTableSettingsOutput.html">AWSDynamoDBDescribeGlobalTableSettingsOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3530,7 +3530,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeKinesisStreamingDestination</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeKinesisStreamingDestinationInput.html">AWSDynamoDBDescribeKinesisStreamingDestinationInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeKinesisStreamingDestinationOutput.html">AWSDynamoDBDescribeKinesisStreamingDestinationOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeKinesisStreamingDestination</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeKinesisStreamingDestinationInput.html">AWSDynamoDBDescribeKinesisStreamingDestinationInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeKinesisStreamingDestinationOutput.html">AWSDynamoDBDescribeKinesisStreamingDestinationOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3671,7 +3671,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeLimits</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSDynamoDBDescribeLimitsInput">AWSDynamoDBDescribeLimitsInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeLimitsOutput.html">AWSDynamoDBDescribeLimitsOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeLimits</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSDynamoDBDescribeLimitsInput">AWSDynamoDBDescribeLimitsInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeLimitsOutput.html">AWSDynamoDBDescribeLimitsOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3812,7 +3812,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeTable</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeTableInput.html">AWSDynamoDBDescribeTableInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeTableOutput.html">AWSDynamoDBDescribeTableOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeTable</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeTableInput.html">AWSDynamoDBDescribeTableInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeTableOutput.html">AWSDynamoDBDescribeTableOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3957,7 +3957,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeTableReplicaAutoScaling</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeTableReplicaAutoScalingInput.html">AWSDynamoDBDescribeTableReplicaAutoScalingInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeTableReplicaAutoScalingOutput.html">AWSDynamoDBDescribeTableReplicaAutoScalingOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeTableReplicaAutoScaling</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeTableReplicaAutoScalingInput.html">AWSDynamoDBDescribeTableReplicaAutoScalingInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeTableReplicaAutoScalingOutput.html">AWSDynamoDBDescribeTableReplicaAutoScalingOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4098,7 +4098,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeTime</span><span class="p">(</span><span class="n">toLive</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeTimeToLiveInput.html">AWSDynamoDBDescribeTimeToLiveInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeTimeToLiveOutput.html">AWSDynamoDBDescribeTimeToLiveOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeTime</span><span class="p">(</span><span class="n">toLive</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeTimeToLiveInput.html">AWSDynamoDBDescribeTimeToLiveInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeTimeToLiveOutput.html">AWSDynamoDBDescribeTimeToLiveOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4243,7 +4243,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disableKinesisStreamingDestination</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBKinesisStreamingDestinationInput.html">AWSDynamoDBKinesisStreamingDestinationInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBKinesisStreamingDestinationOutput.html">AWSDynamoDBKinesisStreamingDestinationOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disableKinesisStreamingDestination</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBKinesisStreamingDestinationInput.html">AWSDynamoDBKinesisStreamingDestinationInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBKinesisStreamingDestinationOutput.html">AWSDynamoDBKinesisStreamingDestinationOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4388,7 +4388,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">enableKinesisStreamingDestination</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBKinesisStreamingDestinationInput.html">AWSDynamoDBKinesisStreamingDestinationInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBKinesisStreamingDestinationOutput.html">AWSDynamoDBKinesisStreamingDestinationOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">enableKinesisStreamingDestination</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBKinesisStreamingDestinationInput.html">AWSDynamoDBKinesisStreamingDestinationInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBKinesisStreamingDestinationOutput.html">AWSDynamoDBKinesisStreamingDestinationOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4529,7 +4529,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">executeStatement</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBExecuteStatementInput.html">AWSDynamoDBExecuteStatementInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBExecuteStatementOutput.html">AWSDynamoDBExecuteStatementOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">executeStatement</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBExecuteStatementInput.html">AWSDynamoDBExecuteStatementInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBExecuteStatementOutput.html">AWSDynamoDBExecuteStatementOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4670,7 +4670,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">executeTransaction</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBExecuteTransactionInput.html">AWSDynamoDBExecuteTransactionInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBExecuteTransactionOutput.html">AWSDynamoDBExecuteTransactionOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">executeTransaction</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBExecuteTransactionInput.html">AWSDynamoDBExecuteTransactionInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBExecuteTransactionOutput.html">AWSDynamoDBExecuteTransactionOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4814,7 +4814,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">exportTableToPoint</span><span class="p">(</span><span class="n">inTime</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBExportTableToPointInTimeInput.html">AWSDynamoDBExportTableToPointInTimeInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBExportTableToPointInTimeOutput.html">AWSDynamoDBExportTableToPointInTimeOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">exportTableToPoint</span><span class="p">(</span><span class="n">inTime</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBExportTableToPointInTimeInput.html">AWSDynamoDBExportTableToPointInTimeInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBExportTableToPointInTimeOutput.html">AWSDynamoDBExportTableToPointInTimeOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4954,7 +4954,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">item</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBGetItemInput.html">AWSDynamoDBGetItemInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBGetItemOutput.html">AWSDynamoDBGetItemOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">item</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBGetItemInput.html">AWSDynamoDBGetItemInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBGetItemOutput.html">AWSDynamoDBGetItemOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5095,7 +5095,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listBackups</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBListBackupsInput.html">AWSDynamoDBListBackupsInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBListBackupsOutput.html">AWSDynamoDBListBackupsOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listBackups</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBListBackupsInput.html">AWSDynamoDBListBackupsInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBListBackupsOutput.html">AWSDynamoDBListBackupsOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5239,7 +5239,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listContributorInsights</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBListContributorInsightsInput.html">AWSDynamoDBListContributorInsightsInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBListContributorInsightsOutput.html">AWSDynamoDBListContributorInsightsOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listContributorInsights</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBListContributorInsightsInput.html">AWSDynamoDBListContributorInsightsInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBListContributorInsightsOutput.html">AWSDynamoDBListContributorInsightsOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5380,7 +5380,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listExports</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBListExportsInput.html">AWSDynamoDBListExportsInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBListExportsOutput.html">AWSDynamoDBListExportsOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listExports</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBListExportsInput.html">AWSDynamoDBListExportsInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBListExportsOutput.html">AWSDynamoDBListExportsOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5521,7 +5521,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listGlobalTables</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBListGlobalTablesInput.html">AWSDynamoDBListGlobalTablesInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBListGlobalTablesOutput.html">AWSDynamoDBListGlobalTablesOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listGlobalTables</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBListGlobalTablesInput.html">AWSDynamoDBListGlobalTablesInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBListGlobalTablesOutput.html">AWSDynamoDBListGlobalTablesOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5661,7 +5661,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTables</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBListTablesInput.html">AWSDynamoDBListTablesInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBListTablesOutput.html">AWSDynamoDBListTablesOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTables</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBListTablesInput.html">AWSDynamoDBListTablesInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBListTablesOutput.html">AWSDynamoDBListTablesOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5802,7 +5802,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTags</span><span class="p">(</span><span class="n">ofResource</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBListTagsOfResourceInput.html">AWSDynamoDBListTagsOfResourceInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBListTagsOfResourceOutput.html">AWSDynamoDBListTagsOfResourceOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTags</span><span class="p">(</span><span class="n">ofResource</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBListTagsOfResourceInput.html">AWSDynamoDBListTagsOfResourceInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBListTagsOfResourceOutput.html">AWSDynamoDBListTagsOfResourceOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5942,7 +5942,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">putItem</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBPutItemInput.html">AWSDynamoDBPutItemInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBPutItemOutput.html">AWSDynamoDBPutItemOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">putItem</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBPutItemInput.html">AWSDynamoDBPutItemInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBPutItemOutput.html">AWSDynamoDBPutItemOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6082,7 +6082,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">query</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBQueryInput.html">AWSDynamoDBQueryInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBQueryOutput.html">AWSDynamoDBQueryOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">query</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBQueryInput.html">AWSDynamoDBQueryInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBQueryOutput.html">AWSDynamoDBQueryOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6226,7 +6226,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">restoreTable</span><span class="p">(</span><span class="n">fromBackup</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBRestoreTableFromBackupInput.html">AWSDynamoDBRestoreTableFromBackupInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBRestoreTableFromBackupOutput.html">AWSDynamoDBRestoreTableFromBackupOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">restoreTable</span><span class="p">(</span><span class="n">fromBackup</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBRestoreTableFromBackupInput.html">AWSDynamoDBRestoreTableFromBackupInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBRestoreTableFromBackupOutput.html">AWSDynamoDBRestoreTableFromBackupOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6370,7 +6370,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">restoreTableToPoint</span><span class="p">(</span><span class="n">inTime</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBRestoreTableToPointInTimeInput.html">AWSDynamoDBRestoreTableToPointInTimeInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBRestoreTableToPointInTimeOutput.html">AWSDynamoDBRestoreTableToPointInTimeOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">restoreTableToPoint</span><span class="p">(</span><span class="n">inTime</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBRestoreTableToPointInTimeInput.html">AWSDynamoDBRestoreTableToPointInTimeInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBRestoreTableToPointInTimeOutput.html">AWSDynamoDBRestoreTableToPointInTimeOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6510,7 +6510,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">scan</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBScanInput.html">AWSDynamoDBScanInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBScanOutput.html">AWSDynamoDBScanOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">scan</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBScanInput.html">AWSDynamoDBScanInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBScanOutput.html">AWSDynamoDBScanOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6641,7 +6641,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">tagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBTagResourceInput.html">AWSDynamoDBTagResourceInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">tagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBTagResourceInput.html">AWSDynamoDBTagResourceInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -6781,7 +6781,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">transactGetItems</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBTransactGetItemsInput.html">AWSDynamoDBTransactGetItemsInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBTransactGetItemsOutput.html">AWSDynamoDBTransactGetItemsOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">transactGetItems</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBTransactGetItemsInput.html">AWSDynamoDBTransactGetItemsInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBTransactGetItemsOutput.html">AWSDynamoDBTransactGetItemsOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6922,7 +6922,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">transactWriteItems</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBTransactWriteItemsInput.html">AWSDynamoDBTransactWriteItemsInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBTransactWriteItemsOutput.html">AWSDynamoDBTransactWriteItemsOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">transactWriteItems</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBTransactWriteItemsInput.html">AWSDynamoDBTransactWriteItemsInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBTransactWriteItemsOutput.html">AWSDynamoDBTransactWriteItemsOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7053,7 +7053,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">untagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBUntagResourceInput.html">AWSDynamoDBUntagResourceInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">untagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBUntagResourceInput.html">AWSDynamoDBUntagResourceInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -7196,7 +7196,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateContinuousBackups</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateContinuousBackupsInput.html">AWSDynamoDBUpdateContinuousBackupsInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateContinuousBackupsOutput.html">AWSDynamoDBUpdateContinuousBackupsOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateContinuousBackups</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateContinuousBackupsInput.html">AWSDynamoDBUpdateContinuousBackupsInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateContinuousBackupsOutput.html">AWSDynamoDBUpdateContinuousBackupsOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7340,7 +7340,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateContributorInsights</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateContributorInsightsInput.html">AWSDynamoDBUpdateContributorInsightsInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateContributorInsightsOutput.html">AWSDynamoDBUpdateContributorInsightsOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateContributorInsights</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateContributorInsightsInput.html">AWSDynamoDBUpdateContributorInsightsInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateContributorInsightsOutput.html">AWSDynamoDBUpdateContributorInsightsOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7481,7 +7481,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateGlobalTable</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateGlobalTableInput.html">AWSDynamoDBUpdateGlobalTableInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateGlobalTableOutput.html">AWSDynamoDBUpdateGlobalTableOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateGlobalTable</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateGlobalTableInput.html">AWSDynamoDBUpdateGlobalTableInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateGlobalTableOutput.html">AWSDynamoDBUpdateGlobalTableOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7625,7 +7625,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateGlobalTableSettings</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateGlobalTableSettingsInput.html">AWSDynamoDBUpdateGlobalTableSettingsInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateGlobalTableSettingsOutput.html">AWSDynamoDBUpdateGlobalTableSettingsOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateGlobalTableSettings</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateGlobalTableSettingsInput.html">AWSDynamoDBUpdateGlobalTableSettingsInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateGlobalTableSettingsOutput.html">AWSDynamoDBUpdateGlobalTableSettingsOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7765,7 +7765,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateItem</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateItemInput.html">AWSDynamoDBUpdateItemInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateItemOutput.html">AWSDynamoDBUpdateItemOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateItem</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateItemInput.html">AWSDynamoDBUpdateItemInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateItemOutput.html">AWSDynamoDBUpdateItemOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7906,7 +7906,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateTable</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateTableInput.html">AWSDynamoDBUpdateTableInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateTableOutput.html">AWSDynamoDBUpdateTableOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateTable</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateTableInput.html">AWSDynamoDBUpdateTableInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateTableOutput.html">AWSDynamoDBUpdateTableOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8051,7 +8051,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateTableReplicaAutoScaling</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateTableReplicaAutoScalingInput.html">AWSDynamoDBUpdateTableReplicaAutoScalingInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateTableReplicaAutoScalingOutput.html">AWSDynamoDBUpdateTableReplicaAutoScalingOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateTableReplicaAutoScaling</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateTableReplicaAutoScalingInput.html">AWSDynamoDBUpdateTableReplicaAutoScalingInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateTableReplicaAutoScalingOutput.html">AWSDynamoDBUpdateTableReplicaAutoScalingOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8192,7 +8192,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateTime</span><span class="p">(</span><span class="n">toLive</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateTimeToLiveInput.html">AWSDynamoDBUpdateTimeToLiveInput</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateTimeToLiveOutput.html">AWSDynamoDBUpdateTimeToLiveOutput</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateTime</span><span class="p">(</span><span class="n">toLive</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateTimeToLiveInput.html">AWSDynamoDBUpdateTimeToLiveInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBUpdateTimeToLiveOutput.html">AWSDynamoDBUpdateTimeToLiveOutput</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8237,7 +8237,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-03-31)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-04-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
