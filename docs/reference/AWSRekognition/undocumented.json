@@ -1,1685 +1,1685 @@
 {
   "warnings": [
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognition.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognition.h",
       "line": 28,
       "symbol": "AWSRekognitionVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognition.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognition.h",
       "line": 39,
       "symbol": "AWSRekognitionVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 22,
       "symbol": "AWSRekognitionErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 24,
       "symbol": "AWSRekognitionErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 24,
       "symbol": "AWSRekognitionErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 25,
       "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 26,
       "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorAccessDenied",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 27,
       "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorHumanLoopQuotaExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 28,
       "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorIdempotentParameterMismatch",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 29,
       "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorImageTooLarge",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 30,
       "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorInternalServer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 31,
       "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorInvalidImageFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 32,
       "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorInvalidPaginationToken",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 33,
       "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorInvalidParameter",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 34,
       "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorInvalidS3Object",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 35,
       "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 36,
       "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorProvisionedThroughputExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 37,
       "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorResourceAlreadyExists",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 38,
       "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorResourceInUse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 39,
       "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorResourceNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 40,
       "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorResourceNotReady",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 41,
       "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorServiceQuotaExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 42,
       "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorThrottling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 43,
       "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorVideoTooLarge",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 46,
       "symbol": "AWSRekognitionAttribute",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 46,
       "symbol": "AWSRekognitionAttribute",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 47,
       "symbol": "AWSRekognitionAttribute.AWSRekognitionAttributeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 48,
       "symbol": "AWSRekognitionAttribute.AWSRekognitionAttributeDefault",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 49,
       "symbol": "AWSRekognitionAttribute.AWSRekognitionAttributeAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 52,
       "symbol": "AWSRekognitionBodyPart",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 52,
       "symbol": "AWSRekognitionBodyPart",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 53,
       "symbol": "AWSRekognitionBodyPart.AWSRekognitionBodyPartUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 54,
       "symbol": "AWSRekognitionBodyPart.AWSRekognitionBodyPartFace",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 55,
       "symbol": "AWSRekognitionBodyPart.AWSRekognitionBodyPartHead",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 56,
       "symbol": "AWSRekognitionBodyPart.AWSRekognitionBodyPartLeftHand",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 57,
       "symbol": "AWSRekognitionBodyPart.AWSRekognitionBodyPartRightHand",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 60,
       "symbol": "AWSRekognitionCelebrityRecognitionSortBy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 60,
       "symbol": "AWSRekognitionCelebrityRecognitionSortBy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 61,
       "symbol": "AWSRekognitionCelebrityRecognitionSortBy.AWSRekognitionCelebrityRecognitionSortByUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 62,
       "symbol": "AWSRekognitionCelebrityRecognitionSortBy.AWSRekognitionCelebrityRecognitionSortById",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 63,
       "symbol": "AWSRekognitionCelebrityRecognitionSortBy.AWSRekognitionCelebrityRecognitionSortByTimestamp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 66,
       "symbol": "AWSRekognitionContentClassifier",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 66,
       "symbol": "AWSRekognitionContentClassifier",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 67,
       "symbol": "AWSRekognitionContentClassifier.AWSRekognitionContentClassifierUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 68,
       "symbol": "AWSRekognitionContentClassifier.AWSRekognitionContentClassifierFreeOfPersonallyIdentifiableInformation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 69,
       "symbol": "AWSRekognitionContentClassifier.AWSRekognitionContentClassifierFreeOfAdultContent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 72,
       "symbol": "AWSRekognitionContentModerationSortBy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 72,
       "symbol": "AWSRekognitionContentModerationSortBy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 73,
       "symbol": "AWSRekognitionContentModerationSortBy.AWSRekognitionContentModerationSortByUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 74,
       "symbol": "AWSRekognitionContentModerationSortBy.AWSRekognitionContentModerationSortByName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 75,
       "symbol": "AWSRekognitionContentModerationSortBy.AWSRekognitionContentModerationSortByTimestamp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 78,
       "symbol": "AWSRekognitionDatasetStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 78,
       "symbol": "AWSRekognitionDatasetStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 79,
       "symbol": "AWSRekognitionDatasetStatus.AWSRekognitionDatasetStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 80,
       "symbol": "AWSRekognitionDatasetStatus.AWSRekognitionDatasetStatusCreateInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 81,
       "symbol": "AWSRekognitionDatasetStatus.AWSRekognitionDatasetStatusCreateComplete",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 82,
       "symbol": "AWSRekognitionDatasetStatus.AWSRekognitionDatasetStatusCreateFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 83,
       "symbol": "AWSRekognitionDatasetStatus.AWSRekognitionDatasetStatusUpdateInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 84,
       "symbol": "AWSRekognitionDatasetStatus.AWSRekognitionDatasetStatusUpdateComplete",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 85,
       "symbol": "AWSRekognitionDatasetStatus.AWSRekognitionDatasetStatusUpdateFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 86,
       "symbol": "AWSRekognitionDatasetStatus.AWSRekognitionDatasetStatusDeleteInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 89,
       "symbol": "AWSRekognitionDatasetStatusMessageCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 89,
       "symbol": "AWSRekognitionDatasetStatusMessageCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 90,
       "symbol": "AWSRekognitionDatasetStatusMessageCode.AWSRekognitionDatasetStatusMessageCodeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 91,
       "symbol": "AWSRekognitionDatasetStatusMessageCode.AWSRekognitionDatasetStatusMessageCodeSuccess",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 92,
       "symbol": "AWSRekognitionDatasetStatusMessageCode.AWSRekognitionDatasetStatusMessageCodeServiceError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 93,
       "symbol": "AWSRekognitionDatasetStatusMessageCode.AWSRekognitionDatasetStatusMessageCodeClientError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 96,
       "symbol": "AWSRekognitionDatasetType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 96,
       "symbol": "AWSRekognitionDatasetType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 97,
       "symbol": "AWSRekognitionDatasetType.AWSRekognitionDatasetTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 98,
       "symbol": "AWSRekognitionDatasetType.AWSRekognitionDatasetTypeTrain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 99,
       "symbol": "AWSRekognitionDatasetType.AWSRekognitionDatasetTypeTest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 102,
       "symbol": "AWSRekognitionEmotionName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 102,
       "symbol": "AWSRekognitionEmotionName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 103,
       "symbol": "AWSRekognitionEmotionName.AWSRekognitionEmotionNameUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 104,
       "symbol": "AWSRekognitionEmotionName.AWSRekognitionEmotionNameHappy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 105,
       "symbol": "AWSRekognitionEmotionName.AWSRekognitionEmotionNameSad",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 106,
       "symbol": "AWSRekognitionEmotionName.AWSRekognitionEmotionNameAngry",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 107,
       "symbol": "AWSRekognitionEmotionName.AWSRekognitionEmotionNameConfused",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 108,
       "symbol": "AWSRekognitionEmotionName.AWSRekognitionEmotionNameDisgusted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 109,
       "symbol": "AWSRekognitionEmotionName.AWSRekognitionEmotionNameSurprised",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 110,
       "symbol": "AWSRekognitionEmotionName.AWSRekognitionEmotionNameCalm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 111,
       "symbol": "AWSRekognitionEmotionName.AWSRekognitionEmotionNameFear",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 114,
       "symbol": "AWSRekognitionFaceAttributes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 114,
       "symbol": "AWSRekognitionFaceAttributes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 115,
       "symbol": "AWSRekognitionFaceAttributes.AWSRekognitionFaceAttributesUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 116,
       "symbol": "AWSRekognitionFaceAttributes.AWSRekognitionFaceAttributesDefault",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 117,
       "symbol": "AWSRekognitionFaceAttributes.AWSRekognitionFaceAttributesAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 120,
       "symbol": "AWSRekognitionFaceSearchSortBy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 120,
       "symbol": "AWSRekognitionFaceSearchSortBy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 121,
       "symbol": "AWSRekognitionFaceSearchSortBy.AWSRekognitionFaceSearchSortByUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 122,
       "symbol": "AWSRekognitionFaceSearchSortBy.AWSRekognitionFaceSearchSortByIndex",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 123,
       "symbol": "AWSRekognitionFaceSearchSortBy.AWSRekognitionFaceSearchSortByTimestamp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 126,
       "symbol": "AWSRekognitionGenderType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 126,
       "symbol": "AWSRekognitionGenderType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 127,
       "symbol": "AWSRekognitionGenderType.AWSRekognitionGenderTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 128,
       "symbol": "AWSRekognitionGenderType.AWSRekognitionGenderTypeMale",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 129,
       "symbol": "AWSRekognitionGenderType.AWSRekognitionGenderTypeFemale",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 132,
       "symbol": "AWSRekognitionKnownGenderType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 132,
       "symbol": "AWSRekognitionKnownGenderType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 133,
       "symbol": "AWSRekognitionKnownGenderType.AWSRekognitionKnownGenderTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 134,
       "symbol": "AWSRekognitionKnownGenderType.AWSRekognitionKnownGenderTypeMale",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 135,
       "symbol": "AWSRekognitionKnownGenderType.AWSRekognitionKnownGenderTypeFemale",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 136,
       "symbol": "AWSRekognitionKnownGenderType.AWSRekognitionKnownGenderTypeNonbinary",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 137,
       "symbol": "AWSRekognitionKnownGenderType.AWSRekognitionKnownGenderTypeUnlisted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 140,
       "symbol": "AWSRekognitionLabelDetectionSortBy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 140,
       "symbol": "AWSRekognitionLabelDetectionSortBy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 141,
       "symbol": "AWSRekognitionLabelDetectionSortBy.AWSRekognitionLabelDetectionSortByUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 142,
       "symbol": "AWSRekognitionLabelDetectionSortBy.AWSRekognitionLabelDetectionSortByName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 143,
       "symbol": "AWSRekognitionLabelDetectionSortBy.AWSRekognitionLabelDetectionSortByTimestamp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 146,
       "symbol": "AWSRekognitionLandmarkType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 146,
       "symbol": "AWSRekognitionLandmarkType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 147,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 148,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeEyeLeft",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 149,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeEyeRight",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 150,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeNose",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 151,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeMouthLeft",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 152,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeMouthRight",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 153,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeLeftEyeBrowLeft",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 154,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeLeftEyeBrowRight",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 155,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeLeftEyeBrowUp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 156,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeRightEyeBrowLeft",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 157,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeRightEyeBrowRight",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 158,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeRightEyeBrowUp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 159,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeLeftEyeLeft",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 160,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeLeftEyeRight",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 161,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeLeftEyeUp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 162,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeLeftEyeDown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 163,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeRightEyeLeft",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 164,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeRightEyeRight",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 165,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeRightEyeUp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 166,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeRightEyeDown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 167,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeNoseLeft",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 168,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeNoseRight",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 169,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeMouthUp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 170,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeMouthDown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 171,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeLeftPupil",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 172,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeRightPupil",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 173,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeUpperJawlineLeft",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 174,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeMidJawlineLeft",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 175,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeChinBottom",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 176,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeMidJawlineRight",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 177,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeUpperJawlineRight",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 180,
       "symbol": "AWSRekognitionOrientationCorrection",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 180,
       "symbol": "AWSRekognitionOrientationCorrection",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 181,
       "symbol": "AWSRekognitionOrientationCorrection.AWSRekognitionOrientationCorrectionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 182,
       "symbol": "AWSRekognitionOrientationCorrection.AWSRekognitionOrientationCorrectionRotate0",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 183,
       "symbol": "AWSRekognitionOrientationCorrection.AWSRekognitionOrientationCorrectionRotate90",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 184,
       "symbol": "AWSRekognitionOrientationCorrection.AWSRekognitionOrientationCorrectionRotate180",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 185,
       "symbol": "AWSRekognitionOrientationCorrection.AWSRekognitionOrientationCorrectionRotate270",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 188,
       "symbol": "AWSRekognitionPersonTrackingSortBy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 188,
       "symbol": "AWSRekognitionPersonTrackingSortBy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 189,
       "symbol": "AWSRekognitionPersonTrackingSortBy.AWSRekognitionPersonTrackingSortByUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 190,
       "symbol": "AWSRekognitionPersonTrackingSortBy.AWSRekognitionPersonTrackingSortByIndex",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 191,
       "symbol": "AWSRekognitionPersonTrackingSortBy.AWSRekognitionPersonTrackingSortByTimestamp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 194,
       "symbol": "AWSRekognitionProjectStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 194,
       "symbol": "AWSRekognitionProjectStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 195,
       "symbol": "AWSRekognitionProjectStatus.AWSRekognitionProjectStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 196,
       "symbol": "AWSRekognitionProjectStatus.AWSRekognitionProjectStatusCreating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 197,
       "symbol": "AWSRekognitionProjectStatus.AWSRekognitionProjectStatusCreated",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 198,
       "symbol": "AWSRekognitionProjectStatus.AWSRekognitionProjectStatusDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 201,
       "symbol": "AWSRekognitionProjectVersionStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 201,
       "symbol": "AWSRekognitionProjectVersionStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 202,
       "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 203,
       "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusTrainingInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 204,
       "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusTrainingCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 205,
       "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusTrainingFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 206,
       "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusStarting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 207,
       "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusRunning",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 208,
       "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 209,
       "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusStopping",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 210,
       "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusStopped",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 211,
       "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 214,
       "symbol": "AWSRekognitionProtectiveEquipmentType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 214,
       "symbol": "AWSRekognitionProtectiveEquipmentType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 215,
       "symbol": "AWSRekognitionProtectiveEquipmentType.AWSRekognitionProtectiveEquipmentTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 216,
       "symbol": "AWSRekognitionProtectiveEquipmentType.AWSRekognitionProtectiveEquipmentTypeFaceCover",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 217,
       "symbol": "AWSRekognitionProtectiveEquipmentType.AWSRekognitionProtectiveEquipmentTypeHandCover",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 218,
       "symbol": "AWSRekognitionProtectiveEquipmentType.AWSRekognitionProtectiveEquipmentTypeHeadCover",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 221,
       "symbol": "AWSRekognitionQualityFilter",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 221,
       "symbol": "AWSRekognitionQualityFilter",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 222,
       "symbol": "AWSRekognitionQualityFilter.AWSRekognitionQualityFilterUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 223,
       "symbol": "AWSRekognitionQualityFilter.AWSRekognitionQualityFilterNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 224,
       "symbol": "AWSRekognitionQualityFilter.AWSRekognitionQualityFilterAuto",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 225,
       "symbol": "AWSRekognitionQualityFilter.AWSRekognitionQualityFilterLow",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 226,
       "symbol": "AWSRekognitionQualityFilter.AWSRekognitionQualityFilterMedium",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 227,
       "symbol": "AWSRekognitionQualityFilter.AWSRekognitionQualityFilterHigh",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 230,
       "symbol": "AWSRekognitionReason",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 230,
       "symbol": "AWSRekognitionReason",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 231,
       "symbol": "AWSRekognitionReason.AWSRekognitionReasonUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 232,
       "symbol": "AWSRekognitionReason.AWSRekognitionReasonExceedsMaxFaces",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 233,
       "symbol": "AWSRekognitionReason.AWSRekognitionReasonExtremePose",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 234,
       "symbol": "AWSRekognitionReason.AWSRekognitionReasonLowBrightness",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 235,
       "symbol": "AWSRekognitionReason.AWSRekognitionReasonLowSharpness",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 236,
       "symbol": "AWSRekognitionReason.AWSRekognitionReasonLowConfidence",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 237,
       "symbol": "AWSRekognitionReason.AWSRekognitionReasonSmallBoundingBox",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 238,
       "symbol": "AWSRekognitionReason.AWSRekognitionReasonLowFaceQuality",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 241,
       "symbol": "AWSRekognitionSegmentType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 241,
       "symbol": "AWSRekognitionSegmentType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 242,
       "symbol": "AWSRekognitionSegmentType.AWSRekognitionSegmentTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 243,
       "symbol": "AWSRekognitionSegmentType.AWSRekognitionSegmentTypeTechnicalCue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 244,
       "symbol": "AWSRekognitionSegmentType.AWSRekognitionSegmentTypeShot",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 247,
       "symbol": "AWSRekognitionStreamProcessorStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 247,
       "symbol": "AWSRekognitionStreamProcessorStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 248,
       "symbol": "AWSRekognitionStreamProcessorStatus.AWSRekognitionStreamProcessorStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 249,
       "symbol": "AWSRekognitionStreamProcessorStatus.AWSRekognitionStreamProcessorStatusStopped",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 250,
       "symbol": "AWSRekognitionStreamProcessorStatus.AWSRekognitionStreamProcessorStatusStarting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 251,
       "symbol": "AWSRekognitionStreamProcessorStatus.AWSRekognitionStreamProcessorStatusRunning",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 252,
       "symbol": "AWSRekognitionStreamProcessorStatus.AWSRekognitionStreamProcessorStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 253,
       "symbol": "AWSRekognitionStreamProcessorStatus.AWSRekognitionStreamProcessorStatusStopping",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 256,
       "symbol": "AWSRekognitionTechnicalCueType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 256,
       "symbol": "AWSRekognitionTechnicalCueType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 257,
       "symbol": "AWSRekognitionTechnicalCueType.AWSRekognitionTechnicalCueTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 258,
       "symbol": "AWSRekognitionTechnicalCueType.AWSRekognitionTechnicalCueTypeColorBars",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 259,
       "symbol": "AWSRekognitionTechnicalCueType.AWSRekognitionTechnicalCueTypeEndCredits",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 260,
       "symbol": "AWSRekognitionTechnicalCueType.AWSRekognitionTechnicalCueTypeBlackFrames",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 261,
       "symbol": "AWSRekognitionTechnicalCueType.AWSRekognitionTechnicalCueTypeOpeningCredits",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 262,
       "symbol": "AWSRekognitionTechnicalCueType.AWSRekognitionTechnicalCueTypeStudioLogo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 263,
       "symbol": "AWSRekognitionTechnicalCueType.AWSRekognitionTechnicalCueTypeSlate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 264,
       "symbol": "AWSRekognitionTechnicalCueType.AWSRekognitionTechnicalCueTypeContent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 267,
       "symbol": "AWSRekognitionTextTypes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 267,
       "symbol": "AWSRekognitionTextTypes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 268,
       "symbol": "AWSRekognitionTextTypes.AWSRekognitionTextTypesUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 269,
       "symbol": "AWSRekognitionTextTypes.AWSRekognitionTextTypesLine",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 270,
       "symbol": "AWSRekognitionTextTypes.AWSRekognitionTextTypesWord",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 273,
       "symbol": "AWSRekognitionVideoColorRange",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 273,
       "symbol": "AWSRekognitionVideoColorRange",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 274,
       "symbol": "AWSRekognitionVideoColorRange.AWSRekognitionVideoColorRangeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 275,
       "symbol": "AWSRekognitionVideoColorRange.AWSRekognitionVideoColorRangeFull",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 276,
       "symbol": "AWSRekognitionVideoColorRange.AWSRekognitionVideoColorRangeLimited",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 279,
       "symbol": "AWSRekognitionVideoJobStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 279,
       "symbol": "AWSRekognitionVideoJobStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 280,
       "symbol": "AWSRekognitionVideoJobStatus.AWSRekognitionVideoJobStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 281,
       "symbol": "AWSRekognitionVideoJobStatus.AWSRekognitionVideoJobStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 282,
       "symbol": "AWSRekognitionVideoJobStatus.AWSRekognitionVideoJobStatusSucceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
       "line": 283,
       "symbol": "AWSRekognitionVideoJobStatus.AWSRekognitionVideoJobStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionResources.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionResources.h",
       "line": 18,
       "symbol": "AWSRekognitionResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionResources.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionResources.h",
       "line": 20,
       "symbol": "AWSRekognitionResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionResources.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionResources.h",
       "line": 22,
       "symbol": "AWSRekognitionResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionService.h",
+      "file": "/Users/royji/work/iOS/aws-sdk-ios/AWSRekognition/AWSRekognitionService.h",
       "line": 24,
       "symbol": "AWSRekognitionSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/distiller/project"
+  "source_directory": "/Users/royji/work/iOS/aws-sdk-ios"
 }
