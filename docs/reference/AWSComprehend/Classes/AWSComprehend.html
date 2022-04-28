@@ -17,7 +17,7 @@
     <a title="AWSComprehend Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSComprehend 2.27.5 Docs</a> (83% documented)</p>
+        <p><a href="../index.html">AWSComprehend 2.27.7 Docs</a> (83% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSComprehend.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -835,9 +835,9 @@
 <p><em>Objective-C</em></p>
 <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
      <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                                                     <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+                                                                                                     <span class="nf">identityPoolId</span><span class="p">:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
      <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                          <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+                                                                          <span class="nf">credentialsProvider</span><span class="p">:</span><span class="n">credentialsProvider</span><span class="p">];</span>
      <span class="p">[</span><span class="n">AWSServiceManager</span> <span class="nf">defaultServiceManager</span><span class="p">].</span><span class="n">defaultServiceConfiguration</span> <span class="o">=</span> <span class="n">configuration</span><span class="p">;</span>
 
      <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
@@ -864,7 +864,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="p">`</span><span class="nv">default</span><span class="p">`()</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="err">`</span><span class="k">default</span><span class="err">`</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
 
                         </div>
                       </div>
@@ -906,9 +906,9 @@
 <p><em>Objective-C</em></p>
 <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
     <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                                                    <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+                                                                                                    <span class="nf">identityPoolId</span><span class="p">:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
     <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSWest2</span>
-                                                                         <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+                                                                         <span class="nf">credentialsProvider</span><span class="p">:</span><span class="n">credentialsProvider</span><span class="p">];</span>
 
     <span class="p">[</span><span class="n">AWSComprehend</span> <span class="nf">registerComprehendWithConfiguration</span><span class="p">:</span><span class="n">configuration</span> <span class="nf">forKey</span><span class="p">:</span><span class="s">@"USWest2Comprehend"</span><span class="p">];</span>
 
@@ -1011,9 +1011,9 @@
 <p><em>Objective-C</em></p>
 <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
     <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                                                    <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+                                                                                                    <span class="nf">identityPoolId</span><span class="p">:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
     <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSWest2</span>
-                                                                         <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+                                                                         <span class="nf">credentialsProvider</span><span class="p">:</span><span class="n">credentialsProvider</span><span class="p">];</span>
 
     <span class="p">[</span><span class="n">AWSComprehend</span> <span class="nf">registerComprehendWithConfiguration</span><span class="p">:</span><span class="n">configuration</span> <span class="nf">forKey</span><span class="p">:</span><span class="s">@"USWest2Comprehend"</span><span class="p">];</span>
 
@@ -1041,7 +1041,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1232,7 +1232,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchDetectDominantLanguage</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendBatchDetectDominantLanguageRequest.html">AWSComprehendBatchDetectDominantLanguageRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendBatchDetectDominantLanguageResponse.html">AWSComprehendBatchDetectDominantLanguageResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchDetectDominantLanguage</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendBatchDetectDominantLanguageRequest.html">AWSComprehendBatchDetectDominantLanguageRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendBatchDetectDominantLanguageResponse.html">AWSComprehendBatchDetectDominantLanguageResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1376,7 +1376,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchDetectEntities</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendBatchDetectEntitiesRequest.html">AWSComprehendBatchDetectEntitiesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendBatchDetectEntitiesResponse.html">AWSComprehendBatchDetectEntitiesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchDetectEntities</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendBatchDetectEntitiesRequest.html">AWSComprehendBatchDetectEntitiesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendBatchDetectEntitiesResponse.html">AWSComprehendBatchDetectEntitiesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1520,7 +1520,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchDetectKeyPhrases</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendBatchDetectKeyPhrasesRequest.html">AWSComprehendBatchDetectKeyPhrasesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendBatchDetectKeyPhrasesResponse.html">AWSComprehendBatchDetectKeyPhrasesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchDetectKeyPhrases</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendBatchDetectKeyPhrasesRequest.html">AWSComprehendBatchDetectKeyPhrasesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendBatchDetectKeyPhrasesResponse.html">AWSComprehendBatchDetectKeyPhrasesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1664,7 +1664,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchDetectSentiment</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendBatchDetectSentimentRequest.html">AWSComprehendBatchDetectSentimentRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendBatchDetectSentimentResponse.html">AWSComprehendBatchDetectSentimentResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchDetectSentiment</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendBatchDetectSentimentRequest.html">AWSComprehendBatchDetectSentimentRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendBatchDetectSentimentResponse.html">AWSComprehendBatchDetectSentimentResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1807,7 +1807,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchDetectSyntax</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendBatchDetectSyntaxRequest.html">AWSComprehendBatchDetectSyntaxRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendBatchDetectSyntaxResponse.html">AWSComprehendBatchDetectSyntaxResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchDetectSyntax</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendBatchDetectSyntaxRequest.html">AWSComprehendBatchDetectSyntaxRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendBatchDetectSyntaxResponse.html">AWSComprehendBatchDetectSyntaxResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1948,7 +1948,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">classifyDocument</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendClassifyDocumentRequest.html">AWSComprehendClassifyDocumentRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendClassifyDocumentResponse.html">AWSComprehendClassifyDocumentResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">classifyDocument</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendClassifyDocumentRequest.html">AWSComprehendClassifyDocumentRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendClassifyDocumentResponse.html">AWSComprehendClassifyDocumentResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2092,7 +2092,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">containsPiiEntities</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendContainsPiiEntitiesRequest.html">AWSComprehendContainsPiiEntitiesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendContainsPiiEntitiesResponse.html">AWSComprehendContainsPiiEntitiesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">containsPiiEntities</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendContainsPiiEntitiesRequest.html">AWSComprehendContainsPiiEntitiesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendContainsPiiEntitiesResponse.html">AWSComprehendContainsPiiEntitiesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2236,7 +2236,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createDocumentClassifier</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendCreateDocumentClassifierRequest.html">AWSComprehendCreateDocumentClassifierRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendCreateDocumentClassifierResponse.html">AWSComprehendCreateDocumentClassifierResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createDocumentClassifier</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendCreateDocumentClassifierRequest.html">AWSComprehendCreateDocumentClassifierRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendCreateDocumentClassifierResponse.html">AWSComprehendCreateDocumentClassifierResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2377,7 +2377,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createEndpoint</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendCreateEndpointRequest.html">AWSComprehendCreateEndpointRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendCreateEndpointResponse.html">AWSComprehendCreateEndpointResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createEndpoint</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendCreateEndpointRequest.html">AWSComprehendCreateEndpointRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendCreateEndpointResponse.html">AWSComprehendCreateEndpointResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2521,7 +2521,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createEntityRecognizer</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendCreateEntityRecognizerRequest.html">AWSComprehendCreateEntityRecognizerRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendCreateEntityRecognizerResponse.html">AWSComprehendCreateEntityRecognizerResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createEntityRecognizer</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendCreateEntityRecognizerRequest.html">AWSComprehendCreateEntityRecognizerRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendCreateEntityRecognizerResponse.html">AWSComprehendCreateEntityRecognizerResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2665,7 +2665,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteDocumentClassifier</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDeleteDocumentClassifierRequest.html">AWSComprehendDeleteDocumentClassifierRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSComprehendDeleteDocumentClassifierResponse">AWSComprehendDeleteDocumentClassifierResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteDocumentClassifier</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDeleteDocumentClassifierRequest.html">AWSComprehendDeleteDocumentClassifierRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSComprehendDeleteDocumentClassifierResponse">AWSComprehendDeleteDocumentClassifierResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2806,7 +2806,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteEndpoint</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDeleteEndpointRequest.html">AWSComprehendDeleteEndpointRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSComprehendDeleteEndpointResponse">AWSComprehendDeleteEndpointResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteEndpoint</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDeleteEndpointRequest.html">AWSComprehendDeleteEndpointRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSComprehendDeleteEndpointResponse">AWSComprehendDeleteEndpointResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2950,7 +2950,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteEntityRecognizer</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDeleteEntityRecognizerRequest.html">AWSComprehendDeleteEntityRecognizerRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSComprehendDeleteEntityRecognizerResponse">AWSComprehendDeleteEntityRecognizerResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteEntityRecognizer</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDeleteEntityRecognizerRequest.html">AWSComprehendDeleteEntityRecognizerRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSComprehendDeleteEntityRecognizerResponse">AWSComprehendDeleteEntityRecognizerResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3094,7 +3094,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteResourcePolicy</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDeleteResourcePolicyRequest.html">AWSComprehendDeleteResourcePolicyRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSComprehendDeleteResourcePolicyResponse">AWSComprehendDeleteResourcePolicyResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteResourcePolicy</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDeleteResourcePolicyRequest.html">AWSComprehendDeleteResourcePolicyRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSComprehendDeleteResourcePolicyResponse">AWSComprehendDeleteResourcePolicyResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3240,7 +3240,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeDocumentClassificationJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeDocumentClassificationJobRequest.html">AWSComprehendDescribeDocumentClassificationJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeDocumentClassificationJobResponse.html">AWSComprehendDescribeDocumentClassificationJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeDocumentClassificationJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeDocumentClassificationJobRequest.html">AWSComprehendDescribeDocumentClassificationJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeDocumentClassificationJobResponse.html">AWSComprehendDescribeDocumentClassificationJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3385,7 +3385,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeDocumentClassifier</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeDocumentClassifierRequest.html">AWSComprehendDescribeDocumentClassifierRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeDocumentClassifierResponse.html">AWSComprehendDescribeDocumentClassifierResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeDocumentClassifier</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeDocumentClassifierRequest.html">AWSComprehendDescribeDocumentClassifierRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeDocumentClassifierResponse.html">AWSComprehendDescribeDocumentClassifierResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3532,7 +3532,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeDominantLanguageDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeDominantLanguageDetectionJobRequest.html">AWSComprehendDescribeDominantLanguageDetectionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeDominantLanguageDetectionJobResponse.html">AWSComprehendDescribeDominantLanguageDetectionJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeDominantLanguageDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeDominantLanguageDetectionJobRequest.html">AWSComprehendDescribeDominantLanguageDetectionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeDominantLanguageDetectionJobResponse.html">AWSComprehendDescribeDominantLanguageDetectionJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3673,7 +3673,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeEndpoint</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeEndpointRequest.html">AWSComprehendDescribeEndpointRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeEndpointResponse.html">AWSComprehendDescribeEndpointResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeEndpoint</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeEndpointRequest.html">AWSComprehendDescribeEndpointRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeEndpointResponse.html">AWSComprehendDescribeEndpointResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3818,7 +3818,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeEntitiesDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeEntitiesDetectionJobRequest.html">AWSComprehendDescribeEntitiesDetectionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeEntitiesDetectionJobResponse.html">AWSComprehendDescribeEntitiesDetectionJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeEntitiesDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeEntitiesDetectionJobRequest.html">AWSComprehendDescribeEntitiesDetectionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeEntitiesDetectionJobResponse.html">AWSComprehendDescribeEntitiesDetectionJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3962,7 +3962,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeEntityRecognizer</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeEntityRecognizerRequest.html">AWSComprehendDescribeEntityRecognizerRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeEntityRecognizerResponse.html">AWSComprehendDescribeEntityRecognizerResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeEntityRecognizer</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeEntityRecognizerRequest.html">AWSComprehendDescribeEntityRecognizerRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeEntityRecognizerResponse.html">AWSComprehendDescribeEntityRecognizerResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4107,7 +4107,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeEventsDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeEventsDetectionJobRequest.html">AWSComprehendDescribeEventsDetectionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeEventsDetectionJobResponse.html">AWSComprehendDescribeEventsDetectionJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeEventsDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeEventsDetectionJobRequest.html">AWSComprehendDescribeEventsDetectionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeEventsDetectionJobResponse.html">AWSComprehendDescribeEventsDetectionJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4253,7 +4253,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeKeyPhrasesDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeKeyPhrasesDetectionJobRequest.html">AWSComprehendDescribeKeyPhrasesDetectionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeKeyPhrasesDetectionJobResponse.html">AWSComprehendDescribeKeyPhrasesDetectionJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeKeyPhrasesDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeKeyPhrasesDetectionJobRequest.html">AWSComprehendDescribeKeyPhrasesDetectionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeKeyPhrasesDetectionJobResponse.html">AWSComprehendDescribeKeyPhrasesDetectionJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4399,7 +4399,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describePiiEntitiesDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribePiiEntitiesDetectionJobRequest.html">AWSComprehendDescribePiiEntitiesDetectionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDescribePiiEntitiesDetectionJobResponse.html">AWSComprehendDescribePiiEntitiesDetectionJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describePiiEntitiesDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribePiiEntitiesDetectionJobRequest.html">AWSComprehendDescribePiiEntitiesDetectionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDescribePiiEntitiesDetectionJobResponse.html">AWSComprehendDescribePiiEntitiesDetectionJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4543,7 +4543,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeResourcePolicy</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeResourcePolicyRequest.html">AWSComprehendDescribeResourcePolicyRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeResourcePolicyResponse.html">AWSComprehendDescribeResourcePolicyResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeResourcePolicy</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeResourcePolicyRequest.html">AWSComprehendDescribeResourcePolicyRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeResourcePolicyResponse.html">AWSComprehendDescribeResourcePolicyResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4688,7 +4688,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeSentimentDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeSentimentDetectionJobRequest.html">AWSComprehendDescribeSentimentDetectionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeSentimentDetectionJobResponse.html">AWSComprehendDescribeSentimentDetectionJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeSentimentDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeSentimentDetectionJobRequest.html">AWSComprehendDescribeSentimentDetectionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeSentimentDetectionJobResponse.html">AWSComprehendDescribeSentimentDetectionJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4836,7 +4836,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeTargetedSentimentDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeTargetedSentimentDetectionJobRequest.html">AWSComprehendDescribeTargetedSentimentDetectionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeTargetedSentimentDetectionJobResponse.html">AWSComprehendDescribeTargetedSentimentDetectionJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeTargetedSentimentDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeTargetedSentimentDetectionJobRequest.html">AWSComprehendDescribeTargetedSentimentDetectionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeTargetedSentimentDetectionJobResponse.html">AWSComprehendDescribeTargetedSentimentDetectionJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4981,7 +4981,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeTopicsDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeTopicsDetectionJobRequest.html">AWSComprehendDescribeTopicsDetectionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeTopicsDetectionJobResponse.html">AWSComprehendDescribeTopicsDetectionJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeTopicsDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeTopicsDetectionJobRequest.html">AWSComprehendDescribeTopicsDetectionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeTopicsDetectionJobResponse.html">AWSComprehendDescribeTopicsDetectionJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5125,7 +5125,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectDominantLanguage</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDetectDominantLanguageRequest.html">AWSComprehendDetectDominantLanguageRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDetectDominantLanguageResponse.html">AWSComprehendDetectDominantLanguageResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectDominantLanguage</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDetectDominantLanguageRequest.html">AWSComprehendDetectDominantLanguageRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDetectDominantLanguageResponse.html">AWSComprehendDetectDominantLanguageResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5266,7 +5266,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectEntities</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDetectEntitiesRequest.html">AWSComprehendDetectEntitiesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDetectEntitiesResponse.html">AWSComprehendDetectEntitiesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectEntities</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDetectEntitiesRequest.html">AWSComprehendDetectEntitiesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDetectEntitiesResponse.html">AWSComprehendDetectEntitiesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5407,7 +5407,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectKeyPhrases</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDetectKeyPhrasesRequest.html">AWSComprehendDetectKeyPhrasesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDetectKeyPhrasesResponse.html">AWSComprehendDetectKeyPhrasesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectKeyPhrases</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDetectKeyPhrasesRequest.html">AWSComprehendDetectKeyPhrasesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDetectKeyPhrasesResponse.html">AWSComprehendDetectKeyPhrasesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5550,7 +5550,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectPiiEntities</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDetectPiiEntitiesRequest.html">AWSComprehendDetectPiiEntitiesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDetectPiiEntitiesResponse.html">AWSComprehendDetectPiiEntitiesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectPiiEntities</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDetectPiiEntitiesRequest.html">AWSComprehendDetectPiiEntitiesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDetectPiiEntitiesResponse.html">AWSComprehendDetectPiiEntitiesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5691,7 +5691,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectSentiment</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDetectSentimentRequest.html">AWSComprehendDetectSentimentRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDetectSentimentResponse.html">AWSComprehendDetectSentimentResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectSentiment</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDetectSentimentRequest.html">AWSComprehendDetectSentimentRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDetectSentimentResponse.html">AWSComprehendDetectSentimentResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5832,7 +5832,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectSyntax</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDetectSyntaxRequest.html">AWSComprehendDetectSyntaxRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDetectSyntaxResponse.html">AWSComprehendDetectSyntaxResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectSyntax</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDetectSyntaxRequest.html">AWSComprehendDetectSyntaxRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendDetectSyntaxResponse.html">AWSComprehendDetectSyntaxResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5973,7 +5973,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">importModel</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendImportModelRequest.html">AWSComprehendImportModelRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendImportModelResponse.html">AWSComprehendImportModelResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">importModel</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendImportModelRequest.html">AWSComprehendImportModelRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendImportModelResponse.html">AWSComprehendImportModelResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6119,7 +6119,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listDocumentClassificationJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListDocumentClassificationJobsRequest.html">AWSComprehendListDocumentClassificationJobsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListDocumentClassificationJobsResponse.html">AWSComprehendListDocumentClassificationJobsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listDocumentClassificationJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListDocumentClassificationJobsRequest.html">AWSComprehendListDocumentClassificationJobsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListDocumentClassificationJobsResponse.html">AWSComprehendListDocumentClassificationJobsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6265,7 +6265,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listDocumentClassifierSummaries</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListDocumentClassifierSummariesRequest.html">AWSComprehendListDocumentClassifierSummariesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListDocumentClassifierSummariesResponse.html">AWSComprehendListDocumentClassifierSummariesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listDocumentClassifierSummaries</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListDocumentClassifierSummariesRequest.html">AWSComprehendListDocumentClassifierSummariesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListDocumentClassifierSummariesResponse.html">AWSComprehendListDocumentClassifierSummariesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6409,7 +6409,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listDocumentClassifiers</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListDocumentClassifiersRequest.html">AWSComprehendListDocumentClassifiersRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListDocumentClassifiersResponse.html">AWSComprehendListDocumentClassifiersResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listDocumentClassifiers</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListDocumentClassifiersRequest.html">AWSComprehendListDocumentClassifiersRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListDocumentClassifiersResponse.html">AWSComprehendListDocumentClassifiersResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6555,7 +6555,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listDominantLanguageDetectionJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListDominantLanguageDetectionJobsRequest.html">AWSComprehendListDominantLanguageDetectionJobsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListDominantLanguageDetectionJobsResponse.html">AWSComprehendListDominantLanguageDetectionJobsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listDominantLanguageDetectionJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListDominantLanguageDetectionJobsRequest.html">AWSComprehendListDominantLanguageDetectionJobsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListDominantLanguageDetectionJobsResponse.html">AWSComprehendListDominantLanguageDetectionJobsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6696,7 +6696,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listEndpoints</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListEndpointsRequest.html">AWSComprehendListEndpointsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListEndpointsResponse.html">AWSComprehendListEndpointsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listEndpoints</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListEndpointsRequest.html">AWSComprehendListEndpointsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListEndpointsResponse.html">AWSComprehendListEndpointsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6841,7 +6841,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listEntitiesDetectionJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListEntitiesDetectionJobsRequest.html">AWSComprehendListEntitiesDetectionJobsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListEntitiesDetectionJobsResponse.html">AWSComprehendListEntitiesDetectionJobsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listEntitiesDetectionJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListEntitiesDetectionJobsRequest.html">AWSComprehendListEntitiesDetectionJobsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListEntitiesDetectionJobsResponse.html">AWSComprehendListEntitiesDetectionJobsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6986,7 +6986,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listEntityRecognizerSummaries</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListEntityRecognizerSummariesRequest.html">AWSComprehendListEntityRecognizerSummariesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListEntityRecognizerSummariesResponse.html">AWSComprehendListEntityRecognizerSummariesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listEntityRecognizerSummaries</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListEntityRecognizerSummariesRequest.html">AWSComprehendListEntityRecognizerSummariesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListEntityRecognizerSummariesResponse.html">AWSComprehendListEntityRecognizerSummariesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7130,7 +7130,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listEntityRecognizers</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListEntityRecognizersRequest.html">AWSComprehendListEntityRecognizersRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListEntityRecognizersResponse.html">AWSComprehendListEntityRecognizersResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listEntityRecognizers</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListEntityRecognizersRequest.html">AWSComprehendListEntityRecognizersRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListEntityRecognizersResponse.html">AWSComprehendListEntityRecognizersResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7274,7 +7274,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listEventsDetectionJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListEventsDetectionJobsRequest.html">AWSComprehendListEventsDetectionJobsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListEventsDetectionJobsResponse.html">AWSComprehendListEventsDetectionJobsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listEventsDetectionJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListEventsDetectionJobsRequest.html">AWSComprehendListEventsDetectionJobsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListEventsDetectionJobsResponse.html">AWSComprehendListEventsDetectionJobsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7419,7 +7419,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listKeyPhrasesDetectionJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListKeyPhrasesDetectionJobsRequest.html">AWSComprehendListKeyPhrasesDetectionJobsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListKeyPhrasesDetectionJobsResponse.html">AWSComprehendListKeyPhrasesDetectionJobsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listKeyPhrasesDetectionJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListKeyPhrasesDetectionJobsRequest.html">AWSComprehendListKeyPhrasesDetectionJobsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListKeyPhrasesDetectionJobsResponse.html">AWSComprehendListKeyPhrasesDetectionJobsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7564,7 +7564,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listPiiEntitiesDetectionJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListPiiEntitiesDetectionJobsRequest.html">AWSComprehendListPiiEntitiesDetectionJobsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListPiiEntitiesDetectionJobsResponse.html">AWSComprehendListPiiEntitiesDetectionJobsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listPiiEntitiesDetectionJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListPiiEntitiesDetectionJobsRequest.html">AWSComprehendListPiiEntitiesDetectionJobsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListPiiEntitiesDetectionJobsResponse.html">AWSComprehendListPiiEntitiesDetectionJobsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7709,7 +7709,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listSentimentDetectionJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListSentimentDetectionJobsRequest.html">AWSComprehendListSentimentDetectionJobsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListSentimentDetectionJobsResponse.html">AWSComprehendListSentimentDetectionJobsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listSentimentDetectionJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListSentimentDetectionJobsRequest.html">AWSComprehendListSentimentDetectionJobsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListSentimentDetectionJobsResponse.html">AWSComprehendListSentimentDetectionJobsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7853,7 +7853,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTags</span><span class="p">(</span><span class="n">forResource</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListTagsForResourceRequest.html">AWSComprehendListTagsForResourceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListTagsForResourceResponse.html">AWSComprehendListTagsForResourceResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTags</span><span class="p">(</span><span class="n">forResource</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListTagsForResourceRequest.html">AWSComprehendListTagsForResourceRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListTagsForResourceResponse.html">AWSComprehendListTagsForResourceResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8000,7 +8000,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTargetedSentimentDetectionJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListTargetedSentimentDetectionJobsRequest.html">AWSComprehendListTargetedSentimentDetectionJobsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListTargetedSentimentDetectionJobsResponse.html">AWSComprehendListTargetedSentimentDetectionJobsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTargetedSentimentDetectionJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListTargetedSentimentDetectionJobsRequest.html">AWSComprehendListTargetedSentimentDetectionJobsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListTargetedSentimentDetectionJobsResponse.html">AWSComprehendListTargetedSentimentDetectionJobsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8144,7 +8144,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTopicsDetectionJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListTopicsDetectionJobsRequest.html">AWSComprehendListTopicsDetectionJobsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListTopicsDetectionJobsResponse.html">AWSComprehendListTopicsDetectionJobsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTopicsDetectionJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListTopicsDetectionJobsRequest.html">AWSComprehendListTopicsDetectionJobsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendListTopicsDetectionJobsResponse.html">AWSComprehendListTopicsDetectionJobsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8287,7 +8287,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">putResourcePolicy</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendPutResourcePolicyRequest.html">AWSComprehendPutResourcePolicyRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendPutResourcePolicyResponse.html">AWSComprehendPutResourcePolicyResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">putResourcePolicy</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendPutResourcePolicyRequest.html">AWSComprehendPutResourcePolicyRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendPutResourcePolicyResponse.html">AWSComprehendPutResourcePolicyResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8433,7 +8433,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startDocumentClassificationJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStartDocumentClassificationJobRequest.html">AWSComprehendStartDocumentClassificationJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStartDocumentClassificationJobResponse.html">AWSComprehendStartDocumentClassificationJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startDocumentClassificationJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStartDocumentClassificationJobRequest.html">AWSComprehendStartDocumentClassificationJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStartDocumentClassificationJobResponse.html">AWSComprehendStartDocumentClassificationJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8579,7 +8579,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startDominantLanguageDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStartDominantLanguageDetectionJobRequest.html">AWSComprehendStartDominantLanguageDetectionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStartDominantLanguageDetectionJobResponse.html">AWSComprehendStartDominantLanguageDetectionJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startDominantLanguageDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStartDominantLanguageDetectionJobRequest.html">AWSComprehendStartDominantLanguageDetectionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStartDominantLanguageDetectionJobResponse.html">AWSComprehendStartDominantLanguageDetectionJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8724,7 +8724,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startEntitiesDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStartEntitiesDetectionJobRequest.html">AWSComprehendStartEntitiesDetectionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStartEntitiesDetectionJobResponse.html">AWSComprehendStartEntitiesDetectionJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startEntitiesDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStartEntitiesDetectionJobRequest.html">AWSComprehendStartEntitiesDetectionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStartEntitiesDetectionJobResponse.html">AWSComprehendStartEntitiesDetectionJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8868,7 +8868,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startEventsDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStartEventsDetectionJobRequest.html">AWSComprehendStartEventsDetectionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStartEventsDetectionJobResponse.html">AWSComprehendStartEventsDetectionJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startEventsDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStartEventsDetectionJobRequest.html">AWSComprehendStartEventsDetectionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStartEventsDetectionJobResponse.html">AWSComprehendStartEventsDetectionJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -9013,7 +9013,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startKeyPhrasesDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStartKeyPhrasesDetectionJobRequest.html">AWSComprehendStartKeyPhrasesDetectionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStartKeyPhrasesDetectionJobResponse.html">AWSComprehendStartKeyPhrasesDetectionJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startKeyPhrasesDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStartKeyPhrasesDetectionJobRequest.html">AWSComprehendStartKeyPhrasesDetectionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStartKeyPhrasesDetectionJobResponse.html">AWSComprehendStartKeyPhrasesDetectionJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -9158,7 +9158,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startPiiEntitiesDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStartPiiEntitiesDetectionJobRequest.html">AWSComprehendStartPiiEntitiesDetectionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStartPiiEntitiesDetectionJobResponse.html">AWSComprehendStartPiiEntitiesDetectionJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startPiiEntitiesDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStartPiiEntitiesDetectionJobRequest.html">AWSComprehendStartPiiEntitiesDetectionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStartPiiEntitiesDetectionJobResponse.html">AWSComprehendStartPiiEntitiesDetectionJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -9303,7 +9303,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startSentimentDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStartSentimentDetectionJobRequest.html">AWSComprehendStartSentimentDetectionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStartSentimentDetectionJobResponse.html">AWSComprehendStartSentimentDetectionJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startSentimentDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStartSentimentDetectionJobRequest.html">AWSComprehendStartSentimentDetectionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStartSentimentDetectionJobResponse.html">AWSComprehendStartSentimentDetectionJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -9450,7 +9450,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startTargetedSentimentDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStartTargetedSentimentDetectionJobRequest.html">AWSComprehendStartTargetedSentimentDetectionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStartTargetedSentimentDetectionJobResponse.html">AWSComprehendStartTargetedSentimentDetectionJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startTargetedSentimentDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStartTargetedSentimentDetectionJobRequest.html">AWSComprehendStartTargetedSentimentDetectionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStartTargetedSentimentDetectionJobResponse.html">AWSComprehendStartTargetedSentimentDetectionJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -9594,7 +9594,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startTopicsDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStartTopicsDetectionJobRequest.html">AWSComprehendStartTopicsDetectionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStartTopicsDetectionJobResponse.html">AWSComprehendStartTopicsDetectionJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startTopicsDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStartTopicsDetectionJobRequest.html">AWSComprehendStartTopicsDetectionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStartTopicsDetectionJobResponse.html">AWSComprehendStartTopicsDetectionJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -9740,7 +9740,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopDominantLanguageDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStopDominantLanguageDetectionJobRequest.html">AWSComprehendStopDominantLanguageDetectionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStopDominantLanguageDetectionJobResponse.html">AWSComprehendStopDominantLanguageDetectionJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopDominantLanguageDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStopDominantLanguageDetectionJobRequest.html">AWSComprehendStopDominantLanguageDetectionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStopDominantLanguageDetectionJobResponse.html">AWSComprehendStopDominantLanguageDetectionJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -9884,7 +9884,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopEntitiesDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStopEntitiesDetectionJobRequest.html">AWSComprehendStopEntitiesDetectionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStopEntitiesDetectionJobResponse.html">AWSComprehendStopEntitiesDetectionJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopEntitiesDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStopEntitiesDetectionJobRequest.html">AWSComprehendStopEntitiesDetectionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStopEntitiesDetectionJobResponse.html">AWSComprehendStopEntitiesDetectionJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -10028,7 +10028,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopEventsDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStopEventsDetectionJobRequest.html">AWSComprehendStopEventsDetectionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStopEventsDetectionJobResponse.html">AWSComprehendStopEventsDetectionJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopEventsDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStopEventsDetectionJobRequest.html">AWSComprehendStopEventsDetectionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStopEventsDetectionJobResponse.html">AWSComprehendStopEventsDetectionJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -10173,7 +10173,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopKeyPhrasesDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStopKeyPhrasesDetectionJobRequest.html">AWSComprehendStopKeyPhrasesDetectionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStopKeyPhrasesDetectionJobResponse.html">AWSComprehendStopKeyPhrasesDetectionJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopKeyPhrasesDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStopKeyPhrasesDetectionJobRequest.html">AWSComprehendStopKeyPhrasesDetectionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStopKeyPhrasesDetectionJobResponse.html">AWSComprehendStopKeyPhrasesDetectionJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -10318,7 +10318,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopPiiEntitiesDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStopPiiEntitiesDetectionJobRequest.html">AWSComprehendStopPiiEntitiesDetectionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStopPiiEntitiesDetectionJobResponse.html">AWSComprehendStopPiiEntitiesDetectionJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopPiiEntitiesDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStopPiiEntitiesDetectionJobRequest.html">AWSComprehendStopPiiEntitiesDetectionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStopPiiEntitiesDetectionJobResponse.html">AWSComprehendStopPiiEntitiesDetectionJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -10463,7 +10463,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopSentimentDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStopSentimentDetectionJobRequest.html">AWSComprehendStopSentimentDetectionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStopSentimentDetectionJobResponse.html">AWSComprehendStopSentimentDetectionJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopSentimentDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStopSentimentDetectionJobRequest.html">AWSComprehendStopSentimentDetectionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStopSentimentDetectionJobResponse.html">AWSComprehendStopSentimentDetectionJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -10609,7 +10609,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopTargetedSentimentDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStopTargetedSentimentDetectionJobRequest.html">AWSComprehendStopTargetedSentimentDetectionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStopTargetedSentimentDetectionJobResponse.html">AWSComprehendStopTargetedSentimentDetectionJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopTargetedSentimentDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStopTargetedSentimentDetectionJobRequest.html">AWSComprehendStopTargetedSentimentDetectionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSComprehendStopTargetedSentimentDetectionJobResponse.html">AWSComprehendStopTargetedSentimentDetectionJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -10755,7 +10755,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopTrainingDocumentClassifier</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStopTrainingDocumentClassifierRequest.html">AWSComprehendStopTrainingDocumentClassifierRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSComprehendStopTrainingDocumentClassifierResponse">AWSComprehendStopTrainingDocumentClassifierResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopTrainingDocumentClassifier</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStopTrainingDocumentClassifierRequest.html">AWSComprehendStopTrainingDocumentClassifierRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSComprehendStopTrainingDocumentClassifierResponse">AWSComprehendStopTrainingDocumentClassifierResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -10900,7 +10900,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopTrainingEntityRecognizer</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStopTrainingEntityRecognizerRequest.html">AWSComprehendStopTrainingEntityRecognizerRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSComprehendStopTrainingEntityRecognizerResponse">AWSComprehendStopTrainingEntityRecognizerResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopTrainingEntityRecognizer</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStopTrainingEntityRecognizerRequest.html">AWSComprehendStopTrainingEntityRecognizerRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSComprehendStopTrainingEntityRecognizerResponse">AWSComprehendStopTrainingEntityRecognizerResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -11041,7 +11041,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">tagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendTagResourceRequest.html">AWSComprehendTagResourceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSComprehendTagResourceResponse">AWSComprehendTagResourceResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">tagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendTagResourceRequest.html">AWSComprehendTagResourceRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSComprehendTagResourceResponse">AWSComprehendTagResourceResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -11182,7 +11182,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">untagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendUntagResourceRequest.html">AWSComprehendUntagResourceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSComprehendUntagResourceResponse">AWSComprehendUntagResourceResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">untagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendUntagResourceRequest.html">AWSComprehendUntagResourceRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSComprehendUntagResourceResponse">AWSComprehendUntagResourceResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -11323,7 +11323,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateEndpoint</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendUpdateEndpointRequest.html">AWSComprehendUpdateEndpointRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSComprehendUpdateEndpointResponse">AWSComprehendUpdateEndpointResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateEndpoint</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendUpdateEndpointRequest.html">AWSComprehendUpdateEndpointRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSComprehendUpdateEndpointResponse">AWSComprehendUpdateEndpointResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -11368,7 +11368,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-03-31)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-04-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
