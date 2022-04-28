@@ -17,7 +17,7 @@
     <a title="AWSLambdaAddPermissionRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLambda 2.27.5 Docs</a> (78% documented)</p>
+        <p><a href="../index.html">AWSLambda 2.27.7 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLambda.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -80,6 +80,9 @@
                 <a href="../Classes/AWSLambdaConcurrency.html">AWSLambdaConcurrency</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaCors.html">AWSLambdaCors</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLambdaCreateAliasRequest.html">AWSLambdaCreateAliasRequest</a>
               </li>
               <li class="nav-group-task">
@@ -93,6 +96,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLambdaCreateFunctionRequest.html">AWSLambdaCreateFunctionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaCreateFunctionUrlConfigRequest.html">AWSLambdaCreateFunctionUrlConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaCreateFunctionUrlConfigResponse.html">AWSLambdaCreateFunctionUrlConfigResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLambdaDeadLetterConfig.html">AWSLambdaDeadLetterConfig</a>
@@ -120,6 +129,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLambdaDeleteFunctionRequest.html">AWSLambdaDeleteFunctionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaDeleteFunctionUrlConfigRequest.html">AWSLambdaDeleteFunctionUrlConfigRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLambdaDeleteLayerVersionRequest.html">AWSLambdaDeleteLayerVersionRequest</a>
@@ -167,6 +179,9 @@
                 <a href="../Classes/AWSLambdaFunctionEventInvokeConfig.html">AWSLambdaFunctionEventInvokeConfig</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaFunctionUrlConfig.html">AWSLambdaFunctionUrlConfig</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes.html#/c:objc(cs)AWSLambdaGetAccountSettingsRequest">AWSLambdaGetAccountSettingsRequest</a>
               </li>
               <li class="nav-group-task">
@@ -207,6 +222,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLambdaGetFunctionResponse.html">AWSLambdaGetFunctionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetFunctionUrlConfigRequest.html">AWSLambdaGetFunctionUrlConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetFunctionUrlConfigResponse.html">AWSLambdaGetFunctionUrlConfigResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLambdaGetLayerVersionByArnRequest.html">AWSLambdaGetLayerVersionByArnRequest</a>
@@ -303,6 +324,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLambdaListFunctionEventInvokeConfigsResponse.html">AWSLambdaListFunctionEventInvokeConfigsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListFunctionUrlConfigsRequest.html">AWSLambdaListFunctionUrlConfigsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListFunctionUrlConfigsResponse.html">AWSLambdaListFunctionUrlConfigsResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLambdaListFunctionsByCodeSigningConfigRequest.html">AWSLambdaListFunctionsByCodeSigningConfigRequest</a>
@@ -431,6 +458,12 @@
                 <a href="../Classes/AWSLambdaUpdateFunctionEventInvokeConfigRequest.html">AWSLambdaUpdateFunctionEventInvokeConfigRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaUpdateFunctionUrlConfigRequest.html">AWSLambdaUpdateFunctionUrlConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaUpdateFunctionUrlConfigResponse.html">AWSLambdaUpdateFunctionUrlConfigResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLambdaVpcConfig.html">AWSLambdaVpcConfig</a>
               </li>
               <li class="nav-group-task">
@@ -490,6 +523,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSLambdaFunctionResponseType.html">AWSLambdaFunctionResponseType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaFunctionUrlAuthType.html">AWSLambdaFunctionUrlAuthType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSLambdaFunctionVersion.html">AWSLambdaFunctionVersion</a>
@@ -648,6 +684,38 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">functionName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaAddPermissionRequest(py)functionUrlAuthType"></a>
+                    <a name="//apple_ref/objc/Property/functionUrlAuthType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaAddPermissionRequest(py)functionUrlAuthType">functionUrlAuthType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSLambdaFunctionUrlAuthType.html">AWSLambdaFunctionUrlAuthType</a></span> <span class="n">functionUrlAuthType</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">functionUrlAuthType</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSLambdaFunctionUrlAuthType.html">AWSLambdaFunctionUrlAuthType</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -883,7 +951,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-03-31)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-04-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
