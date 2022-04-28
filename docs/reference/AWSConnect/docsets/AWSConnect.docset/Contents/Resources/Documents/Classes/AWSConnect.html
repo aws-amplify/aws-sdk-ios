@@ -17,7 +17,7 @@
     <a title="AWSConnect Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSConnect 2.27.5 Docs</a> (72% documented)</p>
+        <p><a href="../index.html">AWSConnect 2.27.7 Docs</a> (72% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSConnect.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -1174,9 +1174,9 @@
 <p><em>Objective-C</em></p>
 <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
      <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                                                     <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+                                                                                                     <span class="nf">identityPoolId</span><span class="p">:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
      <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                          <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+                                                                          <span class="nf">credentialsProvider</span><span class="p">:</span><span class="n">credentialsProvider</span><span class="p">];</span>
      <span class="p">[</span><span class="n">AWSServiceManager</span> <span class="nf">defaultServiceManager</span><span class="p">].</span><span class="n">defaultServiceConfiguration</span> <span class="o">=</span> <span class="n">configuration</span><span class="p">;</span>
 
      <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
@@ -1203,7 +1203,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="p">`</span><span class="nv">default</span><span class="p">`()</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="err">`</span><span class="k">default</span><span class="err">`</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
 
                         </div>
                       </div>
@@ -1245,9 +1245,9 @@
 <p><em>Objective-C</em></p>
 <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
     <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                                                    <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+                                                                                                    <span class="nf">identityPoolId</span><span class="p">:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
     <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSWest2</span>
-                                                                         <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+                                                                         <span class="nf">credentialsProvider</span><span class="p">:</span><span class="n">credentialsProvider</span><span class="p">];</span>
 
     <span class="p">[</span><span class="n">AWSConnect</span> <span class="nf">registerConnectWithConfiguration</span><span class="p">:</span><span class="n">configuration</span> <span class="nf">forKey</span><span class="p">:</span><span class="s">@"USWest2Connect"</span><span class="p">];</span>
 
@@ -1350,9 +1350,9 @@
 <p><em>Objective-C</em></p>
 <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
     <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                                                    <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+                                                                                                    <span class="nf">identityPoolId</span><span class="p">:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
     <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSWest2</span>
-                                                                         <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+                                                                         <span class="nf">credentialsProvider</span><span class="p">:</span><span class="n">credentialsProvider</span><span class="p">];</span>
 
     <span class="p">[</span><span class="n">AWSConnect</span> <span class="nf">registerConnectWithConfiguration</span><span class="p">:</span><span class="n">configuration</span> <span class="nf">forKey</span><span class="p">:</span><span class="s">@"USWest2Connect"</span><span class="p">];</span>
 
@@ -1380,7 +1380,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1560,7 +1560,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">associateApprovedOrigin</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectAssociateApprovedOriginRequest.html">AWSConnectAssociateApprovedOriginRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">associateApprovedOrigin</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectAssociateApprovedOriginRequest.html">AWSConnectAssociateApprovedOriginRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -1690,7 +1690,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">associateBot</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectAssociateBotRequest.html">AWSConnectAssociateBotRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">associateBot</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectAssociateBotRequest.html">AWSConnectAssociateBotRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -1834,7 +1834,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">associateDefaultVocabulary</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectAssociateDefaultVocabularyRequest.html">AWSConnectAssociateDefaultVocabularyRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectAssociateDefaultVocabularyResponse">AWSConnectAssociateDefaultVocabularyResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">associateDefaultVocabulary</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectAssociateDefaultVocabularyRequest.html">AWSConnectAssociateDefaultVocabularyRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectAssociateDefaultVocabularyResponse">AWSConnectAssociateDefaultVocabularyResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1979,7 +1979,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">associateInstanceStorageConfig</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectAssociateInstanceStorageConfigRequest.html">AWSConnectAssociateInstanceStorageConfigRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectAssociateInstanceStorageConfigResponse.html">AWSConnectAssociateInstanceStorageConfigResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">associateInstanceStorageConfig</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectAssociateInstanceStorageConfigRequest.html">AWSConnectAssociateInstanceStorageConfigRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectAssociateInstanceStorageConfigResponse.html">AWSConnectAssociateInstanceStorageConfigResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2113,7 +2113,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">associateLambdaFunction</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectAssociateLambdaFunctionRequest.html">AWSConnectAssociateLambdaFunctionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">associateLambdaFunction</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectAssociateLambdaFunctionRequest.html">AWSConnectAssociateLambdaFunctionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -2244,7 +2244,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">associateLexBot</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectAssociateLexBotRequest.html">AWSConnectAssociateLexBotRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">associateLexBot</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectAssociateLexBotRequest.html">AWSConnectAssociateLexBotRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -2377,7 +2377,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">associateQueueQuickConnects</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectAssociateQueueQuickConnectsRequest.html">AWSConnectAssociateQueueQuickConnectsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">associateQueueQuickConnects</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectAssociateQueueQuickConnectsRequest.html">AWSConnectAssociateQueueQuickConnectsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -2510,7 +2510,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">associateRoutingProfileQueues</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectAssociateRoutingProfileQueuesRequest.html">AWSConnectAssociateRoutingProfileQueuesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">associateRoutingProfileQueues</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectAssociateRoutingProfileQueuesRequest.html">AWSConnectAssociateRoutingProfileQueuesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -2653,7 +2653,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">associateSecurityKey</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectAssociateSecurityKeyRequest.html">AWSConnectAssociateSecurityKeyRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectAssociateSecurityKeyResponse.html">AWSConnectAssociateSecurityKeyResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">associateSecurityKey</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectAssociateSecurityKeyRequest.html">AWSConnectAssociateSecurityKeyRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectAssociateSecurityKeyResponse.html">AWSConnectAssociateSecurityKeyResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2794,7 +2794,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createAgentStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateAgentStatusRequest.html">AWSConnectCreateAgentStatusRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateAgentStatusResponse.html">AWSConnectCreateAgentStatusResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createAgentStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateAgentStatusRequest.html">AWSConnectCreateAgentStatusRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateAgentStatusResponse.html">AWSConnectCreateAgentStatusResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2935,7 +2935,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createContactFlow</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateContactFlowRequest.html">AWSConnectCreateContactFlowRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateContactFlowResponse.html">AWSConnectCreateContactFlowResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createContactFlow</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateContactFlowRequest.html">AWSConnectCreateContactFlowRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateContactFlowResponse.html">AWSConnectCreateContactFlowResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3079,7 +3079,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createContactFlowModule</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateContactFlowModuleRequest.html">AWSConnectCreateContactFlowModuleRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateContactFlowModuleResponse.html">AWSConnectCreateContactFlowModuleResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createContactFlowModule</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateContactFlowModuleRequest.html">AWSConnectCreateContactFlowModuleRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateContactFlowModuleResponse.html">AWSConnectCreateContactFlowModuleResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3223,7 +3223,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createHours</span><span class="p">(</span><span class="n">ofOperation</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateHoursOfOperationRequest.html">AWSConnectCreateHoursOfOperationRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateHoursOfOperationResponse.html">AWSConnectCreateHoursOfOperationResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createHours</span><span class="p">(</span><span class="n">ofOperation</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateHoursOfOperationRequest.html">AWSConnectCreateHoursOfOperationRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateHoursOfOperationResponse.html">AWSConnectCreateHoursOfOperationResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3364,7 +3364,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createInstance</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateInstanceRequest.html">AWSConnectCreateInstanceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateInstanceResponse.html">AWSConnectCreateInstanceResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createInstance</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateInstanceRequest.html">AWSConnectCreateInstanceRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateInstanceResponse.html">AWSConnectCreateInstanceResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3509,7 +3509,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createIntegrationAssociation</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateIntegrationAssociationRequest.html">AWSConnectCreateIntegrationAssociationRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateIntegrationAssociationResponse.html">AWSConnectCreateIntegrationAssociationResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createIntegrationAssociation</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateIntegrationAssociationRequest.html">AWSConnectCreateIntegrationAssociationRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateIntegrationAssociationResponse.html">AWSConnectCreateIntegrationAssociationResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3650,7 +3650,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createQueue</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateQueueRequest.html">AWSConnectCreateQueueRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateQueueResponse.html">AWSConnectCreateQueueResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createQueue</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateQueueRequest.html">AWSConnectCreateQueueRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateQueueResponse.html">AWSConnectCreateQueueResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3792,7 +3792,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createQuickConnect</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateQuickConnectRequest.html">AWSConnectCreateQuickConnectRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateQuickConnectResponse.html">AWSConnectCreateQuickConnectResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createQuickConnect</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateQuickConnectRequest.html">AWSConnectCreateQuickConnectRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateQuickConnectResponse.html">AWSConnectCreateQuickConnectResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3936,7 +3936,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createRoutingProfile</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateRoutingProfileRequest.html">AWSConnectCreateRoutingProfileRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateRoutingProfileResponse.html">AWSConnectCreateRoutingProfileResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createRoutingProfile</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateRoutingProfileRequest.html">AWSConnectCreateRoutingProfileRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateRoutingProfileResponse.html">AWSConnectCreateRoutingProfileResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4080,7 +4080,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createSecurityProfile</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateSecurityProfileRequest.html">AWSConnectCreateSecurityProfileRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateSecurityProfileResponse.html">AWSConnectCreateSecurityProfileResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createSecurityProfile</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateSecurityProfileRequest.html">AWSConnectCreateSecurityProfileRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateSecurityProfileResponse.html">AWSConnectCreateSecurityProfileResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4221,7 +4221,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createUseCase</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateUseCaseRequest.html">AWSConnectCreateUseCaseRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateUseCaseResponse.html">AWSConnectCreateUseCaseResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createUseCase</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateUseCaseRequest.html">AWSConnectCreateUseCaseRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateUseCaseResponse.html">AWSConnectCreateUseCaseResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4362,7 +4362,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createUser</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateUserRequest.html">AWSConnectCreateUserRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateUserResponse.html">AWSConnectCreateUserResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createUser</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateUserRequest.html">AWSConnectCreateUserRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateUserResponse.html">AWSConnectCreateUserResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4506,7 +4506,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createUserHierarchyGroup</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateUserHierarchyGroupRequest.html">AWSConnectCreateUserHierarchyGroupRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateUserHierarchyGroupResponse.html">AWSConnectCreateUserHierarchyGroupResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createUserHierarchyGroup</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateUserHierarchyGroupRequest.html">AWSConnectCreateUserHierarchyGroupRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateUserHierarchyGroupResponse.html">AWSConnectCreateUserHierarchyGroupResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4647,7 +4647,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createVocabulary</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateVocabularyRequest.html">AWSConnectCreateVocabularyRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateVocabularyResponse.html">AWSConnectCreateVocabularyResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createVocabulary</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectCreateVocabularyRequest.html">AWSConnectCreateVocabularyRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectCreateVocabularyResponse.html">AWSConnectCreateVocabularyResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4779,7 +4779,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteContactFlow</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDeleteContactFlowRequest.html">AWSConnectDeleteContactFlowRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteContactFlow</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDeleteContactFlowRequest.html">AWSConnectDeleteContactFlowRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -4922,7 +4922,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteContactFlowModule</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDeleteContactFlowModuleRequest.html">AWSConnectDeleteContactFlowModuleRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectDeleteContactFlowModuleResponse">AWSConnectDeleteContactFlowModuleResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteContactFlowModule</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDeleteContactFlowModuleRequest.html">AWSConnectDeleteContactFlowModuleRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectDeleteContactFlowModuleResponse">AWSConnectDeleteContactFlowModuleResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5056,7 +5056,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteHours</span><span class="p">(</span><span class="n">ofOperation</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDeleteHoursOfOperationRequest.html">AWSConnectDeleteHoursOfOperationRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteHours</span><span class="p">(</span><span class="n">ofOperation</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDeleteHoursOfOperationRequest.html">AWSConnectDeleteHoursOfOperationRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -5186,7 +5186,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteInstance</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDeleteInstanceRequest.html">AWSConnectDeleteInstanceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteInstance</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDeleteInstanceRequest.html">AWSConnectDeleteInstanceRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -5319,7 +5319,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteIntegrationAssociation</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDeleteIntegrationAssociationRequest.html">AWSConnectDeleteIntegrationAssociationRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteIntegrationAssociation</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDeleteIntegrationAssociationRequest.html">AWSConnectDeleteIntegrationAssociationRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -5450,7 +5450,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteQuickConnect</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDeleteQuickConnectRequest.html">AWSConnectDeleteQuickConnectRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteQuickConnect</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDeleteQuickConnectRequest.html">AWSConnectDeleteQuickConnectRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -5583,7 +5583,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteSecurityProfile</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDeleteSecurityProfileRequest.html">AWSConnectDeleteSecurityProfileRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteSecurityProfile</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDeleteSecurityProfileRequest.html">AWSConnectDeleteSecurityProfileRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -5713,7 +5713,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteUseCase</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDeleteUseCaseRequest.html">AWSConnectDeleteUseCaseRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteUseCase</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDeleteUseCaseRequest.html">AWSConnectDeleteUseCaseRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -5843,7 +5843,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteUser</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDeleteUserRequest.html">AWSConnectDeleteUserRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteUser</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDeleteUserRequest.html">AWSConnectDeleteUserRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -5976,7 +5976,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteUserHierarchyGroup</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDeleteUserHierarchyGroupRequest.html">AWSConnectDeleteUserHierarchyGroupRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteUserHierarchyGroup</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDeleteUserHierarchyGroupRequest.html">AWSConnectDeleteUserHierarchyGroupRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -6116,7 +6116,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteVocabulary</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDeleteVocabularyRequest.html">AWSConnectDeleteVocabularyRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDeleteVocabularyResponse.html">AWSConnectDeleteVocabularyResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteVocabulary</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDeleteVocabularyRequest.html">AWSConnectDeleteVocabularyRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDeleteVocabularyResponse.html">AWSConnectDeleteVocabularyResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6259,7 +6259,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeAgentStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeAgentStatusRequest.html">AWSConnectDescribeAgentStatusRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeAgentStatusResponse.html">AWSConnectDescribeAgentStatusResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeAgentStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeAgentStatusRequest.html">AWSConnectDescribeAgentStatusRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeAgentStatusResponse.html">AWSConnectDescribeAgentStatusResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6400,7 +6400,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeContact</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeContactRequest.html">AWSConnectDescribeContactRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeContactResponse.html">AWSConnectDescribeContactResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeContact</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeContactRequest.html">AWSConnectDescribeContactRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeContactResponse.html">AWSConnectDescribeContactResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6543,7 +6543,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeContactFlow</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeContactFlowRequest.html">AWSConnectDescribeContactFlowRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeContactFlowResponse.html">AWSConnectDescribeContactFlowResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeContactFlow</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeContactFlowRequest.html">AWSConnectDescribeContactFlowRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeContactFlowResponse.html">AWSConnectDescribeContactFlowResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6687,7 +6687,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeContactFlowModule</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeContactFlowModuleRequest.html">AWSConnectDescribeContactFlowModuleRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeContactFlowModuleResponse.html">AWSConnectDescribeContactFlowModuleResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeContactFlowModule</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeContactFlowModuleRequest.html">AWSConnectDescribeContactFlowModuleRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeContactFlowModuleResponse.html">AWSConnectDescribeContactFlowModuleResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6831,7 +6831,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeHours</span><span class="p">(</span><span class="n">ofOperation</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeHoursOfOperationRequest.html">AWSConnectDescribeHoursOfOperationRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeHoursOfOperationResponse.html">AWSConnectDescribeHoursOfOperationResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeHours</span><span class="p">(</span><span class="n">ofOperation</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeHoursOfOperationRequest.html">AWSConnectDescribeHoursOfOperationRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeHoursOfOperationResponse.html">AWSConnectDescribeHoursOfOperationResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6972,7 +6972,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeInstance</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeInstanceRequest.html">AWSConnectDescribeInstanceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeInstanceResponse.html">AWSConnectDescribeInstanceResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeInstance</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeInstanceRequest.html">AWSConnectDescribeInstanceRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeInstanceResponse.html">AWSConnectDescribeInstanceResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7116,7 +7116,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeInstanceAttribute</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeInstanceAttributeRequest.html">AWSConnectDescribeInstanceAttributeRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeInstanceAttributeResponse.html">AWSConnectDescribeInstanceAttributeResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeInstanceAttribute</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeInstanceAttributeRequest.html">AWSConnectDescribeInstanceAttributeRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeInstanceAttributeResponse.html">AWSConnectDescribeInstanceAttributeResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7261,7 +7261,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeInstanceStorageConfig</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeInstanceStorageConfigRequest.html">AWSConnectDescribeInstanceStorageConfigRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeInstanceStorageConfigResponse.html">AWSConnectDescribeInstanceStorageConfigResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeInstanceStorageConfig</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeInstanceStorageConfigRequest.html">AWSConnectDescribeInstanceStorageConfigRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeInstanceStorageConfigResponse.html">AWSConnectDescribeInstanceStorageConfigResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7402,7 +7402,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeQueue</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeQueueRequest.html">AWSConnectDescribeQueueRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeQueueResponse.html">AWSConnectDescribeQueueResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeQueue</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeQueueRequest.html">AWSConnectDescribeQueueRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeQueueResponse.html">AWSConnectDescribeQueueResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7546,7 +7546,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeQuickConnect</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeQuickConnectRequest.html">AWSConnectDescribeQuickConnectRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeQuickConnectResponse.html">AWSConnectDescribeQuickConnectResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeQuickConnect</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeQuickConnectRequest.html">AWSConnectDescribeQuickConnectRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeQuickConnectResponse.html">AWSConnectDescribeQuickConnectResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7690,7 +7690,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeRoutingProfile</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeRoutingProfileRequest.html">AWSConnectDescribeRoutingProfileRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeRoutingProfileResponse.html">AWSConnectDescribeRoutingProfileResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeRoutingProfile</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeRoutingProfileRequest.html">AWSConnectDescribeRoutingProfileRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeRoutingProfileResponse.html">AWSConnectDescribeRoutingProfileResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7834,7 +7834,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeSecurityProfile</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeSecurityProfileRequest.html">AWSConnectDescribeSecurityProfileRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeSecurityProfileResponse.html">AWSConnectDescribeSecurityProfileResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeSecurityProfile</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeSecurityProfileRequest.html">AWSConnectDescribeSecurityProfileRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeSecurityProfileResponse.html">AWSConnectDescribeSecurityProfileResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7975,7 +7975,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeUser</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeUserRequest.html">AWSConnectDescribeUserRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeUserResponse.html">AWSConnectDescribeUserResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeUser</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeUserRequest.html">AWSConnectDescribeUserRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeUserResponse.html">AWSConnectDescribeUserResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8120,7 +8120,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeUserHierarchyGroup</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeUserHierarchyGroupRequest.html">AWSConnectDescribeUserHierarchyGroupRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeUserHierarchyGroupResponse.html">AWSConnectDescribeUserHierarchyGroupResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeUserHierarchyGroup</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeUserHierarchyGroupRequest.html">AWSConnectDescribeUserHierarchyGroupRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeUserHierarchyGroupResponse.html">AWSConnectDescribeUserHierarchyGroupResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8265,7 +8265,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeUserHierarchyStructure</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeUserHierarchyStructureRequest.html">AWSConnectDescribeUserHierarchyStructureRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeUserHierarchyStructureResponse.html">AWSConnectDescribeUserHierarchyStructureResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeUserHierarchyStructure</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeUserHierarchyStructureRequest.html">AWSConnectDescribeUserHierarchyStructureRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeUserHierarchyStructureResponse.html">AWSConnectDescribeUserHierarchyStructureResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8407,7 +8407,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeVocabulary</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeVocabularyRequest.html">AWSConnectDescribeVocabularyRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeVocabularyResponse.html">AWSConnectDescribeVocabularyResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeVocabulary</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDescribeVocabularyRequest.html">AWSConnectDescribeVocabularyRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectDescribeVocabularyResponse.html">AWSConnectDescribeVocabularyResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8541,7 +8541,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disassociateApprovedOrigin</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDisassociateApprovedOriginRequest.html">AWSConnectDisassociateApprovedOriginRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disassociateApprovedOrigin</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDisassociateApprovedOriginRequest.html">AWSConnectDisassociateApprovedOriginRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -8672,7 +8672,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disassociateBot</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDisassociateBotRequest.html">AWSConnectDisassociateBotRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disassociateBot</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDisassociateBotRequest.html">AWSConnectDisassociateBotRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -8806,7 +8806,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disassociateInstanceStorageConfig</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDisassociateInstanceStorageConfigRequest.html">AWSConnectDisassociateInstanceStorageConfigRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disassociateInstanceStorageConfig</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDisassociateInstanceStorageConfigRequest.html">AWSConnectDisassociateInstanceStorageConfigRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -8939,7 +8939,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disassociateLambdaFunction</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDisassociateLambdaFunctionRequest.html">AWSConnectDisassociateLambdaFunctionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disassociateLambdaFunction</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDisassociateLambdaFunctionRequest.html">AWSConnectDisassociateLambdaFunctionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -9070,7 +9070,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disassociateLexBot</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDisassociateLexBotRequest.html">AWSConnectDisassociateLexBotRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disassociateLexBot</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDisassociateLexBotRequest.html">AWSConnectDisassociateLexBotRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -9203,7 +9203,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disassociateQueueQuickConnects</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDisassociateQueueQuickConnectsRequest.html">AWSConnectDisassociateQueueQuickConnectsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disassociateQueueQuickConnects</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDisassociateQueueQuickConnectsRequest.html">AWSConnectDisassociateQueueQuickConnectsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -9336,7 +9336,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disassociateRoutingProfileQueues</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDisassociateRoutingProfileQueuesRequest.html">AWSConnectDisassociateRoutingProfileQueuesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disassociateRoutingProfileQueues</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDisassociateRoutingProfileQueuesRequest.html">AWSConnectDisassociateRoutingProfileQueuesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -9469,7 +9469,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disassociateSecurityKey</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDisassociateSecurityKeyRequest.html">AWSConnectDisassociateSecurityKeyRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disassociateSecurityKey</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDisassociateSecurityKeyRequest.html">AWSConnectDisassociateSecurityKeyRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -9612,7 +9612,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">contactAttributes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectGetContactAttributesRequest.html">AWSConnectGetContactAttributesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectGetContactAttributesResponse.html">AWSConnectGetContactAttributesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">contactAttributes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectGetContactAttributesRequest.html">AWSConnectGetContactAttributesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectGetContactAttributesResponse.html">AWSConnectGetContactAttributesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -9756,7 +9756,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">currentMetricData</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectGetCurrentMetricDataRequest.html">AWSConnectGetCurrentMetricDataRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectGetCurrentMetricDataResponse.html">AWSConnectGetCurrentMetricDataResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">currentMetricData</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectGetCurrentMetricDataRequest.html">AWSConnectGetCurrentMetricDataRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectGetCurrentMetricDataResponse.html">AWSConnectGetCurrentMetricDataResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -9898,7 +9898,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">federationToken</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectGetFederationTokenRequest.html">AWSConnectGetFederationTokenRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectGetFederationTokenResponse.html">AWSConnectGetFederationTokenResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">federationToken</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectGetFederationTokenRequest.html">AWSConnectGetFederationTokenRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectGetFederationTokenResponse.html">AWSConnectGetFederationTokenResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -10039,7 +10039,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">metricData</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectGetMetricDataRequest.html">AWSConnectGetMetricDataRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectGetMetricDataResponse.html">AWSConnectGetMetricDataResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">metricData</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectGetMetricDataRequest.html">AWSConnectGetMetricDataRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectGetMetricDataResponse.html">AWSConnectGetMetricDataResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -10180,7 +10180,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listAgentStatuses</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListAgentStatusRequest.html">AWSConnectListAgentStatusRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListAgentStatusResponse.html">AWSConnectListAgentStatusResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listAgentStatuses</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListAgentStatusRequest.html">AWSConnectListAgentStatusRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListAgentStatusResponse.html">AWSConnectListAgentStatusResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -10323,7 +10323,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listApprovedOrigins</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListApprovedOriginsRequest.html">AWSConnectListApprovedOriginsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListApprovedOriginsResponse.html">AWSConnectListApprovedOriginsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listApprovedOrigins</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListApprovedOriginsRequest.html">AWSConnectListApprovedOriginsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListApprovedOriginsResponse.html">AWSConnectListApprovedOriginsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -10463,7 +10463,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listBots</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListBotsRequest.html">AWSConnectListBotsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListBotsResponse.html">AWSConnectListBotsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listBots</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListBotsRequest.html">AWSConnectListBotsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListBotsResponse.html">AWSConnectListBotsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -10607,7 +10607,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listContactFlowModules</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListContactFlowModulesRequest.html">AWSConnectListContactFlowModulesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListContactFlowModulesResponse.html">AWSConnectListContactFlowModulesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listContactFlowModules</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListContactFlowModulesRequest.html">AWSConnectListContactFlowModulesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListContactFlowModulesResponse.html">AWSConnectListContactFlowModulesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -10748,7 +10748,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listContactFlows</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListContactFlowsRequest.html">AWSConnectListContactFlowsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListContactFlowsResponse.html">AWSConnectListContactFlowsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listContactFlows</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListContactFlowsRequest.html">AWSConnectListContactFlowsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListContactFlowsResponse.html">AWSConnectListContactFlowsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -10892,7 +10892,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listContactReferences</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListContactReferencesRequest.html">AWSConnectListContactReferencesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListContactReferencesResponse.html">AWSConnectListContactReferencesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listContactReferences</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListContactReferencesRequest.html">AWSConnectListContactReferencesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListContactReferencesResponse.html">AWSConnectListContactReferencesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -11036,7 +11036,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listDefaultVocabularies</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListDefaultVocabulariesRequest.html">AWSConnectListDefaultVocabulariesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListDefaultVocabulariesResponse.html">AWSConnectListDefaultVocabulariesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listDefaultVocabularies</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListDefaultVocabulariesRequest.html">AWSConnectListDefaultVocabulariesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListDefaultVocabulariesResponse.html">AWSConnectListDefaultVocabulariesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -11180,7 +11180,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listHours</span><span class="p">(</span><span class="n">ofOperations</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListHoursOfOperationsRequest.html">AWSConnectListHoursOfOperationsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListHoursOfOperationsResponse.html">AWSConnectListHoursOfOperationsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listHours</span><span class="p">(</span><span class="n">ofOperations</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListHoursOfOperationsRequest.html">AWSConnectListHoursOfOperationsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListHoursOfOperationsResponse.html">AWSConnectListHoursOfOperationsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -11324,7 +11324,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listInstanceAttributes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListInstanceAttributesRequest.html">AWSConnectListInstanceAttributesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListInstanceAttributesResponse.html">AWSConnectListInstanceAttributesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listInstanceAttributes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListInstanceAttributesRequest.html">AWSConnectListInstanceAttributesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListInstanceAttributesResponse.html">AWSConnectListInstanceAttributesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -11469,7 +11469,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listInstanceStorageConfigs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListInstanceStorageConfigsRequest.html">AWSConnectListInstanceStorageConfigsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListInstanceStorageConfigsResponse.html">AWSConnectListInstanceStorageConfigsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listInstanceStorageConfigs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListInstanceStorageConfigsRequest.html">AWSConnectListInstanceStorageConfigsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListInstanceStorageConfigsResponse.html">AWSConnectListInstanceStorageConfigsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -11610,7 +11610,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listInstances</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListInstancesRequest.html">AWSConnectListInstancesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListInstancesResponse.html">AWSConnectListInstancesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listInstances</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListInstancesRequest.html">AWSConnectListInstancesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListInstancesResponse.html">AWSConnectListInstancesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -11755,7 +11755,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listIntegrationAssociations</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListIntegrationAssociationsRequest.html">AWSConnectListIntegrationAssociationsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListIntegrationAssociationsResponse.html">AWSConnectListIntegrationAssociationsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listIntegrationAssociations</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListIntegrationAssociationsRequest.html">AWSConnectListIntegrationAssociationsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListIntegrationAssociationsResponse.html">AWSConnectListIntegrationAssociationsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -11898,7 +11898,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listLambdaFunctions</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListLambdaFunctionsRequest.html">AWSConnectListLambdaFunctionsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListLambdaFunctionsResponse.html">AWSConnectListLambdaFunctionsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listLambdaFunctions</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListLambdaFunctionsRequest.html">AWSConnectListLambdaFunctionsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListLambdaFunctionsResponse.html">AWSConnectListLambdaFunctionsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -12039,7 +12039,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listLexBots</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListLexBotsRequest.html">AWSConnectListLexBotsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListLexBotsResponse.html">AWSConnectListLexBotsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listLexBots</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListLexBotsRequest.html">AWSConnectListLexBotsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListLexBotsResponse.html">AWSConnectListLexBotsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -12180,7 +12180,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listPhoneNumbers</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListPhoneNumbersRequest.html">AWSConnectListPhoneNumbersRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListPhoneNumbersResponse.html">AWSConnectListPhoneNumbersResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listPhoneNumbers</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListPhoneNumbersRequest.html">AWSConnectListPhoneNumbersRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListPhoneNumbersResponse.html">AWSConnectListPhoneNumbersResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -12321,7 +12321,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listPrompts</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListPromptsRequest.html">AWSConnectListPromptsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListPromptsResponse.html">AWSConnectListPromptsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listPrompts</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListPromptsRequest.html">AWSConnectListPromptsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListPromptsResponse.html">AWSConnectListPromptsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -12465,7 +12465,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listQueueQuickConnects</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListQueueQuickConnectsRequest.html">AWSConnectListQueueQuickConnectsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListQueueQuickConnectsResponse.html">AWSConnectListQueueQuickConnectsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listQueueQuickConnects</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListQueueQuickConnectsRequest.html">AWSConnectListQueueQuickConnectsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListQueueQuickConnectsResponse.html">AWSConnectListQueueQuickConnectsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -12606,7 +12606,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listQueues</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListQueuesRequest.html">AWSConnectListQueuesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListQueuesResponse.html">AWSConnectListQueuesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listQueues</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListQueuesRequest.html">AWSConnectListQueuesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListQueuesResponse.html">AWSConnectListQueuesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -12747,7 +12747,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listQuickConnects</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListQuickConnectsRequest.html">AWSConnectListQuickConnectsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListQuickConnectsResponse.html">AWSConnectListQuickConnectsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listQuickConnects</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListQuickConnectsRequest.html">AWSConnectListQuickConnectsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListQuickConnectsResponse.html">AWSConnectListQuickConnectsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -12891,7 +12891,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listRoutingProfileQueues</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListRoutingProfileQueuesRequest.html">AWSConnectListRoutingProfileQueuesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListRoutingProfileQueuesResponse.html">AWSConnectListRoutingProfileQueuesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listRoutingProfileQueues</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListRoutingProfileQueuesRequest.html">AWSConnectListRoutingProfileQueuesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListRoutingProfileQueuesResponse.html">AWSConnectListRoutingProfileQueuesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -13034,7 +13034,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listRoutingProfiles</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListRoutingProfilesRequest.html">AWSConnectListRoutingProfilesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListRoutingProfilesResponse.html">AWSConnectListRoutingProfilesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listRoutingProfiles</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListRoutingProfilesRequest.html">AWSConnectListRoutingProfilesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListRoutingProfilesResponse.html">AWSConnectListRoutingProfilesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -13175,7 +13175,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listSecurityKeys</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListSecurityKeysRequest.html">AWSConnectListSecurityKeysRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListSecurityKeysResponse.html">AWSConnectListSecurityKeysResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listSecurityKeys</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListSecurityKeysRequest.html">AWSConnectListSecurityKeysRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListSecurityKeysResponse.html">AWSConnectListSecurityKeysResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -13320,7 +13320,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listSecurityProfilePermissions</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListSecurityProfilePermissionsRequest.html">AWSConnectListSecurityProfilePermissionsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListSecurityProfilePermissionsResponse.html">AWSConnectListSecurityProfilePermissionsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listSecurityProfilePermissions</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListSecurityProfilePermissionsRequest.html">AWSConnectListSecurityProfilePermissionsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListSecurityProfilePermissionsResponse.html">AWSConnectListSecurityProfilePermissionsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -13464,7 +13464,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listSecurityProfiles</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListSecurityProfilesRequest.html">AWSConnectListSecurityProfilesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListSecurityProfilesResponse.html">AWSConnectListSecurityProfilesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listSecurityProfiles</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListSecurityProfilesRequest.html">AWSConnectListSecurityProfilesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListSecurityProfilesResponse.html">AWSConnectListSecurityProfilesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -13607,7 +13607,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTags</span><span class="p">(</span><span class="n">forResource</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListTagsForResourceRequest.html">AWSConnectListTagsForResourceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListTagsForResourceResponse.html">AWSConnectListTagsForResourceResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTags</span><span class="p">(</span><span class="n">forResource</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListTagsForResourceRequest.html">AWSConnectListTagsForResourceRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListTagsForResourceResponse.html">AWSConnectListTagsForResourceResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -13748,7 +13748,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listUseCases</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListUseCasesRequest.html">AWSConnectListUseCasesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListUseCasesResponse.html">AWSConnectListUseCasesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listUseCases</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListUseCasesRequest.html">AWSConnectListUseCasesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListUseCasesResponse.html">AWSConnectListUseCasesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -13892,7 +13892,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listUserHierarchyGroups</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListUserHierarchyGroupsRequest.html">AWSConnectListUserHierarchyGroupsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListUserHierarchyGroupsResponse.html">AWSConnectListUserHierarchyGroupsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listUserHierarchyGroups</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListUserHierarchyGroupsRequest.html">AWSConnectListUserHierarchyGroupsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListUserHierarchyGroupsResponse.html">AWSConnectListUserHierarchyGroupsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -14032,7 +14032,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listUsers</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListUsersRequest.html">AWSConnectListUsersRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListUsersResponse.html">AWSConnectListUsersResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listUsers</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListUsersRequest.html">AWSConnectListUsersRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectListUsersResponse.html">AWSConnectListUsersResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -14176,7 +14176,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">resumeContactRecording</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectResumeContactRecordingRequest.html">AWSConnectResumeContactRecordingRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectResumeContactRecordingResponse">AWSConnectResumeContactRecordingResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">resumeContactRecording</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectResumeContactRecordingRequest.html">AWSConnectResumeContactRecordingRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectResumeContactRecordingResponse">AWSConnectResumeContactRecordingResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -14318,7 +14318,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">searchVocabularies</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectSearchVocabulariesRequest.html">AWSConnectSearchVocabulariesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectSearchVocabulariesResponse.html">AWSConnectSearchVocabulariesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">searchVocabularies</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectSearchVocabulariesRequest.html">AWSConnectSearchVocabulariesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectSearchVocabulariesResponse.html">AWSConnectSearchVocabulariesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -14459,7 +14459,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startChatContact</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectStartChatContactRequest.html">AWSConnectStartChatContactRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectStartChatContactResponse.html">AWSConnectStartChatContactResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startChatContact</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectStartChatContactRequest.html">AWSConnectStartChatContactRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectStartChatContactResponse.html">AWSConnectStartChatContactResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -14603,7 +14603,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startContactRecording</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectStartContactRecordingRequest.html">AWSConnectStartContactRecordingRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectStartContactRecordingResponse">AWSConnectStartContactRecordingResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startContactRecording</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectStartContactRecordingRequest.html">AWSConnectStartContactRecordingRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectStartContactRecordingResponse">AWSConnectStartContactRecordingResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -14747,7 +14747,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startContactStreaming</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectStartContactStreamingRequest.html">AWSConnectStartContactStreamingRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectStartContactStreamingResponse.html">AWSConnectStartContactStreamingResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startContactStreaming</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectStartContactStreamingRequest.html">AWSConnectStartContactStreamingRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectStartContactStreamingResponse.html">AWSConnectStartContactStreamingResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -14891,7 +14891,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startOutboundVoiceContact</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectStartOutboundVoiceContactRequest.html">AWSConnectStartOutboundVoiceContactRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectStartOutboundVoiceContactResponse.html">AWSConnectStartOutboundVoiceContactResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startOutboundVoiceContact</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectStartOutboundVoiceContactRequest.html">AWSConnectStartOutboundVoiceContactRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectStartOutboundVoiceContactResponse.html">AWSConnectStartOutboundVoiceContactResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -15032,7 +15032,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startTaskContact</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectStartTaskContactRequest.html">AWSConnectStartTaskContactRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectStartTaskContactResponse.html">AWSConnectStartTaskContactResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startTaskContact</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectStartTaskContactRequest.html">AWSConnectStartTaskContactRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectStartTaskContactResponse.html">AWSConnectStartTaskContactResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -15085,7 +15085,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Ends the specified contact. This call does not work for the following initiation methods:</p><ul><li><p>CALLBACK</p></li><li><p>DISCONNECT</p></li><li><p>TRANSFER</p></li><li><p>QUEUE_TRANSFER</p></li></ul></p>
+                        <p><p>Ends the specified contact. This call does not work for the following initiation methods:</p><ul><li><p>DISCONNECT</p></li><li><p>TRANSFER</p></li><li><p>QUEUE_TRANSFER</p></li></ul></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectStopContactRequest</p>
@@ -15149,7 +15149,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Ends the specified contact. This call does not work for the following initiation methods:</p><ul><li><p>CALLBACK</p></li><li><p>DISCONNECT</p></li><li><p>TRANSFER</p></li><li><p>QUEUE_TRANSFER</p></li></ul></p>
+                        <p><p>Ends the specified contact. This call does not work for the following initiation methods:</p><ul><li><p>DISCONNECT</p></li><li><p>TRANSFER</p></li><li><p>QUEUE_TRANSFER</p></li></ul></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectStopContactRequest</p>
@@ -15173,7 +15173,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopContact</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectStopContactRequest.html">AWSConnectStopContactRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectStopContactResponse">AWSConnectStopContactResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopContact</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectStopContactRequest.html">AWSConnectStopContactRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectStopContactResponse">AWSConnectStopContactResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -15317,7 +15317,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopContactRecording</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectStopContactRecordingRequest.html">AWSConnectStopContactRecordingRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectStopContactRecordingResponse">AWSConnectStopContactRecordingResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopContactRecording</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectStopContactRecordingRequest.html">AWSConnectStopContactRecordingRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectStopContactRecordingResponse">AWSConnectStopContactRecordingResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -15461,7 +15461,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopContactStreaming</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectStopContactStreamingRequest.html">AWSConnectStopContactStreamingRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectStopContactStreamingResponse">AWSConnectStopContactStreamingResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopContactStreaming</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectStopContactStreamingRequest.html">AWSConnectStopContactStreamingRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectStopContactStreamingResponse">AWSConnectStopContactStreamingResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -15605,7 +15605,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">suspendContactRecording</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectSuspendContactRecordingRequest.html">AWSConnectSuspendContactRecordingRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectSuspendContactRecordingResponse">AWSConnectSuspendContactRecordingResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">suspendContactRecording</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectSuspendContactRecordingRequest.html">AWSConnectSuspendContactRecordingRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectSuspendContactRecordingResponse">AWSConnectSuspendContactRecordingResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -15736,7 +15736,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">tagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectTagResourceRequest.html">AWSConnectTagResourceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">tagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectTagResourceRequest.html">AWSConnectTagResourceRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -15866,7 +15866,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">untagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUntagResourceRequest.html">AWSConnectUntagResourceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">untagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUntagResourceRequest.html">AWSConnectUntagResourceRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -15997,7 +15997,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateAgentStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateAgentStatusRequest.html">AWSConnectUpdateAgentStatusRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateAgentStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateAgentStatusRequest.html">AWSConnectUpdateAgentStatusRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -16137,7 +16137,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateContact</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateContactRequest.html">AWSConnectUpdateContactRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactResponse">AWSConnectUpdateContactResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateContact</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateContactRequest.html">AWSConnectUpdateContactRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactResponse">AWSConnectUpdateContactResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -16281,7 +16281,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateContactAttributes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateContactAttributesRequest.html">AWSConnectUpdateContactAttributesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactAttributesResponse">AWSConnectUpdateContactAttributesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateContactAttributes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateContactAttributesRequest.html">AWSConnectUpdateContactAttributesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactAttributesResponse">AWSConnectUpdateContactAttributesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -16415,7 +16415,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateContactFlowContent</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateContactFlowContentRequest.html">AWSConnectUpdateContactFlowContentRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateContactFlowContent</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateContactFlowContentRequest.html">AWSConnectUpdateContactFlowContentRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -16548,7 +16548,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateContactFlowMetadata</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateContactFlowMetadataRequest.html">AWSConnectUpdateContactFlowMetadataRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateContactFlowMetadata</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateContactFlowMetadataRequest.html">AWSConnectUpdateContactFlowMetadataRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -16692,7 +16692,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateContactFlowModuleContent</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateContactFlowModuleContentRequest.html">AWSConnectUpdateContactFlowModuleContentRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactFlowModuleContentResponse">AWSConnectUpdateContactFlowModuleContentResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateContactFlowModuleContent</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateContactFlowModuleContentRequest.html">AWSConnectUpdateContactFlowModuleContentRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactFlowModuleContentResponse">AWSConnectUpdateContactFlowModuleContentResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -16837,7 +16837,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateContactFlowModuleMetadata</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateContactFlowModuleMetadataRequest.html">AWSConnectUpdateContactFlowModuleMetadataRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactFlowModuleMetadataResponse">AWSConnectUpdateContactFlowModuleMetadataResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateContactFlowModuleMetadata</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateContactFlowModuleMetadataRequest.html">AWSConnectUpdateContactFlowModuleMetadataRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactFlowModuleMetadataResponse">AWSConnectUpdateContactFlowModuleMetadataResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -16971,7 +16971,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateContactFlowName</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateContactFlowNameRequest.html">AWSConnectUpdateContactFlowNameRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateContactFlowName</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateContactFlowNameRequest.html">AWSConnectUpdateContactFlowNameRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -17114,7 +17114,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateContactSchedule</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateContactScheduleRequest.html">AWSConnectUpdateContactScheduleRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactScheduleResponse">AWSConnectUpdateContactScheduleResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateContactSchedule</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateContactScheduleRequest.html">AWSConnectUpdateContactScheduleRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactScheduleResponse">AWSConnectUpdateContactScheduleResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -17248,7 +17248,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateHours</span><span class="p">(</span><span class="n">ofOperation</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateHoursOfOperationRequest.html">AWSConnectUpdateHoursOfOperationRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateHours</span><span class="p">(</span><span class="n">ofOperation</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateHoursOfOperationRequest.html">AWSConnectUpdateHoursOfOperationRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -17381,7 +17381,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateInstanceAttribute</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateInstanceAttributeRequest.html">AWSConnectUpdateInstanceAttributeRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateInstanceAttribute</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateInstanceAttributeRequest.html">AWSConnectUpdateInstanceAttributeRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -17514,7 +17514,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateInstanceStorageConfig</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateInstanceStorageConfigRequest.html">AWSConnectUpdateInstanceStorageConfigRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateInstanceStorageConfig</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateInstanceStorageConfigRequest.html">AWSConnectUpdateInstanceStorageConfigRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -17647,7 +17647,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateQueueHours</span><span class="p">(</span><span class="n">ofOperation</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateQueueHoursOfOperationRequest.html">AWSConnectUpdateQueueHoursOfOperationRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateQueueHours</span><span class="p">(</span><span class="n">ofOperation</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateQueueHoursOfOperationRequest.html">AWSConnectUpdateQueueHoursOfOperationRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -17780,7 +17780,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateQueueMaxContacts</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateQueueMaxContactsRequest.html">AWSConnectUpdateQueueMaxContactsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateQueueMaxContacts</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateQueueMaxContactsRequest.html">AWSConnectUpdateQueueMaxContactsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -17911,7 +17911,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateQueueName</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateQueueNameRequest.html">AWSConnectUpdateQueueNameRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateQueueName</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateQueueNameRequest.html">AWSConnectUpdateQueueNameRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -18044,7 +18044,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateQueueOutboundCallerConfig</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateQueueOutboundCallerConfigRequest.html">AWSConnectUpdateQueueOutboundCallerConfigRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateQueueOutboundCallerConfig</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateQueueOutboundCallerConfigRequest.html">AWSConnectUpdateQueueOutboundCallerConfigRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -18175,7 +18175,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateQueueStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateQueueStatusRequest.html">AWSConnectUpdateQueueStatusRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateQueueStatus</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateQueueStatusRequest.html">AWSConnectUpdateQueueStatusRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -18308,7 +18308,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateQuickConnectConfig</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateQuickConnectConfigRequest.html">AWSConnectUpdateQuickConnectConfigRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateQuickConnectConfig</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateQuickConnectConfigRequest.html">AWSConnectUpdateQuickConnectConfigRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -18441,7 +18441,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateQuickConnectName</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateQuickConnectNameRequest.html">AWSConnectUpdateQuickConnectNameRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateQuickConnectName</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateQuickConnectNameRequest.html">AWSConnectUpdateQuickConnectNameRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -18574,7 +18574,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateRoutingProfileConcurrency</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateRoutingProfileConcurrencyRequest.html">AWSConnectUpdateRoutingProfileConcurrencyRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateRoutingProfileConcurrency</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateRoutingProfileConcurrencyRequest.html">AWSConnectUpdateRoutingProfileConcurrencyRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -18711,7 +18711,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateRoutingProfileDefaultOutboundQueue</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateRoutingProfileDefaultOutboundQueueRequest.html">AWSConnectUpdateRoutingProfileDefaultOutboundQueueRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateRoutingProfileDefaultOutboundQueue</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateRoutingProfileDefaultOutboundQueueRequest.html">AWSConnectUpdateRoutingProfileDefaultOutboundQueueRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -18844,7 +18844,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateRoutingProfileName</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateRoutingProfileNameRequest.html">AWSConnectUpdateRoutingProfileNameRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateRoutingProfileName</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateRoutingProfileNameRequest.html">AWSConnectUpdateRoutingProfileNameRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -18977,7 +18977,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateRoutingProfileQueues</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateRoutingProfileQueuesRequest.html">AWSConnectUpdateRoutingProfileQueuesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateRoutingProfileQueues</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateRoutingProfileQueuesRequest.html">AWSConnectUpdateRoutingProfileQueuesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -19110,7 +19110,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateSecurityProfile</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateSecurityProfileRequest.html">AWSConnectUpdateSecurityProfileRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateSecurityProfile</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateSecurityProfileRequest.html">AWSConnectUpdateSecurityProfileRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -19243,7 +19243,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateUserHierarchy</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateUserHierarchyRequest.html">AWSConnectUpdateUserHierarchyRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateUserHierarchy</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateUserHierarchyRequest.html">AWSConnectUpdateUserHierarchyRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -19376,7 +19376,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateUserHierarchyGroupName</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateUserHierarchyGroupNameRequest.html">AWSConnectUpdateUserHierarchyGroupNameRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateUserHierarchyGroupName</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateUserHierarchyGroupNameRequest.html">AWSConnectUpdateUserHierarchyGroupNameRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -19509,7 +19509,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateUserHierarchyStructure</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateUserHierarchyStructureRequest.html">AWSConnectUpdateUserHierarchyStructureRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateUserHierarchyStructure</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateUserHierarchyStructureRequest.html">AWSConnectUpdateUserHierarchyStructureRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -19642,7 +19642,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateUserIdentityInfo</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateUserIdentityInfoRequest.html">AWSConnectUpdateUserIdentityInfoRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateUserIdentityInfo</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateUserIdentityInfoRequest.html">AWSConnectUpdateUserIdentityInfoRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -19775,7 +19775,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateUserPhoneConfig</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateUserPhoneConfigRequest.html">AWSConnectUpdateUserPhoneConfigRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateUserPhoneConfig</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateUserPhoneConfigRequest.html">AWSConnectUpdateUserPhoneConfigRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -19908,7 +19908,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateUserRoutingProfile</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateUserRoutingProfileRequest.html">AWSConnectUpdateUserRoutingProfileRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateUserRoutingProfile</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateUserRoutingProfileRequest.html">AWSConnectUpdateUserRoutingProfileRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -20041,7 +20041,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateUserSecurityProfiles</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateUserSecurityProfilesRequest.html">AWSConnectUpdateUserSecurityProfilesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateUserSecurityProfiles</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateUserSecurityProfilesRequest.html">AWSConnectUpdateUserSecurityProfilesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -20085,7 +20085,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-03-31)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-04-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
