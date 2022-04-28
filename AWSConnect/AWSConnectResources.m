@@ -178,6 +178,22 @@
       ],\
       \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex bot.</p>\"\
     },\
+    \"AssociatePhoneNumberContactFlow\":{\
+      \"name\":\"AssociatePhoneNumberContactFlow\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/phone-number/{PhoneNumberId}/contact-flow\"\
+      },\
+      \"input\":{\"shape\":\"AssociatePhoneNumberContactFlowRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"AccessDeniedException\"}\
+      ],\
+      \"documentation\":\"<p>Associates a contact flow with a phone number claimed to your Amazon Connect instance.</p>\"\
+    },\
     \"AssociateQueueQuickConnects\":{\
       \"name\":\"AssociateQueueQuickConnects\",\
       \"http\":{\
@@ -229,6 +245,24 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Associates a security key to the instance.</p>\"\
+    },\
+    \"ClaimPhoneNumber\":{\
+      \"name\":\"ClaimPhoneNumber\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/phone-number/claim\"\
+      },\
+      \"input\":{\"shape\":\"ClaimPhoneNumberRequest\"},\
+      \"output\":{\"shape\":\"ClaimPhoneNumberResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"IdempotencyException\"},\
+        {\"shape\":\"AccessDeniedException\"}\
+      ],\
+      \"documentation\":\"<p>Claims an available phone number to your Amazon Connect instance.</p>\"\
     },\
     \"CreateAgentStatus\":{\
       \"name\":\"CreateAgentStatus\",\
@@ -810,6 +844,23 @@
       ],\
       \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Retrieves the current storage configurations for the specified resource type, association ID, and instance ID.</p>\"\
     },\
+    \"DescribePhoneNumber\":{\
+      \"name\":\"DescribePhoneNumber\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/phone-number/{PhoneNumberId}\"\
+      },\
+      \"input\":{\"shape\":\"DescribePhoneNumberRequest\"},\
+      \"output\":{\"shape\":\"DescribePhoneNumberResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"AccessDeniedException\"}\
+      ],\
+      \"documentation\":\"<p>Gets details and status of a phone number thatâs claimed to your Amazon Connect instance</p>\"\
+    },\
     \"DescribeQueue\":{\
       \"name\":\"DescribeQueue\",\
       \"http\":{\
@@ -1024,6 +1075,22 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Revokes authorization from the specified instance to access the specified Amazon Lex bot.</p>\"\
+    },\
+    \"DisassociatePhoneNumberContactFlow\":{\
+      \"name\":\"DisassociatePhoneNumberContactFlow\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/phone-number/{PhoneNumberId}/contact-flow\"\
+      },\
+      \"input\":{\"shape\":\"DisassociatePhoneNumberContactFlowRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"AccessDeniedException\"}\
+      ],\
+      \"documentation\":\"<p>Removes the contact flow association from a phone number claimed to your Amazon Connect instance, if a contact flow association exists.</p>\"\
     },\
     \"DisassociateQueueQuickConnects\":{\
       \"name\":\"DisassociateQueueQuickConnects\",\
@@ -1390,6 +1457,23 @@
       ],\
       \"documentation\":\"<p>Provides information about the phone numbers for the specified Amazon Connect instance. </p> <p>For more information about phone numbers, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html\\\">Set Up Phone Numbers for Your Contact Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
     },\
+    \"ListPhoneNumbersV2\":{\
+      \"name\":\"ListPhoneNumbersV2\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/phone-number/list\"\
+      },\
+      \"input\":{\"shape\":\"ListPhoneNumbersV2Request\"},\
+      \"output\":{\"shape\":\"ListPhoneNumbersV2Response\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"AccessDeniedException\"}\
+      ],\
+      \"documentation\":\"<p>Lists phone numbers claimed to your Amazon Connect instance. </p> <p>For more information about phone numbers, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html\\\">Set Up Phone Numbers for Your Contact Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
+    },\
     \"ListPrompts\":{\
       \"name\":\"ListPrompts\",\
       \"http\":{\
@@ -1610,6 +1694,42 @@
       ],\
       \"documentation\":\"<p>Provides summary information about the users for the specified Amazon Connect instance.</p>\"\
     },\
+    \"PutUserStatus\":{\
+      \"name\":\"PutUserStatus\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/users/{InstanceId}/{UserId}/status\"\
+      },\
+      \"input\":{\"shape\":\"PutUserStatusRequest\"},\
+      \"output\":{\"shape\":\"PutUserStatusResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Changes the current status of a user or agent in Amazon Connect. If the agent is currently handling a contact, this sets the agent's next status.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-agent-status.html\\\">Agent status</a> and <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/set-next-status.html\\\">Set your next status</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
+    },\
+    \"ReleasePhoneNumber\":{\
+      \"name\":\"ReleasePhoneNumber\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/phone-number/{PhoneNumberId}\"\
+      },\
+      \"input\":{\"shape\":\"ReleasePhoneNumberRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"ResourceInUseException\"},\
+        {\"shape\":\"IdempotencyException\"},\
+        {\"shape\":\"AccessDeniedException\"}\
+      ],\
+      \"documentation\":\"<p>Releases a phone number previously claimed to an Amazon Connect instance.</p>\"\
+    },\
     \"ResumeContactRecording\":{\
       \"name\":\"ResumeContactRecording\",\
       \"http\":{\
@@ -1624,6 +1744,39 @@
         {\"shape\":\"InternalServiceException\"}\
       ],\
       \"documentation\":\"<p>When a contact is being recorded, and the recording has been suspended using SuspendContactRecording, this API resumes recording the call.</p> <p>Only voice recordings are supported at this time.</p>\"\
+    },\
+    \"SearchAvailablePhoneNumbers\":{\
+      \"name\":\"SearchAvailablePhoneNumbers\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/phone-number/search-available\"\
+      },\
+      \"input\":{\"shape\":\"SearchAvailablePhoneNumbersRequest\"},\
+      \"output\":{\"shape\":\"SearchAvailablePhoneNumbersResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"AccessDeniedException\"}\
+      ],\
+      \"documentation\":\"<p>Searches for available phone numbers that you can claim to your Amazon Connect instance.</p>\"\
+    },\
+    \"SearchUsers\":{\
+      \"name\":\"SearchUsers\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/search-users\"\
+      },\
+      \"input\":{\"shape\":\"SearchUsersRequest\"},\
+      \"output\":{\"shape\":\"SearchUsersResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Searches users in an Amazon Connect instance, with optional filtering.</p>\"\
     },\
     \"SearchVocabularies\":{\
       \"name\":\"SearchVocabularies\",\
@@ -1805,7 +1958,7 @@
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Adds the specified tags to the specified resource.</p> <p>The supported resource types are users, routing profiles, queues, quick connects, contact flows, agent status, and hours of operation.</p> <p>For sample policies that use tags, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html\\\">Amazon Connect Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
+      \"documentation\":\"<p>Adds the specified tags to the specified resource.</p> <p>The supported resource types are users, routing profiles, queues, quick connects, contact flows, agent status, hours of operation, and phone number.</p> <p>For sample policies that use tags, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html\\\">Amazon Connect Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
     },\
     \"UntagResource\":{\
       \"name\":\"UntagResource\",\
@@ -2028,6 +2181,25 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Updates an existing configuration for a resource type. This API is idempotent.</p>\"\
+    },\
+    \"UpdatePhoneNumber\":{\
+      \"name\":\"UpdatePhoneNumber\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/phone-number/{PhoneNumberId}\"\
+      },\
+      \"input\":{\"shape\":\"UpdatePhoneNumberRequest\"},\
+      \"output\":{\"shape\":\"UpdatePhoneNumberResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"ResourceInUseException\"},\
+        {\"shape\":\"IdempotencyException\"},\
+        {\"shape\":\"AccessDeniedException\"}\
+      ],\
+      \"documentation\":\"<p>Updates your claimed phone number from its current Amazon Connect instance to another Amazon Connect instance in the same Region.</p>\"\
     },\
     \"UpdateQueueHoursOfOperation\":{\
       \"name\":\"UpdateQueueHoursOfOperation\",\
@@ -2506,6 +2678,7 @@
       },\
       \"documentation\":\"<p>Configuration of the answering machine detection.</p>\"\
     },\
+    \"ApproximateTotalCount\":{\"type\":\"long\"},\
     \"AssociateApprovedOriginRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -2640,6 +2813,30 @@
         \"LexBot\":{\
           \"shape\":\"LexBot\",\
           \"documentation\":\"<p>The Amazon Lex bot to associate with the instance.</p>\"\
+        }\
+      }\
+    },\
+    \"AssociatePhoneNumberContactFlowRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"PhoneNumberId\",\
+        \"InstanceId\",\
+        \"ContactFlowId\"\
+      ],\
+      \"members\":{\
+        \"PhoneNumberId\":{\
+          \"shape\":\"PhoneNumberId\",\
+          \"documentation\":\"<p>A unique identifier for the phone number.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"PhoneNumberId\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\"\
+        },\
+        \"ContactFlowId\":{\
+          \"shape\":\"ContactFlowId\",\
+          \"documentation\":\"<p>The identifier of the contact flow.</p>\"\
         }\
       }\
     },\
@@ -2780,6 +2977,28 @@
       \"member\":{\"shape\":\"Attribute\"}\
     },\
     \"AutoAccept\":{\"type\":\"boolean\"},\
+    \"AvailableNumberSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"PhoneNumber\":{\
+          \"shape\":\"PhoneNumber\",\
+          \"documentation\":\"<p>The phone number. Phone numbers are formatted <code>[+] [country code] [subscriber number including area code]</code>.</p>\"\
+        },\
+        \"PhoneNumberCountryCode\":{\
+          \"shape\":\"PhoneNumberCountryCode\",\
+          \"documentation\":\"<p>The ISO country code.</p>\"\
+        },\
+        \"PhoneNumberType\":{\
+          \"shape\":\"PhoneNumberType\",\
+          \"documentation\":\"<p>The type of phone number.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about available phone numbers.</p>\"\
+    },\
+    \"AvailableNumbersList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"AvailableNumberSummary\"}\
+    },\
     \"Boolean\":{\"type\":\"boolean\"},\
     \"BotName\":{\
       \"type\":\"string\",\
@@ -2856,6 +3075,91 @@
       \"type\":\"string\",\
       \"max\":350,\
       \"min\":1\
+    },\
+    \"ClaimPhoneNumberRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"TargetArn\",\
+        \"PhoneNumber\"\
+      ],\
+      \"members\":{\
+        \"TargetArn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.</p>\"\
+        },\
+        \"PhoneNumber\":{\
+          \"shape\":\"PhoneNumber\",\
+          \"documentation\":\"<p>The phone number you want to claim. Phone numbers are formatted <code>[+] [country code] [subscriber number including area code]</code>.</p>\"\
+        },\
+        \"PhoneNumberDescription\":{\
+          \"shape\":\"PhoneNumberDescription\",\
+          \"documentation\":\"<p>The description of the phone number.</p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagMap\",\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+        },\
+        \"ClientToken\":{\
+          \"shape\":\"ClientToken\",\
+          \"documentation\":\"<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>\",\
+          \"idempotencyToken\":true\
+        }\
+      }\
+    },\
+    \"ClaimPhoneNumberResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"PhoneNumberId\":{\
+          \"shape\":\"PhoneNumberId\",\
+          \"documentation\":\"<p>A unique identifier for the phone number.</p>\"\
+        },\
+        \"PhoneNumberArn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the phone number.</p>\"\
+        }\
+      }\
+    },\
+    \"ClaimedPhoneNumberSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"PhoneNumberId\":{\
+          \"shape\":\"PhoneNumberId\",\
+          \"documentation\":\"<p>A unique identifier for the phone number.</p>\"\
+        },\
+        \"PhoneNumberArn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the phone number.</p>\"\
+        },\
+        \"PhoneNumber\":{\
+          \"shape\":\"PhoneNumber\",\
+          \"documentation\":\"<p>The phone number. Phone numbers are formatted <code>[+] [country code] [subscriber number including area code]</code>.</p>\"\
+        },\
+        \"PhoneNumberCountryCode\":{\
+          \"shape\":\"PhoneNumberCountryCode\",\
+          \"documentation\":\"<p>The ISO country code.</p>\"\
+        },\
+        \"PhoneNumberType\":{\
+          \"shape\":\"PhoneNumberType\",\
+          \"documentation\":\"<p>The type of phone number.</p>\"\
+        },\
+        \"PhoneNumberDescription\":{\
+          \"shape\":\"PhoneNumberDescription\",\
+          \"documentation\":\"<p>The description of the phone number.</p>\"\
+        },\
+        \"TargetArn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.</p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagMap\",\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+        },\
+        \"PhoneNumberStatus\":{\
+          \"shape\":\"PhoneNumberStatus\",\
+          \"documentation\":\"<p>The status of the phone number.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about a phone number that has been claimed to your Amazon Connect instance.</p>\"\
     },\
     \"ClientToken\":{\
       \"type\":\"string\",\
@@ -3182,6 +3486,24 @@
       \"type\":\"map\",\
       \"key\":{\"shape\":\"ReferenceKey\"},\
       \"value\":{\"shape\":\"Reference\"}\
+    },\
+    \"ControlPlaneTagFilter\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"OrConditions\":{\
+          \"shape\":\"TagOrConditionList\",\
+          \"documentation\":\"<p>A list of conditions which would be applied together with an <code>OR</code> condition. </p>\"\
+        },\
+        \"AndConditions\":{\
+          \"shape\":\"TagAndConditionList\",\
+          \"documentation\":\"<p>A list of conditions which would be applied together with an <code>AND</code> condition.</p>\"\
+        },\
+        \"TagCondition\":{\
+          \"shape\":\"TagCondition\",\
+          \"documentation\":\"<p>A leaf node condition which can be used to specify a tag condition. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p> <ul> <li> <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p> </li> <li> <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p> </li> </ul>\"\
     },\
     \"CreateAgentStatusRequest\":{\
       \"type\":\"structure\",\
@@ -4522,6 +4844,27 @@
         }\
       }\
     },\
+    \"DescribePhoneNumberRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"PhoneNumberId\"],\
+      \"members\":{\
+        \"PhoneNumberId\":{\
+          \"shape\":\"PhoneNumberId\",\
+          \"documentation\":\"<p>A unique identifier for the phone number.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"PhoneNumberId\"\
+        }\
+      }\
+    },\
+    \"DescribePhoneNumberResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ClaimedPhoneNumberSummary\":{\
+          \"shape\":\"ClaimedPhoneNumberSummary\",\
+          \"documentation\":\"<p>Information about a phone number that's been claimed to your Amazon Connect instance.</p>\"\
+        }\
+      }\
+    },\
     \"DescribeQueueRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -4922,6 +5265,27 @@
         }\
       }\
     },\
+    \"DisassociatePhoneNumberContactFlowRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"PhoneNumberId\",\
+        \"InstanceId\"\
+      ],\
+      \"members\":{\
+        \"PhoneNumberId\":{\
+          \"shape\":\"PhoneNumberId\",\
+          \"documentation\":\"<p>A unique identifier for the phone number.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"PhoneNumberId\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"instanceId\"\
+        }\
+      }\
+    },\
     \"DisassociateQueueQuickConnectsRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -5262,7 +5626,28 @@
       },\
       \"documentation\":\"<p>Contains information about a hierarchy group.</p>\"\
     },\
+    \"HierarchyGroupCondition\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Value\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The value in the hierarchy group condition.</p>\"\
+        },\
+        \"HierarchyGroupMatchType\":{\
+          \"shape\":\"HierarchyGroupMatchType\",\
+          \"documentation\":\"<p>The type of hierarchy group match.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A leaf node condition which can be used to specify a hierarchy group condition.</p>\"\
+    },\
     \"HierarchyGroupId\":{\"type\":\"string\"},\
+    \"HierarchyGroupMatchType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"EXACT\",\
+        \"WITH_CHILD_GROUPS\"\
+      ]\
+    },\
     \"HierarchyGroupName\":{\"type\":\"string\"},\
     \"HierarchyGroupSummary\":{\
       \"type\":\"structure\",\
@@ -5978,6 +6363,11 @@
       },\
       \"documentation\":\"<p>Configuration information of a Kinesis video stream.</p>\"\
     },\
+    \"LargeNextToken\":{\
+      \"type\":\"string\",\
+      \"max\":100000,\
+      \"min\":1\
+    },\
     \"LexBot\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -6667,6 +7057,83 @@
         }\
       }\
     },\
+    \"ListPhoneNumbersSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"PhoneNumberId\":{\
+          \"shape\":\"PhoneNumberId\",\
+          \"documentation\":\"<p>A unique identifier for the phone number.</p>\"\
+        },\
+        \"PhoneNumberArn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the phone number.</p>\"\
+        },\
+        \"PhoneNumber\":{\
+          \"shape\":\"PhoneNumber\",\
+          \"documentation\":\"<p>The phone number. Phone numbers are formatted <code>[+] [country code] [subscriber number including area code]</code>.</p>\"\
+        },\
+        \"PhoneNumberCountryCode\":{\
+          \"shape\":\"PhoneNumberCountryCode\",\
+          \"documentation\":\"<p>The ISO country code.</p>\"\
+        },\
+        \"PhoneNumberType\":{\
+          \"shape\":\"PhoneNumberType\",\
+          \"documentation\":\"<p>The type of phone number.</p>\"\
+        },\
+        \"TargetArn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about phone numbers that have been claimed to your Amazon Connect instance.</p>\"\
+    },\
+    \"ListPhoneNumbersSummaryList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ListPhoneNumbersSummary\"}\
+    },\
+    \"ListPhoneNumbersV2Request\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TargetArn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to. If <code>TargetArn</code> input is not provided, this API lists numbers claimed to all the Amazon Connect instances belonging to your account.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResult1000\",\
+          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"box\":true\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"LargeNextToken\",\
+          \"documentation\":\"<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>\"\
+        },\
+        \"PhoneNumberCountryCodes\":{\
+          \"shape\":\"PhoneNumberCountryCodes\",\
+          \"documentation\":\"<p>The ISO country code.</p>\"\
+        },\
+        \"PhoneNumberTypes\":{\
+          \"shape\":\"PhoneNumberTypes\",\
+          \"documentation\":\"<p>The type of phone number.</p>\"\
+        },\
+        \"PhoneNumberPrefix\":{\
+          \"shape\":\"PhoneNumberPrefix\",\
+          \"documentation\":\"<p>The prefix of the phone number. If provided, it must contain <code>+</code> as part of the country code.</p>\"\
+        }\
+      }\
+    },\
+    \"ListPhoneNumbersV2Response\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"NextToken\":{\
+          \"shape\":\"LargeNextToken\",\
+          \"documentation\":\"<p>If there are additional results, this is the token for the next set of results.</p>\"\
+        },\
+        \"ListPhoneNumbersSummaryList\":{\
+          \"shape\":\"ListPhoneNumbersSummaryList\",\
+          \"documentation\":\"<p>Information about phone numbers that have been claimed to your Amazon Connect instances.</p>\"\
+        }\
+      }\
+    },\
     \"ListPromptsRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"InstanceId\"],\
@@ -7256,6 +7723,11 @@
       \"min\":0\
     },\
     \"NextToken\":{\"type\":\"string\"},\
+    \"NextToken2500\":{\
+      \"type\":\"string\",\
+      \"max\":2500,\
+      \"min\":1\
+    },\
     \"Origin\":{\
       \"type\":\"string\",\
       \"max\":267\
@@ -7335,7 +7807,10 @@
       \"member\":{\"shape\":\"SecurityProfilePermission\"},\
       \"max\":500\
     },\
-    \"PhoneNumber\":{\"type\":\"string\"},\
+    \"PhoneNumber\":{\
+      \"type\":\"string\",\
+      \"pattern\":\"\\\\\\\\+[1-9]\\\\\\\\d{1,14}$\"\
+    },\
     \"PhoneNumberCountryCode\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -7583,7 +8058,17 @@
       \"member\":{\"shape\":\"PhoneNumberCountryCode\"},\
       \"max\":10\
     },\
+    \"PhoneNumberDescription\":{\
+      \"type\":\"string\",\
+      \"max\":500,\
+      \"min\":0,\
+      \"pattern\":\"^[\\\\W\\\\S_]*\"\
+    },\
     \"PhoneNumberId\":{\"type\":\"string\"},\
+    \"PhoneNumberPrefix\":{\
+      \"type\":\"string\",\
+      \"pattern\":\"\\\\\\\\+?[0-9]{1,11}\"\
+    },\
     \"PhoneNumberQuickConnectConfig\":{\
       \"type\":\"structure\",\
       \"required\":[\"PhoneNumber\"],\
@@ -7594,6 +8079,20 @@
         }\
       },\
       \"documentation\":\"<p>Contains information about a phone number for a quick connect.</p>\"\
+    },\
+    \"PhoneNumberStatus\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Status\":{\
+          \"shape\":\"PhoneNumberWorkflowStatus\",\
+          \"documentation\":\"<p>The status.</p>\"\
+        },\
+        \"Message\":{\
+          \"shape\":\"PhoneNumberWorkflowMessage\",\
+          \"documentation\":\"<p>The status message.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The status of the phone number.</p>\"\
     },\
     \"PhoneNumberSummary\":{\
       \"type\":\"structure\",\
@@ -7636,6 +8135,20 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"PhoneNumberType\"},\
       \"max\":2\
+    },\
+    \"PhoneNumberWorkflowMessage\":{\
+      \"type\":\"string\",\
+      \"max\":255,\
+      \"min\":0,\
+      \"pattern\":\"^[\\\\W\\\\S_]*\"\
+    },\
+    \"PhoneNumberWorkflowStatus\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"CLAIMED\",\
+        \"IN_PROGRESS\",\
+        \"FAILED\"\
+      ]\
     },\
     \"PhoneType\":{\
       \"type\":\"string\",\
@@ -7706,6 +8219,37 @@
     \"PromptSummaryList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"PromptSummary\"}\
+    },\
+    \"PutUserStatusRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"UserId\",\
+        \"InstanceId\",\
+        \"AgentStatusId\"\
+      ],\
+      \"members\":{\
+        \"UserId\":{\
+          \"shape\":\"UserId\",\
+          \"documentation\":\"<p>The identifier of the user.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"UserId\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"AgentStatusId\":{\
+          \"shape\":\"AgentStatusId\",\
+          \"documentation\":\"<p>The identifier of the agent status.</p>\"\
+        }\
+      }\
+    },\
+    \"PutUserStatusResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
     },\
     \"Queue\":{\
       \"type\":\"structure\",\
@@ -8037,6 +8581,25 @@
       \"max\":4096,\
       \"min\":0\
     },\
+    \"ReleasePhoneNumberRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"PhoneNumberId\"],\
+      \"members\":{\
+        \"PhoneNumberId\":{\
+          \"shape\":\"PhoneNumberId\",\
+          \"documentation\":\"<p>A unique identifier for the phone number.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"PhoneNumberId\"\
+        },\
+        \"ClientToken\":{\
+          \"shape\":\"ClientToken\",\
+          \"documentation\":\"<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>\",\
+          \"idempotencyToken\":true,\
+          \"location\":\"querystring\",\
+          \"locationName\":\"clientToken\"\
+        }\
+      }\
+    },\
     \"ResourceConflictException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -8301,6 +8864,94 @@
         }\
       },\
       \"documentation\":\"<p>Information about the Amazon Simple Storage Service (Amazon S3) storage type.</p>\"\
+    },\
+    \"SearchAvailablePhoneNumbersRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"TargetArn\",\
+        \"PhoneNumberCountryCode\",\
+        \"PhoneNumberType\"\
+      ],\
+      \"members\":{\
+        \"TargetArn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.</p>\"\
+        },\
+        \"PhoneNumberCountryCode\":{\
+          \"shape\":\"PhoneNumberCountryCode\",\
+          \"documentation\":\"<p>The ISO country code.</p>\"\
+        },\
+        \"PhoneNumberType\":{\
+          \"shape\":\"PhoneNumberType\",\
+          \"documentation\":\"<p>The type of phone number.</p>\"\
+        },\
+        \"PhoneNumberPrefix\":{\
+          \"shape\":\"PhoneNumberPrefix\",\
+          \"documentation\":\"<p>The prefix of the phone number. If provided, it must contain <code>+</code> as part of the country code.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResult10\",\
+          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"box\":true\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"LargeNextToken\",\
+          \"documentation\":\"<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>\"\
+        }\
+      }\
+    },\
+    \"SearchAvailablePhoneNumbersResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"NextToken\":{\
+          \"shape\":\"LargeNextToken\",\
+          \"documentation\":\"<p>If there are additional results, this is the token for the next set of results.</p>\"\
+        },\
+        \"AvailableNumbersList\":{\
+          \"shape\":\"AvailableNumbersList\",\
+          \"documentation\":\"<p>A list of available phone numbers that you can claim for your Amazon Connect instance.</p>\"\
+        }\
+      }\
+    },\
+    \"SearchUsersRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken2500\",\
+          \"documentation\":\"<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResult100\",\
+          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"box\":true\
+        },\
+        \"SearchFilter\":{\
+          \"shape\":\"UserSearchFilter\",\
+          \"documentation\":\"<p>Filters to be applied to search results.</p>\"\
+        },\
+        \"SearchCriteria\":{\"shape\":\"UserSearchCriteria\"}\
+      }\
+    },\
+    \"SearchUsersResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Users\":{\
+          \"shape\":\"UserSearchSummaryList\",\
+          \"documentation\":\"<p>Information about the users.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken2500\",\
+          \"documentation\":\"<p>If there are additional results, this is the token for the next set of results.</p>\"\
+        },\
+        \"ApproximateTotalCount\":{\
+          \"shape\":\"ApproximateTotalCount\",\
+          \"documentation\":\"<p>The total number of users who matched your search query.</p>\"\
+        }\
+      }\
     },\
     \"SearchVocabulariesRequest\":{\
       \"type\":\"structure\",\
@@ -8809,6 +9460,32 @@
       \"min\":1\
     },\
     \"String\":{\"type\":\"string\"},\
+    \"StringComparisonType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"STARTS_WITH\",\
+        \"CONTAINS\",\
+        \"EXACT\"\
+      ]\
+    },\
+    \"StringCondition\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"FieldName\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The name of the field in the string condition.</p>\"\
+        },\
+        \"Value\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The value of the string.</p>\"\
+        },\
+        \"ComparisonType\":{\
+          \"shape\":\"StringComparisonType\",\
+          \"documentation\":\"<p>The type of comparison to be made when evaluating the string condition.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A leaf node condition which can be used to specify a string condition, for example, <code>username = 'abc'</code>. </p>\"\
+    },\
     \"SupportedMessagingContentType\":{\
       \"type\":\"string\",\
       \"max\":100,\
@@ -8845,6 +9522,24 @@
       \"members\":{\
       }\
     },\
+    \"TagAndConditionList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"TagCondition\"}\
+    },\
+    \"TagCondition\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TagKey\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The tag key in the tag condition.</p>\"\
+        },\
+        \"TagValue\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The tag value in the tag condition.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A leaf node condition which can be used to specify a tag condition, for example, <code>HAVE BPO = 123</code>. </p>\"\
+    },\
     \"TagKey\":{\
       \"type\":\"string\",\
       \"max\":128,\
@@ -8863,6 +9558,10 @@
       \"value\":{\"shape\":\"TagValue\"},\
       \"max\":50,\
       \"min\":1\
+    },\
+    \"TagOrConditionList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"TagAndConditionList\"}\
     },\
     \"TagResourceRequest\":{\
       \"type\":\"structure\",\
@@ -9347,6 +10046,43 @@
           \"locationName\":\"resourceType\"\
         },\
         \"StorageConfig\":{\"shape\":\"InstanceStorageConfig\"}\
+      }\
+    },\
+    \"UpdatePhoneNumberRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"PhoneNumberId\",\
+        \"TargetArn\"\
+      ],\
+      \"members\":{\
+        \"PhoneNumberId\":{\
+          \"shape\":\"PhoneNumberId\",\
+          \"documentation\":\"<p>A unique identifier for the phone number.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"PhoneNumberId\"\
+        },\
+        \"TargetArn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.</p>\"\
+        },\
+        \"ClientToken\":{\
+          \"shape\":\"ClientToken\",\
+          \"documentation\":\"<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>\",\
+          \"idempotencyToken\":true\
+        }\
+      }\
+    },\
+    \"UpdatePhoneNumberResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"PhoneNumberId\":{\
+          \"shape\":\"PhoneNumberId\",\
+          \"documentation\":\"<p>A unique identifier for the phone number.</p>\"\
+        },\
+        \"PhoneNumberArn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the phone number.</p>\"\
+        }\
       }\
     },\
     \"UpdateQueueHoursOfOperationRequest\":{\
@@ -9965,6 +10701,20 @@
       },\
       \"documentation\":\"<p>Contains information about the identity of a user.</p>\"\
     },\
+    \"UserIdentityInfoLite\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"FirstName\":{\
+          \"shape\":\"AgentFirstName\",\
+          \"documentation\":\"<p>The user's first name.</p>\"\
+        },\
+        \"LastName\":{\
+          \"shape\":\"AgentLastName\",\
+          \"documentation\":\"<p>The user's last name.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The user's first name and last name.</p>\"\
+    },\
     \"UserNotFoundException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -10014,6 +10764,86 @@
         }\
       },\
       \"documentation\":\"<p>Contains information about the quick connect configuration settings for a user. The contact flow must be of type Transfer to Agent.</p>\"\
+    },\
+    \"UserSearchConditionList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"UserSearchCriteria\"}\
+    },\
+    \"UserSearchCriteria\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"OrConditions\":{\
+          \"shape\":\"UserSearchConditionList\",\
+          \"documentation\":\"<p>A list of conditions which would be applied together with an <code>OR</code> condition.</p>\"\
+        },\
+        \"AndConditions\":{\
+          \"shape\":\"UserSearchConditionList\",\
+          \"documentation\":\"<p>A list of conditions which would be applied together with an <code>AND</code> condition. </p>\"\
+        },\
+        \"StringCondition\":{\
+          \"shape\":\"StringCondition\",\
+          \"documentation\":\"<p>A leaf node condition which can be used to specify a string condition.</p>\"\
+        },\
+        \"HierarchyGroupCondition\":{\
+          \"shape\":\"HierarchyGroupCondition\",\
+          \"documentation\":\"<p>A leaf node condition which can be used to specify a hierarchy group condition.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The search criteria to be used to return users.</p>\"\
+    },\
+    \"UserSearchFilter\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TagFilter\":{\"shape\":\"ControlPlaneTagFilter\"}\
+      },\
+      \"documentation\":\"<p>Filters to be applied to search results.</p>\"\
+    },\
+    \"UserSearchSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Arn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the user.</p>\"\
+        },\
+        \"DirectoryUserId\":{\
+          \"shape\":\"DirectoryUserId\",\
+          \"documentation\":\"<p>The directory identifier of the user.</p>\"\
+        },\
+        \"HierarchyGroupId\":{\
+          \"shape\":\"HierarchyGroupId\",\
+          \"documentation\":\"<p>The identifier of the user's hierarchy group.</p>\"\
+        },\
+        \"Id\":{\
+          \"shape\":\"UserId\",\
+          \"documentation\":\"<p>The identifier of the user's summary.</p>\"\
+        },\
+        \"IdentityInfo\":{\
+          \"shape\":\"UserIdentityInfoLite\",\
+          \"documentation\":\"<p>The user's first name and last name.</p>\"\
+        },\
+        \"PhoneConfig\":{\"shape\":\"UserPhoneConfig\"},\
+        \"RoutingProfileId\":{\
+          \"shape\":\"RoutingProfileId\",\
+          \"documentation\":\"<p>The identifier of the user's routing profile.</p>\"\
+        },\
+        \"SecurityProfileIds\":{\
+          \"shape\":\"SecurityProfileIds\",\
+          \"documentation\":\"<p>The identifiers of the user's security profiles.</p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagMap\",\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+        },\
+        \"Username\":{\
+          \"shape\":\"AgentUsername\",\
+          \"documentation\":\"<p>The name of the user.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about the returned users.</p>\"\
+    },\
+    \"UserSearchSummaryList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"UserSearchSummary\"}\
     },\
     \"UserSummary\":{\
       \"type\":\"structure\",\
