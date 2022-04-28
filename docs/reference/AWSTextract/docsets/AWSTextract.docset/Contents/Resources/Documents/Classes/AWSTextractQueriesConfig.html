@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSTextractWarning Class Reference</title>
+    <title>AWSTextractQueriesConfig Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSTextractWarning" class="dashAnchor"></a>
-    <a title="AWSTextractWarning Class Reference"></a>
+    <a name="//apple_ref/objc/Class/AWSTextractQueriesConfig" class="dashAnchor"></a>
+    <a title="AWSTextractQueriesConfig Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSTextract 2.27.7 Docs</a> (71% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSTextract Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        AWSTextractWarning Class Reference
+        AWSTextractQueriesConfig Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -246,20 +246,21 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSTextractWarning</h1>
+            <h1>AWSTextractQueriesConfig</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTextractWarning</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTextractQueriesConfig</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTextractWarning</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTextractQueriesConfig</span></code></pre>
 
                 </div>
               </div>
-            <p>A warning about an issue that occurred during asynchronous text analysis (<a>StartDocumentAnalysis</a>) or asynchronous document text detection (<a>StartDocumentTextDetection</a>). </p>
+            <p><p/>
+Required parameters: [Queries]</p>
 
           </section>
           <section class="section task-group-section">
@@ -268,9 +269,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSTextractWarning(py)errorCode"></a>
-                    <a name="//apple_ref/objc/Property/errorCode" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTextractWarning(py)errorCode">errorCode</a>
+                    <a name="/c:objc(cs)AWSTextractQueriesConfig(py)queries"></a>
+                    <a name="//apple_ref/objc/Property/queries" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractQueriesConfig(py)queries">queries</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -278,51 +279,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The error code for the warning.</p>
+                        <p><p/></p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">errorCode</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/AWSTextractQuery.html">AWSTextractQuery</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">queries</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">errorCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)AWSTextractWarning(py)pages"></a>
-                    <a name="//apple_ref/objc/Property/pages" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTextractWarning(py)pages">pages</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A list of the pages that the warning applies to.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSNumber</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">pages</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">pages</span><span class="p">:</span> <span class="p">[</span><span class="kt">NSNumber</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">queries</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/AWSTextractQuery.html">AWSTextractQuery</a></span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
