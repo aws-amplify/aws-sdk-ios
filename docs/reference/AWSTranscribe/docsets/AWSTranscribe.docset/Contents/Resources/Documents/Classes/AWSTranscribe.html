@@ -17,7 +17,7 @@
     <a title="AWSTranscribe Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTranscribe 2.27.5 Docs</a> (76% documented)</p>
+        <p><a href="../index.html">AWSTranscribe 2.27.7 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTranscribe.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -532,9 +532,9 @@
 <p><em>Objective-C</em></p>
 <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
      <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                                                     <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+                                                                                                     <span class="nf">identityPoolId</span><span class="p">:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
      <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                          <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+                                                                          <span class="nf">credentialsProvider</span><span class="p">:</span><span class="n">credentialsProvider</span><span class="p">];</span>
      <span class="p">[</span><span class="n">AWSServiceManager</span> <span class="nf">defaultServiceManager</span><span class="p">].</span><span class="n">defaultServiceConfiguration</span> <span class="o">=</span> <span class="n">configuration</span><span class="p">;</span>
 
      <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
@@ -561,7 +561,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="p">`</span><span class="nv">default</span><span class="p">`()</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="err">`</span><span class="k">default</span><span class="err">`</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
 
                         </div>
                       </div>
@@ -603,9 +603,9 @@
 <p><em>Objective-C</em></p>
 <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
     <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                                                    <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+                                                                                                    <span class="nf">identityPoolId</span><span class="p">:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
     <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSWest2</span>
-                                                                         <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+                                                                         <span class="nf">credentialsProvider</span><span class="p">:</span><span class="n">credentialsProvider</span><span class="p">];</span>
 
     <span class="p">[</span><span class="n">AWSTranscribe</span> <span class="nf">registerTranscribeWithConfiguration</span><span class="p">:</span><span class="n">configuration</span> <span class="nf">forKey</span><span class="p">:</span><span class="s">@"USWest2Transcribe"</span><span class="p">];</span>
 
@@ -708,9 +708,9 @@
 <p><em>Objective-C</em></p>
 <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
     <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                                                    <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+                                                                                                    <span class="nf">identityPoolId</span><span class="p">:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
     <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSWest2</span>
-                                                                         <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+                                                                         <span class="nf">credentialsProvider</span><span class="p">:</span><span class="n">credentialsProvider</span><span class="p">];</span>
 
     <span class="p">[</span><span class="n">AWSTranscribe</span> <span class="nf">registerTranscribeWithConfiguration</span><span class="p">:</span><span class="n">configuration</span> <span class="nf">forKey</span><span class="p">:</span><span class="s">@"USWest2Transcribe"</span><span class="p">];</span>
 
@@ -738,7 +738,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -929,7 +929,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createCallAnalyticsCategory</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeCreateCallAnalyticsCategoryRequest.html">AWSTranscribeCreateCallAnalyticsCategoryRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeCreateCallAnalyticsCategoryResponse.html">AWSTranscribeCreateCallAnalyticsCategoryResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createCallAnalyticsCategory</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeCreateCallAnalyticsCategoryRequest.html">AWSTranscribeCreateCallAnalyticsCategoryRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeCreateCallAnalyticsCategoryResponse.html">AWSTranscribeCreateCallAnalyticsCategoryResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1073,7 +1073,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createLanguageModel</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeCreateLanguageModelRequest.html">AWSTranscribeCreateLanguageModelRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeCreateLanguageModelResponse.html">AWSTranscribeCreateLanguageModelResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createLanguageModel</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeCreateLanguageModelRequest.html">AWSTranscribeCreateLanguageModelRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeCreateLanguageModelResponse.html">AWSTranscribeCreateLanguageModelResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1217,7 +1217,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createMedicalVocabulary</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeCreateMedicalVocabularyRequest.html">AWSTranscribeCreateMedicalVocabularyRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeCreateMedicalVocabularyResponse.html">AWSTranscribeCreateMedicalVocabularyResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createMedicalVocabulary</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeCreateMedicalVocabularyRequest.html">AWSTranscribeCreateMedicalVocabularyRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeCreateMedicalVocabularyResponse.html">AWSTranscribeCreateMedicalVocabularyResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1358,7 +1358,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createVocabulary</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeCreateVocabularyRequest.html">AWSTranscribeCreateVocabularyRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeCreateVocabularyResponse.html">AWSTranscribeCreateVocabularyResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createVocabulary</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeCreateVocabularyRequest.html">AWSTranscribeCreateVocabularyRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeCreateVocabularyResponse.html">AWSTranscribeCreateVocabularyResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1502,7 +1502,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createVocabularyFilter</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeCreateVocabularyFilterRequest.html">AWSTranscribeCreateVocabularyFilterRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeCreateVocabularyFilterResponse.html">AWSTranscribeCreateVocabularyFilterResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createVocabularyFilter</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeCreateVocabularyFilterRequest.html">AWSTranscribeCreateVocabularyFilterRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeCreateVocabularyFilterResponse.html">AWSTranscribeCreateVocabularyFilterResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1647,7 +1647,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteCallAnalyticsCategory</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeDeleteCallAnalyticsCategoryRequest.html">AWSTranscribeDeleteCallAnalyticsCategoryRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSTranscribeDeleteCallAnalyticsCategoryResponse">AWSTranscribeDeleteCallAnalyticsCategoryResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteCallAnalyticsCategory</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeDeleteCallAnalyticsCategoryRequest.html">AWSTranscribeDeleteCallAnalyticsCategoryRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSTranscribeDeleteCallAnalyticsCategoryResponse">AWSTranscribeDeleteCallAnalyticsCategoryResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1791,7 +1791,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteCallAnalyticsJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeDeleteCallAnalyticsJobRequest.html">AWSTranscribeDeleteCallAnalyticsJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSTranscribeDeleteCallAnalyticsJobResponse">AWSTranscribeDeleteCallAnalyticsJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteCallAnalyticsJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeDeleteCallAnalyticsJobRequest.html">AWSTranscribeDeleteCallAnalyticsJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSTranscribeDeleteCallAnalyticsJobResponse">AWSTranscribeDeleteCallAnalyticsJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1925,7 +1925,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteLanguageModel</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeDeleteLanguageModelRequest.html">AWSTranscribeDeleteLanguageModelRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteLanguageModel</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeDeleteLanguageModelRequest.html">AWSTranscribeDeleteLanguageModelRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -2058,7 +2058,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteMedicalTranscriptionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeDeleteMedicalTranscriptionJobRequest.html">AWSTranscribeDeleteMedicalTranscriptionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteMedicalTranscriptionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeDeleteMedicalTranscriptionJobRequest.html">AWSTranscribeDeleteMedicalTranscriptionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -2191,7 +2191,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteMedicalVocabulary</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeDeleteMedicalVocabularyRequest.html">AWSTranscribeDeleteMedicalVocabularyRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteMedicalVocabulary</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeDeleteMedicalVocabularyRequest.html">AWSTranscribeDeleteMedicalVocabularyRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -2324,7 +2324,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteTranscriptionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeDeleteTranscriptionJobRequest.html">AWSTranscribeDeleteTranscriptionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteTranscriptionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeDeleteTranscriptionJobRequest.html">AWSTranscribeDeleteTranscriptionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -2455,7 +2455,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteVocabulary</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeDeleteVocabularyRequest.html">AWSTranscribeDeleteVocabularyRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteVocabulary</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeDeleteVocabularyRequest.html">AWSTranscribeDeleteVocabularyRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -2588,7 +2588,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteVocabularyFilter</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeDeleteVocabularyFilterRequest.html">AWSTranscribeDeleteVocabularyFilterRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteVocabularyFilter</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeDeleteVocabularyFilterRequest.html">AWSTranscribeDeleteVocabularyFilterRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -2731,7 +2731,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeLanguageModel</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeDescribeLanguageModelRequest.html">AWSTranscribeDescribeLanguageModelRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeDescribeLanguageModelResponse.html">AWSTranscribeDescribeLanguageModelResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeLanguageModel</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeDescribeLanguageModelRequest.html">AWSTranscribeDescribeLanguageModelRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeDescribeLanguageModelResponse.html">AWSTranscribeDescribeLanguageModelResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2875,7 +2875,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">callAnalyticsCategory</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeGetCallAnalyticsCategoryRequest.html">AWSTranscribeGetCallAnalyticsCategoryRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeGetCallAnalyticsCategoryResponse.html">AWSTranscribeGetCallAnalyticsCategoryResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">callAnalyticsCategory</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeGetCallAnalyticsCategoryRequest.html">AWSTranscribeGetCallAnalyticsCategoryRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeGetCallAnalyticsCategoryResponse.html">AWSTranscribeGetCallAnalyticsCategoryResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3019,7 +3019,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">callAnalyticsJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeGetCallAnalyticsJobRequest.html">AWSTranscribeGetCallAnalyticsJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeGetCallAnalyticsJobResponse.html">AWSTranscribeGetCallAnalyticsJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">callAnalyticsJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeGetCallAnalyticsJobRequest.html">AWSTranscribeGetCallAnalyticsJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeGetCallAnalyticsJobResponse.html">AWSTranscribeGetCallAnalyticsJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3164,7 +3164,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">medicalTranscriptionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeGetMedicalTranscriptionJobRequest.html">AWSTranscribeGetMedicalTranscriptionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeGetMedicalTranscriptionJobResponse.html">AWSTranscribeGetMedicalTranscriptionJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">medicalTranscriptionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeGetMedicalTranscriptionJobRequest.html">AWSTranscribeGetMedicalTranscriptionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeGetMedicalTranscriptionJobResponse.html">AWSTranscribeGetMedicalTranscriptionJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3308,7 +3308,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">medicalVocabulary</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeGetMedicalVocabularyRequest.html">AWSTranscribeGetMedicalVocabularyRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeGetMedicalVocabularyResponse.html">AWSTranscribeGetMedicalVocabularyResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">medicalVocabulary</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeGetMedicalVocabularyRequest.html">AWSTranscribeGetMedicalVocabularyRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeGetMedicalVocabularyResponse.html">AWSTranscribeGetMedicalVocabularyResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3452,7 +3452,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">transcriptionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeGetTranscriptionJobRequest.html">AWSTranscribeGetTranscriptionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeGetTranscriptionJobResponse.html">AWSTranscribeGetTranscriptionJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">transcriptionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeGetTranscriptionJobRequest.html">AWSTranscribeGetTranscriptionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeGetTranscriptionJobResponse.html">AWSTranscribeGetTranscriptionJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3593,7 +3593,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">vocabulary</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeGetVocabularyRequest.html">AWSTranscribeGetVocabularyRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeGetVocabularyResponse.html">AWSTranscribeGetVocabularyResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">vocabulary</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeGetVocabularyRequest.html">AWSTranscribeGetVocabularyRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeGetVocabularyResponse.html">AWSTranscribeGetVocabularyResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3737,7 +3737,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">vocabularyFilter</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeGetVocabularyFilterRequest.html">AWSTranscribeGetVocabularyFilterRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeGetVocabularyFilterResponse.html">AWSTranscribeGetVocabularyFilterResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">vocabularyFilter</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeGetVocabularyFilterRequest.html">AWSTranscribeGetVocabularyFilterRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeGetVocabularyFilterResponse.html">AWSTranscribeGetVocabularyFilterResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3882,7 +3882,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listCallAnalyticsCategories</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeListCallAnalyticsCategoriesRequest.html">AWSTranscribeListCallAnalyticsCategoriesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeListCallAnalyticsCategoriesResponse.html">AWSTranscribeListCallAnalyticsCategoriesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listCallAnalyticsCategories</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeListCallAnalyticsCategoriesRequest.html">AWSTranscribeListCallAnalyticsCategoriesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeListCallAnalyticsCategoriesResponse.html">AWSTranscribeListCallAnalyticsCategoriesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4026,7 +4026,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listCallAnalyticsJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeListCallAnalyticsJobsRequest.html">AWSTranscribeListCallAnalyticsJobsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeListCallAnalyticsJobsResponse.html">AWSTranscribeListCallAnalyticsJobsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listCallAnalyticsJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeListCallAnalyticsJobsRequest.html">AWSTranscribeListCallAnalyticsJobsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeListCallAnalyticsJobsResponse.html">AWSTranscribeListCallAnalyticsJobsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4169,7 +4169,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listLanguageModels</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeListLanguageModelsRequest.html">AWSTranscribeListLanguageModelsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeListLanguageModelsResponse.html">AWSTranscribeListLanguageModelsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listLanguageModels</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeListLanguageModelsRequest.html">AWSTranscribeListLanguageModelsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeListLanguageModelsResponse.html">AWSTranscribeListLanguageModelsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4314,7 +4314,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listMedicalTranscriptionJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeListMedicalTranscriptionJobsRequest.html">AWSTranscribeListMedicalTranscriptionJobsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeListMedicalTranscriptionJobsResponse.html">AWSTranscribeListMedicalTranscriptionJobsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listMedicalTranscriptionJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeListMedicalTranscriptionJobsRequest.html">AWSTranscribeListMedicalTranscriptionJobsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeListMedicalTranscriptionJobsResponse.html">AWSTranscribeListMedicalTranscriptionJobsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4458,7 +4458,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listMedicalVocabularies</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeListMedicalVocabulariesRequest.html">AWSTranscribeListMedicalVocabulariesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeListMedicalVocabulariesResponse.html">AWSTranscribeListMedicalVocabulariesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listMedicalVocabularies</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeListMedicalVocabulariesRequest.html">AWSTranscribeListMedicalVocabulariesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeListMedicalVocabulariesResponse.html">AWSTranscribeListMedicalVocabulariesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4602,7 +4602,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTags</span><span class="p">(</span><span class="n">forResource</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeListTagsForResourceRequest.html">AWSTranscribeListTagsForResourceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeListTagsForResourceResponse.html">AWSTranscribeListTagsForResourceResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTags</span><span class="p">(</span><span class="n">forResource</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeListTagsForResourceRequest.html">AWSTranscribeListTagsForResourceRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeListTagsForResourceResponse.html">AWSTranscribeListTagsForResourceResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4746,7 +4746,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTranscriptionJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeListTranscriptionJobsRequest.html">AWSTranscribeListTranscriptionJobsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeListTranscriptionJobsResponse.html">AWSTranscribeListTranscriptionJobsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTranscriptionJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeListTranscriptionJobsRequest.html">AWSTranscribeListTranscriptionJobsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeListTranscriptionJobsResponse.html">AWSTranscribeListTranscriptionJobsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4887,7 +4887,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listVocabularies</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeListVocabulariesRequest.html">AWSTranscribeListVocabulariesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeListVocabulariesResponse.html">AWSTranscribeListVocabulariesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listVocabularies</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeListVocabulariesRequest.html">AWSTranscribeListVocabulariesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeListVocabulariesResponse.html">AWSTranscribeListVocabulariesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5031,7 +5031,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listVocabularyFilters</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeListVocabularyFiltersRequest.html">AWSTranscribeListVocabularyFiltersRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeListVocabularyFiltersResponse.html">AWSTranscribeListVocabularyFiltersResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listVocabularyFilters</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeListVocabularyFiltersRequest.html">AWSTranscribeListVocabularyFiltersRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeListVocabularyFiltersResponse.html">AWSTranscribeListVocabularyFiltersResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5175,7 +5175,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startCallAnalyticsJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeStartCallAnalyticsJobRequest.html">AWSTranscribeStartCallAnalyticsJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeStartCallAnalyticsJobResponse.html">AWSTranscribeStartCallAnalyticsJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startCallAnalyticsJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeStartCallAnalyticsJobRequest.html">AWSTranscribeStartCallAnalyticsJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeStartCallAnalyticsJobResponse.html">AWSTranscribeStartCallAnalyticsJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5320,7 +5320,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startMedicalTranscriptionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeStartMedicalTranscriptionJobRequest.html">AWSTranscribeStartMedicalTranscriptionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeStartMedicalTranscriptionJobResponse.html">AWSTranscribeStartMedicalTranscriptionJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startMedicalTranscriptionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeStartMedicalTranscriptionJobRequest.html">AWSTranscribeStartMedicalTranscriptionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeStartMedicalTranscriptionJobResponse.html">AWSTranscribeStartMedicalTranscriptionJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5464,7 +5464,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startTranscriptionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeStartTranscriptionJobRequest.html">AWSTranscribeStartTranscriptionJobRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeStartTranscriptionJobResponse.html">AWSTranscribeStartTranscriptionJobResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startTranscriptionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeStartTranscriptionJobRequest.html">AWSTranscribeStartTranscriptionJobRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeStartTranscriptionJobResponse.html">AWSTranscribeStartTranscriptionJobResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5605,7 +5605,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">tagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeTagResourceRequest.html">AWSTranscribeTagResourceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSTranscribeTagResourceResponse">AWSTranscribeTagResourceResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">tagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeTagResourceRequest.html">AWSTranscribeTagResourceRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSTranscribeTagResourceResponse">AWSTranscribeTagResourceResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5746,7 +5746,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">untagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeUntagResourceRequest.html">AWSTranscribeUntagResourceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSTranscribeUntagResourceResponse">AWSTranscribeUntagResourceResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">untagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeUntagResourceRequest.html">AWSTranscribeUntagResourceRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSTranscribeUntagResourceResponse">AWSTranscribeUntagResourceResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5891,7 +5891,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateCallAnalyticsCategory</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeUpdateCallAnalyticsCategoryRequest.html">AWSTranscribeUpdateCallAnalyticsCategoryRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeUpdateCallAnalyticsCategoryResponse.html">AWSTranscribeUpdateCallAnalyticsCategoryResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateCallAnalyticsCategory</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeUpdateCallAnalyticsCategoryRequest.html">AWSTranscribeUpdateCallAnalyticsCategoryRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeUpdateCallAnalyticsCategoryResponse.html">AWSTranscribeUpdateCallAnalyticsCategoryResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6035,7 +6035,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateMedicalVocabulary</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeUpdateMedicalVocabularyRequest.html">AWSTranscribeUpdateMedicalVocabularyRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeUpdateMedicalVocabularyResponse.html">AWSTranscribeUpdateMedicalVocabularyResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateMedicalVocabulary</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeUpdateMedicalVocabularyRequest.html">AWSTranscribeUpdateMedicalVocabularyRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeUpdateMedicalVocabularyResponse.html">AWSTranscribeUpdateMedicalVocabularyResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6176,7 +6176,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateVocabulary</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeUpdateVocabularyRequest.html">AWSTranscribeUpdateVocabularyRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeUpdateVocabularyResponse.html">AWSTranscribeUpdateVocabularyResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateVocabulary</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeUpdateVocabularyRequest.html">AWSTranscribeUpdateVocabularyRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeUpdateVocabularyResponse.html">AWSTranscribeUpdateVocabularyResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6320,7 +6320,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateVocabularyFilter</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeUpdateVocabularyFilterRequest.html">AWSTranscribeUpdateVocabularyFilterRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeUpdateVocabularyFilterResponse.html">AWSTranscribeUpdateVocabularyFilterResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateVocabularyFilter</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeUpdateVocabularyFilterRequest.html">AWSTranscribeUpdateVocabularyFilterRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranscribeUpdateVocabularyFilterResponse.html">AWSTranscribeUpdateVocabularyFilterResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6365,7 +6365,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-03-31)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-04-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
