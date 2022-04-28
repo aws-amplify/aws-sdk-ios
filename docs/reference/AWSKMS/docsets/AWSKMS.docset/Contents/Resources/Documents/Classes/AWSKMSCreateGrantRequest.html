@@ -17,7 +17,7 @@
     <a title="AWSKMSCreateGrantRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSKMS 2.27.5 Docs</a> (71% documented)</p>
+        <p><a href="../index.html">AWSKMS 2.27.7 Docs</a> (70% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKMS.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -159,6 +159,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSKMSGenerateDataKeyWithoutPlaintextResponse.html">AWSKMSGenerateDataKeyWithoutPlaintextResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGenerateMacRequest.html">AWSKMSGenerateMacRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGenerateMacResponse.html">AWSKMSGenerateMacResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSKMSGenerateRandomRequest.html">AWSKMSGenerateRandomRequest</a>
@@ -308,6 +314,12 @@
                 <a href="../Classes/AWSKMSUpdatePrimaryRegionRequest.html">AWSKMSUpdatePrimaryRegionRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSKMSVerifyMacRequest.html">AWSKMSVerifyMacRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSVerifyMacResponse.html">AWSKMSVerifyMacResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSKMSVerifyRequest.html">AWSKMSVerifyRequest</a>
               </li>
               <li class="nav-group-task">
@@ -378,6 +390,9 @@
                 <a href="../Enums/AWSKMSKeyUsageType.html">AWSKMSKeyUsageType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSKMSMacAlgorithmSpec.html">AWSKMSMacAlgorithmSpec</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSKMSMessageType.html">AWSKMSMessageType</a>
               </li>
               <li class="nav-group-task">
@@ -430,7 +445,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies a grant constraint. </p><p>KMS supports the <code>EncryptionContextEquals</code> and <code>EncryptionContextSubset</code> grant constraints. Each constraint value can include up to 8 encryption context pairs. The encryption context value in each constraint cannot exceed 384 characters.</p><p>These grant constraints allow the permissions in the grant only when the encryption context in the request matches (<code>EncryptionContextEquals</code>) or includes (<code>EncryptionContextSubset</code>) the encryption context specified in this structure. For information about grant constraints, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints">Using grant constraints</a> in the <i>Key Management Service Developer Guide</i>. For more information about encryption context, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the <i><i>Key Management Service Developer Guide</i></i>. </p><p>The encryption context grant constraints are supported only on operations that include an encryption context. You cannot use an encryption context grant constraint for cryptographic operations with asymmetric KMS keys or for management operations, such as <a>DescribeKey</a> or <a>RetireGrant</a>.</p>
+                        <p><p>Specifies a grant constraint. </p><p>KMS supports the <code>EncryptionContextEquals</code> and <code>EncryptionContextSubset</code> grant constraints. Each constraint value can include up to 8 encryption context pairs. The encryption context value in each constraint cannot exceed 384 characters. For information about grant constraints, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints">Using grant constraints</a> in the <i>Key Management Service Developer Guide</i>. For more information about encryption context, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i><i>Key Management Service Developer Guide</i></i>. </p><p>The encryption context grant constraints allow the permissions in the grant only when the encryption context in the request matches (<code>EncryptionContextEquals</code>) or includes (<code>EncryptionContextSubset</code>) the encryption context specified in this structure. </p><p>The encryption context grant constraints are supported only on <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">grant operations</a> that include an <code>EncryptionContext</code> parameter, such as cryptographic operations on symmetric encryption KMS keys. Grants with grant constraints can include the <a>DescribeKey</a> and <a>RetireGrant</a> operations, but the constraint doesn&rsquo;t apply to these operations. If a grant with a grant constraint includes the <code>CreateGrant</code> operation, the constraint requires that any grants created with the <code>CreateGrant</code> permission have an equally strict or stricter encryption context constraint.</p><p>You cannot use an encryption context grant constraint for cryptographic operations with asymmetric KMS keys or HMAC KMS keys. These keys don&rsquo;t support an encryption context. </p><p/></p>
 
                       </div>
                       <div class="declaration">
@@ -590,7 +605,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A list of operations that the grant permits. </p><p>The operation must be supported on the KMS key. For example, you cannot create a grant for a symmetric KMS key that allows the <a>Sign</a> operation, or a grant for an asymmetric KMS key that allows the <a>GenerateDataKey</a> operation. If you try, KMS returns a <code>ValidationError</code> exception. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">Grant operations</a> in the <i>Key Management Service Developer Guide</i>.</p>
+                        <p>A list of operations that the grant permits. </p><p>This list must include only operations that are permitted in a grant. Also, the operation must be supported on the KMS key. For example, you cannot create a grant for a symmetric encryption KMS key that allows the <a>Sign</a> operation, or a grant for an asymmetric KMS key that allows the <a>GenerateDataKey</a> operation. If you try, KMS returns a <code>ValidationError</code> exception. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">Grant operations</a> in the <i>Key Management Service Developer Guide</i>.</p>
 
                       </div>
                       <div class="declaration">
@@ -646,7 +661,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-03-31)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-04-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

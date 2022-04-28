@@ -17,7 +17,7 @@
     <a title="AWSKMSErrorType Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSKMS 2.27.5 Docs</a> (71% documented)</p>
+        <p><a href="../index.html">AWSKMS 2.27.7 Docs</a> (70% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKMS.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -159,6 +159,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSKMSGenerateDataKeyWithoutPlaintextResponse.html">AWSKMSGenerateDataKeyWithoutPlaintextResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGenerateMacRequest.html">AWSKMSGenerateMacRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGenerateMacResponse.html">AWSKMSGenerateMacResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSKMSGenerateRandomRequest.html">AWSKMSGenerateRandomRequest</a>
@@ -308,6 +314,12 @@
                 <a href="../Classes/AWSKMSUpdatePrimaryRegionRequest.html">AWSKMSUpdatePrimaryRegionRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSKMSVerifyMacRequest.html">AWSKMSVerifyMacRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSVerifyMacResponse.html">AWSKMSVerifyMacResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSKMSVerifyRequest.html">AWSKMSVerifyRequest</a>
               </li>
               <li class="nav-group-task">
@@ -378,6 +390,9 @@
                 <a href="../Enums/AWSKMSKeyUsageType.html">AWSKMSKeyUsageType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSKMSMacAlgorithmSpec.html">AWSKMSMacAlgorithmSpec</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSKMSMessageType.html">AWSKMSMessageType</a>
               </li>
               <li class="nav-group-task">
@@ -430,6 +445,7 @@
     <span class="n">AWSKMSErrorInvalidKeyUsage</span><span class="p">,</span>
     <span class="n">AWSKMSErrorInvalidMarker</span><span class="p">,</span>
     <span class="n">AWSKMSErrorKMSInternal</span><span class="p">,</span>
+    <span class="n">AWSKMSErrorKMSInvalidMac</span><span class="p">,</span>
     <span class="n">AWSKMSErrorKMSInvalidSignature</span><span class="p">,</span>
     <span class="n">AWSKMSErrorKMSInvalidState</span><span class="p">,</span>
     <span class="n">AWSKMSErrorKeyUnavailable</span><span class="p">,</span>
@@ -443,7 +459,7 @@
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSKMSErrorType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSKMSErrorType</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
 
                 </div>
               </div>
@@ -1288,6 +1304,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@AWSKMSErrorType@AWSKMSErrorKMSInvalidMac"></a>
+                    <a name="//apple_ref/objc/Case/AWSKMSErrorKMSInvalidMac" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSKMSErrorType@AWSKMSErrorKMSInvalidMac">AWSKMSErrorKMSInvalidMac</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSKMSErrorKMSInvalidMac</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">kmsInvalidMac</span> <span class="o">=</span> <span class="mi">26</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@AWSKMSErrorType@AWSKMSErrorKMSInvalidSignature"></a>
                     <a name="//apple_ref/objc/Case/AWSKMSErrorKMSInvalidSignature" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@AWSKMSErrorType@AWSKMSErrorKMSInvalidSignature">AWSKMSErrorKMSInvalidSignature</a>
@@ -1310,7 +1358,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">kmsInvalidSignature</span> <span class="o">=</span> <span class="mi">26</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">kmsInvalidSignature</span> <span class="o">=</span> <span class="mi">27</span></code></pre>
 
                         </div>
                       </div>
@@ -1342,7 +1390,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">kmsInvalidState</span> <span class="o">=</span> <span class="mi">27</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">kmsInvalidState</span> <span class="o">=</span> <span class="mi">28</span></code></pre>
 
                         </div>
                       </div>
@@ -1374,7 +1422,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">keyUnavailable</span> <span class="o">=</span> <span class="mi">28</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">keyUnavailable</span> <span class="o">=</span> <span class="mi">29</span></code></pre>
 
                         </div>
                       </div>
@@ -1406,7 +1454,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">limitExceeded</span> <span class="o">=</span> <span class="mi">29</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">limitExceeded</span> <span class="o">=</span> <span class="mi">30</span></code></pre>
 
                         </div>
                       </div>
@@ -1438,7 +1486,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">malformedPolicyDocument</span> <span class="o">=</span> <span class="mi">30</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">malformedPolicyDocument</span> <span class="o">=</span> <span class="mi">31</span></code></pre>
 
                         </div>
                       </div>
@@ -1470,7 +1518,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">notFound</span> <span class="o">=</span> <span class="mi">31</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">notFound</span> <span class="o">=</span> <span class="mi">32</span></code></pre>
 
                         </div>
                       </div>
@@ -1502,7 +1550,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">tag</span> <span class="o">=</span> <span class="mi">32</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">tag</span> <span class="o">=</span> <span class="mi">33</span></code></pre>
 
                         </div>
                       </div>
@@ -1534,7 +1582,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unsupportedOperation</span> <span class="o">=</span> <span class="mi">33</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unsupportedOperation</span> <span class="o">=</span> <span class="mi">34</span></code></pre>
 
                         </div>
                       </div>
@@ -1546,7 +1594,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-03-31)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-04-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
