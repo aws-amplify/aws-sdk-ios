@@ -17,7 +17,7 @@
     <a title="AWSLocation Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLocation 2.27.5 Docs</a> (89% documented)</p>
+        <p><a href="../index.html">AWSLocation 2.27.7 Docs</a> (89% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLocation.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -631,9 +631,9 @@
 <p><em>Objective-C</em></p>
 <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
      <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                                                     <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+                                                                                                     <span class="nf">identityPoolId</span><span class="p">:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
      <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                          <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+                                                                          <span class="nf">credentialsProvider</span><span class="p">:</span><span class="n">credentialsProvider</span><span class="p">];</span>
      <span class="p">[</span><span class="n">AWSServiceManager</span> <span class="nf">defaultServiceManager</span><span class="p">].</span><span class="n">defaultServiceConfiguration</span> <span class="o">=</span> <span class="n">configuration</span><span class="p">;</span>
 
      <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
@@ -660,7 +660,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="p">`</span><span class="nv">default</span><span class="p">`()</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="err">`</span><span class="k">default</span><span class="err">`</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
 
                         </div>
                       </div>
@@ -702,9 +702,9 @@
 <p><em>Objective-C</em></p>
 <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
     <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                                                    <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+                                                                                                    <span class="nf">identityPoolId</span><span class="p">:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
     <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSWest2</span>
-                                                                         <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+                                                                         <span class="nf">credentialsProvider</span><span class="p">:</span><span class="n">credentialsProvider</span><span class="p">];</span>
 
     <span class="p">[</span><span class="n">AWSLocation</span> <span class="nf">registerLocationWithConfiguration</span><span class="p">:</span><span class="n">configuration</span> <span class="nf">forKey</span><span class="p">:</span><span class="s">@"USWest2Location"</span><span class="p">];</span>
 
@@ -807,9 +807,9 @@
 <p><em>Objective-C</em></p>
 <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
     <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
-                                                                                                    <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+                                                                                                    <span class="nf">identityPoolId</span><span class="p">:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
     <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSWest2</span>
-                                                                         <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+                                                                         <span class="nf">credentialsProvider</span><span class="p">:</span><span class="n">credentialsProvider</span><span class="p">];</span>
 
     <span class="p">[</span><span class="n">AWSLocation</span> <span class="nf">registerLocationWithConfiguration</span><span class="p">:</span><span class="n">configuration</span> <span class="nf">forKey</span><span class="p">:</span><span class="s">@"USWest2Location"</span><span class="p">];</span>
 
@@ -837,7 +837,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1027,7 +1027,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">associateTrackerConsumer</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationAssociateTrackerConsumerRequest.html">AWSLocationAssociateTrackerConsumerRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSLocationAssociateTrackerConsumerResponse">AWSLocationAssociateTrackerConsumerResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">associateTrackerConsumer</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationAssociateTrackerConsumerRequest.html">AWSLocationAssociateTrackerConsumerRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSLocationAssociateTrackerConsumerResponse">AWSLocationAssociateTrackerConsumerResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1173,7 +1173,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchDeleteDevicePositionHistory</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationBatchDeleteDevicePositionHistoryRequest.html">AWSLocationBatchDeleteDevicePositionHistoryRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationBatchDeleteDevicePositionHistoryResponse.html">AWSLocationBatchDeleteDevicePositionHistoryResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchDeleteDevicePositionHistory</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationBatchDeleteDevicePositionHistoryRequest.html">AWSLocationBatchDeleteDevicePositionHistoryRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationBatchDeleteDevicePositionHistoryResponse.html">AWSLocationBatchDeleteDevicePositionHistoryResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1316,7 +1316,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchDeleteGeofence</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationBatchDeleteGeofenceRequest.html">AWSLocationBatchDeleteGeofenceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationBatchDeleteGeofenceResponse.html">AWSLocationBatchDeleteGeofenceResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchDeleteGeofence</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationBatchDeleteGeofenceRequest.html">AWSLocationBatchDeleteGeofenceRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationBatchDeleteGeofenceResponse.html">AWSLocationBatchDeleteGeofenceResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1460,7 +1460,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchEvaluateGeofences</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationBatchEvaluateGeofencesRequest.html">AWSLocationBatchEvaluateGeofencesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationBatchEvaluateGeofencesResponse.html">AWSLocationBatchEvaluateGeofencesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchEvaluateGeofences</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationBatchEvaluateGeofencesRequest.html">AWSLocationBatchEvaluateGeofencesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationBatchEvaluateGeofencesResponse.html">AWSLocationBatchEvaluateGeofencesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1604,7 +1604,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchGetDevicePosition</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationBatchGetDevicePositionRequest.html">AWSLocationBatchGetDevicePositionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationBatchGetDevicePositionResponse.html">AWSLocationBatchGetDevicePositionResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchGetDevicePosition</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationBatchGetDevicePositionRequest.html">AWSLocationBatchGetDevicePositionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationBatchGetDevicePositionResponse.html">AWSLocationBatchGetDevicePositionResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1745,7 +1745,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchPutGeofence</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationBatchPutGeofenceRequest.html">AWSLocationBatchPutGeofenceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationBatchPutGeofenceResponse.html">AWSLocationBatchPutGeofenceResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchPutGeofence</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationBatchPutGeofenceRequest.html">AWSLocationBatchPutGeofenceRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationBatchPutGeofenceResponse.html">AWSLocationBatchPutGeofenceResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1889,7 +1889,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchUpdateDevicePosition</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationBatchUpdateDevicePositionRequest.html">AWSLocationBatchUpdateDevicePositionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationBatchUpdateDevicePositionResponse.html">AWSLocationBatchUpdateDevicePositionResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">batchUpdateDevicePosition</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationBatchUpdateDevicePositionRequest.html">AWSLocationBatchUpdateDevicePositionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationBatchUpdateDevicePositionResponse.html">AWSLocationBatchUpdateDevicePositionResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2030,7 +2030,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">calculateRoute</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationCalculateRouteRequest.html">AWSLocationCalculateRouteRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationCalculateRouteResponse.html">AWSLocationCalculateRouteResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">calculateRoute</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationCalculateRouteRequest.html">AWSLocationCalculateRouteRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationCalculateRouteResponse.html">AWSLocationCalculateRouteResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2174,7 +2174,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">calculateRouteMatrix</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationCalculateRouteMatrixRequest.html">AWSLocationCalculateRouteMatrixRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationCalculateRouteMatrixResponse.html">AWSLocationCalculateRouteMatrixResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">calculateRouteMatrix</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationCalculateRouteMatrixRequest.html">AWSLocationCalculateRouteMatrixRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationCalculateRouteMatrixResponse.html">AWSLocationCalculateRouteMatrixResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2318,7 +2318,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createGeofenceCollection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationCreateGeofenceCollectionRequest.html">AWSLocationCreateGeofenceCollectionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationCreateGeofenceCollectionResponse.html">AWSLocationCreateGeofenceCollectionResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createGeofenceCollection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationCreateGeofenceCollectionRequest.html">AWSLocationCreateGeofenceCollectionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationCreateGeofenceCollectionResponse.html">AWSLocationCreateGeofenceCollectionResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2459,7 +2459,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createMap</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationCreateMapRequest.html">AWSLocationCreateMapRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationCreateMapResponse.html">AWSLocationCreateMapResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createMap</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationCreateMapRequest.html">AWSLocationCreateMapRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationCreateMapResponse.html">AWSLocationCreateMapResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2600,7 +2600,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createPlaceIndex</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationCreatePlaceIndexRequest.html">AWSLocationCreatePlaceIndexRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationCreatePlaceIndexResponse.html">AWSLocationCreatePlaceIndexResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createPlaceIndex</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationCreatePlaceIndexRequest.html">AWSLocationCreatePlaceIndexRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationCreatePlaceIndexResponse.html">AWSLocationCreatePlaceIndexResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2744,7 +2744,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createRouteCalculator</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationCreateRouteCalculatorRequest.html">AWSLocationCreateRouteCalculatorRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationCreateRouteCalculatorResponse.html">AWSLocationCreateRouteCalculatorResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createRouteCalculator</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationCreateRouteCalculatorRequest.html">AWSLocationCreateRouteCalculatorRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationCreateRouteCalculatorResponse.html">AWSLocationCreateRouteCalculatorResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2885,7 +2885,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createTracker</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationCreateTrackerRequest.html">AWSLocationCreateTrackerRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationCreateTrackerResponse.html">AWSLocationCreateTrackerResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createTracker</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationCreateTrackerRequest.html">AWSLocationCreateTrackerRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationCreateTrackerResponse.html">AWSLocationCreateTrackerResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3029,7 +3029,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteGeofenceCollection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationDeleteGeofenceCollectionRequest.html">AWSLocationDeleteGeofenceCollectionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSLocationDeleteGeofenceCollectionResponse">AWSLocationDeleteGeofenceCollectionResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteGeofenceCollection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationDeleteGeofenceCollectionRequest.html">AWSLocationDeleteGeofenceCollectionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSLocationDeleteGeofenceCollectionResponse">AWSLocationDeleteGeofenceCollectionResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3170,7 +3170,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteMap</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationDeleteMapRequest.html">AWSLocationDeleteMapRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSLocationDeleteMapResponse">AWSLocationDeleteMapResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteMap</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationDeleteMapRequest.html">AWSLocationDeleteMapRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSLocationDeleteMapResponse">AWSLocationDeleteMapResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3311,7 +3311,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deletePlaceIndex</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationDeletePlaceIndexRequest.html">AWSLocationDeletePlaceIndexRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSLocationDeletePlaceIndexResponse">AWSLocationDeletePlaceIndexResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deletePlaceIndex</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationDeletePlaceIndexRequest.html">AWSLocationDeletePlaceIndexRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSLocationDeletePlaceIndexResponse">AWSLocationDeletePlaceIndexResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3455,7 +3455,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteRouteCalculator</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationDeleteRouteCalculatorRequest.html">AWSLocationDeleteRouteCalculatorRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSLocationDeleteRouteCalculatorResponse">AWSLocationDeleteRouteCalculatorResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteRouteCalculator</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationDeleteRouteCalculatorRequest.html">AWSLocationDeleteRouteCalculatorRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSLocationDeleteRouteCalculatorResponse">AWSLocationDeleteRouteCalculatorResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3596,7 +3596,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteTracker</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationDeleteTrackerRequest.html">AWSLocationDeleteTrackerRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSLocationDeleteTrackerResponse">AWSLocationDeleteTrackerResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteTracker</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationDeleteTrackerRequest.html">AWSLocationDeleteTrackerRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSLocationDeleteTrackerResponse">AWSLocationDeleteTrackerResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3741,7 +3741,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeGeofenceCollection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationDescribeGeofenceCollectionRequest.html">AWSLocationDescribeGeofenceCollectionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationDescribeGeofenceCollectionResponse.html">AWSLocationDescribeGeofenceCollectionResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeGeofenceCollection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationDescribeGeofenceCollectionRequest.html">AWSLocationDescribeGeofenceCollectionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationDescribeGeofenceCollectionResponse.html">AWSLocationDescribeGeofenceCollectionResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3882,7 +3882,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeMap</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationDescribeMapRequest.html">AWSLocationDescribeMapRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationDescribeMapResponse.html">AWSLocationDescribeMapResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeMap</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationDescribeMapRequest.html">AWSLocationDescribeMapRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationDescribeMapResponse.html">AWSLocationDescribeMapResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4025,7 +4025,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describePlaceIndex</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationDescribePlaceIndexRequest.html">AWSLocationDescribePlaceIndexRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationDescribePlaceIndexResponse.html">AWSLocationDescribePlaceIndexResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describePlaceIndex</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationDescribePlaceIndexRequest.html">AWSLocationDescribePlaceIndexRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationDescribePlaceIndexResponse.html">AWSLocationDescribePlaceIndexResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4169,7 +4169,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeRouteCalculator</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationDescribeRouteCalculatorRequest.html">AWSLocationDescribeRouteCalculatorRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationDescribeRouteCalculatorResponse.html">AWSLocationDescribeRouteCalculatorResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeRouteCalculator</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationDescribeRouteCalculatorRequest.html">AWSLocationDescribeRouteCalculatorRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationDescribeRouteCalculatorResponse.html">AWSLocationDescribeRouteCalculatorResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4310,7 +4310,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeTracker</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationDescribeTrackerRequest.html">AWSLocationDescribeTrackerRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationDescribeTrackerResponse.html">AWSLocationDescribeTrackerResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeTracker</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationDescribeTrackerRequest.html">AWSLocationDescribeTrackerRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationDescribeTrackerResponse.html">AWSLocationDescribeTrackerResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4455,7 +4455,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disassociateTrackerConsumer</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationDisassociateTrackerConsumerRequest.html">AWSLocationDisassociateTrackerConsumerRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSLocationDisassociateTrackerConsumerResponse">AWSLocationDisassociateTrackerConsumerResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disassociateTrackerConsumer</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationDisassociateTrackerConsumerRequest.html">AWSLocationDisassociateTrackerConsumerRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSLocationDisassociateTrackerConsumerResponse">AWSLocationDisassociateTrackerConsumerResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4596,7 +4596,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">devicePosition</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationGetDevicePositionRequest.html">AWSLocationGetDevicePositionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationGetDevicePositionResponse.html">AWSLocationGetDevicePositionResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">devicePosition</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationGetDevicePositionRequest.html">AWSLocationGetDevicePositionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationGetDevicePositionResponse.html">AWSLocationGetDevicePositionResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4740,7 +4740,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">devicePositionHistory</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationGetDevicePositionHistoryRequest.html">AWSLocationGetDevicePositionHistoryRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationGetDevicePositionHistoryResponse.html">AWSLocationGetDevicePositionHistoryResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">devicePositionHistory</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationGetDevicePositionHistoryRequest.html">AWSLocationGetDevicePositionHistoryRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationGetDevicePositionHistoryResponse.html">AWSLocationGetDevicePositionHistoryResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4881,7 +4881,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">geofence</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationGetGeofenceRequest.html">AWSLocationGetGeofenceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationGetGeofenceResponse.html">AWSLocationGetGeofenceResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">geofence</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationGetGeofenceRequest.html">AWSLocationGetGeofenceRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationGetGeofenceResponse.html">AWSLocationGetGeofenceResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5022,7 +5022,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">mapGlyphs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationGetMapGlyphsRequest.html">AWSLocationGetMapGlyphsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationGetMapGlyphsResponse.html">AWSLocationGetMapGlyphsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">mapGlyphs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationGetMapGlyphsRequest.html">AWSLocationGetMapGlyphsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationGetMapGlyphsResponse.html">AWSLocationGetMapGlyphsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5163,7 +5163,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">mapSprites</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationGetMapSpritesRequest.html">AWSLocationGetMapSpritesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationGetMapSpritesResponse.html">AWSLocationGetMapSpritesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">mapSprites</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationGetMapSpritesRequest.html">AWSLocationGetMapSpritesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationGetMapSpritesResponse.html">AWSLocationGetMapSpritesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5307,7 +5307,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">mapStyleDescriptor</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationGetMapStyleDescriptorRequest.html">AWSLocationGetMapStyleDescriptorRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationGetMapStyleDescriptorResponse.html">AWSLocationGetMapStyleDescriptorResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">mapStyleDescriptor</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationGetMapStyleDescriptorRequest.html">AWSLocationGetMapStyleDescriptorRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationGetMapStyleDescriptorResponse.html">AWSLocationGetMapStyleDescriptorResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5448,7 +5448,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">mapTile</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationGetMapTileRequest.html">AWSLocationGetMapTileRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationGetMapTileResponse.html">AWSLocationGetMapTileResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">mapTile</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationGetMapTileRequest.html">AWSLocationGetMapTileRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationGetMapTileResponse.html">AWSLocationGetMapTileResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5591,7 +5591,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listDevicePositions</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationListDevicePositionsRequest.html">AWSLocationListDevicePositionsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationListDevicePositionsResponse.html">AWSLocationListDevicePositionsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listDevicePositions</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationListDevicePositionsRequest.html">AWSLocationListDevicePositionsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationListDevicePositionsResponse.html">AWSLocationListDevicePositionsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5735,7 +5735,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listGeofenceCollections</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationListGeofenceCollectionsRequest.html">AWSLocationListGeofenceCollectionsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationListGeofenceCollectionsResponse.html">AWSLocationListGeofenceCollectionsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listGeofenceCollections</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationListGeofenceCollectionsRequest.html">AWSLocationListGeofenceCollectionsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationListGeofenceCollectionsResponse.html">AWSLocationListGeofenceCollectionsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5876,7 +5876,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listGeofences</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationListGeofencesRequest.html">AWSLocationListGeofencesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationListGeofencesResponse.html">AWSLocationListGeofencesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listGeofences</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationListGeofencesRequest.html">AWSLocationListGeofencesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationListGeofencesResponse.html">AWSLocationListGeofencesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6016,7 +6016,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listMaps</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationListMapsRequest.html">AWSLocationListMapsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationListMapsResponse.html">AWSLocationListMapsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listMaps</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationListMapsRequest.html">AWSLocationListMapsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationListMapsResponse.html">AWSLocationListMapsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6157,7 +6157,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listPlaceIndexes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationListPlaceIndexesRequest.html">AWSLocationListPlaceIndexesRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationListPlaceIndexesResponse.html">AWSLocationListPlaceIndexesResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listPlaceIndexes</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationListPlaceIndexesRequest.html">AWSLocationListPlaceIndexesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationListPlaceIndexesResponse.html">AWSLocationListPlaceIndexesResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6301,7 +6301,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listRouteCalculators</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationListRouteCalculatorsRequest.html">AWSLocationListRouteCalculatorsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationListRouteCalculatorsResponse.html">AWSLocationListRouteCalculatorsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listRouteCalculators</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationListRouteCalculatorsRequest.html">AWSLocationListRouteCalculatorsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationListRouteCalculatorsResponse.html">AWSLocationListRouteCalculatorsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6444,7 +6444,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTags</span><span class="p">(</span><span class="n">forResource</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationListTagsForResourceRequest.html">AWSLocationListTagsForResourceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationListTagsForResourceResponse.html">AWSLocationListTagsForResourceResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTags</span><span class="p">(</span><span class="n">forResource</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationListTagsForResourceRequest.html">AWSLocationListTagsForResourceRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationListTagsForResourceResponse.html">AWSLocationListTagsForResourceResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6588,7 +6588,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTrackerConsumers</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationListTrackerConsumersRequest.html">AWSLocationListTrackerConsumersRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationListTrackerConsumersResponse.html">AWSLocationListTrackerConsumersResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTrackerConsumers</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationListTrackerConsumersRequest.html">AWSLocationListTrackerConsumersRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationListTrackerConsumersResponse.html">AWSLocationListTrackerConsumersResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6729,7 +6729,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTrackers</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationListTrackersRequest.html">AWSLocationListTrackersRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationListTrackersResponse.html">AWSLocationListTrackersResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTrackers</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationListTrackersRequest.html">AWSLocationListTrackersRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationListTrackersResponse.html">AWSLocationListTrackersResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -6870,7 +6870,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">putGeofence</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationPutGeofenceRequest.html">AWSLocationPutGeofenceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationPutGeofenceResponse.html">AWSLocationPutGeofenceResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">putGeofence</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationPutGeofenceRequest.html">AWSLocationPutGeofenceRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationPutGeofenceResponse.html">AWSLocationPutGeofenceResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7015,7 +7015,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">searchPlaceIndex</span><span class="p">(</span><span class="n">forPosition</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationSearchPlaceIndexForPositionRequest.html">AWSLocationSearchPlaceIndexForPositionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationSearchPlaceIndexForPositionResponse.html">AWSLocationSearchPlaceIndexForPositionResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">searchPlaceIndex</span><span class="p">(</span><span class="n">forPosition</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationSearchPlaceIndexForPositionRequest.html">AWSLocationSearchPlaceIndexForPositionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationSearchPlaceIndexForPositionResponse.html">AWSLocationSearchPlaceIndexForPositionResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7160,7 +7160,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">searchPlaceIndex</span><span class="p">(</span><span class="n">forSuggestions</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationSearchPlaceIndexForSuggestionsRequest.html">AWSLocationSearchPlaceIndexForSuggestionsRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationSearchPlaceIndexForSuggestionsResponse.html">AWSLocationSearchPlaceIndexForSuggestionsResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">searchPlaceIndex</span><span class="p">(</span><span class="n">forSuggestions</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationSearchPlaceIndexForSuggestionsRequest.html">AWSLocationSearchPlaceIndexForSuggestionsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationSearchPlaceIndexForSuggestionsResponse.html">AWSLocationSearchPlaceIndexForSuggestionsResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7304,7 +7304,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">searchPlaceIndex</span><span class="p">(</span><span class="n">forText</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationSearchPlaceIndexForTextRequest.html">AWSLocationSearchPlaceIndexForTextRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationSearchPlaceIndexForTextResponse.html">AWSLocationSearchPlaceIndexForTextResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">searchPlaceIndex</span><span class="p">(</span><span class="n">forText</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationSearchPlaceIndexForTextRequest.html">AWSLocationSearchPlaceIndexForTextRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationSearchPlaceIndexForTextResponse.html">AWSLocationSearchPlaceIndexForTextResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7445,7 +7445,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">tagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationTagResourceRequest.html">AWSLocationTagResourceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSLocationTagResourceResponse">AWSLocationTagResourceResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">tagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationTagResourceRequest.html">AWSLocationTagResourceRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSLocationTagResourceResponse">AWSLocationTagResourceResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7586,7 +7586,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">untagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationUntagResourceRequest.html">AWSLocationUntagResourceRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSLocationUntagResourceResponse">AWSLocationUntagResourceResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">untagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationUntagResourceRequest.html">AWSLocationUntagResourceRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSLocationUntagResourceResponse">AWSLocationUntagResourceResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7730,7 +7730,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateGeofenceCollection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationUpdateGeofenceCollectionRequest.html">AWSLocationUpdateGeofenceCollectionRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationUpdateGeofenceCollectionResponse.html">AWSLocationUpdateGeofenceCollectionResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateGeofenceCollection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationUpdateGeofenceCollectionRequest.html">AWSLocationUpdateGeofenceCollectionRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationUpdateGeofenceCollectionResponse.html">AWSLocationUpdateGeofenceCollectionResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -7871,7 +7871,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateMap</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationUpdateMapRequest.html">AWSLocationUpdateMapRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationUpdateMapResponse.html">AWSLocationUpdateMapResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateMap</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationUpdateMapRequest.html">AWSLocationUpdateMapRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationUpdateMapResponse.html">AWSLocationUpdateMapResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8012,7 +8012,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updatePlaceIndex</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationUpdatePlaceIndexRequest.html">AWSLocationUpdatePlaceIndexRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationUpdatePlaceIndexResponse.html">AWSLocationUpdatePlaceIndexResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updatePlaceIndex</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationUpdatePlaceIndexRequest.html">AWSLocationUpdatePlaceIndexRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationUpdatePlaceIndexResponse.html">AWSLocationUpdatePlaceIndexResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8156,7 +8156,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateRouteCalculator</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationUpdateRouteCalculatorRequest.html">AWSLocationUpdateRouteCalculatorRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationUpdateRouteCalculatorResponse.html">AWSLocationUpdateRouteCalculatorResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateRouteCalculator</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationUpdateRouteCalculatorRequest.html">AWSLocationUpdateRouteCalculatorRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationUpdateRouteCalculatorResponse.html">AWSLocationUpdateRouteCalculatorResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8297,7 +8297,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateTracker</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationUpdateTrackerRequest.html">AWSLocationUpdateTrackerRequest</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationUpdateTrackerResponse.html">AWSLocationUpdateTrackerResponse</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateTracker</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationUpdateTrackerRequest.html">AWSLocationUpdateTrackerRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSLocationUpdateTrackerResponse.html">AWSLocationUpdateTrackerResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -8342,7 +8342,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-03-31)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-04-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
