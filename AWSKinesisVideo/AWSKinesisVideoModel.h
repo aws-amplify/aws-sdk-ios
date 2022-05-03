@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoErrorType) {
     AWSKinesisVideoErrorInvalidArgument,
     AWSKinesisVideoErrorInvalidDevice,
     AWSKinesisVideoErrorInvalidResourceFormat,
+    AWSKinesisVideoErrorNoDataRetention,
     AWSKinesisVideoErrorNotAuthorized,
     AWSKinesisVideoErrorResourceInUse,
     AWSKinesisVideoErrorResourceNotFound,
@@ -46,6 +47,8 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoAPIName) {
     AWSKinesisVideoAPINameGetMediaForFragmentList,
     AWSKinesisVideoAPINameGetHlsStreamingSessionUrl,
     AWSKinesisVideoAPINameGetDashStreamingSessionUrl,
+    AWSKinesisVideoAPINameGetClip,
+    AWSKinesisVideoAPINameGetImages,
 };
 
 typedef NS_ENUM(NSInteger, AWSKinesisVideoChannelProtocol) {
@@ -63,11 +66,35 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoChannelRole) {
 typedef NS_ENUM(NSInteger, AWSKinesisVideoChannelType) {
     AWSKinesisVideoChannelTypeUnknown,
     AWSKinesisVideoChannelTypeSingleMaster,
+    AWSKinesisVideoChannelTypeFullMesh,
 };
 
 typedef NS_ENUM(NSInteger, AWSKinesisVideoComparisonOperator) {
     AWSKinesisVideoComparisonOperatorUnknown,
     AWSKinesisVideoComparisonOperatorBeginsWith,
+};
+
+typedef NS_ENUM(NSInteger, AWSKinesisVideoConfigurationStatus) {
+    AWSKinesisVideoConfigurationStatusUnknown,
+    AWSKinesisVideoConfigurationStatusEnabled,
+    AWSKinesisVideoConfigurationStatusDisabled,
+};
+
+typedef NS_ENUM(NSInteger, AWSKinesisVideoFormat) {
+    AWSKinesisVideoFormatUnknown,
+    AWSKinesisVideoFormatJpeg,
+    AWSKinesisVideoFormatPng,
+};
+
+typedef NS_ENUM(NSInteger, AWSKinesisVideoFormatConfigKey) {
+    AWSKinesisVideoFormatConfigKeyUnknown,
+    AWSKinesisVideoFormatConfigKeyJPEGQuality,
+};
+
+typedef NS_ENUM(NSInteger, AWSKinesisVideoImageSelectorType) {
+    AWSKinesisVideoImageSelectorTypeUnknown,
+    AWSKinesisVideoImageSelectorTypeServerTimestamp,
+    AWSKinesisVideoImageSelectorTypeProducerTimestamp,
 };
 
 typedef NS_ENUM(NSInteger, AWSKinesisVideoStatus) {
@@ -94,6 +121,10 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @class AWSKinesisVideoDeleteSignalingChannelOutput;
 @class AWSKinesisVideoDeleteStreamInput;
 @class AWSKinesisVideoDeleteStreamOutput;
+@class AWSKinesisVideoDescribeImageGenerationConfigurationInput;
+@class AWSKinesisVideoDescribeImageGenerationConfigurationOutput;
+@class AWSKinesisVideoDescribeNotificationConfigurationInput;
+@class AWSKinesisVideoDescribeNotificationConfigurationOutput;
 @class AWSKinesisVideoDescribeSignalingChannelInput;
 @class AWSKinesisVideoDescribeSignalingChannelOutput;
 @class AWSKinesisVideoDescribeStreamInput;
@@ -102,6 +133,8 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @class AWSKinesisVideoGetDataEndpointOutput;
 @class AWSKinesisVideoGetSignalingChannelEndpointInput;
 @class AWSKinesisVideoGetSignalingChannelEndpointOutput;
+@class AWSKinesisVideoImageGenerationConfiguration;
+@class AWSKinesisVideoImageGenerationDestinationConfig;
 @class AWSKinesisVideoListSignalingChannelsInput;
 @class AWSKinesisVideoListSignalingChannelsOutput;
 @class AWSKinesisVideoListStreamsInput;
@@ -110,6 +143,8 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @class AWSKinesisVideoListTagsForResourceOutput;
 @class AWSKinesisVideoListTagsForStreamInput;
 @class AWSKinesisVideoListTagsForStreamOutput;
+@class AWSKinesisVideoNotificationConfiguration;
+@class AWSKinesisVideoNotificationDestinationConfig;
 @class AWSKinesisVideoResourceEndpointListItem;
 @class AWSKinesisVideoSingleMasterChannelEndpointConfiguration;
 @class AWSKinesisVideoSingleMasterConfiguration;
@@ -126,6 +161,10 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @class AWSKinesisVideoUntagStreamOutput;
 @class AWSKinesisVideoUpdateDataRetentionInput;
 @class AWSKinesisVideoUpdateDataRetentionOutput;
+@class AWSKinesisVideoUpdateImageGenerationConfigurationInput;
+@class AWSKinesisVideoUpdateImageGenerationConfigurationOutput;
+@class AWSKinesisVideoUpdateNotificationConfigurationInput;
+@class AWSKinesisVideoUpdateNotificationConfigurationOutput;
 @class AWSKinesisVideoUpdateSignalingChannelInput;
 @class AWSKinesisVideoUpdateSignalingChannelOutput;
 @class AWSKinesisVideoUpdateStreamInput;
@@ -138,7 +177,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>The ARN of the signaling channel.</p>
+ <p>The Amazon Resource Name (ARN) of the signaling channel.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable channelARN;
 
@@ -199,7 +238,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>A name for the signaling channel that you are creating. It must be unique for each account and region.</p>
+ <p>A name for the signaling channel that you are creating. It must be unique for each Amazon Web Services account and Amazon Web Services Region.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable channelName;
 
@@ -214,7 +253,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @property (nonatomic, strong) AWSKinesisVideoSingleMasterConfiguration * _Nullable singleMasterConfiguration;
 
 /**
- <p>A set of tags (key/value pairs) that you want to associate with this channel.</p>
+ <p>A set of tags (key-value pairs) that you want to associate with this channel.</p>
  */
 @property (nonatomic, strong) NSArray<AWSKinesisVideoTag *> * _Nullable tags;
 
@@ -227,7 +266,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>The ARN of the created channel.</p>
+ <p>The Amazon Resource Name (ARN) of the created channel.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable channelARN;
 
@@ -250,7 +289,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @property (nonatomic, strong) NSString * _Nullable deviceName;
 
 /**
- <p>The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data.</p><p>If no key ID is specified, the default, Kinesis Video-managed key (<code>aws/kinesisvideo</code>) is used.</p><p> For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">DescribeKey</a>. </p>
+ <p>The ID of the Key Management Service (KMS) key that you want Kinesis Video Streams to use to encrypt stream data.</p><p>If no key ID is specified, the default, Kinesis Video-managed key (<code>aws/kinesisvideo</code>) is used.</p><p> For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">DescribeKey</a>. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
@@ -291,12 +330,12 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>The ARN of the signaling channel that you want to delete.</p>
+ <p>The Amazon Resource Name (ARN) of the signaling channel that you want to delete.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable channelARN;
 
 /**
- <p>The current version of the signaling channel that you want to delete. You can obtain the current version by invoking the <code>DescribeSignalingChannel</code> or <code>ListSignalingChannels</code> APIs.</p>
+ <p>The current version of the signaling channel that you want to delete. You can obtain the current version by invoking the <code>DescribeSignalingChannel</code> or <code>ListSignalingChannels</code> API operations.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable currentVersion;
 
@@ -333,6 +372,68 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
  */
 @interface AWSKinesisVideoDeleteStreamOutput : AWSModel
 
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoDescribeImageGenerationConfigurationInput : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the Kinesis video stream from which to retrieve the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamARN;
+
+/**
+ <p>The name of the stream from which to retrieve the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoDescribeImageGenerationConfigurationOutput : AWSModel
+
+
+/**
+ <p>The structure that contains the information required for the Kinesis video stream (KVS) images delivery. If this structure is null, the configuration will be deleted from the stream.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoImageGenerationConfiguration * _Nullable imageGenerationConfiguration;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoDescribeNotificationConfigurationInput : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to retrieve the notification configuration. You must specify either the <code>StreamName</code> or the StreamARN.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamARN;
+
+/**
+ <p>The name of the stream from which to retrieve the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoDescribeNotificationConfigurationOutput : AWSModel
+
+
+/**
+ <p>The structure that contains the information required for notifications. If the structure is null, the configuration will be deleted from the stream.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoNotificationConfiguration * _Nullable notificationConfiguration;
 
 @end
 
@@ -441,7 +542,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>The ARN of the signalling channel for which you want to get an endpoint.</p>
+ <p>The Amazon Resource Name (ARN) of the signalling channel for which you want to get an endpoint.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable channelARN;
 
@@ -462,6 +563,74 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
  <p>A list of endpoints for the specified signaling channel.</p>
  */
 @property (nonatomic, strong) NSArray<AWSKinesisVideoResourceEndpointListItem *> * _Nullable resourceEndpointList;
+
+@end
+
+/**
+ <p>The structure that contains the information required for the KVS images delivery. If null, the configuration will be deleted from the stream.</p>
+ Required parameters: [Status, ImageSelectorType, DestinationConfig, SamplingInterval, Format]
+ */
+@interface AWSKinesisVideoImageGenerationConfiguration : AWSModel
+
+
+/**
+ <p>The structure that contains the information required to deliver images to a customer.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoImageGenerationDestinationConfig * _Nullable destinationConfig;
+
+/**
+ <p>The accepted image format.</p>
+ */
+@property (nonatomic, assign) AWSKinesisVideoFormat format;
+
+/**
+ <p>The list of a key-value pair structure that contains extra parameters that can be applied when the image is generated. The <code>FormatConfig</code> key is the <code>JPEGQuality</code>, which indicates the JPEG quality key to be used to generate the image. The <code>FormatConfig</code> value accepts ints from 1 to 100. If the value is 1, the image will be generated with less quality and the best compression. If the value is 100, the image will be generated with the best quality and less compression. If no value is provided, the default value of the <code>JPEGQuality</code> key will be set to 80.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable formatConfig;
+
+/**
+ <p>The height of the output image that is used in conjunction with the <code>WidthPixels</code> parameter. When both <code>HeightPixels</code> and <code>WidthPixels</code> parameters are provided, the image will be stretched to fit the specified aspect ratio. If only the <code>HeightPixels</code> parameter is provided, its original aspect ratio will be used to calculate the <code>WidthPixels</code> ratio. If neither parameter is provided, the original image size will be returned.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable heightPixels;
+
+/**
+ <p>The origin of the Server or Producer timestamps to use to generate the images.</p>
+ */
+@property (nonatomic, assign) AWSKinesisVideoImageSelectorType imageSelectorType;
+
+/**
+ <p>The time interval in milliseconds (ms) at which the images need to be generated from the stream. The minimum value that can be provided is 33 ms, because a camera that generates content at 30 FPS would create a frame every 33.3 ms. If the timestamp range is less than the sampling interval, the Image from the <code>StartTimestamp</code> will be returned if available. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable samplingInterval;
+
+/**
+ <p>Indicates whether the <code>ContinuousImageGenerationConfigurations</code> API is enabled or disabled.</p>
+ */
+@property (nonatomic, assign) AWSKinesisVideoConfigurationStatus status;
+
+/**
+ <p>The width of the output image that is used in conjunction with the <code>HeightPixels</code> parameter. When both <code>WidthPixels</code> and <code>HeightPixels</code> parameters are provided, the image will be stretched to fit the specified aspect ratio. If only the <code>WidthPixels</code> parameter is provided, its original aspect ratio will be used to calculate the <code>HeightPixels</code> ratio. If neither parameter is provided, the original image size will be returned.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable widthPixels;
+
+@end
+
+/**
+ <p>The structure that contains the information required to deliver images to a customer.</p>
+ Required parameters: [Uri, DestinationRegion]
+ */
+@interface AWSKinesisVideoImageGenerationDestinationConfig : AWSModel
+
+
+/**
+ <p>The AWS Region of the S3 bucket where images will be delivered. This <code>DestinationRegion</code> must match the Region where the stream is located.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationRegion;
+
+/**
+ <p>The Uniform Resource Idenifier (URI) that identifies where the images will be delivered.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable uri;
 
 @end
 
@@ -554,12 +723,12 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>If you specify this parameter and the result of a ListTagsForResource call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags. </p>
+ <p>If you specify this parameter and the result of a <code>ListTagsForResource</code> call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The ARN of the signaling channel for which you want to list tags.</p>
+ <p>The Amazon Resource Name (ARN) of the signaling channel for which you want to list tags.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable resourceARN;
 
@@ -572,7 +741,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>If you specify this parameter and the result of a ListTagsForResource call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags. </p>
+ <p>If you specify this parameter and the result of a <code>ListTagsForResource</code> call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -625,6 +794,39 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @end
 
 /**
+ <p>The structure that contains the notification information for the KVS images delivery. If this parameter is null, the configuration will be deleted from the stream.</p>
+ Required parameters: [Status, DestinationConfig]
+ */
+@interface AWSKinesisVideoNotificationConfiguration : AWSModel
+
+
+/**
+ <p>The destination information required to deliver a notification to a customer.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoNotificationDestinationConfig * _Nullable destinationConfig;
+
+/**
+ <p>Indicates if a notification configuration is enabled or disabled.</p>
+ */
+@property (nonatomic, assign) AWSKinesisVideoConfigurationStatus status;
+
+@end
+
+/**
+ <p>The structure that contains the information required to deliver a notification to a customer.</p>
+ Required parameters: [Uri]
+ */
+@interface AWSKinesisVideoNotificationDestinationConfig : AWSModel
+
+
+/**
+ <p>The Uniform Resource Idenifier (URI) that identifies where the images will be delivered.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable uri;
+
+@end
+
+/**
  <p>An object that describes the endpoint of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API.</p>
  */
 @interface AWSKinesisVideoResourceEndpointListItem : AWSModel
@@ -667,7 +869,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>The period of time a signaling channel retains underlivered messages before they are discarded.</p>
+ <p>The period of time a signaling channel retains undelivered messages before they are discarded.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable messageTtlSeconds;
 
@@ -695,7 +897,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @property (nonatomic, strong) NSString * _Nullable deviceName;
 
 /**
- <p>The ID of the AWS Key Management Service (AWS KMS) key that Kinesis Video Streams uses to encrypt data on the stream.</p>
+ <p>The ID of the Key Management Service (KMS) key that Kinesis Video Streams uses to encrypt data on the stream.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
@@ -770,7 +972,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>The ARN of the signaling channel to which you want to add tags.</p>
+ <p>The Amazon Resource Name (ARN) of the signaling channel to which you want to add tags.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable resourceARN;
 
@@ -827,7 +1029,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>The ARN of the signaling channel from which you want to remove tags.</p>
+ <p>The Amazon Resource Name (ARN) of the signaling channel from which you want to remove tags.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable resourceARN;
 
@@ -921,11 +1123,73 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 /**
  
  */
+@interface AWSKinesisVideoUpdateImageGenerationConfigurationInput : AWSRequest
+
+
+/**
+ <p>The structure that contains the information required for the KVS images delivery. If the structure is null, the configuration will be deleted from the stream.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoImageGenerationConfiguration * _Nullable imageGenerationConfiguration;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to update the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamARN;
+
+/**
+ <p>The name of the stream from which to update the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoUpdateImageGenerationConfigurationOutput : AWSModel
+
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoUpdateNotificationConfigurationInput : AWSRequest
+
+
+/**
+ <p>The structure containing the information required for notifications. If the structure is null, the configuration will be deleted from the stream.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoNotificationConfiguration * _Nullable notificationConfiguration;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to update the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamARN;
+
+/**
+ <p>The name of the stream from which to update the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoUpdateNotificationConfigurationOutput : AWSModel
+
+
+@end
+
+/**
+ 
+ */
 @interface AWSKinesisVideoUpdateSignalingChannelInput : AWSRequest
 
 
 /**
- <p>The ARN of the signaling channel that you want to update.</p>
+ <p>The Amazon Resource Name (ARN) of the signaling channel that you want to update.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable channelARN;
 

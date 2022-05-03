@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -47,6 +47,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InvalidArgumentException" : @(AWSKinesisVideoErrorInvalidArgument),
                             @"InvalidDeviceException" : @(AWSKinesisVideoErrorInvalidDevice),
                             @"InvalidResourceFormatException" : @(AWSKinesisVideoErrorInvalidResourceFormat),
+                            @"NoDataRetentionException" : @(AWSKinesisVideoErrorNoDataRetention),
                             @"NotAuthorizedException" : @(AWSKinesisVideoErrorNotAuthorized),
                             @"ResourceInUseException" : @(AWSKinesisVideoErrorResourceInUse),
                             @"ResourceNotFoundException" : @(AWSKinesisVideoErrorResourceNotFound),
@@ -380,6 +381,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSKinesisVideoDescribeImageGenerationConfigurationOutput *> *)describeImageGenerationConfiguration:(AWSKinesisVideoDescribeImageGenerationConfigurationInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/describeImageGenerationConfiguration"
+                  targetPrefix:@""
+                 operationName:@"DescribeImageGenerationConfiguration"
+                   outputClass:[AWSKinesisVideoDescribeImageGenerationConfigurationOutput class]];
+}
+
+- (void)describeImageGenerationConfiguration:(AWSKinesisVideoDescribeImageGenerationConfigurationInput *)request
+     completionHandler:(void (^)(AWSKinesisVideoDescribeImageGenerationConfigurationOutput *response, NSError *error))completionHandler {
+    [[self describeImageGenerationConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisVideoDescribeImageGenerationConfigurationOutput *> * _Nonnull task) {
+        AWSKinesisVideoDescribeImageGenerationConfigurationOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSKinesisVideoDescribeNotificationConfigurationOutput *> *)describeNotificationConfiguration:(AWSKinesisVideoDescribeNotificationConfigurationInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/describeNotificationConfiguration"
+                  targetPrefix:@""
+                 operationName:@"DescribeNotificationConfiguration"
+                   outputClass:[AWSKinesisVideoDescribeNotificationConfigurationOutput class]];
+}
+
+- (void)describeNotificationConfiguration:(AWSKinesisVideoDescribeNotificationConfigurationInput *)request
+     completionHandler:(void (^)(AWSKinesisVideoDescribeNotificationConfigurationOutput *response, NSError *error))completionHandler {
+    [[self describeNotificationConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisVideoDescribeNotificationConfigurationOutput *> * _Nonnull task) {
+        AWSKinesisVideoDescribeNotificationConfigurationOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSKinesisVideoDescribeSignalingChannelOutput *> *)describeSignalingChannel:(AWSKinesisVideoDescribeSignalingChannelInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -669,6 +716,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSKinesisVideoUpdateDataRetentionOutput *response, NSError *error))completionHandler {
     [[self updateDataRetention:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisVideoUpdateDataRetentionOutput *> * _Nonnull task) {
         AWSKinesisVideoUpdateDataRetentionOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSKinesisVideoUpdateImageGenerationConfigurationOutput *> *)updateImageGenerationConfiguration:(AWSKinesisVideoUpdateImageGenerationConfigurationInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/updateImageGenerationConfiguration"
+                  targetPrefix:@""
+                 operationName:@"UpdateImageGenerationConfiguration"
+                   outputClass:[AWSKinesisVideoUpdateImageGenerationConfigurationOutput class]];
+}
+
+- (void)updateImageGenerationConfiguration:(AWSKinesisVideoUpdateImageGenerationConfigurationInput *)request
+     completionHandler:(void (^)(AWSKinesisVideoUpdateImageGenerationConfigurationOutput *response, NSError *error))completionHandler {
+    [[self updateImageGenerationConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisVideoUpdateImageGenerationConfigurationOutput *> * _Nonnull task) {
+        AWSKinesisVideoUpdateImageGenerationConfigurationOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSKinesisVideoUpdateNotificationConfigurationOutput *> *)updateNotificationConfiguration:(AWSKinesisVideoUpdateNotificationConfigurationInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/updateNotificationConfiguration"
+                  targetPrefix:@""
+                 operationName:@"UpdateNotificationConfiguration"
+                   outputClass:[AWSKinesisVideoUpdateNotificationConfigurationOutput class]];
+}
+
+- (void)updateNotificationConfiguration:(AWSKinesisVideoUpdateNotificationConfigurationInput *)request
+     completionHandler:(void (^)(AWSKinesisVideoUpdateNotificationConfigurationOutput *response, NSError *error))completionHandler {
+    [[self updateNotificationConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisVideoUpdateNotificationConfigurationOutput *> * _Nonnull task) {
+        AWSKinesisVideoUpdateNotificationConfigurationOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

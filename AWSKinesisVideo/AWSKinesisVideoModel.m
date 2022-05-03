@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoChannelInfo
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -72,11 +72,16 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
         if ([value caseInsensitiveCompare:@"SINGLE_MASTER"] == NSOrderedSame) {
             return @(AWSKinesisVideoChannelTypeSingleMaster);
         }
+        if ([value caseInsensitiveCompare:@"FULL_MESH"] == NSOrderedSame) {
+            return @(AWSKinesisVideoChannelTypeFullMesh);
+        }
         return @(AWSKinesisVideoChannelTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSKinesisVideoChannelTypeSingleMaster:
                 return @"SINGLE_MASTER";
+            case AWSKinesisVideoChannelTypeFullMesh:
+                return @"FULL_MESH";
             default:
                 return nil;
         }
@@ -99,7 +104,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoChannelNameCondition
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -130,7 +135,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoCreateSignalingChannelInput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -148,11 +153,16 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
         if ([value caseInsensitiveCompare:@"SINGLE_MASTER"] == NSOrderedSame) {
             return @(AWSKinesisVideoChannelTypeSingleMaster);
         }
+        if ([value caseInsensitiveCompare:@"FULL_MESH"] == NSOrderedSame) {
+            return @(AWSKinesisVideoChannelTypeFullMesh);
+        }
         return @(AWSKinesisVideoChannelTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSKinesisVideoChannelTypeSingleMaster:
                 return @"SINGLE_MASTER";
+            case AWSKinesisVideoChannelTypeFullMesh:
+                return @"FULL_MESH";
             default:
                 return nil;
         }
@@ -171,7 +181,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoCreateSignalingChannelOutput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -185,7 +195,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoCreateStreamInput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -204,7 +214,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoCreateStreamOutput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -218,7 +228,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoDeleteSignalingChannelInput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -233,7 +243,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoDeleteSignalingChannelOutput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -241,7 +251,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoDeleteStreamInput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -256,15 +266,81 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoDeleteStreamOutput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
+}
+
+@end
+
+@implementation AWSKinesisVideoDescribeImageGenerationConfigurationInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"streamARN" : @"StreamARN",
+             @"streamName" : @"StreamName",
+             };
+}
+
+@end
+
+@implementation AWSKinesisVideoDescribeImageGenerationConfigurationOutput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"imageGenerationConfiguration" : @"ImageGenerationConfiguration",
+             };
+}
+
++ (NSValueTransformer *)imageGenerationConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSKinesisVideoImageGenerationConfiguration class]];
+}
+
+@end
+
+@implementation AWSKinesisVideoDescribeNotificationConfigurationInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"streamARN" : @"StreamARN",
+             @"streamName" : @"StreamName",
+             };
+}
+
+@end
+
+@implementation AWSKinesisVideoDescribeNotificationConfigurationOutput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"notificationConfiguration" : @"NotificationConfiguration",
+             };
+}
+
++ (NSValueTransformer *)notificationConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSKinesisVideoNotificationConfiguration class]];
 }
 
 @end
 
 @implementation AWSKinesisVideoDescribeSignalingChannelInput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -279,7 +355,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoDescribeSignalingChannelOutput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -297,7 +373,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoDescribeStreamInput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -312,7 +388,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoDescribeStreamOutput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -330,7 +406,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoGetDataEndpointInput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -362,6 +438,12 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
         if ([value caseInsensitiveCompare:@"GET_DASH_STREAMING_SESSION_URL"] == NSOrderedSame) {
             return @(AWSKinesisVideoAPINameGetDashStreamingSessionUrl);
         }
+        if ([value caseInsensitiveCompare:@"GET_CLIP"] == NSOrderedSame) {
+            return @(AWSKinesisVideoAPINameGetClip);
+        }
+        if ([value caseInsensitiveCompare:@"GET_IMAGES"] == NSOrderedSame) {
+            return @(AWSKinesisVideoAPINameGetImages);
+        }
         return @(AWSKinesisVideoAPINameUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -377,6 +459,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
                 return @"GET_HLS_STREAMING_SESSION_URL";
             case AWSKinesisVideoAPINameGetDashStreamingSessionUrl:
                 return @"GET_DASH_STREAMING_SESSION_URL";
+            case AWSKinesisVideoAPINameGetClip:
+                return @"GET_CLIP";
+            case AWSKinesisVideoAPINameGetImages:
+                return @"GET_IMAGES";
             default:
                 return nil;
         }
@@ -387,7 +473,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoGetDataEndpointOutput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -401,7 +487,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoGetSignalingChannelEndpointInput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -420,7 +506,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoGetSignalingChannelEndpointOutput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -436,9 +522,112 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @end
 
+@implementation AWSKinesisVideoImageGenerationConfiguration
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"destinationConfig" : @"DestinationConfig",
+             @"format" : @"Format",
+             @"formatConfig" : @"FormatConfig",
+             @"heightPixels" : @"HeightPixels",
+             @"imageSelectorType" : @"ImageSelectorType",
+             @"samplingInterval" : @"SamplingInterval",
+             @"status" : @"Status",
+             @"widthPixels" : @"WidthPixels",
+             };
+}
+
++ (NSValueTransformer *)destinationConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSKinesisVideoImageGenerationDestinationConfig class]];
+}
+
++ (NSValueTransformer *)formatJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"JPEG"] == NSOrderedSame) {
+            return @(AWSKinesisVideoFormatJpeg);
+        }
+        if ([value caseInsensitiveCompare:@"PNG"] == NSOrderedSame) {
+            return @(AWSKinesisVideoFormatPng);
+        }
+        return @(AWSKinesisVideoFormatUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSKinesisVideoFormatJpeg:
+                return @"JPEG";
+            case AWSKinesisVideoFormatPng:
+                return @"PNG";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)imageSelectorTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"SERVER_TIMESTAMP"] == NSOrderedSame) {
+            return @(AWSKinesisVideoImageSelectorTypeServerTimestamp);
+        }
+        if ([value caseInsensitiveCompare:@"PRODUCER_TIMESTAMP"] == NSOrderedSame) {
+            return @(AWSKinesisVideoImageSelectorTypeProducerTimestamp);
+        }
+        return @(AWSKinesisVideoImageSelectorTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSKinesisVideoImageSelectorTypeServerTimestamp:
+                return @"SERVER_TIMESTAMP";
+            case AWSKinesisVideoImageSelectorTypeProducerTimestamp:
+                return @"PRODUCER_TIMESTAMP";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ENABLED"] == NSOrderedSame) {
+            return @(AWSKinesisVideoConfigurationStatusEnabled);
+        }
+        if ([value caseInsensitiveCompare:@"DISABLED"] == NSOrderedSame) {
+            return @(AWSKinesisVideoConfigurationStatusDisabled);
+        }
+        return @(AWSKinesisVideoConfigurationStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSKinesisVideoConfigurationStatusEnabled:
+                return @"ENABLED";
+            case AWSKinesisVideoConfigurationStatusDisabled:
+                return @"DISABLED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSKinesisVideoImageGenerationDestinationConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"destinationRegion" : @"DestinationRegion",
+             @"uri" : @"Uri",
+             };
+}
+
+@end
+
 @implementation AWSKinesisVideoListSignalingChannelsInput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -458,7 +647,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoListSignalingChannelsOutput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -477,7 +666,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoListStreamsInput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -497,7 +686,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoListStreamsOutput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -516,7 +705,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoListTagsForResourceInput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -531,7 +720,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoListTagsForResourceOutput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -546,7 +735,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoListTagsForStreamInput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -562,7 +751,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoListTagsForStreamOutput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -575,9 +764,63 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @end
 
+@implementation AWSKinesisVideoNotificationConfiguration
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"destinationConfig" : @"DestinationConfig",
+             @"status" : @"Status",
+             };
+}
+
++ (NSValueTransformer *)destinationConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSKinesisVideoNotificationDestinationConfig class]];
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ENABLED"] == NSOrderedSame) {
+            return @(AWSKinesisVideoConfigurationStatusEnabled);
+        }
+        if ([value caseInsensitiveCompare:@"DISABLED"] == NSOrderedSame) {
+            return @(AWSKinesisVideoConfigurationStatusDisabled);
+        }
+        return @(AWSKinesisVideoConfigurationStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSKinesisVideoConfigurationStatusEnabled:
+                return @"ENABLED";
+            case AWSKinesisVideoConfigurationStatusDisabled:
+                return @"DISABLED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSKinesisVideoNotificationDestinationConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"uri" : @"Uri",
+             };
+}
+
+@end
+
 @implementation AWSKinesisVideoResourceEndpointListItem
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -613,7 +856,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoSingleMasterChannelEndpointConfiguration
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -649,7 +892,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoSingleMasterConfiguration
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -663,7 +906,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoStreamInfo
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -724,7 +967,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoStreamNameCondition
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -755,7 +998,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoTag
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -770,7 +1013,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoTagResourceInput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -789,7 +1032,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoTagResourceOutput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -797,7 +1040,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoTagStreamInput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -813,7 +1056,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoTagStreamOutput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -821,7 +1064,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoUntagResourceInput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -836,7 +1079,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoUntagResourceOutput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -844,7 +1087,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoUntagStreamInput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -860,7 +1103,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoUntagStreamOutput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -868,7 +1111,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoUpdateDataRetentionInput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -907,7 +1150,63 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoUpdateDataRetentionOutput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
+@implementation AWSKinesisVideoUpdateImageGenerationConfigurationInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"imageGenerationConfiguration" : @"ImageGenerationConfiguration",
+             @"streamARN" : @"StreamARN",
+             @"streamName" : @"StreamName",
+             };
+}
+
++ (NSValueTransformer *)imageGenerationConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSKinesisVideoImageGenerationConfiguration class]];
+}
+
+@end
+
+@implementation AWSKinesisVideoUpdateImageGenerationConfigurationOutput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
+@implementation AWSKinesisVideoUpdateNotificationConfigurationInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"notificationConfiguration" : @"NotificationConfiguration",
+             @"streamARN" : @"StreamARN",
+             @"streamName" : @"StreamName",
+             };
+}
+
++ (NSValueTransformer *)notificationConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSKinesisVideoNotificationConfiguration class]];
+}
+
+@end
+
+@implementation AWSKinesisVideoUpdateNotificationConfigurationOutput
+
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -915,7 +1214,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoUpdateSignalingChannelInput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -935,7 +1234,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoUpdateSignalingChannelOutput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -943,7 +1242,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoUpdateStreamInput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
@@ -961,7 +1260,7 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoUpdateStreamOutput
 
-+ (BOOL) supportsSecureCoding {
++ (BOOL)supportsSecureCoding {
     return YES;
 }
 
