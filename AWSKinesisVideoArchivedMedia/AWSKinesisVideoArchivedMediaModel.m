@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -510,6 +510,108 @@ NSString *const AWSKinesisVideoArchivedMediaErrorDomain = @"com.amazonaws.AWSKin
 
 @end
 
+@implementation AWSKinesisVideoArchivedMediaGetImagesInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"endTimestamp" : @"EndTimestamp",
+             @"format" : @"Format",
+             @"formatConfig" : @"FormatConfig",
+             @"heightPixels" : @"HeightPixels",
+             @"imageSelectorType" : @"ImageSelectorType",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             @"samplingInterval" : @"SamplingInterval",
+             @"startTimestamp" : @"StartTimestamp",
+             @"streamARN" : @"StreamARN",
+             @"streamName" : @"StreamName",
+             @"widthPixels" : @"WidthPixels",
+             };
+}
+
++ (NSValueTransformer *)endTimestampJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)formatJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"JPEG"] == NSOrderedSame) {
+            return @(AWSKinesisVideoArchivedMediaFormatJpeg);
+        }
+        if ([value caseInsensitiveCompare:@"PNG"] == NSOrderedSame) {
+            return @(AWSKinesisVideoArchivedMediaFormatPng);
+        }
+        return @(AWSKinesisVideoArchivedMediaFormatUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSKinesisVideoArchivedMediaFormatJpeg:
+                return @"JPEG";
+            case AWSKinesisVideoArchivedMediaFormatPng:
+                return @"PNG";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)imageSelectorTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"PRODUCER_TIMESTAMP"] == NSOrderedSame) {
+            return @(AWSKinesisVideoArchivedMediaImageSelectorTypeProducerTimestamp);
+        }
+        if ([value caseInsensitiveCompare:@"SERVER_TIMESTAMP"] == NSOrderedSame) {
+            return @(AWSKinesisVideoArchivedMediaImageSelectorTypeServerTimestamp);
+        }
+        return @(AWSKinesisVideoArchivedMediaImageSelectorTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSKinesisVideoArchivedMediaImageSelectorTypeProducerTimestamp:
+                return @"PRODUCER_TIMESTAMP";
+            case AWSKinesisVideoArchivedMediaImageSelectorTypeServerTimestamp:
+                return @"SERVER_TIMESTAMP";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)startTimestampJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSKinesisVideoArchivedMediaGetImagesOutput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"images" : @"Images",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)imagesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSKinesisVideoArchivedMediaImage class]];
+}
+
+@end
+
 @implementation AWSKinesisVideoArchivedMediaGetMediaForFragmentListInput
 
 + (BOOL)supportsSecureCoding {
@@ -603,6 +705,51 @@ NSString *const AWSKinesisVideoArchivedMediaErrorDomain = @"com.amazonaws.AWSKin
 }
 
 + (NSValueTransformer *)startTimestampJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSKinesisVideoArchivedMediaImage
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"error" : @"Error",
+             @"imageContent" : @"ImageContent",
+             @"timeStamp" : @"TimeStamp",
+             };
+}
+
++ (NSValueTransformer *)errorJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"NO_MEDIA"] == NSOrderedSame) {
+            return @(AWSKinesisVideoArchivedMediaImageErrorNoMedia);
+        }
+        if ([value caseInsensitiveCompare:@"MEDIA_ERROR"] == NSOrderedSame) {
+            return @(AWSKinesisVideoArchivedMediaImageErrorMediaError);
+        }
+        return @(AWSKinesisVideoArchivedMediaImageErrorUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSKinesisVideoArchivedMediaImageErrorNoMedia:
+                return @"NO_MEDIA";
+            case AWSKinesisVideoArchivedMediaImageErrorMediaError:
+                return @"MEDIA_ERROR";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)timeStampJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -188,6 +188,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSKinesisVideoArchivedMedia KinesisVideoArchivedMediaForKey:key] getHLSStreamingSessionURL:[AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLInput new] completionHandler:^(AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSKinesisVideoArchivedMedia removeKinesisVideoArchivedMediaForKey:key];
+}
+
+- (void)testGetImages {
+    NSString *key = @"testGetImages";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSKinesisVideoArchivedMedia registerKinesisVideoArchivedMediaWithConfiguration:configuration forKey:key];
+
+    AWSKinesisVideoArchivedMedia *awsClient = [AWSKinesisVideoArchivedMedia KinesisVideoArchivedMediaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSKinesisVideoArchivedMedia KinesisVideoArchivedMediaForKey:key] getImages:[AWSKinesisVideoArchivedMediaGetImagesInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSKinesisVideoArchivedMedia removeKinesisVideoArchivedMediaForKey:key];
+}
+
+- (void)testGetImagesCompletionHandler {
+    NSString *key = @"testGetImages";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSKinesisVideoArchivedMedia registerKinesisVideoArchivedMediaWithConfiguration:configuration forKey:key];
+
+    AWSKinesisVideoArchivedMedia *awsClient = [AWSKinesisVideoArchivedMedia KinesisVideoArchivedMediaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSKinesisVideoArchivedMedia KinesisVideoArchivedMediaForKey:key] getImages:[AWSKinesisVideoArchivedMediaGetImagesInput new] completionHandler:^(AWSKinesisVideoArchivedMediaGetImagesOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
