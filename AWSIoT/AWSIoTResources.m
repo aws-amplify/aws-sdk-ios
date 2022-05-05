@@ -287,7 +287,8 @@
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"ThrottlingException\"},\
-        {\"shape\":\"ServiceUnavailableException\"}\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"LimitExceededException\"}\
       ],\
       \"documentation\":\"<p>Cancels a job.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">CancelJob</a> action.</p>\"\
     },\
@@ -5621,6 +5622,7 @@
     },\
     \"Boolean\":{\"type\":\"boolean\"},\
     \"BooleanKey\":{\"type\":\"boolean\"},\
+    \"BooleanWrapperObject\":{\"type\":\"boolean\"},\
     \"Bucket\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -11448,7 +11450,8 @@
         \"documentParameters\":{\
           \"shape\":\"ParameterMap\",\
           \"documentation\":\"<p>A key-value map that pairs the patterns that need to be replaced in a managed template job document schema. You can use the description of each key as a guidance to specify the inputs during runtime when creating a job.</p>\"\
-        }\
+        },\
+        \"isConcurrent\":{\"shape\":\"BooleanWrapperObject\"}\
       },\
       \"documentation\":\"<p>The <code>Job</code> object contains details about a job.</p>\"\
     },\
@@ -11731,7 +11734,8 @@
         \"completedAt\":{\
           \"shape\":\"DateType\",\
           \"documentation\":\"<p>The time, in seconds since the epoch, when the job completed.</p>\"\
-        }\
+        },\
+        \"isConcurrent\":{\"shape\":\"BooleanWrapperObject\"}\
       },\
       \"documentation\":\"<p>The job summary.</p>\"\
     },\
