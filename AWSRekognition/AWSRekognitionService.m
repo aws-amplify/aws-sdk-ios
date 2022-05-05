@@ -1625,6 +1625,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSRekognitionUpdateStreamProcessorResponse *> *)updateStreamProcessor:(AWSRekognitionUpdateStreamProcessorRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"UpdateStreamProcessor"
+                   outputClass:[AWSRekognitionUpdateStreamProcessorResponse class]];
+}
+
+- (void)updateStreamProcessor:(AWSRekognitionUpdateStreamProcessorRequest *)request
+     completionHandler:(void (^)(AWSRekognitionUpdateStreamProcessorResponse *response, NSError *error))completionHandler {
+    [[self updateStreamProcessor:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionUpdateStreamProcessorResponse *> * _Nonnull task) {
+        AWSRekognitionUpdateStreamProcessorResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 #pragma mark -
 
 @end
