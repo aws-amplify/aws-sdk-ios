@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -248,6 +248,31 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoArchivedMediaSDKVersion;
  @see AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput
  */
 - (void)getHLSStreamingSessionURL:(AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Retrieves a list of Images corresponding to each timestamp for a given time range, sampling interval, and image format configuration.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetImages service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisVideoArchivedMediaGetImagesOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisVideoArchivedMediaErrorDomain` domain and the following error code: `AWSKinesisVideoArchivedMediaErrorResourceNotFound`, `AWSKinesisVideoArchivedMediaErrorInvalidArgument`, `AWSKinesisVideoArchivedMediaErrorClientLimitExceeded`, `AWSKinesisVideoArchivedMediaErrorNotAuthorized`.
+ 
+ @see AWSKinesisVideoArchivedMediaGetImagesInput
+ @see AWSKinesisVideoArchivedMediaGetImagesOutput
+ */
+- (AWSTask<AWSKinesisVideoArchivedMediaGetImagesOutput *> *)getImages:(AWSKinesisVideoArchivedMediaGetImagesInput *)request;
+
+/**
+ <p>Retrieves a list of Images corresponding to each timestamp for a given time range, sampling interval, and image format configuration.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetImages service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKinesisVideoArchivedMediaErrorDomain` domain and the following error code: `AWSKinesisVideoArchivedMediaErrorResourceNotFound`, `AWSKinesisVideoArchivedMediaErrorInvalidArgument`, `AWSKinesisVideoArchivedMediaErrorClientLimitExceeded`, `AWSKinesisVideoArchivedMediaErrorNotAuthorized`.
+ 
+ @see AWSKinesisVideoArchivedMediaGetImagesInput
+ @see AWSKinesisVideoArchivedMediaGetImagesOutput
+ */
+- (void)getImages:(AWSKinesisVideoArchivedMediaGetImagesInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoArchivedMediaGetImagesOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Gets media for a list of fragments (specified by fragment number) from the archived data in an Amazon Kinesis video stream.</p><note><p>You must first call the <code>GetDataEndpoint</code> API to get an endpoint. Then send the <code>GetMediaForFragmentList</code> requests to this endpoint using the <a href="https://docs.aws.amazon.com/cli/latest/reference/">--endpoint-url parameter</a>. </p></note><p>For limits, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html">Kinesis Video Streams Limits</a>.</p><important><p>If an error is thrown after invoking a Kinesis Video Streams archived media API, in addition to the HTTP status code and the response body, it includes the following pieces of information: </p><ul><li><p><code>x-amz-ErrorType</code> HTTP header – contains a more specific error type in addition to what the HTTP status code provides. </p></li><li><p><code>x-amz-RequestId</code> HTTP header – if you want to report an issue to AWS, the support team can better diagnose the problem if given the Request Id.</p></li></ul><p>Both the HTTP status code and the ErrorType header can be utilized to make programmatic decisions about whether errors are retry-able and under what conditions, as well as provide information on what actions the client programmer might need to take in order to successfully try again.</p><p>For more information, see the <b>Errors</b> section at the bottom of this topic, as well as <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html">Common Errors</a>. </p></important>

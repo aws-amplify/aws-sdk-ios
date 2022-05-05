@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -343,6 +343,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput *response, NSError *error))completionHandler {
     [[self getHLSStreamingSessionURL:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput *> * _Nonnull task) {
         AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSKinesisVideoArchivedMediaGetImagesOutput *> *)getImages:(AWSKinesisVideoArchivedMediaGetImagesInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/getImages"
+                  targetPrefix:@""
+                 operationName:@"GetImages"
+                   outputClass:[AWSKinesisVideoArchivedMediaGetImagesOutput class]];
+}
+
+- (void)getImages:(AWSKinesisVideoArchivedMediaGetImagesInput *)request
+     completionHandler:(void (^)(AWSKinesisVideoArchivedMediaGetImagesOutput *response, NSError *error))completionHandler {
+    [[self getImages:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisVideoArchivedMediaGetImagesOutput *> * _Nonnull task) {
+        AWSKinesisVideoArchivedMediaGetImagesOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
