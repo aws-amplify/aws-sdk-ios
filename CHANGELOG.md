@@ -1,13 +1,17 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
-
 -Features for next release
 
 ### Bug Fixes
 
 - **AWSCognito**
-  - Fix the parsing of providerName used in the loginMap to use the right value in case of customer endpoint is configured.  (See [PR #4162](https://github.com/aws-amplify/aws-sdk-ios/pull/4162))
+  - Fix the parsing of providerName used in the loginMap to use the right value in case of customer endpoint is configured. (See [PR #4162](https://github.com/aws-amplify/aws-sdk-ios/pull/4162))
+
+### Misc. Updates
+
+- **Core**
+  - Update keychain accessibility level to `kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly` as default to keep the keychain value in the device. (See [PR #4159](https://github.com/aws-amplify/aws-sdk-ios/pull/4159))
 
 ## 2.27.9
 
