@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -229,7 +229,7 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
  
  @param request A container for the necessary parameters to execute the DeleteSignalingChannel service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisVideoDeleteSignalingChannelOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorAccessDenied`, `AWSKinesisVideoErrorVersionMismatch`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisVideoDeleteSignalingChannelOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorAccessDenied`, `AWSKinesisVideoErrorVersionMismatch`, `AWSKinesisVideoErrorResourceInUse`.
  
  @see AWSKinesisVideoDeleteSignalingChannelInput
  @see AWSKinesisVideoDeleteSignalingChannelOutput
@@ -242,7 +242,7 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
  @param request A container for the necessary parameters to execute the DeleteSignalingChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorAccessDenied`, `AWSKinesisVideoErrorVersionMismatch`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorAccessDenied`, `AWSKinesisVideoErrorVersionMismatch`, `AWSKinesisVideoErrorResourceInUse`.
  
  @see AWSKinesisVideoDeleteSignalingChannelInput
  @see AWSKinesisVideoDeleteSignalingChannelOutput
@@ -254,7 +254,7 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
  
  @param request A container for the necessary parameters to execute the DeleteStream service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisVideoDeleteStreamOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorNotAuthorized`, `AWSKinesisVideoErrorVersionMismatch`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisVideoDeleteStreamOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorNotAuthorized`, `AWSKinesisVideoErrorVersionMismatch`, `AWSKinesisVideoErrorResourceInUse`.
  
  @see AWSKinesisVideoDeleteStreamInput
  @see AWSKinesisVideoDeleteStreamOutput
@@ -267,7 +267,7 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
  @param request A container for the necessary parameters to execute the DeleteStream service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorNotAuthorized`, `AWSKinesisVideoErrorVersionMismatch`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorNotAuthorized`, `AWSKinesisVideoErrorVersionMismatch`, `AWSKinesisVideoErrorResourceInUse`.
  
  @see AWSKinesisVideoDeleteStreamInput
  @see AWSKinesisVideoDeleteStreamOutput
@@ -275,7 +275,57 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
 - (void)deleteStream:(AWSKinesisVideoDeleteStreamInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoDeleteStreamOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns the most current information about the signaling channel. You must specify either the name or the ARN of the channel that you want to describe.</p>
+ <p>Gets the <code>ImageGenerationConfiguration</code> for a given Kinesis video stream.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeImageGenerationConfiguration service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisVideoDescribeImageGenerationConfigurationOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorAccessDenied`.
+ 
+ @see AWSKinesisVideoDescribeImageGenerationConfigurationInput
+ @see AWSKinesisVideoDescribeImageGenerationConfigurationOutput
+ */
+- (AWSTask<AWSKinesisVideoDescribeImageGenerationConfigurationOutput *> *)describeImageGenerationConfiguration:(AWSKinesisVideoDescribeImageGenerationConfigurationInput *)request;
+
+/**
+ <p>Gets the <code>ImageGenerationConfiguration</code> for a given Kinesis video stream.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeImageGenerationConfiguration service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorAccessDenied`.
+ 
+ @see AWSKinesisVideoDescribeImageGenerationConfigurationInput
+ @see AWSKinesisVideoDescribeImageGenerationConfigurationOutput
+ */
+- (void)describeImageGenerationConfiguration:(AWSKinesisVideoDescribeImageGenerationConfigurationInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoDescribeImageGenerationConfigurationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Gets the <code>NotificationConfiguration</code> for a given Kinesis video stream.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeNotificationConfiguration service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisVideoDescribeNotificationConfigurationOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorAccessDenied`.
+ 
+ @see AWSKinesisVideoDescribeNotificationConfigurationInput
+ @see AWSKinesisVideoDescribeNotificationConfigurationOutput
+ */
+- (AWSTask<AWSKinesisVideoDescribeNotificationConfigurationOutput *> *)describeNotificationConfiguration:(AWSKinesisVideoDescribeNotificationConfigurationInput *)request;
+
+/**
+ <p>Gets the <code>NotificationConfiguration</code> for a given Kinesis video stream.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeNotificationConfiguration service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorAccessDenied`.
+ 
+ @see AWSKinesisVideoDescribeNotificationConfigurationInput
+ @see AWSKinesisVideoDescribeNotificationConfigurationOutput
+ */
+- (void)describeNotificationConfiguration:(AWSKinesisVideoDescribeNotificationConfigurationInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoDescribeNotificationConfigurationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Returns the most current information about the signaling channel. You must specify either the name or the Amazon Resource Name (ARN) of the channel that you want to describe.</p>
  
  @param request A container for the necessary parameters to execute the DescribeSignalingChannel service method.
 
@@ -287,7 +337,7 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
 - (AWSTask<AWSKinesisVideoDescribeSignalingChannelOutput *> *)describeSignalingChannel:(AWSKinesisVideoDescribeSignalingChannelInput *)request;
 
 /**
- <p>Returns the most current information about the signaling channel. You must specify either the name or the ARN of the channel that you want to describe.</p>
+ <p>Returns the most current information about the signaling channel. You must specify either the name or the Amazon Resource Name (ARN) of the channel that you want to describe.</p>
  
  @param request A container for the necessary parameters to execute the DescribeSignalingChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -350,7 +400,7 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
 - (void)getDataEndpoint:(AWSKinesisVideoGetDataEndpointInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoGetDataEndpointOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Provides an endpoint for the specified signaling channel to send and receive messages. This API uses the <code>SingleMasterChannelEndpointConfiguration</code> input parameter, which consists of the <code>Protocols</code> and <code>Role</code> properties.</p><p><code>Protocols</code> is used to determine the communication mechanism. For example, specifying <code>WSS</code> as the protocol, results in this API producing a secure websocket endpoint, and specifying <code>HTTPS</code> as the protocol, results in this API generating an HTTPS endpoint. </p><p><code>Role</code> determines the messaging permissions. A <code>MASTER</code> role results in this API generating an endpoint that a client can use to communicate with any of the viewers on the channel. A <code>VIEWER</code> role results in this API generating an endpoint that a client can use to communicate only with a <code>MASTER</code>. </p>
+ <p>Provides an endpoint for the specified signaling channel to send and receive messages. This API uses the <code>SingleMasterChannelEndpointConfiguration</code> input parameter, which consists of the <code>Protocols</code> and <code>Role</code> properties.</p><p><code>Protocols</code> is used to determine the communication mechanism. For example, if you specify <code>WSS</code> as the protocol, this API produces a secure websocket endpoint. If you specify <code>HTTPS</code> as the protocol, this API generates an HTTPS endpoint. </p><p><code>Role</code> determines the messaging permissions. A <code>MASTER</code> role results in this API generating an endpoint that a client can use to communicate with any of the viewers on the channel. A <code>VIEWER</code> role results in this API generating an endpoint that a client can use to communicate only with a <code>MASTER</code>. </p>
  
  @param request A container for the necessary parameters to execute the GetSignalingChannelEndpoint service method.
 
@@ -362,7 +412,7 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
 - (AWSTask<AWSKinesisVideoGetSignalingChannelEndpointOutput *> *)getSignalingChannelEndpoint:(AWSKinesisVideoGetSignalingChannelEndpointInput *)request;
 
 /**
- <p>Provides an endpoint for the specified signaling channel to send and receive messages. This API uses the <code>SingleMasterChannelEndpointConfiguration</code> input parameter, which consists of the <code>Protocols</code> and <code>Role</code> properties.</p><p><code>Protocols</code> is used to determine the communication mechanism. For example, specifying <code>WSS</code> as the protocol, results in this API producing a secure websocket endpoint, and specifying <code>HTTPS</code> as the protocol, results in this API generating an HTTPS endpoint. </p><p><code>Role</code> determines the messaging permissions. A <code>MASTER</code> role results in this API generating an endpoint that a client can use to communicate with any of the viewers on the channel. A <code>VIEWER</code> role results in this API generating an endpoint that a client can use to communicate only with a <code>MASTER</code>. </p>
+ <p>Provides an endpoint for the specified signaling channel to send and receive messages. This API uses the <code>SingleMasterChannelEndpointConfiguration</code> input parameter, which consists of the <code>Protocols</code> and <code>Role</code> properties.</p><p><code>Protocols</code> is used to determine the communication mechanism. For example, if you specify <code>WSS</code> as the protocol, this API produces a secure websocket endpoint. If you specify <code>HTTPS</code> as the protocol, this API generates an HTTPS endpoint. </p><p><code>Role</code> determines the messaging permissions. A <code>MASTER</code> role results in this API generating an endpoint that a client can use to communicate with any of the viewers on the channel. A <code>VIEWER</code> role results in this API generating an endpoint that a client can use to communicate only with a <code>MASTER</code>. </p>
  
  @param request A container for the necessary parameters to execute the GetSignalingChannelEndpoint service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -475,7 +525,7 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
 - (void)listTagsForStream:(AWSKinesisVideoListTagsForStreamInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoListTagsForStreamOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Adds one or more tags to a signaling channel. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.</p>
+ <p>Adds one or more tags to a signaling channel. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to Amazon Web Services resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a> in the <i>Billing and Cost Management and Cost Management User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the TagResource service method.
 
@@ -487,7 +537,7 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
 - (AWSTask<AWSKinesisVideoTagResourceOutput *> *)tagResource:(AWSKinesisVideoTagResourceInput *)request;
 
 /**
- <p>Adds one or more tags to a signaling channel. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.</p>
+ <p>Adds one or more tags to a signaling channel. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to Amazon Web Services resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a> in the <i>Billing and Cost Management and Cost Management User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the TagResource service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -500,7 +550,7 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
 - (void)tagResource:(AWSKinesisVideoTagResourceInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoTagResourceOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Adds one or more tags to a stream. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>. </p><p>You must provide either the <code>StreamName</code> or the <code>StreamARN</code>.</p><p>This operation requires permission for the <code>KinesisVideo:TagStream</code> action.</p><p>Kinesis video streams support up to 50 tags.</p>
+ <p>Adds one or more tags to a stream. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to Amazon Web Services resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a> in the <i>Billing and Cost Management and Cost Management User Guide</i>. </p><p>You must provide either the <code>StreamName</code> or the <code>StreamARN</code>.</p><p>This operation requires permission for the <code>KinesisVideo:TagStream</code> action.</p><p>A Kinesis video stream can support up to 50 tags.</p>
  
  @param request A container for the necessary parameters to execute the TagStream service method.
 
@@ -512,7 +562,7 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
 - (AWSTask<AWSKinesisVideoTagStreamOutput *> *)tagStream:(AWSKinesisVideoTagStreamInput *)request;
 
 /**
- <p>Adds one or more tags to a stream. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>. </p><p>You must provide either the <code>StreamName</code> or the <code>StreamARN</code>.</p><p>This operation requires permission for the <code>KinesisVideo:TagStream</code> action.</p><p>Kinesis video streams support up to 50 tags.</p>
+ <p>Adds one or more tags to a stream. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to Amazon Web Services resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a> in the <i>Billing and Cost Management and Cost Management User Guide</i>. </p><p>You must provide either the <code>StreamName</code> or the <code>StreamARN</code>.</p><p>This operation requires permission for the <code>KinesisVideo:TagStream</code> action.</p><p>A Kinesis video stream can support up to 50 tags.</p>
  
  @param request A container for the necessary parameters to execute the TagStream service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -600,7 +650,57 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
 - (void)updateDataRetention:(AWSKinesisVideoUpdateDataRetentionInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoUpdateDataRetentionOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the existing signaling channel. This is an asynchronous operation and takes time to complete. </p><p>If the <code>MessageTtlSeconds</code> value is updated (either increased or reduced), then it only applies to new messages sent via this channel after it's been updated. Existing messages are still expire as per the previous <code>MessageTtlSeconds</code> value.</p>
+ <p>Updates the <code>StreamInfo</code> and <code>ImageProcessingConfiguration</code> fields.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateImageGenerationConfiguration service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisVideoUpdateImageGenerationConfigurationOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorAccessDenied`, `AWSKinesisVideoErrorResourceInUse`, `AWSKinesisVideoErrorNoDataRetention`.
+ 
+ @see AWSKinesisVideoUpdateImageGenerationConfigurationInput
+ @see AWSKinesisVideoUpdateImageGenerationConfigurationOutput
+ */
+- (AWSTask<AWSKinesisVideoUpdateImageGenerationConfigurationOutput *> *)updateImageGenerationConfiguration:(AWSKinesisVideoUpdateImageGenerationConfigurationInput *)request;
+
+/**
+ <p>Updates the <code>StreamInfo</code> and <code>ImageProcessingConfiguration</code> fields.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateImageGenerationConfiguration service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorAccessDenied`, `AWSKinesisVideoErrorResourceInUse`, `AWSKinesisVideoErrorNoDataRetention`.
+ 
+ @see AWSKinesisVideoUpdateImageGenerationConfigurationInput
+ @see AWSKinesisVideoUpdateImageGenerationConfigurationOutput
+ */
+- (void)updateImageGenerationConfiguration:(AWSKinesisVideoUpdateImageGenerationConfigurationInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoUpdateImageGenerationConfigurationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Updates the notification information for a stream.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateNotificationConfiguration service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisVideoUpdateNotificationConfigurationOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorAccessDenied`, `AWSKinesisVideoErrorResourceInUse`, `AWSKinesisVideoErrorNoDataRetention`.
+ 
+ @see AWSKinesisVideoUpdateNotificationConfigurationInput
+ @see AWSKinesisVideoUpdateNotificationConfigurationOutput
+ */
+- (AWSTask<AWSKinesisVideoUpdateNotificationConfigurationOutput *> *)updateNotificationConfiguration:(AWSKinesisVideoUpdateNotificationConfigurationInput *)request;
+
+/**
+ <p>Updates the notification information for a stream.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateNotificationConfiguration service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorAccessDenied`, `AWSKinesisVideoErrorResourceInUse`, `AWSKinesisVideoErrorNoDataRetention`.
+ 
+ @see AWSKinesisVideoUpdateNotificationConfigurationInput
+ @see AWSKinesisVideoUpdateNotificationConfigurationOutput
+ */
+- (void)updateNotificationConfiguration:(AWSKinesisVideoUpdateNotificationConfigurationInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoUpdateNotificationConfigurationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Updates the existing signaling channel. This is an asynchronous operation and takes time to complete. </p><p>If the <code>MessageTtlSeconds</code> value is updated (either increased or reduced), it only applies to new messages sent via this channel after it's been updated. Existing messages are still expired as per the previous <code>MessageTtlSeconds</code> value.</p>
  
  @param request A container for the necessary parameters to execute the UpdateSignalingChannel service method.
 
@@ -612,7 +712,7 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
 - (AWSTask<AWSKinesisVideoUpdateSignalingChannelOutput *> *)updateSignalingChannel:(AWSKinesisVideoUpdateSignalingChannelInput *)request;
 
 /**
- <p>Updates the existing signaling channel. This is an asynchronous operation and takes time to complete. </p><p>If the <code>MessageTtlSeconds</code> value is updated (either increased or reduced), then it only applies to new messages sent via this channel after it's been updated. Existing messages are still expire as per the previous <code>MessageTtlSeconds</code> value.</p>
+ <p>Updates the existing signaling channel. This is an asynchronous operation and takes time to complete. </p><p>If the <code>MessageTtlSeconds</code> value is updated (either increased or reduced), it only applies to new messages sent via this channel after it's been updated. Existing messages are still expired as per the previous <code>MessageTtlSeconds</code> value.</p>
  
  @param request A container for the necessary parameters to execute the UpdateSignalingChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
