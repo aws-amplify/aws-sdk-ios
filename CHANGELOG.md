@@ -2,15 +2,22 @@
 
 ## Unreleased
 
-## Pinpoint
+### Bug Fixes
 
-- fix: Updates Pinpoint to allow for push events for received and opened (See [PR #4105](https://github.com/aws-amplify/aws-sdk-ios/pull/4105))
+- **Pinpoint**
+  - fix: Updates Pinpoint to allow for push events for received and opened (See [PR #4105](https://github.com/aws-amplify/aws-sdk-ios/pull/4105))
 
--Features for next release
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSEC2
+  - AWSConnect
+  - AWSRekognition
+  - AWSKinesisVideo
+  - AWSKinesisVideoArchivedMedia
+  - AWSIoT
 
 ## 2.27.7
-
--Features for next release
 
 ### Misc. Updates
 
