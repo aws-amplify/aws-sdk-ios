@@ -313,6 +313,28 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)associateLexBot:(AWSConnectAssociateLexBotRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Associates a contact flow with a phone number claimed to your Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the AssociatePhoneNumberContactFlow service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorAccessDenied`.
+ 
+ @see AWSConnectAssociatePhoneNumberContactFlowRequest
+ */
+- (AWSTask *)associatePhoneNumberContactFlow:(AWSConnectAssociatePhoneNumberContactFlowRequest *)request;
+
+/**
+ <p>Associates a contact flow with a phone number claimed to your Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the AssociatePhoneNumberContactFlow service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorAccessDenied`.
+ 
+ @see AWSConnectAssociatePhoneNumberContactFlowRequest
+ */
+- (void)associatePhoneNumberContactFlow:(AWSConnectAssociatePhoneNumberContactFlowRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Associates a set of quick connects with a queue.</p>
  
  @param request A container for the necessary parameters to execute the AssociateQueueQuickConnects service method.
@@ -380,6 +402,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectAssociateSecurityKeyResponse
  */
 - (void)associateSecurityKey:(AWSConnectAssociateSecurityKeyRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectAssociateSecurityKeyResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Claims an available phone number to your Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ClaimPhoneNumber service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectClaimPhoneNumberResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorIdempotency`, `AWSConnectErrorAccessDenied`.
+ 
+ @see AWSConnectClaimPhoneNumberRequest
+ @see AWSConnectClaimPhoneNumberResponse
+ */
+- (AWSTask<AWSConnectClaimPhoneNumberResponse *> *)claimPhoneNumber:(AWSConnectClaimPhoneNumberRequest *)request;
+
+/**
+ <p>Claims an available phone number to your Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ClaimPhoneNumber service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorIdempotency`, `AWSConnectErrorAccessDenied`.
+ 
+ @see AWSConnectClaimPhoneNumberRequest
+ @see AWSConnectClaimPhoneNumberResponse
+ */
+- (void)claimPhoneNumber:(AWSConnectClaimPhoneNumberRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectClaimPhoneNumberResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Creates an agent status for the specified Amazon Connect instance.</p>
@@ -1180,6 +1227,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)describeInstanceStorageConfig:(AWSConnectDescribeInstanceStorageConfigRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDescribeInstanceStorageConfigResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Gets details and status of a phone number that’s claimed to your Amazon Connect instance</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribePhoneNumber service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectDescribePhoneNumberResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorAccessDenied`.
+ 
+ @see AWSConnectDescribePhoneNumberRequest
+ @see AWSConnectDescribePhoneNumberResponse
+ */
+- (AWSTask<AWSConnectDescribePhoneNumberResponse *> *)describePhoneNumber:(AWSConnectDescribePhoneNumberRequest *)request;
+
+/**
+ <p>Gets details and status of a phone number that’s claimed to your Amazon Connect instance</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribePhoneNumber service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorAccessDenied`.
+ 
+ @see AWSConnectDescribePhoneNumberRequest
+ @see AWSConnectDescribePhoneNumberResponse
+ */
+- (void)describePhoneNumber:(AWSConnectDescribePhoneNumberRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDescribePhoneNumberResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Describes the specified queue.</p>
  
  @param request A container for the necessary parameters to execute the DescribeQueue service method.
@@ -1488,6 +1560,28 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectDisassociateLexBotRequest
  */
 - (void)disassociateLexBot:(AWSConnectDisassociateLexBotRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Removes the contact flow association from a phone number claimed to your Amazon Connect instance, if a contact flow association exists.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisassociatePhoneNumberContactFlow service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorAccessDenied`.
+ 
+ @see AWSConnectDisassociatePhoneNumberContactFlowRequest
+ */
+- (AWSTask *)disassociatePhoneNumberContactFlow:(AWSConnectDisassociatePhoneNumberContactFlowRequest *)request;
+
+/**
+ <p>Removes the contact flow association from a phone number claimed to your Amazon Connect instance, if a contact flow association exists.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisassociatePhoneNumberContactFlow service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorAccessDenied`.
+ 
+ @see AWSConnectDisassociatePhoneNumberContactFlowRequest
+ */
+- (void)disassociatePhoneNumberContactFlow:(AWSConnectDisassociatePhoneNumberContactFlowRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Disassociates a set of quick connects from a queue.</p>
@@ -2031,6 +2125,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listPhoneNumbers:(AWSConnectListPhoneNumbersRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListPhoneNumbersResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Lists phone numbers claimed to your Amazon Connect instance. </p><p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your Contact Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListPhoneNumbersV2 service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectListPhoneNumbersV2Response`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorAccessDenied`.
+ 
+ @see AWSConnectListPhoneNumbersV2Request
+ @see AWSConnectListPhoneNumbersV2Response
+ */
+- (AWSTask<AWSConnectListPhoneNumbersV2Response *> *)listPhoneNumbersV2:(AWSConnectListPhoneNumbersV2Request *)request;
+
+/**
+ <p>Lists phone numbers claimed to your Amazon Connect instance. </p><p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your Contact Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListPhoneNumbersV2 service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorAccessDenied`.
+ 
+ @see AWSConnectListPhoneNumbersV2Request
+ @see AWSConnectListPhoneNumbersV2Response
+ */
+- (void)listPhoneNumbersV2:(AWSConnectListPhoneNumbersV2Request *)request completionHandler:(void (^ _Nullable)(AWSConnectListPhoneNumbersV2Response * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Provides information about the prompts for the specified Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the ListPrompts service method.
@@ -2356,6 +2475,53 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listUsers:(AWSConnectListUsersRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListUsersResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Changes the current status of a user or agent in Amazon Connect. If the agent is currently handling a contact, this sets the agent's next status.</p><p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-agent-status.html">Agent status</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-next-status.html">Set your next status</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the PutUserStatus service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectPutUserStatusResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorAccessDenied`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectPutUserStatusRequest
+ @see AWSConnectPutUserStatusResponse
+ */
+- (AWSTask<AWSConnectPutUserStatusResponse *> *)putUserStatus:(AWSConnectPutUserStatusRequest *)request;
+
+/**
+ <p>Changes the current status of a user or agent in Amazon Connect. If the agent is currently handling a contact, this sets the agent's next status.</p><p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-agent-status.html">Agent status</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-next-status.html">Set your next status</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the PutUserStatus service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorAccessDenied`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectPutUserStatusRequest
+ @see AWSConnectPutUserStatusResponse
+ */
+- (void)putUserStatus:(AWSConnectPutUserStatusRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectPutUserStatusResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Releases a phone number previously claimed to an Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ReleasePhoneNumber service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceInUse`, `AWSConnectErrorIdempotency`, `AWSConnectErrorAccessDenied`.
+ 
+ @see AWSConnectReleasePhoneNumberRequest
+ */
+- (AWSTask *)releasePhoneNumber:(AWSConnectReleasePhoneNumberRequest *)request;
+
+/**
+ <p>Releases a phone number previously claimed to an Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ReleasePhoneNumber service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceInUse`, `AWSConnectErrorIdempotency`, `AWSConnectErrorAccessDenied`.
+ 
+ @see AWSConnectReleasePhoneNumberRequest
+ */
+- (void)releasePhoneNumber:(AWSConnectReleasePhoneNumberRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
  <p>When a contact is being recorded, and the recording has been suspended using SuspendContactRecording, this API resumes recording the call.</p><p>Only voice recordings are supported at this time.</p>
  
  @param request A container for the necessary parameters to execute the ResumeContactRecording service method.
@@ -2379,6 +2545,56 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectResumeContactRecordingResponse
  */
 - (void)resumeContactRecording:(AWSConnectResumeContactRecordingRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectResumeContactRecordingResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Searches for available phone numbers that you can claim to your Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the SearchAvailablePhoneNumbers service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectSearchAvailablePhoneNumbersResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorAccessDenied`.
+ 
+ @see AWSConnectSearchAvailablePhoneNumbersRequest
+ @see AWSConnectSearchAvailablePhoneNumbersResponse
+ */
+- (AWSTask<AWSConnectSearchAvailablePhoneNumbersResponse *> *)searchAvailablePhoneNumbers:(AWSConnectSearchAvailablePhoneNumbersRequest *)request;
+
+/**
+ <p>Searches for available phone numbers that you can claim to your Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the SearchAvailablePhoneNumbers service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorAccessDenied`.
+ 
+ @see AWSConnectSearchAvailablePhoneNumbersRequest
+ @see AWSConnectSearchAvailablePhoneNumbersResponse
+ */
+- (void)searchAvailablePhoneNumbers:(AWSConnectSearchAvailablePhoneNumbersRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectSearchAvailablePhoneNumbersResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Searches users in an Amazon Connect instance, with optional filtering.</p>
+ 
+ @param request A container for the necessary parameters to execute the SearchUsers service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectSearchUsersResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectSearchUsersRequest
+ @see AWSConnectSearchUsersResponse
+ */
+- (AWSTask<AWSConnectSearchUsersResponse *> *)searchUsers:(AWSConnectSearchUsersRequest *)request;
+
+/**
+ <p>Searches users in an Amazon Connect instance, with optional filtering.</p>
+ 
+ @param request A container for the necessary parameters to execute the SearchUsers service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectSearchUsersRequest
+ @see AWSConnectSearchUsersResponse
+ */
+- (void)searchUsers:(AWSConnectSearchUsersRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectSearchUsersResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Searches for vocabularies within a specific Amazon Connect instance using <code>State</code>, <code>NameStartsWith</code>, and <code>LanguageCode</code>.</p>
@@ -2631,7 +2847,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)suspendContactRecording:(AWSConnectSuspendContactRecordingRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectSuspendContactRecordingResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Adds the specified tags to the specified resource.</p><p>The supported resource types are users, routing profiles, queues, quick connects, contact flows, agent status, and hours of operation.</p><p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ <p>Adds the specified tags to the specified resource.</p><p>The supported resource types are users, routing profiles, queues, quick connects, contact flows, agent status, hours of operation, and phone number.</p><p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the TagResource service method.
 
@@ -2642,7 +2858,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask *)tagResource:(AWSConnectTagResourceRequest *)request;
 
 /**
- <p>Adds the specified tags to the specified resource.</p><p>The supported resource types are users, routing profiles, queues, quick connects, contact flows, agent status, and hours of operation.</p><p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ <p>Adds the specified tags to the specified resource.</p><p>The supported resource types are users, routing profiles, queues, quick connects, contact flows, agent status, hours of operation, and phone number.</p><p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the TagResource service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2952,6 +3168,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectUpdateInstanceStorageConfigRequest
  */
 - (void)updateInstanceStorageConfig:(AWSConnectUpdateInstanceStorageConfigRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Updates your claimed phone number from its current Amazon Connect instance to another Amazon Connect instance in the same Region.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdatePhoneNumber service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectUpdatePhoneNumberResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceInUse`, `AWSConnectErrorIdempotency`, `AWSConnectErrorAccessDenied`.
+ 
+ @see AWSConnectUpdatePhoneNumberRequest
+ @see AWSConnectUpdatePhoneNumberResponse
+ */
+- (AWSTask<AWSConnectUpdatePhoneNumberResponse *> *)updatePhoneNumber:(AWSConnectUpdatePhoneNumberRequest *)request;
+
+/**
+ <p>Updates your claimed phone number from its current Amazon Connect instance to another Amazon Connect instance in the same Region.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdatePhoneNumber service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceInUse`, `AWSConnectErrorIdempotency`, `AWSConnectErrorAccessDenied`.
+ 
+ @see AWSConnectUpdatePhoneNumberRequest
+ @see AWSConnectUpdatePhoneNumberResponse
+ */
+- (void)updatePhoneNumber:(AWSConnectUpdatePhoneNumberRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectUpdatePhoneNumberResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates the hours of operation for the specified queue.</p>

@@ -145,6 +145,12 @@ typedef NS_ENUM(NSInteger, AWSConnectGrouping) {
     AWSConnectGroupingChannel,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectHierarchyGroupMatchType) {
+    AWSConnectHierarchyGroupMatchTypeUnknown,
+    AWSConnectHierarchyGroupMatchTypeExact,
+    AWSConnectHierarchyGroupMatchTypeWithChildGroups,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectHistoricalMetricName) {
     AWSConnectHistoricalMetricNameUnknown,
     AWSConnectHistoricalMetricNameContactsQueued,
@@ -477,6 +483,13 @@ typedef NS_ENUM(NSInteger, AWSConnectPhoneNumberType) {
     AWSConnectPhoneNumberTypeDid,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectPhoneNumberWorkflowStatus) {
+    AWSConnectPhoneNumberWorkflowStatusUnknown,
+    AWSConnectPhoneNumberWorkflowStatusClaimed,
+    AWSConnectPhoneNumberWorkflowStatusInProgress,
+    AWSConnectPhoneNumberWorkflowStatusFailed,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectPhoneType) {
     AWSConnectPhoneTypeUnknown,
     AWSConnectPhoneTypeSoftPhone,
@@ -544,6 +557,13 @@ typedef NS_ENUM(NSInteger, AWSConnectStorageType) {
     AWSConnectStorageTypeKinesisVideoStream,
     AWSConnectStorageTypeKinesisStream,
     AWSConnectStorageTypeKinesisFirehose,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectStringComparisonType) {
+    AWSConnectStringComparisonTypeUnknown,
+    AWSConnectStringComparisonTypeStartsWith,
+    AWSConnectStringComparisonTypeContains,
+    AWSConnectStringComparisonTypeExact,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectTrafficType) {
@@ -617,19 +637,25 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectAssociateInstanceStorageConfigResponse;
 @class AWSConnectAssociateLambdaFunctionRequest;
 @class AWSConnectAssociateLexBotRequest;
+@class AWSConnectAssociatePhoneNumberContactFlowRequest;
 @class AWSConnectAssociateQueueQuickConnectsRequest;
 @class AWSConnectAssociateRoutingProfileQueuesRequest;
 @class AWSConnectAssociateSecurityKeyRequest;
 @class AWSConnectAssociateSecurityKeyResponse;
 @class AWSConnectAttachmentReference;
 @class AWSConnectAttribute;
+@class AWSConnectAvailableNumberSummary;
 @class AWSConnectChatMessage;
 @class AWSConnectChatStreamingConfiguration;
+@class AWSConnectClaimPhoneNumberRequest;
+@class AWSConnectClaimPhoneNumberResponse;
+@class AWSConnectClaimedPhoneNumberSummary;
 @class AWSConnectContact;
 @class AWSConnectContactFlow;
 @class AWSConnectContactFlowModule;
 @class AWSConnectContactFlowModuleSummary;
 @class AWSConnectContactFlowSummary;
+@class AWSConnectControlPlaneTagFilter;
 @class AWSConnectCreateAgentStatusRequest;
 @class AWSConnectCreateAgentStatusResponse;
 @class AWSConnectCreateContactFlowModuleRequest;
@@ -692,6 +718,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDescribeInstanceResponse;
 @class AWSConnectDescribeInstanceStorageConfigRequest;
 @class AWSConnectDescribeInstanceStorageConfigResponse;
+@class AWSConnectDescribePhoneNumberRequest;
+@class AWSConnectDescribePhoneNumberResponse;
 @class AWSConnectDescribeQueueRequest;
 @class AWSConnectDescribeQueueResponse;
 @class AWSConnectDescribeQuickConnectRequest;
@@ -714,6 +742,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDisassociateInstanceStorageConfigRequest;
 @class AWSConnectDisassociateLambdaFunctionRequest;
 @class AWSConnectDisassociateLexBotRequest;
+@class AWSConnectDisassociatePhoneNumberContactFlowRequest;
 @class AWSConnectDisassociateQueueQuickConnectsRequest;
 @class AWSConnectDisassociateRoutingProfileQueuesRequest;
 @class AWSConnectDisassociateSecurityKeyRequest;
@@ -728,6 +757,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectGetMetricDataRequest;
 @class AWSConnectGetMetricDataResponse;
 @class AWSConnectHierarchyGroup;
+@class AWSConnectHierarchyGroupCondition;
 @class AWSConnectHierarchyGroupSummary;
 @class AWSConnectHierarchyLevel;
 @class AWSConnectHierarchyLevelUpdate;
@@ -782,6 +812,9 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectListLexBotsResponse;
 @class AWSConnectListPhoneNumbersRequest;
 @class AWSConnectListPhoneNumbersResponse;
+@class AWSConnectListPhoneNumbersSummary;
+@class AWSConnectListPhoneNumbersV2Request;
+@class AWSConnectListPhoneNumbersV2Response;
 @class AWSConnectListPromptsRequest;
 @class AWSConnectListPromptsResponse;
 @class AWSConnectListQueueQuickConnectsRequest;
@@ -812,9 +845,12 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectOutboundCallerConfig;
 @class AWSConnectParticipantDetails;
 @class AWSConnectPhoneNumberQuickConnectConfig;
+@class AWSConnectPhoneNumberStatus;
 @class AWSConnectPhoneNumberSummary;
 @class AWSConnectProblemDetail;
 @class AWSConnectPromptSummary;
+@class AWSConnectPutUserStatusRequest;
+@class AWSConnectPutUserStatusResponse;
 @class AWSConnectQueue;
 @class AWSConnectQueueInfo;
 @class AWSConnectQueueQuickConnectConfig;
@@ -825,6 +861,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectQuickConnectSummary;
 @class AWSConnectReference;
 @class AWSConnectReferenceSummary;
+@class AWSConnectReleasePhoneNumberRequest;
 @class AWSConnectResumeContactRecordingRequest;
 @class AWSConnectResumeContactRecordingResponse;
 @class AWSConnectRoutingProfile;
@@ -833,6 +870,10 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectRoutingProfileQueueReference;
 @class AWSConnectRoutingProfileSummary;
 @class AWSConnectS3Config;
+@class AWSConnectSearchAvailablePhoneNumbersRequest;
+@class AWSConnectSearchAvailablePhoneNumbersResponse;
+@class AWSConnectSearchUsersRequest;
+@class AWSConnectSearchUsersResponse;
 @class AWSConnectSearchVocabulariesRequest;
 @class AWSConnectSearchVocabulariesResponse;
 @class AWSConnectSecurityKey;
@@ -854,8 +895,10 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectStopContactResponse;
 @class AWSConnectStopContactStreamingRequest;
 @class AWSConnectStopContactStreamingResponse;
+@class AWSConnectStringCondition;
 @class AWSConnectSuspendContactRecordingRequest;
 @class AWSConnectSuspendContactRecordingResponse;
+@class AWSConnectTagCondition;
 @class AWSConnectTagResourceRequest;
 @class AWSConnectThreshold;
 @class AWSConnectUntagResourceRequest;
@@ -876,6 +919,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectUpdateHoursOfOperationRequest;
 @class AWSConnectUpdateInstanceAttributeRequest;
 @class AWSConnectUpdateInstanceStorageConfigRequest;
+@class AWSConnectUpdatePhoneNumberRequest;
+@class AWSConnectUpdatePhoneNumberResponse;
 @class AWSConnectUpdateQueueHoursOfOperationRequest;
 @class AWSConnectUpdateQueueMaxContactsRequest;
 @class AWSConnectUpdateQueueNameRequest;
@@ -899,8 +944,12 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectUseCase;
 @class AWSConnectUser;
 @class AWSConnectUserIdentityInfo;
+@class AWSConnectUserIdentityInfoLite;
 @class AWSConnectUserPhoneConfig;
 @class AWSConnectUserQuickConnectConfig;
+@class AWSConnectUserSearchCriteria;
+@class AWSConnectUserSearchFilter;
+@class AWSConnectUserSearchSummary;
 @class AWSConnectUserSummary;
 @class AWSConnectVocabulary;
 @class AWSConnectVocabularySummary;
@@ -1165,6 +1214,29 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectAssociatePhoneNumberContactFlowRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the contact flow.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactFlowId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>A unique identifier for the phone number.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumberId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectAssociateQueueQuickConnectsRequest : AWSRequest
 
 
@@ -1281,6 +1353,29 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>Information about available phone numbers.</p>
+ */
+@interface AWSConnectAvailableNumberSummary : AWSModel
+
+
+/**
+ <p>The phone number. Phone numbers are formatted <code>[+] [country code] [subscriber number including area code]</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumber;
+
+/**
+ <p>The ISO country code.</p>
+ */
+@property (nonatomic, assign) AWSConnectPhoneNumberCountryCode phoneNumberCountryCode;
+
+/**
+ <p>The type of phone number.</p>
+ */
+@property (nonatomic, assign) AWSConnectPhoneNumberType phoneNumberType;
+
+@end
+
+/**
  <p>A chat message.</p>
  Required parameters: [ContentType, Content]
  */
@@ -1310,6 +1405,110 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The Amazon Resource Name (ARN) of the standard Amazon SNS topic. The Amazon Resource Name (ARN) of the streaming endpoint that is used to publish real-time message streaming for chat conversations.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable streamingEndpointArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectClaimPhoneNumberRequest : AWSRequest
+
+
+/**
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>The phone number you want to claim. Phone numbers are formatted <code>[+] [country code] [subscriber number including area code]</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumber;
+
+/**
+ <p>The description of the phone number.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumberDescription;
+
+/**
+ <p>The tags used to organize, track, or control access for this resource.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+/**
+ <p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable targetArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectClaimPhoneNumberResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the phone number.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumberArn;
+
+/**
+ <p>A unique identifier for the phone number.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumberId;
+
+@end
+
+/**
+ <p>Information about a phone number that has been claimed to your Amazon Connect instance.</p>
+ */
+@interface AWSConnectClaimedPhoneNumberSummary : AWSModel
+
+
+/**
+ <p>The phone number. Phone numbers are formatted <code>[+] [country code] [subscriber number including area code]</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumber;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the phone number.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumberArn;
+
+/**
+ <p>The ISO country code.</p>
+ */
+@property (nonatomic, assign) AWSConnectPhoneNumberCountryCode phoneNumberCountryCode;
+
+/**
+ <p>The description of the phone number.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumberDescription;
+
+/**
+ <p>A unique identifier for the phone number.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumberId;
+
+/**
+ <p>The status of the phone number.</p>
+ */
+@property (nonatomic, strong) AWSConnectPhoneNumberStatus * _Nullable phoneNumberStatus;
+
+/**
+ <p>The type of phone number.</p>
+ */
+@property (nonatomic, assign) AWSConnectPhoneNumberType phoneNumberType;
+
+/**
+ <p>The tags used to organize, track, or control access for this resource.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+/**
+ <p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable targetArn;
 
 @end
 
@@ -1545,6 +1744,29 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The name of the contact flow.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p><ul><li><p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p></li><li><p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p></li></ul>
+ */
+@interface AWSConnectControlPlaneTagFilter : AWSModel
+
+
+/**
+ <p>A list of conditions which would be applied together with an <code>AND</code> condition.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectTagCondition *> * _Nullable andConditions;
+
+/**
+ <p>A list of conditions which would be applied together with an <code>OR</code> condition. </p>
+ */
+@property (nonatomic, strong) NSArray<NSArray<AWSConnectTagCondition *> *> * _Nullable orConditions;
+
+/**
+ <p>A leaf node condition which can be used to specify a tag condition. </p>
+ */
+@property (nonatomic, strong) AWSConnectTagCondition * _Nullable tagCondition;
 
 @end
 
@@ -2938,6 +3160,32 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectDescribePhoneNumberRequest : AWSRequest
+
+
+/**
+ <p>A unique identifier for the phone number.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumberId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDescribePhoneNumberResponse : AWSModel
+
+
+/**
+ <p>Information about a phone number that's been claimed to your Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) AWSConnectClaimedPhoneNumberSummary * _Nullable claimedPhoneNumberSummary;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectDescribeQueueRequest : AWSRequest
 
 
@@ -3304,6 +3552,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectDisassociatePhoneNumberContactFlowRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>A unique identifier for the phone number.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumberId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectDisassociateQueueQuickConnectsRequest : AWSRequest
 
 
@@ -3621,6 +3887,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The tags used to organize, track, or control access for this resource.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
+ */
+@interface AWSConnectHierarchyGroupCondition : AWSModel
+
+
+/**
+ <p>The type of hierarchy group match.</p>
+ */
+@property (nonatomic, assign) AWSConnectHierarchyGroupMatchType hierarchyGroupMatchType;
+
+/**
+ <p>The value in the hierarchy group condition.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable value;
 
 @end
 
@@ -4929,6 +5213,100 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>Information about phone numbers that have been claimed to your Amazon Connect instance.</p>
+ */
+@interface AWSConnectListPhoneNumbersSummary : AWSModel
+
+
+/**
+ <p>The phone number. Phone numbers are formatted <code>[+] [country code] [subscriber number including area code]</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumber;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the phone number.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumberArn;
+
+/**
+ <p>The ISO country code.</p>
+ */
+@property (nonatomic, assign) AWSConnectPhoneNumberCountryCode phoneNumberCountryCode;
+
+/**
+ <p>A unique identifier for the phone number.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumberId;
+
+/**
+ <p>The type of phone number.</p>
+ */
+@property (nonatomic, assign) AWSConnectPhoneNumberType phoneNumberType;
+
+/**
+ <p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable targetArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListPhoneNumbersV2Request : AWSRequest
+
+
+/**
+ <p>The maximum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The ISO country code.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable phoneNumberCountryCodes;
+
+/**
+ <p>The prefix of the phone number. If provided, it must contain <code>+</code> as part of the country code.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumberPrefix;
+
+/**
+ <p>The type of phone number.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable phoneNumberTypes;
+
+/**
+ <p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to. If <code>TargetArn</code> input is not provided, this API lists numbers claimed to all the Amazon Connect instances belonging to your account.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable targetArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListPhoneNumbersV2Response : AWSModel
+
+
+/**
+ <p>Information about phone numbers that have been claimed to your Amazon Connect instances.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectListPhoneNumbersSummary *> * _Nullable listPhoneNumbersSummaryList;
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
  
  */
 @interface AWSConnectListPromptsRequest : AWSRequest
@@ -5548,6 +5926,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>The status of the phone number.</p>
+ */
+@interface AWSConnectPhoneNumberStatus : AWSModel
+
+
+/**
+ <p>The status message.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable message;
+
+/**
+ <p>The status.</p>
+ */
+@property (nonatomic, assign) AWSConnectPhoneNumberWorkflowStatus status;
+
+@end
+
+/**
  <p>Contains summary information about a phone number for a contact center.</p>
  */
 @interface AWSConnectPhoneNumberSummary : AWSModel
@@ -5613,6 +6009,37 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The name of the prompt.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectPutUserStatusRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the agent status.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable agentStatusId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier of the user.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectPutUserStatusResponse : AWSModel
+
 
 @end
 
@@ -5887,6 +6314,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectReleasePhoneNumberRequest : AWSRequest
+
+
+/**
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>A unique identifier for the phone number.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumberId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectResumeContactRecordingRequest : AWSRequest
 
 
@@ -6089,6 +6534,118 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The Amazon S3 encryption configuration.</p>
  */
 @property (nonatomic, strong) AWSConnectEncryptionConfig * _Nullable encryptionConfig;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectSearchAvailablePhoneNumbersRequest : AWSRequest
+
+
+/**
+ <p>The maximum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The ISO country code.</p>
+ */
+@property (nonatomic, assign) AWSConnectPhoneNumberCountryCode phoneNumberCountryCode;
+
+/**
+ <p>The prefix of the phone number. If provided, it must contain <code>+</code> as part of the country code.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumberPrefix;
+
+/**
+ <p>The type of phone number.</p>
+ */
+@property (nonatomic, assign) AWSConnectPhoneNumberType phoneNumberType;
+
+/**
+ <p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable targetArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectSearchAvailablePhoneNumbersResponse : AWSModel
+
+
+/**
+ <p>A list of available phone numbers that you can claim for your Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectAvailableNumberSummary *> * _Nullable availableNumbersList;
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectSearchUsersRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The search criteria to be used to return users.</p>
+ */
+@property (nonatomic, strong) AWSConnectUserSearchCriteria * _Nullable searchCriteria;
+
+/**
+ <p>Filters to be applied to search results.</p>
+ */
+@property (nonatomic, strong) AWSConnectUserSearchFilter * _Nullable searchFilter;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectSearchUsersResponse : AWSModel
+
+
+/**
+ <p>The total number of users who matched your search query.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable approximateTotalCount;
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Information about the users.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectUserSearchSummary *> * _Nullable users;
 
 @end
 
@@ -6606,6 +7163,29 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>A leaf node condition which can be used to specify a string condition, for example, <code>username = 'abc'</code>. </p>
+ */
+@interface AWSConnectStringCondition : AWSModel
+
+
+/**
+ <p>The type of comparison to be made when evaluating the string condition.</p>
+ */
+@property (nonatomic, assign) AWSConnectStringComparisonType comparisonType;
+
+/**
+ <p>The name of the field in the string condition.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable fieldName;
+
+/**
+ <p>The value of the string.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable value;
+
+@end
+
+/**
  
  */
 @interface AWSConnectSuspendContactRecordingRequest : AWSRequest
@@ -6633,6 +7213,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  */
 @interface AWSConnectSuspendContactRecordingResponse : AWSModel
 
+
+@end
+
+/**
+ <p>A leaf node condition which can be used to specify a tag condition, for example, <code>HAVE BPO = 123</code>. </p>
+ */
+@interface AWSConnectTagCondition : AWSModel
+
+
+/**
+ <p>The tag key in the tag condition.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tagKey;
+
+/**
+ <p>The tag value in the tag condition.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tagValue;
 
 @end
 
@@ -7078,6 +7676,47 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The storage configuration for the instance.</p>
  */
 @property (nonatomic, strong) AWSConnectInstanceStorageConfig * _Nullable storageConfig;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdatePhoneNumberRequest : AWSRequest
+
+
+/**
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>A unique identifier for the phone number.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumberId;
+
+/**
+ <p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable targetArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdatePhoneNumberResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the phone number.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumberArn;
+
+/**
+ <p>A unique identifier for the phone number.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumberId;
 
 @end
 
@@ -7656,6 +8295,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>The user's first name and last name.</p>
+ */
+@interface AWSConnectUserIdentityInfoLite : AWSModel
+
+
+/**
+ <p>The user's first name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable firstName;
+
+/**
+ <p>The user's last name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastName;
+
+@end
+
+/**
  <p>Contains information about the phone configuration settings for a user.</p>
  Required parameters: [PhoneType]
  */
@@ -7700,6 +8357,105 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The identifier of the user.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userId;
+
+@end
+
+/**
+ <p>The search criteria to be used to return users.</p>
+ */
+@interface AWSConnectUserSearchCriteria : AWSModel
+
+
+/**
+ <p>A list of conditions which would be applied together with an <code>AND</code> condition. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectUserSearchCriteria *> * _Nullable andConditions;
+
+/**
+ <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
+ */
+@property (nonatomic, strong) AWSConnectHierarchyGroupCondition * _Nullable hierarchyGroupCondition;
+
+/**
+ <p>A list of conditions which would be applied together with an <code>OR</code> condition.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectUserSearchCriteria *> * _Nullable orConditions;
+
+/**
+ <p>A leaf node condition which can be used to specify a string condition.</p>
+ */
+@property (nonatomic, strong) AWSConnectStringCondition * _Nullable stringCondition;
+
+@end
+
+/**
+ <p>Filters to be applied to search results.</p>
+ */
+@interface AWSConnectUserSearchFilter : AWSModel
+
+
+/**
+ <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p><ul><li><p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p></li><li><p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p></li></ul>
+ */
+@property (nonatomic, strong) AWSConnectControlPlaneTagFilter * _Nullable tagFilter;
+
+@end
+
+/**
+ <p>Information about the returned users.</p>
+ */
+@interface AWSConnectUserSearchSummary : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the user.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
+ <p>The directory identifier of the user.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable directoryUserId;
+
+/**
+ <p>The identifier of the user's hierarchy group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable hierarchyGroupId;
+
+/**
+ <p>The identifier of the user's summary.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The user's first name and last name.</p>
+ */
+@property (nonatomic, strong) AWSConnectUserIdentityInfoLite * _Nullable identityInfo;
+
+/**
+ <p>Contains information about the phone configuration settings for a user.</p>
+ */
+@property (nonatomic, strong) AWSConnectUserPhoneConfig * _Nullable phoneConfig;
+
+/**
+ <p>The identifier of the user's routing profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable routingProfileId;
+
+/**
+ <p>The identifiers of the user's security profiles.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable securityProfileIds;
+
+/**
+ <p>The tags used to organize, track, or control access for this resource.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+/**
+ <p>The name of the user.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable username;
 
 @end
 
