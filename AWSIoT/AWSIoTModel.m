@@ -8096,6 +8096,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"detail" : @"description",
              @"documentParameters" : @"documentParameters",
              @"forceCanceled" : @"forceCanceled",
+             @"isConcurrent" : @"isConcurrent",
              @"jobArn" : @"jobArn",
              @"jobExecutionsRetryConfig" : @"jobExecutionsRetryConfig",
              @"jobExecutionsRolloutConfig" : @"jobExecutionsRolloutConfig",
@@ -8533,6 +8534,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 	return @{
              @"completedAt" : @"completedAt",
              @"createdAt" : @"createdAt",
+             @"isConcurrent" : @"isConcurrent",
              @"jobArn" : @"jobArn",
              @"jobId" : @"jobId",
              @"lastUpdatedAt" : @"lastUpdatedAt",

@@ -8533,6 +8533,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSNumber * _Nullable forceCanceled;
 
 /**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable isConcurrent;
+
+/**
  <p>An ARN identifying the job with format "arn:aws:iot:region:account:job/jobId".</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobArn;
@@ -8854,6 +8859,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The time, in seconds since the epoch, when the job was created.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable createdAt;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable isConcurrent;
 
 /**
  <p>The job ARN.</p>
