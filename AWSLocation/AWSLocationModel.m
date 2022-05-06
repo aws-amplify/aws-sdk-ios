@@ -2417,6 +2417,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"collectionName" : @"CollectionName",
+             @"maxResults" : @"MaxResults",
              @"nextToken" : @"NextToken",
              };
 }
