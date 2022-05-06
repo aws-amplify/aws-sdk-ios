@@ -4,6 +4,11 @@
 
 -Features for next release
 
+- **AWSS3**
+
+  - fix: Reduces memory use for multipart uploads with `@autoreleasepool` to prevent excessive memory allocation (See [PR #4129](https://github.com/aws-amplify/aws-sdk-ios/pull/4129))
+
+
 ## 2.27.8
 
 ### Bug Fixes

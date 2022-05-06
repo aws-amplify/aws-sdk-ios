@@ -1367,36 +1367,38 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         return nil;
     }
     NSUInteger remaining = length;
-    NSData *data;
 
     while (remaining > 0) {
-        NSUInteger bufferSize = MIN(remaining, AWSS3TransferUtilityMultiPartSize);
+        @autoreleasepool {
+            NSData *data;
+            NSUInteger bufferSize = MIN(remaining, AWSS3TransferUtilityMultiPartSize);
 
-        // Read data
-        if (@available(iOS 13.0, *)) {
-            data = [readFileHandle readDataUpToLength:bufferSize error:error];
-        } else {
-            data = [readFileHandle readDataOfLength:bufferSize];
-        }
-        if (*error) {
-            break;
-        }
+            // Read data
+            if (@available(iOS 13.0, *)) {
+                data = [readFileHandle readDataUpToLength:bufferSize error:error];
+            } else {
+                data = [readFileHandle readDataOfLength:bufferSize];
+            }
+            if (*error) {
+                break;
+            }
 
-        // Write data
-        if (@available(iOS 13.0, *)) {
-            [writeFileHandle writeData:data error:error];
-        } else {
-            [writeFileHandle writeData:data];
+            // Write data
+            if (@available(iOS 13.0, *)) {
+                [writeFileHandle writeData:data error:error];
+            } else {
+                [writeFileHandle writeData:data];
+            }
+            if (*error) {
+                break;
+            }
+            remaining -= bufferSize;
+            data = nil;
         }
-        if (*error) {
-            break;
-        }
-        remaining -= bufferSize;
     }
 
     [readFileHandle closeFile];
     [writeFileHandle closeFile];
-    data = nil;
 
     if (*error) {
         AWSDDLogError(@"Error while creating temporary file for partial file: %@", fileURL);
