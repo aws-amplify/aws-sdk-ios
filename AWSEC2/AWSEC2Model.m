@@ -53322,6 +53322,15 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"delete-failed"] == NSOrderedSame) {
             return @(AWSEC2IpamStateDeleteFailed);
         }
+        if ([value caseInsensitiveCompare:@"isolate-in-progress"] == NSOrderedSame) {
+            return @(AWSEC2IpamStateIsolateInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"isolate-complete"] == NSOrderedSame) {
+            return @(AWSEC2IpamStateIsolateComplete);
+        }
+        if ([value caseInsensitiveCompare:@"restore-in-progress"] == NSOrderedSame) {
+            return @(AWSEC2IpamStateRestoreInProgress);
+        }
         return @(AWSEC2IpamStateUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -53343,6 +53352,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"delete-complete";
             case AWSEC2IpamStateDeleteFailed:
                 return @"delete-failed";
+            case AWSEC2IpamStateIsolateInProgress:
+                return @"isolate-in-progress";
+            case AWSEC2IpamStateIsolateComplete:
+                return @"isolate-complete";
+            case AWSEC2IpamStateRestoreInProgress:
+                return @"restore-in-progress";
             default:
                 return nil;
         }
@@ -53641,6 +53656,15 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"delete-failed"] == NSOrderedSame) {
             return @(AWSEC2IpamPoolStateDeleteFailed);
         }
+        if ([value caseInsensitiveCompare:@"isolate-in-progress"] == NSOrderedSame) {
+            return @(AWSEC2IpamPoolStateIsolateInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"isolate-complete"] == NSOrderedSame) {
+            return @(AWSEC2IpamPoolStateIsolateComplete);
+        }
+        if ([value caseInsensitiveCompare:@"restore-in-progress"] == NSOrderedSame) {
+            return @(AWSEC2IpamPoolStateRestoreInProgress);
+        }
         return @(AWSEC2IpamPoolStateUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -53662,6 +53686,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"delete-complete";
             case AWSEC2IpamPoolStateDeleteFailed:
                 return @"delete-failed";
+            case AWSEC2IpamPoolStateIsolateInProgress:
+                return @"isolate-in-progress";
+            case AWSEC2IpamPoolStateIsolateComplete:
+                return @"isolate-complete";
+            case AWSEC2IpamPoolStateRestoreInProgress:
+                return @"restore-in-progress";
             default:
                 return nil;
         }
@@ -54065,6 +54095,15 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"delete-failed"] == NSOrderedSame) {
             return @(AWSEC2IpamScopeStateDeleteFailed);
         }
+        if ([value caseInsensitiveCompare:@"isolate-in-progress"] == NSOrderedSame) {
+            return @(AWSEC2IpamScopeStateIsolateInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"isolate-complete"] == NSOrderedSame) {
+            return @(AWSEC2IpamScopeStateIsolateComplete);
+        }
+        if ([value caseInsensitiveCompare:@"restore-in-progress"] == NSOrderedSame) {
+            return @(AWSEC2IpamScopeStateRestoreInProgress);
+        }
         return @(AWSEC2IpamScopeStateUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -54086,6 +54125,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"delete-complete";
             case AWSEC2IpamScopeStateDeleteFailed:
                 return @"delete-failed";
+            case AWSEC2IpamScopeStateIsolateInProgress:
+                return @"isolate-in-progress";
+            case AWSEC2IpamScopeStateIsolateComplete:
+                return @"isolate-complete";
+            case AWSEC2IpamScopeStateRestoreInProgress:
+                return @"restore-in-progress";
             default:
                 return nil;
         }

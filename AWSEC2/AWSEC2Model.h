@@ -1531,6 +1531,9 @@ typedef NS_ENUM(NSInteger, AWSEC2IpamPoolState) {
     AWSEC2IpamPoolStateDeleteInProgress,
     AWSEC2IpamPoolStateDeleteComplete,
     AWSEC2IpamPoolStateDeleteFailed,
+    AWSEC2IpamPoolStateIsolateInProgress,
+    AWSEC2IpamPoolStateIsolateComplete,
+    AWSEC2IpamPoolStateRestoreInProgress,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2IpamResourceType) {
@@ -1553,6 +1556,9 @@ typedef NS_ENUM(NSInteger, AWSEC2IpamScopeState) {
     AWSEC2IpamScopeStateDeleteInProgress,
     AWSEC2IpamScopeStateDeleteComplete,
     AWSEC2IpamScopeStateDeleteFailed,
+    AWSEC2IpamScopeStateIsolateInProgress,
+    AWSEC2IpamScopeStateIsolateComplete,
+    AWSEC2IpamScopeStateRestoreInProgress,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2IpamScopeType) {
@@ -1572,6 +1578,9 @@ typedef NS_ENUM(NSInteger, AWSEC2IpamState) {
     AWSEC2IpamStateDeleteInProgress,
     AWSEC2IpamStateDeleteComplete,
     AWSEC2IpamStateDeleteFailed,
+    AWSEC2IpamStateIsolateInProgress,
+    AWSEC2IpamStateIsolateComplete,
+    AWSEC2IpamStateRestoreInProgress,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2Ipv6SupportValue) {

@@ -32020,7 +32020,10 @@
         \"modify-failed\",\
         \"delete-in-progress\",\
         \"delete-complete\",\
-        \"delete-failed\"\
+        \"delete-failed\",\
+        \"isolate-in-progress\",\
+        \"isolate-complete\",\
+        \"restore-in-progress\"\
       ]\
     },\
     \"IpamResourceCidr\":{\
@@ -32224,7 +32227,10 @@
         \"modify-failed\",\
         \"delete-in-progress\",\
         \"delete-complete\",\
-        \"delete-failed\"\
+        \"delete-failed\",\
+        \"isolate-in-progress\",\
+        \"isolate-complete\",\
+        \"restore-in-progress\"\
       ]\
     },\
     \"IpamScopeType\":{\
@@ -32252,7 +32258,10 @@
         \"modify-failed\",\
         \"delete-in-progress\",\
         \"delete-complete\",\
-        \"delete-failed\"\
+        \"delete-failed\",\
+        \"isolate-in-progress\",\
+        \"isolate-complete\",\
+        \"restore-in-progress\"\
       ]\
     },\
     \"Ipv4PoolCoipId\":{\"type\":\"string\"},\
