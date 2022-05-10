@@ -1991,23 +1991,28 @@ didCompleteWithError:(NSError *)error {
         else {
             HTTPResponse = (NSHTTPURLResponse *) task.response;
             userInfo = [NSMutableDictionary dictionaryWithDictionary:[HTTPResponse allHeaderFields]];
+            userInfo[@"HTTPStatusCode"] = @(HTTPResponse.statusCode);
+            userInfo[NSLocalizedFailureReasonErrorKey] = [NSHTTPURLResponse localizedStringForStatusCode:HTTPResponse.statusCode];
         }
     
         if (!error) {
             if (HTTPResponse.statusCode / 100 == 3
                 && HTTPResponse.statusCode != 304) { // 304 Not Modified is a valid response.
+                userInfo[NSLocalizedDescriptionKey] = @"Redirection";
                 error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
                                             code:AWSS3TransferUtilityErrorRedirection
                                         userInfo:userInfo];
             }
             
             if (HTTPResponse.statusCode / 100 == 4) {
+                userInfo[NSLocalizedDescriptionKey] = @"Client Error";
                 error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
                                             code:AWSS3TransferUtilityErrorClientError
                                         userInfo:userInfo];
             }
             
             if (HTTPResponse.statusCode / 100 == 5) {
+                userInfo[NSLocalizedDescriptionKey] = @"Server Error";
                 error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
                                             code:AWSS3TransferUtilityErrorServerError
                                         userInfo:userInfo];
