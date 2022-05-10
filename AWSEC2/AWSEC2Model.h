@@ -792,6 +792,8 @@ typedef NS_ENUM(NSInteger, AWSEC2ImageAttributeName) {
     AWSEC2ImageAttributeNameBlockDeviceMapping,
     AWSEC2ImageAttributeNameSriovNetSupport,
     AWSEC2ImageAttributeNameBootMode,
+    AWSEC2ImageAttributeNameTpmSupport,
+    AWSEC2ImageAttributeNameUefiData,
     AWSEC2ImageAttributeNameLastLaunchedTime,
 };
 
@@ -1531,6 +1533,9 @@ typedef NS_ENUM(NSInteger, AWSEC2IpamPoolState) {
     AWSEC2IpamPoolStateDeleteInProgress,
     AWSEC2IpamPoolStateDeleteComplete,
     AWSEC2IpamPoolStateDeleteFailed,
+    AWSEC2IpamPoolStateIsolateInProgress,
+    AWSEC2IpamPoolStateIsolateComplete,
+    AWSEC2IpamPoolStateRestoreInProgress,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2IpamResourceType) {
@@ -1553,6 +1558,9 @@ typedef NS_ENUM(NSInteger, AWSEC2IpamScopeState) {
     AWSEC2IpamScopeStateDeleteInProgress,
     AWSEC2IpamScopeStateDeleteComplete,
     AWSEC2IpamScopeStateDeleteFailed,
+    AWSEC2IpamScopeStateIsolateInProgress,
+    AWSEC2IpamScopeStateIsolateComplete,
+    AWSEC2IpamScopeStateRestoreInProgress,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2IpamScopeType) {
@@ -1572,6 +1580,9 @@ typedef NS_ENUM(NSInteger, AWSEC2IpamState) {
     AWSEC2IpamStateDeleteInProgress,
     AWSEC2IpamStateDeleteComplete,
     AWSEC2IpamStateDeleteFailed,
+    AWSEC2IpamStateIsolateInProgress,
+    AWSEC2IpamStateIsolateComplete,
+    AWSEC2IpamStateRestoreInProgress,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2Ipv6SupportValue) {
@@ -2283,6 +2294,11 @@ typedef NS_ENUM(NSInteger, AWSEC2TieringOperationStatus) {
     AWSEC2TieringOperationStatusPermanentRestoreInProgress,
     AWSEC2TieringOperationStatusPermanentRestoreCompleted,
     AWSEC2TieringOperationStatusPermanentRestoreFailed,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2TpmSupportValues) {
+    AWSEC2TpmSupportValuesUnknown,
+    AWSEC2TpmSupportValuesV20,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2TrafficDirection) {
@@ -3512,6 +3528,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2GetHostReservationPurchasePreviewResult;
 @class AWSEC2GetInstanceTypesFromInstanceRequirementsRequest;
 @class AWSEC2GetInstanceTypesFromInstanceRequirementsResult;
+@class AWSEC2GetInstanceUefiDataRequest;
+@class AWSEC2GetInstanceUefiDataResult;
 @class AWSEC2GetIpamAddressHistoryRequest;
 @class AWSEC2GetIpamAddressHistoryResult;
 @class AWSEC2GetIpamPoolAllocationsRequest;
@@ -25917,6 +25935,42 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2GetInstanceUefiDataRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the instance from which to retrieve the UEFI data.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetInstanceUefiDataResult : AWSModel
+
+
+/**
+ <p>The ID of the instance from which to retrieve the UEFI data.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>Base64 representation of the non-volatile UEFI variable store.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable uefiData;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2GetIpamAddressHistoryRequest : AWSRequest
 
 
@@ -27683,6 +27737,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
 
 /**
+ <p>If the image is configured for NitroTPM support, the value is <code>v2.0</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+@property (nonatomic, assign) AWSEC2TpmSupportValues tpmSupport;
+
+/**
  <p>The operation of the Amazon EC2 instance and the billing code that is associated with the AMI. <code>usageOperation</code> corresponds to the <a href="https://docs.aws.amazon.com/cur/latest/userguide/Lineitem-columns.html#Lineitem-details-O-Operation">lineitem/Operation</a> column on your Amazon Web Services Cost and Usage Report and in the <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html">Amazon Web Services Price List API</a>. You can view these fields on the <b>Instances</b> or <b>AMIs</b> pages in the Amazon EC2 console, or in the responses that are returned by the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html">DescribeImages</a> command in the Amazon EC2 API, or the <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html">describe-images</a> command in the CLI.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable usageOperation;
@@ -27749,6 +27808,16 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.</p>
  */
 @property (nonatomic, strong) AWSEC2AttributeValue * _Nullable sriovNetSupport;
+
+/**
+ <p>If the image is configured for NitroTPM support, the value is <code>v2.0</code>.</p>
+ */
+@property (nonatomic, strong) AWSEC2AttributeValue * _Nullable tpmSupport;
+
+/**
+ <p>Base64 representation of the non-volatile UEFI variable store. To retrieve the UEFI data, use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData">GetInstanceUefiData</a> command. You can inspect and modify the UEFI data by using the <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a> on GitHub. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+@property (nonatomic, strong) AWSEC2AttributeValue * _Nullable uefiData;
 
 @end
 
@@ -28874,6 +28943,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Any tags assigned to the instance.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+/**
+ <p>If the instance is configured for NitroTPM support, the value is <code>v2.0</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tpmSupport;
 
 /**
  <p>The usage operation value for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html">AMI billing information fields</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -38903,6 +38977,16 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Set to <code>simple</code> to enable enhanced networking with the Intel 82599 Virtual Function interface for the AMI and any instances that you launch from the AMI.</p><p>There is no way to disable <code>sriovNetSupport</code> at this time.</p><p>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sriovNetSupport;
+
+/**
+ <p>Set to <code>v2.0</code> to enable Trusted Platform Module (TPM) support. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+@property (nonatomic, assign) AWSEC2TpmSupportValues tpmSupport;
+
+/**
+ <p>Base64 representation of the non-volatile UEFI variable store. To retrieve the UEFI data, use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData">GetInstanceUefiData</a> command. You can inspect and modify the UEFI data by using the <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a> on GitHub. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable uefiData;
 
 /**
  <p>The type of virtualization (<code>hvm</code> | <code>paravirtual</code>).</p><p>Default: <code>paravirtual</code></p>

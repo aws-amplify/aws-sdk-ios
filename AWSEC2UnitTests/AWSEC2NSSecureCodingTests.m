@@ -906,6 +906,8 @@
 - (void) test_AWSEC2GetHostReservationPurchasePreviewResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetInstanceTypesFromInstanceRequirementsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetInstanceTypesFromInstanceRequirementsResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetInstanceUefiDataRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetInstanceUefiDataResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetIpamAddressHistoryRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetIpamAddressHistoryResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetIpamPoolAllocationsRequest API_AVAILABLE(ios(11));
@@ -5186,6 +5188,14 @@
 
 - (void) test_AWSEC2GetInstanceTypesFromInstanceRequirementsResult {
     [self validateSecureCodingForClass:[AWSEC2GetInstanceTypesFromInstanceRequirementsResult class]];
+}
+
+- (void) test_AWSEC2GetInstanceUefiDataRequest {
+    [self validateSecureCodingForClass:[AWSEC2GetInstanceUefiDataRequest class]];
+}
+
+- (void) test_AWSEC2GetInstanceUefiDataResult {
+    [self validateSecureCodingForClass:[AWSEC2GetInstanceUefiDataResult class]];
 }
 
 - (void) test_AWSEC2GetIpamAddressHistoryRequest {

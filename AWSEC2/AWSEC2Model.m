@@ -18307,6 +18307,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"bootMode"] == NSOrderedSame) {
             return @(AWSEC2ImageAttributeNameBootMode);
         }
+        if ([value caseInsensitiveCompare:@"tpmSupport"] == NSOrderedSame) {
+            return @(AWSEC2ImageAttributeNameTpmSupport);
+        }
+        if ([value caseInsensitiveCompare:@"uefiData"] == NSOrderedSame) {
+            return @(AWSEC2ImageAttributeNameUefiData);
+        }
         if ([value caseInsensitiveCompare:@"lastLaunchedTime"] == NSOrderedSame) {
             return @(AWSEC2ImageAttributeNameLastLaunchedTime);
         }
@@ -18329,6 +18335,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"sriovNetSupport";
             case AWSEC2ImageAttributeNameBootMode:
                 return @"bootMode";
+            case AWSEC2ImageAttributeNameTpmSupport:
+                return @"tpmSupport";
+            case AWSEC2ImageAttributeNameUefiData:
+                return @"uefiData";
             case AWSEC2ImageAttributeNameLastLaunchedTime:
                 return @"lastLaunchedTime";
             default:
@@ -37507,6 +37517,36 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2GetInstanceUefiDataRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             @"instanceId" : @"InstanceId",
+             };
+}
+
+@end
+
+@implementation AWSEC2GetInstanceUefiDataResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"uefiData" : @"UefiData",
+             };
+}
+
+@end
+
 @implementation AWSEC2GetIpamAddressHistoryRequest
 
 + (BOOL)supportsSecureCoding {
@@ -39241,6 +39281,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"state" : @"State",
              @"stateReason" : @"StateReason",
              @"tags" : @"Tags",
+             @"tpmSupport" : @"TpmSupport",
              @"usageOperation" : @"UsageOperation",
              @"virtualizationType" : @"VirtualizationType",
              };
@@ -39444,6 +39485,22 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
 }
 
++ (NSValueTransformer *)tpmSupportJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"v2.0"] == NSOrderedSame) {
+            return @(AWSEC2TpmSupportValuesV20);
+        }
+        return @(AWSEC2TpmSupportValuesUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2TpmSupportValuesV20:
+                return @"v2.0";
+            default:
+                return nil;
+        }
+    }];
+}
+
 + (NSValueTransformer *)virtualizationTypeJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value caseInsensitiveCompare:@"hvm"] == NSOrderedSame) {
@@ -39485,6 +39542,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"productCodes" : @"ProductCodes",
              @"ramdiskId" : @"RamdiskId",
              @"sriovNetSupport" : @"SriovNetSupport",
+             @"tpmSupport" : @"TpmSupport",
+             @"uefiData" : @"UefiData",
              };
 }
 
@@ -39521,6 +39580,14 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 }
 
 + (NSValueTransformer *)sriovNetSupportJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeValue class]];
+}
+
++ (NSValueTransformer *)tpmSupportJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeValue class]];
+}
+
++ (NSValueTransformer *)uefiDataJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeValue class]];
 }
 
@@ -42890,6 +42957,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"stateTransitionReason" : @"StateTransitionReason",
              @"subnetId" : @"SubnetId",
              @"tags" : @"Tags",
+             @"tpmSupport" : @"TpmSupport",
              @"usageOperation" : @"UsageOperation",
              @"usageOperationUpdateTime" : @"UsageOperationUpdateTime",
              @"virtualizationType" : @"VirtualizationType",
@@ -53322,6 +53390,15 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"delete-failed"] == NSOrderedSame) {
             return @(AWSEC2IpamStateDeleteFailed);
         }
+        if ([value caseInsensitiveCompare:@"isolate-in-progress"] == NSOrderedSame) {
+            return @(AWSEC2IpamStateIsolateInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"isolate-complete"] == NSOrderedSame) {
+            return @(AWSEC2IpamStateIsolateComplete);
+        }
+        if ([value caseInsensitiveCompare:@"restore-in-progress"] == NSOrderedSame) {
+            return @(AWSEC2IpamStateRestoreInProgress);
+        }
         return @(AWSEC2IpamStateUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -53343,6 +53420,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"delete-complete";
             case AWSEC2IpamStateDeleteFailed:
                 return @"delete-failed";
+            case AWSEC2IpamStateIsolateInProgress:
+                return @"isolate-in-progress";
+            case AWSEC2IpamStateIsolateComplete:
+                return @"isolate-complete";
+            case AWSEC2IpamStateRestoreInProgress:
+                return @"restore-in-progress";
             default:
                 return nil;
         }
@@ -53641,6 +53724,15 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"delete-failed"] == NSOrderedSame) {
             return @(AWSEC2IpamPoolStateDeleteFailed);
         }
+        if ([value caseInsensitiveCompare:@"isolate-in-progress"] == NSOrderedSame) {
+            return @(AWSEC2IpamPoolStateIsolateInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"isolate-complete"] == NSOrderedSame) {
+            return @(AWSEC2IpamPoolStateIsolateComplete);
+        }
+        if ([value caseInsensitiveCompare:@"restore-in-progress"] == NSOrderedSame) {
+            return @(AWSEC2IpamPoolStateRestoreInProgress);
+        }
         return @(AWSEC2IpamPoolStateUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -53662,6 +53754,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"delete-complete";
             case AWSEC2IpamPoolStateDeleteFailed:
                 return @"delete-failed";
+            case AWSEC2IpamPoolStateIsolateInProgress:
+                return @"isolate-in-progress";
+            case AWSEC2IpamPoolStateIsolateComplete:
+                return @"isolate-complete";
+            case AWSEC2IpamPoolStateRestoreInProgress:
+                return @"restore-in-progress";
             default:
                 return nil;
         }
@@ -54065,6 +54163,15 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"delete-failed"] == NSOrderedSame) {
             return @(AWSEC2IpamScopeStateDeleteFailed);
         }
+        if ([value caseInsensitiveCompare:@"isolate-in-progress"] == NSOrderedSame) {
+            return @(AWSEC2IpamScopeStateIsolateInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"isolate-complete"] == NSOrderedSame) {
+            return @(AWSEC2IpamScopeStateIsolateComplete);
+        }
+        if ([value caseInsensitiveCompare:@"restore-in-progress"] == NSOrderedSame) {
+            return @(AWSEC2IpamScopeStateRestoreInProgress);
+        }
         return @(AWSEC2IpamScopeStateUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -54086,6 +54193,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"delete-complete";
             case AWSEC2IpamScopeStateDeleteFailed:
                 return @"delete-failed";
+            case AWSEC2IpamScopeStateIsolateInProgress:
+                return @"isolate-in-progress";
+            case AWSEC2IpamScopeStateIsolateComplete:
+                return @"isolate-complete";
+            case AWSEC2IpamScopeStateRestoreInProgress:
+                return @"restore-in-progress";
             default:
                 return nil;
         }
@@ -68281,6 +68394,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"ramdiskId" : @"RamdiskId",
              @"rootDeviceName" : @"RootDeviceName",
              @"sriovNetSupport" : @"SriovNetSupport",
+             @"tpmSupport" : @"TpmSupport",
+             @"uefiData" : @"UefiData",
              @"virtualizationType" : @"VirtualizationType",
              };
 }
@@ -68335,6 +68450,22 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"legacy-bios";
             case AWSEC2BootModeValuesUefi:
                 return @"uefi";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)tpmSupportJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"v2.0"] == NSOrderedSame) {
+            return @(AWSEC2TpmSupportValuesV20);
+        }
+        return @(AWSEC2TpmSupportValuesUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2TpmSupportValuesV20:
+                return @"v2.0";
             default:
                 return nil;
         }
