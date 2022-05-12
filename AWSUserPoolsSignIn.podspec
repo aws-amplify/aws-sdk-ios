@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
    s.name         = 'AWSUserPoolsSignIn'
-   s.version      = '2.27.8'
+   s.version      = '2.27.9'
    s.summary      = 'Amazon Web Services SDK for iOS.'
  
    s.description  = 'The AWS SDK for iOS provides a library, code samples, and documentation for developers to build connected mobile applications using AWS.'
@@ -12,9 +12,9 @@ Pod::Spec.new do |s|
    s.source       = { :git => 'https://github.com/aws-amplify/aws-sdk-ios.git',
                       :tag => s.version}
    s.requires_arc = true
-   s.dependency 'AWSCognitoIdentityProvider', '2.27.8'
-   s.dependency 'AWSAuthCore', '2.27.8'
-   s.dependency 'AWSCore', '2.27.8'
+   s.dependency 'AWSCognitoIdentityProvider', '2.27.9'
+   s.dependency 'AWSAuthCore', '2.27.9'
+   s.dependency 'AWSCore', '2.27.9'
    s.source_files = 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/**/*.{h,m}'
    s.public_header_files = 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/*.{h}'
    s.private_header_files = 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/UserPoolsUI/*.{h}'
