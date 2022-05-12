@@ -8814,6 +8814,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2GetInstanceUefiDataResult *> *)getInstanceUefiData:(AWSEC2GetInstanceUefiDataRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetInstanceUefiData"
+                   outputClass:[AWSEC2GetInstanceUefiDataResult class]];
+}
+
+- (void)getInstanceUefiData:(AWSEC2GetInstanceUefiDataRequest *)request
+     completionHandler:(void (^)(AWSEC2GetInstanceUefiDataResult *response, NSError *error))completionHandler {
+    [[self getInstanceUefiData:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetInstanceUefiDataResult *> * _Nonnull task) {
+        AWSEC2GetInstanceUefiDataResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2GetIpamAddressHistoryResult *> *)getIpamAddressHistory:(AWSEC2GetIpamAddressHistoryRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST

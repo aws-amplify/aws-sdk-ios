@@ -9392,6 +9392,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)getInstanceTypesFromInstanceRequirements:(AWSEC2GetInstanceTypesFromInstanceRequirementsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetInstanceTypesFromInstanceRequirementsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>A binary representation of the UEFI variable store. Only non-volatile variables are stored. This is a base64 encoded and zlib compressed binary value that must be properly encoded.</p><p>When you use <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/register-image.html">register-image</a> to create an AMI, you can create an exact copy of your variable store by passing the UEFI data in the <code>UefiData</code> parameter. You can modify the UEFI data by using the <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a> on GitHub. You can use the tool to convert the UEFI data into a human-readable format (JSON), which you can inspect and modify, and then convert back into the binary format to use with register-image.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetInstanceUefiData service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetInstanceUefiDataResult`.
+ 
+ @see AWSEC2GetInstanceUefiDataRequest
+ @see AWSEC2GetInstanceUefiDataResult
+ */
+- (AWSTask<AWSEC2GetInstanceUefiDataResult *> *)getInstanceUefiData:(AWSEC2GetInstanceUefiDataRequest *)request;
+
+/**
+ <p>A binary representation of the UEFI variable store. Only non-volatile variables are stored. This is a base64 encoded and zlib compressed binary value that must be properly encoded.</p><p>When you use <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/register-image.html">register-image</a> to create an AMI, you can create an exact copy of your variable store by passing the UEFI data in the <code>UefiData</code> parameter. You can modify the UEFI data by using the <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a> on GitHub. You can use the tool to convert the UEFI data into a human-readable format (JSON), which you can inspect and modify, and then convert back into the binary format to use with register-image.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetInstanceUefiData service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetInstanceUefiDataRequest
+ @see AWSEC2GetInstanceUefiDataResult
+ */
+- (void)getInstanceUefiData:(AWSEC2GetInstanceUefiDataRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetInstanceUefiDataResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Retrieve historical information about a CIDR within an IPAM scope. For more information, see <a href="/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the GetIpamAddressHistory service method.
