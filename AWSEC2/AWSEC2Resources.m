@@ -3764,6 +3764,16 @@
       \"output\":{\"shape\":\"GetInstanceTypesFromInstanceRequirementsResult\"},\
       \"documentation\":\"<p>Returns a list of instance types with the specified instance attributes. You can use the response to preview the instance types without launching instances. Note that the response does not consider capacity.</p> <p>When you specify multiple parameters, you get instance types that satisfy all of the specified parameters. If you specify multiple values for a parameter, you get instance types that satisfy any of the specified values.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html#spotfleet-get-instance-types-from-instance-requirements\\\">Preview instance types with specified attributes</a>, <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html\\\">Attribute-based instance type selection for EC2 Fleet</a>, <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html\\\">Attribute-based instance type selection for Spot Fleet</a>, and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html\\\">Spot placement score</a> in the <i>Amazon EC2 User Guide</i>, and <a href=\\\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html\\\">Creating an Auto Scaling group using attribute-based instance type selection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>\"\
     },\
+    \"GetInstanceUefiData\":{\
+      \"name\":\"GetInstanceUefiData\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"GetInstanceUefiDataRequest\"},\
+      \"output\":{\"shape\":\"GetInstanceUefiDataResult\"},\
+      \"documentation\":\"<p>A binary representation of the UEFI variable store. Only non-volatile variables are stored. This is a base64 encoded and zlib compressed binary value that must be properly encoded.</p> <p>When you use <a href=\\\"https://docs.aws.amazon.com/cli/latest/reference/ec2/register-image.html\\\">register-image</a> to create an AMI, you can create an exact copy of your variable store by passing the UEFI data in the <code>UefiData</code> parameter. You can modify the UEFI data by using the <a href=\\\"https://github.com/awslabs/python-uefivars\\\">python-uefivars tool</a> on GitHub. You can use the tool to convert the UEFI data into a human-readable format (JSON), which you can inspect and modify, and then convert back into the binary format to use with register-image.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html\\\">UEFI Secure Boot</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
+    },\
     \"GetIpamAddressHistory\":{\
       \"name\":\"GetIpamAddressHistory\",\
       \"http\":{\
@@ -12497,11 +12507,6 @@
         \"ReservationType\"\
       ],\
       \"members\":{\
-        \"TagSpecifications\":{\
-          \"shape\":\"TagSpecificationList\",\
-          \"documentation\":\"<p>The tags to assign to the subnet CIDR reservation.</p>\",\
-          \"locationName\":\"TagSpecification\"\
-        },\
         \"SubnetId\":{\
           \"shape\":\"SubnetId\",\
           \"documentation\":\"<p>The ID of the subnet.</p>\"\
@@ -12521,6 +12526,11 @@
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p>The tags to assign to the subnet CIDR reservation.</p>\",\
+          \"locationName\":\"TagSpecification\"\
         }\
       }\
     },\
@@ -13423,6 +13433,14 @@
           \"documentation\":\"<p>(Interface endpoint) The ID of one or more security groups to associate with the endpoint network interface.</p>\",\
           \"locationName\":\"SecurityGroupId\"\
         },\
+        \"IpAddressType\":{\
+          \"shape\":\"IpAddressType\",\
+          \"documentation\":\"<p>The IP address type for the endpoint.</p>\"\
+        },\
+        \"DnsOptions\":{\
+          \"shape\":\"DnsOptionsSpecification\",\
+          \"documentation\":\"<p>The DNS options for the endpoint.</p>\"\
+        },\
         \"ClientToken\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\\\">How to ensure idempotency</a>.</p>\"\
@@ -13479,6 +13497,11 @@
           \"shape\":\"ValueStringList\",\
           \"documentation\":\"<p>The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.</p>\",\
           \"locationName\":\"GatewayLoadBalancerArn\"\
+        },\
+        \"SupportedIpAddressTypes\":{\
+          \"shape\":\"ValueStringList\",\
+          \"documentation\":\"<p>The supported IP address types. The possible values are <code>ipv4</code> and <code>ipv6</code>.</p>\",\
+          \"locationName\":\"SupportedIpAddressType\"\
         },\
         \"ClientToken\":{\
           \"shape\":\"String\",\
@@ -21233,7 +21256,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>service-id</code> - The ID of the service.</p> </li> <li> <p> <code>vpc-endpoint-owner</code> - The ID of the Amazon Web Services account ID that owns the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-state</code> - The state of the endpoint (<code>pendingAcceptance</code> | <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>rejected</code> | <code>failed</code>).</p> </li> <li> <p> <code>vpc-endpoint-id</code> - The ID of the endpoint.</p> </li> </ul>\",\
+          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>ip-address-type</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p> </li> <li> <p> <code>service-id</code> - The ID of the service.</p> </li> <li> <p> <code>vpc-endpoint-owner</code> - The ID of the Amazon Web Services account ID that owns the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-state</code> - The state of the endpoint (<code>pendingAcceptance</code> | <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>rejected</code> | <code>failed</code>).</p> </li> <li> <p> <code>vpc-endpoint-id</code> - The ID of the endpoint.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"MaxResults\":{\
@@ -21275,7 +21298,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>service-name</code> - The name of the service.</p> </li> <li> <p> <code>service-id</code> - The ID of the service.</p> </li> <li> <p> <code>service-state</code> - The state of the service (<code>Pending</code> | <code>Available</code> | <code>Deleting</code> | <code>Deleted</code> | <code>Failed</code>). </p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>\",\
+          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>service-name</code> - The name of the service.</p> </li> <li> <p> <code>service-id</code> - The ID of the service.</p> </li> <li> <p> <code>service-state</code> - The state of the service (<code>Pending</code> | <code>Available</code> | <code>Deleting</code> | <code>Deleted</code> | <code>Failed</code>). </p> </li> <li> <p> <code>supported-ip-address-types</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"MaxResults\":{\
@@ -21359,7 +21382,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>service-name</code> - The name of the service.</p> </li> <li> <p> <code>service-type</code> - The type of service (<code>Interface</code> | <code>Gateway</code>).</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>\",\
+          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>service-name</code> - The name of the service.</p> </li> <li> <p> <code>service-type</code> - The type of service (<code>Interface</code> | <code>Gateway</code>).</p> </li> <li> <p> <code>supported-ip-address-types</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"MaxResults\":{\
@@ -21408,7 +21431,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>service-name</code> - The name of the service.</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC in which the endpoint resides.</p> </li> <li> <p> <code>vpc-endpoint-id</code> - The ID of the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-state</code> - The state of the endpoint (<code>pendingAcceptance</code> | <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>rejected</code> | <code>failed</code>).</p> </li> <li> <p> <code>vpc-endpoint-type</code> - The type of VPC endpoint (<code>Interface</code> | <code>Gateway</code> | <code>GatewayLoadBalancer</code>).</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>\",\
+          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>ip-address-type</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p> </li> <li> <p> <code>service-name</code> - The name of the service.</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC in which the endpoint resides.</p> </li> <li> <p> <code>vpc-endpoint-id</code> - The ID of the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-state</code> - The state of the endpoint (<code>pendingAcceptance</code> | <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>rejected</code> | <code>failed</code>).</p> </li> <li> <p> <code>vpc-endpoint-type</code> - The type of VPC endpoint (<code>Interface</code> | <code>Gateway</code> | <code>GatewayLoadBalancer</code>).</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"MaxResults\":{\
@@ -22758,6 +22781,36 @@
         \"pendingVerification\",\
         \"verified\",\
         \"failed\"\
+      ]\
+    },\
+    \"DnsOptions\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"DnsRecordIpType\":{\
+          \"shape\":\"DnsRecordIpType\",\
+          \"documentation\":\"<p>The DNS records created for the endpoint.</p>\",\
+          \"locationName\":\"dnsRecordIpType\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes the DNS options for an endpoint.</p>\"\
+    },\
+    \"DnsOptionsSpecification\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"DnsRecordIpType\":{\
+          \"shape\":\"DnsRecordIpType\",\
+          \"documentation\":\"<p>The DNS records created for the endpoint.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes the DNS options for an endpoint.</p>\"\
+    },\
+    \"DnsRecordIpType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"ipv4\",\
+        \"dualstack\",\
+        \"ipv6\",\
+        \"service-defined\"\
       ]\
     },\
     \"DnsServersOptionsModifyStructure\":{\
@@ -26010,6 +26063,35 @@
         }\
       }\
     },\
+    \"GetInstanceUefiDataRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"InstanceId\"],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The ID of the instance from which to retrieve the UEFI data.</p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"GetInstanceUefiDataResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The ID of the instance from which to retrieve the UEFI data.</p>\",\
+          \"locationName\":\"instanceId\"\
+        },\
+        \"UefiData\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>Base64 representation of the non-volatile UEFI variable store.</p>\",\
+          \"locationName\":\"uefiData\"\
+        }\
+      }\
+    },\
     \"GetIpamAddressHistoryRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -27747,6 +27829,11 @@
           \"documentation\":\"<p>The boot mode of the image. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html\\\">Boot modes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\",\
           \"locationName\":\"bootMode\"\
         },\
+        \"TpmSupport\":{\
+          \"shape\":\"TpmSupportValues\",\
+          \"documentation\":\"<p>If the image is configured for NitroTPM support, the value is <code>v2.0</code>. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html\\\">NitroTPM</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\",\
+          \"locationName\":\"tpmSupport\"\
+        },\
         \"DeprecationTime\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>The date and time to deprecate the AMI, in UTC, in the following format: <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute.</p>\",\
@@ -27803,6 +27890,16 @@
           \"documentation\":\"<p>The boot mode.</p>\",\
           \"locationName\":\"bootMode\"\
         },\
+        \"TpmSupport\":{\
+          \"shape\":\"AttributeValue\",\
+          \"documentation\":\"<p>If the image is configured for NitroTPM support, the value is <code>v2.0</code>.</p>\",\
+          \"locationName\":\"tpmSupport\"\
+        },\
+        \"UefiData\":{\
+          \"shape\":\"AttributeValue\",\
+          \"documentation\":\"<p>Base64 representation of the non-volatile UEFI variable store. To retrieve the UEFI data, use the <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData\\\">GetInstanceUefiData</a> command. You can inspect and modify the UEFI data by using the <a href=\\\"https://github.com/awslabs/python-uefivars\\\">python-uefivars tool</a> on GitHub. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html\\\">UEFI Secure Boot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\",\
+          \"locationName\":\"uefiData\"\
+        },\
         \"LastLaunchedTime\":{\
           \"shape\":\"AttributeValue\",\
           \"documentation\":\"<p>The date and time, in <a href=\\\"http://www.iso.org/iso/iso8601\\\">ISO 8601 date-time format</a>, when the AMI was last used to launch an EC2 instance. When the AMI is used, there is a 24-hour delay before that usage is reported.</p> <note> <p> <code>lastLaunchedTime</code> data is available starting April 2017.</p> </note>\",\
@@ -27822,6 +27919,8 @@
         \"blockDeviceMapping\",\
         \"sriovNetSupport\",\
         \"bootMode\",\
+        \"tpmSupport\",\
+        \"uefiData\",\
         \"lastLaunchedTime\"\
       ]\
     },\
@@ -29004,6 +29103,11 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The IPv6 address assigned to the instance.</p>\",\
           \"locationName\":\"ipv6Address\"\
+        },\
+        \"TpmSupport\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>If the instance is configured for NitroTPM support, the value is <code>v2.0</code>. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html\\\">NitroTPM</a> in the <i>Amazon EC2 User Guide</i>.</p>\",\
+          \"locationName\":\"tpmSupport\"\
         },\
         \"MaintenanceOptions\":{\
           \"shape\":\"InstanceMaintenanceOptions\",\
@@ -31458,6 +31562,14 @@
         \"locationName\":\"item\"\
       }\
     },\
+    \"IpAddressType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"ipv4\",\
+        \"dualstack\",\
+        \"ipv6\"\
+      ]\
+    },\
     \"IpPermission\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -32020,7 +32132,10 @@
         \"modify-failed\",\
         \"delete-in-progress\",\
         \"delete-complete\",\
-        \"delete-failed\"\
+        \"delete-failed\",\
+        \"isolate-in-progress\",\
+        \"isolate-complete\",\
+        \"restore-in-progress\"\
       ]\
     },\
     \"IpamResourceCidr\":{\
@@ -32224,7 +32339,10 @@
         \"modify-failed\",\
         \"delete-in-progress\",\
         \"delete-complete\",\
-        \"delete-failed\"\
+        \"delete-failed\",\
+        \"isolate-in-progress\",\
+        \"isolate-complete\",\
+        \"restore-in-progress\"\
       ]\
     },\
     \"IpamScopeType\":{\
@@ -32252,7 +32370,10 @@
         \"modify-failed\",\
         \"delete-in-progress\",\
         \"delete-complete\",\
-        \"delete-failed\"\
+        \"delete-failed\",\
+        \"isolate-in-progress\",\
+        \"isolate-complete\",\
+        \"restore-in-progress\"\
       ]\
     },\
     \"Ipv4PoolCoipId\":{\"type\":\"string\"},\
@@ -36680,6 +36801,14 @@
           \"documentation\":\"<p>(Interface endpoint) One or more security group IDs to disassociate from the network interface.</p>\",\
           \"locationName\":\"RemoveSecurityGroupId\"\
         },\
+        \"IpAddressType\":{\
+          \"shape\":\"IpAddressType\",\
+          \"documentation\":\"<p>The IP address type for the endpoint.</p>\"\
+        },\
+        \"DnsOptions\":{\
+          \"shape\":\"DnsOptionsSpecification\",\
+          \"documentation\":\"<p>The DNS options for the endpoint.</p>\"\
+        },\
         \"PrivateDnsEnabled\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>(Interface endpoint) Indicates whether a private hosted zone is associated with the VPC.</p>\"\
@@ -36740,6 +36869,16 @@
           \"shape\":\"ValueStringList\",\
           \"documentation\":\"<p>The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from your service configuration.</p>\",\
           \"locationName\":\"RemoveGatewayLoadBalancerArn\"\
+        },\
+        \"AddSupportedIpAddressTypes\":{\
+          \"shape\":\"ValueStringList\",\
+          \"documentation\":\"<p>The IP address types to add to your service configuration.</p>\",\
+          \"locationName\":\"AddSupportedIpAddressType\"\
+        },\
+        \"RemoveSupportedIpAddressTypes\":{\
+          \"shape\":\"ValueStringList\",\
+          \"documentation\":\"<p>The IP address types to remove from your service configuration.</p>\",\
+          \"locationName\":\"RemoveSupportedIpAddressType\"\
         }\
       }\
     },\
@@ -40476,6 +40615,14 @@
         \"BootMode\":{\
           \"shape\":\"BootModeValues\",\
           \"documentation\":\"<p>The boot mode of the AMI. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html\\\">Boot modes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+        },\
+        \"TpmSupport\":{\
+          \"shape\":\"TpmSupportValues\",\
+          \"documentation\":\"<p>Set to <code>v2.0</code> to enable Trusted Platform Module (TPM) support. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html\\\">NitroTPM</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+        },\
+        \"UefiData\":{\
+          \"shape\":\"StringType\",\
+          \"documentation\":\"<p>Base64 representation of the non-volatile UEFI variable store. To retrieve the UEFI data, use the <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData\\\">GetInstanceUefiData</a> command. You can inspect and modify the UEFI data by using the <a href=\\\"https://github.com/awslabs/python-uefivars\\\">python-uefivars tool</a> on GitHub. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html\\\">UEFI Secure Boot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains the parameters for RegisterImage.</p>\"\
@@ -44621,6 +44768,11 @@
           \"documentation\":\"<p>The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service.</p>\",\
           \"locationName\":\"gatewayLoadBalancerArnSet\"\
         },\
+        \"SupportedIpAddressTypes\":{\
+          \"shape\":\"SupportedIpAddressTypes\",\
+          \"documentation\":\"<p>The supported IP address types.</p>\",\
+          \"locationName\":\"supportedIpAddressTypeSet\"\
+        },\
         \"BaseEndpointDnsNames\":{\
           \"shape\":\"ValueStringList\",\
           \"documentation\":\"<p>The DNS names for the service.</p>\",\
@@ -44655,6 +44807,13 @@
         \"shape\":\"ServiceConfiguration\",\
         \"locationName\":\"item\"\
       }\
+    },\
+    \"ServiceConnectivityType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"ipv4\",\
+        \"ipv6\"\
+      ]\
     },\
     \"ServiceDetail\":{\
       \"type\":\"structure\",\
@@ -44728,6 +44887,11 @@
           \"shape\":\"DnsNameState\",\
           \"documentation\":\"<p>The verification state of the VPC endpoint service.</p> <p>Consumers of the endpoint service cannot use the private name when the state is not <code>verified</code>.</p>\",\
           \"locationName\":\"privateDnsNameVerificationState\"\
+        },\
+        \"SupportedIpAddressTypes\":{\
+          \"shape\":\"SupportedIpAddressTypes\",\
+          \"documentation\":\"<p>The supported IP address types.</p>\",\
+          \"locationName\":\"supportedIpAddressTypeSet\"\
         }\
       },\
       \"documentation\":\"<p>Describes a VPC endpoint service.</p>\"\
@@ -46432,6 +46596,11 @@
         \"locationName\":\"item\"\
       }\
     },\
+    \"StringType\":{\
+      \"type\":\"string\",\
+      \"max\":64000,\
+      \"min\":0\
+    },\
     \"Subnet\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -46745,6 +46914,15 @@
         \"not-applicable\",\
         \"initializing\"\
       ]\
+    },\
+    \"SupportedIpAddressTypes\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"ServiceConnectivityType\",\
+        \"locationName\":\"item\"\
+      },\
+      \"max\":2,\
+      \"min\":0\
     },\
     \"Tag\":{\
       \"type\":\"structure\",\
@@ -47228,6 +47406,10 @@
         }\
       },\
       \"documentation\":\"<p>The minimum and maximum amount of total local storage, in GB.</p>\"\
+    },\
+    \"TpmSupportValues\":{\
+      \"type\":\"string\",\
+      \"enum\":[\"v2.0\"]\
     },\
     \"TrafficDirection\":{\
       \"type\":\"string\",\
@@ -50389,7 +50571,7 @@
       \"members\":{\
         \"VpcEndpointId\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The ID of the VPC endpoint.</p>\",\
+          \"documentation\":\"<p>The ID of the endpoint.</p>\",\
           \"locationName\":\"vpcEndpointId\"\
         },\
         \"VpcEndpointType\":{\
@@ -50409,7 +50591,7 @@
         },\
         \"State\":{\
           \"shape\":\"State\",\
-          \"documentation\":\"<p>The state of the VPC endpoint.</p>\",\
+          \"documentation\":\"<p>The state of the endpoint.</p>\",\
           \"locationName\":\"state\"\
         },\
         \"PolicyDocument\":{\
@@ -50424,13 +50606,23 @@
         },\
         \"SubnetIds\":{\
           \"shape\":\"ValueStringList\",\
-          \"documentation\":\"<p>(Interface endpoint) One or more subnets in which the endpoint is located.</p>\",\
+          \"documentation\":\"<p>(Interface endpoint) The subnets for the endpoint.</p>\",\
           \"locationName\":\"subnetIdSet\"\
         },\
         \"Groups\":{\
           \"shape\":\"GroupIdentifierSet\",\
           \"documentation\":\"<p>(Interface endpoint) Information about the security groups that are associated with the network interface.</p>\",\
           \"locationName\":\"groupSet\"\
+        },\
+        \"IpAddressType\":{\
+          \"shape\":\"IpAddressType\",\
+          \"documentation\":\"<p>The IP address type for the endpoint.</p>\",\
+          \"locationName\":\"ipAddressType\"\
+        },\
+        \"DnsOptions\":{\
+          \"shape\":\"DnsOptions\",\
+          \"documentation\":\"<p>The DNS options for the endpoint.</p>\",\
+          \"locationName\":\"dnsOptions\"\
         },\
         \"PrivateDnsEnabled\":{\
           \"shape\":\"Boolean\",\
@@ -50439,7 +50631,7 @@
         },\
         \"RequesterManaged\":{\
           \"shape\":\"Boolean\",\
-          \"documentation\":\"<p>Indicates whether the VPC endpoint is being managed by its service.</p>\",\
+          \"documentation\":\"<p>Indicates whether the endpoint is being managed by its service.</p>\",\
           \"locationName\":\"requesterManaged\"\
         },\
         \"NetworkInterfaceIds\":{\
@@ -50454,22 +50646,22 @@
         },\
         \"CreationTimestamp\":{\
           \"shape\":\"MillisecondDateTime\",\
-          \"documentation\":\"<p>The date and time that the VPC endpoint was created.</p>\",\
+          \"documentation\":\"<p>The date and time that the endpoint was created.</p>\",\
           \"locationName\":\"creationTimestamp\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagList\",\
-          \"documentation\":\"<p>Any tags assigned to the VPC endpoint.</p>\",\
+          \"documentation\":\"<p>Any tags assigned to the endpoint.</p>\",\
           \"locationName\":\"tagSet\"\
         },\
         \"OwnerId\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services account that owns the VPC endpoint.</p>\",\
+          \"documentation\":\"<p>The ID of the Amazon Web Services account that owns the endpoint.</p>\",\
           \"locationName\":\"ownerId\"\
         },\
         \"LastError\":{\
           \"shape\":\"LastError\",\
-          \"documentation\":\"<p>The last error that occurred for VPC endpoint.</p>\",\
+          \"documentation\":\"<p>The last error that occurred for endpoint.</p>\",\
           \"locationName\":\"lastError\"\
         }\
       },\
@@ -50517,6 +50709,11 @@
           \"shape\":\"ValueStringList\",\
           \"documentation\":\"<p>The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service.</p>\",\
           \"locationName\":\"gatewayLoadBalancerArnSet\"\
+        },\
+        \"IpAddressType\":{\
+          \"shape\":\"IpAddressType\",\
+          \"documentation\":\"<p>The IP address type for the endpoint.</p>\",\
+          \"locationName\":\"ipAddressType\"\
         }\
       },\
       \"documentation\":\"<p>Describes a VPC endpoint connection to a service.</p>\"\
