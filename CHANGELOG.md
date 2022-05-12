@@ -10,7 +10,7 @@
   - fix: Reduces memory use for multipart uploads with `@autoreleasepool` to prevent excessive memory allocation (See [PR #4129](https://github.com/aws-amplify/aws-sdk-ios/pull/4129))
 
 - Model updates for the following services
-  - **Breaking Change**AWSLocation
+  - **Breaking Changes** AWSLocation
   - AWSEC2
 
 ## 2.27.8
