@@ -11,7 +11,7 @@
 
 - Model updates for the following services
   - **Breaking Changes** AWSLocation
-  - AWSEC2
+  - AWSEC2 
 
 ## 2.27.8
 
