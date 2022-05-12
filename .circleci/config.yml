@@ -470,7 +470,7 @@ jobs:
       - run:
           name: Release CocoaPods
           command: python3 ./CircleciScripts/cocoapods_release.py
-          no_output_timeout: 20m
+          no_output_timeout: 100m
 
   release_docs:
     macos:
@@ -482,6 +482,7 @@ jobs:
       - run:
           name: Generate documents
           command: bash ./CircleciScripts/generate_documentation.sh
+          no_output_timeout: 100m
       - run:
           name: Copy documents
           command: |
