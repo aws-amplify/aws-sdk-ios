@@ -795,6 +795,8 @@
 - (void) test_AWSEC2DiskImageVolumeDescription API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DiskInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DnsEntry API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DnsOptions API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DnsOptionsSpecification API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DnsServersOptionsModifyStructure API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EbsBlockDevice API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EbsInfo API_AVAILABLE(ios(11));
@@ -4744,6 +4746,14 @@
 
 - (void) test_AWSEC2DnsEntry {
     [self validateSecureCodingForClass:[AWSEC2DnsEntry class]];
+}
+
+- (void) test_AWSEC2DnsOptions {
+    [self validateSecureCodingForClass:[AWSEC2DnsOptions class]];
+}
+
+- (void) test_AWSEC2DnsOptionsSpecification {
+    [self validateSecureCodingForClass:[AWSEC2DnsOptionsSpecification class]];
 }
 
 - (void) test_AWSEC2DnsServersOptionsModifyStructure {

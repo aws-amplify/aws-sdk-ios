@@ -505,6 +505,14 @@ typedef NS_ENUM(NSInteger, AWSEC2DnsNameState) {
     AWSEC2DnsNameStateFailed,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2DnsRecordIpType) {
+    AWSEC2DnsRecordIpTypeUnknown,
+    AWSEC2DnsRecordIpTypeIpv4,
+    AWSEC2DnsRecordIpTypeDualstack,
+    AWSEC2DnsRecordIpTypeIpv6,
+    AWSEC2DnsRecordIpTypeServiceDefined,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2DnsSupportValue) {
     AWSEC2DnsSupportValueUnknown,
     AWSEC2DnsSupportValueEnable,
@@ -1461,6 +1469,13 @@ typedef NS_ENUM(NSInteger, AWSEC2InterfaceProtocolType) {
     AWSEC2InterfaceProtocolTypeGre,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2IpAddressType) {
+    AWSEC2IpAddressTypeUnknown,
+    AWSEC2IpAddressTypeIpv4,
+    AWSEC2IpAddressTypeDualstack,
+    AWSEC2IpAddressTypeIpv6,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2IpamAddressHistoryResourceType) {
     AWSEC2IpamAddressHistoryResourceTypeUnknown,
     AWSEC2IpamAddressHistoryResourceTypeEip,
@@ -2114,6 +2129,12 @@ typedef NS_ENUM(NSInteger, AWSEC2SelfServicePortal) {
     AWSEC2SelfServicePortalUnknown,
     AWSEC2SelfServicePortalEnabled,
     AWSEC2SelfServicePortalDisabled,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2ServiceConnectivityType) {
+    AWSEC2ServiceConnectivityTypeUnknown,
+    AWSEC2ServiceConnectivityTypeIpv4,
+    AWSEC2ServiceConnectivityTypeIpv6,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2ServiceState) {
@@ -3417,6 +3438,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DiskImageVolumeDescription;
 @class AWSEC2DiskInfo;
 @class AWSEC2DnsEntry;
+@class AWSEC2DnsOptions;
+@class AWSEC2DnsOptionsSpecification;
 @class AWSEC2DnsServersOptionsModifyStructure;
 @class AWSEC2EbsBlockDevice;
 @class AWSEC2EbsInfo;
@@ -12388,9 +12411,19 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
 /**
+ <p>The DNS options for the endpoint.</p>
+ */
+@property (nonatomic, strong) AWSEC2DnsOptionsSpecification * _Nullable dnsOptions;
+
+/**
  <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The IP address type for the endpoint.</p>
+ */
+@property (nonatomic, assign) AWSEC2IpAddressType ipAddressType;
 
 /**
  <p>(Interface and gateway endpoints) A policy to attach to the endpoint that controls access to the service. The policy must be in valid JSON format. If this parameter is not specified, we attach a default policy that allows full access to the service.</p>
@@ -12492,6 +12525,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>(Interface endpoint configuration) The private DNS name to assign to the VPC endpoint service.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable privateDnsName;
+
+/**
+ <p>The supported IP address types. The possible values are <code>ipv4</code> and <code>ipv6</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable supportedIpAddressTypes;
 
 /**
  <p>The tags to associate with the service.</p>
@@ -21295,7 +21333,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters.</p><ul><li><p><code>service-id</code> - The ID of the service.</p></li><li><p><code>vpc-endpoint-owner</code> - The ID of the Amazon Web Services account ID that owns the endpoint.</p></li><li><p><code>vpc-endpoint-state</code> - The state of the endpoint (<code>pendingAcceptance</code> | <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>rejected</code> | <code>failed</code>).</p></li><li><p><code>vpc-endpoint-id</code> - The ID of the endpoint.</p></li></ul>
+ <p>One or more filters.</p><ul><li><p><code>ip-address-type</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p></li><li><p><code>service-id</code> - The ID of the service.</p></li><li><p><code>vpc-endpoint-owner</code> - The ID of the Amazon Web Services account ID that owns the endpoint.</p></li><li><p><code>vpc-endpoint-state</code> - The state of the endpoint (<code>pendingAcceptance</code> | <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>rejected</code> | <code>failed</code>).</p></li><li><p><code>vpc-endpoint-id</code> - The ID of the endpoint.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -21341,7 +21379,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters.</p><ul><li><p><code>service-name</code> - The name of the service.</p></li><li><p><code>service-id</code> - The ID of the service.</p></li><li><p><code>service-state</code> - The state of the service (<code>Pending</code> | <code>Available</code> | <code>Deleting</code> | <code>Deleted</code> | <code>Failed</code>). </p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
+ <p>One or more filters.</p><ul><li><p><code>service-name</code> - The name of the service.</p></li><li><p><code>service-id</code> - The ID of the service.</p></li><li><p><code>service-state</code> - The state of the service (<code>Pending</code> | <code>Available</code> | <code>Deleting</code> | <code>Deleted</code> | <code>Failed</code>). </p></li><li><p><code>supported-ip-address-types</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -21443,7 +21481,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters.</p><ul><li><p><code>service-name</code> - The name of the service.</p></li><li><p><code>service-type</code> - The type of service (<code>Interface</code> | <code>Gateway</code>).</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
+ <p>One or more filters.</p><ul><li><p><code>service-name</code> - The name of the service.</p></li><li><p><code>service-type</code> - The type of service (<code>Interface</code> | <code>Gateway</code>).</p></li><li><p><code>supported-ip-address-types</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -21499,7 +21537,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters.</p><ul><li><p><code>service-name</code> - The name of the service.</p></li><li><p><code>vpc-id</code> - The ID of the VPC in which the endpoint resides.</p></li><li><p><code>vpc-endpoint-id</code> - The ID of the endpoint.</p></li><li><p><code>vpc-endpoint-state</code> - The state of the endpoint (<code>pendingAcceptance</code> | <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>rejected</code> | <code>failed</code>).</p></li><li><p><code>vpc-endpoint-type</code> - The type of VPC endpoint (<code>Interface</code> | <code>Gateway</code> | <code>GatewayLoadBalancer</code>).</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
+ <p>One or more filters.</p><ul><li><p><code>ip-address-type</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p></li><li><p><code>service-name</code> - The name of the service.</p></li><li><p><code>vpc-id</code> - The ID of the VPC in which the endpoint resides.</p></li><li><p><code>vpc-endpoint-id</code> - The ID of the endpoint.</p></li><li><p><code>vpc-endpoint-state</code> - The state of the endpoint (<code>pendingAcceptance</code> | <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>rejected</code> | <code>failed</code>).</p></li><li><p><code>vpc-endpoint-type</code> - The type of VPC endpoint (<code>Interface</code> | <code>Gateway</code> | <code>GatewayLoadBalancer</code>).</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -22931,6 +22969,32 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the private hosted zone.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable hostedZoneId;
+
+@end
+
+/**
+ <p>Describes the DNS options for an endpoint.</p>
+ */
+@interface AWSEC2DnsOptions : AWSModel
+
+
+/**
+ <p>The DNS records created for the endpoint.</p>
+ */
+@property (nonatomic, assign) AWSEC2DnsRecordIpType dnsRecordIpType;
+
+@end
+
+/**
+ <p>Describes the DNS options for an endpoint.</p>
+ */
+@interface AWSEC2DnsOptionsSpecification : AWSModel
+
+
+/**
+ <p>The DNS records created for the endpoint.</p>
+ */
+@property (nonatomic, assign) AWSEC2DnsRecordIpType dnsRecordIpType;
 
 @end
 
@@ -35637,9 +35701,19 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable addSubnetIds;
 
 /**
+ <p>The DNS options for the endpoint.</p>
+ */
+@property (nonatomic, strong) AWSEC2DnsOptionsSpecification * _Nullable dnsOptions;
+
+/**
  <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The IP address type for the endpoint.</p>
+ */
+@property (nonatomic, assign) AWSEC2IpAddressType ipAddressType;
 
 /**
  <p>(Interface and gateway endpoints) A policy to attach to the endpoint that controls access to the service. The policy must be in valid JSON format.</p>
@@ -35713,6 +35787,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable addNetworkLoadBalancerArns;
 
 /**
+ <p>The IP address types to add to your service configuration.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable addSupportedIpAddressTypes;
+
+/**
  <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
@@ -35736,6 +35815,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>(Interface endpoint configuration) Removes the private DNS name of the endpoint service.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable removePrivateDnsName;
+
+/**
+ <p>The IP address types to remove from your service configuration.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable removeSupportedIpAddressTypes;
 
 /**
  <p>The ID of the service.</p>
@@ -43043,6 +43127,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2ServiceTypeDetail *> * _Nullable serviceType;
 
 /**
+ <p>The supported IP address types.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable supportedIpAddressTypes;
+
+/**
  <p>Any tags assigned to the service.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
@@ -43114,6 +43203,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The type of service.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2ServiceTypeDetail *> * _Nullable serviceType;
+
+/**
+ <p>The supported IP address types.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable supportedIpAddressTypes;
 
 /**
  <p>Any tags assigned to the service.</p>
@@ -47911,7 +48005,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The date and time that the VPC endpoint was created.</p>
+ <p>The date and time that the endpoint was created.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable creationTimestamp;
 
@@ -47921,12 +48015,22 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2DnsEntry *> * _Nullable dnsEntries;
 
 /**
+ <p>The DNS options for the endpoint.</p>
+ */
+@property (nonatomic, strong) AWSEC2DnsOptions * _Nullable dnsOptions;
+
+/**
  <p>(Interface endpoint) Information about the security groups that are associated with the network interface.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2SecurityGroupIdentifier *> * _Nullable groups;
 
 /**
- <p>The last error that occurred for VPC endpoint.</p>
+ <p>The IP address type for the endpoint.</p>
+ */
+@property (nonatomic, assign) AWSEC2IpAddressType ipAddressType;
+
+/**
+ <p>The last error that occurred for endpoint.</p>
  */
 @property (nonatomic, strong) AWSEC2LastError * _Nullable lastError;
 
@@ -47936,7 +48040,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable networkInterfaceIds;
 
 /**
- <p>The ID of the Amazon Web Services account that owns the VPC endpoint.</p>
+ <p>The ID of the Amazon Web Services account that owns the endpoint.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ownerId;
 
@@ -47951,7 +48055,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable privateDnsEnabled;
 
 /**
- <p>Indicates whether the VPC endpoint is being managed by its service.</p>
+ <p>Indicates whether the endpoint is being managed by its service.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable requesterManaged;
 
@@ -47966,22 +48070,22 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable serviceName;
 
 /**
- <p>The state of the VPC endpoint.</p>
+ <p>The state of the endpoint.</p>
  */
 @property (nonatomic, assign) AWSEC2State state;
 
 /**
- <p>(Interface endpoint) One or more subnets in which the endpoint is located.</p>
+ <p>(Interface endpoint) The subnets for the endpoint.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable subnetIds;
 
 /**
- <p>Any tags assigned to the VPC endpoint.</p>
+ <p>Any tags assigned to the endpoint.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
 
 /**
- <p>The ID of the VPC endpoint.</p>
+ <p>The ID of the endpoint.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable vpcEndpointId;
 
@@ -48017,6 +48121,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable gatewayLoadBalancerArns;
+
+/**
+ <p>The IP address type for the endpoint.</p>
+ */
+@property (nonatomic, assign) AWSEC2IpAddressType ipAddressType;
 
 /**
  <p>The Amazon Resource Names (ARNs) of the network load balancers for the service.</p>

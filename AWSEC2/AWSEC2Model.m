@@ -11260,7 +11260,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"clientToken" : @"ClientToken",
+             @"dnsOptions" : @"DnsOptions",
              @"dryRun" : @"DryRun",
+             @"ipAddressType" : @"IpAddressType",
              @"policyDocument" : @"PolicyDocument",
              @"privateDnsEnabled" : @"PrivateDnsEnabled",
              @"routeTableIds" : @"RouteTableIds",
@@ -11271,6 +11273,36 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"vpcEndpointType" : @"VpcEndpointType",
              @"vpcId" : @"VpcId",
              };
+}
+
++ (NSValueTransformer *)dnsOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2DnsOptionsSpecification class]];
+}
+
++ (NSValueTransformer *)ipAddressTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ipv4"] == NSOrderedSame) {
+            return @(AWSEC2IpAddressTypeIpv4);
+        }
+        if ([value caseInsensitiveCompare:@"dualstack"] == NSOrderedSame) {
+            return @(AWSEC2IpAddressTypeDualstack);
+        }
+        if ([value caseInsensitiveCompare:@"ipv6"] == NSOrderedSame) {
+            return @(AWSEC2IpAddressTypeIpv6);
+        }
+        return @(AWSEC2IpAddressTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2IpAddressTypeIpv4:
+                return @"ipv4";
+            case AWSEC2IpAddressTypeDualstack:
+                return @"dualstack";
+            case AWSEC2IpAddressTypeIpv6:
+                return @"ipv6";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)tagSpecificationsJSONTransformer {
@@ -11338,6 +11370,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"gatewayLoadBalancerArns" : @"GatewayLoadBalancerArns",
              @"networkLoadBalancerArns" : @"NetworkLoadBalancerArns",
              @"privateDnsName" : @"PrivateDnsName",
+             @"supportedIpAddressTypes" : @"SupportedIpAddressTypes",
              @"tagSpecifications" : @"TagSpecifications",
              };
 }
@@ -26500,6 +26533,96 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"dnsName" : @"DnsName",
              @"hostedZoneId" : @"HostedZoneId",
              };
+}
+
+@end
+
+@implementation AWSEC2DnsOptions
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dnsRecordIpType" : @"DnsRecordIpType",
+             };
+}
+
++ (NSValueTransformer *)dnsRecordIpTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ipv4"] == NSOrderedSame) {
+            return @(AWSEC2DnsRecordIpTypeIpv4);
+        }
+        if ([value caseInsensitiveCompare:@"dualstack"] == NSOrderedSame) {
+            return @(AWSEC2DnsRecordIpTypeDualstack);
+        }
+        if ([value caseInsensitiveCompare:@"ipv6"] == NSOrderedSame) {
+            return @(AWSEC2DnsRecordIpTypeIpv6);
+        }
+        if ([value caseInsensitiveCompare:@"service-defined"] == NSOrderedSame) {
+            return @(AWSEC2DnsRecordIpTypeServiceDefined);
+        }
+        return @(AWSEC2DnsRecordIpTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2DnsRecordIpTypeIpv4:
+                return @"ipv4";
+            case AWSEC2DnsRecordIpTypeDualstack:
+                return @"dualstack";
+            case AWSEC2DnsRecordIpTypeIpv6:
+                return @"ipv6";
+            case AWSEC2DnsRecordIpTypeServiceDefined:
+                return @"service-defined";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSEC2DnsOptionsSpecification
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dnsRecordIpType" : @"DnsRecordIpType",
+             };
+}
+
++ (NSValueTransformer *)dnsRecordIpTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ipv4"] == NSOrderedSame) {
+            return @(AWSEC2DnsRecordIpTypeIpv4);
+        }
+        if ([value caseInsensitiveCompare:@"dualstack"] == NSOrderedSame) {
+            return @(AWSEC2DnsRecordIpTypeDualstack);
+        }
+        if ([value caseInsensitiveCompare:@"ipv6"] == NSOrderedSame) {
+            return @(AWSEC2DnsRecordIpTypeIpv6);
+        }
+        if ([value caseInsensitiveCompare:@"service-defined"] == NSOrderedSame) {
+            return @(AWSEC2DnsRecordIpTypeServiceDefined);
+        }
+        return @(AWSEC2DnsRecordIpTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2DnsRecordIpTypeIpv4:
+                return @"ipv4";
+            case AWSEC2DnsRecordIpTypeDualstack:
+                return @"dualstack";
+            case AWSEC2DnsRecordIpTypeIpv6:
+                return @"ipv6";
+            case AWSEC2DnsRecordIpTypeServiceDefined:
+                return @"service-defined";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -65034,7 +65157,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"addRouteTableIds" : @"AddRouteTableIds",
              @"addSecurityGroupIds" : @"AddSecurityGroupIds",
              @"addSubnetIds" : @"AddSubnetIds",
+             @"dnsOptions" : @"DnsOptions",
              @"dryRun" : @"DryRun",
+             @"ipAddressType" : @"IpAddressType",
              @"policyDocument" : @"PolicyDocument",
              @"privateDnsEnabled" : @"PrivateDnsEnabled",
              @"removeRouteTableIds" : @"RemoveRouteTableIds",
@@ -65043,6 +65168,36 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"resetPolicy" : @"ResetPolicy",
              @"vpcEndpointId" : @"VpcEndpointId",
              };
+}
+
++ (NSValueTransformer *)dnsOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2DnsOptionsSpecification class]];
+}
+
++ (NSValueTransformer *)ipAddressTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ipv4"] == NSOrderedSame) {
+            return @(AWSEC2IpAddressTypeIpv4);
+        }
+        if ([value caseInsensitiveCompare:@"dualstack"] == NSOrderedSame) {
+            return @(AWSEC2IpAddressTypeDualstack);
+        }
+        if ([value caseInsensitiveCompare:@"ipv6"] == NSOrderedSame) {
+            return @(AWSEC2IpAddressTypeIpv6);
+        }
+        return @(AWSEC2IpAddressTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2IpAddressTypeIpv4:
+                return @"ipv4";
+            case AWSEC2IpAddressTypeDualstack:
+                return @"dualstack";
+            case AWSEC2IpAddressTypeIpv6:
+                return @"ipv6";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -65072,11 +65227,13 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"acceptanceRequired" : @"AcceptanceRequired",
              @"addGatewayLoadBalancerArns" : @"AddGatewayLoadBalancerArns",
              @"addNetworkLoadBalancerArns" : @"AddNetworkLoadBalancerArns",
+             @"addSupportedIpAddressTypes" : @"AddSupportedIpAddressTypes",
              @"dryRun" : @"DryRun",
              @"privateDnsName" : @"PrivateDnsName",
              @"removeGatewayLoadBalancerArns" : @"RemoveGatewayLoadBalancerArns",
              @"removeNetworkLoadBalancerArns" : @"RemoveNetworkLoadBalancerArns",
              @"removePrivateDnsName" : @"RemovePrivateDnsName",
+             @"removeSupportedIpAddressTypes" : @"RemoveSupportedIpAddressTypes",
              @"serviceId" : @"ServiceId",
              };
 }
@@ -93066,6 +93223,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"serviceName" : @"ServiceName",
              @"serviceState" : @"ServiceState",
              @"serviceType" : @"ServiceType",
+             @"supportedIpAddressTypes" : @"SupportedIpAddressTypes",
              @"tags" : @"Tags",
              };
 }
@@ -93156,6 +93314,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"serviceId" : @"ServiceId",
              @"serviceName" : @"ServiceName",
              @"serviceType" : @"ServiceType",
+             @"supportedIpAddressTypes" : @"SupportedIpAddressTypes",
              @"tags" : @"Tags",
              @"vpcEndpointPolicySupported" : @"VpcEndpointPolicySupported",
              };
@@ -106049,7 +106208,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"creationTimestamp" : @"CreationTimestamp",
              @"dnsEntries" : @"DnsEntries",
+             @"dnsOptions" : @"DnsOptions",
              @"groups" : @"Groups",
+             @"ipAddressType" : @"IpAddressType",
              @"lastError" : @"LastError",
              @"networkInterfaceIds" : @"NetworkInterfaceIds",
              @"ownerId" : @"OwnerId",
@@ -106079,8 +106240,38 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2DnsEntry class]];
 }
 
++ (NSValueTransformer *)dnsOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2DnsOptions class]];
+}
+
 + (NSValueTransformer *)groupsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2SecurityGroupIdentifier class]];
+}
+
++ (NSValueTransformer *)ipAddressTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ipv4"] == NSOrderedSame) {
+            return @(AWSEC2IpAddressTypeIpv4);
+        }
+        if ([value caseInsensitiveCompare:@"dualstack"] == NSOrderedSame) {
+            return @(AWSEC2IpAddressTypeDualstack);
+        }
+        if ([value caseInsensitiveCompare:@"ipv6"] == NSOrderedSame) {
+            return @(AWSEC2IpAddressTypeIpv6);
+        }
+        return @(AWSEC2IpAddressTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2IpAddressTypeIpv4:
+                return @"ipv4";
+            case AWSEC2IpAddressTypeDualstack:
+                return @"dualstack";
+            case AWSEC2IpAddressTypeIpv6:
+                return @"ipv6";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)lastErrorJSONTransformer {
@@ -106181,6 +106372,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"creationTimestamp" : @"CreationTimestamp",
              @"dnsEntries" : @"DnsEntries",
              @"gatewayLoadBalancerArns" : @"GatewayLoadBalancerArns",
+             @"ipAddressType" : @"IpAddressType",
              @"networkLoadBalancerArns" : @"NetworkLoadBalancerArns",
              @"serviceId" : @"ServiceId",
              @"vpcEndpointId" : @"VpcEndpointId",
@@ -106199,6 +106391,32 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)dnsEntriesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2DnsEntry class]];
+}
+
++ (NSValueTransformer *)ipAddressTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ipv4"] == NSOrderedSame) {
+            return @(AWSEC2IpAddressTypeIpv4);
+        }
+        if ([value caseInsensitiveCompare:@"dualstack"] == NSOrderedSame) {
+            return @(AWSEC2IpAddressTypeDualstack);
+        }
+        if ([value caseInsensitiveCompare:@"ipv6"] == NSOrderedSame) {
+            return @(AWSEC2IpAddressTypeIpv6);
+        }
+        return @(AWSEC2IpAddressTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2IpAddressTypeIpv4:
+                return @"ipv4";
+            case AWSEC2IpAddressTypeDualstack:
+                return @"dualstack";
+            case AWSEC2IpAddressTypeIpv6:
+                return @"ipv6";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)vpcEndpointStateJSONTransformer {

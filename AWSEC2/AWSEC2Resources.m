@@ -12507,11 +12507,6 @@
         \"ReservationType\"\
       ],\
       \"members\":{\
-        \"TagSpecifications\":{\
-          \"shape\":\"TagSpecificationList\",\
-          \"documentation\":\"<p>The tags to assign to the subnet CIDR reservation.</p>\",\
-          \"locationName\":\"TagSpecification\"\
-        },\
         \"SubnetId\":{\
           \"shape\":\"SubnetId\",\
           \"documentation\":\"<p>The ID of the subnet.</p>\"\
@@ -12531,6 +12526,11 @@
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p>The tags to assign to the subnet CIDR reservation.</p>\",\
+          \"locationName\":\"TagSpecification\"\
         }\
       }\
     },\
@@ -13433,6 +13433,14 @@
           \"documentation\":\"<p>(Interface endpoint) The ID of one or more security groups to associate with the endpoint network interface.</p>\",\
           \"locationName\":\"SecurityGroupId\"\
         },\
+        \"IpAddressType\":{\
+          \"shape\":\"IpAddressType\",\
+          \"documentation\":\"<p>The IP address type for the endpoint.</p>\"\
+        },\
+        \"DnsOptions\":{\
+          \"shape\":\"DnsOptionsSpecification\",\
+          \"documentation\":\"<p>The DNS options for the endpoint.</p>\"\
+        },\
         \"ClientToken\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\\\">How to ensure idempotency</a>.</p>\"\
@@ -13489,6 +13497,11 @@
           \"shape\":\"ValueStringList\",\
           \"documentation\":\"<p>The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.</p>\",\
           \"locationName\":\"GatewayLoadBalancerArn\"\
+        },\
+        \"SupportedIpAddressTypes\":{\
+          \"shape\":\"ValueStringList\",\
+          \"documentation\":\"<p>The supported IP address types. The possible values are <code>ipv4</code> and <code>ipv6</code>.</p>\",\
+          \"locationName\":\"SupportedIpAddressType\"\
         },\
         \"ClientToken\":{\
           \"shape\":\"String\",\
@@ -21243,7 +21256,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>service-id</code> - The ID of the service.</p> </li> <li> <p> <code>vpc-endpoint-owner</code> - The ID of the Amazon Web Services account ID that owns the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-state</code> - The state of the endpoint (<code>pendingAcceptance</code> | <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>rejected</code> | <code>failed</code>).</p> </li> <li> <p> <code>vpc-endpoint-id</code> - The ID of the endpoint.</p> </li> </ul>\",\
+          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>ip-address-type</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p> </li> <li> <p> <code>service-id</code> - The ID of the service.</p> </li> <li> <p> <code>vpc-endpoint-owner</code> - The ID of the Amazon Web Services account ID that owns the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-state</code> - The state of the endpoint (<code>pendingAcceptance</code> | <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>rejected</code> | <code>failed</code>).</p> </li> <li> <p> <code>vpc-endpoint-id</code> - The ID of the endpoint.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"MaxResults\":{\
@@ -21285,7 +21298,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>service-name</code> - The name of the service.</p> </li> <li> <p> <code>service-id</code> - The ID of the service.</p> </li> <li> <p> <code>service-state</code> - The state of the service (<code>Pending</code> | <code>Available</code> | <code>Deleting</code> | <code>Deleted</code> | <code>Failed</code>). </p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>\",\
+          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>service-name</code> - The name of the service.</p> </li> <li> <p> <code>service-id</code> - The ID of the service.</p> </li> <li> <p> <code>service-state</code> - The state of the service (<code>Pending</code> | <code>Available</code> | <code>Deleting</code> | <code>Deleted</code> | <code>Failed</code>). </p> </li> <li> <p> <code>supported-ip-address-types</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"MaxResults\":{\
@@ -21369,7 +21382,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>service-name</code> - The name of the service.</p> </li> <li> <p> <code>service-type</code> - The type of service (<code>Interface</code> | <code>Gateway</code>).</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>\",\
+          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>service-name</code> - The name of the service.</p> </li> <li> <p> <code>service-type</code> - The type of service (<code>Interface</code> | <code>Gateway</code>).</p> </li> <li> <p> <code>supported-ip-address-types</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"MaxResults\":{\
@@ -21418,7 +21431,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>service-name</code> - The name of the service.</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC in which the endpoint resides.</p> </li> <li> <p> <code>vpc-endpoint-id</code> - The ID of the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-state</code> - The state of the endpoint (<code>pendingAcceptance</code> | <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>rejected</code> | <code>failed</code>).</p> </li> <li> <p> <code>vpc-endpoint-type</code> - The type of VPC endpoint (<code>Interface</code> | <code>Gateway</code> | <code>GatewayLoadBalancer</code>).</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>\",\
+          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>ip-address-type</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p> </li> <li> <p> <code>service-name</code> - The name of the service.</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC in which the endpoint resides.</p> </li> <li> <p> <code>vpc-endpoint-id</code> - The ID of the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-state</code> - The state of the endpoint (<code>pendingAcceptance</code> | <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>rejected</code> | <code>failed</code>).</p> </li> <li> <p> <code>vpc-endpoint-type</code> - The type of VPC endpoint (<code>Interface</code> | <code>Gateway</code> | <code>GatewayLoadBalancer</code>).</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"MaxResults\":{\
@@ -22768,6 +22781,36 @@
         \"pendingVerification\",\
         \"verified\",\
         \"failed\"\
+      ]\
+    },\
+    \"DnsOptions\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"DnsRecordIpType\":{\
+          \"shape\":\"DnsRecordIpType\",\
+          \"documentation\":\"<p>The DNS records created for the endpoint.</p>\",\
+          \"locationName\":\"dnsRecordIpType\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes the DNS options for an endpoint.</p>\"\
+    },\
+    \"DnsOptionsSpecification\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"DnsRecordIpType\":{\
+          \"shape\":\"DnsRecordIpType\",\
+          \"documentation\":\"<p>The DNS records created for the endpoint.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes the DNS options for an endpoint.</p>\"\
+    },\
+    \"DnsRecordIpType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"ipv4\",\
+        \"dualstack\",\
+        \"ipv6\",\
+        \"service-defined\"\
       ]\
     },\
     \"DnsServersOptionsModifyStructure\":{\
@@ -31519,6 +31562,14 @@
         \"locationName\":\"item\"\
       }\
     },\
+    \"IpAddressType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"ipv4\",\
+        \"dualstack\",\
+        \"ipv6\"\
+      ]\
+    },\
     \"IpPermission\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -36750,6 +36801,14 @@
           \"documentation\":\"<p>(Interface endpoint) One or more security group IDs to disassociate from the network interface.</p>\",\
           \"locationName\":\"RemoveSecurityGroupId\"\
         },\
+        \"IpAddressType\":{\
+          \"shape\":\"IpAddressType\",\
+          \"documentation\":\"<p>The IP address type for the endpoint.</p>\"\
+        },\
+        \"DnsOptions\":{\
+          \"shape\":\"DnsOptionsSpecification\",\
+          \"documentation\":\"<p>The DNS options for the endpoint.</p>\"\
+        },\
         \"PrivateDnsEnabled\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>(Interface endpoint) Indicates whether a private hosted zone is associated with the VPC.</p>\"\
@@ -36810,6 +36869,16 @@
           \"shape\":\"ValueStringList\",\
           \"documentation\":\"<p>The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from your service configuration.</p>\",\
           \"locationName\":\"RemoveGatewayLoadBalancerArn\"\
+        },\
+        \"AddSupportedIpAddressTypes\":{\
+          \"shape\":\"ValueStringList\",\
+          \"documentation\":\"<p>The IP address types to add to your service configuration.</p>\",\
+          \"locationName\":\"AddSupportedIpAddressType\"\
+        },\
+        \"RemoveSupportedIpAddressTypes\":{\
+          \"shape\":\"ValueStringList\",\
+          \"documentation\":\"<p>The IP address types to remove from your service configuration.</p>\",\
+          \"locationName\":\"RemoveSupportedIpAddressType\"\
         }\
       }\
     },\
@@ -44699,6 +44768,11 @@
           \"documentation\":\"<p>The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service.</p>\",\
           \"locationName\":\"gatewayLoadBalancerArnSet\"\
         },\
+        \"SupportedIpAddressTypes\":{\
+          \"shape\":\"SupportedIpAddressTypes\",\
+          \"documentation\":\"<p>The supported IP address types.</p>\",\
+          \"locationName\":\"supportedIpAddressTypeSet\"\
+        },\
         \"BaseEndpointDnsNames\":{\
           \"shape\":\"ValueStringList\",\
           \"documentation\":\"<p>The DNS names for the service.</p>\",\
@@ -44733,6 +44807,13 @@
         \"shape\":\"ServiceConfiguration\",\
         \"locationName\":\"item\"\
       }\
+    },\
+    \"ServiceConnectivityType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"ipv4\",\
+        \"ipv6\"\
+      ]\
     },\
     \"ServiceDetail\":{\
       \"type\":\"structure\",\
@@ -44806,6 +44887,11 @@
           \"shape\":\"DnsNameState\",\
           \"documentation\":\"<p>The verification state of the VPC endpoint service.</p> <p>Consumers of the endpoint service cannot use the private name when the state is not <code>verified</code>.</p>\",\
           \"locationName\":\"privateDnsNameVerificationState\"\
+        },\
+        \"SupportedIpAddressTypes\":{\
+          \"shape\":\"SupportedIpAddressTypes\",\
+          \"documentation\":\"<p>The supported IP address types.</p>\",\
+          \"locationName\":\"supportedIpAddressTypeSet\"\
         }\
       },\
       \"documentation\":\"<p>Describes a VPC endpoint service.</p>\"\
@@ -46828,6 +46914,15 @@
         \"not-applicable\",\
         \"initializing\"\
       ]\
+    },\
+    \"SupportedIpAddressTypes\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"ServiceConnectivityType\",\
+        \"locationName\":\"item\"\
+      },\
+      \"max\":2,\
+      \"min\":0\
     },\
     \"Tag\":{\
       \"type\":\"structure\",\
@@ -50476,7 +50571,7 @@
       \"members\":{\
         \"VpcEndpointId\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The ID of the VPC endpoint.</p>\",\
+          \"documentation\":\"<p>The ID of the endpoint.</p>\",\
           \"locationName\":\"vpcEndpointId\"\
         },\
         \"VpcEndpointType\":{\
@@ -50496,7 +50591,7 @@
         },\
         \"State\":{\
           \"shape\":\"State\",\
-          \"documentation\":\"<p>The state of the VPC endpoint.</p>\",\
+          \"documentation\":\"<p>The state of the endpoint.</p>\",\
           \"locationName\":\"state\"\
         },\
         \"PolicyDocument\":{\
@@ -50511,13 +50606,23 @@
         },\
         \"SubnetIds\":{\
           \"shape\":\"ValueStringList\",\
-          \"documentation\":\"<p>(Interface endpoint) One or more subnets in which the endpoint is located.</p>\",\
+          \"documentation\":\"<p>(Interface endpoint) The subnets for the endpoint.</p>\",\
           \"locationName\":\"subnetIdSet\"\
         },\
         \"Groups\":{\
           \"shape\":\"GroupIdentifierSet\",\
           \"documentation\":\"<p>(Interface endpoint) Information about the security groups that are associated with the network interface.</p>\",\
           \"locationName\":\"groupSet\"\
+        },\
+        \"IpAddressType\":{\
+          \"shape\":\"IpAddressType\",\
+          \"documentation\":\"<p>The IP address type for the endpoint.</p>\",\
+          \"locationName\":\"ipAddressType\"\
+        },\
+        \"DnsOptions\":{\
+          \"shape\":\"DnsOptions\",\
+          \"documentation\":\"<p>The DNS options for the endpoint.</p>\",\
+          \"locationName\":\"dnsOptions\"\
         },\
         \"PrivateDnsEnabled\":{\
           \"shape\":\"Boolean\",\
@@ -50526,7 +50631,7 @@
         },\
         \"RequesterManaged\":{\
           \"shape\":\"Boolean\",\
-          \"documentation\":\"<p>Indicates whether the VPC endpoint is being managed by its service.</p>\",\
+          \"documentation\":\"<p>Indicates whether the endpoint is being managed by its service.</p>\",\
           \"locationName\":\"requesterManaged\"\
         },\
         \"NetworkInterfaceIds\":{\
@@ -50541,22 +50646,22 @@
         },\
         \"CreationTimestamp\":{\
           \"shape\":\"MillisecondDateTime\",\
-          \"documentation\":\"<p>The date and time that the VPC endpoint was created.</p>\",\
+          \"documentation\":\"<p>The date and time that the endpoint was created.</p>\",\
           \"locationName\":\"creationTimestamp\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagList\",\
-          \"documentation\":\"<p>Any tags assigned to the VPC endpoint.</p>\",\
+          \"documentation\":\"<p>Any tags assigned to the endpoint.</p>\",\
           \"locationName\":\"tagSet\"\
         },\
         \"OwnerId\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The ID of the Amazon Web Services account that owns the VPC endpoint.</p>\",\
+          \"documentation\":\"<p>The ID of the Amazon Web Services account that owns the endpoint.</p>\",\
           \"locationName\":\"ownerId\"\
         },\
         \"LastError\":{\
           \"shape\":\"LastError\",\
-          \"documentation\":\"<p>The last error that occurred for VPC endpoint.</p>\",\
+          \"documentation\":\"<p>The last error that occurred for endpoint.</p>\",\
           \"locationName\":\"lastError\"\
         }\
       },\
@@ -50604,6 +50709,11 @@
           \"shape\":\"ValueStringList\",\
           \"documentation\":\"<p>The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service.</p>\",\
           \"locationName\":\"gatewayLoadBalancerArnSet\"\
+        },\
+        \"IpAddressType\":{\
+          \"shape\":\"IpAddressType\",\
+          \"documentation\":\"<p>The IP address type for the endpoint.</p>\",\
+          \"locationName\":\"ipAddressType\"\
         }\
       },\
       \"documentation\":\"<p>Describes a VPC endpoint connection to a service.</p>\"\
