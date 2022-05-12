@@ -17,7 +17,7 @@
     <a title="AWSPinpointNotificationManager Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSPinpoint 2.27.7 Docs</a> (90% documented)</p>
+        <p><a href="../index.html">AWSPinpoint 2.27.9 Docs</a> (90% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSPinpoint.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -1449,6 +1449,9 @@
                 <a href="../Enums/AWSPinpointPushActionType.html">AWSPinpointPushActionType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSPinpointPushEvent.html">AWSPinpointPushEvent</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSPinpointPushEventSourceType.html">AWSPinpointPushEventSourceType</a>
               </li>
               <li class="nav-group-task">
@@ -1572,6 +1575,11 @@
     <span class="n">AWSPinpointPushEventSourceTypeUnknown</span>
 <span class="p">};</span>
 
+<span class="k">typedef</span> <span class="nf">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n"><a href="../Enums/AWSPinpointPushEvent.html">AWSPinpointPushEvent</a></span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSPinpointPushEventReceived</span><span class="p">,</span>
+    <span class="n">AWSPinpointPushEventOpened</span>
+<span class="p">};</span>
+
 <span class="cp">#pragma mark - Notification Helpers
 </span><span class="cm">/**
  Returns a Boolean indicating whether the app is currently registered for remote notifications.
@@ -1637,6 +1645,26 @@
 <span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">interceptDidReceiveRemoteNotification</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">userInfo</span><span class="p">;</span>
 
 <span class="cm">/**
+ For iOS 9 and below, invoke this method from the `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)`
+ application delegate method.
+
+ For iOS 10 and above, invoke this method from the `userNotificationCenter(_:willPresent:withCompletionHandler:)` and
+ `userNotificationCenter(_:didReceive:withCompletionHandler:)` UserNotificationCenter methods. When invoking this method
+ from `willPresent`, pass in `notification.request.content.userInfo` as userInfo. When invoking this method on
+ `didReceive`, pass in `response.notification.request.content.userInfo` as `userInfo`.
+
+ The Pinpoint targeting client must intercept this callback in order to report campaign analytics correctly.
+
+ @param userInfo    A dictionary that contains information related to the remote notification, potentially including a
+ badge number for the app icon, an alert sound, an alert message to display to the user, a notification identifier, and
+ custom data. The provider originates it as a JSON-defined dictionary that iOS converts to an `NSDictionary` object; the
+ dictionary may contain only property-list objects plus `NSNull`.
+ @param pushEvent  Event for push which is either `received` or `opened`.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">interceptDidReceiveRemoteNotification</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">userInfo</span>
+                                    <span class="nf">pushEvent</span><span class="p">:(</span><span class="n"><a href="../Enums/AWSPinpointPushEvent.html">AWSPinpointPushEvent</a></span><span class="p">)</span><span class="nv">pushEvent</span><span class="p">;</span>
+
+<span class="cm">/**
  Invoke this method from the `application:didReceiveRemoteNotification:fetchCompletionHandler:shouldHandleNotificationDeepLink:`
  application delegate method.
 
@@ -1652,7 +1680,7 @@
  the fetch result value that best describes the results of your download operation. You must call this handler and
  should do so as soon as possible. For a list of possible values, see the UIBackgroundFetchResult type.
  @param handleDeepLink  Whether or not notification manager should attempt to open the remote notification deeplink, if
- present
+ present.
  */</span>
 <span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">interceptDidReceiveRemoteNotification</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">userInfo</span>
                        <span class="nf">fetchCompletionHandler</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">UIBackgroundFetchResult</span> <span class="n">result</span><span class="p">))</span><span class="nv">handler</span>
@@ -1679,6 +1707,31 @@
  present
  */</span>
 <span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">interceptDidReceiveRemoteNotification</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">userInfo</span>
+             <span class="nf">shouldHandleNotificationDeepLink</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span> <span class="n">handleDeepLink</span><span class="p">;</span>
+
+<span class="cm">/**
+ For iOS 9 and below, intercept the `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` application
+ delegate.
+
+ For iOS 10 and above, invoke this method from the `userNotificationCenter(_:willPresent:withCompletionHandler:)` and
+ `userNotificationCenter(_:didReceive:withCompletionHandler:)` UserNotificationCenter methods. When invoking this method
+ from `willPresent`, pass in `notification.request.content.userInfo` as userInfo. When invoking this method on
+ `didReceive`, pass in `response.notification.request.content.userInfo` as `userInfo`.
+
+ The Pinpoint targeting client must intercept this callback in order to report campaign analytics correctly. Optionally
+ specify 'shouldHandleNotificationDeepLink' to control whether or not the notification manager should attempt to open
+ the remote notification deeplink, if present.
+
+ @param userInfo        A dictionary that contains information related to the remote notification, potentially including
+ a badge number for the app icon, an alert sound, an alert message to display to the user, a notification identifier,
+ and custom data. The provider originates it as a JSON-defined dictionary that iOS converts to an `NSDictionary` object;
+ the dictionary may contain only property-list objects plus `NSNull`.
+ @param handleDeepLink  Whether or not notification manager should attempt to open the remote notification deeplink, if
+ present.
+ @param pushEvent  Event for push which is either `received` or `opened`.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">interceptDidReceiveRemoteNotification</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">userInfo</span>
+                                    <span class="nf">pushEvent</span><span class="p">:(</span><span class="n"><a href="../Enums/AWSPinpointPushEvent.html">AWSPinpointPushEvent</a></span><span class="p">)</span><span class="nv">pushEvent</span>
              <span class="nf">shouldHandleNotificationDeepLink</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span> <span class="n">handleDeepLink</span><span class="p">;</span>
 
 <span class="k">@end</span></code></pre>
@@ -2008,6 +2061,81 @@ dictionary may contain only property-list objects plus <code>NSNull</code>.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSPinpointNotificationManager(im)interceptDidReceiveRemoteNotification:pushEvent:"></a>
+                    <a name="//apple_ref/objc/Method/-interceptDidReceiveRemoteNotification:pushEvent:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointNotificationManager(im)interceptDidReceiveRemoteNotification:pushEvent:">-interceptDidReceiveRemoteNotification:<wbr>pushEvent:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>For iOS 9 and below, invoke this method from the <code>application(_:didReceiveRemoteNotification:fetchCompletionHandler:)</code>
+application delegate method.</p>
+
+<p>For iOS 10 and above, invoke this method from the <code>userNotificationCenter(_:willPresent:withCompletionHandler:)</code> and
+<code>userNotificationCenter(_:didReceive:withCompletionHandler:)</code> UserNotificationCenter methods. When invoking this method
+from <code>willPresent</code>, pass in <code>notification.request.content.userInfo</code> as userInfo. When invoking this method on
+<code>didReceive</code>, pass in <code>response.notification.request.content.userInfo</code> as <code>userInfo</code>.</p>
+
+<p>The Pinpoint targeting client must intercept this callback in order to report campaign analytics correctly.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">interceptDidReceiveRemoteNotification</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">userInfo</span>
+                                    <span class="nf">pushEvent</span><span class="p">:(</span><span class="n"><a href="../Enums/AWSPinpointPushEvent.html">AWSPinpointPushEvent</a></span><span class="p">)</span><span class="nv">pushEvent</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">interceptDidReceiveRemoteNotification</span><span class="p">(</span><span class="n">_</span> <span class="nv">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">],</span> <span class="nv">pushEvent</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSPinpointPushEvent.html">AWSPinpointPushEvent</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userInfo</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A dictionary that contains information related to the remote notification, potentially including a
+badge number for the app icon, an alert sound, an alert message to display to the user, a notification identifier, and
+custom data. The provider originates it as a JSON-defined dictionary that iOS converts to an <code>NSDictionary</code> object; the
+dictionary may contain only property-list objects plus <code>NSNull</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pushEvent</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Event for push which is either <code>received</code> or <code>opened</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSPinpointNotificationManager(im)interceptDidReceiveRemoteNotification:fetchCompletionHandler:shouldHandleNotificationDeepLink:"></a>
                     <a name="//apple_ref/objc/Method/-interceptDidReceiveRemoteNotification:fetchCompletionHandler:shouldHandleNotificationDeepLink:" class="dashAnchor"></a>
                     <a class="token discouraged" href="#/c:objc(cs)AWSPinpointNotificationManager(im)interceptDidReceiveRemoteNotification:fetchCompletionHandler:shouldHandleNotificationDeepLink:">-interceptDidReceiveRemoteNotification:<wbr>fetchCompletionHandler:<wbr>shouldHandleNotificationDeepLink:<wbr></a>
@@ -2089,7 +2217,7 @@ should do so as soon as possible. For a list of possible values, see the UIBackg
                               <td>
                                 <div>
                                   <p>Whether or not notification manager should attempt to open the remote notification deeplink, if
-present</p>
+present.</p>
                                 </div>
                               </td>
                             </tr>
@@ -2177,12 +2305,103 @@ present</p>
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPinpointNotificationManager(im)interceptDidReceiveRemoteNotification:pushEvent:shouldHandleNotificationDeepLink:"></a>
+                    <a name="//apple_ref/objc/Method/-interceptDidReceiveRemoteNotification:pushEvent:shouldHandleNotificationDeepLink:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointNotificationManager(im)interceptDidReceiveRemoteNotification:pushEvent:shouldHandleNotificationDeepLink:">-interceptDidReceiveRemoteNotification:<wbr>pushEvent:<wbr>shouldHandleNotificationDeepLink:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>For iOS 9 and below, intercept the <code>application(_:didReceiveRemoteNotification:fetchCompletionHandler:)</code> application
+delegate.</p>
+
+<p>For iOS 10 and above, invoke this method from the <code>userNotificationCenter(_:willPresent:withCompletionHandler:)</code> and
+<code>userNotificationCenter(_:didReceive:withCompletionHandler:)</code> UserNotificationCenter methods. When invoking this method
+from <code>willPresent</code>, pass in <code>notification.request.content.userInfo</code> as userInfo. When invoking this method on
+<code>didReceive</code>, pass in <code>response.notification.request.content.userInfo</code> as <code>userInfo</code>.</p>
+
+<p>The Pinpoint targeting client must intercept this callback in order to report campaign analytics correctly. Optionally
+specify &lsquo;shouldHandleNotificationDeepLink&rsquo; to control whether or not the notification manager should attempt to open
+the remote notification deeplink, if present.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">interceptDidReceiveRemoteNotification</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">userInfo</span>
+                                    <span class="nf">pushEvent</span><span class="p">:(</span><span class="n"><a href="../Enums/AWSPinpointPushEvent.html">AWSPinpointPushEvent</a></span><span class="p">)</span><span class="nv">pushEvent</span>
+             <span class="nf">shouldHandleNotificationDeepLink</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">handleDeepLink</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">interceptDidReceiveRemoteNotification</span><span class="p">(</span><span class="n">_</span> <span class="nv">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">],</span> <span class="nv">pushEvent</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSPinpointPushEvent.html">AWSPinpointPushEvent</a></span><span class="p">,</span> <span class="n">shouldHandleNotificationDeepLink</span> <span class="nv">handleDeepLink</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userInfo</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A dictionary that contains information related to the remote notification, potentially including
+a badge number for the app icon, an alert sound, an alert message to display to the user, a notification identifier,
+and custom data. The provider originates it as a JSON-defined dictionary that iOS converts to an <code>NSDictionary</code> object;
+the dictionary may contain only property-list objects plus <code>NSNull</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>handleDeepLink</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Whether or not notification manager should attempt to open the remote notification deeplink, if
+present.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pushEvent</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Event for push which is either <code>received</code> or <code>opened</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-04-27)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-05-12)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
