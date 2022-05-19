@@ -28,7 +28,7 @@
 #import "AWSKinesisSerializer.h"
 
 static NSString *const AWSInfoKinesis = @"Kinesis";
-NSString *const AWSKinesisSDKVersion = @"2.27.8";
+NSString *const AWSKinesisSDKVersion = @"2.27.9";
 
 
 @interface AWSKinesisResponseSerializer : AWSJSONResponseSerializer
