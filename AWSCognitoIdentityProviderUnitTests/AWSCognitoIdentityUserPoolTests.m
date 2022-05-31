@@ -46,7 +46,7 @@ static id mockNetworking = nil;
     AWSCognitoIdentityUserPool *pool = [AWSCognitoIdentityUserPool CognitoIdentityUserPoolForKey:key];
     NSString *providerName = [pool identityProviderName];
     NSString *expectedValue = @"cognito-idp.us-east-1.amazonaws.com/somePoolId";
-    XCTAssertEqual(providerName, expectedValue);
+    XCTAssertEqualObjects(providerName, expectedValue);
     [AWSCognitoIdentityUserPool removeCognitoIdentityUserPoolForKey:key];
 }
 
