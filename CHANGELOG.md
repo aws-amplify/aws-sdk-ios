@@ -4,14 +4,21 @@
 
 -Features for next release
 
+### Bug Fixes
+
+- **AWSCognito**
+  - Fix the parsing of providerName used in the loginMap to use the right value in case of customer endpoint is configured.  (See [PR #4162](https://github.com/aws-amplify/aws-sdk-ios/pull/4162))
+
 ## 2.27.9
 
-- Features for next release
+### Bug Fixes
 
 - **AWSS3**
 
   - fix: adds details to userInfo for NSError for TransferUtility (See [PR #4115](https://github.com/aws-amplify/aws-sdk-ios/pull/4115))
   - fix: Reduces memory use for multipart uploads with `@autoreleasepool` to prevent excessive memory allocation (See [PR #4129](https://github.com/aws-amplify/aws-sdk-ios/pull/4129))
+
+### Misc. Updates
 
 - Model updates for the following services
   - AWSLocation
