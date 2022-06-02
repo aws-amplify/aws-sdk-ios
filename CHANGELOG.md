@@ -1,6 +1,10 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
+
+-Features for next release
+
+## 2.27.10
 -Features for next release
 
 ### Bug Fixes
