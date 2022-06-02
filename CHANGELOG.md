@@ -7,6 +7,12 @@
 ## 2.27.10
 -Features for next release
 
+### New features
+
+- **AWSS3**
+
+  - feat: implements suspend and resume for all multipart uploads (See [PR #4168](https://github.com/aws-amplify/aws-sdk-ios/pull/4168))
+
 ### Bug Fixes
 
 - **AWSCognito**
