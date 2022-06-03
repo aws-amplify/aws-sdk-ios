@@ -288,6 +288,69 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTKeyChainTypes.h",
+      "line": 22,
+      "symbol": "AWSIoTKeyChainAccessibility",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTKeyChainTypes.h",
+      "line": 22,
+      "symbol": "AWSIoTKeyChainAccessibility",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTKeyChainTypes.h",
+      "line": 23,
+      "symbol": "AWSIoTKeyChainAccessibility.AWSIoTKeyChainAccessibilityWhenUnlocked",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTKeyChainTypes.h",
+      "line": 24,
+      "symbol": "AWSIoTKeyChainAccessibility.AWSIoTKeyChainAccessibilityAfterFirstUnlock",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTKeyChainTypes.h",
+      "line": 25,
+      "symbol": "AWSIoTKeyChainAccessibility.AWSIoTKeyChainAccessibilityAlways",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTKeyChainTypes.h",
+      "line": 26,
+      "symbol": "AWSIoTKeyChainAccessibility.AWSIoTKeyChainAccessibilityWhenPasscodeSetThisDeviceOnly",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTKeyChainTypes.h",
+      "line": 27,
+      "symbol": "AWSIoTKeyChainAccessibility.AWSIoTKeyChainAccessibilityWhenUnlockedThisDeviceOnly",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTKeyChainTypes.h",
+      "line": 28,
+      "symbol": "AWSIoTKeyChainAccessibility.AWSIoTKeyChainAccessibilityAfterFirstUnlockThisDeviceOnly",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTKeyChainTypes.h",
+      "line": 29,
+      "symbol": "AWSIoTKeyChainAccessibility.AWSIoTKeyChainAccessibilityAlwaysThisDeviceOnly",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 22,
       "symbol": "AWSIoTMQTTStatus",
@@ -527,37 +590,44 @@
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTManager.h",
-      "line": 19,
+      "line": 20,
       "symbol": "AWSIoTCreateCertificateResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTManager.h",
-      "line": 21,
+      "line": 22,
       "symbol": "AWSIoTCreateCertificateResponse.certificateArn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTManager.h",
-      "line": 22,
+      "line": 23,
       "symbol": "AWSIoTCreateCertificateResponse.certificateId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTManager.h",
-      "line": 23,
+      "line": 24,
       "symbol": "AWSIoTCreateCertificateResponse.certificatePem",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTManager.h",
-      "line": 27,
+      "line": 28,
       "symbol": "AWSIoTManager",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTManager.h",
+      "line": 221,
+      "symbol": "AWSIoTManager.+setKeyChainAccessibility:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
