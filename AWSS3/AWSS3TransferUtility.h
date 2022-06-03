@@ -620,11 +620,11 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
                                                     expression:(nullable AWSS3TransferUtilityDownloadExpression *)expression
                                              completionHandler:(nullable AWSS3TransferUtilityDownloadCompletionHandlerBlock)completionHandler;
 
-/**
- Suspends multipart upload
- @param multipartUploadTask task
- */
-- (nullable NSError *)suspendMultipartUpload:(AWSS3TransferUtilityMultiPartUploadTask *)multipartUploadTask;
+///**
+// Suspends multipart upload
+// @param multipartUploadTask task
+// */
+//- (nullable NSError *)suspendMultipartUpload:(AWSS3TransferUtilityMultiPartUploadTask *)multipartUploadTask;
 
 /**
  Suspends all multipart uploads.
@@ -632,11 +632,11 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
  */
 - (void)suspendAllMultipartUploadsWithCompletionHandler:(nullable AWSS3TransferUtilityMultiPartUploadSuspendBlock)completionHandler;
 
-/**
-  Resumes a multipart upload.
- @param multiPartUploadTask   The task to resume
- */
-- (nullable NSError *)resumeMultipartUpload:(nonnull AWSS3TransferUtilityMultiPartUploadTask *)multiPartUploadTask;
+///**
+//  Resumes a multipart upload.
+// @param multiPartUploadTask   The task to resume
+// */
+//- (nullable NSError *)resumeMultipartUpload:(nonnull AWSS3TransferUtilityMultiPartUploadTask *)multiPartUploadTask;
 
 /**
   Resumes all multipart uploads.

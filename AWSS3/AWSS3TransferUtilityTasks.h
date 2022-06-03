@@ -155,6 +155,11 @@ typedef void (^AWSS3TransferUtilityMultiPartUploadResumeBlock) (NSError * _Nulla
 @property (nullable, readonly) NSHTTPURLResponse *response;
 
 /**
+ Error after operation.
+ */
+@property (nullable, readonly) NSError *error;
+
+/**
  Cancels the task.
  */
 - (void)cancel;

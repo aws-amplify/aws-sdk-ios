@@ -17,6 +17,24 @@
 #import "AWSS3Service.h"
 #import "AWSS3PreSignedURL.h"
 
+@class AWSS3TransferUtilityConfiguration;
+@class AWSS3PreSignedURLBuilder;
+
+@interface AWSS3TransferUtility ()
+
+- (NSError *)createUploadSubTask:(AWSS3TransferUtilityMultiPartUploadTask *)transferUtilityMultiPartUploadTask
+                         subTask:(AWSS3TransferUtilityUploadSubTask *)subTask
+internalDictionaryToAddSubTaskTo:(NSMutableDictionary *)internalDictionaryToAddSubTaskTo;
+
+- (NSError *)createUploadSubTask:(AWSS3TransferUtilityMultiPartUploadTask *)transferUtilityMultiPartUploadTask
+                    subTask:(AWSS3TransferUtilityUploadSubTask *)subTask
+                   startTransfer:(BOOL)startTransfer
+internalDictionaryToAddSubTaskTo:(NSMutableDictionary *)internalDictionaryToAddSubTaskTo;
+
+- (void)completeMultiPartForUploadTask:(AWSS3TransferUtilityMultiPartUploadTask *)transferUtilityMultiPartUploadTask;
+
+@end
+
 @interface AWSS3TransferUtilityTask()
 
 @property (strong, nonatomic) NSURLSessionTask *sessionTask;
@@ -26,7 +44,7 @@
 @property (strong, nonatomic) NSString *key;
 @property (strong, nonatomic) NSData *data;
 @property (strong, nonatomic) NSURL *location;
-@property (strong, nonatomic) NSError *error;
+@property (readwrite, nonatomic) NSError *error;
 @property int retryCount;
 @property (copy) NSString *nsURLSessionID;
 @property (copy) NSString *file;
@@ -54,12 +72,15 @@
 @property BOOL cancelled;
 @property BOOL temporaryFileCreated;
 @property (readonly) BOOL isDone;
-@property NSMutableDictionary <NSNumber *, AWSS3TransferUtilityUploadSubTask *> *waitingPartsDictionary;
-@property (strong, nonatomic) NSMutableSet <AWSS3TransferUtilityUploadSubTask *> *completedPartsSet;
+@property (strong, nonatomic) NSMutableDictionary <NSNumber *, AWSS3TransferUtilityUploadSubTask *> *waitingPartsDictionary;
 @property (strong, nonatomic) NSMutableDictionary <NSNumber *, AWSS3TransferUtilityUploadSubTask *> *inProgressPartsDictionary;
+@property (strong, nonatomic) NSMutableSet <AWSS3TransferUtilityUploadSubTask *> *completedPartsSet;
 @property int partNumber;
 @property NSNumber *contentLength;
 
+@property (weak, nonatomic) AWSS3TransferUtility *transferUtility;
+
+- (void)integrateWithTransferUtility:(AWSS3TransferUtility *)transferUtility;
 
 @end
 

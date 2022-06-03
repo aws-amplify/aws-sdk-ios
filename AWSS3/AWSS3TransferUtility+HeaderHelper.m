@@ -52,7 +52,7 @@
 
 @implementation AWSS3TransferUtility (HeaderHelper)
 
--(void) filterAndAssignHeaders:(NSDictionary<NSString *, NSString *> *) requestHeaders
+- (void)filterAndAssignHeaders:(NSDictionary<NSString *, NSString *> *) requestHeaders
         getPresignedURLRequest:(AWSS3GetPreSignedURLRequest *) getPresignedURLRequest
                     URLRequest: (NSMutableURLRequest *) URLRequest {
     
