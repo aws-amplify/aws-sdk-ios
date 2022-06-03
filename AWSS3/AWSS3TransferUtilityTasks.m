@@ -133,6 +133,10 @@
     return self;
 }
 
+- (BOOL)isUnderConcurrencyLimit {
+    return self.inProgressPartsDictionary.count < [self.transferUtility.transferUtilityConfiguration.multiPartConcurrencyLimit integerValue];
+}
+
 - (BOOL)isDone {
     return _waitingPartsDictionary.count == 0 && _inProgressPartsDictionary.count == 0;
 }
@@ -194,41 +198,73 @@
 //                                                      retry_count:self.retryCount
 //                                                    databaseQueue:self.databaseQueue];
 
-    // move parts from waiting to in progress if under the concurrency limit
-    if (self.inProgressPartsDictionary.count < [self.transferUtility.transferUtilityConfiguration.multiPartConcurrencyLimit integerValue]) {
-        long numberOfPartsInProgress = [self.inProgressPartsDictionary count];
-        while (numberOfPartsInProgress < [self.transferUtility.transferUtilityConfiguration.multiPartConcurrencyLimit integerValue]) {
-            if ([self.waitingPartsDictionary count] > 0) {
-                //Get a part from the waitingList
-                AWSS3TransferUtilityUploadSubTask *nextSubTask = [[self.waitingPartsDictionary allValues] objectAtIndex:0];
-
-                //Add to inProgress list
-                [self.inProgressPartsDictionary setObject:nextSubTask forKey:@(nextSubTask.taskIdentifier)];
-
-                //Remove it from the waitingList
-                [self.waitingPartsDictionary removeObjectForKey:@(nextSubTask.taskIdentifier)];
-                AWSDDLogDebug(@"Moving Task[%@] to progress for Multipart[%@]", @(nextSubTask.taskIdentifier), self.uploadID);
-                [nextSubTask.sessionTask resume];
-                nextSubTask.status = AWSS3TransferUtilityTransferStatusInProgress;
-                numberOfPartsInProgress++;
-                continue;
-            }
-            break;
-        }
-    }
+    [self moveTasksToInProgress];
 
     // Change status from paused to waiting
     for (AWSS3TransferUtilityUploadSubTask * nextSubTask in self.waitingPartsDictionary.allValues) {
         nextSubTask.status = AWSS3TransferUtilityTransferStatusWaiting;
     }
 
-    // Complete multipart upload if in progress and waiting tasks are done
-    if (self.isDone) {
-        AWSDDLogDebug(@"There are %lu waiting upload parts.", (unsigned long)self.waitingPartsDictionary.count);
-        AWSDDLogDebug(@"There are %lu in progress upload parts.", (unsigned long)self.inProgressPartsDictionary.count);
-        AWSDDLogDebug(@"There are %lu completed upload parts.", (unsigned long)self.completedPartsSet.count);
-        [self.transferUtility completeMultiPartForUploadTask:self];
+    [self completeIfDone];
+}
+
+- (void)moveTasksToInProgress {
+    // move parts from waiting to in progress if under the concurrency limit
+    while (self.isUnderConcurrencyLimit && self.waitingPartsDictionary.count > 0) {
+        //Get a part from the waitingList
+        AWSS3TransferUtilityUploadSubTask *nextSubTask = [[self.waitingPartsDictionary allValues] objectAtIndex:0];
+
+        //Add to inProgress list
+        [self.inProgressPartsDictionary setObject:nextSubTask forKey:@(nextSubTask.taskIdentifier)];
+
+        //Remove it from the waitingList
+        [self.waitingPartsDictionary removeObjectForKey:@(nextSubTask.taskIdentifier)];
+        AWSDDLogDebug(@"Moving Task[%@] to progress for Multipart[%@]", @(nextSubTask.taskIdentifier), self.uploadID);
+        [nextSubTask.sessionTask resume];
+        nextSubTask.status = AWSS3TransferUtilityTransferStatusInProgress;
     }
+}
+
+- (void)completeIfDone {
+    // Complete multipart upload if in progress and waiting tasks are done
+    if (!self.isDone) {
+        return;
+    }
+
+    //If there are no more inProgress parts, then we are done.
+
+    //Validate that all the content has been uploaded.
+    int64_t totalBytesSent = 0;
+    for (AWSS3TransferUtilityUploadSubTask *aSubTask in self.completedPartsSet) {
+        totalBytesSent += aSubTask.totalBytesExpectedToSend;
+    }
+
+    if (totalBytesSent != self.contentLength.longLongValue ) {
+        NSString *errorMessage = [NSString stringWithFormat:@"Expected to send [%@], but sent [%@] and there are no remaining parts. Failing transfer ",
+                                  self.contentLength, @(totalBytesSent)];
+        AWSDDLogDebug(@"%@", errorMessage);
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:errorMessage
+                                                             forKey:@"Message"];
+
+        self.error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
+                                                                       code:AWSS3TransferUtilityErrorClientError
+                                                                   userInfo:userInfo];
+
+        //Execute call back if provided.
+        [self.transferUtility completeTask:self];
+
+        //Abort the request, so the server can clean up any partials.
+        [self.transferUtility callAbortMultiPartForUploadTask:self];
+
+        //clean up.
+        [self.transferUtility cleanupForMultiPartUploadTask:self];
+        return;
+    }
+
+    AWSDDLogDebug(@"There are %lu waiting upload parts.", (unsigned long)self.waitingPartsDictionary.count);
+    AWSDDLogDebug(@"There are %lu in progress upload parts.", (unsigned long)self.inProgressPartsDictionary.count);
+    AWSDDLogDebug(@"There are %lu completed upload parts.", (unsigned long)self.completedPartsSet.count);
+    [self.transferUtility completeMultiPartForUploadTask:self];
 }
 
 - (void)suspend {

@@ -31,6 +31,9 @@ internalDictionaryToAddSubTaskTo:(NSMutableDictionary *)internalDictionaryToAddS
                    startTransfer:(BOOL)startTransfer
 internalDictionaryToAddSubTaskTo:(NSMutableDictionary *)internalDictionaryToAddSubTaskTo;
 
+- (void)completeTask:(AWSS3TransferUtilityTask *)task;
+- (AWSTask *)callAbortMultiPartForUploadTask:(AWSS3TransferUtilityMultiPartUploadTask *)uploadTask;
+- (void)cleanupForMultiPartUploadTask:(AWSS3TransferUtilityMultiPartUploadTask *)task;
 - (void)completeMultiPartForUploadTask:(AWSS3TransferUtilityMultiPartUploadTask *)transferUtilityMultiPartUploadTask;
 
 @end
@@ -71,6 +74,7 @@ internalDictionaryToAddSubTaskTo:(NSMutableDictionary *)internalDictionaryToAddS
 @property (copy) NSString * uploadID;
 @property BOOL cancelled;
 @property BOOL temporaryFileCreated;
+@property (readonly) BOOL isUnderConcurrencyLimit;
 @property (readonly) BOOL isDone;
 @property (strong, nonatomic) NSMutableDictionary <NSNumber *, AWSS3TransferUtilityUploadSubTask *> *waitingPartsDictionary;
 @property (strong, nonatomic) NSMutableDictionary <NSNumber *, AWSS3TransferUtilityUploadSubTask *> *inProgressPartsDictionary;
@@ -81,6 +85,8 @@ internalDictionaryToAddSubTaskTo:(NSMutableDictionary *)internalDictionaryToAddS
 @property (weak, nonatomic) AWSS3TransferUtility *transferUtility;
 
 - (void)integrateWithTransferUtility:(AWSS3TransferUtility *)transferUtility;
+- (void)moveTasksToInProgress;
+- (void)completeIfDone;
 
 @end
 
