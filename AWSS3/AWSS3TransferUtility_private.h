@@ -76,6 +76,7 @@ internalDictionaryToAddSubTaskTo:(NSMutableDictionary *)internalDictionaryToAddS
 @property BOOL cancelled;
 @property BOOL temporaryFileCreated;
 @property (readonly) BOOL isUnderConcurrencyLimit;
+@property (readonly) BOOL hasWaitingTasks;
 @property (readonly) BOOL isDone;
 @property (strong, nonatomic) NSMutableDictionary <NSNumber *, AWSS3TransferUtilityUploadSubTask *> *waitingPartsDictionary;
 @property (strong, nonatomic) NSMutableDictionary <NSNumber *, AWSS3TransferUtilityUploadSubTask *> *inProgressPartsDictionary;
@@ -83,10 +84,23 @@ internalDictionaryToAddSubTaskTo:(NSMutableDictionary *)internalDictionaryToAddS
 @property int partNumber;
 @property NSNumber *contentLength;
 
+@property (readonly) NSArray<AWSS3TransferUtilityUploadSubTask *> * waitingTasks;
+@property (readonly) NSArray<AWSS3TransferUtilityUploadSubTask *> * inProgressTasks;
+@property (readonly) NSArray<AWSS3TransferUtilityUploadSubTask *> * completedTask;
+
 @property (weak, nonatomic) AWSS3TransferUtility *transferUtility;
 
 - (void)integrateWithTransferUtility:(AWSS3TransferUtility *)transferUtility;
+- (void)addUploadSubTask:(AWSS3TransferUtilityUploadSubTask *)subTask;
+- (void)removeWaitingUploadSubTask:(NSUInteger)taskIdentifier;
+- (void)removeInProgressUploadSubTask:(NSUInteger)taskIdentifier;
+- (AWSS3TransferUtilityUploadSubTask *)waitingTaskForTaskIdentifier:(NSUInteger)taskIdentifier;
+- (AWSS3TransferUtilityUploadSubTask *)inProgressTaskForTaskIdentifier:(NSUInteger)taskIdentifier;
+- (void)moveWaitingTaskToInProgress:(AWSS3TransferUtilityUploadSubTask *)subTask;
+- (void)moveWaitingTaskToInProgress:(AWSS3TransferUtilityUploadSubTask *)subTask startTransfer:(BOOL)startTransfer;
+- (void)moveInProgressAndSuspendedTasks;
 - (void)moveWaitingTasksToInProgress;
+- (void)moveWaitingTasksToInProgress:(BOOL)startTransfer;
 - (void)completeUploadSubTask:(AWSS3TransferUtilityUploadSubTask *)subTask
             usingHTTPResponse:(NSHTTPURLResponse *)HTTPResponse;
 - (void)completeIfDone;
