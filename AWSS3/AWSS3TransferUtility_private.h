@@ -86,7 +86,7 @@ internalDictionaryToAddSubTaskTo:(NSMutableDictionary *)internalDictionaryToAddS
 
 @property (readonly) NSArray<AWSS3TransferUtilityUploadSubTask *> * waitingTasks;
 @property (readonly) NSArray<AWSS3TransferUtilityUploadSubTask *> * inProgressTasks;
-@property (readonly) NSArray<AWSS3TransferUtilityUploadSubTask *> * completedTask;
+@property (readonly) NSArray<AWSS3TransferUtilityUploadSubTask *> * completedTasks;
 
 @property (weak, nonatomic) AWSS3TransferUtility *transferUtility;
 

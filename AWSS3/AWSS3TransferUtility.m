@@ -422,8 +422,8 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                 continue;
             }
             //Check if the subTask is is already completed. If it is, add it to the completed parts list, update the progress object and go to the next iteration of the loop
-            if (subTask.status== AWSS3TransferUtilityTransferStatusCompleted ) {
-                [multiPartUploadTask.completedPartsSet addObject:subTask];
+            if (subTask.status == AWSS3TransferUtilityTransferStatusCompleted) {
+                [multiPartUploadTask addUploadSubTask:subTask];
                 continue;
             }
             
@@ -1233,18 +1233,6 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 
         //Start the subTasks
         [transferUtilityMultiPartUploadTask moveWaitingTasksToInProgress:YES];
-//        for (AWSS3TransferUtilityUploadSubTask *subTask in transferUtilityMultiPartUploadTask.inProgressTasks) {
-//            AWSDDLogDebug(@"Starting subTask %@", @(subTask.taskIdentifier));
-//            if (subTask.sessionTask.state == NSURLSessionTaskStateSuspended) {
-//                [subTask.sessionTask resume];
-//            }
-//        }
-
-//        for (id taskIdentifier in transferUtilityMultiPartUploadTask.inProgressPartsDictionary) {
-//            AWSS3TransferUtilityUploadSubTask *subTask = [transferUtilityMultiPartUploadTask.inProgressPartsDictionary objectForKey:taskIdentifier];
-//            AWSDDLogDebug(@"Starting subTask %@", @(subTask.taskIdentifier));
-//            [subTask.sessionTask resume];
-//        }
 
         return [AWSTask taskWithResult:transferUtilityMultiPartUploadTask];
     }];
@@ -1956,11 +1944,11 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 #pragma mark - Internal helper methods
 
 - (AWSTask *)callFinishMultiPartForUploadTask:(AWSS3TransferUtilityMultiPartUploadTask *)uploadTask {
-    NSMutableArray *completedParts = [NSMutableArray arrayWithCapacity:[uploadTask.completedPartsSet count]];
+    NSMutableArray *completedParts = [NSMutableArray arrayWithCapacity:uploadTask.completedTasks.count];
     NSMutableDictionary *tempDictionary = [NSMutableDictionary new];
     
     //Create a new Dictionary with the partNumber as the Key
-    for(AWSS3TransferUtilityUploadSubTask *subTask in uploadTask.completedPartsSet) {
+    for(AWSS3TransferUtilityUploadSubTask *subTask in uploadTask.completedTasks) {
         [tempDictionary setObject:subTask forKey:subTask.partNumber];
     }
     
@@ -2345,33 +2333,31 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
                 transferUtilityUploadTask.expression.progressBlock(transferUtilityUploadTask, transferUtilityUploadTask.progress);
             }
         }
-    }
-    else if ([transferUtilityTask isKindOfClass:[AWSS3TransferUtilityMultiPartUploadTask class]]) {
+    } else if ([transferUtilityTask isKindOfClass:[AWSS3TransferUtilityMultiPartUploadTask class]]) {
         //Get the multipart upload task
         AWSS3TransferUtilityMultiPartUploadTask *transferUtilityMultiPartUploadTask = [self.taskDictionary objectForKey:@(task.taskIdentifier)];
         //Get multipart upload sub task
-        AWSS3TransferUtilityUploadSubTask *subTask = [transferUtilityMultiPartUploadTask.inProgressPartsDictionary objectForKey:@(task.taskIdentifier)];
+        AWSS3TransferUtilityUploadSubTask *subTask = [transferUtilityMultiPartUploadTask inProgressTaskForTaskIdentifier:task.taskIdentifier];
         subTask.totalBytesSent = totalBytesSent;
-        
-    
+
         //Calculate the total sent so far
         int64_t totalSentSoFar = 0;
         //Create a new Dictionary with the partNumber as the Key
         NSMutableDictionary *completedPartsByPartNumber = [NSMutableDictionary new];
-        for(AWSS3TransferUtilityUploadSubTask *subTask in transferUtilityMultiPartUploadTask.completedPartsSet) {
+        for (AWSS3TransferUtilityUploadSubTask *subTask in transferUtilityMultiPartUploadTask.completedTasks) {
             [completedPartsByPartNumber setObject:subTask forKey:subTask.partNumber];
         }
-        for (AWSS3TransferUtilityUploadSubTask *aSubTask in [completedPartsByPartNumber allValues]) {
+        for (AWSS3TransferUtilityUploadSubTask *aSubTask in completedPartsByPartNumber.allValues) {
             totalSentSoFar += aSubTask.totalBytesExpectedToSend;
         }
-        for (AWSS3TransferUtilityUploadSubTask *aSubTask in [transferUtilityMultiPartUploadTask.inProgressPartsDictionary allValues]) {
+        for (AWSS3TransferUtilityUploadSubTask *aSubTask in transferUtilityMultiPartUploadTask.inProgressTasks) {
             totalSentSoFar += aSubTask.totalBytesSent;
         }
-     
+
         if (transferUtilityMultiPartUploadTask.progress.completedUnitCount != totalSentSoFar ) {
             transferUtilityMultiPartUploadTask.progress.totalUnitCount = [transferUtilityMultiPartUploadTask.contentLength longLongValue];
             transferUtilityMultiPartUploadTask.progress.completedUnitCount = totalSentSoFar;
-        
+
             //execute the callback to the progressblock if present.
             if (transferUtilityMultiPartUploadTask.expression.progressBlock) {
                 AWSDDLogDebug(@"Total %lld, ProgressSoFar %lld", transferUtilityMultiPartUploadTask.progress.totalUnitCount, transferUtilityMultiPartUploadTask.progress.completedUnitCount);
@@ -2399,21 +2385,20 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
 }
 
 - (void)cleanupForMultiPartUploadTask:(AWSS3TransferUtilityMultiPartUploadTask *)task {
-    
     //Add it to list of completed Tasks
     [self.completedTaskDictionary setObject:task forKey:task.transferID];
-    
+
     //Remove all entries from taskDictionary.
-    for ( AWSS3TransferUtilityUploadSubTask *subTask in [task.inProgressPartsDictionary allValues] ) {
+    for (AWSS3TransferUtilityUploadSubTask *subTask in task.inProgressTasks) {
         [self unregisterTaskIdentifier:subTask.taskIdentifier];
         [self removeFile:subTask.file];
     }
-    
+
     //Remove temporary file if required.
     if (task.temporaryFileCreated) {
         [self removeFile:task.file];
     }
-    
+
     //Remove data from the Database.
     [AWSS3TransferUtilityDatabaseHelper deleteTransferRequestFromDB:task.transferID databaseQueue:_databaseQueue];
 }

@@ -153,7 +153,7 @@
     return self.inProgressPartsDictionary.allValues;
 }
 
-- (NSArray<AWSS3TransferUtilityUploadSubTask *> *)completedTask {
+- (NSArray<AWSS3TransferUtilityUploadSubTask *> *)completedTasks {
     return self.completedPartsSet.allObjects;
 }
 
@@ -312,6 +312,9 @@
         self.waitingPartsDictionary[@(subTask.taskIdentifier)] = subTask;
     } else if (subTask.status == AWSS3TransferUtilityTransferStatusInProgress) {
         self.inProgressPartsDictionary[@(subTask.taskIdentifier)] = subTask;
+
+    } else if (subTask.status == AWSS3TransferUtilityTransferStatusCompleted) {
+        [self.completedPartsSet addObject:subTask];
     } else {
         AWSDDLogDebug(@"Sub Task status not supported: %lu", subTask.status);
         NSCAssert(NO, @"Status not supported");
