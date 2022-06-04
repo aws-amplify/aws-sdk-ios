@@ -256,14 +256,15 @@
 //
 
     // Cancel session task for all subtasks which are in progress and set status to paused
-    for (NSNumber *taskIdentifier in self.inProgressPartsDictionary.allKeys) {
-        AWSS3TransferUtilityUploadSubTask *inProgressSubTask = self.inProgressPartsDictionary[taskIdentifier];
+    for (AWSS3TransferUtilityUploadSubTask *inProgressSubTask in self.inProgressTasks) {
         // Note: This can happen due to lack of thread-safety
         if (!inProgressSubTask) {
+            NSCAssert(NO, @"Sub Task should not be nil!");
             continue;
         }
 
         // cancel the URLSessionTask
+        inProgressSubTask.status = AWSS3TransferUtilityTransferStatusPaused;
         [inProgressSubTask.sessionTask cancel];
 
         AWSS3TransferUtilityUploadSubTask *subTask = [AWSS3TransferUtilityUploadSubTask new];
@@ -286,7 +287,7 @@
             AWSDDLogError(@"Error creating AWSS3TransferUtilityUploadSubTask [%@]", error);
             self.error = error;
         } else {
-            self.inProgressPartsDictionary[taskIdentifier] = nil;
+            self.inProgressPartsDictionary[@(inProgressSubTask.taskIdentifier)] = nil;
 
             [AWSS3TransferUtilityDatabaseHelper updateTransferRequestInDB:inProgressSubTask.transferID partNumber:inProgressSubTask.partNumber taskIdentifier:inProgressSubTask.taskIdentifier eTag:nil status:AWSS3TransferUtilityTransferStatusCancelled retry_count:0 databaseQueue:self.databaseQueue];
 
@@ -367,8 +368,8 @@
     }
 
     for (AWSS3TransferUtilityUploadSubTask *aSubTask in inProgressAndSuspendedTasks) {
-        [self.inProgressPartsDictionary removeObjectForKey:@(aSubTask.taskIdentifier)];
-        [self.waitingPartsDictionary setObject:aSubTask forKey:@(aSubTask.taskIdentifier)];
+        self.inProgressPartsDictionary[@(aSubTask.taskIdentifier)] = nil;
+        self.waitingPartsDictionary[@(aSubTask.taskIdentifier)] = aSubTask;
     }
 }
 
@@ -383,7 +384,7 @@
         AWSS3TransferUtilityUploadSubTask *nextSubTask = [[self.waitingPartsDictionary allValues] objectAtIndex:0];
 
         //Add to inProgress list
-        [self.inProgressPartsDictionary setObject:nextSubTask forKey:@(nextSubTask.taskIdentifier)];
+        self.inProgressPartsDictionary[@(nextSubTask.taskIdentifier)] = nextSubTask;
 
         //Remove it from the waitingList
         [self.waitingPartsDictionary removeObjectForKey:@(nextSubTask.taskIdentifier)];
@@ -402,7 +403,7 @@
 
     //Add it to completed parts and remove it from remaining parts.
     [self.completedPartsSet addObject:subTask];
-    [self.inProgressPartsDictionary removeObjectForKey:@(subTask.taskIdentifier)];
+    self.inProgressPartsDictionary[@(subTask.taskIdentifier)] = nil;
     //Update progress
     self.progress.completedUnitCount = self.progress.completedUnitCount - subTask.totalBytesSent + subTask.totalBytesExpectedToSend;
 

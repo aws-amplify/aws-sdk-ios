@@ -433,23 +433,22 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     }
 }
 
-- (void) linkTransfersToNSURLSession:(NSMutableDictionary *) tempMultiPartMasterTaskDictionary
-              tempTransferDictionary: (NSMutableDictionary *) tempTransferDictionary
-                   completionHandler: (void (^)(NSError *_Nullable error)) completionHandler{
+- (void)linkTransfersToNSURLSession:(NSMutableDictionary *) tempMultiPartMasterTaskDictionary
+             tempTransferDictionary:(NSMutableDictionary *)tempTransferDictionary
+                  completionHandler:(void (^)(NSError *_Nullable error)) completionHandler {
     //Get tasks from the NSURLSession and reattach to them.
     //getTasksWithCompletionHandler is an ansynchronous task, so the thread that is calling this method will not be blocked.
     [self.session getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks) {
- 
+
         //Loop through all the upload Tasks.
-        for( NSURLSessionUploadTask *task in uploadTasks) {
+        for (NSURLSessionUploadTask *task in uploadTasks) {
             AWSDDLogDebug(@"Iterating through task Identifier [%lu]", (unsigned long)task.taskIdentifier);
             NSError *taskError = [task error];
-            
+
             //Get the Task
             id obj = [tempTransferDictionary objectForKey:@(task.taskIdentifier)];
-            
-            if ([obj isKindOfClass:[AWSS3TransferUtilityUploadTask class]])
-            {
+
+            if ([obj isKindOfClass:[AWSS3TransferUtilityUploadTask class]]) {
                 //Found a upload task.
                 AWSS3TransferUtilityUploadTask *uploadTask = obj;
                 uploadTask.sessionTask = task;
@@ -469,11 +468,11 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                                          filePath:uploadTask.file];
                     continue;
                 }
-                
+
                 //Check if it is InProgress
                 if (uploadTask.status == AWSS3TransferUtilityTransferStatusInProgress) {
                     //Check if the the underlying NSURLSession task is completed. If so, delete the record from the DB, clean up any temp files  and call the completion handler.
-                    if ([task state] == NSURLSessionTaskStateCompleted) {
+                    if (task.state == NSURLSessionTaskStateCompleted) {
                         //Set progress to 100%
                         uploadTask.progress.completedUnitCount = uploadTask.progress.totalUnitCount;
                         uploadTask.status = AWSS3TransferUtilityTransferStatusCompleted;
@@ -484,7 +483,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                         continue;
                     }
                     //If it is in any other status than running, then we need to recover by retrying.
-                    if ([task state] != NSURLSessionTaskStateRunning) {
+                    if (task.state != NSURLSessionTaskStateRunning) {
                         //We think the task in IN_PROGRESS. The underlying task is not running.
                         //Recover the situation by retrying.
                         [self retryUpload:uploadTask];
@@ -522,7 +521,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                 //Check if this is in progress
                 if (downloadTask.status == AWSS3TransferUtilityTransferStatusInProgress) {
 
-                    if ([task state] == NSURLSessionTaskStateCompleted) {
+                    if (task.state == NSURLSessionTaskStateCompleted) {
                         //Set progress to 100%
                         downloadTask.progress.completedUnitCount = downloadTask.progress.totalUnitCount;
                         downloadTask.status = AWSS3TransferUtilityTransferStatusCompleted;
@@ -530,7 +529,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                         continue;
                     }
                     //Check if the underlying task's status is not in Progress.
-                    else if ([task state] != NSURLSessionTaskStateRunning) {
+                    else if (task.state != NSURLSessionTaskStateRunning) {
                         //We think the task in Progress. The underlying task is not in progress.
                         //Recover the situation by retrying
                         [self retryDownload:downloadTask];
@@ -716,10 +715,9 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 }
 
 
--( AWSS3TransferUtilityMultiPartUploadTask *) hydrateMultiPartUploadTask: (NSMutableDictionary *) task
-                                                       sessionIdentifier: (NSString *) sessionIdentifier
-                                                           databaseQueue: (AWSFMDatabaseQueue *) databaseQueue
-{
+- (AWSS3TransferUtilityMultiPartUploadTask *)hydrateMultiPartUploadTask: (NSMutableDictionary *) task
+                                                      sessionIdentifier:(NSString *) sessionIdentifier
+                                                          databaseQueue: (AWSFMDatabaseQueue *) databaseQueue {
     AWSS3TransferUtilityMultiPartUploadTask *transferUtilityMultiPartUploadTask = [AWSS3TransferUtilityMultiPartUploadTask new];
     [transferUtilityMultiPartUploadTask integrateWithTransferUtility:self];
     transferUtilityMultiPartUploadTask.nsURLSessionID = sessionIdentifier;
