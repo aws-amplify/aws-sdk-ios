@@ -23,13 +23,11 @@
 @interface AWSS3TransferUtility ()
 
 - (NSError *)createUploadSubTask:(AWSS3TransferUtilityMultiPartUploadTask *)transferUtilityMultiPartUploadTask
-                         subTask:(AWSS3TransferUtilityUploadSubTask *)subTask
-internalDictionaryToAddSubTaskTo:(NSMutableDictionary *)internalDictionaryToAddSubTaskTo;
+                         subTask:(AWSS3TransferUtilityUploadSubTask *)subTask;
 
 - (NSError *)createUploadSubTask:(AWSS3TransferUtilityMultiPartUploadTask *)transferUtilityMultiPartUploadTask
                     subTask:(AWSS3TransferUtilityUploadSubTask *)subTask
-                   startTransfer:(BOOL)startTransfer
-internalDictionaryToAddSubTaskTo:(NSMutableDictionary *)internalDictionaryToAddSubTaskTo;
+                   startTransfer:(BOOL)startTransfer;
 
 - (void)completeTask:(AWSS3TransferUtilityTask *)task;
 - (AWSTask *)callAbortMultiPartForUploadTask:(AWSS3TransferUtilityMultiPartUploadTask *)uploadTask;
@@ -81,6 +79,7 @@ internalDictionaryToAddSubTaskTo:(NSMutableDictionary *)internalDictionaryToAddS
 @property (strong, nonatomic) NSMutableDictionary <NSNumber *, AWSS3TransferUtilityUploadSubTask *> *waitingPartsDictionary;
 @property (strong, nonatomic) NSMutableDictionary <NSNumber *, AWSS3TransferUtilityUploadSubTask *> *inProgressPartsDictionary;
 @property (strong, nonatomic) NSMutableSet <AWSS3TransferUtilityUploadSubTask *> *completedPartsSet;
+@property (strong, nonatomic) dispatch_queue_t serialQueue;
 @property int partNumber;
 @property NSNumber *contentLength;
 

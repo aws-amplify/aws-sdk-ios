@@ -2379,7 +2379,6 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
         [self.completedTaskDictionary removeObjectForKey:task.transferID];
         [self unregisterTaskIdentifier:task.taskIdentifier];
     }
-
 }
 
 - (void)cleanupForMultiPartUploadTask:(AWSS3TransferUtilityMultiPartUploadTask *)task {
