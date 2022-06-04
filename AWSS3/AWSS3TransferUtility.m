@@ -2178,7 +2178,7 @@ didCompleteWithError:(NSError *)error {
                 [self cleanupForMultiPartUploadTask:transferUtilityMultiPartUploadTask];
                 return;
             }
-            
+
             //Check if there was an error.
             if (error) {
                 [self processMultipartUploadTaskError:error
@@ -2214,19 +2214,19 @@ didCompleteWithError:(NSError *)error {
             [AWSS3TransferUtilityDatabaseHelper deleteTransferRequestFromDB:downloadTask.transferID databaseQueue:_databaseQueue];
             return;
         }
-        
+
         //Make sure to not overwrite if an error has already been set on the downloadTask
         if (!downloadTask.error)  {
             downloadTask.error = error;
         }
-        
+
         if (!downloadTask.error) {
             downloadTask.status = AWSS3TransferUtilityTransferStatusCompleted;
         }
         else {
             downloadTask.status = AWSS3TransferUtilityTransferStatusError;
         }
-        
+
         if (downloadTask.error && HTTPResponse) {
             if ([self isErrorRetriable:HTTPResponse.statusCode responseFromServer:downloadTask.responseData])  {
                 if (downloadTask.retryCount < self.transferUtilityConfiguration.retryLimit) {
@@ -2246,7 +2246,7 @@ didCompleteWithError:(NSError *)error {
             NSError *updatedError = [[NSError alloc] initWithDomain:downloadTask.error.domain code:downloadTask.error.code userInfo:userInfo];
             downloadTask.error = updatedError;
         }
-        
+
         if (!downloadTask.error) {
             downloadTask.progress.completedUnitCount = downloadTask.progress.totalUnitCount;
             if (downloadTask.expression.progressBlock) {
