@@ -35,6 +35,7 @@ internalDictionaryToAddSubTaskTo:(NSMutableDictionary *)internalDictionaryToAddS
 - (AWSTask *)callAbortMultiPartForUploadTask:(AWSS3TransferUtilityMultiPartUploadTask *)uploadTask;
 - (void)cleanupForMultiPartUploadTask:(AWSS3TransferUtilityMultiPartUploadTask *)task;
 - (void)completeMultiPartForUploadTask:(AWSS3TransferUtilityMultiPartUploadTask *)transferUtilityMultiPartUploadTask;
+- (void)removeFile:(NSString *)absolutePath;
 
 @end
 
@@ -85,7 +86,9 @@ internalDictionaryToAddSubTaskTo:(NSMutableDictionary *)internalDictionaryToAddS
 @property (weak, nonatomic) AWSS3TransferUtility *transferUtility;
 
 - (void)integrateWithTransferUtility:(AWSS3TransferUtility *)transferUtility;
-- (void)moveTasksToInProgress;
+- (void)moveWaitingTasksToInProgress;
+- (void)completeUploadSubTask:(AWSS3TransferUtilityUploadSubTask *)subTask
+            usingHTTPResponse:(NSHTTPURLResponse *)HTTPResponse;
 - (void)completeIfDone;
 
 @end
