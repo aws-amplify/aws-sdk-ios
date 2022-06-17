@@ -19,8 +19,10 @@
 
 @interface AWSConnectNSSecureCodingTests : AWSNSSecureCodingTest
 
+- (void) test_AWSConnectAgentContactReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAgentInfo API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAgentStatus API_AVAILABLE(ios(11));
+- (void) test_AWSConnectAgentStatusReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAgentStatusSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAnswerMachineDetectionConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateApprovedOriginRequest API_AVAILABLE(ios(11));
@@ -45,6 +47,7 @@
 - (void) test_AWSConnectClaimPhoneNumberResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectClaimedPhoneNumberSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectContact API_AVAILABLE(ios(11));
+- (void) test_AWSConnectContactFilter API_AVAILABLE(ios(11));
 - (void) test_AWSConnectContactFlow API_AVAILABLE(ios(11));
 - (void) test_AWSConnectContactFlowModule API_AVAILABLE(ios(11));
 - (void) test_AWSConnectContactFlowModuleSummary API_AVAILABLE(ios(11));
@@ -70,6 +73,8 @@
 - (void) test_AWSConnectCreateRoutingProfileResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateSecurityProfileRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateSecurityProfileResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectCreateTaskTemplateRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectCreateTaskTemplateResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateUseCaseRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateUseCaseResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateUserHierarchyGroupRequest API_AVAILABLE(ios(11));
@@ -82,6 +87,7 @@
 - (void) test_AWSConnectCurrentMetric API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCurrentMetricData API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCurrentMetricResult API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDateReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDefaultVocabulary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteContactFlowModuleRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteContactFlowModuleResponse API_AVAILABLE(ios(11));
@@ -91,6 +97,8 @@
 - (void) test_AWSConnectDeleteIntegrationAssociationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteQuickConnectRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteSecurityProfileRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDeleteTaskTemplateRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDeleteTaskTemplateResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteUseCaseRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteUserHierarchyGroupRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteUserRequest API_AVAILABLE(ios(11));
@@ -140,22 +148,29 @@
 - (void) test_AWSConnectDisassociateQueueQuickConnectsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDisassociateRoutingProfileQueuesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDisassociateSecurityKeyRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectEmailReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectEncryptionConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectFilters API_AVAILABLE(ios(11));
 - (void) test_AWSConnectGetContactAttributesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectGetContactAttributesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectGetCurrentMetricDataRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectGetCurrentMetricDataResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectGetCurrentUserDataRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectGetCurrentUserDataResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectGetFederationTokenRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectGetFederationTokenResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectGetMetricDataRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectGetMetricDataResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectGetTaskTemplateRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectGetTaskTemplateResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectHierarchyGroup API_AVAILABLE(ios(11));
 - (void) test_AWSConnectHierarchyGroupCondition API_AVAILABLE(ios(11));
 - (void) test_AWSConnectHierarchyGroupSummary API_AVAILABLE(ios(11));
+- (void) test_AWSConnectHierarchyGroupSummaryReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectHierarchyLevel API_AVAILABLE(ios(11));
 - (void) test_AWSConnectHierarchyLevelUpdate API_AVAILABLE(ios(11));
 - (void) test_AWSConnectHierarchyPath API_AVAILABLE(ios(11));
+- (void) test_AWSConnectHierarchyPathReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectHierarchyStructure API_AVAILABLE(ios(11));
 - (void) test_AWSConnectHierarchyStructureUpdate API_AVAILABLE(ios(11));
 - (void) test_AWSConnectHistoricalMetric API_AVAILABLE(ios(11));
@@ -170,6 +185,7 @@
 - (void) test_AWSConnectInstanceStorageConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectInstanceSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectIntegrationAssociationSummary API_AVAILABLE(ios(11));
+- (void) test_AWSConnectInvisibleFieldInfo API_AVAILABLE(ios(11));
 - (void) test_AWSConnectKinesisFirehoseConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectKinesisStreamConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectKinesisVideoStreamConfig API_AVAILABLE(ios(11));
@@ -229,6 +245,8 @@
 - (void) test_AWSConnectListSecurityProfilesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListTagsForResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListTagsForResourceResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectListTaskTemplatesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectListTaskTemplatesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListUseCasesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListUseCasesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListUserHierarchyGroupsRequest API_AVAILABLE(ios(11));
@@ -236,6 +254,7 @@
 - (void) test_AWSConnectListUsersRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListUsersResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectMediaConcurrency API_AVAILABLE(ios(11));
+- (void) test_AWSConnectNumberReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectOutboundCallerConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectParticipantDetails API_AVAILABLE(ios(11));
 - (void) test_AWSConnectPhoneNumberQuickConnectConfig API_AVAILABLE(ios(11));
@@ -243,6 +262,7 @@
 - (void) test_AWSConnectPhoneNumberSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectProblemDetail API_AVAILABLE(ios(11));
 - (void) test_AWSConnectPromptSummary API_AVAILABLE(ios(11));
+- (void) test_AWSConnectPropertyValidationExceptionProperty API_AVAILABLE(ios(11));
 - (void) test_AWSConnectPutUserStatusRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectPutUserStatusResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectQueue API_AVAILABLE(ios(11));
@@ -253,15 +273,18 @@
 - (void) test_AWSConnectQuickConnect API_AVAILABLE(ios(11));
 - (void) test_AWSConnectQuickConnectConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectQuickConnectSummary API_AVAILABLE(ios(11));
+- (void) test_AWSConnectReadOnlyFieldInfo API_AVAILABLE(ios(11));
 - (void) test_AWSConnectReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectReferenceSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectReleasePhoneNumberRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectRequiredFieldInfo API_AVAILABLE(ios(11));
 - (void) test_AWSConnectResumeContactRecordingRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectResumeContactRecordingResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectRoutingProfile API_AVAILABLE(ios(11));
 - (void) test_AWSConnectRoutingProfileQueueConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectRoutingProfileQueueConfigSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectRoutingProfileQueueReference API_AVAILABLE(ios(11));
+- (void) test_AWSConnectRoutingProfileReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectRoutingProfileSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectS3Config API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSearchAvailablePhoneNumbersRequest API_AVAILABLE(ios(11));
@@ -290,11 +313,20 @@
 - (void) test_AWSConnectStopContactStreamingRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectStopContactStreamingResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectStringCondition API_AVAILABLE(ios(11));
+- (void) test_AWSConnectStringReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSuspendContactRecordingRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSuspendContactRecordingResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectTagCondition API_AVAILABLE(ios(11));
 - (void) test_AWSConnectTagResourceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectTaskTemplateConstraints API_AVAILABLE(ios(11));
+- (void) test_AWSConnectTaskTemplateDefaultFieldValue API_AVAILABLE(ios(11));
+- (void) test_AWSConnectTaskTemplateDefaults API_AVAILABLE(ios(11));
+- (void) test_AWSConnectTaskTemplateField API_AVAILABLE(ios(11));
+- (void) test_AWSConnectTaskTemplateFieldIdentifier API_AVAILABLE(ios(11));
+- (void) test_AWSConnectTaskTemplateMetadata API_AVAILABLE(ios(11));
 - (void) test_AWSConnectThreshold API_AVAILABLE(ios(11));
+- (void) test_AWSConnectTransferContactRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectTransferContactResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUntagResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateAgentStatusRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateContactAttributesRequest API_AVAILABLE(ios(11));
@@ -327,6 +359,8 @@
 - (void) test_AWSConnectUpdateRoutingProfileNameRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateRoutingProfileQueuesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateSecurityProfileRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUpdateTaskTemplateRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUpdateTaskTemplateResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateUserHierarchyGroupNameRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateUserHierarchyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateUserHierarchyStructureRequest API_AVAILABLE(ios(11));
@@ -337,10 +371,13 @@
 - (void) test_AWSConnectUrlReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUseCase API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUser API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUserData API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUserDataFilters API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUserIdentityInfo API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUserIdentityInfoLite API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUserPhoneConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUserQuickConnectConfig API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUserReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUserSearchCriteria API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUserSearchFilter API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUserSearchSummary API_AVAILABLE(ios(11));
@@ -353,12 +390,20 @@
 
 @implementation AWSConnectNSSecureCodingTests
 
+- (void) test_AWSConnectAgentContactReference {
+    [self validateSecureCodingForClass:[AWSConnectAgentContactReference class]];
+}
+
 - (void) test_AWSConnectAgentInfo {
     [self validateSecureCodingForClass:[AWSConnectAgentInfo class]];
 }
 
 - (void) test_AWSConnectAgentStatus {
     [self validateSecureCodingForClass:[AWSConnectAgentStatus class]];
+}
+
+- (void) test_AWSConnectAgentStatusReference {
+    [self validateSecureCodingForClass:[AWSConnectAgentStatusReference class]];
 }
 
 - (void) test_AWSConnectAgentStatusSummary {
@@ -455,6 +500,10 @@
 
 - (void) test_AWSConnectContact {
     [self validateSecureCodingForClass:[AWSConnectContact class]];
+}
+
+- (void) test_AWSConnectContactFilter {
+    [self validateSecureCodingForClass:[AWSConnectContactFilter class]];
 }
 
 - (void) test_AWSConnectContactFlow {
@@ -557,6 +606,14 @@
     [self validateSecureCodingForClass:[AWSConnectCreateSecurityProfileResponse class]];
 }
 
+- (void) test_AWSConnectCreateTaskTemplateRequest {
+    [self validateSecureCodingForClass:[AWSConnectCreateTaskTemplateRequest class]];
+}
+
+- (void) test_AWSConnectCreateTaskTemplateResponse {
+    [self validateSecureCodingForClass:[AWSConnectCreateTaskTemplateResponse class]];
+}
+
 - (void) test_AWSConnectCreateUseCaseRequest {
     [self validateSecureCodingForClass:[AWSConnectCreateUseCaseRequest class]];
 }
@@ -605,6 +662,10 @@
     [self validateSecureCodingForClass:[AWSConnectCurrentMetricResult class]];
 }
 
+- (void) test_AWSConnectDateReference {
+    [self validateSecureCodingForClass:[AWSConnectDateReference class]];
+}
+
 - (void) test_AWSConnectDefaultVocabulary {
     [self validateSecureCodingForClass:[AWSConnectDefaultVocabulary class]];
 }
@@ -639,6 +700,14 @@
 
 - (void) test_AWSConnectDeleteSecurityProfileRequest {
     [self validateSecureCodingForClass:[AWSConnectDeleteSecurityProfileRequest class]];
+}
+
+- (void) test_AWSConnectDeleteTaskTemplateRequest {
+    [self validateSecureCodingForClass:[AWSConnectDeleteTaskTemplateRequest class]];
+}
+
+- (void) test_AWSConnectDeleteTaskTemplateResponse {
+    [self validateSecureCodingForClass:[AWSConnectDeleteTaskTemplateResponse class]];
 }
 
 - (void) test_AWSConnectDeleteUseCaseRequest {
@@ -837,6 +906,10 @@
     [self validateSecureCodingForClass:[AWSConnectDisassociateSecurityKeyRequest class]];
 }
 
+- (void) test_AWSConnectEmailReference {
+    [self validateSecureCodingForClass:[AWSConnectEmailReference class]];
+}
+
 - (void) test_AWSConnectEncryptionConfig {
     [self validateSecureCodingForClass:[AWSConnectEncryptionConfig class]];
 }
@@ -861,6 +934,14 @@
     [self validateSecureCodingForClass:[AWSConnectGetCurrentMetricDataResponse class]];
 }
 
+- (void) test_AWSConnectGetCurrentUserDataRequest {
+    [self validateSecureCodingForClass:[AWSConnectGetCurrentUserDataRequest class]];
+}
+
+- (void) test_AWSConnectGetCurrentUserDataResponse {
+    [self validateSecureCodingForClass:[AWSConnectGetCurrentUserDataResponse class]];
+}
+
 - (void) test_AWSConnectGetFederationTokenRequest {
     [self validateSecureCodingForClass:[AWSConnectGetFederationTokenRequest class]];
 }
@@ -877,6 +958,14 @@
     [self validateSecureCodingForClass:[AWSConnectGetMetricDataResponse class]];
 }
 
+- (void) test_AWSConnectGetTaskTemplateRequest {
+    [self validateSecureCodingForClass:[AWSConnectGetTaskTemplateRequest class]];
+}
+
+- (void) test_AWSConnectGetTaskTemplateResponse {
+    [self validateSecureCodingForClass:[AWSConnectGetTaskTemplateResponse class]];
+}
+
 - (void) test_AWSConnectHierarchyGroup {
     [self validateSecureCodingForClass:[AWSConnectHierarchyGroup class]];
 }
@@ -889,6 +978,10 @@
     [self validateSecureCodingForClass:[AWSConnectHierarchyGroupSummary class]];
 }
 
+- (void) test_AWSConnectHierarchyGroupSummaryReference {
+    [self validateSecureCodingForClass:[AWSConnectHierarchyGroupSummaryReference class]];
+}
+
 - (void) test_AWSConnectHierarchyLevel {
     [self validateSecureCodingForClass:[AWSConnectHierarchyLevel class]];
 }
@@ -899,6 +992,10 @@
 
 - (void) test_AWSConnectHierarchyPath {
     [self validateSecureCodingForClass:[AWSConnectHierarchyPath class]];
+}
+
+- (void) test_AWSConnectHierarchyPathReference {
+    [self validateSecureCodingForClass:[AWSConnectHierarchyPathReference class]];
 }
 
 - (void) test_AWSConnectHierarchyStructure {
@@ -955,6 +1052,10 @@
 
 - (void) test_AWSConnectIntegrationAssociationSummary {
     [self validateSecureCodingForClass:[AWSConnectIntegrationAssociationSummary class]];
+}
+
+- (void) test_AWSConnectInvisibleFieldInfo {
+    [self validateSecureCodingForClass:[AWSConnectInvisibleFieldInfo class]];
 }
 
 - (void) test_AWSConnectKinesisFirehoseConfig {
@@ -1193,6 +1294,14 @@
     [self validateSecureCodingForClass:[AWSConnectListTagsForResourceResponse class]];
 }
 
+- (void) test_AWSConnectListTaskTemplatesRequest {
+    [self validateSecureCodingForClass:[AWSConnectListTaskTemplatesRequest class]];
+}
+
+- (void) test_AWSConnectListTaskTemplatesResponse {
+    [self validateSecureCodingForClass:[AWSConnectListTaskTemplatesResponse class]];
+}
+
 - (void) test_AWSConnectListUseCasesRequest {
     [self validateSecureCodingForClass:[AWSConnectListUseCasesRequest class]];
 }
@@ -1221,6 +1330,10 @@
     [self validateSecureCodingForClass:[AWSConnectMediaConcurrency class]];
 }
 
+- (void) test_AWSConnectNumberReference {
+    [self validateSecureCodingForClass:[AWSConnectNumberReference class]];
+}
+
 - (void) test_AWSConnectOutboundCallerConfig {
     [self validateSecureCodingForClass:[AWSConnectOutboundCallerConfig class]];
 }
@@ -1247,6 +1360,10 @@
 
 - (void) test_AWSConnectPromptSummary {
     [self validateSecureCodingForClass:[AWSConnectPromptSummary class]];
+}
+
+- (void) test_AWSConnectPropertyValidationExceptionProperty {
+    [self validateSecureCodingForClass:[AWSConnectPropertyValidationExceptionProperty class]];
 }
 
 - (void) test_AWSConnectPutUserStatusRequest {
@@ -1289,6 +1406,10 @@
     [self validateSecureCodingForClass:[AWSConnectQuickConnectSummary class]];
 }
 
+- (void) test_AWSConnectReadOnlyFieldInfo {
+    [self validateSecureCodingForClass:[AWSConnectReadOnlyFieldInfo class]];
+}
+
 - (void) test_AWSConnectReference {
     [self validateSecureCodingForClass:[AWSConnectReference class]];
 }
@@ -1299,6 +1420,10 @@
 
 - (void) test_AWSConnectReleasePhoneNumberRequest {
     [self validateSecureCodingForClass:[AWSConnectReleasePhoneNumberRequest class]];
+}
+
+- (void) test_AWSConnectRequiredFieldInfo {
+    [self validateSecureCodingForClass:[AWSConnectRequiredFieldInfo class]];
 }
 
 - (void) test_AWSConnectResumeContactRecordingRequest {
@@ -1323,6 +1448,10 @@
 
 - (void) test_AWSConnectRoutingProfileQueueReference {
     [self validateSecureCodingForClass:[AWSConnectRoutingProfileQueueReference class]];
+}
+
+- (void) test_AWSConnectRoutingProfileReference {
+    [self validateSecureCodingForClass:[AWSConnectRoutingProfileReference class]];
 }
 
 - (void) test_AWSConnectRoutingProfileSummary {
@@ -1437,6 +1566,10 @@
     [self validateSecureCodingForClass:[AWSConnectStringCondition class]];
 }
 
+- (void) test_AWSConnectStringReference {
+    [self validateSecureCodingForClass:[AWSConnectStringReference class]];
+}
+
 - (void) test_AWSConnectSuspendContactRecordingRequest {
     [self validateSecureCodingForClass:[AWSConnectSuspendContactRecordingRequest class]];
 }
@@ -1453,8 +1586,40 @@
     [self validateSecureCodingForClass:[AWSConnectTagResourceRequest class]];
 }
 
+- (void) test_AWSConnectTaskTemplateConstraints {
+    [self validateSecureCodingForClass:[AWSConnectTaskTemplateConstraints class]];
+}
+
+- (void) test_AWSConnectTaskTemplateDefaultFieldValue {
+    [self validateSecureCodingForClass:[AWSConnectTaskTemplateDefaultFieldValue class]];
+}
+
+- (void) test_AWSConnectTaskTemplateDefaults {
+    [self validateSecureCodingForClass:[AWSConnectTaskTemplateDefaults class]];
+}
+
+- (void) test_AWSConnectTaskTemplateField {
+    [self validateSecureCodingForClass:[AWSConnectTaskTemplateField class]];
+}
+
+- (void) test_AWSConnectTaskTemplateFieldIdentifier {
+    [self validateSecureCodingForClass:[AWSConnectTaskTemplateFieldIdentifier class]];
+}
+
+- (void) test_AWSConnectTaskTemplateMetadata {
+    [self validateSecureCodingForClass:[AWSConnectTaskTemplateMetadata class]];
+}
+
 - (void) test_AWSConnectThreshold {
     [self validateSecureCodingForClass:[AWSConnectThreshold class]];
+}
+
+- (void) test_AWSConnectTransferContactRequest {
+    [self validateSecureCodingForClass:[AWSConnectTransferContactRequest class]];
+}
+
+- (void) test_AWSConnectTransferContactResponse {
+    [self validateSecureCodingForClass:[AWSConnectTransferContactResponse class]];
 }
 
 - (void) test_AWSConnectUntagResourceRequest {
@@ -1585,6 +1750,14 @@
     [self validateSecureCodingForClass:[AWSConnectUpdateSecurityProfileRequest class]];
 }
 
+- (void) test_AWSConnectUpdateTaskTemplateRequest {
+    [self validateSecureCodingForClass:[AWSConnectUpdateTaskTemplateRequest class]];
+}
+
+- (void) test_AWSConnectUpdateTaskTemplateResponse {
+    [self validateSecureCodingForClass:[AWSConnectUpdateTaskTemplateResponse class]];
+}
+
 - (void) test_AWSConnectUpdateUserHierarchyGroupNameRequest {
     [self validateSecureCodingForClass:[AWSConnectUpdateUserHierarchyGroupNameRequest class]];
 }
@@ -1625,6 +1798,14 @@
     [self validateSecureCodingForClass:[AWSConnectUser class]];
 }
 
+- (void) test_AWSConnectUserData {
+    [self validateSecureCodingForClass:[AWSConnectUserData class]];
+}
+
+- (void) test_AWSConnectUserDataFilters {
+    [self validateSecureCodingForClass:[AWSConnectUserDataFilters class]];
+}
+
 - (void) test_AWSConnectUserIdentityInfo {
     [self validateSecureCodingForClass:[AWSConnectUserIdentityInfo class]];
 }
@@ -1639,6 +1820,10 @@
 
 - (void) test_AWSConnectUserQuickConnectConfig {
     [self validateSecureCodingForClass:[AWSConnectUserQuickConnectConfig class]];
+}
+
+- (void) test_AWSConnectUserReference {
+    [self validateSecureCodingForClass:[AWSConnectUserReference class]];
 }
 
 - (void) test_AWSConnectUserSearchCriteria {
