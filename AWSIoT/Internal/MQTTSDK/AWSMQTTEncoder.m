@@ -37,6 +37,10 @@
     return self;
 }
 
+- (void)dealloc {
+    dispatch_semaphore_signal(self.encodeSemaphore);
+}
+
 - (void)open {
     AWSDDLogDebug(@"opening encoder stream.");
     [stream setDelegate:self];
