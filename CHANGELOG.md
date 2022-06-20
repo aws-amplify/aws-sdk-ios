@@ -4,8 +4,11 @@
 
 -Features for next release
 
+### Bug Fixes
+- **AWSIoT**
+    - Fix `Semaphore object deallocated while in use` crash in `AWSMQTTEncoder`. (See [PR #4185](https://github.com/aws-amplify/aws-sdk-ios/pull/4185))
+
 ## 2.27.10
--Features for next release
 
 ### Bug Fixes
 
