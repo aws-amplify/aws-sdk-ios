@@ -312,7 +312,7 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
 - (AWSTask<NSString *> *)internalGetIdentityId {
 
     if (self.identityId) {
-        AWSDDLogVerbose(@"internalGetIdentityId: Cached present");
+        AWSDDLogVerbose(@"internalGetIdentityId: Returning cached identity ID");
         return [AWSTask taskWithResult:self.identityId];
     } else {
         AWSDDLogVerbose(@"internalGetIdentityId: Fetching");
