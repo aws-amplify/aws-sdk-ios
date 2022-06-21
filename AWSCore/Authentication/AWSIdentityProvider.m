@@ -290,24 +290,32 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
 
 #pragma mark -
 
+/// Retrieve the cached identity ID
+///
+/// The underlying implementation is serial; only one operation takes place at a time and it is controlled by semaphore.
 - (AWSTask<NSString *> *)getIdentityId {
-    AWSTaskCompletionSource *source = [AWSTaskCompletionSource taskCompletionSource];
+
     AWSTask *task = [AWSTask taskWithResult:nil];
-    [task continueWithBlock:^id _Nullable(AWSTask * _Nonnull t) {
+    return [task continueWithBlock:^id _Nullable(AWSTask * _Nonnull t) {
+        AWSDDLogVerbose(@"getIdentityId: Going to wait %@", task);
         dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
-        return [[self internalGetIdentityId] continueWithBlock:^id _Nullable(AWSTask<NSString *> * _Nonnull t) {
+        AWSDDLogVerbose(@"getIdentityId: Get internal identity %@", task);
+        return [[self internalGetIdentityId]
+                continueWithBlock:^id _Nullable(AWSTask<NSString *> * _Nonnull t) {
+            AWSDDLogVerbose(@"getIdentityId: Going to signal %@", task);
             dispatch_semaphore_signal(self.semaphore);
             return t;
         }];
     }];
-    return source.task;
 }
 
 - (AWSTask<NSString *> *)internalGetIdentityId {
 
     if (self.identityId) {
+        AWSDDLogVerbose(@"internalGetIdentityId: Cached present");
         return [AWSTask taskWithResult:self.identityId];
     } else {
+        AWSDDLogVerbose(@"internalGetIdentityId: Fetching");
         AWSTask *task = [AWSTask taskWithResult:nil];
         if (self.identityProviderManager) {
             task = [self.identityProviderManager logins];
@@ -316,11 +324,15 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
                           withSuccessBlock:^id _Nullable(AWSTask<NSDictionary<NSString *,NSString *> *> * _Nonnull task) {
             NSDictionary<NSString *, NSString *> *logins = task.result;
             self.cachedLogins = logins;
-
-            AWSCognitoIdentityGetIdInput *getIdInput = [AWSCognitoIdentityGetIdInput new];
-            getIdInput.identityPoolId = self.identityPoolId;
-            getIdInput.logins = logins;
-            return [self.cognitoIdentity getId:getIdInput];
+            // Create an identity id via GetID if the call to logins didn't set it which DevAuth does
+            if (!self.identityId) {
+                AWSCognitoIdentityGetIdInput *getIdInput = [AWSCognitoIdentityGetIdInput new];
+                getIdInput.identityPoolId = self.identityPoolId;
+                getIdInput.logins = logins;
+                return [self.cognitoIdentity getId:getIdInput];
+            } else {
+                return [AWSTask taskWithResult:self.identityId];
+            }
         }] continueWithBlock:^id(AWSTask *task) {
 
             if (task.error) {
@@ -345,58 +357,5 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
         }];
     }
 }
-
-//- (AWSTask<NSString *> *)getIdentityId {
-//    if (self.identityId) {
-//        return [AWSTask taskWithResult:self.identityId];
-//    } else {
-//        AWSTask *task = [AWSTask taskWithResult:nil];
-//        if (self.identityProviderManager) {
-//            task = [self.identityProviderManager logins];
-//        }
-//        return [[task continueWithExecutor:self.executor withSuccessBlock:^id _Nullable(AWSTask<NSDictionary<NSString *,NSString *> *> * _Nonnull task) {
-//            NSDictionary<NSString *, NSString *> *logins = task.result;
-//            self.cachedLogins = logins;
-//            self.count++;
-//            
-//            // Create an identity id via GetID if the call to logins didn't set it which DevAuth does
-//            // And there are no other calls in flight to create one
-//            if (!self.identityId && self.count <= 1) {
-//                dispatch_semaphore_wait(self.semaphore, dispatch_time(DISPATCH_TIME_NOW, 0));
-//                AWSCognitoIdentityGetIdInput *getIdInput = [AWSCognitoIdentityGetIdInput new];
-//                getIdInput.identityPoolId = self.identityPoolId;
-//                getIdInput.logins = logins;
-//                return [self.cognitoIdentity getId:getIdInput];
-//            } else {
-//                dispatch_semaphore_wait(self.semaphore, dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC));
-//                return [AWSTask taskWithResult:nil];
-//            }
-//        }] continueWithBlock:^id(AWSTask *task) {
-//            if (task.error) {
-//                AWSDDLogError(@"GetId failed. Error is [%@]", task.error);
-//            } else if (task.result) {
-//                AWSCognitoIdentityGetIdResponse *getIdResponse = task.result;
-//                self.identityId = getIdResponse.identityId;
-//            }
-//            
-//            //ensure that the identityID is set before the semaphore is signaled, otherwise it's possible
-//            //that continuation blocks execute before the identityID is set
-//            self.count--;
-//            dispatch_semaphore_signal(self.semaphore);
-//            if (task.faulted) {
-//                return task;
-//            }
-//            if(!self.identityId){
-//                NSString * error = @"Obtaining an identity id in another thread failed or didn't complete within 5 seconds.";
-//                AWSDDLogError(@"%@",error);
-//                return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderHelperErrorDomain
-//                                                                  code:AWSCognitoCredentialsProviderHelperErrorTypeIdentityIsNil
-//                                                              userInfo:@{NSLocalizedDescriptionKey: error}]];
-//            } else {
-//                return [AWSTask taskWithResult:self.identityId];
-//            }
-//        }];
-//    }
-//}
 
 @end
