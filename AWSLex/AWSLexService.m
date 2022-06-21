@@ -27,7 +27,7 @@
 #import "AWSLexSignature.h"
 
 static NSString *const AWSInfoLex = @"Lex";
-NSString *const AWSLexSDKVersion = @"2.27.9";
+NSString *const AWSLexSDKVersion = @"2.27.10";
 
 
 @interface AWSLexResponseSerializer : AWSJSONResponseSerializer
