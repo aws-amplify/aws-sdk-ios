@@ -315,7 +315,7 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
         AWSDDLogVerbose(@"internalGetIdentityId: Returning cached identity ID");
         return [AWSTask taskWithResult:self.identityId];
     } else {
-        AWSDDLogVerbose(@"internalGetIdentityId: Fetching");
+        AWSDDLogVerbose(@"internalGetIdentityId: Fetching identity ID");
         AWSTask *task = [AWSTask taskWithResult:nil];
         if (self.identityProviderManager) {
             task = [self.identityProviderManager logins];
