@@ -2607,7 +2607,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createTrafficMirrorSession:(AWSEC2CreateTrafficMirrorSessionRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateTrafficMirrorSessionResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a target for your Traffic Mirror session.</p><p>A Traffic Mirror target is the destination for mirrored traffic. The Traffic Mirror source and the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in different VPCs connected via VPC peering or a transit gateway.</p><p>A Traffic Mirror target can be a network interface, or a Network Load Balancer.</p><p>To use the target in a Traffic Mirror session, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorSession.htm">CreateTrafficMirrorSession</a>.</p>
+ <p>Creates a target for your Traffic Mirror session.</p><p>A Traffic Mirror target is the destination for mirrored traffic. The Traffic Mirror source and the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in different VPCs connected via VPC peering or a transit gateway.</p><p>A Traffic Mirror target can be a network interface, a Network Load Balancer, or a Gateway Load Balancer endpoint.</p><p>To use the target in a Traffic Mirror session, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorSession.htm">CreateTrafficMirrorSession</a>.</p>
  
  @param request A container for the necessary parameters to execute the CreateTrafficMirrorTarget service method.
 
@@ -2619,7 +2619,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateTrafficMirrorTargetResult *> *)createTrafficMirrorTarget:(AWSEC2CreateTrafficMirrorTargetRequest *)request;
 
 /**
- <p>Creates a target for your Traffic Mirror session.</p><p>A Traffic Mirror target is the destination for mirrored traffic. The Traffic Mirror source and the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in different VPCs connected via VPC peering or a transit gateway.</p><p>A Traffic Mirror target can be a network interface, or a Network Load Balancer.</p><p>To use the target in a Traffic Mirror session, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorSession.htm">CreateTrafficMirrorSession</a>.</p>
+ <p>Creates a target for your Traffic Mirror session.</p><p>A Traffic Mirror target is the destination for mirrored traffic. The Traffic Mirror source and the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in different VPCs connected via VPC peering or a transit gateway.</p><p>A Traffic Mirror target can be a network interface, a Network Load Balancer, or a Gateway Load Balancer endpoint.</p><p>To use the target in a Traffic Mirror session, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorSession.htm">CreateTrafficMirrorSession</a>.</p>
  
  @param request A container for the necessary parameters to execute the CreateTrafficMirrorTarget service method.
  @param completionHandler The completion handler to call when the load request is complete.
