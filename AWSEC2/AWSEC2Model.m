@@ -10493,6 +10493,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"clientToken" : @"ClientToken",
              @"detail" : @"Description",
              @"dryRun" : @"DryRun",
+             @"gatewayLoadBalancerEndpointId" : @"GatewayLoadBalancerEndpointId",
              @"networkInterfaceId" : @"NetworkInterfaceId",
              @"networkLoadBalancerArn" : @"NetworkLoadBalancerArn",
              @"tagSpecifications" : @"TagSpecifications",
@@ -102457,6 +102458,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"detail" : @"Description",
+             @"gatewayLoadBalancerEndpointId" : @"GatewayLoadBalancerEndpointId",
              @"networkInterfaceId" : @"NetworkInterfaceId",
              @"networkLoadBalancerArn" : @"NetworkLoadBalancerArn",
              @"ownerId" : @"OwnerId",
@@ -102478,6 +102480,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"network-load-balancer"] == NSOrderedSame) {
             return @(AWSEC2TrafficMirrorTargetTypeNetworkLoadBalancer);
         }
+        if ([value caseInsensitiveCompare:@"gateway-load-balancer-endpoint"] == NSOrderedSame) {
+            return @(AWSEC2TrafficMirrorTargetTypeGatewayLoadBalancerEndpoint);
+        }
         return @(AWSEC2TrafficMirrorTargetTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -102485,6 +102490,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"network-interface";
             case AWSEC2TrafficMirrorTargetTypeNetworkLoadBalancer:
                 return @"network-load-balancer";
+            case AWSEC2TrafficMirrorTargetTypeGatewayLoadBalancerEndpoint:
+                return @"gateway-load-balancer-endpoint";
             default:
                 return nil;
         }

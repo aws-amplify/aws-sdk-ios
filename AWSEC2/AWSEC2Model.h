@@ -2358,6 +2358,7 @@ typedef NS_ENUM(NSInteger, AWSEC2TrafficMirrorTargetType) {
     AWSEC2TrafficMirrorTargetTypeUnknown,
     AWSEC2TrafficMirrorTargetTypeNetworkInterface,
     AWSEC2TrafficMirrorTargetTypeNetworkLoadBalancer,
+    AWSEC2TrafficMirrorTargetTypeGatewayLoadBalancerEndpoint,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2TrafficType) {
@@ -11728,6 +11729,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the Gateway Load Balancer endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable gatewayLoadBalancerEndpointId;
 
 /**
  <p>The network interface ID that is associated with the target.</p>
@@ -45630,6 +45636,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the Traffic Mirror target.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The ID of the Gateway Load Balancer endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable gatewayLoadBalancerEndpointId;
 
 /**
  <p>The network interface ID that is attached to the target.</p>
