@@ -34,6 +34,8 @@
 - Model updates for the following services
   - AWSLocation
   - AWSEC2
+  - AWSSTS
+  - AWSRekognition
 
 ## 2.27.8
 
