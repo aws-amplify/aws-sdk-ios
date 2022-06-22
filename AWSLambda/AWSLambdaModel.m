@@ -538,6 +538,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"nodejs14.x"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs14X);
         }
+        if ([value caseInsensitiveCompare:@"nodejs16.x"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs16X);
+        }
         if ([value caseInsensitiveCompare:@"java8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava8);
         }
@@ -612,6 +615,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"nodejs12.x";
             case AWSLambdaRuntimeNodejs14X:
                 return @"nodejs14.x";
+            case AWSLambdaRuntimeNodejs16X:
+                return @"nodejs16.x";
             case AWSLambdaRuntimeJava8:
                 return @"java8";
             case AWSLambdaRuntimeJava8Al2:
@@ -1379,6 +1384,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"nodejs14.x"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs14X);
         }
+        if ([value caseInsensitiveCompare:@"nodejs16.x"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs16X);
+        }
         if ([value caseInsensitiveCompare:@"java8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava8);
         }
@@ -1453,6 +1461,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"nodejs12.x";
             case AWSLambdaRuntimeNodejs14X:
                 return @"nodejs14.x";
+            case AWSLambdaRuntimeNodejs16X:
+                return @"nodejs16.x";
             case AWSLambdaRuntimeJava8:
                 return @"java8";
             case AWSLambdaRuntimeJava8Al2:
@@ -2723,6 +2733,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"nodejs14.x"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs14X);
         }
+        if ([value caseInsensitiveCompare:@"nodejs16.x"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs16X);
+        }
         if ([value caseInsensitiveCompare:@"java8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava8);
         }
@@ -2797,6 +2810,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"nodejs12.x";
             case AWSLambdaRuntimeNodejs14X:
                 return @"nodejs14.x";
+            case AWSLambdaRuntimeNodejs16X:
+                return @"nodejs16.x";
             case AWSLambdaRuntimeJava8:
                 return @"java8";
             case AWSLambdaRuntimeJava8Al2:
@@ -2921,6 +2936,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"nodejs14.x"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs14X);
         }
+        if ([value caseInsensitiveCompare:@"nodejs16.x"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs16X);
+        }
         if ([value caseInsensitiveCompare:@"java8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava8);
         }
@@ -2995,6 +3013,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"nodejs12.x";
             case AWSLambdaRuntimeNodejs14X:
                 return @"nodejs14.x";
+            case AWSLambdaRuntimeNodejs16X:
+                return @"nodejs16.x";
             case AWSLambdaRuntimeJava8:
                 return @"java8";
             case AWSLambdaRuntimeJava8Al2:
@@ -3839,6 +3859,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"nodejs14.x"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs14X);
         }
+        if ([value caseInsensitiveCompare:@"nodejs16.x"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs16X);
+        }
         if ([value caseInsensitiveCompare:@"java8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava8);
         }
@@ -3913,6 +3936,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"nodejs12.x";
             case AWSLambdaRuntimeNodejs14X:
                 return @"nodejs14.x";
+            case AWSLambdaRuntimeNodejs16X:
+                return @"nodejs16.x";
             case AWSLambdaRuntimeJava8:
                 return @"java8";
             case AWSLambdaRuntimeJava8Al2:
