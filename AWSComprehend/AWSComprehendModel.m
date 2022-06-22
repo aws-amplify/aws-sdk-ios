@@ -3640,6 +3640,48 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
         if ([value caseInsensitiveCompare:@"ALL"] == NSOrderedSame) {
             return @(AWSComprehendPiiEntityTypeAll);
         }
+        if ([value caseInsensitiveCompare:@"LICENSE_PLATE"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeLicensePlate);
+        }
+        if ([value caseInsensitiveCompare:@"VEHICLE_IDENTIFICATION_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeVehicleIdentificationNumber);
+        }
+        if ([value caseInsensitiveCompare:@"UK_NATIONAL_INSURANCE_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeUkNationalInsuranceNumber);
+        }
+        if ([value caseInsensitiveCompare:@"CA_SOCIAL_INSURANCE_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeCaSocialInsuranceNumber);
+        }
+        if ([value caseInsensitiveCompare:@"US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeUsIndividualTaxIdentificationNumber);
+        }
+        if ([value caseInsensitiveCompare:@"UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeUkUniqueTaxpayerReferenceNumber);
+        }
+        if ([value caseInsensitiveCompare:@"IN_PERMANENT_ACCOUNT_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeInPermanentAccountNumber);
+        }
+        if ([value caseInsensitiveCompare:@"IN_NREGA"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeInNrega);
+        }
+        if ([value caseInsensitiveCompare:@"INTERNATIONAL_BANK_ACCOUNT_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeInternationalBankAccountNumber);
+        }
+        if ([value caseInsensitiveCompare:@"SWIFT_CODE"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeSwiftCode);
+        }
+        if ([value caseInsensitiveCompare:@"UK_NATIONAL_HEALTH_SERVICE_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeUkNationalHealthServiceNumber);
+        }
+        if ([value caseInsensitiveCompare:@"CA_HEALTH_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeCaHealthNumber);
+        }
+        if ([value caseInsensitiveCompare:@"IN_AADHAAR"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeInAadhaar);
+        }
+        if ([value caseInsensitiveCompare:@"IN_VOTER_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeInVoterNumber);
+        }
         return @(AWSComprehendPiiEntityTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3689,6 +3731,34 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
                 return @"MAC_ADDRESS";
             case AWSComprehendPiiEntityTypeAll:
                 return @"ALL";
+            case AWSComprehendPiiEntityTypeLicensePlate:
+                return @"LICENSE_PLATE";
+            case AWSComprehendPiiEntityTypeVehicleIdentificationNumber:
+                return @"VEHICLE_IDENTIFICATION_NUMBER";
+            case AWSComprehendPiiEntityTypeUkNationalInsuranceNumber:
+                return @"UK_NATIONAL_INSURANCE_NUMBER";
+            case AWSComprehendPiiEntityTypeCaSocialInsuranceNumber:
+                return @"CA_SOCIAL_INSURANCE_NUMBER";
+            case AWSComprehendPiiEntityTypeUsIndividualTaxIdentificationNumber:
+                return @"US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER";
+            case AWSComprehendPiiEntityTypeUkUniqueTaxpayerReferenceNumber:
+                return @"UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER";
+            case AWSComprehendPiiEntityTypeInPermanentAccountNumber:
+                return @"IN_PERMANENT_ACCOUNT_NUMBER";
+            case AWSComprehendPiiEntityTypeInNrega:
+                return @"IN_NREGA";
+            case AWSComprehendPiiEntityTypeInternationalBankAccountNumber:
+                return @"INTERNATIONAL_BANK_ACCOUNT_NUMBER";
+            case AWSComprehendPiiEntityTypeSwiftCode:
+                return @"SWIFT_CODE";
+            case AWSComprehendPiiEntityTypeUkNationalHealthServiceNumber:
+                return @"UK_NATIONAL_HEALTH_SERVICE_NUMBER";
+            case AWSComprehendPiiEntityTypeCaHealthNumber:
+                return @"CA_HEALTH_NUMBER";
+            case AWSComprehendPiiEntityTypeInAadhaar:
+                return @"IN_AADHAAR";
+            case AWSComprehendPiiEntityTypeInVoterNumber:
+                return @"IN_VOTER_NUMBER";
             default:
                 return nil;
         }
@@ -5872,6 +5942,48 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
         if ([value caseInsensitiveCompare:@"ALL"] == NSOrderedSame) {
             return @(AWSComprehendPiiEntityTypeAll);
         }
+        if ([value caseInsensitiveCompare:@"LICENSE_PLATE"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeLicensePlate);
+        }
+        if ([value caseInsensitiveCompare:@"VEHICLE_IDENTIFICATION_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeVehicleIdentificationNumber);
+        }
+        if ([value caseInsensitiveCompare:@"UK_NATIONAL_INSURANCE_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeUkNationalInsuranceNumber);
+        }
+        if ([value caseInsensitiveCompare:@"CA_SOCIAL_INSURANCE_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeCaSocialInsuranceNumber);
+        }
+        if ([value caseInsensitiveCompare:@"US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeUsIndividualTaxIdentificationNumber);
+        }
+        if ([value caseInsensitiveCompare:@"UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeUkUniqueTaxpayerReferenceNumber);
+        }
+        if ([value caseInsensitiveCompare:@"IN_PERMANENT_ACCOUNT_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeInPermanentAccountNumber);
+        }
+        if ([value caseInsensitiveCompare:@"IN_NREGA"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeInNrega);
+        }
+        if ([value caseInsensitiveCompare:@"INTERNATIONAL_BANK_ACCOUNT_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeInternationalBankAccountNumber);
+        }
+        if ([value caseInsensitiveCompare:@"SWIFT_CODE"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeSwiftCode);
+        }
+        if ([value caseInsensitiveCompare:@"UK_NATIONAL_HEALTH_SERVICE_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeUkNationalHealthServiceNumber);
+        }
+        if ([value caseInsensitiveCompare:@"CA_HEALTH_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeCaHealthNumber);
+        }
+        if ([value caseInsensitiveCompare:@"IN_AADHAAR"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeInAadhaar);
+        }
+        if ([value caseInsensitiveCompare:@"IN_VOTER_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeInVoterNumber);
+        }
         return @(AWSComprehendPiiEntityTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -5921,6 +6033,34 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
                 return @"MAC_ADDRESS";
             case AWSComprehendPiiEntityTypeAll:
                 return @"ALL";
+            case AWSComprehendPiiEntityTypeLicensePlate:
+                return @"LICENSE_PLATE";
+            case AWSComprehendPiiEntityTypeVehicleIdentificationNumber:
+                return @"VEHICLE_IDENTIFICATION_NUMBER";
+            case AWSComprehendPiiEntityTypeUkNationalInsuranceNumber:
+                return @"UK_NATIONAL_INSURANCE_NUMBER";
+            case AWSComprehendPiiEntityTypeCaSocialInsuranceNumber:
+                return @"CA_SOCIAL_INSURANCE_NUMBER";
+            case AWSComprehendPiiEntityTypeUsIndividualTaxIdentificationNumber:
+                return @"US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER";
+            case AWSComprehendPiiEntityTypeUkUniqueTaxpayerReferenceNumber:
+                return @"UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER";
+            case AWSComprehendPiiEntityTypeInPermanentAccountNumber:
+                return @"IN_PERMANENT_ACCOUNT_NUMBER";
+            case AWSComprehendPiiEntityTypeInNrega:
+                return @"IN_NREGA";
+            case AWSComprehendPiiEntityTypeInternationalBankAccountNumber:
+                return @"INTERNATIONAL_BANK_ACCOUNT_NUMBER";
+            case AWSComprehendPiiEntityTypeSwiftCode:
+                return @"SWIFT_CODE";
+            case AWSComprehendPiiEntityTypeUkNationalHealthServiceNumber:
+                return @"UK_NATIONAL_HEALTH_SERVICE_NUMBER";
+            case AWSComprehendPiiEntityTypeCaHealthNumber:
+                return @"CA_HEALTH_NUMBER";
+            case AWSComprehendPiiEntityTypeInAadhaar:
+                return @"IN_AADHAAR";
+            case AWSComprehendPiiEntityTypeInVoterNumber:
+                return @"IN_VOTER_NUMBER";
             default:
                 return nil;
         }
