@@ -1052,7 +1052,7 @@
       },\
       \"input\":{\"shape\":\"CreateTrafficMirrorTargetRequest\"},\
       \"output\":{\"shape\":\"CreateTrafficMirrorTargetResult\"},\
-      \"documentation\":\"<p>Creates a target for your Traffic Mirror session.</p> <p>A Traffic Mirror target is the destination for mirrored traffic. The Traffic Mirror source and the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in different VPCs connected via VPC peering or a transit gateway.</p> <p>A Traffic Mirror target can be a network interface, or a Network Load Balancer.</p> <p>To use the target in a Traffic Mirror session, use <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorSession.htm\\\">CreateTrafficMirrorSession</a>.</p>\"\
+      \"documentation\":\"<p>Creates a target for your Traffic Mirror session.</p> <p>A Traffic Mirror target is the destination for mirrored traffic. The Traffic Mirror source and the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in different VPCs connected via VPC peering or a transit gateway.</p> <p>A Traffic Mirror target can be a network interface, a Network Load Balancer, or a Gateway Load Balancer endpoint.</p> <p>To use the target in a Traffic Mirror session, use <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorSession.htm\\\">CreateTrafficMirrorSession</a>.</p>\"\
     },\
     \"CreateTransitGateway\":{\
       \"name\":\"CreateTransitGateway\",\
@@ -12833,6 +12833,10 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\\\">How to ensure idempotency</a>.</p>\",\
           \"idempotencyToken\":true\
+        },\
+        \"GatewayLoadBalancerEndpointId\":{\
+          \"shape\":\"VpcEndpointId\",\
+          \"documentation\":\"<p>The ID of the Gateway Load Balancer endpoint.</p>\"\
         }\
       }\
     },\
@@ -47719,6 +47723,11 @@
           \"shape\":\"TagList\",\
           \"documentation\":\"<p>The tags assigned to the Traffic Mirror target.</p>\",\
           \"locationName\":\"tagSet\"\
+        },\
+        \"GatewayLoadBalancerEndpointId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the Gateway Load Balancer endpoint.</p>\",\
+          \"locationName\":\"gatewayLoadBalancerEndpointId\"\
         }\
       },\
       \"documentation\":\"<p>Describes a Traffic Mirror target.</p>\"\
@@ -47742,7 +47751,8 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"network-interface\",\
-        \"network-load-balancer\"\
+        \"network-load-balancer\",\
+        \"gateway-load-balancer-endpoint\"\
       ]\
     },\
     \"TrafficMirroringMaxResults\":{\

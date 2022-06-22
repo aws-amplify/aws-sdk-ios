@@ -14,6 +14,7 @@
 //
 
 #import "AWSIoTService.h"
+#import "AWSIoTKeyChainTypes.h"
 
 //CreateCertificateWithResponse
 @interface AWSIoTCreateCertificateResponse : AWSModel
@@ -216,5 +217,7 @@
 *  @return TRUE if certificate is deleted, else FALSE
  */
 + (BOOL)deleteCertificate;
+
++ (void)setKeyChainAccessibility:(AWSIoTKeyChainAccessibility)accessibility;
 
 @end
