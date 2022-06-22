@@ -10493,6 +10493,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"clientToken" : @"ClientToken",
              @"detail" : @"Description",
              @"dryRun" : @"DryRun",
+             @"gatewayLoadBalancerEndpointId" : @"GatewayLoadBalancerEndpointId",
              @"networkInterfaceId" : @"NetworkInterfaceId",
              @"networkLoadBalancerArn" : @"NetworkLoadBalancerArn",
              @"tagSpecifications" : @"TagSpecifications",
@@ -18566,6 +18567,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"enclaveOptions"] == NSOrderedSame) {
             return @(AWSEC2InstanceAttributeNameEnclaveOptions);
         }
+        if ([value caseInsensitiveCompare:@"disableApiStop"] == NSOrderedSame) {
+            return @(AWSEC2InstanceAttributeNameDisableApiStop);
+        }
         return @(AWSEC2InstanceAttributeNameUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -18599,6 +18603,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"enaSupport";
             case AWSEC2InstanceAttributeNameEnclaveOptions:
                 return @"enclaveOptions";
+            case AWSEC2InstanceAttributeNameDisableApiStop:
+                return @"disableApiStop";
             default:
                 return nil;
         }
@@ -45928,6 +45934,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"blockDeviceMappings" : @"BlockDeviceMappings",
+             @"disableApiStop" : @"DisableApiStop",
              @"disableApiTermination" : @"DisableApiTermination",
              @"ebsOptimized" : @"EbsOptimized",
              @"enaSupport" : @"EnaSupport",
@@ -45948,6 +45955,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)blockDeviceMappingsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2InstanceBlockDeviceMapping class]];
+}
+
++ (NSValueTransformer *)disableApiStopJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeBooleanValue class]];
 }
 
 + (NSValueTransformer *)disableApiTerminationJSONTransformer {
@@ -63266,6 +63277,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"attribute" : @"Attribute",
              @"blockDeviceMappings" : @"BlockDeviceMappings",
+             @"disableApiStop" : @"DisableApiStop",
              @"disableApiTermination" : @"DisableApiTermination",
              @"dryRun" : @"DryRun",
              @"ebsOptimized" : @"EbsOptimized",
@@ -63330,6 +63342,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"enclaveOptions"] == NSOrderedSame) {
             return @(AWSEC2InstanceAttributeNameEnclaveOptions);
         }
+        if ([value caseInsensitiveCompare:@"disableApiStop"] == NSOrderedSame) {
+            return @(AWSEC2InstanceAttributeNameDisableApiStop);
+        }
         return @(AWSEC2InstanceAttributeNameUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -63363,6 +63378,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"enaSupport";
             case AWSEC2InstanceAttributeNameEnclaveOptions:
                 return @"enclaveOptions";
+            case AWSEC2InstanceAttributeNameDisableApiStop:
+                return @"disableApiStop";
             default:
                 return nil;
         }
@@ -63371,6 +63388,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)blockDeviceMappingsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2InstanceBlockDeviceMappingSpecification class]];
+}
+
++ (NSValueTransformer *)disableApiStopJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeBooleanValue class]];
 }
 
 + (NSValueTransformer *)disableApiTerminationJSONTransformer {
@@ -69408,6 +69429,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"capacityReservationSpecification" : @"CapacityReservationSpecification",
              @"cpuOptions" : @"CpuOptions",
              @"creditSpecification" : @"CreditSpecification",
+             @"disableApiStop" : @"DisableApiStop",
              @"disableApiTermination" : @"DisableApiTermination",
              @"ebsOptimized" : @"EbsOptimized",
              @"elasticGpuSpecifications" : @"ElasticGpuSpecifications",
@@ -86296,6 +86318,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"enclaveOptions"] == NSOrderedSame) {
             return @(AWSEC2InstanceAttributeNameEnclaveOptions);
         }
+        if ([value caseInsensitiveCompare:@"disableApiStop"] == NSOrderedSame) {
+            return @(AWSEC2InstanceAttributeNameDisableApiStop);
+        }
         return @(AWSEC2InstanceAttributeNameUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -86329,6 +86354,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"enaSupport";
             case AWSEC2InstanceAttributeNameEnclaveOptions:
                 return @"enclaveOptions";
+            case AWSEC2InstanceAttributeNameDisableApiStop:
+                return @"disableApiStop";
             default:
                 return nil;
         }
@@ -86488,6 +86515,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"capacityReservationSpecification" : @"CapacityReservationSpecification",
              @"cpuOptions" : @"CpuOptions",
              @"creditSpecification" : @"CreditSpecification",
+             @"disableApiStop" : @"DisableApiStop",
              @"disableApiTermination" : @"DisableApiTermination",
              @"ebsOptimized" : @"EbsOptimized",
              @"elasticGpuSpecifications" : @"ElasticGpuSpecifications",
@@ -89784,6 +89812,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"clientToken" : @"ClientToken",
              @"cpuOptions" : @"CpuOptions",
              @"creditSpecification" : @"CreditSpecification",
+             @"disableApiStop" : @"DisableApiStop",
              @"disableApiTermination" : @"DisableApiTermination",
              @"dryRun" : @"DryRun",
              @"ebsOptimized" : @"EbsOptimized",
@@ -102457,6 +102486,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"detail" : @"Description",
+             @"gatewayLoadBalancerEndpointId" : @"GatewayLoadBalancerEndpointId",
              @"networkInterfaceId" : @"NetworkInterfaceId",
              @"networkLoadBalancerArn" : @"NetworkLoadBalancerArn",
              @"ownerId" : @"OwnerId",
@@ -102478,6 +102508,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"network-load-balancer"] == NSOrderedSame) {
             return @(AWSEC2TrafficMirrorTargetTypeNetworkLoadBalancer);
         }
+        if ([value caseInsensitiveCompare:@"gateway-load-balancer-endpoint"] == NSOrderedSame) {
+            return @(AWSEC2TrafficMirrorTargetTypeGatewayLoadBalancerEndpoint);
+        }
         return @(AWSEC2TrafficMirrorTargetTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -102485,6 +102518,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"network-interface";
             case AWSEC2TrafficMirrorTargetTypeNetworkLoadBalancer:
                 return @"network-load-balancer";
+            case AWSEC2TrafficMirrorTargetTypeGatewayLoadBalancerEndpoint:
+                return @"gateway-load-balancer-endpoint";
             default:
                 return nil;
         }
