@@ -382,4 +382,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [AWSIoTKeychain isValidCertificate:[NSString stringWithFormat:@"%@%@",[AWSIoTKeychain privateKeyTag], certificateId ]];
 }
 
++ (void)setKeyChainAccessibility:(AWSIoTKeyChainAccessibility)accessibility {
+    [AWSIoTKeychain setKeyChainAccessibility:accessibility];
+}
+
 @end
