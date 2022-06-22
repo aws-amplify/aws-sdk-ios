@@ -1,11 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSKMS
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -16,6 +8,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSLambda
   - AWSIoT
   - AWSEC2
+  - AWSKMS
 
 ## 2.27.10
 
