@@ -9,6 +9,8 @@
   - AWSIoT
   - AWSEC2
   - AWSKMS
+  - AWSComprehend
+  - AWSCloudWatchLogs
 
 ## 2.27.10
 
