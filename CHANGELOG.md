@@ -8,6 +8,7 @@
   - AWSLambda
   - AWSIoT
   - AWSEC2
+  - AWSKMS
 
 ## 2.27.10
 
