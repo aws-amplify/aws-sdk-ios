@@ -1,12 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSComprehend
----AWSCloudWatchLogs
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -18,6 +9,8 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSIoT
   - AWSEC2
   - AWSKMS
+  - AWSComprehend
+  - AWSCloudWatchLogs
 
 ## 2.27.10
 
