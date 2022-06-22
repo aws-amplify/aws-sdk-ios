@@ -116,7 +116,7 @@ static NSString *_defaultService;
 
 - (void)commonInit
 {
-    _accessibility = AWSUICKeyChainStoreAccessibilityAfterFirstUnlock;
+    _accessibility = AWSUICKeyChainStoreAccessibilityAfterFirstUnlockThisDeviceOnly;
 }
 
 #pragma mark -
