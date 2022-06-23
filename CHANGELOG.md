@@ -11,6 +11,7 @@
   - AWSKMS
   - AWSComprehend
   - AWSCloudWatchLogs
+  - AWSCognitoIdentityProvider
 
 ## 2.27.10
 
