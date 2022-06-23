@@ -1132,7 +1132,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable clientMetadata;
 
 /**
- <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
+ <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderContextDataType * _Nullable contextData;
 
@@ -1429,7 +1429,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable clientMetadata;
 
 /**
- <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
+ <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderContextDataType * _Nullable contextData;
 
@@ -2087,7 +2087,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable secretHash;
 
 /**
- <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
+ <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserContextDataType * _Nullable userContextData;
 
@@ -2144,7 +2144,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable secretHash;
 
 /**
- <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
+ <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserContextDataType * _Nullable userContextData;
 
@@ -2171,7 +2171,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- <p>Encoded data containing device fingerprinting details collected using the Amazon Cognito context data collection library.</p>
+ <p>Encoded device-fingerprint details that your app collected with the Amazon Cognito context data collection library. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint">Adding user device and session data to API requests</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable encodedData;
 
@@ -2181,7 +2181,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderHttpHeader *> * _Nullable httpHeaders;
 
 /**
- <p>Source IP address of your user.</p>
+ <p>The source IP address of your user's device.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipAddress;
 
@@ -2420,6 +2420,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable defaultRedirectURI;
 
 /**
+ <p>Activates the propagation of additional user context data. For more information about propagation of user context data, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html"> Adding advanced security to a user pool</a>. If you don’t include this parameter, you can't send device fingerprint information, including source IP address, to Amazon Cognito advanced security. You can only activate <code>EnablePropagateAdditionalUserContextData</code> in an app client that has a client secret.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enablePropagateAdditionalUserContextData;
+
+/**
  <p>Activates or deactivates token revocation. For more information about revoking tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.</p><p>If you don't include this parameter, token revocation is automatically activated for the new user pool client.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enableTokenRevocation;
@@ -2618,7 +2623,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable smsVerificationMessage;
 
 /**
- <p/>
+ <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>, a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates"> Verifying updates to to email addresses and phone numbers</a>.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserAttributeUpdateSettingsType * _Nullable userAttributeUpdateSettings;
 
@@ -3250,7 +3255,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable deviceName;
 
 /**
- <p>The user's IP address.</p>
+ <p>The source IP address of your user's device.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipAddress;
 
@@ -3355,7 +3360,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable secretHash;
 
 /**
- <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
+ <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserContextDataType * _Nullable userContextData;
 
@@ -3367,7 +3372,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- <p>Represents the response from the server regarding the request to reset a password.</p>
+ <p>The response from Amazon Cognito to a request to reset a password.</p>
  */
 @interface AWSCognitoIdentityProviderForgotPasswordResponse : AWSModel
 
@@ -3849,7 +3854,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable clientMetadata;
 
 /**
- <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
+ <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserContextDataType * _Nullable userContextData;
 
@@ -4642,7 +4647,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable secretHash;
 
 /**
- <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
+ <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserContextDataType * _Nullable userContextData;
 
@@ -4751,7 +4756,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable session;
 
 /**
- <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
+ <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserContextDataType * _Nullable userContextData;
 
@@ -5167,7 +5172,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderAttributeType *> * _Nullable userAttributes;
 
 /**
- <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
+ <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserContextDataType * _Nullable userContextData;
 
@@ -5395,17 +5400,17 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- <p> A time unit in “seconds”, “minutes”, “hours”, or “days” for the value in AccessTokenValidity, defaulting to hours.</p>
+ <p> A time unit of <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code> for the value that you set in the <code>AccessTokenValidity</code> parameter. The default <code>AccessTokenValidity</code> time unit is hours.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderTimeUnitsType accessToken;
 
 /**
- <p>A time unit in “seconds”, “minutes”, “hours”, or “days” for the value in IdTokenValidity, defaulting to hours.</p>
+ <p>A time unit of <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code> for the value that you set in the <code>IdTokenValidity</code> parameter. The default <code>IdTokenValidity</code> time unit is hours.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderTimeUnitsType idToken;
 
 /**
- <p>A time unit in “seconds”, “minutes”, “hours”, or “days” for the value in RefreshTokenValidity, defaulting to days.</p>
+ <p>A time unit of <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code> for the value that you set in the <code>RefreshTokenValidity</code> parameter. The default <code>RefreshTokenValidity</code> time unit is days.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderTimeUnitsType refreshToken;
 
@@ -5776,6 +5781,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable defaultRedirectURI;
 
 /**
+ <p>Activates the propagation of additional user context data. For more information about propagation of user context data, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html"> Adding advanced security to a user pool</a>. If you don’t include this parameter, you can't send device fingerprint information, including source IP address, to Amazon Cognito advanced security. You can only activate <code>EnablePropagateAdditionalUserContextData</code> in an app client that has a client secret.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enablePropagateAdditionalUserContextData;
+
+/**
  <p>Activates or deactivates token revocation. For more information about revoking tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enableTokenRevocation;
@@ -5955,7 +5965,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable smsVerificationMessage;
 
 /**
- <p/>
+ <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>, a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates"> Verifying updates to to email addresses and phone numbers</a>.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserAttributeUpdateSettingsType * _Nullable userAttributeUpdateSettings;
 
@@ -5990,7 +6000,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- <p>The settings for updates to user attributes.</p>
+ <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>, a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates"> Verifying updates to to email addresses and phone numbers</a>.</p>
  */
 @interface AWSCognitoIdentityProviderUserAttributeUpdateSettingsType : AWSModel
 
@@ -6003,15 +6013,20 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- <p>Information that your app generates about a user's <code>AdminInitiateAuth</code> or <code>AdminRespondToAuthChallenge</code> session. Amazon Cognito advanced security features calculate risk levels for user sessions based on this context data.</p>
+ <p>Contextual data, such as the user's device fingerprint, IP address, or location, used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
  */
 @interface AWSCognitoIdentityProviderUserContextDataType : AWSModel
 
 
 /**
- <p>Contextual data, such as the user's device fingerprint, IP address, or location, used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
+ <p>Encoded device-fingerprint details that your app collected with the Amazon Cognito context data collection library. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint">Adding user device and session data to API requests</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable encodedData;
+
+/**
+ <p>The source IP address of your user's device.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipAddress;
 
 @end
 
@@ -6185,6 +6200,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
  <p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p><p>A redirect URI must:</p><ul><li><p>Be an absolute URI.</p></li><li><p>Be registered with the authorization server.</p></li><li><p>Not include a fragment component.</p></li></ul><p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p><p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p><p>App callback URLs such as myapp://example are also supported.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable defaultRedirectURI;
+
+/**
+ <p>When <code>EnablePropagateAdditionalUserContextData</code> is true, Amazon Cognito accepts an <code>IpAddress</code> value that you send in the <code>UserContextData</code> parameter. The <code>UserContextData</code> parameter sends information to Amazon Cognito advanced security for risk analysis. You can send <code>UserContextData</code> when you sign in Amazon Cognito native users with the <code>InitiateAuth</code> and <code>RespondToAuthChallenge</code> API operations.</p><p>When <code>EnablePropagateAdditionalUserContextData</code> is false, you can't send your user's source IP address to Amazon Cognito advanced security with unauthenticated API operations. <code>EnablePropagateAdditionalUserContextData</code> doesn't affect whether you can send a source IP address in a <code>ContextData</code> parameter with the authenticated API operations <code>AdminInitiateAuth</code> and <code>AdminRespondToAuthChallenge</code>.</p><p>You can only activate <code>EnablePropagateAdditionalUserContextData</code> in an app client that has a client secret. For more information about propagation of user context data, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint">Adding user device and session data to API requests</a>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enablePropagateAdditionalUserContextData;
 
 /**
  <p>Indicates whether token revocation is activated for the user pool client. When you create a new user pool client, token revocation is activated by default. For more information about revoking tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.</p>
@@ -6436,7 +6456,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, assign) AWSCognitoIdentityProviderStatusType status;
 
 /**
- <p/>
+ <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>, a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates"> Verifying updates to to email addresses and phone numbers</a>.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserAttributeUpdateSettingsType * _Nullable userAttributeUpdateSettings;
 

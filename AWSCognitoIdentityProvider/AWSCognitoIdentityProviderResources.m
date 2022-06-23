@@ -628,7 +628,7 @@
         {\"shape\":\"InternalErrorException\"},\
         {\"shape\":\"SoftwareTokenMFANotFoundException\"}\
       ],\
-      \"documentation\":\"<p>Returns a unique generated shared secret key code for the user account. The request takes an access token or a session string, but not both.</p> <note> <p>Calling AssociateSoftwareToken immediately disassociates the existing software token from the user account. If the user doesn't subsequently verify the software token, their account is set up to authenticate without MFA. If MFA config is set to Optional at the user pool level, the user can then log in without MFA. However, if MFA is set to Required for the user pool, the user is asked to set up a new software token MFA during sign-in.</p> </note>\"\
+      \"documentation\":\"<p>Begins setup of time-based one-time password multi-factor authentication (TOTP MFA) for a user, with a unique private key that Amazon Cognito generates and returns in the API response. You can authorize an <code>AssociateSoftwareToken</code> request with either the user's access token, or a session string from a challenge response that you received from Amazon Cognito.</p> <note> <p>Amazon Cognito disassociates an existing software token when you verify the new token in a <a href=\\\"https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifySoftwareToken.html\\\"> VerifySoftwareToken</a> API request. If you don't verify the software token and your user pool doesn't require MFA, the user can then authenticate with user name and password credentials alone. If your user pool requires TOTP MFA, Amazon Cognito generates an <code>MFA_SETUP</code> or <code>SOFTWARE_TOKEN_SETUP</code> challenge each time your user signs. Complete setup with <code>AssociateSoftwareToken</code> and <code>VerifySoftwareToken</code>.</p> <p>After you set up software token MFA for your user, Amazon Cognito generates a <code>SOFTWARE_TOKEN_MFA</code> challenge when they authenticate. Respond to this challenge with your user's TOTP.</p> </note>\"\
     },\
     \"ChangePassword\":{\
       \"name\":\"ChangePassword\",\
@@ -2565,7 +2565,7 @@
         },\
         \"ContextData\":{\
           \"shape\":\"ContextDataType\",\
-          \"documentation\":\"<p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>\"\
+          \"documentation\":\"<p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Initiates the authorization request, as an administrator.</p>\"\
@@ -2819,7 +2819,7 @@
         },\
         \"ContextData\":{\
           \"shape\":\"ContextDataType\",\
-          \"documentation\":\"<p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>\"\
+          \"documentation\":\"<p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>\"\
         },\
         \"ClientMetadata\":{\
           \"shape\":\"ClientMetadataType\",\
@@ -3089,8 +3089,8 @@
           \"shape\":\"MessageType\",\
           \"documentation\":\"<p>The message sent to the user when an alias exists.</p>\"\
         }\
-      },\
-      \"documentation\":\"<p>This exception is thrown when a user tries to confirm the account with an email address or phone number that has already been supplied as an alias from a different account. This exception indicates that an account with this email address or phone already exists in a user pool that you've configured to use email address or phone number as a sign-in alias.</p>\",\
+      },\ 
+      \"documentation\":\"<p>This exception is thrown when a user tries to confirm the account with an email address or phone number that has already been supplied as an alias for a different user profile. This exception indicates that an account with this email address or phone already exists in a user pool that you've configured to use email address or phone number as a sign-in alias.</p>\",\
       \"exception\":true\
     },\
     \"AnalyticsConfigurationType\":{\
@@ -3607,7 +3607,7 @@
         },\
         \"UserContextData\":{\
           \"shape\":\"UserContextDataType\",\
-          \"documentation\":\"<p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>\"\
+          \"documentation\":\"<p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>\"\
         },\
         \"ClientMetadata\":{\
           \"shape\":\"ClientMetadataType\",\
@@ -3656,7 +3656,7 @@
         },\
         \"UserContextData\":{\
           \"shape\":\"UserContextDataType\",\
-          \"documentation\":\"<p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>\"\
+          \"documentation\":\"<p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>\"\
         },\
         \"ClientMetadata\":{\
           \"shape\":\"ClientMetadataType\",\
@@ -3688,7 +3688,7 @@
       \"members\":{\
         \"IpAddress\":{\
           \"shape\":\"StringType\",\
-          \"documentation\":\"<p>Source IP address of your user.</p>\"\
+          \"documentation\":\"<p>The source IP address of your user's device.</p>\"\
         },\
         \"ServerName\":{\
           \"shape\":\"StringType\",\
@@ -3704,7 +3704,7 @@
         },\
         \"EncodedData\":{\
           \"shape\":\"StringType\",\
-          \"documentation\":\"<p>Encoded data containing device fingerprinting details collected using the Amazon Cognito context data collection library.</p>\"\
+          \"documentation\":\"<p>Encoded device-fingerprint details that your app collected with the Amazon Cognito context data collection library. For more information, see <a href=\\\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint\\\">Adding user device and session data to API requests</a>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contextual user data type used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>\"\
@@ -3947,6 +3947,10 @@
         \"EnableTokenRevocation\":{\
           \"shape\":\"WrappedBooleanType\",\
           \"documentation\":\"<p>Activates or deactivates token revocation. For more information about revoking tokens, see <a href=\\\"https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html\\\">RevokeToken</a>.</p> <p>If you don't include this parameter, token revocation is automatically activated for the new user pool client.</p>\"\
+        },\
+        \"EnablePropagateAdditionalUserContextData\":{\
+          \"shape\":\"WrappedBooleanType\",\
+          \"documentation\":\"<p>Activates the propagation of additional user context data. For more information about propagation of user context data, see <a href=\\\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html\\\"> Adding advanced security to a user pool</a>. If you donât include this parameter, you can't send device fingerprint information, including source IP address, to Amazon Cognito advanced security. You can only activate <code>EnablePropagateAdditionalUserContextData</code> in an app client that has a client secret.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Represents the request to create a user pool client.</p>\"\
@@ -4045,7 +4049,7 @@
         },\
         \"UserAttributeUpdateSettings\":{\
           \"shape\":\"UserAttributeUpdateSettingsType\",\
-          \"documentation\":\"<p/>\"\
+          \"documentation\":\"<p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>, a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For more information, see <a href=\\\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates\\\"> Verifying updates to to email addresses and phone numbers</a>.</p>\"\
         },\
         \"DeviceConfiguration\":{\
           \"shape\":\"DeviceConfigurationType\",\
@@ -4726,7 +4730,7 @@
       \"members\":{\
         \"IpAddress\":{\
           \"shape\":\"StringType\",\
-          \"documentation\":\"<p>The user's IP address.</p>\"\
+          \"documentation\":\"<p>The source IP address of your user's device.</p>\"\
         },\
         \"DeviceName\":{\
           \"shape\":\"StringType\",\
@@ -4888,7 +4892,7 @@
         },\
         \"UserContextData\":{\
           \"shape\":\"UserContextDataType\",\
-          \"documentation\":\"<p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>\"\
+          \"documentation\":\"<p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>\"\
         },\
         \"Username\":{\
           \"shape\":\"UsernameType\",\
@@ -4913,7 +4917,7 @@
           \"documentation\":\"<p>The code delivery details returned by the server in response to the request to reset a password.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Represents the response from the server regarding the request to reset a password.</p>\"\
+      \"documentation\":\"<p>The response from Amazon Cognito to a request to reset a password.</p>\"\
     },\
     \"GenerateSecret\":{\"type\":\"boolean\"},\
     \"GetCSVHeaderRequest\":{\
@@ -5353,7 +5357,7 @@
         },\
         \"UserContextData\":{\
           \"shape\":\"UserContextDataType\",\
-          \"documentation\":\"<p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>\"\
+          \"documentation\":\"<p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Initiates the authentication request.</p>\"\
@@ -6287,7 +6291,7 @@
         },\
         \"UserContextData\":{\
           \"shape\":\"UserContextDataType\",\
-          \"documentation\":\"<p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>\"\
+          \"documentation\":\"<p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>\"\
         },\
         \"Username\":{\
           \"shape\":\"UsernameType\",\
@@ -6426,7 +6430,7 @@
         },\
         \"UserContextData\":{\
           \"shape\":\"UserContextDataType\",\
-          \"documentation\":\"<p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>\"\
+          \"documentation\":\"<p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>\"\
         },\
         \"ClientMetadata\":{\
           \"shape\":\"ClientMetadataType\",\
@@ -6850,7 +6854,7 @@
         },\
         \"UserContextData\":{\
           \"shape\":\"UserContextDataType\",\
-          \"documentation\":\"<p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>\"\
+          \"documentation\":\"<p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>\"\
         },\
         \"ClientMetadata\":{\
           \"shape\":\"ClientMetadataType\",\
@@ -7101,15 +7105,15 @@
       \"members\":{\
         \"AccessToken\":{\
           \"shape\":\"TimeUnitsType\",\
-          \"documentation\":\"<p> A time unit in âsecondsâ, âminutesâ, âhoursâ, or âdaysâ for the value in AccessTokenValidity, defaulting to hours.</p>\"\
+          \"documentation\":\"<p> A time unit of <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code> for the value that you set in the <code>AccessTokenValidity</code> parameter. The default <code>AccessTokenValidity</code> time unit is hours.</p>\"\
         },\
         \"IdToken\":{\
           \"shape\":\"TimeUnitsType\",\
-          \"documentation\":\"<p>A time unit in âsecondsâ, âminutesâ, âhoursâ, or âdaysâ for the value in IdTokenValidity, defaulting to hours.</p>\"\
+          \"documentation\":\"<p>A time unit of <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code> for the value that you set in the <code>IdTokenValidity</code> parameter. The default <code>IdTokenValidity</code> time unit is hours.</p>\"\
         },\
         \"RefreshToken\":{\
           \"shape\":\"TimeUnitsType\",\
-          \"documentation\":\"<p>A time unit in âsecondsâ, âminutesâ, âhoursâ, or âdaysâ for the value in RefreshTokenValidity, defaulting to days.</p>\"\
+          \"documentation\":\"<p>A time unit of <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code> for the value that you set in the <code>RefreshTokenValidity</code> parameter. The default <code>RefreshTokenValidity</code> time unit is days.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The data type TokenValidityUnits specifies the time units you use when you set the duration of ID, access, and refresh tokens.</p>\"\
@@ -7542,6 +7546,10 @@
         \"EnableTokenRevocation\":{\
           \"shape\":\"WrappedBooleanType\",\
           \"documentation\":\"<p>Activates or deactivates token revocation. For more information about revoking tokens, see <a href=\\\"https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html\\\">RevokeToken</a>.</p>\"\
+        },\
+        \"EnablePropagateAdditionalUserContextData\":{\
+          \"shape\":\"WrappedBooleanType\",\
+          \"documentation\":\"<p>Activates the propagation of additional user context data. For more information about propagation of user context data, see <a href=\\\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html\\\"> Adding advanced security to a user pool</a>. If you donât include this parameter, you can't send device fingerprint information, including source IP address, to Amazon Cognito advanced security. You can only activate <code>EnablePropagateAdditionalUserContextData</code> in an app client that has a client secret.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Represents the request to update the user pool client.</p>\"\
@@ -7631,7 +7639,7 @@
         },\
         \"UserAttributeUpdateSettings\":{\
           \"shape\":\"UserAttributeUpdateSettingsType\",\
-          \"documentation\":\"<p/>\"\
+          \"documentation\":\"<p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>, a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For more information, see <a href=\\\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates\\\"> Verifying updates to to email addresses and phone numbers</a>.</p>\"\
         },\
         \"MfaConfiguration\":{\
           \"shape\":\"UserPoolMfaType\",\
@@ -7682,14 +7690,18 @@
           \"documentation\":\"<p>Requires that your user verifies their email address, phone number, or both before Amazon Cognito updates the value of that attribute. When you update a user attribute that has this option activated, Amazon Cognito sends a verification message to the new phone number or email address. Amazon Cognito doesnât change the value of the attribute until your user responds to the verification message and confirms the new value.</p> <p>You can verify an updated email address or phone number with a <a href=\\\"https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttribute.html\\\">VerifyUserAttribute</a> API request. You can also call the <a href=\\\"https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserAttributes.html\\\">UpdateUserAttributes</a> or <a href=\\\"https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html\\\">AdminUpdateUserAttributes</a> API and set <code>email_verified</code> or <code>phone_number_verified</code> to true.</p> <p>When <code>AttributesRequireVerificationBeforeUpdate</code> is false, your user pool doesn't require that your users verify attribute changes before Amazon Cognito updates them. In a user pool where <code>AttributesRequireVerificationBeforeUpdate</code> is false, API operations that change attribute values can immediately update a userâs <code>email</code> or <code>phone_number</code> attribute.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>The settings for updates to user attributes.</p>\"\
+      \"documentation\":\"<p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>, a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For more information, see <a href=\\\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates\\\"> Verifying updates to to email addresses and phone numbers</a>.</p>\"\
     },\
     \"UserContextDataType\":{\
       \"type\":\"structure\",\
       \"members\":{\
+        \"IpAddress\":{\
+          \"shape\":\"StringType\",\
+          \"documentation\":\"<p>The source IP address of your user's device.</p>\"\
+        },\
         \"EncodedData\":{\
           \"shape\":\"StringType\",\
-          \"documentation\":\"<p>Contextual data, such as the user's device fingerprint, IP address, or location, used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>\"\
+          \"documentation\":\"<p>Encoded device-fingerprint details that your app collected with the Amazon Cognito context data collection library. For more information, see <a href=\\\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint\\\">Adding user device and session data to API requests</a>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information that your app generates about a user's <code>AdminInitiateAuth</code> or <code>AdminRespondToAuthChallenge</code> session. Amazon Cognito advanced security features calculate risk levels for user sessions based on this context data.</p>\"\
@@ -7971,6 +7983,10 @@
         \"EnableTokenRevocation\":{\
           \"shape\":\"WrappedBooleanType\",\
           \"documentation\":\"<p>Indicates whether token revocation is activated for the user pool client. When you create a new user pool client, token revocation is activated by default. For more information about revoking tokens, see <a href=\\\"https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html\\\">RevokeToken</a>.</p>\"\
+        },\
+        \"EnablePropagateAdditionalUserContextData\":{\
+          \"shape\":\"WrappedBooleanType\",\
+          \"documentation\":\"<p>When <code>EnablePropagateAdditionalUserContextData</code> is true, Amazon Cognito accepts an <code>IpAddress</code> value that you send in the <code>UserContextData</code> parameter. The <code>UserContextData</code> parameter sends information to Amazon Cognito advanced security for risk analysis. You can send <code>UserContextData</code> when you sign in Amazon Cognito native users with the <code>InitiateAuth</code> and <code>RespondToAuthChallenge</code> API operations.</p> <p>When <code>EnablePropagateAdditionalUserContextData</code> is false, you can't send your user's source IP address to Amazon Cognito advanced security with unauthenticated API operations. <code>EnablePropagateAdditionalUserContextData</code> doesn't affect whether you can send a source IP address in a <code>ContextData</code> parameter with the authenticated API operations <code>AdminInitiateAuth</code> and <code>AdminRespondToAuthChallenge</code>.</p> <p>You can only activate <code>EnablePropagateAdditionalUserContextData</code> in an app client that has a client secret. For more information about propagation of user context data, see <a href=\\\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint\\\">Adding user device and session data to API requests</a>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a user pool client.</p>\"\
@@ -8125,7 +8141,7 @@
         },\
         \"UserAttributeUpdateSettings\":{\
           \"shape\":\"UserAttributeUpdateSettingsType\",\
-          \"documentation\":\"<p/>\"\
+          \"documentation\":\"<p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>, a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For more information, see <a href=\\\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates\\\"> Verifying updates to to email addresses and phone numbers</a>.</p>\"\
         },\
         \"MfaConfiguration\":{\
           \"shape\":\"UserPoolMfaType\",\
