@@ -1,12 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSConnect
----AWSChimeSDKMessaging
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -22,7 +13,8 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSCloudWatchLogs
   - AWSCognitoIdentityProvider
   - AWSTranscribe
-  - AWSConnect 
+  - AWSConnect
+  - AWSChimeSDKMessaging
 
 ## 2.27.10
 
