@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -116,6 +116,9 @@
 - (void) test_AWSChimeSDKMessagingPutChannelMembershipPreferencesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingRedactChannelMessageRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingRedactChannelMessageResponse API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKMessagingSearchChannelsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKMessagingSearchChannelsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKMessagingSearchField API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingSendChannelMessageRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingSendChannelMessageResponse API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingTag API_AVAILABLE(ios(11));
@@ -520,6 +523,18 @@
 
 - (void) test_AWSChimeSDKMessagingRedactChannelMessageResponse {
     [self validateSecureCodingForClass:[AWSChimeSDKMessagingRedactChannelMessageResponse class]];
+}
+
+- (void) test_AWSChimeSDKMessagingSearchChannelsRequest {
+    [self validateSecureCodingForClass:[AWSChimeSDKMessagingSearchChannelsRequest class]];
+}
+
+- (void) test_AWSChimeSDKMessagingSearchChannelsResponse {
+    [self validateSecureCodingForClass:[AWSChimeSDKMessagingSearchChannelsResponse class]];
+}
+
+- (void) test_AWSChimeSDKMessagingSearchField {
+    [self validateSecureCodingForClass:[AWSChimeSDKMessagingSearchField class]];
 }
 
 - (void) test_AWSChimeSDKMessagingSendChannelMessageRequest {
