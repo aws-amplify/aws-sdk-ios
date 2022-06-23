@@ -1,12 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSCognitoIdentityProvider
----AWSTranscribe
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -21,6 +12,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSComprehend
   - AWSCloudWatchLogs
   - AWSCognitoIdentityProvider
+  - AWSTranscribe
 
 ## 2.27.10
 
