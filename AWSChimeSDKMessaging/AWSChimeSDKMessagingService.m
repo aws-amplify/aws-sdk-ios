@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -1140,6 +1140,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSChimeSDKMessagingRedactChannelMessageResponse *response, NSError *error))completionHandler {
     [[self redactChannelMessage:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingRedactChannelMessageResponse *> * _Nonnull task) {
         AWSChimeSDKMessagingRedactChannelMessageResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSChimeSDKMessagingSearchChannelsResponse *> *)searchChannels:(AWSChimeSDKMessagingSearchChannelsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/channels?operation=search"
+                  targetPrefix:@""
+                 operationName:@"SearchChannels"
+                   outputClass:[AWSChimeSDKMessagingSearchChannelsResponse class]];
+}
+
+- (void)searchChannels:(AWSChimeSDKMessagingSearchChannelsRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKMessagingSearchChannelsResponse *response, NSError *error))completionHandler {
+    [[self searchChannels:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingSearchChannelsResponse *> * _Nonnull task) {
+        AWSChimeSDKMessagingSearchChannelsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

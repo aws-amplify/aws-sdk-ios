@@ -1994,6 +1994,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"callbackURLs" : @"CallbackURLs",
              @"clientName" : @"ClientName",
              @"defaultRedirectURI" : @"DefaultRedirectURI",
+             @"enablePropagateAdditionalUserContextData" : @"EnablePropagateAdditionalUserContextData",
              @"enableTokenRevocation" : @"EnableTokenRevocation",
              @"explicitAuthFlows" : @"ExplicitAuthFlows",
              @"generateSecret" : @"GenerateSecret",
@@ -2116,6 +2117,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"smsAuthenticationMessage" : @"SmsAuthenticationMessage",
              @"smsConfiguration" : @"SmsConfiguration",
              @"smsVerificationMessage" : @"SmsVerificationMessage",
+             @"userAttributeUpdateSettings" : @"UserAttributeUpdateSettings",
              @"userPoolAddOns" : @"UserPoolAddOns",
              @"userPoolTags" : @"UserPoolTags",
              @"usernameAttributes" : @"UsernameAttributes",
@@ -2180,6 +2182,10 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSValueTransformer *)smsConfigurationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderSmsConfigurationType class]];
+}
+
++ (NSValueTransformer *)userAttributeUpdateSettingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderUserAttributeUpdateSettingsType class]];
 }
 
 + (NSValueTransformer *)userPoolAddOnsJSONTransformer {
@@ -5610,6 +5616,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"clientId" : @"ClientId",
              @"clientName" : @"ClientName",
              @"defaultRedirectURI" : @"DefaultRedirectURI",
+             @"enablePropagateAdditionalUserContextData" : @"EnablePropagateAdditionalUserContextData",
              @"enableTokenRevocation" : @"EnableTokenRevocation",
              @"explicitAuthFlows" : @"ExplicitAuthFlows",
              @"idTokenValidity" : @"IdTokenValidity",
@@ -5728,6 +5735,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"smsAuthenticationMessage" : @"SmsAuthenticationMessage",
              @"smsConfiguration" : @"SmsConfiguration",
              @"smsVerificationMessage" : @"SmsVerificationMessage",
+             @"userAttributeUpdateSettings" : @"UserAttributeUpdateSettings",
              @"userPoolAddOns" : @"UserPoolAddOns",
              @"userPoolId" : @"UserPoolId",
              @"userPoolTags" : @"UserPoolTags",
@@ -5789,6 +5797,10 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderSmsConfigurationType class]];
 }
 
++ (NSValueTransformer *)userAttributeUpdateSettingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderUserAttributeUpdateSettingsType class]];
+}
+
 + (NSValueTransformer *)userPoolAddOnsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderUserPoolAddOnsType class]];
 }
@@ -5807,6 +5819,20 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 @end
 
+@implementation AWSCognitoIdentityProviderUserAttributeUpdateSettingsType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"attributesRequireVerificationBeforeUpdate" : @"AttributesRequireVerificationBeforeUpdate",
+             };
+}
+
+@end
+
 @implementation AWSCognitoIdentityProviderUserContextDataType
 
 + (BOOL)supportsSecureCoding {
@@ -5816,6 +5842,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"encodedData" : @"EncodedData",
+             @"ipAddress" : @"IpAddress",
              };
 }
 
@@ -5997,6 +6024,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"clientSecret" : @"ClientSecret",
              @"creationDate" : @"CreationDate",
              @"defaultRedirectURI" : @"DefaultRedirectURI",
+             @"enablePropagateAdditionalUserContextData" : @"EnablePropagateAdditionalUserContextData",
              @"enableTokenRevocation" : @"EnableTokenRevocation",
              @"explicitAuthFlows" : @"ExplicitAuthFlows",
              @"idTokenValidity" : @"IdTokenValidity",
@@ -6171,6 +6199,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"smsConfigurationFailure" : @"SmsConfigurationFailure",
              @"smsVerificationMessage" : @"SmsVerificationMessage",
              @"status" : @"Status",
+             @"userAttributeUpdateSettings" : @"UserAttributeUpdateSettings",
              @"userPoolAddOns" : @"UserPoolAddOns",
              @"userPoolTags" : @"UserPoolTags",
              @"usernameAttributes" : @"UsernameAttributes",
@@ -6272,6 +6301,10 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)userAttributeUpdateSettingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderUserAttributeUpdateSettingsType class]];
 }
 
 + (NSValueTransformer *)userPoolAddOnsJSONTransformer {
