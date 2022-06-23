@@ -13,7 +13,8 @@
   - AWSCloudWatchLogs
   - AWSCognitoIdentityProvider
   - AWSTranscribe
-  - AWSConnect 
+  - AWSConnect
+  - AWSChimeSDKMessaging
 
 ## 2.27.10
 
