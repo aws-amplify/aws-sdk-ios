@@ -1994,6 +1994,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"callbackURLs" : @"CallbackURLs",
              @"clientName" : @"ClientName",
              @"defaultRedirectURI" : @"DefaultRedirectURI",
+             @"enablePropagateAdditionalUserContextData" : @"EnablePropagateAdditionalUserContextData",
              @"enableTokenRevocation" : @"EnableTokenRevocation",
              @"explicitAuthFlows" : @"ExplicitAuthFlows",
              @"generateSecret" : @"GenerateSecret",
@@ -5615,6 +5616,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"clientId" : @"ClientId",
              @"clientName" : @"ClientName",
              @"defaultRedirectURI" : @"DefaultRedirectURI",
+             @"enablePropagateAdditionalUserContextData" : @"EnablePropagateAdditionalUserContextData",
              @"enableTokenRevocation" : @"EnableTokenRevocation",
              @"explicitAuthFlows" : @"ExplicitAuthFlows",
              @"idTokenValidity" : @"IdTokenValidity",
@@ -5840,6 +5842,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"encodedData" : @"EncodedData",
+             @"ipAddress" : @"IpAddress",
              };
 }
 
@@ -6021,6 +6024,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"clientSecret" : @"ClientSecret",
              @"creationDate" : @"CreationDate",
              @"defaultRedirectURI" : @"DefaultRedirectURI",
+             @"enablePropagateAdditionalUserContextData" : @"EnablePropagateAdditionalUserContextData",
              @"enableTokenRevocation" : @"EnableTokenRevocation",
              @"explicitAuthFlows" : @"ExplicitAuthFlows",
              @"idTokenValidity" : @"IdTokenValidity",
