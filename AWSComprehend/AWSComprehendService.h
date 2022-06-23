@@ -375,7 +375,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)createDocumentClassifier:(AWSComprehendCreateDocumentClassifierRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendCreateDocumentClassifierResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a model-specific endpoint for synchronous inference for a previously trained custom model </p>
+ <p>Creates a model-specific endpoint for synchronous inference for a previously trained custom model For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
  
  @param request A container for the necessary parameters to execute the CreateEndpoint service method.
 
@@ -387,7 +387,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (AWSTask<AWSComprehendCreateEndpointResponse *> *)createEndpoint:(AWSComprehendCreateEndpointRequest *)request;
 
 /**
- <p>Creates a model-specific endpoint for synchronous inference for a previously trained custom model </p>
+ <p>Creates a model-specific endpoint for synchronous inference for a previously trained custom model For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
  
  @param request A container for the necessary parameters to execute the CreateEndpoint service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -450,7 +450,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)deleteDocumentClassifier:(AWSComprehendDeleteDocumentClassifierRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendDeleteDocumentClassifierResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a model-specific endpoint for a previously-trained custom model. All endpoints must be deleted in order for the model to be deleted.</p>
+ <p>Deletes a model-specific endpoint for a previously-trained custom model. All endpoints must be deleted in order for the model to be deleted. For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
  
  @param request A container for the necessary parameters to execute the DeleteEndpoint service method.
 
@@ -462,7 +462,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (AWSTask<AWSComprehendDeleteEndpointResponse *> *)deleteEndpoint:(AWSComprehendDeleteEndpointRequest *)request;
 
 /**
- <p>Deletes a model-specific endpoint for a previously-trained custom model. All endpoints must be deleted in order for the model to be deleted.</p>
+ <p>Deletes a model-specific endpoint for a previously-trained custom model. All endpoints must be deleted in order for the model to be deleted. For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
  
  @param request A container for the necessary parameters to execute the DeleteEndpoint service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -600,7 +600,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)describeDominantLanguageDetectionJob:(AWSComprehendDescribeDominantLanguageDetectionJobRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendDescribeDominantLanguageDetectionJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets the properties associated with a specific endpoint. Use this operation to get the status of an endpoint.</p>
+ <p>Gets the properties associated with a specific endpoint. Use this operation to get the status of an endpoint. For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeEndpoint service method.
 
@@ -612,7 +612,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (AWSTask<AWSComprehendDescribeEndpointResponse *> *)describeEndpoint:(AWSComprehendDescribeEndpointRequest *)request;
 
 /**
- <p>Gets the properties associated with a specific endpoint. Use this operation to get the status of an endpoint.</p>
+ <p>Gets the properties associated with a specific endpoint. Use this operation to get the status of an endpoint. For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeEndpoint service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1125,7 +1125,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)listDominantLanguageDetectionJobs:(AWSComprehendListDominantLanguageDetectionJobsRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendListDominantLanguageDetectionJobsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets a list of all existing endpoints that you've created.</p>
+ <p>Gets a list of all existing endpoints that you've created. For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
  
  @param request A container for the necessary parameters to execute the ListEndpoints service method.
 
@@ -1137,7 +1137,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (AWSTask<AWSComprehendListEndpointsResponse *> *)listEndpoints:(AWSComprehendListEndpointsRequest *)request;
 
 /**
- <p>Gets a list of all existing endpoints that you've created.</p>
+ <p>Gets a list of all existing endpoints that you've created. For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
  
  @param request A container for the necessary parameters to execute the ListEndpoints service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1775,7 +1775,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)stopPiiEntitiesDetectionJob:(AWSComprehendStopPiiEntitiesDetectionJobRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendStopPiiEntitiesDetectionJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Stops a sentiment detection job in progress.</p><p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the <code>STOPPED</code> state.</p><p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400 Internal Request Exception. </p><p>When a job is stopped, any documents already processed are written to the output location.</p>
+ <p>Stops a sentiment detection job in progress.</p><p>If the job state is <code>IN_PROGRESS</code>, the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the <code>STOPPED</code> state.</p><p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400 Internal Request Exception. </p><p>When a job is stopped, any documents already processed are written to the output location.</p>
  
  @param request A container for the necessary parameters to execute the StopSentimentDetectionJob service method.
 
@@ -1787,7 +1787,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (AWSTask<AWSComprehendStopSentimentDetectionJobResponse *> *)stopSentimentDetectionJob:(AWSComprehendStopSentimentDetectionJobRequest *)request;
 
 /**
- <p>Stops a sentiment detection job in progress.</p><p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the <code>STOPPED</code> state.</p><p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400 Internal Request Exception. </p><p>When a job is stopped, any documents already processed are written to the output location.</p>
+ <p>Stops a sentiment detection job in progress.</p><p>If the job state is <code>IN_PROGRESS</code>, the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the <code>STOPPED</code> state.</p><p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400 Internal Request Exception. </p><p>When a job is stopped, any documents already processed are written to the output location.</p>
  
  @param request A container for the necessary parameters to execute the StopSentimentDetectionJob service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1800,7 +1800,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)stopSentimentDetectionJob:(AWSComprehendStopSentimentDetectionJobRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendStopSentimentDetectionJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Stops a targeted sentiment detection job in progress.</p><p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the <code>STOPPED</code> state.</p><p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400 Internal Request Exception. </p><p>When a job is stopped, any documents already processed are written to the output location.</p>
+ <p>Stops a targeted sentiment detection job in progress.</p><p>If the job state is <code>IN_PROGRESS</code>, the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the <code>STOPPED</code> state.</p><p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400 Internal Request Exception. </p><p>When a job is stopped, any documents already processed are written to the output location.</p>
  
  @param request A container for the necessary parameters to execute the StopTargetedSentimentDetectionJob service method.
 
@@ -1812,7 +1812,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (AWSTask<AWSComprehendStopTargetedSentimentDetectionJobResponse *> *)stopTargetedSentimentDetectionJob:(AWSComprehendStopTargetedSentimentDetectionJobRequest *)request;
 
 /**
- <p>Stops a targeted sentiment detection job in progress.</p><p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the <code>STOPPED</code> state.</p><p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400 Internal Request Exception. </p><p>When a job is stopped, any documents already processed are written to the output location.</p>
+ <p>Stops a targeted sentiment detection job in progress.</p><p>If the job state is <code>IN_PROGRESS</code>, the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the <code>STOPPED</code> state.</p><p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400 Internal Request Exception. </p><p>When a job is stopped, any documents already processed are written to the output location.</p>
  
  @param request A container for the necessary parameters to execute the StopTargetedSentimentDetectionJob service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1925,7 +1925,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)untagResource:(AWSComprehendUntagResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendUntagResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates information about the specified endpoint.</p>
+ <p>Updates information about the specified endpoint. For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
  
  @param request A container for the necessary parameters to execute the UpdateEndpoint service method.
 
@@ -1937,7 +1937,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (AWSTask<AWSComprehendUpdateEndpointResponse *> *)updateEndpoint:(AWSComprehendUpdateEndpointRequest *)request;
 
 /**
- <p>Updates information about the specified endpoint.</p>
+ <p>Updates information about the specified endpoint. For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
  
  @param request A container for the necessary parameters to execute the UpdateEndpoint service method.
  @param completionHandler The completion handler to call when the load request is complete.
