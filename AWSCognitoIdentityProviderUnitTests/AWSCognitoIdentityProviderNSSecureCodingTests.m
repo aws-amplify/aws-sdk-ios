@@ -259,6 +259,7 @@
 - (void) test_AWSCognitoIdentityProviderUpdateUserPoolDomainResponse API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityProviderUpdateUserPoolRequest API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityProviderUpdateUserPoolResponse API_AVAILABLE(ios(11));
+- (void) test_AWSCognitoIdentityProviderUserAttributeUpdateSettingsType API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityProviderUserContextDataType API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityProviderUserImportJobType API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityProviderUserPoolAddOnsType API_AVAILABLE(ios(11));
@@ -1237,6 +1238,10 @@
 
 - (void) test_AWSCognitoIdentityProviderUpdateUserPoolResponse {
     [self validateSecureCodingForClass:[AWSCognitoIdentityProviderUpdateUserPoolResponse class]];
+}
+
+- (void) test_AWSCognitoIdentityProviderUserAttributeUpdateSettingsType {
+    [self validateSecureCodingForClass:[AWSCognitoIdentityProviderUserAttributeUpdateSettingsType class]];
 }
 
 - (void) test_AWSCognitoIdentityProviderUserContextDataType {
