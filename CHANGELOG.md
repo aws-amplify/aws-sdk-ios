@@ -13,7 +13,7 @@
   - AWSCloudWatchLogs
   - AWSCognitoIdentityProvider
   - AWSTranscribe
-  - AWSConnect
+  - AWSConnect 
 
 ## 2.27.10
 
