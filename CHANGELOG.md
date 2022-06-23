@@ -1,12 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSDynamoDB
----AWSConnect
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -24,6 +15,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSTranscribe
   - AWSConnect
   - AWSChimeSDKMessaging
+  - AWSDynamoDB
 
 ## 2.27.10
 
