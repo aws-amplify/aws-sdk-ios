@@ -15,10 +15,18 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AWSLogsResources : NSObject
+@class AWSIoTMessage;
 
-+ (instancetype)sharedInstance;
+NS_ASSUME_NONNULL_BEGIN
 
-- (NSDictionary *)JSONObject;
+typedef NS_ENUM(NSInteger, AWSIoTKeyChainAccessibility) {
+    AWSIoTKeyChainAccessibilityWhenUnlocked = 1,
+    AWSIoTKeyChainAccessibilityAfterFirstUnlock,
+    AWSIoTKeyChainAccessibilityAlways,
+    AWSIoTKeyChainAccessibilityWhenPasscodeSetThisDeviceOnly,
+    AWSIoTKeyChainAccessibilityWhenUnlockedThisDeviceOnly,
+    AWSIoTKeyChainAccessibilityAfterFirstUnlockThisDeviceOnly,
+    AWSIoTKeyChainAccessibilityAlwaysThisDeviceOnly,
+};
 
-@end
+NS_ASSUME_NONNULL_END
