@@ -9244,7 +9244,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The Internet-routable IP address for the customer gateway's outside interface. The address must be static.</p>
+ <p> IPv4 address for the customer gateway device's outside interface. The address must be static. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipAddress;
+
+/**
+ <p><i>This member has been deprecated.</i> The Internet-routable IP address for the customer gateway's outside interface. The address must be static.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable publicIp;
 
@@ -12883,7 +12888,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable deviceName;
 
 /**
- <p>The Internet-routable IP address of the customer gateway's outside interface.</p>
+ <p>The IP address of the customer gateway device's outside interface.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipAddress;
 
@@ -15909,7 +15914,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters.</p><ul><li><p><code>bgp-asn</code> - The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).</p></li><li><p><code>customer-gateway-id</code> - The ID of the customer gateway.</p></li><li><p><code>ip-address</code> - The IP address of the customer gateway's Internet-routable external interface.</p></li><li><p><code>state</code> - The state of the customer gateway (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p></li><li><p><code>type</code> - The type of customer gateway. Currently, the only supported type is <code>ipsec.1</code>.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
+ <p>One or more filters.</p><ul><li><p><code>bgp-asn</code> - The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).</p></li><li><p><code>customer-gateway-id</code> - The ID of the customer gateway.</p></li><li><p><code>ip-address</code> - The IP address of the customer gateway device's external interface.</p></li><li><p><code>state</code> - The state of the customer gateway (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p></li><li><p><code>type</code> - The type of customer gateway. Currently, the only supported type is <code>ipsec.1</code>.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -48490,6 +48495,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable localIpv6NetworkCidr;
 
 /**
+ <p>The type of IPv4 address assigned to the outside interface of the customer gateway.</p><p>Valid values: <code>PrivateIpv4</code> | <code>PublicIpv4</code></p><p>Default: <code>PublicIpv4</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable outsideIpAddressType;
+
+/**
  <p>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable remoteIpv4NetworkCidr;
@@ -48503,6 +48513,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable staticRoutesOnly;
+
+/**
+ <p>The transit gateway attachment ID in use for the VPN tunnel.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transportTransitGatewayAttachmentId;
 
 /**
  <p>Indicates whether the VPN tunnels process IPv4 or IPv6 traffic.</p>
@@ -48538,6 +48553,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable localIpv6NetworkCidr;
 
 /**
+ <p>The type of IPv4 address assigned to the outside interface of the customer gateway device.</p><p>Valid values: <code>PrivateIpv4</code> | <code>PublicIpv4</code></p><p>Default: <code>PublicIpv4</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable outsideIpAddressType;
+
+/**
  <p>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</p><p>Default: <code>0.0.0.0/0</code></p>
  */
 @property (nonatomic, strong) NSString * _Nullable remoteIpv4NetworkCidr;
@@ -48551,6 +48571,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Indicate whether the VPN connection uses static routes only. If you are creating a VPN connection for a device that does not support BGP, you must specify <code>true</code>. Use <a>CreateVpnConnectionRoute</a> to create a static route.</p><p>Default: <code>false</code></p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable staticRoutesOnly;
+
+/**
+ <p>The transit gateway attachment ID to use for the VPN tunnel.</p><p>Required if <code>OutsideIpAddressType</code> is set to <code>PrivateIpv4</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transportTransitGatewayAttachmentId;
 
 /**
  <p>Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.</p><p>Default: <code>ipv4</code></p>
