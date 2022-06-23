@@ -679,6 +679,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)createSecurityProfile:(AWSConnectCreateSecurityProfileRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateSecurityProfileResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Creates a new task template in the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateTaskTemplate service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectCreateTaskTemplateResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorPropertyValidation`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorServiceQuotaExceeded`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectCreateTaskTemplateRequest
+ @see AWSConnectCreateTaskTemplateResponse
+ */
+- (AWSTask<AWSConnectCreateTaskTemplateResponse *> *)createTaskTemplate:(AWSConnectCreateTaskTemplateRequest *)request;
+
+/**
+ <p>Creates a new task template in the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateTaskTemplate service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorPropertyValidation`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorServiceQuotaExceeded`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectCreateTaskTemplateRequest
+ @see AWSConnectCreateTaskTemplateResponse
+ */
+- (void)createTaskTemplate:(AWSConnectCreateTaskTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateTaskTemplateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Creates a use case for an integration association.</p>
  
  @param request A container for the necessary parameters to execute the CreateUseCase service method.
@@ -934,6 +959,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectDeleteSecurityProfileRequest
  */
 - (void)deleteSecurityProfile:(AWSConnectDeleteSecurityProfileRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes the task template.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTaskTemplate service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectDeleteTaskTemplateResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectDeleteTaskTemplateRequest
+ @see AWSConnectDeleteTaskTemplateResponse
+ */
+- (AWSTask<AWSConnectDeleteTaskTemplateResponse *> *)deleteTaskTemplate:(AWSConnectDeleteTaskTemplateRequest *)request;
+
+/**
+ <p>Deletes the task template.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTaskTemplate service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectDeleteTaskTemplateRequest
+ @see AWSConnectDeleteTaskTemplateResponse
+ */
+- (void)deleteTaskTemplate:(AWSConnectDeleteTaskTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDeleteTaskTemplateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deletes a use case from an integration association.</p>
@@ -1750,6 +1800,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)getMetricData:(AWSConnectGetMetricDataRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectGetMetricDataResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Gets details about a specific task template in the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetTaskTemplate service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectGetTaskTemplateResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectGetTaskTemplateRequest
+ @see AWSConnectGetTaskTemplateResponse
+ */
+- (AWSTask<AWSConnectGetTaskTemplateResponse *> *)getTaskTemplate:(AWSConnectGetTaskTemplateRequest *)request;
+
+/**
+ <p>Gets details about a specific task template in the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetTaskTemplate service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectGetTaskTemplateRequest
+ @see AWSConnectGetTaskTemplateResponse
+ */
+- (void)getTaskTemplate:(AWSConnectGetTaskTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectGetTaskTemplateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Lists agent statuses.</p>
  
  @param request A container for the necessary parameters to execute the ListAgentStatuses service method.
@@ -2400,6 +2475,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listTagsForResource:(AWSConnectListTagsForResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListTagsForResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Lists task templates for the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListTaskTemplates service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectListTaskTemplatesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectListTaskTemplatesRequest
+ @see AWSConnectListTaskTemplatesResponse
+ */
+- (AWSTask<AWSConnectListTaskTemplatesResponse *> *)listTaskTemplates:(AWSConnectListTaskTemplatesRequest *)request;
+
+/**
+ <p>Lists task templates for the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListTaskTemplates service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectListTaskTemplatesRequest
+ @see AWSConnectListTaskTemplatesResponse
+ */
+- (void)listTaskTemplates:(AWSConnectListTaskTemplatesRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListTaskTemplatesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Lists the use cases for the integration association. </p>
  
  @param request A container for the necessary parameters to execute the ListUseCases service method.
@@ -2847,7 +2947,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)suspendContactRecording:(AWSConnectSuspendContactRecordingRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectSuspendContactRecordingResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Adds the specified tags to the specified resource.</p><p>The supported resource types are users, routing profiles, queues, quick connects, contact flows, agent status, hours of operation, and phone number.</p><p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ <p>Adds the specified tags to the specified resource.</p><p>The supported resource types are users, routing profiles, queues, quick connects, contact flows, agent status, hours of operation, phone number, security profiles, and task templates.</p><p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the TagResource service method.
 
@@ -2858,7 +2958,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask *)tagResource:(AWSConnectTagResourceRequest *)request;
 
 /**
- <p>Adds the specified tags to the specified resource.</p><p>The supported resource types are users, routing profiles, queues, quick connects, contact flows, agent status, hours of operation, and phone number.</p><p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ <p>Adds the specified tags to the specified resource.</p><p>The supported resource types are users, routing profiles, queues, quick connects, contact flows, agent status, hours of operation, phone number, security profiles, and task templates.</p><p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the TagResource service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2867,6 +2967,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectTagResourceRequest
  */
 - (void)tagResource:(AWSConnectTagResourceRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Transfers contacts from one agent or queue to another agent or queue at any point after a contact is created. You can transfer a contact to another queue by providing the contact flow which orchestrates the contact to the destination queue. This gives you more control over contact handling and helps you adhere to the service level agreement (SLA) guaranteed to your customers.</p><p>Note the following requirements:</p><ul><li><p>Transfer is supported for only <code>TASK</code> contacts.</p></li><li><p>Do not use both <code>QueueId</code> and <code>UserId</code> in the same call.</p></li><li><p>The following contact flow types are supported: Inbound contact flow, Transfer to agent flow, and Transfer to queue flow.</p></li><li><p>The <code>TransferContact</code> API can be called only on active contacts.</p></li><li><p>A contact cannot be transferred more than 11 times.</p></li></ul>
+ 
+ @param request A container for the necessary parameters to execute the TransferContact service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectTransferContactResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorIdempotency`, `AWSConnectErrorAccessDenied`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorServiceQuotaExceeded`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectTransferContactRequest
+ @see AWSConnectTransferContactResponse
+ */
+- (AWSTask<AWSConnectTransferContactResponse *> *)transferContact:(AWSConnectTransferContactRequest *)request;
+
+/**
+ <p>Transfers contacts from one agent or queue to another agent or queue at any point after a contact is created. You can transfer a contact to another queue by providing the contact flow which orchestrates the contact to the destination queue. This gives you more control over contact handling and helps you adhere to the service level agreement (SLA) guaranteed to your customers.</p><p>Note the following requirements:</p><ul><li><p>Transfer is supported for only <code>TASK</code> contacts.</p></li><li><p>Do not use both <code>QueueId</code> and <code>UserId</code> in the same call.</p></li><li><p>The following contact flow types are supported: Inbound contact flow, Transfer to agent flow, and Transfer to queue flow.</p></li><li><p>The <code>TransferContact</code> API can be called only on active contacts.</p></li><li><p>A contact cannot be transferred more than 11 times.</p></li></ul>
+ 
+ @param request A container for the necessary parameters to execute the TransferContact service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorIdempotency`, `AWSConnectErrorAccessDenied`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorServiceQuotaExceeded`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectTransferContactRequest
+ @see AWSConnectTransferContactResponse
+ */
+- (void)transferContact:(AWSConnectTransferContactRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectTransferContactResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Removes the specified tags from the specified resource.</p>
@@ -3457,6 +3582,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectUpdateSecurityProfileRequest
  */
 - (void)updateSecurityProfile:(AWSConnectUpdateSecurityProfileRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Updates details about a specific task template in the specified Amazon Connect instance. This operation does not support partial updates. Instead it does a full update of template content.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateTaskTemplate service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectUpdateTaskTemplateResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorPropertyValidation`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorServiceQuotaExceeded`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectUpdateTaskTemplateRequest
+ @see AWSConnectUpdateTaskTemplateResponse
+ */
+- (AWSTask<AWSConnectUpdateTaskTemplateResponse *> *)updateTaskTemplate:(AWSConnectUpdateTaskTemplateRequest *)request;
+
+/**
+ <p>Updates details about a specific task template in the specified Amazon Connect instance. This operation does not support partial updates. Instead it does a full update of template content.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateTaskTemplate service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorPropertyValidation`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorServiceQuotaExceeded`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectUpdateTaskTemplateRequest
+ @see AWSConnectUpdateTaskTemplateResponse
+ */
+- (void)updateTaskTemplate:(AWSConnectUpdateTaskTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectUpdateTaskTemplateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Assigns the specified hierarchy group to the specified user.</p>
