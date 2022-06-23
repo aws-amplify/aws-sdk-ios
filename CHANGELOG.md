@@ -15,6 +15,7 @@
   - AWSTranscribe
   - AWSConnect
   - AWSChimeSDKMessaging
+  - AWSDynamoDB
 
 ## 2.27.10
 
