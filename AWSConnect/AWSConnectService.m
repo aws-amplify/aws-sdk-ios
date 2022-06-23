@@ -25,7 +25,7 @@
 #import "AWSConnectResources.h"
 
 static NSString *const AWSInfoConnect = @"Connect";
-NSString *const AWSConnectSDKVersion = @"2.27.9";
+NSString *const AWSConnectSDKVersion = @"2.27.10";
 
 
 @interface AWSConnectResponseSerializer : AWSJSONResponseSerializer
@@ -52,6 +52,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InvalidRequestException" : @(AWSConnectErrorInvalidRequest),
                             @"LimitExceededException" : @(AWSConnectErrorLimitExceeded),
                             @"OutboundContactNotPermittedException" : @(AWSConnectErrorOutboundContactNotPermitted),
+                            @"PropertyValidationException" : @(AWSConnectErrorPropertyValidation),
                             @"ResourceConflictException" : @(AWSConnectErrorResourceConflict),
                             @"ResourceInUseException" : @(AWSConnectErrorResourceInUse),
                             @"ResourceNotFoundException" : @(AWSConnectErrorResourceNotFound),
@@ -770,6 +771,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectCreateTaskTemplateResponse *> *)createTaskTemplate:(AWSConnectCreateTaskTemplateRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/instance/{InstanceId}/task/template"
+                  targetPrefix:@""
+                 operationName:@"CreateTaskTemplate"
+                   outputClass:[AWSConnectCreateTaskTemplateResponse class]];
+}
+
+- (void)createTaskTemplate:(AWSConnectCreateTaskTemplateRequest *)request
+     completionHandler:(void (^)(AWSConnectCreateTaskTemplateResponse *response, NSError *error))completionHandler {
+    [[self createTaskTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectCreateTaskTemplateResponse *> * _Nonnull task) {
+        AWSConnectCreateTaskTemplateResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectCreateUseCaseResponse *> *)createUseCase:(AWSConnectCreateUseCaseRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -1011,6 +1035,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectDeleteTaskTemplateResponse *> *)deleteTaskTemplate:(AWSConnectDeleteTaskTemplateRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/instance/{InstanceId}/task/template/{TaskTemplateId}"
+                  targetPrefix:@""
+                 operationName:@"DeleteTaskTemplate"
+                   outputClass:[AWSConnectDeleteTaskTemplateResponse class]];
+}
+
+- (void)deleteTaskTemplate:(AWSConnectDeleteTaskTemplateRequest *)request
+     completionHandler:(void (^)(AWSConnectDeleteTaskTemplateResponse *response, NSError *error))completionHandler {
+    [[self deleteTaskTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDeleteTaskTemplateResponse *> * _Nonnull task) {
+        AWSConnectDeleteTaskTemplateResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
@@ -1787,6 +1834,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectGetTaskTemplateResponse *> *)getTaskTemplate:(AWSConnectGetTaskTemplateRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/instance/{InstanceId}/task/template/{TaskTemplateId}"
+                  targetPrefix:@""
+                 operationName:@"GetTaskTemplate"
+                   outputClass:[AWSConnectGetTaskTemplateResponse class]];
+}
+
+- (void)getTaskTemplate:(AWSConnectGetTaskTemplateRequest *)request
+     completionHandler:(void (^)(AWSConnectGetTaskTemplateResponse *response, NSError *error))completionHandler {
+    [[self getTaskTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectGetTaskTemplateResponse *> * _Nonnull task) {
+        AWSConnectGetTaskTemplateResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectListAgentStatusResponse *> *)listAgentStatuses:(AWSConnectListAgentStatusRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -2385,6 +2455,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectListTaskTemplatesResponse *> *)listTaskTemplates:(AWSConnectListTaskTemplatesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/instance/{InstanceId}/task/template"
+                  targetPrefix:@""
+                 operationName:@"ListTaskTemplates"
+                   outputClass:[AWSConnectListTaskTemplatesResponse class]];
+}
+
+- (void)listTaskTemplates:(AWSConnectListTaskTemplatesRequest *)request
+     completionHandler:(void (^)(AWSConnectListTaskTemplatesResponse *response, NSError *error))completionHandler {
+    [[self listTaskTemplates:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListTaskTemplatesResponse *> * _Nonnull task) {
+        AWSConnectListTaskTemplatesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectListUseCasesResponse *> *)listUseCases:(AWSConnectListUseCasesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -2814,6 +2907,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectTransferContactResponse *> *)transferContact:(AWSConnectTransferContactRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/contact/transfer"
+                  targetPrefix:@""
+                 operationName:@"TransferContact"
+                   outputClass:[AWSConnectTransferContactResponse class]];
+}
+
+- (void)transferContact:(AWSConnectTransferContactRequest *)request
+     completionHandler:(void (^)(AWSConnectTransferContactResponse *response, NSError *error))completionHandler {
+    [[self transferContact:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectTransferContactResponse *> * _Nonnull task) {
+        AWSConnectTransferContactResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
@@ -3392,6 +3508,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectUpdateTaskTemplateResponse *> *)updateTaskTemplate:(AWSConnectUpdateTaskTemplateRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/instance/{InstanceId}/task/template/{TaskTemplateId}"
+                  targetPrefix:@""
+                 operationName:@"UpdateTaskTemplate"
+                   outputClass:[AWSConnectUpdateTaskTemplateResponse class]];
+}
+
+- (void)updateTaskTemplate:(AWSConnectUpdateTaskTemplateRequest *)request
+     completionHandler:(void (^)(AWSConnectUpdateTaskTemplateResponse *response, NSError *error))completionHandler {
+    [[self updateTaskTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectUpdateTaskTemplateResponse *> * _Nonnull task) {
+        AWSConnectUpdateTaskTemplateResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
