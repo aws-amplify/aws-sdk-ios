@@ -3089,7 +3089,7 @@
           \"shape\":\"MessageType\",\
           \"documentation\":\"<p>The message sent to the user when an alias exists.</p>\"\
         }\
-      },\
+      },\ 
       \"documentation\":\"<p>This exception is thrown when a user tries to confirm the account with an email address or phone number that has already been supplied as an alias for a different user profile. This exception indicates that an account with this email address or phone already exists in a user pool that you've configured to use email address or phone number as a sign-in alias.</p>\",\
       \"exception\":true\
     },\
@@ -7704,7 +7704,7 @@
           \"documentation\":\"<p>Encoded device-fingerprint details that your app collected with the Amazon Cognito context data collection library. For more information, see <a href=\\\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint\\\">Adding user device and session data to API requests</a>.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Contextual data, such as the user's device fingerprint, IP address, or location, used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>\"\
+      \"documentation\":\"<p>Information that your app generates about a user's <code>AdminInitiateAuth</code> or <code>AdminRespondToAuthChallenge</code> session. Amazon Cognito advanced security features calculate risk levels for user sessions based on this context data.</p>\"\
     },\
     \"UserFilterType\":{\
       \"type\":\"string\",\

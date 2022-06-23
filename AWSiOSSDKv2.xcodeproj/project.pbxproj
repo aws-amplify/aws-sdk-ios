@@ -627,6 +627,8 @@
 		B4A4E03522B425C900379396 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8EF551C6A6A2E0098B15B /* libOCMock.a */; };
 		B4B8C4BF25ACC10F0054E723 /* AWSLexConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B4B8C4BE25ACC10E0054E723 /* AWSLexConfig.xcconfig */; };
 		B4B8C61325ACC1270054E723 /* AWSLexConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B4B8C4BE25ACC10E0054E723 /* AWSLexConfig.xcconfig */; };
+		B4B8C9B62845CAB3009E0865 /* AWSCognitoIdentityUserPoolTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B8C9B52845CAB3009E0865 /* AWSCognitoIdentityUserPoolTests.m */; };
+		B4B8C9B7284698D8009E0865 /* AWSIoTKeyChainTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = B4932E1D283D4AB100993CBC /* AWSIoTKeyChainTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B4D61CCC23285D8C007E7A12 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
 		B4D61CD523285DF5007E7A12 /* AWSConnectParticipant.h in Headers */ = {isa = PBXBuildFile; fileRef = B4D61CCD23285DF3007E7A12 /* AWSConnectParticipant.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B4D61CD623285DF5007E7A12 /* AWSConnectParticipantService.h in Headers */ = {isa = PBXBuildFile; fileRef = B4D61CCE23285DF4007E7A12 /* AWSConnectParticipantService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -3141,6 +3143,7 @@
 		B47FAF4222C577CE00014548 /* AWSS3TransferUtilityUnitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSS3TransferUtilityUnitTests.m; sourceTree = "<group>"; };
 		B482E84522EEA9F10075A0A3 /* AWSS3TestHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSS3TestHelper.h; sourceTree = "<group>"; };
 		B482E84622EEA9F20075A0A3 /* AWSS3TestHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSS3TestHelper.m; sourceTree = "<group>"; };
+		B4932E1D283D4AB100993CBC /* AWSIoTKeyChainTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSIoTKeyChainTypes.h; sourceTree = "<group>"; };
 		B4A4DFF522B4201300379396 /* AWSSageMakerRuntime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSSageMakerRuntime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4A4DFF822B4201400379396 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4A4E01422B4212900379396 /* AWSSageMakerRuntimeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSSageMakerRuntimeService.h; sourceTree = "<group>"; };
@@ -3154,6 +3157,7 @@
 		B4A4E02B22B4233B00379396 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4A4E03222B423C700379396 /* AWSGeneralSageMakerRuntimeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralSageMakerRuntimeTests.m; sourceTree = "<group>"; };
 		B4B8C4BE25ACC10E0054E723 /* AWSLexConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = AWSLexConfig.xcconfig; sourceTree = "<group>"; };
+		B4B8C9B52845CAB3009E0865 /* AWSCognitoIdentityUserPoolTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSCognitoIdentityUserPoolTests.m; sourceTree = "<group>"; };
 		B4D61CAF23285D16007E7A12 /* AWSConnectParticipant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSConnectParticipant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4D61CCD23285DF3007E7A12 /* AWSConnectParticipant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSConnectParticipant.h; sourceTree = "<group>"; };
 		B4D61CCE23285DF4007E7A12 /* AWSConnectParticipantService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSConnectParticipantService.h; sourceTree = "<group>"; };
@@ -6916,6 +6920,7 @@
 				CE9DE6351C6A78D70060793F /* Internal */,
 				CE9DE6101C6A78A60060793F /* Info.plist */,
 				174F80A62108066F00775D0D /* AWSIoTMQTTTypes.h */,
+				B4932E1D283D4AB100993CBC /* AWSIoTKeyChainTypes.h */,
 			);
 			path = AWSIoT;
 			sourceTree = "<group>";
@@ -7301,6 +7306,7 @@
 				FA5A20192539F32A00ED165C /* AWSCognitoIdentityProviderNSSecureCodingTests.m */,
 				FA4DB84C2199E33C00AE7F20 /* AWSCognitoIdentityProviderSwiftTests.swift */,
 				FA4DB84B2199E33B00AE7F20 /* AWSCognitoIdentityProviderUnitTests-Bridging-Header.h */,
+				B4B8C9B52845CAB3009E0865 /* AWSCognitoIdentityUserPoolTests.m */,
 				CEE5AF311CE126C3008265A3 /* AWSGeneralCognitoIdentityProviderTests.m */,
 				CEA316C41C93A415002A9F58 /* Info.plist */,
 			);
@@ -8165,6 +8171,7 @@
 				CE9DE66A1C6A78D70060793F /* AWSMQTTMessage.h in Headers */,
 				03427769269D185200379263 /* AWSIoTMessage+AWSMQTTMessage.h in Headers */,
 				174F80A72108066F00775D0D /* AWSIoTMQTTTypes.h in Headers */,
+				B4B8C9B7284698D8009E0865 /* AWSIoTKeyChainTypes.h in Headers */,
 				CE9DE6681C6A78D70060793F /* AWSMQTTEncoder.h in Headers */,
 				CE9DE6701C6A78D70060793F /* AWSSRWebSocket.h in Headers */,
 				CE9DE6641C6A78D70060793F /* AWSIoTWebSocketOutputStream.h in Headers */,
@@ -13230,6 +13237,7 @@
 			files = (
 				FA5A201A2539F32B00ED165C /* AWSCognitoIdentityProviderNSSecureCodingTests.m in Sources */,
 				FA4DB84D2199E33C00AE7F20 /* AWSCognitoIdentityProviderSwiftTests.swift in Sources */,
+				B4B8C9B62845CAB3009E0865 /* AWSCognitoIdentityUserPoolTests.m in Sources */,
 				CEA316CC1C93A460002A9F58 /* AWSTestUtility.m in Sources */,
 				CEE5AF331CE126C3008265A3 /* AWSGeneralCognitoIdentityProviderTests.m in Sources */,
 			);

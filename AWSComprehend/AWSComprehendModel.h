@@ -207,6 +207,20 @@ typedef NS_ENUM(NSInteger, AWSComprehendPiiEntityType) {
     AWSComprehendPiiEntityTypeIpAddress,
     AWSComprehendPiiEntityTypeMacAddress,
     AWSComprehendPiiEntityTypeAll,
+    AWSComprehendPiiEntityTypeLicensePlate,
+    AWSComprehendPiiEntityTypeVehicleIdentificationNumber,
+    AWSComprehendPiiEntityTypeUkNationalInsuranceNumber,
+    AWSComprehendPiiEntityTypeCaSocialInsuranceNumber,
+    AWSComprehendPiiEntityTypeUsIndividualTaxIdentificationNumber,
+    AWSComprehendPiiEntityTypeUkUniqueTaxpayerReferenceNumber,
+    AWSComprehendPiiEntityTypeInPermanentAccountNumber,
+    AWSComprehendPiiEntityTypeInNrega,
+    AWSComprehendPiiEntityTypeInternationalBankAccountNumber,
+    AWSComprehendPiiEntityTypeSwiftCode,
+    AWSComprehendPiiEntityTypeUkNationalHealthServiceNumber,
+    AWSComprehendPiiEntityTypeCaHealthNumber,
+    AWSComprehendPiiEntityTypeInAadhaar,
+    AWSComprehendPiiEntityTypeInVoterNumber,
 };
 
 typedef NS_ENUM(NSInteger, AWSComprehendSentimentType) {
@@ -611,7 +625,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
 /**
- <p>A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>
+ <p>A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer than 5,000 bytes of UTF-8 encoded characters.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable textList;
 
@@ -854,7 +868,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 
 /**
- <p>The Amazon Resource Number (ARN) of the endpoint.</p>
+ <p>The Amazon Resource Number (ARN) of the endpoint. For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable endpointArn;
 
@@ -890,7 +904,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 
 /**
- <p>The language of the input documents.</p>
+ <p>The language of the input documents. Currently, English is the only valid language.</p>
  */
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
@@ -1602,7 +1616,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 
 /**
- <p>The Amazon Resource Name of an endpoint that is associated with a custom entity recognition model. Provide an endpoint if you want to detect entities by using your own custom model instead of the default model that is used by Amazon Comprehend.</p><p>If you specify an endpoint, Amazon Comprehend uses the language of your custom model, and it ignores any language code that you provide in your request.</p>
+ <p>The Amazon Resource Name of an endpoint that is associated with a custom entity recognition model. Provide an endpoint if you want to detect entities by using your own custom model instead of the default model that is used by Amazon Comprehend.</p><p>If you specify an endpoint, Amazon Comprehend uses the language of your custom model, and it ignores any language code that you provide in your request.</p><p>For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable endpointArn;
 
@@ -1669,7 +1683,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 
 /**
- <p>The language of the input documents.</p>
+ <p>The language of the input documents. Currently, English is the only valid language.</p>
  */
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
@@ -1873,7 +1887,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) NSString * _Nullable volumeKmsKeyId;
 
 /**
- <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your document classification job. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
+ <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your document classification job. For more information, see <a href="https://docs.aws.amazon.com/vppc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
  */
 @property (nonatomic, strong) AWSComprehendVpcConfig * _Nullable vpcConfig;
 
@@ -1908,7 +1922,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @end
 
 /**
- <p>The input properties for training a document classifier. </p><p>For more information on how the input file is formatted, see <a>how-document-classification-training-data</a>. </p>
+ <p>The input properties for training a document classifier. </p><p>For more information on how the input file is formatted, see <a>prep-classifier-data</a>. </p>
  */
 @interface AWSComprehendDocumentClassifierInputDataConfig : AWSModel
 
@@ -2050,7 +2064,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) NSString * _Nullable volumeKmsKeyId;
 
 /**
- <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
+ <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see <a href="https://docs.aws.amazon.com/vppc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
  */
 @property (nonatomic, strong) AWSComprehendVpcConfig * _Nullable vpcConfig;
 
@@ -2274,7 +2288,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @end
 
 /**
- <p>Specifies information about the specified endpoint.</p>
+ <p>Specifies information about the specified endpoint. For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
  */
 @interface AWSComprehendEndpointProperties : AWSModel
 
@@ -4519,7 +4533,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) NSString * _Nullable jobName;
 
 /**
- <p>The language of the input documents.</p>
+ <p>The language of the input documents. Currently, English is the only valid language.</p>
  */
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
@@ -4671,7 +4685,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) NSString * _Nullable jobName;
 
 /**
- <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p>
+ <p>The language of the input documents. Currently, English is the only valid language.</p>
  */
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 

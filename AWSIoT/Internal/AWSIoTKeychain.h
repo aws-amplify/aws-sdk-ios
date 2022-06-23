@@ -18,6 +18,7 @@
 #import <Security/Security.h>
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonCryptor.h>
+#import "AWSIoTKeyChainTypes.h"
 
 FOUNDATION_EXPORT NSString *const AWSIoTKeychainStartPrivateKeyTag;
 FOUNDATION_EXPORT NSString *const AWSIoTKeychainEndPrivateKeyTag;
@@ -58,5 +59,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTKeychainEndCertKeyTag;
 + (BOOL)addPrivateKeyRef:(SecKeyRef)privkeyRef tag:(NSString *)tag;
 + (BOOL)addPrivateKey:(NSData *)privkey tag:(NSString *)tag;
 + (BOOL)deletePrivateKeyWithTag:(NSString*)tag;
+
++ (void)setKeyChainAccessibility:(AWSIoTKeyChainAccessibility)accessibility;
 
 @end
