@@ -8,6 +8,10 @@
   - AWSLambda
   - AWSIoT
   - AWSEC2
+  - AWSKMS
+  - AWSComprehend
+  - AWSCloudWatchLogs
+  - AWSCognitoIdentityProvider
 
 ## 2.27.10
 
