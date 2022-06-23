@@ -12,6 +12,7 @@
   - AWSComprehend
   - AWSCloudWatchLogs
   - AWSCognitoIdentityProvider
+  - AWSTranscribe
 
 ## 2.27.10
 
