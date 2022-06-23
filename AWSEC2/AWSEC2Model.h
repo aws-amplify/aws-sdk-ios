@@ -1450,6 +1450,17 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeI4I_8xlarge,
     AWSEC2InstanceTypeI4I_16xlarge,
     AWSEC2InstanceTypeI4I_32xlarge,
+    AWSEC2InstanceTypeI4I_metal,
+    AWSEC2InstanceTypeX2Idn_metal,
+    AWSEC2InstanceTypeX2Iedn_metal,
+    AWSEC2InstanceTypeC7G_medium,
+    AWSEC2InstanceTypeC7G_large,
+    AWSEC2InstanceTypeC7G_xlarge,
+    AWSEC2InstanceTypeC7G_2xlarge,
+    AWSEC2InstanceTypeC7G_4xlarge,
+    AWSEC2InstanceTypeC7G_8xlarge,
+    AWSEC2InstanceTypeC7G_12xlarge,
+    AWSEC2InstanceTypeC7G_16xlarge,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2InstanceTypeHypervisor) {
