@@ -594,7 +594,7 @@
       },\
       \"input\":{\"shape\":\"CreateCustomerGatewayRequest\"},\
       \"output\":{\"shape\":\"CreateCustomerGatewayResult\"},\
-      \"documentation\":\"<p>Provides information to Amazon Web Services about your VPN customer gateway device. The customer gateway is the appliance at your end of the VPN connection. (The device on the Amazon Web Services side of the VPN connection is the virtual private gateway.) You must provide the internet-routable IP address of the customer gateway's external interface. The IP address must be static and can be behind a device performing network address translation (NAT).</p> <p>For devices that use Border Gateway Protocol (BGP), you can also provide the device's BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your network. If you don't have an ASN already, you can use a private ASN. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpn/latest/s2svpn/cgw-options.html\\\">Customer gateway options for your Site-to-Site VPN connection</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p> <p>To create more than one customer gateway with the same VPN type, IP address, and BGP ASN, specify a unique device name for each customer gateway. An identical request returns information about the existing customer gateway; it doesn't create a new customer gateway.</p>\"\
+      \"documentation\":\"<p>Provides information to Amazon Web Services about your customer gateway device. The customer gateway device is the appliance at your end of the VPN connection. You must provide the IP address of the customer gateway deviceâs external interface. The IP address must be static and can be behind a device performing network address translation (NAT).</p> <p>For devices that use Border Gateway Protocol (BGP), you can also provide the device's BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your network. If you don't have an ASN already, you can use a private ASN. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpn/latest/s2svpn/cgw-options.html\\\">Customer gateway options for your Site-to-Site VPN connection</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p> <p>To create more than one customer gateway with the same VPN type, IP address, and BGP ASN, specify a unique device name for each customer gateway. An identical request returns information about the existing customer gateway; it doesn't create a new customer gateway.</p>\"\
     },\
     \"CreateDefaultSubnet\":{\
       \"name\":\"CreateDefaultSubnet\",\
@@ -754,7 +754,7 @@
       },\
       \"input\":{\"shape\":\"CreateLaunchTemplateRequest\"},\
       \"output\":{\"shape\":\"CreateLaunchTemplateResult\"},\
-      \"documentation\":\"<p>Creates a launch template.</p> <p>A launch template contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify a launch template instead of providing the launch parameters in the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\\\">Launching an instance from a launch template</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>If you want to clone an existing launch template as the basis for creating a new launch template, you can use the Amazon EC2 console. The API, SDKs, and CLI do not support cloning a template. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template-from-existing-launch-template\\\">Create a launch template from an existing launch template</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Creates a launch template.</p> <p>A launch template contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify a launch template instead of providing the launch parameters in the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\\\">Launch an instance from a launch template</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>If you want to clone an existing launch template as the basis for creating a new launch template, you can use the Amazon EC2 console. The API, SDKs, and CLI do not support cloning a template. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template-from-existing-launch-template\\\">Create a launch template from an existing launch template</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
     },\
     \"CreateLaunchTemplateVersion\":{\
       \"name\":\"CreateLaunchTemplateVersion\",\
@@ -764,7 +764,7 @@
       },\
       \"input\":{\"shape\":\"CreateLaunchTemplateVersionRequest\"},\
       \"output\":{\"shape\":\"CreateLaunchTemplateVersionResult\"},\
-      \"documentation\":\"<p>Creates a new version for a launch template. You can specify an existing version of launch template from which to base the new version.</p> <p>Launch template versions are numbered in the order in which they are created. You cannot specify, change, or replace the numbering of launch template versions.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions\\\">Managing launch template versions</a>in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Creates a new version for a launch template. You can specify an existing version of launch template from which to base the new version.</p> <p>Launch template versions are numbered in the order in which they are created. You cannot specify, change, or replace the numbering of launch template versions.</p> <p>Launch templates are immutable; after you create a launch template, you can't modify it. Instead, you can create a new version of the launch template that includes any changes you require.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions\\\">Modify a launch template (manage launch template versions)</a>in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
     },\
     \"CreateLocalGatewayRoute\":{\
       \"name\":\"CreateLocalGatewayRoute\",\
@@ -1052,7 +1052,7 @@
       },\
       \"input\":{\"shape\":\"CreateTrafficMirrorTargetRequest\"},\
       \"output\":{\"shape\":\"CreateTrafficMirrorTargetResult\"},\
-      \"documentation\":\"<p>Creates a target for your Traffic Mirror session.</p> <p>A Traffic Mirror target is the destination for mirrored traffic. The Traffic Mirror source and the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in different VPCs connected via VPC peering or a transit gateway.</p> <p>A Traffic Mirror target can be a network interface, or a Network Load Balancer.</p> <p>To use the target in a Traffic Mirror session, use <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorSession.htm\\\">CreateTrafficMirrorSession</a>.</p>\"\
+      \"documentation\":\"<p>Creates a target for your Traffic Mirror session.</p> <p>A Traffic Mirror target is the destination for mirrored traffic. The Traffic Mirror source and the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in different VPCs connected via VPC peering or a transit gateway.</p> <p>A Traffic Mirror target can be a network interface, a Network Load Balancer, or a Gateway Load Balancer endpoint.</p> <p>To use the target in a Traffic Mirror session, use <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorSession.htm\\\">CreateTrafficMirrorSession</a>.</p>\"\
     },\
     \"CreateTransitGateway\":{\
       \"name\":\"CreateTransitGateway\",\
@@ -10611,8 +10611,7 @@
         },\
         \"PublicIp\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The Internet-routable IP address for the customer gateway's outside interface. The address must be static.</p>\",\
-          \"locationName\":\"IpAddress\"\
+          \"documentation\":\"<p> <i>This member has been deprecated.</i> The Internet-routable IP address for the customer gateway's outside interface. The address must be static.</p>\"\
         },\
         \"CertificateArn\":{\
           \"shape\":\"String\",\
@@ -10630,6 +10629,10 @@
         \"DeviceName\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>A name for the customer gateway device.</p> <p>Length Constraints: Up to 255 characters.</p>\"\
+        },\
+        \"IpAddress\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p> IPv4 address for the customer gateway device's outside interface. The address must be static. </p>\"\
         },\
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
@@ -11417,7 +11420,7 @@
         },\
         \"ClientToken\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\\\">Ensuring Idempotency</a>.</p> <p>Constraint: Maximum 128 ASCII characters.</p>\"\
+          \"documentation\":\"<p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\\\">Ensuring idempotency</a>.</p> <p>Constraint: Maximum 128 ASCII characters.</p>\"\
         },\
         \"LaunchTemplateName\":{\
           \"shape\":\"LaunchTemplateName\",\
@@ -11463,7 +11466,7 @@
         },\
         \"ClientToken\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\\\">Ensuring Idempotency</a>.</p> <p>Constraint: Maximum 128 ASCII characters.</p>\"\
+          \"documentation\":\"<p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\\\">Ensuring idempotency</a>.</p> <p>Constraint: Maximum 128 ASCII characters.</p>\"\
         },\
         \"LaunchTemplateId\":{\
           \"shape\":\"LaunchTemplateId\",\
@@ -12833,6 +12836,10 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\\\">How to ensure idempotency</a>.</p>\",\
           \"idempotencyToken\":true\
+        },\
+        \"GatewayLoadBalancerEndpointId\":{\
+          \"shape\":\"VpcEndpointId\",\
+          \"documentation\":\"<p>The ID of the Gateway Load Balancer endpoint.</p>\"\
         }\
       }\
     },\
@@ -13792,7 +13799,7 @@
         },\
         \"IpAddress\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The Internet-routable IP address of the customer gateway's outside interface.</p>\",\
+          \"documentation\":\"<p>The IP address of the customer gateway device's outside interface.</p>\",\
           \"locationName\":\"ipAddress\"\
         },\
         \"CertificateArn\":{\
@@ -16458,7 +16465,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>bgp-asn</code> - The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).</p> </li> <li> <p> <code>customer-gateway-id</code> - The ID of the customer gateway.</p> </li> <li> <p> <code>ip-address</code> - The IP address of the customer gateway's Internet-routable external interface.</p> </li> <li> <p> <code>state</code> - The state of the customer gateway (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p> </li> <li> <p> <code>type</code> - The type of customer gateway. Currently, the only supported type is <code>ipsec.1</code>.</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>\",\
+          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>bgp-asn</code> - The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).</p> </li> <li> <p> <code>customer-gateway-id</code> - The ID of the customer gateway.</p> </li> <li> <p> <code>ip-address</code> - The IP address of the customer gateway device's external interface.</p> </li> <li> <p> <code>state</code> - The state of the customer gateway (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p> </li> <li> <p> <code>type</code> - The type of customer gateway. Currently, the only supported type is <code>ipsec.1</code>.</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"DryRun\":{\
@@ -29199,6 +29206,11 @@
           \"shape\":\"AttributeValue\",\
           \"documentation\":\"<p>The user data.</p>\",\
           \"locationName\":\"userData\"\
+        },\
+        \"DisableApiStop\":{\
+          \"shape\":\"AttributeBooleanValue\",\
+          \"documentation\":\"<p>To enable the instance for Amazon Web Services Stop Protection, set this parameter to <code>true</code>; otherwise, set it to <code>false</code>.</p>\",\
+          \"locationName\":\"disableApiStop\"\
         }\
       },\
       \"documentation\":\"<p>Describes an instance attribute.</p>\"\
@@ -29220,7 +29232,8 @@
         \"ebsOptimized\",\
         \"sriovNetSupport\",\
         \"enaSupport\",\
-        \"enclaveOptions\"\
+        \"enclaveOptions\",\
+        \"disableApiStop\"\
       ]\
     },\
     \"InstanceAutoRecoveryState\":{\
@@ -31233,7 +31246,18 @@
         \"i4i.4xlarge\",\
         \"i4i.8xlarge\",\
         \"i4i.16xlarge\",\
-        \"i4i.32xlarge\"\
+        \"i4i.32xlarge\",\
+        \"i4i.metal\",\
+        \"x2idn.metal\",\
+        \"x2iedn.metal\",\
+        \"c7g.medium\",\
+        \"c7g.large\",\
+        \"c7g.xlarge\",\
+        \"c7g.2xlarge\",\
+        \"c7g.4xlarge\",\
+        \"c7g.8xlarge\",\
+        \"c7g.12xlarge\",\
+        \"c7g.16xlarge\"\
       ]\
     },\
     \"InstanceTypeHypervisor\":{\
@@ -33232,7 +33256,7 @@
           \"documentation\":\"<p>To enable the instance for Amazon Web Services Nitro Enclaves, set this parameter to <code>true</code>.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more information, see <a href=\\\"https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html\\\"> What is Amazon Web Services Nitro Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more information, see <a href=\\\"https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html\\\">What is Amazon Web Services Nitro Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p>\"\
     },\
     \"LaunchTemplateErrorCode\":{\
       \"type\":\"string\",\
@@ -33264,7 +33288,7 @@
           \"documentation\":\"<p>If you set this parameter to <code>true</code>, the instance is enabled for hibernation.</p> <p>Default: <code>false</code> </p>\"\
         }\
       },\
-      \"documentation\":\"<p>Indicates whether the instance is configured for hibernation. This parameter is valid only if the instance meets the <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites\\\">hibernation prerequisites</a>.</p>\"\
+      \"documentation\":\"<p>Indicates whether the instance is configured for hibernation. This parameter is valid only if the instance meets the <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html\\\">hibernation prerequisites</a>.</p>\"\
     },\
     \"LaunchTemplateHttpTokensState\":{\
       \"type\":\"string\",\
@@ -35487,6 +35511,10 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>A new value for the attribute. Use only with the <code>kernel</code>, <code>ramdisk</code>, <code>userData</code>, <code>disableApiTermination</code>, or <code>instanceInitiatedShutdownBehavior</code> attribute.</p>\",\
           \"locationName\":\"value\"\
+        },\
+        \"DisableApiStop\":{\
+          \"shape\":\"AttributeBooleanValue\",\
+          \"documentation\":\"<p>Indicates whether an instance is enabled for stop protection. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection\\\">Stop Protection</a>.</p> <p/>\"\
         }\
       }\
     },\
@@ -35939,7 +35967,7 @@
         },\
         \"ClientToken\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\\\">Ensuring Idempotency</a>.</p> <p>Constraint: Maximum 128 ASCII characters.</p>\"\
+          \"documentation\":\"<p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\\\">Ensuring idempotency</a>.</p> <p>Constraint: Maximum 128 ASCII characters.</p>\"\
         },\
         \"LaunchTemplateId\":{\
           \"shape\":\"LaunchTemplateId\",\
@@ -41458,7 +41486,7 @@
       \"members\":{\
         \"KernelId\":{\
           \"shape\":\"KernelId\",\
-          \"documentation\":\"<p>The ID of the kernel.</p> <important> <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html\\\">User Provided Kernels</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </important>\"\
+          \"documentation\":\"<p>The ID of the kernel.</p> <important> <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html\\\">User provided kernels</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </important>\"\
         },\
         \"EbsOptimized\":{\
           \"shape\":\"Boolean\",\
@@ -41484,7 +41512,7 @@
         },\
         \"InstanceType\":{\
           \"shape\":\"InstanceType\",\
-          \"documentation\":\"<p>The instance type. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\\\">Instance Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>If you specify <code>InstanceTypes</code>, you can't specify <code>InstanceRequirements</code>.</p>\"\
+          \"documentation\":\"<p>The instance type. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\\\">Instance types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>If you specify <code>InstanceTypes</code>, you can't specify <code>InstanceRequirements</code>.</p>\"\
         },\
         \"KeyName\":{\
           \"shape\":\"KeyPairName\",\
@@ -41500,7 +41528,7 @@
         },\
         \"RamDiskId\":{\
           \"shape\":\"RamdiskId\",\
-          \"documentation\":\"<p>The ID of the RAM disk.</p> <important> <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html\\\">User Provided Kernels</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </important>\"\
+          \"documentation\":\"<p>The ID of the RAM disk.</p> <important> <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html\\\">User provided kernels</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </important>\"\
         },\
         \"DisableApiTermination\":{\
           \"shape\":\"Boolean\",\
@@ -41512,7 +41540,7 @@
         },\
         \"UserData\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html\\\">Running Commands on Your Linux Instance at Launch</a> (Linux) or <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data\\\">Adding User Data</a> (Windows).</p> <p>If you are creating the launch template for use with Batch, the user data must be provided in the <a href=\\\"https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive\\\"> MIME multi-part archive format</a>. For more information, see <a href=\\\"https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html\\\">Amazon EC2 user data in launch templates</a> in the <i>Batch User Guide</i>.</p>\"\
+          \"documentation\":\"<p>The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html\\\">Run commands on your Linux instance at launch</a> (Linux) or <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instancedata-add-user-data.html\\\">Work with instance user data</a> (Windows) in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>If you are creating the launch template for use with Batch, the user data must be provided in the <a href=\\\"https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive\\\"> MIME multi-part archive format</a>. For more information, see <a href=\\\"https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html\\\">Amazon EC2 user data in launch templates</a> in the <i>Batch User Guide</i>.</p>\"\
         },\
         \"TagSpecifications\":{\
           \"shape\":\"LaunchTemplateTagSpecificationRequestList\",\
@@ -41562,7 +41590,7 @@
         },\
         \"HibernationOptions\":{\
           \"shape\":\"LaunchTemplateHibernationOptionsRequest\",\
-          \"documentation\":\"<p>Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites\\\">hibernation prerequisites</a>. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html\\\">Hibernate your instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+          \"documentation\":\"<p>Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html\\\">hibernation prerequisites</a>. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html\\\">Hibernate your instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
         },\
         \"MetadataOptions\":{\
           \"shape\":\"LaunchTemplateInstanceMetadataOptionsRequest\",\
@@ -41583,6 +41611,10 @@
         \"MaintenanceOptions\":{\
           \"shape\":\"LaunchTemplateInstanceMaintenanceOptionsRequest\",\
           \"documentation\":\"<p>The maintenance options for the instance.</p>\"\
+        },\
+        \"DisableApiStop\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Indicates whether to enable the instance for stop protection. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection\\\">Stop Protection</a>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The information to include in the launch template.</p> <note> <p>You must specify at least one parameter for the launch template data.</p> </note>\"\
@@ -42851,6 +42883,11 @@
           \"shape\":\"LaunchTemplateInstanceMaintenanceOptions\",\
           \"documentation\":\"<p>The maintenance options for your instance.</p>\",\
           \"locationName\":\"maintenanceOptions\"\
+        },\
+        \"DisableApiStop\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Indicates whether the instance is enabled for stop protection. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection\\\">Stop Protection</a>.</p>\",\
+          \"locationName\":\"disableApiStop\"\
         }\
       },\
       \"documentation\":\"<p>The information for a launch template. </p>\"\
@@ -43695,6 +43732,10 @@
         \"MaintenanceOptions\":{\
           \"shape\":\"InstanceMaintenanceOptionsRequest\",\
           \"documentation\":\"<p>The maintenance and recovery options for the instance.</p>\"\
+        },\
+        \"DisableApiStop\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Indicates whether an instance is enabled for stop protection. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection\\\">Stop Protection</a>. </p>\"\
         }\
       }\
     },\
@@ -47719,6 +47760,11 @@
           \"shape\":\"TagList\",\
           \"documentation\":\"<p>The tags assigned to the Traffic Mirror target.</p>\",\
           \"locationName\":\"tagSet\"\
+        },\
+        \"GatewayLoadBalancerEndpointId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the Gateway Load Balancer endpoint.</p>\",\
+          \"locationName\":\"gatewayLoadBalancerEndpointId\"\
         }\
       },\
       \"documentation\":\"<p>Describes a Traffic Mirror target.</p>\"\
@@ -47742,7 +47788,8 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"network-interface\",\
-        \"network-load-balancer\"\
+        \"network-load-balancer\",\
+        \"gateway-load-balancer-endpoint\"\
       ]\
     },\
     \"TrafficMirroringMaxResults\":{\
@@ -49783,12 +49830,12 @@
       \"members\":{\
         \"Code\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The error code that indicates why the parameter or parameter combination is not valid. For more information about error codes, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html\\\">Error Codes</a>.</p>\",\
+          \"documentation\":\"<p>The error code that indicates why the parameter or parameter combination is not valid. For more information about error codes, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html\\\">Error codes</a>.</p>\",\
           \"locationName\":\"code\"\
         },\
         \"Message\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The error message that describes why the parameter or parameter combination is not valid. For more information about error messages, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html\\\">Error Codes</a>.</p>\",\
+          \"documentation\":\"<p>The error message that describes why the parameter or parameter combination is not valid. For more information about error messages, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html\\\">Error codes</a>.</p>\",\
           \"locationName\":\"message\"\
         }\
       },\
@@ -51152,6 +51199,16 @@
           \"documentation\":\"<p>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</p>\",\
           \"locationName\":\"remoteIpv6NetworkCidr\"\
         },\
+        \"OutsideIpAddressType\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The type of IPv4 address assigned to the outside interface of the customer gateway.</p> <p>Valid values: <code>PrivateIpv4</code> | <code>PublicIpv4</code> </p> <p>Default: <code>PublicIpv4</code> </p>\",\
+          \"locationName\":\"outsideIpAddressType\"\
+        },\
+        \"TransportTransitGatewayAttachmentId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The transit gateway attachment ID in use for the VPN tunnel.</p>\",\
+          \"locationName\":\"transportTransitGatewayAttachmentId\"\
+        },\
         \"TunnelInsideIpVersion\":{\
           \"shape\":\"TunnelInsideIpVersion\",\
           \"documentation\":\"<p>Indicates whether the VPN tunnels process IPv4 or IPv6 traffic.</p>\",\
@@ -51200,6 +51257,14 @@
         \"RemoteIpv6NetworkCidr\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</p> <p>Default: <code>::/0</code> </p>\"\
+        },\
+        \"OutsideIpAddressType\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The type of IPv4 address assigned to the outside interface of the customer gateway device.</p> <p>Valid values: <code>PrivateIpv4</code> | <code>PublicIpv4</code> </p> <p>Default: <code>PublicIpv4</code> </p>\"\
+        },\
+        \"TransportTransitGatewayAttachmentId\":{\
+          \"shape\":\"TransitGatewayAttachmentId\",\
+          \"documentation\":\"<p>The transit gateway attachment ID to use for the VPN tunnel.</p> <p>Required if <code>OutsideIpAddressType</code> is set to <code>PrivateIpv4</code>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes VPN connection options.</p>\"\
