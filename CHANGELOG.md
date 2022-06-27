@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+### Testing
+
+- **OCMock**
+  - Updates OCMock to current version with binary framework
+  - Adds script which copies binary framework to the `./build` directory
+  - Adds OCMock.md to root directory with instructions for keeping updated
+
 ### Misc. Updates
 
 - Model updates for the following services
