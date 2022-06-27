@@ -16946,7 +16946,7 @@
     \"TagValue\":{\
       \"type\":\"string\",\
       \"max\":256,\
-      \"min\":1\
+      \"min\":0\
     },\
     \"Target\":{\"type\":\"string\"},\
     \"TargetArn\":{\
