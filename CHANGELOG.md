@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### Bug Fixes
+
+- **AWSMobileClient**
+  - Fixes concurrent execution of fetch AWS Credentials just after signIn
+
 ### Misc. Updates
 
 - Model updates for the following services
