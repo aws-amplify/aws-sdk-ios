@@ -36,6 +36,9 @@
 - (void) test_AWSTranslateImportTerminologyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateInputDataConfig API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateJobDetails API_AVAILABLE(ios(11));
+- (void) test_AWSTranslateLanguage API_AVAILABLE(ios(11));
+- (void) test_AWSTranslateListLanguagesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTranslateListLanguagesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateListParallelDataRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateListParallelDataResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateListTerminologiesRequest API_AVAILABLE(ios(11));
@@ -132,6 +135,18 @@
 
 - (void) test_AWSTranslateJobDetails {
     [self validateSecureCodingForClass:[AWSTranslateJobDetails class]];
+}
+
+- (void) test_AWSTranslateLanguage {
+    [self validateSecureCodingForClass:[AWSTranslateLanguage class]];
+}
+
+- (void) test_AWSTranslateListLanguagesRequest {
+    [self validateSecureCodingForClass:[AWSTranslateListLanguagesRequest class]];
+}
+
+- (void) test_AWSTranslateListLanguagesResponse {
+    [self validateSecureCodingForClass:[AWSTranslateListLanguagesResponse class]];
 }
 
 - (void) test_AWSTranslateListParallelDataRequest {
