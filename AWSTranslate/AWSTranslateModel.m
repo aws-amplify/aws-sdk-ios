@@ -468,6 +468,179 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 
 @end
 
+@implementation AWSTranslateLanguage
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"languageCode" : @"LanguageCode",
+             @"languageName" : @"LanguageName",
+             };
+}
+
+@end
+
+@implementation AWSTranslateListLanguagesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"displayLanguageCode" : @"DisplayLanguageCode",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)displayLanguageCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"de"] == NSOrderedSame) {
+            return @(AWSTranslateDisplayLanguageCodeDe);
+        }
+        if ([value caseInsensitiveCompare:@"en"] == NSOrderedSame) {
+            return @(AWSTranslateDisplayLanguageCodeEn);
+        }
+        if ([value caseInsensitiveCompare:@"es"] == NSOrderedSame) {
+            return @(AWSTranslateDisplayLanguageCodeEs);
+        }
+        if ([value caseInsensitiveCompare:@"fr"] == NSOrderedSame) {
+            return @(AWSTranslateDisplayLanguageCodeFr);
+        }
+        if ([value caseInsensitiveCompare:@"it"] == NSOrderedSame) {
+            return @(AWSTranslateDisplayLanguageCodeIt);
+        }
+        if ([value caseInsensitiveCompare:@"ja"] == NSOrderedSame) {
+            return @(AWSTranslateDisplayLanguageCodeJa);
+        }
+        if ([value caseInsensitiveCompare:@"ko"] == NSOrderedSame) {
+            return @(AWSTranslateDisplayLanguageCodeKo);
+        }
+        if ([value caseInsensitiveCompare:@"pt"] == NSOrderedSame) {
+            return @(AWSTranslateDisplayLanguageCodePt);
+        }
+        if ([value caseInsensitiveCompare:@"zh"] == NSOrderedSame) {
+            return @(AWSTranslateDisplayLanguageCodeZh);
+        }
+        if ([value caseInsensitiveCompare:@"zh-TW"] == NSOrderedSame) {
+            return @(AWSTranslateDisplayLanguageCodeZhTW);
+        }
+        return @(AWSTranslateDisplayLanguageCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranslateDisplayLanguageCodeDe:
+                return @"de";
+            case AWSTranslateDisplayLanguageCodeEn:
+                return @"en";
+            case AWSTranslateDisplayLanguageCodeEs:
+                return @"es";
+            case AWSTranslateDisplayLanguageCodeFr:
+                return @"fr";
+            case AWSTranslateDisplayLanguageCodeIt:
+                return @"it";
+            case AWSTranslateDisplayLanguageCodeJa:
+                return @"ja";
+            case AWSTranslateDisplayLanguageCodeKo:
+                return @"ko";
+            case AWSTranslateDisplayLanguageCodePt:
+                return @"pt";
+            case AWSTranslateDisplayLanguageCodeZh:
+                return @"zh";
+            case AWSTranslateDisplayLanguageCodeZhTW:
+                return @"zh-TW";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSTranslateListLanguagesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"displayLanguageCode" : @"DisplayLanguageCode",
+             @"languages" : @"Languages",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)displayLanguageCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"de"] == NSOrderedSame) {
+            return @(AWSTranslateDisplayLanguageCodeDe);
+        }
+        if ([value caseInsensitiveCompare:@"en"] == NSOrderedSame) {
+            return @(AWSTranslateDisplayLanguageCodeEn);
+        }
+        if ([value caseInsensitiveCompare:@"es"] == NSOrderedSame) {
+            return @(AWSTranslateDisplayLanguageCodeEs);
+        }
+        if ([value caseInsensitiveCompare:@"fr"] == NSOrderedSame) {
+            return @(AWSTranslateDisplayLanguageCodeFr);
+        }
+        if ([value caseInsensitiveCompare:@"it"] == NSOrderedSame) {
+            return @(AWSTranslateDisplayLanguageCodeIt);
+        }
+        if ([value caseInsensitiveCompare:@"ja"] == NSOrderedSame) {
+            return @(AWSTranslateDisplayLanguageCodeJa);
+        }
+        if ([value caseInsensitiveCompare:@"ko"] == NSOrderedSame) {
+            return @(AWSTranslateDisplayLanguageCodeKo);
+        }
+        if ([value caseInsensitiveCompare:@"pt"] == NSOrderedSame) {
+            return @(AWSTranslateDisplayLanguageCodePt);
+        }
+        if ([value caseInsensitiveCompare:@"zh"] == NSOrderedSame) {
+            return @(AWSTranslateDisplayLanguageCodeZh);
+        }
+        if ([value caseInsensitiveCompare:@"zh-TW"] == NSOrderedSame) {
+            return @(AWSTranslateDisplayLanguageCodeZhTW);
+        }
+        return @(AWSTranslateDisplayLanguageCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranslateDisplayLanguageCodeDe:
+                return @"de";
+            case AWSTranslateDisplayLanguageCodeEn:
+                return @"en";
+            case AWSTranslateDisplayLanguageCodeEs:
+                return @"es";
+            case AWSTranslateDisplayLanguageCodeFr:
+                return @"fr";
+            case AWSTranslateDisplayLanguageCodeIt:
+                return @"it";
+            case AWSTranslateDisplayLanguageCodeJa:
+                return @"ja";
+            case AWSTranslateDisplayLanguageCodeKo:
+                return @"ko";
+            case AWSTranslateDisplayLanguageCodePt:
+                return @"pt";
+            case AWSTranslateDisplayLanguageCodeZh:
+                return @"zh";
+            case AWSTranslateDisplayLanguageCodeZhTW:
+                return @"zh-TW";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)languagesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTranslateLanguage class]];
+}
+
+@end
+
 @implementation AWSTranslateListParallelDataRequest
 
 + (BOOL)supportsSecureCoding {

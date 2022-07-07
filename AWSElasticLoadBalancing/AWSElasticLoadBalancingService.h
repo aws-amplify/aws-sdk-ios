@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -800,7 +800,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
 - (void)modifyRule:(AWSElasticLoadBalancingModifyRuleInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingModifyRuleOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Modifies the health checks used when evaluating the health state of the targets in the specified target group.</p>
+ <p>Modifies the health checks used when evaluating the health state of the targets in the specified target group.</p><p>If the protocol of the target group is TCP, TLS, UDP, or TCP_UDP, you can't modify the health check protocol, interval, timeout, or success codes.</p>
  
  @param request A container for the necessary parameters to execute the ModifyTargetGroup service method.
 
@@ -812,7 +812,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
 - (AWSTask<AWSElasticLoadBalancingModifyTargetGroupOutput *> *)modifyTargetGroup:(AWSElasticLoadBalancingModifyTargetGroupInput *)request;
 
 /**
- <p>Modifies the health checks used when evaluating the health state of the targets in the specified target group.</p>
+ <p>Modifies the health checks used when evaluating the health state of the targets in the specified target group.</p><p>If the protocol of the target group is TCP, TLS, UDP, or TCP_UDP, you can't modify the health check protocol, interval, timeout, or success codes.</p>
  
  @param request A container for the necessary parameters to execute the ModifyTargetGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
