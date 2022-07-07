@@ -250,7 +250,10 @@ extension AWSMobileClient {
         self.saveLoginsMapInKeychain()
         self.setLoginProviderMetadataAndSaveInKeychain(provider: provider)
         self.internalCredentialsProvider?.clearCredentials()
-        self.internalCredentialsProvider?.credentials(withCancellationToken:self.credentialsFetchCancellationSource)
+        self.getAWSCredentials { _, _ in
+            // We discard the result here, this call is to refresh the underlying credentials
+            // after signIn.
+        }
     }
 
 }
