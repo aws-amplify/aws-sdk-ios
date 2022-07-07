@@ -1720,6 +1720,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"autoRegistrationStatus" : @"autoRegistrationStatus",
              @"certificateArn" : @"certificateArn",
              @"certificateId" : @"certificateId",
+             @"certificateMode" : @"certificateMode",
              @"certificatePem" : @"certificatePem",
              @"creationDate" : @"creationDate",
              @"customerVersion" : @"customerVersion",
@@ -1746,6 +1747,27 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
                 return @"ENABLE";
             case AWSIoTAutoRegistrationStatusDisable:
                 return @"DISABLE";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)certificateModeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"DEFAULT"] == NSOrderedSame) {
+            return @(AWSIoTCertificateModeDefault);
+        }
+        if ([value caseInsensitiveCompare:@"SNI_ONLY"] == NSOrderedSame) {
+            return @(AWSIoTCertificateModeSniOnly);
+        }
+        return @(AWSIoTCertificateModeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTCertificateModeDefault:
+                return @"DEFAULT";
+            case AWSIoTCertificateModeSniOnly:
+                return @"SNI_ONLY";
             default:
                 return nil;
         }
@@ -12432,11 +12454,33 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 	return @{
              @"allowAutoRegistration" : @"allowAutoRegistration",
              @"caCertificate" : @"caCertificate",
+             @"certificateMode" : @"certificateMode",
              @"registrationConfig" : @"registrationConfig",
              @"setAsActive" : @"setAsActive",
              @"tags" : @"tags",
              @"verificationCertificate" : @"verificationCertificate",
              };
+}
+
++ (NSValueTransformer *)certificateModeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"DEFAULT"] == NSOrderedSame) {
+            return @(AWSIoTCertificateModeDefault);
+        }
+        if ([value caseInsensitiveCompare:@"SNI_ONLY"] == NSOrderedSame) {
+            return @(AWSIoTCertificateModeSniOnly);
+        }
+        return @(AWSIoTCertificateModeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTCertificateModeDefault:
+                return @"DEFAULT";
+            case AWSIoTCertificateModeSniOnly:
+                return @"SNI_ONLY";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)registrationConfigJSONTransformer {
