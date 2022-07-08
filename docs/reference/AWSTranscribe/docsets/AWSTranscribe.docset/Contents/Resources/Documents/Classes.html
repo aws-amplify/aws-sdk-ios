@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSTranscribe 2.27.10 Docs</a> (76% documented)</p>
+        <p><a href="index.html">AWSTranscribe 2.27.11 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTranscribe.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -180,6 +180,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSTranscribeJobExecutionSettings.html">AWSTranscribeJobExecutionSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSTranscribeLanguageCodeItem.html">AWSTranscribeLanguageCodeItem</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSTranscribeLanguageIdSettings.html">AWSTranscribeLanguageIdSettings</a>
@@ -470,7 +473,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A time range, set in seconds, between two points in the call.</p>
+                        <p>A time range, in milliseconds, between two points in your media file.</p><p>You can use <code>StartTime</code> and <code>EndTime</code> to search a custom segment. For example, setting <code>StartTime</code> to 10000 and <code>EndTime</code> to 50000 only searches for your specified criteria in the audio contained between the 10,000 millisecond mark and the 50,000 millisecond mark of your media file. You must use <code>StartTime</code> and <code>EndTime</code> as a set; that is, if you include one, you must include both.</p><p>You can use also <code>First</code> to search from the start of the audio until the time you specify, or <code>Last</code> to search from the time you specify until the end of the audio. For example, setting <code>First</code> to 50000 only searches for your specified criteria in the audio contained between the start of the media file to the 50,000 millisecond mark. You can use <code>First</code> and <code>Last</code> independently of each other.</p><p>If you prefer to use percentage instead of milliseconds, see .</p>
 
                         <a href="Classes/AWSTranscribeAbsoluteTimeRange.html" class="slightly-smaller">See more</a>
                       </div>
@@ -503,7 +506,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Describes an asynchronous analytics job that was created with the <code>StartAnalyticsJob</code> operation.</p>
+                        <p>Provides detailed information about a Call Analytics job.</p><p>To view the job&rsquo;s status, refer to <code>CallAnalyticsJobStatus</code>. If the status is <code>COMPLETED</code>, the job is finished. You can find your completed transcript at the URI specified in <code>TranscriptFileUri</code>. If the status is <code>FAILED</code>, <code>FailureReason</code> provides details on why your transcription job failed.</p><p>If you enabled personally identifiable information (PII) redaction, the redacted transcript appears at the location specified in <code>RedactedTranscriptFileUri</code>.</p><p>If you chose to redact the audio in your media file, you can find your redacted media file at the location specified in the <code>RedactedMediaFileUri</code> field of your response.</p>
 
                         <a href="Classes/AWSTranscribeCallAnalyticsJob.html" class="slightly-smaller">See more</a>
                       </div>
@@ -536,7 +539,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Provides optional settings for the <code>CallAnalyticsJob</code> operation. </p>
+                        <p>Provides additional optional settings for your request, including content redaction, automatic language identification; allows you to apply custom language models, vocabulary filters, and custom vocabularies.</p>
 
                         <a href="Classes/AWSTranscribeCallAnalyticsJobSettings.html" class="slightly-smaller">See more</a>
                       </div>
@@ -569,7 +572,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Provides summary information about a call analytics job.</p>
+                        <p>Provides detailed information about a specific Call Analytics job.</p>
 
                         <a href="Classes/AWSTranscribeCallAnalyticsJobSummary.html" class="slightly-smaller">See more</a>
                       </div>
@@ -602,7 +605,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An object that contains the rules and additional information about a call analytics category.</p>
+                        <p>Provides you with the properties of the Call Analytics category you specified in your request. This includes the list of rules that define the specified category.</p>
 
                         <a href="Classes/AWSTranscribeCategoryProperties.html" class="slightly-smaller">See more</a>
                       </div>
@@ -635,7 +638,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>For a call analytics job, an object that indicates the audio channel that belongs to the agent and the audio channel that belongs to the customer.</p>
+                        <p>Allows you to specify which speaker is on which channel. For example, if your agent is the first participant to speak, you would set <code>ChannelId</code> to <code>0</code> (to indicate the first channel) and <code>ParticipantRole</code> to <code>AGENT</code> (to indicate that it&rsquo;s the agent speaking).</p>
 
                         <a href="Classes/AWSTranscribeChannelDefinition.html" class="slightly-smaller">See more</a>
                       </div>
@@ -668,7 +671,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Settings for content redaction within a transcription job.</p>
+                        <p>Allows you to redact or flag specified personally identifiable information (PII) in your transcript. If you use <code>ContentRedaction</code>, you must also include the sub-parameters: <code>PiiEntityTypes</code>, <code>RedactionOutput</code>, and <code>RedactionType</code>.</p>
 
 <p>Required parameters: [RedactionType, RedactionOutput]</p>
 
@@ -1853,7 +1856,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The object that contains the Amazon S3 object location and access role required to train and tune your custom language model.</p>
+                        <p>Contains the Amazon S3 location of the training data you want to use to create a new custom language model, and permissions to access this location.</p><p>When using <code>InputDataConfig</code>, you must include these sub-parameters: <code>S3Uri</code> and <code>DataAccessRoleArn</code>. You can optionally include <code>TuningDataS3Uri</code>.</p>
 
 <p>Required parameters: [S3Uri, DataAccessRoleArn]</p>
 
@@ -1888,7 +1891,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An object that enables you to configure your category to be applied to call analytics jobs where either the customer or agent was interrupted.</p>
+                        <p>Flag the presence or absence of interruptions in your Call Analytics transcription output.</p><p>Rules using <code>InterruptionFilter</code> are designed to match:</p><ul><li><p>Instances where an agent interrupts a customer</p></li><li><p>Instances where a customer interrupts an agent</p></li><li><p>Either participant interrupting the other</p></li><li><p>A lack of interruptions</p></li></ul><p>See <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-create-categories.html#call-analytics-create-categories-rules">Rule criteria</a> for usage examples.</p>
 
                         <a href="Classes/AWSTranscribeInterruptionFilter.html" class="slightly-smaller">See more</a>
                       </div>
@@ -1921,7 +1924,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Provides information about when a transcription job should be executed.</p>
+                        <p>Allows you to control how your transcription job is processed. Currently, the only <code>JobExecutionSettings</code> modification you can choose is enabling job queueing using the <code>AllowDeferredExecution</code> sub-parameter.</p><p>If you include <code>JobExecutionSettings</code> in your request, you must also include the sub-parameters: <code>AllowDeferredExecution</code> and <code>DataAccessRoleArn</code>.</p>
 
                         <a href="Classes/AWSTranscribeJobExecutionSettings.html" class="slightly-smaller">See more</a>
                       </div>
@@ -1944,6 +1947,39 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSTranscribeLanguageCodeItem"></a>
+                    <a name="//apple_ref/objc/Class/AWSTranscribeLanguageCodeItem" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeLanguageCodeItem">AWSTranscribeLanguageCodeItem</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Provides information on the speech contained in a discreet utterance when multi-language identification is enabled in your request. This utterance represents a block of speech consisting of one language, preceded or followed by a block of speech in a different language.</p>
+
+                        <a href="Classes/AWSTranscribeLanguageCodeItem.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTranscribeLanguageCodeItem</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTranscribeLanguageCodeItem</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSTranscribeLanguageIdSettings"></a>
                     <a name="//apple_ref/objc/Class/AWSTranscribeLanguageIdSettings" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSTranscribeLanguageIdSettings">AWSTranscribeLanguageIdSettings</a>
@@ -1954,7 +1990,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Language-specific settings that can be specified when language identification is enabled.</p>
+                        <p>If using automatic language identification (<code>IdentifyLanguage</code>) in your request and you want to apply a custom language model, a custom vocabulary, or a custom vocabulary filter, include <code>LanguageIdSettings</code> with the relevant sub-parameters (<code>VocabularyName</code>, <code>LanguageModelName</code>, and <code>VocabularyFilterName</code>).</p><p>You can specify two or more language codes that represent the languages you think may be present in your media; including more than five is not recommended. Each language code you include can have an associated custom language model, custom vocabulary, and custom vocabulary filter. The languages you specify must match the languages of the specified custom language models, custom vocabularies, and custom vocabulary filters.</p><p>To include language options using <code>IdentifyLanguage</code><b>without</b> including a custom language model, a custom vocabulary, or a custom vocabulary filter, use <code>LanguageOptions</code> instead of <code>LanguageIdSettings</code>. Including language options can improve the accuracy of automatic language identification.</p><p>If you want to include a custom language model with your request but <b>do not</b> want to use automatic language identification, use instead the <code/> parameter with the <code>LanguageModelName</code> sub-parameter.</p><p>If you want to include a custom vocabulary or a custom vocabulary filter (or both) with your request but <b>do not</b> want to use automatic language identification, use instead the <code/> parameter with the <code>VocabularyName</code> or <code>VocabularyFilterName</code> (or both) sub-parameter.</p>
 
                         <a href="Classes/AWSTranscribeLanguageIdSettings.html" class="slightly-smaller">See more</a>
                       </div>
@@ -1987,7 +2023,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The structure used to describe a custom language model.</p>
+                        <p>Provides information about a custom language model, including the base model name, when the model was created, the location of the files used to train the model, when the model was last modified, the name you chose for the model, its language, its processing state, and if there is an upgrade available for the base model.</p>
 
                         <a href="Classes/AWSTranscribeLanguageModel.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2596,7 +2632,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Describes the input media file in a transcription request.</p>
+                        <p>Describes the Amazon S3 location of the media file you want to use in your request.</p>
 
                         <a href="Classes/AWSTranscribeMedia.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2629,7 +2665,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Identifies the location of a medical transcript.</p>
+                        <p>Provides you with the Amazon S3 URI you can use to access your transcript.</p>
 
                         <a href="Classes/AWSTranscribeMedicalTranscript.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2662,7 +2698,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The data structure that contains the information for a medical transcription job.</p>
+                        <p>Provides detailed information about a medical transcription job.</p><p>To view the status of the specified medical transcription job, check the <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>, the job is finished and you can find the results at the location specified in <code>TranscriptFileUri</code>. If the status is <code>FAILED</code>, <code>FailureReason</code> provides details on why your transcription job failed.</p>
 
                         <a href="Classes/AWSTranscribeMedicalTranscriptionJob.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2695,7 +2731,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Provides summary information about a transcription job.</p>
+                        <p>Provides detailed information about a specific medical transcription job.</p>
 
                         <a href="Classes/AWSTranscribeMedicalTranscriptionJobSummary.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2728,7 +2764,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Optional settings for the <a>StartMedicalTranscriptionJob</a> operation.</p>
+                        <p>Allows additional optional settings in your request, including channel identification, alternative transcriptions, and speaker labeling; allows you to apply custom vocabularies to your medical transcription job.</p>
 
                         <a href="Classes/AWSTranscribeMedicalTranscriptionSetting.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2761,7 +2797,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The object used to call your custom language model to your transcription job.</p>
+                        <p>Provides the name of the custom language model that was included in the specified transcription job.</p><p>Only use <code>ModelSettings</code> with the <code>LanguageModelName</code> sub-parameter if you&rsquo;re <b>not</b> using automatic language identification (<code/>). If using <code>LanguageIdSettings</code> in your request, this parameter contains a <code>LanguageModelName</code> sub-parameter.</p>
 
                         <a href="Classes/AWSTranscribeModelSettings.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2794,7 +2830,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An object that enables you to configure your category to be applied to call analytics jobs where either the customer or agent was interrupted.</p>
+                        <p>Flag the presence or absence of periods of silence in your Call Analytics transcription output.</p><p>Rules using <code>NonTalkTimeFilter</code> are designed to match:</p><ul><li><p>The presence of silence at specified periods throughout the call</p></li><li><p>The presence of speech at specified periods throughout the call</p></li></ul><p>See <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-create-categories.html#call-analytics-create-categories-rules">Rule criteria</a> for usage examples.</p>
 
                         <a href="Classes/AWSTranscribeNonTalkTimeFilter.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2827,7 +2863,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An object that allows percentages to specify the proportion of the call where you would like to apply a filter. For example, you can specify the first half of the call. You can also specify the period of time between halfway through to three-quarters of the way through the call. Because the length of conversation can vary between calls, you can apply relative time ranges across all calls. </p>
+                        <p>A time range, in percentage, between two points in your media file.</p><p>You can use <code>StartPercentage</code> and <code>EndPercentage</code> to search a custom segment. For example, setting <code>StartPercentage</code> to 10 and <code>EndPercentage</code> to 50 only searches for your specified criteria in the audio contained between the 10 percent mark and the 50 percent mark of your media file.</p><p>You can use also <code>First</code> to search from the start of the media file until the time you specify, or <code>Last</code> to search from the time you specify until the end of the media file. For example, setting <code>First</code> to 10 only searches for your specified criteria in the audio contained in the first 10 percent of the media file.</p><p>If you prefer to use milliseconds instead of percentage, see .</p>
 
                         <a href="Classes/AWSTranscribeRelativeTimeRange.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2860,7 +2896,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A condition in the call between the customer and the agent that you want to filter for.</p>
+                        <p>A rule is a set of criteria you can specify to flag an attribute in your Call Analytics output. Rules define a Call Analytics category.</p><p>Rules can include these parameters: , , , and . To learn more about these parameters, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-create-categories.html#call-analytics-create-categories-rules">Rule criteria</a>.</p><p>To learn more about Call Analytics categories, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-create-categories.html">Creating categories</a>.</p><p>To learn more about Call Analytics, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html">Analyzing call center audio with Call Analytics</a>.</p>
 
                         <a href="Classes/AWSTranscribeRule.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2893,7 +2929,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An object that enables you to specify a particular customer or agent sentiment. If at least 50 percent of the conversation turns (the back-and-forth between two speakers) in a specified time period match the specified sentiment, Amazon Transcribe will consider the sentiment a match.</p>
+                        <p>Flag the presence or absence of specific sentiments detected in your Call Analytics transcription output.</p><p>Rules using <code>SentimentFilter</code> are designed to match:</p><ul><li><p>The presence or absence of a positive sentiment felt by the customer, agent, or both at specified points in the call</p></li><li><p>The presence or absence of a negative sentiment felt by the customer, agent, or both at specified points in the call</p></li><li><p>The presence or absence of a neutral sentiment felt by the customer, agent, or both at specified points in the call</p></li><li><p>The presence or absence of a mixed sentiment felt by the customer, the agent, or both at specified points in the call</p></li></ul><p>See <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-create-categories.html#call-analytics-create-categories-rules">Rule criteria</a> for examples.</p>
 
 <p>Required parameters: [Sentiments]</p>
 
@@ -2928,7 +2964,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Provides optional settings for the <code>StartTranscriptionJob</code> operation.</p>
+                        <p>Allows additional optional settings in your request, including channel identification, alternative transcriptions, and speaker labeling; allows you to apply custom vocabularies to your transcription job.</p>
 
                         <a href="Classes/AWSTranscribeSettings.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3153,7 +3189,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Generate subtitles for your batch transcription job. Note that your subtitle files are placed in the same location as your transcription output.</p>
+                        <p>Generate subtitles for your media file with your transcription request.</p><p>You can choose a start index of 0 or 1, and you can specify either WebVTT or SubRip (or both) as your output format.</p><p>Note that your subtitle files are placed in the same location as your transcription output.</p>
 
                         <a href="Classes/AWSTranscribeSubtitles.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3186,7 +3222,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The S3 location where your subtitle files are located. Note that your subtitle files are placed in the same location as your transcription output. Refer to <code>TranscriptFileUri</code> to download your files.</p>
+                        <p>Provides information about your subtitle file, including format, start index, and Amazon S3 location.</p>
 
                         <a href="Classes/AWSTranscribeSubtitlesOutput.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3219,7 +3255,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A key:value pair that adds metadata to a resource used by Amazon Transcribe. For example, a tag with the key:value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by your organization&rsquo;s sales department.</p>
+                        <p>Adds metadata, in the form of a key:value pair, to the specified resource.</p><p>For example, you could add the tag <code>Department:Sales</code> to a resource to indicate that it pertains to your organization&rsquo;s sales department. You can also use tags for tag-based access control.</p><p>To learn more about tagging, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging resources</a>.</p>
 
 <p>Required parameters: [Key, Value]</p>
 
@@ -3317,7 +3353,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Identifies the location of a transcription.</p>
+                        <p>Provides you with the Amazon S3 URI you can use to access your transcript.</p>
 
                         <a href="Classes/AWSTranscribeTranscript.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3350,7 +3386,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Matches the output of the transcription to either the specific phrases that you specify, or the intent of the phrases that you specify.</p>
+                        <p>Flag the presence or absence of specific words or phrases detected in your Call Analytics transcription output.</p><p>Rules using <code>TranscriptFilter</code> are designed to match:</p><ul><li><p>Custom words or phrases spoken by the agent, the customer, or both</p></li><li><p>Custom words or phrases <b>not</b> spoken by the agent, the customer, or either</p></li><li><p>Custom words or phrases that occur at a specific time frame</p></li></ul><p>See <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-create-categories.html#call-analytics-create-categories-rules">Rule criteria</a> for examples.</p>
 
 <p>Required parameters: [TranscriptFilterType, Targets]</p>
 
@@ -3385,7 +3421,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Describes an asynchronous transcription job that was created with the <code>StartTranscriptionJob</code> operation. </p>
+                        <p>Provides detailed information about a transcription job.</p><p>To view the status of the specified transcription job, check the <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>, the job is finished and you can find the results at the location specified in <code>TranscriptFileUri</code>. If the status is <code>FAILED</code>, <code>FailureReason</code> provides details on why your transcription job failed.</p><p>If you enabled content redaction, the redacted transcript can be found at the location specified in <code>RedactedTranscriptFileUri</code>.</p>
 
                         <a href="Classes/AWSTranscribeTranscriptionJob.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3418,7 +3454,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Provides a summary of information about a transcription job.</p>
+                        <p>Provides detailed information about a specific transcription job.</p>
 
                         <a href="Classes/AWSTranscribeTranscriptionJobSummary.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3770,7 +3806,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Provides information about a vocabulary filter.</p>
+                        <p>Provides information about a vocabulary filter, including the language of the filter, when it was last modified, and its name.</p>
 
                         <a href="Classes/AWSTranscribeVocabularyFilterInfo.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3803,7 +3839,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Provides information about a custom vocabulary.</p>
+                        <p>Provides information about a custom vocabulary, including the language of the vocabulary, when it was last modified, its name, and the processing state.</p>
 
                         <a href="Classes/AWSTranscribeVocabularyInfo.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3875,7 +3911,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Operations and objects for transcribing speech to text.</p>
+                        <p><p>Amazon Transcribe offers three main types of batch transcription: <b>Standard</b>, <b>Medical</b>, and <b>Call Analytics</b>.</p><ul><li><p><b>Standard transcriptions</b> are the most common option. Refer to for details.</p></li><li><p><b>Medical transcriptions</b> are tailored to medical professionals and incorporate medical terms. A common use case for this service is transcribing doctor-patient dialogue into after-visit notes. Refer to for details.</p></li><li><p><b>Call Analytics transcriptions</b> are designed for use with call center audio on two different channels; if you&rsquo;re looking for insight into customer service calls, use this option. Refer to for details.</p></li></ul></p>
 
                         <a href="Classes/AWSTranscribe.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3900,7 +3936,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-06-02)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-07-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

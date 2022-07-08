@@ -17,7 +17,7 @@
     <a title="AWSTranscribeStartTranscriptionJobRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTranscribe 2.27.10 Docs</a> (76% documented)</p>
+        <p><a href="../index.html">AWSTranscribe 2.27.11 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTranscribe.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -180,6 +180,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeJobExecutionSettings.html">AWSTranscribeJobExecutionSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeLanguageCodeItem.html">AWSTranscribeLanguageCodeItem</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeLanguageIdSettings.html">AWSTranscribeLanguageIdSettings</a>
@@ -481,7 +484,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An object that contains the request parameters for content redaction.</p>
+                        <p>Allows you to redact or flag specified personally identifiable information (PII) in your transcript. If you use <code>ContentRedaction</code>, you must also include the sub-parameters: <code>PiiEntityTypes</code>, <code>RedactionOutput</code>, and <code>RedactionType</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -513,7 +516,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set this field to <code>true</code> to enable automatic language identification. Automatic language identification is disabled by default. You receive a <code>BadRequestException</code> error if you enter a value for a <code>LanguageCode</code>.</p><p>You must include either <code>LanguageCode</code> or <code>IdentifyLanguage</code> in your request.</p>
+                        <p>Enables automatic language identification in your transcription job request.</p><p>If you include <code>IdentifyLanguage</code>, you can optionally include a list of language codes, using <code>LanguageOptions</code>, that you think may be present in your media file. Including language options can improve transcription accuracy.</p><p>If you want to apply a custom language model, a custom vocabulary, or a custom vocabulary filter to your automatic language identification request, include <code>LanguageIdSettings</code> with the relevant sub-parameters (<code>VocabularyName</code>, <code>LanguageModelName</code>, and <code>VocabularyFilterName</code>).</p><p>Note that you must include one of <code>LanguageCode</code>, <code>IdentifyLanguage</code>, or <code>IdentifyMultipleLanguages</code> in your request. If you include more than one of these parameters, your transcription job fails.</p>
 
                       </div>
                       <div class="declaration">
@@ -535,6 +538,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSTranscribeStartTranscriptionJobRequest(py)identifyMultipleLanguages"></a>
+                    <a name="//apple_ref/objc/Property/identifyMultipleLanguages" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeStartTranscriptionJobRequest(py)identifyMultipleLanguages">identifyMultipleLanguages</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enables automatic multi-language identification in your transcription job request. Use this parameter if your media file contains more than one language.</p><p>If you include <code>IdentifyMultipleLanguages</code>, you can optionally include a list of language codes, using <code>LanguageOptions</code>, that you think may be present in your media file. Including language options can improve transcription accuracy.</p><p>If you want to apply a custom vocabulary or a custom vocabulary filter to your automatic language identification request, include <code>LanguageIdSettings</code> with the relevant sub-parameters (<code>VocabularyName</code> and <code>VocabularyFilterName</code>).</p><p>Note that you must include one of <code>LanguageCode</code>, <code>IdentifyLanguage</code>, or <code>IdentifyMultipleLanguages</code> in your request. If you include more than one of these parameters, your transcription job fails.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">identifyMultipleLanguages</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">identifyMultipleLanguages</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSTranscribeStartTranscriptionJobRequest(py)jobExecutionSettings"></a>
                     <a name="//apple_ref/objc/Property/jobExecutionSettings" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSTranscribeStartTranscriptionJobRequest(py)jobExecutionSettings">jobExecutionSettings</a>
@@ -545,7 +580,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Provides information about how a transcription job is executed. Use this field to indicate that the job can be queued for deferred execution if the concurrency limit is reached and there are no slots available to immediately run the job.</p>
+                        <p>Allows you to control how your transcription job is processed. Currently, the only <code>JobExecutionSettings</code> modification you can choose is enabling job queueing using the <code>AllowDeferredExecution</code> sub-parameter.</p><p>If you include <code>JobExecutionSettings</code> in your request, you must also include the sub-parameters: <code>AllowDeferredExecution</code> and <code>DataAccessRoleArn</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -577,7 +612,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A map of plain text, non-secret key:value pairs, known as encryption context pairs, that provide an added layer of security for your data.</p>
+                        <p>A map of plain text, non-secret key:value pairs, known as encryption context pairs, that provide an added layer of security for your data. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/key-management.html#kms-context">KMS encryption context</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/symmetric-asymmetric.html">Asymmetric keys in KMS</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -609,7 +644,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The language code for the language used in the input media file. You must include either <code>LanguageCode</code> or <code>IdentifyLanguage</code> in your request.</p><p>To transcribe speech in Modern Standard Arabic (ar-SA), your audio or video file must be encoded at a sample rate of 16,000 Hz or higher.</p>
+                        <p><p>The language code that represents the language spoken in the input media file.</p><p>If you&rsquo;re unsure of the language spoken in your media file, consider using <code>IdentifyLanguage</code> or <code>IdentifyMultipleLanguages</code> to enable automatic language identification.</p><p>Note that you must include one of <code>LanguageCode</code>, <code>IdentifyLanguage</code>, or <code>IdentifyMultipleLanguages</code> in your request. If you include more than one of these parameters, your transcription job fails.</p><p>For a list of supported languages and their associated language codes, refer to the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a> table.</p><note><p>To transcribe speech in Modern Standard Arabic (<code>ar-SA</code>), your media file must be encoded at a sample rate of 16,000 Hz or higher.</p></note></p>
 
                       </div>
                       <div class="declaration">
@@ -641,7 +676,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The language identification settings associated with your transcription job. These settings include <code>VocabularyName</code>, <code>VocabularyFilterName</code>, and <code>LanguageModelName</code>.</p>
+                        <p>If using automatic language identification (<code>IdentifyLanguage</code>) in your request and you want to apply a custom language model, a custom vocabulary, or a custom vocabulary filter, include <code>LanguageIdSettings</code> with the relevant sub-parameters (<code>VocabularyName</code>, <code>LanguageModelName</code>, and <code>VocabularyFilterName</code>).</p><p>You can specify two or more language codes that represent the languages you think may be present in your media; including more than five is not recommended. Each language code you include can have an associated custom language model, custom vocabulary, and custom vocabulary filter. The languages you specify must match the languages of the specified custom language models, custom vocabularies, and custom vocabulary filters.</p><p>To include language options using <code>IdentifyLanguage</code><b>without</b> including a custom language model, a custom vocabulary, or a custom vocabulary filter, use <code>LanguageOptions</code> instead of <code>LanguageIdSettings</code>. Including language options can improve the accuracy of automatic language identification.</p><p>If you want to include a custom language model with your request but <b>do not</b> want to use automatic language identification, use instead the <code/> parameter with the <code>LanguageModelName</code> sub-parameter.</p><p>If you want to include a custom vocabulary or a custom vocabulary filter (or both) with your request but <b>do not</b> want to use automatic language identification, use instead the <code/> parameter with the <code>VocabularyName</code> or <code>VocabularyFilterName</code> (or both) sub-parameter.</p>
 
                       </div>
                       <div class="declaration">
@@ -673,7 +708,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An object containing a list of languages that might be present in your collection of audio files. Automatic language identification chooses a language that best matches the source audio from that list.</p><p>To transcribe speech in Modern Standard Arabic (ar-SA), your audio or video file must be encoded at a sample rate of 16,000 Hz or higher.</p>
+                        <p>You can specify two or more language codes that represent the languages you think may be present in your media; including more than five is not recommended. If you&rsquo;re unsure what languages are present, do not include this parameter.</p><p>If you include <code>LanguageOptions</code> in your request, you must also include <code>IdentifyLanguage</code>.</p><p>For more information, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a>.</p><p>To transcribe speech in Modern Standard Arabic (<code>ar-SA</code>), your media file must be encoded at a sample rate of 16,000 Hz or higher.</p>
 
                       </div>
                       <div class="declaration">
@@ -705,7 +740,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An object that describes the input media for a transcription job.</p>
+                        <p>Describes the Amazon S3 location of the media file you want to use in your request.</p>
 
                       </div>
                       <div class="declaration">
@@ -737,7 +772,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The format of the input media file.</p>
+                        <p>Specify the format of your input media file.</p>
 
                       </div>
                       <div class="declaration">
@@ -769,7 +804,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The sample rate, in Hertz, of the audio track in the input media file. </p><p>If you do not specify the media sample rate, Amazon Transcribe determines the sample rate. If you specify the sample rate, it must match the sample rate detected by Amazon Transcribe. In most cases, you should leave the <code>MediaSampleRateHertz</code> field blank and let Amazon Transcribe determine the sample rate.</p>
+                        <p>The sample rate, in Hertz, of the audio track in your input media file.</p><p>If you don&rsquo;t specify the media sample rate, Amazon Transcribe determines it for you. If you specify the sample rate, it must match the rate detected by Amazon Transcribe; if there&rsquo;s a mismatch between the value you specify and the value detected, your job fails. Therefore, in most cases, it&rsquo;s advised to omit <code>MediaSampleRateHertz</code> and let Amazon Transcribe determine the sample rate.</p>
 
                       </div>
                       <div class="declaration">
@@ -801,7 +836,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Choose the custom language model you use for your transcription job in this parameter.</p>
+                        <p>Specify the custom language model you want to include with your transcription job. If you include <code>ModelSettings</code> in your request, you must include the <code>LanguageModelName</code> sub-parameter.</p><p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html">Custom language models</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -833,7 +868,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The location where the transcription is stored.</p><p>If you set the <code>OutputBucketName</code>, Amazon Transcribe puts the transcript in the specified S3 bucket. When you call the <a>GetTranscriptionJob</a> operation, the operation returns this location in the <code>TranscriptFileUri</code> field. If you enable content redaction, the redacted transcript appears in <code>RedactedTranscriptFileUri</code>. If you enable content redaction and choose to output an unredacted transcript, that transcript&rsquo;s location still appears in the <code>TranscriptFileUri</code>. The S3 bucket must have permissions that allow Amazon Transcribe to put files in the bucket. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user">Permissions Required for IAM User Roles</a>.</p><p>You can specify an Amazon Web Services Key Management Service (KMS) key to encrypt the output of your transcription using the <code>OutputEncryptionKMSKeyId</code> parameter. If you don&rsquo;t specify a KMS key, Amazon Transcribe uses the default Amazon S3 key for server-side encryption of transcripts that are placed in your S3 bucket.</p><p>If you don&rsquo;t set the <code>OutputBucketName</code>, Amazon Transcribe generates a pre-signed URL, a shareable URL that provides secure access to your transcription, and returns it in the <code>TranscriptFileUri</code> field. Use this URL to download the transcription.</p>
+                        <p>The name of the Amazon S3 bucket where you want your transcription output stored. Do not include the <code>S3://</code> prefix of the specified bucket.</p><p>If you want your output to go to a sub-folder of this bucket, specify it using the <code>OutputKey</code> parameter; <code>OutputBucketName</code> only accepts the name of a bucket.</p><p>For example, if you want your output stored in <code>S3://DOC-EXAMPLE-BUCKET</code>, set <code>OutputBucketName</code> to <code>DOC-EXAMPLE-BUCKET</code>. However, if you want your output stored in <code>S3://DOC-EXAMPLE-BUCKET/test-files/</code>, set <code>OutputBucketName</code> to <code>DOC-EXAMPLE-BUCKET</code> and <code>OutputKey</code> to <code>test-files/</code>.</p><p>Note that Amazon Transcribe must have permission to use the specified location. You can change Amazon S3 permissions using the <a href="https://console.aws.amazon.com/s3">Amazon Web Services Management Console</a>. See also <a href="https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user">Permissions Required for IAM User Roles</a>.</p><p>If you don&rsquo;t specify <code>OutputBucketName</code>, your transcript is placed in a service-managed Amazon S3 bucket and you are provided with a URI to access your transcript.</p>
 
                       </div>
                       <div class="declaration">
@@ -865,7 +900,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The Amazon Resource Name (ARN) of the Amazon Web Services Key Management Service (KMS) key used to encrypt the output of the transcription job. The user calling the <code>StartTranscriptionJob</code> operation must have permission to use the specified KMS key.</p><p>You can use either of the following to identify a KMS key in the current account:</p><ul><li><p>KMS Key ID: &ldquo;1234abcd-12ab-34cd-56ef-1234567890ab&rdquo;</p></li><li><p>KMS Key Alias: &ldquo;alias/ExampleAlias&rdquo;</p></li></ul><p>You can use either of the following to identify a KMS key in the current account or another account:</p><ul><li><p>Amazon Resource Name (ARN) of a KMS Key: &ldquo;arn:aws:kms:region:account ID:key/1234abcd-12ab-34cd-56ef-1234567890ab&rdquo;</p></li><li><p>ARN of a KMS Key Alias: &ldquo;arn:aws:kms:region:account-ID:alias/ExampleAlias&rdquo;</p></li></ul><p>If you don&rsquo;t specify an encryption key, the output of the transcription job is encrypted with the default Amazon S3 key (SSE-S3).</p><p>If you specify a KMS key to encrypt your output, you must also specify an output location in the <code>OutputBucketName</code> parameter.</p>
+                        <p>The KMS key you want to use to encrypt your transcription output.</p><p>If using a key located in the <b>current</b> Amazon Web Services account, you can specify your KMS key in one of four ways:</p><ol><li><p>Use the KMS key ID itself. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use an alias for the KMS key ID. For example, <code>alias/ExampleAlias</code>.</p></li><li><p>Use the Amazon Resource Name (ARN) for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If using a key located in a <b>different</b> Amazon Web Services account than the current Amazon Web Services account, you can specify your KMS key in one of two ways:</p><ol><li><p>Use the ARN for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p></li><li><p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p></li></ol><p>If you don&rsquo;t specify an encryption key, your output is encrypted with the default Amazon S3 key (SSE-S3).</p><p>If you specify a KMS key to encrypt your output, you must also specify an output location using the <code>OutputLocation</code> parameter.</p><p>Note that the user making the request must have permission to use the specified KMS key.</p>
 
                       </div>
                       <div class="declaration">
@@ -897,7 +932,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>You can specify a location in an Amazon S3 bucket to store the output of your transcription job.</p><p>If you don&rsquo;t specify an output key, Amazon Transcribe stores the output of your transcription job in the Amazon S3 bucket you specified. By default, the object key is &ldquo;your-transcription-job-name.json&rdquo;.</p><p>You can use output keys to specify the Amazon S3 prefix and file name of the transcription output. For example, specifying the Amazon S3 prefix, &ldquo;folder1/folder2/&rdquo;, as an output key would lead to the output being stored as &ldquo;folder1/folder2/your-transcription-job-name.json&rdquo;. If you specify &ldquo;my-other-job-name.json&rdquo; as the output key, the object key is changed to &ldquo;my-other-job-name.json&rdquo;. You can use an output key to change both the prefix and the file name, for example &ldquo;folder/my-other-job-name.json&rdquo;.</p><p>If you specify an output key, you must also specify an S3 bucket in the <code>OutputBucketName</code> parameter.</p>
+                        <p>Use in combination with <code>OutputBucketName</code> to specify the output location of your transcript and, optionally, a unique name for your output file. The default name for your transcription output is the same as the name you specified for your transcription job (<code>TranscriptionJobName</code>).</p><p>Here are some examples of how you can use <code>OutputKey</code>:</p><ul><li><p>If you specify &lsquo;DOC-EXAMPLE-BUCKET&rsquo; as the <code>OutputBucketName</code> and &lsquo;my-transcript.json&rsquo; as the <code>OutputKey</code>, your transcription output path is <code>s3://DOC-EXAMPLE-BUCKET/my-transcript.json</code>.</p></li><li><p>If you specify &lsquo;my-first-transcription&rsquo; as the <code>TranscriptionJobName</code>, &lsquo;DOC-EXAMPLE-BUCKET&rsquo; as the <code>OutputBucketName</code>, and &lsquo;my-transcript&rsquo; as the <code>OutputKey</code>, your transcription output path is <code>s3://DOC-EXAMPLE-BUCKET/my-transcript/my-first-transcription.json</code>.</p></li><li><p>If you specify &lsquo;DOC-EXAMPLE-BUCKET&rsquo; as the <code>OutputBucketName</code> and &lsquo;test-files/my-transcript.json&rsquo; as the <code>OutputKey</code>, your transcription output path is <code>s3://DOC-EXAMPLE-BUCKET/test-files/my-transcript.json</code>.</p></li><li><p>If you specify &lsquo;my-first-transcription&rsquo; as the <code>TranscriptionJobName</code>, &lsquo;DOC-EXAMPLE-BUCKET&rsquo; as the <code>OutputBucketName</code>, and &lsquo;test-files/my-transcript&rsquo; as the <code>OutputKey</code>, your transcription output path is <code>s3://DOC-EXAMPLE-BUCKET/test-files/my-transcript/my-first-transcription.json</code>.</p></li></ul><p>If you specify the name of an Amazon S3 bucket sub-folder that doesn&rsquo;t exist, one is created for you.</p>
 
                       </div>
                       <div class="declaration">
@@ -929,7 +964,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A <code>Settings</code> object that provides optional settings for a transcription job.</p>
+                        <p>Specify additional optional settings in your request, including channel identification, alternative transcriptions, speaker labeling; allows you to apply custom vocabularies and vocabulary filters.</p><p>If you want to include a custom vocabulary or a custom vocabulary filter (or both) with your request but <b>do not</b> want to use automatic language identification, use <code>Settings</code> with the <code>VocabularyName</code> or <code>VocabularyFilterName</code> (or both) sub-parameter.</p><p>If you&rsquo;re using automatic language identification with your request and want to include a custom language model, a custom vocabulary, or a custom vocabulary filter, use instead the <code/> parameter with the <code>LanguageModelName</code>, <code>VocabularyName</code> or <code>VocabularyFilterName</code> sub-parameters.</p>
 
                       </div>
                       <div class="declaration">
@@ -961,7 +996,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Add subtitles to your batch transcription job.</p>
+                        <p>Produces subtitle files for your input media. You can specify WebVTT (*.vtt) and SubRip (*.srt) formats.</p>
 
                       </div>
                       <div class="declaration">
@@ -993,7 +1028,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Add tags to an Amazon Transcribe transcription job.</p>
+                        <p>Adds one or more custom tags, each in the form of a key:value pair, to a new transcription job at the time you start this new job.</p><p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging resources</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -1025,7 +1060,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The name of the job. You can&rsquo;t use the strings &ldquo;<code>.</code>&rdquo; or &ldquo;<code>..</code>&rdquo; by themselves as the job name. The name must also be unique within an Amazon Web Services account. If you try to create a transcription job with the same name as a previous transcription job, you get a <code>ConflictException</code> error.</p>
+                        <p>A unique name, chosen by you, for your transcription job. The name you specify is also used as the default name of your transcription output file. If you want to specify a different name for your transcription output, use the <code>OutputKey</code> parameter.</p><p>This name is case sensitive, cannot contain spaces, and must be unique within an Amazon Web Services account. If you try to create a new job with the same name as an existing job, you get a <code>ConflictException</code> error.</p>
 
                       </div>
                       <div class="declaration">
@@ -1049,7 +1084,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-06-02)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-07-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

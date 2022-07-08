@@ -17,7 +17,7 @@
     <a title="AWSTranscribeTranscriptionJobSummary Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTranscribe 2.27.10 Docs</a> (76% documented)</p>
+        <p><a href="../index.html">AWSTranscribe 2.27.11 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTranscribe.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -180,6 +180,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeJobExecutionSettings.html">AWSTranscribeJobExecutionSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeLanguageCodeItem.html">AWSTranscribeLanguageCodeItem</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeLanguageIdSettings.html">AWSTranscribeLanguageIdSettings</a>
@@ -463,7 +466,7 @@
 
                 </div>
               </div>
-            <p>Provides a summary of information about a transcription job.</p>
+            <p>Provides detailed information about a specific transcription job.</p>
 
           </section>
           <section class="section task-group-section">
@@ -482,7 +485,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A timestamp that shows when the job was completed.</p>
+                        <p>The date and time the specified transcription job finished processing.</p><p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For example, <code>2022-05-04T12:33:13.922000-07:00</code> represents a transcription job that started processing at 12:33 PM UTC-7 on May 4, 2022.</p>
 
                       </div>
                       <div class="declaration">
@@ -546,7 +549,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A timestamp that shows when the job was created.</p>
+                        <p>The date and time the specified transcription job request was made.</p><p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For example, <code>2022-05-04T12:32:58.761000-07:00</code> represents a transcription job that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
 
                       </div>
                       <div class="declaration">
@@ -578,7 +581,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, a description of the error.</p>
+                        <p>If <code>TranscriptionJobStatus</code> is <code>FAILED</code>, <code>FailureReason</code> contains information about why the transcription job failed. See also: <a href="https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html">Common Errors</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -610,7 +613,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A value between zero and one that Amazon Transcribe assigned to the language it identified in the source audio. A higher score indicates that Amazon Transcribe is more confident in the language it identified.</p>
+                        <p>The confidence score associated with the language identified in your media file.</p><p>Confidence scores are values between 0 and 1; a larger value indicates a higher probability that the identified language correctly matches the language spoken in your media.</p>
 
                       </div>
                       <div class="declaration">
@@ -642,7 +645,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Whether automatic language identification was enabled for a transcription job.</p>
+                        <p>Indicates whether automatic language identification was enabled (<code>TRUE</code>) for the specified transcription job.</p>
 
                       </div>
                       <div class="declaration">
@@ -664,6 +667,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSTranscribeTranscriptionJobSummary(py)identifyMultipleLanguages"></a>
+                    <a name="//apple_ref/objc/Property/identifyMultipleLanguages" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeTranscriptionJobSummary(py)identifyMultipleLanguages">identifyMultipleLanguages</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indicates whether automatic multi-language identification was enabled (<code>TRUE</code>) for the specified transcription job.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">identifyMultipleLanguages</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">identifyMultipleLanguages</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSTranscribeTranscriptionJobSummary(py)languageCode"></a>
                     <a name="//apple_ref/objc/Property/languageCode" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSTranscribeTranscriptionJobSummary(py)languageCode">languageCode</a>
@@ -674,7 +709,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The language code for the input speech.</p>
+                        <p>The language code used to create your transcription.</p>
 
                       </div>
                       <div class="declaration">
@@ -696,6 +731,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSTranscribeTranscriptionJobSummary(py)languageCodes"></a>
+                    <a name="//apple_ref/objc/Property/languageCodes" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeTranscriptionJobSummary(py)languageCodes">languageCodes</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The language codes used to create your transcription job. This parameter is used with multi-language identification. For single-language identification, the singular version of this parameter, <code>LanguageCode</code>, is present.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/AWSTranscribeLanguageCodeItem.html">AWSTranscribeLanguageCodeItem</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">languageCodes</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">languageCodes</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/AWSTranscribeLanguageCodeItem.html">AWSTranscribeLanguageCodeItem</a></span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSTranscribeTranscriptionJobSummary(py)modelSettings"></a>
                     <a name="//apple_ref/objc/Property/modelSettings" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSTranscribeTranscriptionJobSummary(py)modelSettings">modelSettings</a>
@@ -706,7 +773,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The object used to call your custom language model to your transcription job.</p>
+                        <p>Provides the name of the custom language model that was included in the specified transcription job.</p><p>Only use <code>ModelSettings</code> with the <code>LanguageModelName</code> sub-parameter if you&rsquo;re <b>not</b> using automatic language identification (<code/>). If using <code>LanguageIdSettings</code> in your request, this parameter contains a <code>LanguageModelName</code> sub-parameter.</p>
 
                       </div>
                       <div class="declaration">
@@ -738,7 +805,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Indicates the location of the output of the transcription job.</p><p>If the value is <code>CUSTOMER_BUCKET</code> then the location is the S3 bucket specified in the <code>outputBucketName</code> field when the transcription job was started with the <code>StartTranscriptionJob</code> operation.</p><p>If the value is <code>SERVICE_BUCKET</code> then the output is stored by Amazon Transcribe and can be retrieved using the URI in the <code>GetTranscriptionJob</code> response&rsquo;s <code>TranscriptFileUri</code> field.</p>
+                        <p>Indicates where the specified transcription output is stored.</p><p>If the value is <code>CUSTOMER_BUCKET</code>, the location is the Amazon S3 bucket you specified using the <code>OutputBucketName</code> parameter in your request. If you also included <code>OutputKey</code> in your request, your output is located in the path you specified in your request.</p><p>If the value is <code>SERVICE_BUCKET</code>, the location is a service-managed Amazon S3 bucket. To access a transcript stored in a service-managed bucket, use the URI shown in the <code>TranscriptFileUri</code> or <code>RedactedTranscriptFileUri</code> field.</p>
 
                       </div>
                       <div class="declaration">
@@ -770,7 +837,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A timestamp that shows when the job started processing.</p>
+                        <p>The date and time your transcription job began processing.</p><p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For example, <code>2022-05-04T12:32:58.789000-07:00</code> represents a transcription job that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
 
                       </div>
                       <div class="declaration">
@@ -802,7 +869,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The name of the transcription job.</p>
+                        <p>The name of the transcription job. Job names are case sensitive and must be unique within an Amazon Web Services account.</p>
 
                       </div>
                       <div class="declaration">
@@ -834,7 +901,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The status of the transcription job. When the status is <code>COMPLETED</code>, use the <code>GetTranscriptionJob</code> operation to get the results of the transcription.</p>
+                        <p>Provides the status of your transcription job.</p><p>If the status is <code>COMPLETED</code>, the job is finished and you can find the results at the location specified in <code>TranscriptFileUri</code> (or <code>RedactedTranscriptFileUri</code>, if you requested transcript redaction). If the status is <code>FAILED</code>, <code>FailureReason</code> provides details on why your transcription job failed.</p>
 
                       </div>
                       <div class="declaration">
@@ -858,7 +925,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-06-02)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-07-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

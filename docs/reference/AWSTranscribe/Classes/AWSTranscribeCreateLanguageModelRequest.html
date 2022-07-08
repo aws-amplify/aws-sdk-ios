@@ -17,7 +17,7 @@
     <a title="AWSTranscribeCreateLanguageModelRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTranscribe 2.27.10 Docs</a> (76% documented)</p>
+        <p><a href="../index.html">AWSTranscribe 2.27.11 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTranscribe.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -180,6 +180,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeJobExecutionSettings.html">AWSTranscribeJobExecutionSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeLanguageCodeItem.html">AWSTranscribeLanguageCodeItem</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeLanguageIdSettings.html">AWSTranscribeLanguageIdSettings</a>
@@ -513,7 +516,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Contains your data access role ARN (Amazon Resource Name) and the Amazon S3 locations of your training (<code>S3Uri</code>) and tuning (<code>TuningDataS3Uri</code>) data.</p>
+                        <p>Contains the Amazon S3 location of the training data you want to use to create a new custom language model, and permissions to access this location.</p><p>When using <code>InputDataConfig</code>, you must include these sub-parameters: <code>S3Uri</code>, which is the Amazon S3 location of your training data, and <code>DataAccessRoleArn</code>, which is the Amazon Resource Name (ARN) of the role that has permission to access your specified Amazon S3 location. You can optionally include <code>TuningDataS3Uri</code>, which is the Amazon S3 location of your tuning data. If you specify different Amazon S3 locations for training and tuning data, the ARN you use must have permissions to access both locations.</p>
 
                       </div>
                       <div class="declaration">
@@ -545,7 +548,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The language of your custom language model; note that the language code you select must match the language of your training and tuning data.</p>
+                        <p>The language code that represents the language of your model. Each language model must contain terms in only one language, and the language you select for your model must match the language of your training and tuning data.</p><p>For a list of supported languages and their associated language codes, refer to the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a> table. Note that U.S. English (<code>en-US</code>) is the only language supported with Amazon Transcribe Medical.</p><p>A custom language model can only be used to transcribe files in the same language as the model. For example, if you create a language model using US English (<code>en-US</code>), you can only apply this model to files that contain English audio.</p>
 
                       </div>
                       <div class="declaration">
@@ -577,7 +580,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The name of your new custom language model.</p><p>This name is case sensitive, cannot contain spaces, and must be unique within an Amazon Web Services account. If you try to create a language model with the same name as a previous language model, you get a <code>ConflictException</code> error.</p>
+                        <p>A unique name, chosen by you, for your custom language model.</p><p>This name is case sensitive, cannot contain spaces, and must be unique within an Amazon Web Services account. If you try to create a new language model with the same name as an existing language model, you get a <code>ConflictException</code> error.</p>
 
                       </div>
                       <div class="declaration">
@@ -609,7 +612,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Optionally add tags, each in the form of a key:value pair, to your new language model. See also: .</p>
+                        <p>Adds one or more custom tags, each in the form of a key:value pair, to a new custom language model at the time you create this new model.</p><p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging resources</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -633,7 +636,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-06-02)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-07-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

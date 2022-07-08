@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSTranscribeCLMLanguageCode Enumeration Reference</title>
+    <title>AWSTranscribeLanguageCodeItem Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Enum/AWSTranscribeCLMLanguageCode" class="dashAnchor"></a>
-    <a title="AWSTranscribeCLMLanguageCode Enumeration Reference"></a>
+    <a name="//apple_ref/objc/Class/AWSTranscribeLanguageCodeItem" class="dashAnchor"></a>
+    <a title="AWSTranscribeLanguageCodeItem Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSTranscribe 2.27.11 Docs</a> (76% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSTranscribe Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        AWSTranscribeCLMLanguageCode Enumeration Reference
+        AWSTranscribeLanguageCodeItem Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -453,27 +453,20 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSTranscribeCLMLanguageCode</h1>
+            <h1>AWSTranscribeLanguageCodeItem</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSTranscribeCLMLanguageCode</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">AWSTranscribeCLMLanguageCodeUnknown</span><span class="p">,</span>
-    <span class="n">AWSTranscribeCLMLanguageCodeEnUS</span><span class="p">,</span>
-    <span class="n">AWSTranscribeCLMLanguageCodeHiIN</span><span class="p">,</span>
-    <span class="n">AWSTranscribeCLMLanguageCodeEsUS</span><span class="p">,</span>
-    <span class="n">AWSTranscribeCLMLanguageCodeEnGB</span><span class="p">,</span>
-    <span class="n">AWSTranscribeCLMLanguageCodeEnAU</span><span class="p">,</span>
-<span class="p">}</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTranscribeLanguageCodeItem</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTranscribeCLMLanguageCode</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTranscribeLanguageCodeItem</span></code></pre>
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>Provides information on the speech contained in a discreet utterance when multi-language identification is enabled in your request. This utterance represents a block of speech consisting of one language, preceded or followed by a block of speech in a different language.</p>
 
           </section>
           <section class="section task-group-section">
@@ -482,9 +475,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@AWSTranscribeCLMLanguageCode@AWSTranscribeCLMLanguageCodeUnknown"></a>
-                    <a name="//apple_ref/objc/Case/AWSTranscribeCLMLanguageCodeUnknown" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSTranscribeCLMLanguageCode@AWSTranscribeCLMLanguageCodeUnknown">AWSTranscribeCLMLanguageCodeUnknown</a>
+                    <a name="/c:objc(cs)AWSTranscribeLanguageCodeItem(py)durationInSeconds"></a>
+                    <a name="//apple_ref/objc/Property/durationInSeconds" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeLanguageCodeItem(py)durationInSeconds">durationInSeconds</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -492,19 +485,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Provides the total time, in seconds, each identified language is spoken in your media.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSTranscribeCLMLanguageCodeUnknown</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">durationInSeconds</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unknown</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">durationInSeconds</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -514,9 +507,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@AWSTranscribeCLMLanguageCode@AWSTranscribeCLMLanguageCodeEnUS"></a>
-                    <a name="//apple_ref/objc/Case/AWSTranscribeCLMLanguageCodeEnUS" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSTranscribeCLMLanguageCode@AWSTranscribeCLMLanguageCodeEnUS">AWSTranscribeCLMLanguageCodeEnUS</a>
+                    <a name="/c:objc(cs)AWSTranscribeLanguageCodeItem(py)languageCode"></a>
+                    <a name="//apple_ref/objc/Property/languageCode" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeLanguageCodeItem(py)languageCode">languageCode</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -524,147 +517,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Provides the language code for each language identified in your media.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSTranscribeCLMLanguageCodeEnUS</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSTranscribeLanguageCode.html">AWSTranscribeLanguageCode</a></span> <span class="n">languageCode</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">enUS</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@E@AWSTranscribeCLMLanguageCode@AWSTranscribeCLMLanguageCodeHiIN"></a>
-                    <a name="//apple_ref/objc/Case/AWSTranscribeCLMLanguageCodeHiIN" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSTranscribeCLMLanguageCode@AWSTranscribeCLMLanguageCodeHiIN">AWSTranscribeCLMLanguageCodeHiIN</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSTranscribeCLMLanguageCodeHiIN</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">hiIN</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@E@AWSTranscribeCLMLanguageCode@AWSTranscribeCLMLanguageCodeEsUS"></a>
-                    <a name="//apple_ref/objc/Case/AWSTranscribeCLMLanguageCodeEsUS" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSTranscribeCLMLanguageCode@AWSTranscribeCLMLanguageCodeEsUS">AWSTranscribeCLMLanguageCodeEsUS</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSTranscribeCLMLanguageCodeEsUS</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">esUS</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@E@AWSTranscribeCLMLanguageCode@AWSTranscribeCLMLanguageCodeEnGB"></a>
-                    <a name="//apple_ref/objc/Case/AWSTranscribeCLMLanguageCodeEnGB" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSTranscribeCLMLanguageCode@AWSTranscribeCLMLanguageCodeEnGB">AWSTranscribeCLMLanguageCodeEnGB</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSTranscribeCLMLanguageCodeEnGB</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">enGB</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@E@AWSTranscribeCLMLanguageCode@AWSTranscribeCLMLanguageCodeEnAU"></a>
-                    <a name="//apple_ref/objc/Case/AWSTranscribeCLMLanguageCodeEnAU" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSTranscribeCLMLanguageCode@AWSTranscribeCLMLanguageCodeEnAU">AWSTranscribeCLMLanguageCodeEnAU</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSTranscribeCLMLanguageCodeEnAU</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">enAU</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">languageCode</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSTranscribeLanguageCode.html">AWSTranscribeLanguageCode</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>

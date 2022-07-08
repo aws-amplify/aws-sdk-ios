@@ -17,7 +17,7 @@
     <a title="AWSTranscribeInterruptionFilter Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTranscribe 2.27.10 Docs</a> (76% documented)</p>
+        <p><a href="../index.html">AWSTranscribe 2.27.11 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTranscribe.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -180,6 +180,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeJobExecutionSettings.html">AWSTranscribeJobExecutionSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeLanguageCodeItem.html">AWSTranscribeLanguageCodeItem</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeLanguageIdSettings.html">AWSTranscribeLanguageIdSettings</a>
@@ -463,7 +466,7 @@
 
                 </div>
               </div>
-            <p>An object that enables you to configure your category to be applied to call analytics jobs where either the customer or agent was interrupted.</p>
+            <p>Flag the presence or absence of interruptions in your Call Analytics transcription output.</p><p>Rules using <code>InterruptionFilter</code> are designed to match:</p><ul><li><p>Instances where an agent interrupts a customer</p></li><li><p>Instances where a customer interrupts an agent</p></li><li><p>Either participant interrupting the other</p></li><li><p>A lack of interruptions</p></li></ul><p>See <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-create-categories.html#call-analytics-create-categories-rules">Rule criteria</a> for usage examples.</p>
 
           </section>
           <section class="section task-group-section">
@@ -482,7 +485,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An object you can use to specify a time range (in milliseconds) for when you&rsquo;d want to find the interruption. For example, you could search for an interruption between the 30,000 millisecond mark and the 45,000 millisecond mark. You could also specify the time period as the first 15,000 milliseconds or the last 15,000 milliseconds.</p>
+                        <p>Allows you to specify a time range (in milliseconds) in your audio, during which you want to search for an interruption. See for more detail.</p>
 
                       </div>
                       <div class="declaration">
@@ -514,7 +517,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set to <code>TRUE</code> to look for a time period where there was no interruption.</p>
+                        <p>Set to <code>TRUE</code> to flag speech that does not contain interruptions. Set to <code>FALSE</code> to flag speech that contains interruptions.</p>
 
                       </div>
                       <div class="declaration">
@@ -546,7 +549,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Indicates whether the caller or customer was interrupting.</p>
+                        <p>Specify the interrupter you want to flag. Omitting this parameter is equivalent to specifying both participants.</p>
 
                       </div>
                       <div class="declaration">
@@ -578,7 +581,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An object that allows percentages to specify the proportion of the call where there was a interruption. For example, you can specify the first half of the call. You can also specify the period of time between halfway through to three-quarters of the way through the call. Because the length of conversation can vary between calls, you can apply relative time ranges across all calls.</p>
+                        <p>Allows you to specify a time range (in percentage) in your media file, during which you want to search for an interruption. See for more detail.</p>
 
                       </div>
                       <div class="declaration">
@@ -610,7 +613,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The duration of the interruption.</p>
+                        <p>Specify the duration of the interruptions in milliseconds. For example, you can flag speech that contains more than 10000 milliseconds of interruptions.</p>
 
                       </div>
                       <div class="declaration">
@@ -634,7 +637,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-06-02)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-07-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
