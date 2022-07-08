@@ -17,7 +17,7 @@
     <a title="AWSIoTRegisterCACertificateRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSIoT 2.27.10 Docs</a> (84% documented)</p>
+        <p><a href="../index.html">AWSIoT 2.27.11 Docs</a> (84% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSIoT.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -2327,7 +2327,7 @@
               </div>
             <p>The input to the RegisterCACertificate operation.</p>
 
-<p>Required parameters: [caCertificate, verificationCertificate]</p>
+<p>Required parameters: [caCertificate]</p>
 
           </section>
           <section class="section task-group-section">
@@ -2391,6 +2391,38 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">caCertificate</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSIoTRegisterCACertificateRequest(py)certificateMode"></a>
+                    <a name="//apple_ref/objc/Property/certificateMode" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSIoTRegisterCACertificateRequest(py)certificateMode">certificateMode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Describes the certificate mode in which the Certificate Authority (CA) will be registered. If the <code><a href="../Classes/AWSIoTRegisterCACertificateRequest.html#/c:objc(cs)AWSIoTRegisterCACertificateRequest(py)verificationCertificate">verificationCertificate</a></code> field is not provided, set <code>certificateMode</code> to be <code>SNI_ONLY</code>. If the <code><a href="../Classes/AWSIoTRegisterCACertificateRequest.html#/c:objc(cs)AWSIoTRegisterCACertificateRequest(py)verificationCertificate">verificationCertificate</a></code> field is provided, set <code>certificateMode</code> to be <code>DEFAULT</code>. When <code>certificateMode</code> is not provided, it defaults to <code>DEFAULT</code>. All the device certificates that are registered using this CA will be registered in the same certificate mode as the CA. For more information about certificate mode for device certificates, see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode"> certificate mode</a>. </p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSIoTCertificateMode.html">AWSIoTCertificateMode</a></span> <span class="n">certificateMode</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">certificateMode</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSIoTCertificateMode.html">AWSIoTCertificateMode</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -2506,7 +2538,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The private key verification certificate.</p>
+                        <p>The private key verification certificate. If <code><a href="../Classes/AWSIoTRegisterCACertificateRequest.html#/c:objc(cs)AWSIoTRegisterCACertificateRequest(py)certificateMode">certificateMode</a></code> is <code>SNI_ONLY</code>, the <code>verificationCertificate</code> field must be empty. If <code><a href="../Classes/AWSIoTRegisterCACertificateRequest.html#/c:objc(cs)AWSIoTRegisterCACertificateRequest(py)certificateMode">certificateMode</a></code> is <code>DEFAULT</code> or not provided, the <code>verificationCertificate</code> field must not be empty. </p>
 
                       </div>
                       <div class="declaration">
@@ -2530,7 +2562,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-06-02)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-07-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
