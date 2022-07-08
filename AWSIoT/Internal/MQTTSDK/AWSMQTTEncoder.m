@@ -70,6 +70,7 @@
                 [_delegate encoder:self handleEvent:AWSMQTTEncoderEventReady];
             }
             else if (_status == AWSMQTTEncoderStatusSending) {
+                dispatch_assert_queue_not(self.encodeQueue);
                 dispatch_sync(self.encodeQueue, ^{
                     [self writeBytes];
                 });
@@ -89,14 +90,16 @@
 }
 
 - (void)encodeMessage:(AWSMQTTMessage*)msg {
+    dispatch_assert_queue_not(self.encodeQueue);
     dispatch_sync(self.encodeQueue, ^{
         [self encodeWhenReady:msg];
     });
 }
 
-# pragma mark - Private/Serial Functions -
+# pragma mark - private/serial functions -
 
 - (void)encodeWhenReady:(AWSMQTTMessage*)msg {
+    dispatch_assert_queue(self.encodeQueue);
     UInt8 header;
     NSInteger n, length;
 
@@ -154,6 +157,7 @@
 }
 
 - (void)writeBytes {
+    dispatch_assert_queue(self.encodeQueue);
     UInt8* ptr;
     NSInteger n, length;
 
