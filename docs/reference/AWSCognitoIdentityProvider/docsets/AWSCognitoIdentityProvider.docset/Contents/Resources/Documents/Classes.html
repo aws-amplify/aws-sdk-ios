@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSCognitoIdentityProvider 2.27.10 Docs</a> (77% documented)</p>
+        <p><a href="index.html">AWSCognitoIdentityProvider 2.27.11 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoIdentityProvider.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -789,6 +789,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes.html#/c:objc(cs)AWSCognitoIdentityProviderUpdateUserPoolResponse">AWSCognitoIdentityProviderUpdateUserPoolResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSCognitoIdentityProviderUserAttributeUpdateSettingsType.html">AWSCognitoIdentityProviderUserAttributeUpdateSettingsType</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSCognitoIdentityProviderUserContextDataType.html">AWSCognitoIdentityProviderUserContextDataType</a>
@@ -2957,7 +2960,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>The Amazon Pinpoint analytics configuration for collecting metrics for a user pool.</p><note><p>In Regions where Amazon Pinpointisn&rsquo;t available, user pools only support sending events to Amazon Pinpoint projects in us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.</p></note></p>
+                        <p><p>The Amazon Pinpoint analytics configuration necessary to collect metrics for a user pool.</p><note><p>In Regions where Amazon Pinpointisn&rsquo;t available, user pools only support sending events to Amazon Pinpoint projects in us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.</p></note></p>
 
                         <a href="Classes/AWSCognitoIdentityProviderAnalyticsConfigurationType.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2990,7 +2993,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>An Amazon Pinpoint analytics endpoint.</p><p>An endpoint uniquely identifies a mobile device, email address, or phone number that can receive messages from Amazon Pinpoint analytics.</p><note><p>Amazon Cognito user pools only support sending events to Amazon Pinpoint projects in the US East (N. Virginia) us-east-1 Region, regardless of the Region where the user pool resides.</p></note></p>
+                        <p>An Amazon Pinpoint analytics endpoint.</p><p>An endpoint uniquely identifies a mobile device, email address, or phone number that can receive messages from Amazon Pinpoint analytics. For more information about Amazon Web Services Regions that can contain Amazon Pinpoint resources for use with Amazon Cognito user pools, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-pinpoint-integration.html">Using Amazon Pinpoint analytics with Amazon Cognito user pools</a>.</p>
 
                         <a href="Classes/AWSCognitoIdentityProviderAnalyticsMetadataType.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3288,7 +3291,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The code delivery details being returned from the server.</p>
+                        <p>The delivery details for an email or SMS message that Amazon Cognito sent for authentication or verification.</p>
 
                         <a href="Classes/AWSCognitoIdentityProviderCodeDeliveryDetailsType.html" class="slightly-smaller">See more</a>
                       </div>
@@ -5320,7 +5323,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Respresents the response from the server regarding the request to reset a password.</p>
+                        <p>The response from Amazon Cognito to a request to reset a password.</p>
 
                         <a href="Classes/AWSCognitoIdentityProviderForgotPasswordResponse.html" class="slightly-smaller">See more</a>
                       </div>
@@ -6086,7 +6089,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A container for information about an identity provider.</p>
+                        <p>A container for information about an IdP.</p>
 
                         <a href="Classes/AWSCognitoIdentityProviderIdentityProviderType.html" class="slightly-smaller">See more</a>
                       </div>
@@ -7115,7 +7118,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A container for identity provider details.</p>
+                        <p>A container for IdP details.</p>
 
                         <a href="Classes/AWSCognitoIdentityProviderProviderDescription.html" class="slightly-smaller">See more</a>
                       </div>
@@ -7148,7 +7151,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A container for information about an identity provider for a user pool.</p>
+                        <p>A container for information about an IdP for a user pool.</p>
 
                         <a href="Classes/AWSCognitoIdentityProviderProviderUserIdentifierType.html" class="slightly-smaller">See more</a>
                       </div>
@@ -8373,7 +8376,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The data type for TokenValidityUnits that specifics the time measurements for token validity.</p>
+                        <p>The data type TokenValidityUnits specifies the time units you use when you set the duration of ID, access, and refresh tokens.</p>
 
                         <a href="Classes/AWSCognitoIdentityProviderTokenValidityUnitsType.html" class="slightly-smaller">See more</a>
                       </div>
@@ -9085,6 +9088,39 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSCognitoIdentityProviderUserAttributeUpdateSettingsType"></a>
+                    <a name="//apple_ref/objc/Class/AWSCognitoIdentityProviderUserAttributeUpdateSettingsType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoIdentityProviderUserAttributeUpdateSettingsType">AWSCognitoIdentityProviderUserAttributeUpdateSettingsType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>, a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users&rsquo; email address and phone number attributes. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates"> Verifying updates to to email addresses and phone numbers</a>.</p>
+
+                        <a href="Classes/AWSCognitoIdentityProviderUserAttributeUpdateSettingsType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSCognitoIdentityProviderUserAttributeUpdateSettingsType</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSCognitoIdentityProviderUserAttributeUpdateSettingsType</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSCognitoIdentityProviderUserContextDataType"></a>
                     <a name="//apple_ref/objc/Class/AWSCognitoIdentityProviderUserContextDataType" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSCognitoIdentityProviderUserContextDataType">AWSCognitoIdentityProviderUserContextDataType</a>
@@ -9361,7 +9397,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The user type.</p>
+                        <p>A user profile in a Amazon Cognito user pool.</p>
 
                         <a href="Classes/AWSCognitoIdentityProviderUserType.html" class="slightly-smaller">See more</a>
                       </div>
@@ -11363,7 +11399,7 @@ destination and delivery medium</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-06-02)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-07-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

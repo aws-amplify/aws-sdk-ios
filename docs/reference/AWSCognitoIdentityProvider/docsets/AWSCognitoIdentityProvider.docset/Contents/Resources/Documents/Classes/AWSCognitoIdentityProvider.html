@@ -17,7 +17,7 @@
     <a title="AWSCognitoIdentityProvider Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCognitoIdentityProvider 2.27.10 Docs</a> (77% documented)</p>
+        <p><a href="../index.html">AWSCognitoIdentityProvider 2.27.11 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoIdentityProvider.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -789,6 +789,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderUpdateUserPoolResponse">AWSCognitoIdentityProviderUpdateUserPoolResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUserAttributeUpdateSettingsType.html">AWSCognitoIdentityProviderUserAttributeUpdateSettingsType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSCognitoIdentityProviderUserContextDataType.html">AWSCognitoIdentityProviderUserContextDataType</a>
@@ -2346,7 +2349,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Prevents the user from signing in with the specified external (SAML or social) identity provider. If the user that you want to deactivate is a Amazon Cognito user pools native username + password user, they can&rsquo;t use their password to sign in. If the user to deactivate is a linked external identity provider (IdP) user, any link between that user and an existing user is removed. When the external user signs in again, and the user is no longer attached to the previously linked <code>DestinationUser</code>, the user must create a new user account. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminLinkProviderForUser.html">AdminLinkProviderForUser</a>.</p><p>This action is enabled only for admin access and requires developer credentials.</p><p>The <code>ProviderName</code> must match the value specified when creating an IdP for the pool. </p><p>To deactivate a native username + password user, the <code>ProviderName</code> value must be <code>Cognito</code> and the <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code>. The <code>ProviderAttributeValue</code> must be the name that is used in the user pool for the user.</p><p>The <code>ProviderAttributeName</code> must always be <code>Cognito_Subject</code> for social identity providers. The <code>ProviderAttributeValue</code> must always be the exact subject that was used when the user was originally linked as a source user.</p><p>For de-linking a SAML identity, there are two scenarios. If the linked identity has not yet been used to sign in, the <code>ProviderAttributeName</code> and <code>ProviderAttributeValue</code> must be the same values that were used for the <code>SourceUser</code> when the identities were originally linked using <code> AdminLinkProviderForUser</code> call. (If the linking was done with <code>ProviderAttributeName</code> set to <code>Cognito_Subject</code>, the same applies here). However, if the user has already signed in, the <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code> and <code>ProviderAttributeValue</code> must be the subject of the SAML assertion.</p>
+                        <p>Prevents the user from signing in with the specified external (SAML or social) identity provider (IdP). If the user that you want to deactivate is a Amazon Cognito user pools native username + password user, they can&rsquo;t use their password to sign in. If the user to deactivate is a linked external IdP user, any link between that user and an existing user is removed. When the external user signs in again, and the user is no longer attached to the previously linked <code>DestinationUser</code>, the user must create a new user account. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminLinkProviderForUser.html">AdminLinkProviderForUser</a>.</p><p>This action is enabled only for admin access and requires developer credentials.</p><p>The <code>ProviderName</code> must match the value specified when creating an IdP for the pool. </p><p>To deactivate a native username + password user, the <code>ProviderName</code> value must be <code>Cognito</code> and the <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code>. The <code>ProviderAttributeValue</code> must be the name that is used in the user pool for the user.</p><p>The <code>ProviderAttributeName</code> must always be <code>Cognito_Subject</code> for social IdPs. The <code>ProviderAttributeValue</code> must always be the exact subject that was used when the user was originally linked as a source user.</p><p>For de-linking a SAML identity, there are two scenarios. If the linked identity has not yet been used to sign in, the <code>ProviderAttributeName</code> and <code>ProviderAttributeValue</code> must be the same values that were used for the <code>SourceUser</code> when the identities were originally linked using <code> AdminLinkProviderForUser</code> call. (If the linking was done with <code>ProviderAttributeName</code> set to <code>Cognito_Subject</code>, the same applies here). However, if the user has already signed in, the <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code> and <code>ProviderAttributeValue</code> must be the subject of the SAML assertion.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderAdminDisableProviderForUserRequest</p>
@@ -2412,7 +2415,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Prevents the user from signing in with the specified external (SAML or social) identity provider. If the user that you want to deactivate is a Amazon Cognito user pools native username + password user, they can&rsquo;t use their password to sign in. If the user to deactivate is a linked external identity provider (IdP) user, any link between that user and an existing user is removed. When the external user signs in again, and the user is no longer attached to the previously linked <code>DestinationUser</code>, the user must create a new user account. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminLinkProviderForUser.html">AdminLinkProviderForUser</a>.</p><p>This action is enabled only for admin access and requires developer credentials.</p><p>The <code>ProviderName</code> must match the value specified when creating an IdP for the pool. </p><p>To deactivate a native username + password user, the <code>ProviderName</code> value must be <code>Cognito</code> and the <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code>. The <code>ProviderAttributeValue</code> must be the name that is used in the user pool for the user.</p><p>The <code>ProviderAttributeName</code> must always be <code>Cognito_Subject</code> for social identity providers. The <code>ProviderAttributeValue</code> must always be the exact subject that was used when the user was originally linked as a source user.</p><p>For de-linking a SAML identity, there are two scenarios. If the linked identity has not yet been used to sign in, the <code>ProviderAttributeName</code> and <code>ProviderAttributeValue</code> must be the same values that were used for the <code>SourceUser</code> when the identities were originally linked using <code> AdminLinkProviderForUser</code> call. (If the linking was done with <code>ProviderAttributeName</code> set to <code>Cognito_Subject</code>, the same applies here). However, if the user has already signed in, the <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code> and <code>ProviderAttributeValue</code> must be the subject of the SAML assertion.</p>
+                        <p>Prevents the user from signing in with the specified external (SAML or social) identity provider (IdP). If the user that you want to deactivate is a Amazon Cognito user pools native username + password user, they can&rsquo;t use their password to sign in. If the user to deactivate is a linked external IdP user, any link between that user and an existing user is removed. When the external user signs in again, and the user is no longer attached to the previously linked <code>DestinationUser</code>, the user must create a new user account. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminLinkProviderForUser.html">AdminLinkProviderForUser</a>.</p><p>This action is enabled only for admin access and requires developer credentials.</p><p>The <code>ProviderName</code> must match the value specified when creating an IdP for the pool. </p><p>To deactivate a native username + password user, the <code>ProviderName</code> value must be <code>Cognito</code> and the <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code>. The <code>ProviderAttributeValue</code> must be the name that is used in the user pool for the user.</p><p>The <code>ProviderAttributeName</code> must always be <code>Cognito_Subject</code> for social IdPs. The <code>ProviderAttributeValue</code> must always be the exact subject that was used when the user was originally linked as a source user.</p><p>For de-linking a SAML identity, there are two scenarios. If the linked identity has not yet been used to sign in, the <code>ProviderAttributeName</code> and <code>ProviderAttributeValue</code> must be the same values that were used for the <code>SourceUser</code> when the identities were originally linked using <code> AdminLinkProviderForUser</code> call. (If the linking was done with <code>ProviderAttributeName</code> set to <code>Cognito_Subject</code>, the same applies here). However, if the user has already signed in, the <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code> and <code>ProviderAttributeValue</code> must be the subject of the SAML assertion.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderAdminDisableProviderForUserRequest</p>
@@ -3348,7 +3351,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Links an existing user account in a user pool (<code>DestinationUser</code>) to an identity from an external identity provider (<code>SourceUser</code>) based on a specified attribute name and value from the external identity provider. This allows you to create a link from the existing user account to an external federated user identity that has not yet been used to sign in. You can then use the federated user identity to sign in as the existing user account. </p><p> For example, if there is an existing user with a username and password, this API links that user to a federated user identity. When the user signs in with a federated user identity, they sign in as the existing user account.</p><note><p>The maximum number of federated identities linked to a user is 5.</p></note><important><p>Because this API allows a user with an external federated identity to sign in as an existing user in the user pool, it is critical that it only be used with external identity providers and provider attributes that have been trusted by the application owner.</p></important><p>This action is administrative and requires developer credentials.</p>
+                        <p>Links an existing user account in a user pool (<code>DestinationUser</code>) to an identity from an external IdP (<code>SourceUser</code>) based on a specified attribute name and value from the external IdP. This allows you to create a link from the existing user account to an external federated user identity that has not yet been used to sign in. You can then use the federated user identity to sign in as the existing user account. </p><p> For example, if there is an existing user with a username and password, this API links that user to a federated user identity. When the user signs in with a federated user identity, they sign in as the existing user account.</p><note><p>The maximum number of federated identities linked to a user is five.</p></note><important><p>Because this API allows a user with an external federated identity to sign in as an existing user in the user pool, it is critical that it only be used with external IdPs and provider attributes that have been trusted by the application owner.</p></important><p>This action is administrative and requires developer credentials.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderAdminLinkProviderForUserRequest</p>
@@ -3414,7 +3417,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Links an existing user account in a user pool (<code>DestinationUser</code>) to an identity from an external identity provider (<code>SourceUser</code>) based on a specified attribute name and value from the external identity provider. This allows you to create a link from the existing user account to an external federated user identity that has not yet been used to sign in. You can then use the federated user identity to sign in as the existing user account. </p><p> For example, if there is an existing user with a username and password, this API links that user to a federated user identity. When the user signs in with a federated user identity, they sign in as the existing user account.</p><note><p>The maximum number of federated identities linked to a user is 5.</p></note><important><p>Because this API allows a user with an external federated identity to sign in as an existing user in the user pool, it is critical that it only be used with external identity providers and provider attributes that have been trusted by the application owner.</p></important><p>This action is administrative and requires developer credentials.</p>
+                        <p>Links an existing user account in a user pool (<code>DestinationUser</code>) to an identity from an external IdP (<code>SourceUser</code>) based on a specified attribute name and value from the external IdP. This allows you to create a link from the existing user account to an external federated user identity that has not yet been used to sign in. You can then use the federated user identity to sign in as the existing user account. </p><p> For example, if there is an existing user with a username and password, this API links that user to a federated user identity. When the user signs in with a federated user identity, they sign in as the existing user account.</p><note><p>The maximum number of federated identities linked to a user is five.</p></note><important><p>Because this API allows a user with an external federated identity to sign in as an existing user in the user pool, it is critical that it only be used with external IdPs and provider attributes that have been trusted by the application owner.</p></important><p>This action is administrative and requires developer credentials.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderAdminLinkProviderForUserRequest</p>
@@ -5244,7 +5247,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Signs out users from all devices, as an administrator. It also invalidates all refresh tokens issued to a user. The user&rsquo;s current access and Id tokens remain valid until their expiry. Access and Id tokens expire one hour after they&rsquo;re issued.</p><p>Calling this action requires developer credentials.</p>
+                        <p>Signs out a user from all devices. You must sign <code>AdminUserGlobalSignOut</code> requests with Amazon Web Services credentials. It also invalidates all refresh tokens that Amazon Cognito has issued to a user. The user&rsquo;s current access and ID tokens remain valid until they expire. By default, access and ID tokens expire one hour after they&rsquo;re issued. A user can still use a hosted UI cookie to retrieve new tokens for the duration of the cookie validity period of 1 hour.</p><p>Calling this action requires developer credentials.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderAdminUserGlobalSignOutRequest</p>
@@ -5309,7 +5312,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Signs out users from all devices, as an administrator. It also invalidates all refresh tokens issued to a user. The user&rsquo;s current access and Id tokens remain valid until their expiry. Access and Id tokens expire one hour after they&rsquo;re issued.</p><p>Calling this action requires developer credentials.</p>
+                        <p>Signs out a user from all devices. You must sign <code>AdminUserGlobalSignOut</code> requests with Amazon Web Services credentials. It also invalidates all refresh tokens that Amazon Cognito has issued to a user. The user&rsquo;s current access and ID tokens remain valid until they expire. By default, access and ID tokens expire one hour after they&rsquo;re issued. A user can still use a hosted UI cookie to retrieve new tokens for the duration of the cookie validity period of 1 hour.</p><p>Calling this action requires developer credentials.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderAdminUserGlobalSignOutRequest</p>
@@ -5390,7 +5393,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Returns a unique generated shared secret key code for the user account. The request takes an access token or a session string, but not both.</p><note><p>Calling AssociateSoftwareToken immediately disassociates the existing software token from the user account. If the user doesn&rsquo;t subsequently verify the software token, their account is set up to authenticate without MFA. If MFA config is set to Optional at the user pool level, the user can then log in without MFA. However, if MFA is set to Required for the user pool, the user is asked to set up a new software token MFA during sign-in.</p></note></p>
+                        <p><p>Begins setup of time-based one-time password multi-factor authentication (TOTP MFA) for a user, with a unique private key that Amazon Cognito generates and returns in the API response. You can authorize an <code>AssociateSoftwareToken</code> request with either the user&rsquo;s access token, or a session string from a challenge response that you received from Amazon Cognito.</p><note><p>Amazon Cognito disassociates an existing software token when you verify the new token in a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifySoftwareToken.html"> VerifySoftwareToken</a> API request. If you don&rsquo;t verify the software token and your user pool doesn&rsquo;t require MFA, the user can then authenticate with user name and password credentials alone. If your user pool requires TOTP MFA, Amazon Cognito generates an <code>MFA_SETUP</code> or <code>SOFTWARE_TOKEN_SETUP</code> challenge each time your user signs. Complete setup with <code>AssociateSoftwareToken</code> and <code>VerifySoftwareToken</code>.</p><p>After you set up software token MFA for your user, Amazon Cognito generates a <code>SOFTWARE_TOKEN_MFA</code> challenge when they authenticate. Respond to this challenge with your user&rsquo;s TOTP.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderAssociateSoftwareTokenRequest</p>
@@ -5455,7 +5458,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Returns a unique generated shared secret key code for the user account. The request takes an access token or a session string, but not both.</p><note><p>Calling AssociateSoftwareToken immediately disassociates the existing software token from the user account. If the user doesn&rsquo;t subsequently verify the software token, their account is set up to authenticate without MFA. If MFA config is set to Optional at the user pool level, the user can then log in without MFA. However, if MFA is set to Required for the user pool, the user is asked to set up a new software token MFA during sign-in.</p></note></p>
+                        <p><p>Begins setup of time-based one-time password multi-factor authentication (TOTP MFA) for a user, with a unique private key that Amazon Cognito generates and returns in the API response. You can authorize an <code>AssociateSoftwareToken</code> request with either the user&rsquo;s access token, or a session string from a challenge response that you received from Amazon Cognito.</p><note><p>Amazon Cognito disassociates an existing software token when you verify the new token in a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifySoftwareToken.html"> VerifySoftwareToken</a> API request. If you don&rsquo;t verify the software token and your user pool doesn&rsquo;t require MFA, the user can then authenticate with user name and password credentials alone. If your user pool requires TOTP MFA, Amazon Cognito generates an <code>MFA_SETUP</code> or <code>SOFTWARE_TOKEN_SETUP</code> challenge each time your user signs. Complete setup with <code>AssociateSoftwareToken</code> and <code>VerifySoftwareToken</code>.</p><p>After you set up software token MFA for your user, Amazon Cognito generates a <code>SOFTWARE_TOKEN_MFA</code> challenge when they authenticate. Respond to this challenge with your user&rsquo;s TOTP.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderAssociateSoftwareTokenRequest</p>
@@ -5970,7 +5973,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Confirms registration of a user and handles the existing alias from a previous user.</p>
+                        <p>Confirms registration of a new user.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderConfirmSignUpRequest</p>
@@ -6035,7 +6038,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Confirms registration of a user and handles the existing alias from a previous user.</p>
+                        <p>Confirms registration of a new user.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderConfirmSignUpRequest</p>
@@ -6258,7 +6261,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates an identity provider for a user pool.</p>
+                        <p>Creates an IdP for a user pool.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderCreateIdentityProviderRequest</p>
@@ -6323,7 +6326,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates an identity provider for a user pool.</p>
+                        <p>Creates an IdP for a user pool.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderCreateIdentityProviderRequest</p>
@@ -7263,7 +7266,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Deletes an identity provider for a user pool.</p>
+                        <p>Deletes an IdP for a user pool.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderDeleteIdentityProviderRequest</p>
@@ -7324,7 +7327,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Deletes an identity provider for a user pool.</p>
+                        <p>Deletes an IdP for a user pool.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderDeleteIdentityProviderRequest</p>
@@ -8220,7 +8223,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets information about a specific identity provider.</p>
+                        <p>Gets information about a specific IdP.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderDescribeIdentityProviderRequest</p>
@@ -8286,7 +8289,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets information about a specific identity provider.</p>
+                        <p>Gets information about a specific IdP.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderDescribeIdentityProviderRequest</p>
@@ -9947,7 +9950,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the specified identity provider.</p>
+                        <p>Gets the specified IdP.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderGetIdentityProviderByIdentifierRequest</p>
@@ -10013,7 +10016,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the specified identity provider.</p>
+                        <p>Gets the specified IdP.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderGetIdentityProviderByIdentifierRequest</p>
@@ -10528,7 +10531,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Gets the user attribute verification code for the specified attribute name.</p><note><p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p><p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox mode</a></i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p></note></p>
+                        <p><p>Generates a user attribute verification code for the specified attribute name. Sends a message to a user with a code that they must return in a VerifyUserAttribute request.</p><note><p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p><p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox mode</a></i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderGetUserAttributeVerificationCodeRequest</p>
@@ -10594,7 +10597,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Gets the user attribute verification code for the specified attribute name.</p><note><p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p><p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox mode</a></i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p></note></p>
+                        <p><p>Generates a user attribute verification code for the specified attribute name. Sends a message to a user with a code that they must return in a VerifyUserAttribute request.</p><note><p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p><p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox mode</a></i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderGetUserAttributeVerificationCodeRequest</p>
@@ -10823,7 +10826,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Signs out users from all devices. It also invalidates all refresh tokens issued to a user. The user&rsquo;s current access and ID tokens remain valid until their expiry. Access and Id tokens expire one hour after they&rsquo;re issued.</p>
+                        <p>Signs out users from all devices. It also invalidates all refresh tokens that Amazon Cognito has issued to a user. The user&rsquo;s current access and ID tokens remain valid until their expiry. By default, access and ID tokens expire one hour after Amazon Cognito issues them. A user can still use a hosted UI cookie to retrieve new tokens for the duration of the cookie validity period of 1 hour.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderGlobalSignOutRequest</p>
@@ -10888,7 +10891,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Signs out users from all devices. It also invalidates all refresh tokens issued to a user. The user&rsquo;s current access and ID tokens remain valid until their expiry. Access and Id tokens expire one hour after they&rsquo;re issued.</p>
+                        <p>Signs out users from all devices. It also invalidates all refresh tokens that Amazon Cognito has issued to a user. The user&rsquo;s current access and ID tokens remain valid until their expiry. By default, access and ID tokens expire one hour after Amazon Cognito issues them. A user can still use a hosted UI cookie to retrieve new tokens for the duration of the cookie validity period of 1 hour.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderGlobalSignOutRequest</p>
@@ -10967,7 +10970,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Initiates the authentication flow.</p><note><p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p><p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox mode</a></i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p></note></p>
+                        <p><p>Initiates sign-in for a user in the Amazon Cognito user directory. You can&rsquo;t sign in a user with a federated IdP with <code>InitiateAuth</code>. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html"> Adding user pool sign-in through a third party</a>.</p><note><p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p><p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox mode</a></i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderInitiateAuthRequest</p>
@@ -11032,7 +11035,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Initiates the authentication flow.</p><note><p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p><p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox mode</a></i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p></note></p>
+                        <p><p>Initiates sign-in for a user in the Amazon Cognito user directory. You can&rsquo;t sign in a user with a federated IdP with <code>InitiateAuth</code>. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html"> Adding user pool sign-in through a third party</a>.</p><note><p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p><p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox mode</a></i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderInitiateAuthRequest</p>
@@ -11111,7 +11114,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Lists the devices.</p>
+                        <p>Lists the sign-in devices that Amazon Cognito has registered to the current user.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderListDevicesRequest</p>
@@ -11176,7 +11179,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Lists the devices.</p>
+                        <p>Lists the sign-in devices that Amazon Cognito has registered to the current user.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderListDevicesRequest</p>
@@ -11398,7 +11401,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Lists information about all identity providers for a user pool.</p>
+                        <p>Lists information about all IdPs for a user pool.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderListIdentityProvidersRequest</p>
@@ -11463,7 +11466,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Lists information about all identity providers for a user pool.</p>
+                        <p>Lists information about all IdPs for a user pool.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderListIdentityProvidersRequest</p>
@@ -14871,7 +14874,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Updates identity provider information for a user pool.</p>
+                        <p>Updates IdP information for a user pool.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderUpdateIdentityProviderRequest</p>
@@ -14936,7 +14939,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Updates identity provider information for a user pool.</p>
+                        <p>Updates IdP information for a user pool.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderUpdateIdentityProviderRequest</p>
@@ -15309,7 +15312,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Updates the specified user pool with the specified attributes. You can get a list of the current user pool settings using <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html">DescribeUserPool</a>. If you don&rsquo;t provide a value for an attribute, it will be set to the default value.</p><note><p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p><p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox mode</a></i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p></note></p>
+                        <p><p>Updates the specified user pool with the specified attributes. You can get a list of the current user pool settings using <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html">DescribeUserPool</a>. If you don&rsquo;t provide a value for an attribute, it will be set to the default value. </p><note><p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p><p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox mode</a></i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderUpdateUserPoolRequest</p>
@@ -15374,7 +15377,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Updates the specified user pool with the specified attributes. You can get a list of the current user pool settings using <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html">DescribeUserPool</a>. If you don&rsquo;t provide a value for an attribute, it will be set to the default value.</p><note><p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p><p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox mode</a></i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p></note></p>
+                        <p><p>Updates the specified user pool with the specified attributes. You can get a list of the current user pool settings using <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html">DescribeUserPool</a>. If you don&rsquo;t provide a value for an attribute, it will be set to the default value. </p><note><p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon Pinpoint</a>. Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.</p><p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Service, Amazon Simple Notification Service might place your account in the SMS sandbox. In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox mode</a></i>, you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderUpdateUserPoolRequest</p>
@@ -15890,7 +15893,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Verifies the specified user attributes in the user pool.</p>
+                        <p>Verifies the specified user attributes in the user pool.</p><p> If your user pool requires verification before Amazon Cognito updates the attribute value, VerifyUserAttribute updates the affected attribute to its pending value. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserAttributeUpdateSettingsType.html"> UserAttributeUpdateSettingsType</a>. </p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderVerifyUserAttributeRequest</p>
@@ -15937,7 +15940,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderVerifyUserAttributeResponse">AWSCognitoIdentityProviderVerifyUserAttributeResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSCognitoIdentityProviderErrorDomain">AWSCognitoIdentityProviderErrorDomain</a></code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorCodeMismatch</code>, <code>AWSCognitoIdentityProviderErrorExpiredCode</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorLimitExceeded</code>, <code>AWSCognitoIdentityProviderErrorPasswordResetRequired</code>, <code>AWSCognitoIdentityProviderErrorUserNotFound</code>, <code>AWSCognitoIdentityProviderErrorUserNotConfirmed</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>.</p>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderVerifyUserAttributeResponse">AWSCognitoIdentityProviderVerifyUserAttributeResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSCognitoIdentityProviderErrorDomain">AWSCognitoIdentityProviderErrorDomain</a></code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorCodeMismatch</code>, <code>AWSCognitoIdentityProviderErrorExpiredCode</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorLimitExceeded</code>, <code>AWSCognitoIdentityProviderErrorPasswordResetRequired</code>, <code>AWSCognitoIdentityProviderErrorUserNotFound</code>, <code>AWSCognitoIdentityProviderErrorUserNotConfirmed</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>, <code>AWSCognitoIdentityProviderErrorAliasExists</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -15955,7 +15958,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Verifies the specified user attributes in the user pool.</p>
+                        <p>Verifies the specified user attributes in the user pool.</p><p> If your user pool requires verification before Amazon Cognito updates the attribute value, VerifyUserAttribute updates the affected attribute to its pending value. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserAttributeUpdateSettingsType.html"> UserAttributeUpdateSettingsType</a>. </p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderVerifyUserAttributeRequest</p>
@@ -16012,7 +16015,7 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSCognitoIdentityProviderErrorDomain">AWSCognitoIdentityProviderErrorDomain</a></code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorCodeMismatch</code>, <code>AWSCognitoIdentityProviderErrorExpiredCode</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorLimitExceeded</code>, <code>AWSCognitoIdentityProviderErrorPasswordResetRequired</code>, <code>AWSCognitoIdentityProviderErrorUserNotFound</code>, <code>AWSCognitoIdentityProviderErrorUserNotConfirmed</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>.</p>
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSCognitoIdentityProviderErrorDomain">AWSCognitoIdentityProviderErrorDomain</a></code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorCodeMismatch</code>, <code>AWSCognitoIdentityProviderErrorExpiredCode</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorLimitExceeded</code>, <code>AWSCognitoIdentityProviderErrorPasswordResetRequired</code>, <code>AWSCognitoIdentityProviderErrorUserNotFound</code>, <code>AWSCognitoIdentityProviderErrorUserNotConfirmed</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>, <code>AWSCognitoIdentityProviderErrorAliasExists</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -16027,7 +16030,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-06-02)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-07-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
