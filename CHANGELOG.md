@@ -5,7 +5,7 @@
 ### Bug Fixes
 
 - **AWSMobileClient**
-  - Fixes concurrent execution of fetch AWS Credentials just after signIn
+  - fix(awsmobileclient): Makes fetch aws credentials serial with the rest of the calls. (See [PR #4202](https://github.com/aws-amplify/aws-sdk-ios/pull/4202))
 
 ### Misc. Updates
 
@@ -13,6 +13,11 @@
   - AWSLambda
   - AWSIoT
   - AWSEC2
+  - AWSPolly
+  - AWSElasticLoadBalancingv2
+  - AWSTranslate
+  - AWSSTS
+  - AWSRekognition
   - AWSKMS
   - AWSComprehend
   - AWSCloudWatchLogs
