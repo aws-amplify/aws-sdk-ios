@@ -40,7 +40,6 @@ extension AWSMobileClient {
             }
             tokenOperations.append(operation)
             tokenFetchOperationQueue.addOperation(operation)
-
         case .hostedUI:
             AWSMobileClientLogging.verbose("Invoking hostedUI getTokens")
             let operation = FetchUserPoolTokensOperation(

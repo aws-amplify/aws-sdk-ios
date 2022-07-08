@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -1291,10 +1291,13 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"appInstanceArn" : @"AppInstanceArn",
+             @"channelId" : @"ChannelId",
              @"chimeBearer" : @"ChimeBearer",
              @"clientRequestToken" : @"ClientRequestToken",
+             @"memberArns" : @"MemberArns",
              @"metadata" : @"Metadata",
              @"mode" : @"Mode",
+             @"moderatorArns" : @"ModeratorArns",
              @"name" : @"Name",
              @"privacy" : @"Privacy",
              @"tags" : @"Tags",
@@ -2567,6 +2570,99 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"channelArn" : @"ChannelArn",
              @"messageId" : @"MessageId",
              };
+}
+
+@end
+
+@implementation AWSChimeSDKMessagingSearchChannelsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"chimeBearer" : @"ChimeBearer",
+             @"fields" : @"Fields",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)fieldsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSChimeSDKMessagingSearchField class]];
+}
+
+@end
+
+@implementation AWSChimeSDKMessagingSearchChannelsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"channels" : @"Channels",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)channelsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSChimeSDKMessagingChannelSummary class]];
+}
+
+@end
+
+@implementation AWSChimeSDKMessagingSearchField
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"key" : @"Key",
+             @"operator" : @"Operator",
+             @"values" : @"Values",
+             };
+}
+
++ (NSValueTransformer *)keyJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"MEMBERS"] == NSOrderedSame) {
+            return @(AWSChimeSDKMessagingSearchFieldKeyMembers);
+        }
+        return @(AWSChimeSDKMessagingSearchFieldKeyUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSChimeSDKMessagingSearchFieldKeyMembers:
+                return @"MEMBERS";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)operatorJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"EQUALS"] == NSOrderedSame) {
+            return @(AWSChimeSDKMessagingSearchFieldOperatorEquals);
+        }
+        if ([value caseInsensitiveCompare:@"INCLUDES"] == NSOrderedSame) {
+            return @(AWSChimeSDKMessagingSearchFieldOperatorIncludes);
+        }
+        return @(AWSChimeSDKMessagingSearchFieldOperatorUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSChimeSDKMessagingSearchFieldOperatorEquals:
+                return @"EQUALS";
+            case AWSChimeSDKMessagingSearchFieldOperatorIncludes:
+                return @"INCLUDES";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
