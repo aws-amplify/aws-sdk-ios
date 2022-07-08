@@ -17,7 +17,7 @@
     <a title="AWSComprehend Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSComprehend 2.27.10 Docs</a> (83% documented)</p>
+        <p><a href="../index.html">AWSComprehend 2.27.11 Docs</a> (82% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSComprehend.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -2289,7 +2289,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a model-specific endpoint for synchronous inference for a previously trained custom model </p>
+                        <p>Creates a model-specific endpoint for synchronous inference for a previously trained custom model For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSComprehendCreateEndpointRequest</p>
@@ -2353,7 +2353,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a model-specific endpoint for synchronous inference for a previously trained custom model </p>
+                        <p>Creates a model-specific endpoint for synchronous inference for a previously trained custom model For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSComprehendCreateEndpointRequest</p>
@@ -2718,7 +2718,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Deletes a model-specific endpoint for a previously-trained custom model. All endpoints must be deleted in order for the model to be deleted.</p>
+                        <p>Deletes a model-specific endpoint for a previously-trained custom model. All endpoints must be deleted in order for the model to be deleted. For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSComprehendDeleteEndpointRequest</p>
@@ -2782,7 +2782,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Deletes a model-specific endpoint for a previously-trained custom model. All endpoints must be deleted in order for the model to be deleted.</p>
+                        <p>Deletes a model-specific endpoint for a previously-trained custom model. All endpoints must be deleted in order for the model to be deleted. For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSComprehendDeleteEndpointRequest</p>
@@ -3585,7 +3585,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the properties associated with a specific endpoint. Use this operation to get the status of an endpoint.</p>
+                        <p>Gets the properties associated with a specific endpoint. Use this operation to get the status of an endpoint. For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSComprehendDescribeEndpointRequest</p>
@@ -3649,7 +3649,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the properties associated with a specific endpoint. Use this operation to get the status of an endpoint.</p>
+                        <p>Gets the properties associated with a specific endpoint. Use this operation to get the status of an endpoint. For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSComprehendDescribeEndpointRequest</p>
@@ -6608,7 +6608,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets a list of all existing endpoints that you&rsquo;ve created.</p>
+                        <p>Gets a list of all existing endpoints that you&rsquo;ve created. For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSComprehendListEndpointsRequest</p>
@@ -6672,7 +6672,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets a list of all existing endpoints that you&rsquo;ve created.</p>
+                        <p>Gets a list of all existing endpoints that you&rsquo;ve created. For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSComprehendListEndpointsRequest</p>
@@ -10371,7 +10371,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Stops a sentiment detection job in progress.</p><p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the <code>STOPPED</code> state.</p><p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400 Internal Request Exception. </p><p>When a job is stopped, any documents already processed are written to the output location.</p>
+                        <p>Stops a sentiment detection job in progress.</p><p>If the job state is <code>IN_PROGRESS</code>, the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the <code>STOPPED</code> state.</p><p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400 Internal Request Exception. </p><p>When a job is stopped, any documents already processed are written to the output location.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSComprehendStopSentimentDetectionJobRequest</p>
@@ -10436,7 +10436,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Stops a sentiment detection job in progress.</p><p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the <code>STOPPED</code> state.</p><p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400 Internal Request Exception. </p><p>When a job is stopped, any documents already processed are written to the output location.</p>
+                        <p>Stops a sentiment detection job in progress.</p><p>If the job state is <code>IN_PROGRESS</code>, the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the <code>STOPPED</code> state.</p><p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400 Internal Request Exception. </p><p>When a job is stopped, any documents already processed are written to the output location.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSComprehendStopSentimentDetectionJobRequest</p>
@@ -10516,7 +10516,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Stops a targeted sentiment detection job in progress.</p><p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the <code>STOPPED</code> state.</p><p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400 Internal Request Exception. </p><p>When a job is stopped, any documents already processed are written to the output location.</p>
+                        <p>Stops a targeted sentiment detection job in progress.</p><p>If the job state is <code>IN_PROGRESS</code>, the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the <code>STOPPED</code> state.</p><p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400 Internal Request Exception. </p><p>When a job is stopped, any documents already processed are written to the output location.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSComprehendStopTargetedSentimentDetectionJobRequest</p>
@@ -10581,7 +10581,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Stops a targeted sentiment detection job in progress.</p><p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the <code>STOPPED</code> state.</p><p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400 Internal Request Exception. </p><p>When a job is stopped, any documents already processed are written to the output location.</p>
+                        <p>Stops a targeted sentiment detection job in progress.</p><p>If the job state is <code>IN_PROGRESS</code>, the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the <code>STOPPED</code> state.</p><p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400 Internal Request Exception. </p><p>When a job is stopped, any documents already processed are written to the output location.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSComprehendStopTargetedSentimentDetectionJobRequest</p>
@@ -11235,7 +11235,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Updates information about the specified endpoint.</p>
+                        <p>Updates information about the specified endpoint. For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSComprehendUpdateEndpointRequest</p>
@@ -11299,7 +11299,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Updates information about the specified endpoint.</p>
+                        <p>Updates information about the specified endpoint. For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSComprehendUpdateEndpointRequest</p>
@@ -11368,7 +11368,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-06-02)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-07-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
