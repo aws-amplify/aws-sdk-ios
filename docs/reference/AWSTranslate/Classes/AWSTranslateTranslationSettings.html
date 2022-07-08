@@ -17,7 +17,7 @@
     <a title="AWSTranslateTranslationSettings Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTranslate 2.27.10 Docs</a> (75% documented)</p>
+        <p><a href="../index.html">AWSTranslate 2.27.11 Docs</a> (72% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTranslate.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -93,6 +93,15 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranslateJobDetails.html">AWSTranslateJobDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateLanguage.html">AWSTranslateLanguage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateListLanguagesRequest.html">AWSTranslateListLanguagesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateListLanguagesResponse.html">AWSTranslateListLanguagesResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranslateListParallelDataRequest.html">AWSTranslateListParallelDataRequest</a>
@@ -198,6 +207,9 @@
                 <a href="../Enums/AWSTranslateDirectionality.html">AWSTranslateDirectionality</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSTranslateDisplayLanguageCode.html">AWSTranslateDisplayLanguageCode</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSTranslateEncryptionKeyType.html">AWSTranslateEncryptionKeyType</a>
               </li>
               <li class="nav-group-task">
@@ -263,7 +275,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>You can optionally specify the desired level of formality for real-time translations to supported target languages. The formality setting controls the level of formal language usage (also known as <a href="https://en.wikipedia.org/wiki/Register_(sociolinguistics)">register</a>) in the translation output. You can set the value to informal or formal. If you don&rsquo;t specify a value for formality, or if the target language doesn&rsquo;t support formality, the translation will ignore the formality setting.</p><p>Note that asynchronous translation jobs don&rsquo;t support formality. If you provide a value for formality, the <code>StartTextTranslationJob</code> API throws an exception (InvalidRequestException).</p><p>For target languages that support formality, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is.html">Supported Languages and Language Codes in the Amazon Translate Developer Guide</a>.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -294,7 +307,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Enable the profanity setting if you want Amazon Translate to mask profane words and phrases in your translation output.</p><p>To mask profane words and phrases, Amazon Translate replaces them with the grawlix string “?$#@$“. This 5-character sequence is used for each profane word or phrase, regardless of the length or number of words.</p><p>Amazon Translate does not detect profanity in all of its supported languages. For languages that support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is.html#what-is-languages">Supported Languages and Language Codes in the Amazon Translate Developer Guide</a>.</p>
+                        <p>Enable the profanity setting if you want Amazon Translate to mask profane words and phrases in your translation output.</p><p>To mask profane words and phrases, Amazon Translate replaces them with the grawlix string “?$#@$“. This 5-character sequence is used for each profane word or phrase, regardless of the length or number of words.</p><p>Amazon Translate doesn&rsquo;t detect profanity in all of its supported languages. For languages that support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is.html">Supported Languages and Language Codes in the Amazon Translate Developer Guide</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -318,7 +331,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-06-03)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-07-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

@@ -17,7 +17,7 @@
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSTranslate 2.27.10 Docs</a> (75% documented)</p>
+        <p><a href="index.html">AWSTranslate 2.27.11 Docs</a> (72% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTranslate.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -93,6 +93,15 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSTranslateJobDetails.html">AWSTranslateJobDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSTranslateLanguage.html">AWSTranslateLanguage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSTranslateListLanguagesRequest.html">AWSTranslateListLanguagesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSTranslateListLanguagesResponse.html">AWSTranslateListLanguagesResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSTranslateListParallelDataRequest.html">AWSTranslateListParallelDataRequest</a>
@@ -198,6 +207,9 @@
                 <a href="Enums/AWSTranslateDirectionality.html">AWSTranslateDirectionality</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/AWSTranslateDisplayLanguageCode.html">AWSTranslateDisplayLanguageCode</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/AWSTranslateEncryptionKeyType.html">AWSTranslateEncryptionKeyType</a>
               </li>
               <li class="nav-group-task">
@@ -273,6 +285,7 @@
     <span class="n">AWSTranslateErrorServiceUnavailable</span><span class="p">,</span>
     <span class="n">AWSTranslateErrorTextSizeLimitExceeded</span><span class="p">,</span>
     <span class="n">AWSTranslateErrorTooManyRequests</span><span class="p">,</span>
+    <span class="n">AWSTranslateErrorUnsupportedDisplayLanguageCode</span><span class="p">,</span>
     <span class="n">AWSTranslateErrorUnsupportedLanguagePair</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
@@ -317,6 +330,51 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTranslateDirectionality</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSTranslateDisplayLanguageCode"></a>
+                    <a name="//apple_ref/objc/Enum/AWSTranslateDisplayLanguageCode" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranslateDisplayLanguageCode">AWSTranslateDisplayLanguageCode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSTranslateDisplayLanguageCode.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSTranslateDisplayLanguageCode</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSTranslateDisplayLanguageCodeUnknown</span><span class="p">,</span>
+    <span class="n">AWSTranslateDisplayLanguageCodeDe</span><span class="p">,</span>
+    <span class="n">AWSTranslateDisplayLanguageCodeEn</span><span class="p">,</span>
+    <span class="n">AWSTranslateDisplayLanguageCodeEs</span><span class="p">,</span>
+    <span class="n">AWSTranslateDisplayLanguageCodeFr</span><span class="p">,</span>
+    <span class="n">AWSTranslateDisplayLanguageCodeIt</span><span class="p">,</span>
+    <span class="n">AWSTranslateDisplayLanguageCodeJa</span><span class="p">,</span>
+    <span class="n">AWSTranslateDisplayLanguageCodeKo</span><span class="p">,</span>
+    <span class="n">AWSTranslateDisplayLanguageCodePt</span><span class="p">,</span>
+    <span class="n">AWSTranslateDisplayLanguageCodeZh</span><span class="p">,</span>
+    <span class="n">AWSTranslateDisplayLanguageCodeZhTW</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTranslateDisplayLanguageCode</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -631,7 +689,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-06-03)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-07-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

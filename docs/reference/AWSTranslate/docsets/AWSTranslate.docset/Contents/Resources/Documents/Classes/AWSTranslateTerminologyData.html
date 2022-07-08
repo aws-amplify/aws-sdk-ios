@@ -17,7 +17,7 @@
     <a title="AWSTranslateTerminologyData Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTranslate 2.27.10 Docs</a> (75% documented)</p>
+        <p><a href="../index.html">AWSTranslate 2.27.11 Docs</a> (72% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTranslate.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -93,6 +93,15 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranslateJobDetails.html">AWSTranslateJobDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateLanguage.html">AWSTranslateLanguage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateListLanguagesRequest.html">AWSTranslateListLanguagesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateListLanguagesResponse.html">AWSTranslateListLanguagesResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranslateListParallelDataRequest.html">AWSTranslateListParallelDataRequest</a>
@@ -198,6 +207,9 @@
                 <a href="../Enums/AWSTranslateDirectionality.html">AWSTranslateDirectionality</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSTranslateDisplayLanguageCode.html">AWSTranslateDisplayLanguageCode</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSTranslateEncryptionKeyType.html">AWSTranslateEncryptionKeyType</a>
               </li>
               <li class="nav-group-task">
@@ -244,7 +256,7 @@
 
                 </div>
               </div>
-            <p>The data associated with the custom terminology.</p>
+            <p>The data associated with the custom terminology. For information about the custom terminology file, see <a href="https://docs.aws.amazon.com/translate/latest/dg/creating-custom-terminology.html"> Creating a Custom Terminology</a>.</p>
 
 <p>Required parameters: [File, Format]</p>
 
@@ -265,7 +277,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The directionality of your terminology resource indicates whether it has one source language (uni-directional) or multiple (multi-directional).</p><dl><dt>UNI</dt><dd><p>The terminology resource has one source language (for example, the first column in a CSV file), and all of its other languages are target languages. </p></dd><dt>MULTI</dt><dd><p>Any language in the terminology resource can be the source language or a target language. A single multi-directional terminology resource can be used for jobs that translate different language pairs. For example, if the terminology contains terms in English and Spanish, then it can be used for jobs that translate English to Spanish and jobs that translate Spanish to English.</p></dd></dl><p>When you create a custom terminology resource without specifying the directionality, it behaves as uni-directional terminology, although this parameter will have a null value.</p>
+                        <p>The directionality of your terminology resource indicates whether it has one source language (uni-directional) or multiple (multi-directional).</p><dl><dt>UNI</dt><dd><p>The terminology resource has one source language (for example, the first column in a CSV file), and all of its other languages are target languages. </p></dd><dt>MULTI</dt><dd><p>Any language in the terminology resource can be the source language or a target language. A single multi-directional terminology resource can be used for jobs that translate different language pairs. For example, if the terminology contains English and Spanish terms, it can be used for jobs that translate English to Spanish and Spanish to English.</p></dd></dl><p>When you create a custom terminology resource without specifying the directionality, it behaves as uni-directional terminology, although this parameter will have a null value.</p>
 
                       </div>
                       <div class="declaration">
@@ -353,7 +365,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-06-03)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-07-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
