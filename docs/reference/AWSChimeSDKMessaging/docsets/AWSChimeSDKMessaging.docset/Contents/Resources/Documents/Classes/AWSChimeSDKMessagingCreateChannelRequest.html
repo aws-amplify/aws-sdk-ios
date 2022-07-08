@@ -17,7 +17,7 @@
     <a title="AWSChimeSDKMessagingCreateChannelRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSChimeSDKMessaging 2.27.10 Docs</a> (84% documented)</p>
+        <p><a href="../index.html">AWSChimeSDKMessaging 2.27.11 Docs</a> (84% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSChimeSDKMessaging.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -338,6 +338,15 @@
                 <a href="../Classes/AWSChimeSDKMessagingResources.html">AWSChimeSDKMessagingResources</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSChimeSDKMessagingSearchChannelsRequest.html">AWSChimeSDKMessagingSearchChannelsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSChimeSDKMessagingSearchChannelsResponse.html">AWSChimeSDKMessagingSearchChannelsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSChimeSDKMessagingSearchField.html">AWSChimeSDKMessagingSearchField</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSChimeSDKMessagingSendChannelMessageRequest.html">AWSChimeSDKMessagingSendChannelMessageRequest</a>
               </li>
               <li class="nav-group-task">
@@ -435,6 +444,12 @@
                 <a href="../Enums/AWSChimeSDKMessagingPushNotificationType.html">AWSChimeSDKMessagingPushNotificationType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSChimeSDKMessagingSearchFieldKey.html">AWSChimeSDKMessagingSearchFieldKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSChimeSDKMessagingSearchFieldOperator.html">AWSChimeSDKMessagingSearchFieldOperator</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSChimeSDKMessagingSortOrder.html">AWSChimeSDKMessagingSortOrder</a>
               </li>
             </ul>
@@ -488,6 +503,38 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">appInstanceArn</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSChimeSDKMessagingCreateChannelRequest(py)channelId"></a>
+                    <a name="//apple_ref/objc/Property/channelId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSChimeSDKMessagingCreateChannelRequest(py)channelId">channelId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The ID of the channel in the request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">channelId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">channelId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -561,6 +608,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSChimeSDKMessagingCreateChannelRequest(py)memberArns"></a>
+                    <a name="//apple_ref/objc/Property/memberArns" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSChimeSDKMessagingCreateChannelRequest(py)memberArns">memberArns</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The ARNs of the channel members in the request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">memberArns</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">memberArns</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSChimeSDKMessagingCreateChannelRequest(py)metadata"></a>
                     <a name="//apple_ref/objc/Property/metadata" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSChimeSDKMessagingCreateChannelRequest(py)metadata">metadata</a>
@@ -616,6 +695,38 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">mode</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSChimeSDKMessagingChannelMode.html">AWSChimeSDKMessagingChannelMode</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSChimeSDKMessagingCreateChannelRequest(py)moderatorArns"></a>
+                    <a name="//apple_ref/objc/Property/moderatorArns" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSChimeSDKMessagingCreateChannelRequest(py)moderatorArns">moderatorArns</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The ARNs of the channel moderators in the request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">moderatorArns</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">moderatorArns</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -723,7 +834,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-06-02)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-07-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

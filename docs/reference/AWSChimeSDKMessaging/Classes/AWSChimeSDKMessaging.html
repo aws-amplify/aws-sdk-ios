@@ -17,7 +17,7 @@
     <a title="AWSChimeSDKMessaging Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSChimeSDKMessaging 2.27.10 Docs</a> (84% documented)</p>
+        <p><a href="../index.html">AWSChimeSDKMessaging 2.27.11 Docs</a> (84% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSChimeSDKMessaging.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -338,6 +338,15 @@
                 <a href="../Classes/AWSChimeSDKMessagingResources.html">AWSChimeSDKMessagingResources</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSChimeSDKMessagingSearchChannelsRequest.html">AWSChimeSDKMessagingSearchChannelsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSChimeSDKMessagingSearchChannelsResponse.html">AWSChimeSDKMessagingSearchChannelsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSChimeSDKMessagingSearchField.html">AWSChimeSDKMessagingSearchField</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSChimeSDKMessagingSendChannelMessageRequest.html">AWSChimeSDKMessagingSendChannelMessageRequest</a>
               </li>
               <li class="nav-group-task">
@@ -435,6 +444,12 @@
                 <a href="../Enums/AWSChimeSDKMessagingPushNotificationType.html">AWSChimeSDKMessagingPushNotificationType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSChimeSDKMessagingSearchFieldKey.html">AWSChimeSDKMessagingSearchFieldKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSChimeSDKMessagingSearchFieldOperator.html">AWSChimeSDKMessagingSearchFieldOperator</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSChimeSDKMessagingSortOrder.html">AWSChimeSDKMessagingSortOrder</a>
               </li>
             </ul>
@@ -457,7 +472,7 @@
 
                 </div>
               </div>
-            <p>The Amazon Chime SDK Messaging APIs in this section allow software developers to send and receive messages in custom messaging applications. These APIs depend on the frameworks provided by the Amazon Chime SDK Identity APIs. For more information about the messaging APIs, see <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging">Amazon Chime SDK messaging</a></p>
+            <p>The Amazon Chime SDK Messaging APIs in this section allow software developers to send and receive messages in custom messaging applications. These APIs depend on the frameworks provided by the Amazon Chime SDK Identity APIs. For more information about the messaging APIs, see <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging.html">Amazon Chime SDK messaging</a>.</p>
 
           </section>
           <section class="section task-group-section">
@@ -6165,7 +6180,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSChimeSDKMessagingRedactChannelMessageResponse.html">AWSChimeSDKMessagingRedactChannelMessageResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSChimeSDKMessagingErrorDomain">AWSChimeSDKMessagingErrorDomain</a></code> domain and the following error code: <code>AWSChimeSDKMessagingErrorBadRequest</code>, <code>AWSChimeSDKMessagingErrorForbidden</code>, <code>AWSChimeSDKMessagingErrorUnauthorizedClient</code>, <code>AWSChimeSDKMessagingErrorThrottledClient</code>, <code>AWSChimeSDKMessagingErrorServiceUnavailable</code>, <code>AWSChimeSDKMessagingErrorServiceFailure</code>.</p>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSChimeSDKMessagingRedactChannelMessageResponse.html">AWSChimeSDKMessagingRedactChannelMessageResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSChimeSDKMessagingErrorDomain">AWSChimeSDKMessagingErrorDomain</a></code> domain and the following error code: <code>AWSChimeSDKMessagingErrorBadRequest</code>, <code>AWSChimeSDKMessagingErrorForbidden</code>, <code>AWSChimeSDKMessagingErrorConflict</code>, <code>AWSChimeSDKMessagingErrorUnauthorizedClient</code>, <code>AWSChimeSDKMessagingErrorThrottledClient</code>, <code>AWSChimeSDKMessagingErrorServiceUnavailable</code>, <code>AWSChimeSDKMessagingErrorServiceFailure</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -6226,6 +6241,150 @@
                               <td>
                                 <div>
                                   <p>A container for the necessary parameters to execute the RedactChannelMessage service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSChimeSDKMessagingErrorDomain">AWSChimeSDKMessagingErrorDomain</a></code> domain and the following error code: <code>AWSChimeSDKMessagingErrorBadRequest</code>, <code>AWSChimeSDKMessagingErrorForbidden</code>, <code>AWSChimeSDKMessagingErrorConflict</code>, <code>AWSChimeSDKMessagingErrorUnauthorizedClient</code>, <code>AWSChimeSDKMessagingErrorThrottledClient</code>, <code>AWSChimeSDKMessagingErrorServiceUnavailable</code>, <code>AWSChimeSDKMessagingErrorServiceFailure</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSChimeSDKMessaging(im)searchChannels:"></a>
+                    <a name="//apple_ref/objc/Method/-searchChannels:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSChimeSDKMessaging(im)searchChannels:">-searchChannels:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Allows an <code>AppInstanceUser</code> to search the channels that they belong to. The <code>AppInstanceUser</code> can search by membership or external ID. An <code>AppInstanceAdmin</code> can search across all channels within the <code>AppInstance</code>.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSChimeSDKMessagingSearchChannelsRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSChimeSDKMessagingSearchChannelsResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">searchChannels</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSChimeSDKMessagingSearchChannelsRequest.html">AWSChimeSDKMessagingSearchChannelsRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">searchChannels</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSChimeSDKMessagingSearchChannelsRequest.html">AWSChimeSDKMessagingSearchChannelsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the SearchChannels service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSChimeSDKMessagingSearchChannelsResponse.html">AWSChimeSDKMessagingSearchChannelsResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSChimeSDKMessagingErrorDomain">AWSChimeSDKMessagingErrorDomain</a></code> domain and the following error code: <code>AWSChimeSDKMessagingErrorBadRequest</code>, <code>AWSChimeSDKMessagingErrorForbidden</code>, <code>AWSChimeSDKMessagingErrorUnauthorizedClient</code>, <code>AWSChimeSDKMessagingErrorThrottledClient</code>, <code>AWSChimeSDKMessagingErrorServiceUnavailable</code>, <code>AWSChimeSDKMessagingErrorServiceFailure</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSChimeSDKMessaging(im)searchChannels:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-searchChannels:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSChimeSDKMessaging(im)searchChannels:completionHandler:">-searchChannels:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Allows an <code>AppInstanceUser</code> to search the channels that they belong to. The <code>AppInstanceUser</code> can search by membership or external ID. An <code>AppInstanceAdmin</code> can search across all channels within the <code>AppInstance</code>.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSChimeSDKMessagingSearchChannelsRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSChimeSDKMessagingSearchChannelsResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">searchChannels</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSChimeSDKMessagingSearchChannelsRequest.html">AWSChimeSDKMessagingSearchChannelsRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+     <span class="nf">completionHandler</span><span class="p">:</span>
+         <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+             <span class="n"><a href="../Classes/AWSChimeSDKMessagingSearchChannelsResponse.html">AWSChimeSDKMessagingSearchChannelsResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+             <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">searchChannels</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSChimeSDKMessagingSearchChannelsRequest.html">AWSChimeSDKMessagingSearchChannelsRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSChimeSDKMessagingSearchChannelsResponse.html">AWSChimeSDKMessagingSearchChannelsResponse</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the SearchChannels service method.</p>
                                 </div>
                               </td>
                             </tr>
@@ -7235,7 +7394,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-06-02)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-07-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
