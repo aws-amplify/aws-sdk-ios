@@ -87,7 +87,7 @@ final public class AWSMobileClient: _AWSMobileClient {
     /// come as the second step in custom auth.
     var userPassword: String? = nil
 
-    var tokenOperations:[FetchUserPoolTokensOperation] = []
+    var tokenOperations:NSHashTable<FetchUserPoolTokensOperation> = NSHashTable.weakObjects()
 
     // MARK: Public API variables
     
@@ -320,8 +320,8 @@ final public class AWSMobileClient: _AWSMobileClient {
     
     internal func mobileClientStatusChanged(userState: UserState, additionalInfo: [String: String]) {
         self.currentUserState = userState
-        tokenOperations.forEach { op in
-            op.authStateChanged(currentUserState)
+        for operation in tokenOperations.allObjects {
+            operation.authStateChanged(currentUserState)
         }
         for listener in listeners {
             listener.1(userState, additionalInfo)

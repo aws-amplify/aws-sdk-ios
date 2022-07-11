@@ -54,6 +54,8 @@ class FetchUserPoolTokensOperation: AWSAsyncOperation {
     }
 
     func acceptEvent(_ event: TokenFetchEvent) {
+        guard !self.isFinished else { return }
+        
         stateQueue.async { [weak self] in
             guard let self = self else { return }
 
