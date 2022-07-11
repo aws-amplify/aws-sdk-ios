@@ -722,6 +722,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)associateTransitGatewayMulticastDomain:(AWSEC2AssociateTransitGatewayMulticastDomainRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AssociateTransitGatewayMulticastDomainResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Associates the specified transit gateway attachment with a transit gateway policy table.</p>
+ 
+ @param request A container for the necessary parameters to execute the AssociateTransitGatewayPolicyTable service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2AssociateTransitGatewayPolicyTableResult`.
+ 
+ @see AWSEC2AssociateTransitGatewayPolicyTableRequest
+ @see AWSEC2AssociateTransitGatewayPolicyTableResult
+ */
+- (AWSTask<AWSEC2AssociateTransitGatewayPolicyTableResult *> *)associateTransitGatewayPolicyTable:(AWSEC2AssociateTransitGatewayPolicyTableRequest *)request;
+
+/**
+ <p>Associates the specified transit gateway attachment with a transit gateway policy table.</p>
+ 
+ @param request A container for the necessary parameters to execute the AssociateTransitGatewayPolicyTable service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2AssociateTransitGatewayPolicyTableRequest
+ @see AWSEC2AssociateTransitGatewayPolicyTableResult
+ */
+- (void)associateTransitGatewayPolicyTable:(AWSEC2AssociateTransitGatewayPolicyTableRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AssociateTransitGatewayPolicyTableResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Associates the specified attachment with the specified transit gateway route table. You can associate only one route table with an attachment.</p>
  
  @param request A container for the necessary parameters to execute the AssociateTransitGatewayRouteTable service method.
@@ -2732,7 +2757,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createTransitGatewayMulticastDomain:(AWSEC2CreateTransitGatewayMulticastDomainRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateTransitGatewayMulticastDomainResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Requests a transit gateway peering attachment between the specified transit gateway (requester) and a peer transit gateway (accepter). The peer transit gateway can be in your account or a different Amazon Web Services account.</p><p>After you create the peering attachment, the owner of the accepter transit gateway must accept the attachment request.</p>
+ <p>Requests a transit gateway peering attachment between the specified transit gateway (requester) and a peer transit gateway (accepter). The transit gateways must be in different Regions. The peer transit gateway can be in your account or a different Amazon Web Services account.</p><p>After you create the peering attachment, the owner of the accepter transit gateway must accept the attachment request.</p>
  
  @param request A container for the necessary parameters to execute the CreateTransitGatewayPeeringAttachment service method.
 
@@ -2744,7 +2769,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateTransitGatewayPeeringAttachmentResult *> *)createTransitGatewayPeeringAttachment:(AWSEC2CreateTransitGatewayPeeringAttachmentRequest *)request;
 
 /**
- <p>Requests a transit gateway peering attachment between the specified transit gateway (requester) and a peer transit gateway (accepter). The peer transit gateway can be in your account or a different Amazon Web Services account.</p><p>After you create the peering attachment, the owner of the accepter transit gateway must accept the attachment request.</p>
+ <p>Requests a transit gateway peering attachment between the specified transit gateway (requester) and a peer transit gateway (accepter). The transit gateways must be in different Regions. The peer transit gateway can be in your account or a different Amazon Web Services account.</p><p>After you create the peering attachment, the owner of the accepter transit gateway must accept the attachment request.</p>
  
  @param request A container for the necessary parameters to execute the CreateTransitGatewayPeeringAttachment service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2755,6 +2780,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2CreateTransitGatewayPeeringAttachmentResult
  */
 - (void)createTransitGatewayPeeringAttachment:(AWSEC2CreateTransitGatewayPeeringAttachmentRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateTransitGatewayPeeringAttachmentResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Creates a transit gateway policy table.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateTransitGatewayPolicyTable service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateTransitGatewayPolicyTableResult`.
+ 
+ @see AWSEC2CreateTransitGatewayPolicyTableRequest
+ @see AWSEC2CreateTransitGatewayPolicyTableResult
+ */
+- (AWSTask<AWSEC2CreateTransitGatewayPolicyTableResult *> *)createTransitGatewayPolicyTable:(AWSEC2CreateTransitGatewayPolicyTableRequest *)request;
+
+/**
+ <p>Creates a transit gateway policy table.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateTransitGatewayPolicyTable service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateTransitGatewayPolicyTableRequest
+ @see AWSEC2CreateTransitGatewayPolicyTableResult
+ */
+- (void)createTransitGatewayPolicyTable:(AWSEC2CreateTransitGatewayPolicyTableRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateTransitGatewayPolicyTableResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Creates a reference (route) to a prefix list in a specified transit gateway route table.</p>
@@ -2830,6 +2880,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2CreateTransitGatewayRouteTableResult
  */
 - (void)createTransitGatewayRouteTable:(AWSEC2CreateTransitGatewayRouteTableRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateTransitGatewayRouteTableResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Advertises a new transit gateway route table.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateTransitGatewayRouteTableAnnouncement service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateTransitGatewayRouteTableAnnouncementResult`.
+ 
+ @see AWSEC2CreateTransitGatewayRouteTableAnnouncementRequest
+ @see AWSEC2CreateTransitGatewayRouteTableAnnouncementResult
+ */
+- (AWSTask<AWSEC2CreateTransitGatewayRouteTableAnnouncementResult *> *)createTransitGatewayRouteTableAnnouncement:(AWSEC2CreateTransitGatewayRouteTableAnnouncementRequest *)request;
+
+/**
+ <p>Advertises a new transit gateway route table.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateTransitGatewayRouteTableAnnouncement service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateTransitGatewayRouteTableAnnouncementRequest
+ @see AWSEC2CreateTransitGatewayRouteTableAnnouncementResult
+ */
+- (void)createTransitGatewayRouteTableAnnouncement:(AWSEC2CreateTransitGatewayRouteTableAnnouncementRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateTransitGatewayRouteTableAnnouncementResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Attaches the specified VPC to the specified transit gateway.</p><p>If you attach a VPC with a CIDR range that overlaps the CIDR range of a VPC that is already attached, the new VPC CIDR range is not propagated to the default propagation route table.</p><p>To send VPC traffic to an attached transit gateway, add a route to the VPC route table using <a>CreateRoute</a>.</p>
@@ -4259,6 +4334,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deleteTransitGatewayPeeringAttachment:(AWSEC2DeleteTransitGatewayPeeringAttachmentRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteTransitGatewayPeeringAttachmentResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Deletes the specified transit gateway policy table.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTransitGatewayPolicyTable service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteTransitGatewayPolicyTableResult`.
+ 
+ @see AWSEC2DeleteTransitGatewayPolicyTableRequest
+ @see AWSEC2DeleteTransitGatewayPolicyTableResult
+ */
+- (AWSTask<AWSEC2DeleteTransitGatewayPolicyTableResult *> *)deleteTransitGatewayPolicyTable:(AWSEC2DeleteTransitGatewayPolicyTableRequest *)request;
+
+/**
+ <p>Deletes the specified transit gateway policy table.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTransitGatewayPolicyTable service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteTransitGatewayPolicyTableRequest
+ @see AWSEC2DeleteTransitGatewayPolicyTableResult
+ */
+- (void)deleteTransitGatewayPolicyTable:(AWSEC2DeleteTransitGatewayPolicyTableRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteTransitGatewayPolicyTableResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Deletes a reference (route) to a prefix list in a specified transit gateway route table.</p>
  
  @param request A container for the necessary parameters to execute the DeleteTransitGatewayPrefixListReference service method.
@@ -4332,6 +4432,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2DeleteTransitGatewayRouteTableResult
  */
 - (void)deleteTransitGatewayRouteTable:(AWSEC2DeleteTransitGatewayRouteTableRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteTransitGatewayRouteTableResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Advertises to the transit gateway that a transit gateway route table is deleted.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTransitGatewayRouteTableAnnouncement service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteTransitGatewayRouteTableAnnouncementResult`.
+ 
+ @see AWSEC2DeleteTransitGatewayRouteTableAnnouncementRequest
+ @see AWSEC2DeleteTransitGatewayRouteTableAnnouncementResult
+ */
+- (AWSTask<AWSEC2DeleteTransitGatewayRouteTableAnnouncementResult *> *)deleteTransitGatewayRouteTableAnnouncement:(AWSEC2DeleteTransitGatewayRouteTableAnnouncementRequest *)request;
+
+/**
+ <p>Advertises to the transit gateway that a transit gateway route table is deleted.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTransitGatewayRouteTableAnnouncement service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteTransitGatewayRouteTableAnnouncementRequest
+ @see AWSEC2DeleteTransitGatewayRouteTableAnnouncementResult
+ */
+- (void)deleteTransitGatewayRouteTableAnnouncement:(AWSEC2DeleteTransitGatewayRouteTableAnnouncementRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteTransitGatewayRouteTableAnnouncementResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deletes the specified VPC attachment.</p>
@@ -7541,6 +7666,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeTransitGatewayPeeringAttachments:(AWSEC2DescribeTransitGatewayPeeringAttachmentsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeTransitGatewayPeeringAttachmentsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Describes one or more transit gateway route policy tables. </p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTransitGatewayPolicyTables service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeTransitGatewayPolicyTablesResult`.
+ 
+ @see AWSEC2DescribeTransitGatewayPolicyTablesRequest
+ @see AWSEC2DescribeTransitGatewayPolicyTablesResult
+ */
+- (AWSTask<AWSEC2DescribeTransitGatewayPolicyTablesResult *> *)describeTransitGatewayPolicyTables:(AWSEC2DescribeTransitGatewayPolicyTablesRequest *)request;
+
+/**
+ <p>Describes one or more transit gateway route policy tables. </p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTransitGatewayPolicyTables service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeTransitGatewayPolicyTablesRequest
+ @see AWSEC2DescribeTransitGatewayPolicyTablesResult
+ */
+- (void)describeTransitGatewayPolicyTables:(AWSEC2DescribeTransitGatewayPolicyTablesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeTransitGatewayPolicyTablesResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes one or more transit gateway route table advertisements.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTransitGatewayRouteTableAnnouncements service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeTransitGatewayRouteTableAnnouncementsResult`.
+ 
+ @see AWSEC2DescribeTransitGatewayRouteTableAnnouncementsRequest
+ @see AWSEC2DescribeTransitGatewayRouteTableAnnouncementsResult
+ */
+- (AWSTask<AWSEC2DescribeTransitGatewayRouteTableAnnouncementsResult *> *)describeTransitGatewayRouteTableAnnouncements:(AWSEC2DescribeTransitGatewayRouteTableAnnouncementsRequest *)request;
+
+/**
+ <p>Describes one or more transit gateway route table advertisements.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTransitGatewayRouteTableAnnouncements service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeTransitGatewayRouteTableAnnouncementsRequest
+ @see AWSEC2DescribeTransitGatewayRouteTableAnnouncementsResult
+ */
+- (void)describeTransitGatewayRouteTableAnnouncements:(AWSEC2DescribeTransitGatewayRouteTableAnnouncementsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeTransitGatewayRouteTableAnnouncementsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Describes one or more transit gateway route tables. By default, all transit gateway route tables are described. Alternatively, you can filter the results.</p>
  
  @param request A container for the necessary parameters to execute the DescribeTransitGatewayRouteTables service method.
@@ -8621,6 +8796,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2DisassociateTransitGatewayMulticastDomainResult
  */
 - (void)disassociateTransitGatewayMulticastDomain:(AWSEC2DisassociateTransitGatewayMulticastDomainRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisassociateTransitGatewayMulticastDomainResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Removes the association between an an attachment and a policy table.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisassociateTransitGatewayPolicyTable service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DisassociateTransitGatewayPolicyTableResult`.
+ 
+ @see AWSEC2DisassociateTransitGatewayPolicyTableRequest
+ @see AWSEC2DisassociateTransitGatewayPolicyTableResult
+ */
+- (AWSTask<AWSEC2DisassociateTransitGatewayPolicyTableResult *> *)disassociateTransitGatewayPolicyTable:(AWSEC2DisassociateTransitGatewayPolicyTableRequest *)request;
+
+/**
+ <p>Removes the association between an an attachment and a policy table.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisassociateTransitGatewayPolicyTable service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DisassociateTransitGatewayPolicyTableRequest
+ @see AWSEC2DisassociateTransitGatewayPolicyTableResult
+ */
+- (void)disassociateTransitGatewayPolicyTable:(AWSEC2DisassociateTransitGatewayPolicyTableRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisassociateTransitGatewayPolicyTableResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Disassociates a resource attachment from a transit gateway route table.</p>
@@ -9815,6 +10015,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2GetTransitGatewayMulticastDomainAssociationsResult
  */
 - (void)getTransitGatewayMulticastDomainAssociations:(AWSEC2GetTransitGatewayMulticastDomainAssociationsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetTransitGatewayMulticastDomainAssociationsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Gets a list of the transit gateway policy table associations.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetTransitGatewayPolicyTableAssociations service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetTransitGatewayPolicyTableAssociationsResult`.
+ 
+ @see AWSEC2GetTransitGatewayPolicyTableAssociationsRequest
+ @see AWSEC2GetTransitGatewayPolicyTableAssociationsResult
+ */
+- (AWSTask<AWSEC2GetTransitGatewayPolicyTableAssociationsResult *> *)getTransitGatewayPolicyTableAssociations:(AWSEC2GetTransitGatewayPolicyTableAssociationsRequest *)request;
+
+/**
+ <p>Gets a list of the transit gateway policy table associations.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetTransitGatewayPolicyTableAssociations service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetTransitGatewayPolicyTableAssociationsRequest
+ @see AWSEC2GetTransitGatewayPolicyTableAssociationsResult
+ */
+- (void)getTransitGatewayPolicyTableAssociations:(AWSEC2GetTransitGatewayPolicyTableAssociationsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetTransitGatewayPolicyTableAssociationsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Returns a list of transit gateway policy table entries.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetTransitGatewayPolicyTableEntries service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetTransitGatewayPolicyTableEntriesResult`.
+ 
+ @see AWSEC2GetTransitGatewayPolicyTableEntriesRequest
+ @see AWSEC2GetTransitGatewayPolicyTableEntriesResult
+ */
+- (AWSTask<AWSEC2GetTransitGatewayPolicyTableEntriesResult *> *)getTransitGatewayPolicyTableEntries:(AWSEC2GetTransitGatewayPolicyTableEntriesRequest *)request;
+
+/**
+ <p>Returns a list of transit gateway policy table entries.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetTransitGatewayPolicyTableEntries service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetTransitGatewayPolicyTableEntriesRequest
+ @see AWSEC2GetTransitGatewayPolicyTableEntriesResult
+ */
+- (void)getTransitGatewayPolicyTableEntries:(AWSEC2GetTransitGatewayPolicyTableEntriesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetTransitGatewayPolicyTableEntriesResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Gets information about the prefix list references in a specified transit gateway route table.</p>

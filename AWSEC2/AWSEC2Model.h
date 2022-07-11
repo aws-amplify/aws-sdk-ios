@@ -525,6 +525,12 @@ typedef NS_ENUM(NSInteger, AWSEC2DomainType) {
     AWSEC2DomainTypeStandard,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2DynamicRoutingValue) {
+    AWSEC2DynamicRoutingValueUnknown,
+    AWSEC2DynamicRoutingValueEnable,
+    AWSEC2DynamicRoutingValueDisable,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2EbsEncryptionSupport) {
     AWSEC2EbsEncryptionSupportUnknown,
     AWSEC2EbsEncryptionSupportUnsupported,
@@ -2092,7 +2098,9 @@ typedef NS_ENUM(NSInteger, AWSEC2ResourceType) {
     AWSEC2ResourceTypeTransitGatewayAttachment,
     AWSEC2ResourceTypeTransitGatewayConnectPeer,
     AWSEC2ResourceTypeTransitGatewayMulticastDomain,
+    AWSEC2ResourceTypeTransitGatewayPolicyTable,
     AWSEC2ResourceTypeTransitGatewayRouteTable,
+    AWSEC2ResourceTypeTransitGatewayRouteTableAnnouncement,
     AWSEC2ResourceTypeVolume,
     AWSEC2ResourceTypeVPC,
     AWSEC2ResourceTypeVpcEndpoint,
@@ -2448,6 +2456,14 @@ typedef NS_ENUM(NSInteger, AWSEC2TransitGatewayMulticastDomainState) {
     AWSEC2TransitGatewayMulticastDomainStateDeleted,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2TransitGatewayPolicyTableState) {
+    AWSEC2TransitGatewayPolicyTableStateUnknown,
+    AWSEC2TransitGatewayPolicyTableStatePending,
+    AWSEC2TransitGatewayPolicyTableStateAvailable,
+    AWSEC2TransitGatewayPolicyTableStateDeleting,
+    AWSEC2TransitGatewayPolicyTableStateDeleted,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2TransitGatewayPrefixListReferenceState) {
     AWSEC2TransitGatewayPrefixListReferenceStateUnknown,
     AWSEC2TransitGatewayPrefixListReferenceStatePending,
@@ -2471,6 +2487,22 @@ typedef NS_ENUM(NSInteger, AWSEC2TransitGatewayRouteState) {
     AWSEC2TransitGatewayRouteStateBlackhole,
     AWSEC2TransitGatewayRouteStateDeleting,
     AWSEC2TransitGatewayRouteStateDeleted,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2TransitGatewayRouteTableAnnouncementDirection) {
+    AWSEC2TransitGatewayRouteTableAnnouncementDirectionUnknown,
+    AWSEC2TransitGatewayRouteTableAnnouncementDirectionOutgoing,
+    AWSEC2TransitGatewayRouteTableAnnouncementDirectionIncoming,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2TransitGatewayRouteTableAnnouncementState) {
+    AWSEC2TransitGatewayRouteTableAnnouncementStateUnknown,
+    AWSEC2TransitGatewayRouteTableAnnouncementStateAvailable,
+    AWSEC2TransitGatewayRouteTableAnnouncementStatePending,
+    AWSEC2TransitGatewayRouteTableAnnouncementStateFailing,
+    AWSEC2TransitGatewayRouteTableAnnouncementStateFailed,
+    AWSEC2TransitGatewayRouteTableAnnouncementStateDeleting,
+    AWSEC2TransitGatewayRouteTableAnnouncementStateDeleted,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2TransitGatewayRouteTableState) {
@@ -2749,6 +2781,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2AssociateSubnetCidrBlockResult;
 @class AWSEC2AssociateTransitGatewayMulticastDomainRequest;
 @class AWSEC2AssociateTransitGatewayMulticastDomainResult;
+@class AWSEC2AssociateTransitGatewayPolicyTableRequest;
+@class AWSEC2AssociateTransitGatewayPolicyTableResult;
 @class AWSEC2AssociateTransitGatewayRouteTableRequest;
 @class AWSEC2AssociateTransitGatewayRouteTableResult;
 @class AWSEC2AssociateTrunkInterfaceRequest;
@@ -2971,13 +3005,18 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2CreateTransitGatewayMulticastDomainRequestOptions;
 @class AWSEC2CreateTransitGatewayMulticastDomainResult;
 @class AWSEC2CreateTransitGatewayPeeringAttachmentRequest;
+@class AWSEC2CreateTransitGatewayPeeringAttachmentRequestOptions;
 @class AWSEC2CreateTransitGatewayPeeringAttachmentResult;
+@class AWSEC2CreateTransitGatewayPolicyTableRequest;
+@class AWSEC2CreateTransitGatewayPolicyTableResult;
 @class AWSEC2CreateTransitGatewayPrefixListReferenceRequest;
 @class AWSEC2CreateTransitGatewayPrefixListReferenceResult;
 @class AWSEC2CreateTransitGatewayRequest;
 @class AWSEC2CreateTransitGatewayResult;
 @class AWSEC2CreateTransitGatewayRouteRequest;
 @class AWSEC2CreateTransitGatewayRouteResult;
+@class AWSEC2CreateTransitGatewayRouteTableAnnouncementRequest;
+@class AWSEC2CreateTransitGatewayRouteTableAnnouncementResult;
 @class AWSEC2CreateTransitGatewayRouteTableRequest;
 @class AWSEC2CreateTransitGatewayRouteTableResult;
 @class AWSEC2CreateTransitGatewayVpcAttachmentRequest;
@@ -3091,12 +3130,16 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DeleteTransitGatewayMulticastDomainResult;
 @class AWSEC2DeleteTransitGatewayPeeringAttachmentRequest;
 @class AWSEC2DeleteTransitGatewayPeeringAttachmentResult;
+@class AWSEC2DeleteTransitGatewayPolicyTableRequest;
+@class AWSEC2DeleteTransitGatewayPolicyTableResult;
 @class AWSEC2DeleteTransitGatewayPrefixListReferenceRequest;
 @class AWSEC2DeleteTransitGatewayPrefixListReferenceResult;
 @class AWSEC2DeleteTransitGatewayRequest;
 @class AWSEC2DeleteTransitGatewayResult;
 @class AWSEC2DeleteTransitGatewayRouteRequest;
 @class AWSEC2DeleteTransitGatewayRouteResult;
+@class AWSEC2DeleteTransitGatewayRouteTableAnnouncementRequest;
+@class AWSEC2DeleteTransitGatewayRouteTableAnnouncementResult;
 @class AWSEC2DeleteTransitGatewayRouteTableRequest;
 @class AWSEC2DeleteTransitGatewayRouteTableResult;
 @class AWSEC2DeleteTransitGatewayVpcAttachmentRequest;
@@ -3354,6 +3397,10 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DescribeTransitGatewayMulticastDomainsResult;
 @class AWSEC2DescribeTransitGatewayPeeringAttachmentsRequest;
 @class AWSEC2DescribeTransitGatewayPeeringAttachmentsResult;
+@class AWSEC2DescribeTransitGatewayPolicyTablesRequest;
+@class AWSEC2DescribeTransitGatewayPolicyTablesResult;
+@class AWSEC2DescribeTransitGatewayRouteTableAnnouncementsRequest;
+@class AWSEC2DescribeTransitGatewayRouteTableAnnouncementsResult;
 @class AWSEC2DescribeTransitGatewayRouteTablesRequest;
 @class AWSEC2DescribeTransitGatewayRouteTablesResult;
 @class AWSEC2DescribeTransitGatewayVpcAttachmentsRequest;
@@ -3445,6 +3492,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DisassociateSubnetCidrBlockResult;
 @class AWSEC2DisassociateTransitGatewayMulticastDomainRequest;
 @class AWSEC2DisassociateTransitGatewayMulticastDomainResult;
+@class AWSEC2DisassociateTransitGatewayPolicyTableRequest;
+@class AWSEC2DisassociateTransitGatewayPolicyTableResult;
 @class AWSEC2DisassociateTransitGatewayRouteTableRequest;
 @class AWSEC2DisassociateTransitGatewayRouteTableResult;
 @class AWSEC2DisassociateTrunkInterfaceRequest;
@@ -3604,6 +3653,10 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2GetTransitGatewayAttachmentPropagationsResult;
 @class AWSEC2GetTransitGatewayMulticastDomainAssociationsRequest;
 @class AWSEC2GetTransitGatewayMulticastDomainAssociationsResult;
+@class AWSEC2GetTransitGatewayPolicyTableAssociationsRequest;
+@class AWSEC2GetTransitGatewayPolicyTableAssociationsResult;
+@class AWSEC2GetTransitGatewayPolicyTableEntriesRequest;
+@class AWSEC2GetTransitGatewayPolicyTableEntriesResult;
 @class AWSEC2GetTransitGatewayPrefixListReferencesRequest;
 @class AWSEC2GetTransitGatewayPrefixListReferencesResult;
 @class AWSEC2GetTransitGatewayRouteTableAssociationsRequest;
@@ -4233,6 +4286,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2TransitGatewayMulticastRegisteredGroupSources;
 @class AWSEC2TransitGatewayOptions;
 @class AWSEC2TransitGatewayPeeringAttachment;
+@class AWSEC2TransitGatewayPeeringAttachmentOptions;
+@class AWSEC2TransitGatewayPolicyRule;
+@class AWSEC2TransitGatewayPolicyRuleMetaData;
+@class AWSEC2TransitGatewayPolicyTable;
+@class AWSEC2TransitGatewayPolicyTableAssociation;
+@class AWSEC2TransitGatewayPolicyTableEntry;
 @class AWSEC2TransitGatewayPrefixListAttachment;
 @class AWSEC2TransitGatewayPrefixListReference;
 @class AWSEC2TransitGatewayPropagation;
@@ -4240,6 +4299,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2TransitGatewayRoute;
 @class AWSEC2TransitGatewayRouteAttachment;
 @class AWSEC2TransitGatewayRouteTable;
+@class AWSEC2TransitGatewayRouteTableAnnouncement;
 @class AWSEC2TransitGatewayRouteTableAssociation;
 @class AWSEC2TransitGatewayRouteTablePropagation;
 @class AWSEC2TransitGatewayRouteTableRoute;
@@ -5921,6 +5981,42 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the transit gateway multicast domain associations.</p>
  */
 @property (nonatomic, strong) AWSEC2TransitGatewayMulticastDomainAssociations * _Nullable associations;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2AssociateTransitGatewayPolicyTableRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the transit gateway attachment to associate with the policy table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayAttachmentId;
+
+/**
+ <p>The ID of the transit gateway policy table to associate with the transit gateway attachment.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayPolicyTableId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2AssociateTransitGatewayPolicyTableResult : AWSModel
+
+
+/**
+ <p>Describes the association of a transit gateway and a transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayPolicyTableAssociation * _Nullable association;
 
 @end
 
@@ -11985,6 +12081,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
+ 
+ */
+@property (nonatomic, strong) AWSEC2CreateTransitGatewayPeeringAttachmentRequestOptions * _Nullable options;
+
+/**
  <p>The ID of the Amazon Web Services account that owns the peer transit gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable peerAccountId;
@@ -12014,6 +12115,19 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2CreateTransitGatewayPeeringAttachmentRequestOptions : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSEC2DynamicRoutingValue dynamicRouting;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2CreateTransitGatewayPeeringAttachmentResult : AWSModel
 
 
@@ -12021,6 +12135,42 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The transit gateway peering attachment.</p>
  */
 @property (nonatomic, strong) AWSEC2TransitGatewayPeeringAttachment * _Nullable transitGatewayPeeringAttachment;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateTransitGatewayPolicyTableRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The tags specification for the transit gateway policy table created during the request.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+/**
+ <p>The ID of the transit gateway used for the policy table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateTransitGatewayPolicyTableResult : AWSModel
+
+
+/**
+ <p>Describes the created transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayPolicyTable * _Nullable transitGatewayPolicyTable;
 
 @end
 
@@ -12154,6 +12304,47 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the route.</p>
  */
 @property (nonatomic, strong) AWSEC2TransitGatewayRoute * _Nullable route;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateTransitGatewayRouteTableAnnouncementRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the peering attachment.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable peeringAttachmentId;
+
+/**
+ <p>The tags specifications applied to the transit gateway route table announcement.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+/**
+ <p>The ID of the transit gateway route table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayRouteTableId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateTransitGatewayRouteTableAnnouncementResult : AWSModel
+
+
+/**
+ <p>Provides details about the transit gateway route table announcement.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayRouteTableAnnouncement * _Nullable transitGatewayRouteTableAnnouncement;
 
 @end
 
@@ -14447,6 +14638,37 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2DeleteTransitGatewayPolicyTableRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The transit gateway policy table to delete.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayPolicyTableId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteTransitGatewayPolicyTableResult : AWSModel
+
+
+/**
+ <p>Provides details about the deleted transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayPolicyTable * _Nullable transitGatewayPolicyTable;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2DeleteTransitGatewayPrefixListReferenceRequest : AWSRequest
 
 
@@ -14544,6 +14766,37 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the route.</p>
  */
 @property (nonatomic, strong) AWSEC2TransitGatewayRoute * _Nullable route;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteTransitGatewayRouteTableAnnouncementRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The transit gateway route table ID that's being deleted. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayRouteTableAnnouncementId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteTransitGatewayRouteTableAnnouncementResult : AWSModel
+
+
+/**
+ <p>Provides details about a deleted transit gateway route table.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayRouteTableAnnouncement * _Nullable transitGatewayRouteTableAnnouncement;
 
 @end
 
@@ -20781,6 +21034,108 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2DescribeTransitGatewayPolicyTablesRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The filters associated with the transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The IDs of the transit gateway policy tables.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable transitGatewayPolicyTableIds;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeTransitGatewayPolicyTablesResult : AWSModel
+
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Describes the transit gateway policy tables.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TransitGatewayPolicyTable *> * _Nullable transitGatewayPolicyTables;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeTransitGatewayRouteTableAnnouncementsRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The filters associated with the transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The IDs of the transit gateway route tables that are being advertised.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable transitGatewayRouteTableAnnouncementIds;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeTransitGatewayRouteTableAnnouncementsResult : AWSModel
+
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Describes the transit gateway route table announcement.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TransitGatewayRouteTableAnnouncement *> * _Nullable transitGatewayRouteTableAnnouncements;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2DescribeTransitGatewayRouteTablesRequest : AWSRequest
 
 
@@ -22407,6 +22762,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable transitGatewayAttachmentId;
 
 /**
+ <p>The ID of the route table announcement.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayRouteTableAnnouncementId;
+
+/**
  <p>The ID of the propagation route table.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable transitGatewayRouteTableId;
@@ -22756,6 +23116,42 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the association.</p>
  */
 @property (nonatomic, strong) AWSEC2TransitGatewayMulticastDomainAssociations * _Nullable associations;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DisassociateTransitGatewayPolicyTableRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the transit gateway attachment to disassociate from the policy table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayAttachmentId;
+
+/**
+ <p>The ID of the disassociated policy table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayPolicyTableId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DisassociateTransitGatewayPolicyTableResult : AWSModel
+
+
+/**
+ <p>Returns details about the transit gateway policy table disassociation.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayPolicyTableAssociation * _Nullable association;
 
 @end
 
@@ -23792,6 +24188,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the attachment.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable transitGatewayAttachmentId;
+
+/**
+ <p>The ID of the transit gateway route table announcement.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayRouteTableAnnouncementId;
 
 /**
  <p>The ID of the propagation route table.</p>
@@ -26900,6 +27301,103 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetTransitGatewayPolicyTableAssociationsRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The filters associated with the transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The ID of the transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayPolicyTableId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetTransitGatewayPolicyTableAssociationsResult : AWSModel
+
+
+/**
+ <p>Returns details about the transit gateway policy table association.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TransitGatewayPolicyTableAssociation *> * _Nullable associations;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetTransitGatewayPolicyTableEntriesRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The filters associated with the transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The ID of the transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayPolicyTableId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetTransitGatewayPolicyTableEntriesResult : AWSModel
+
+
+/**
+ <p>The entries for the transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TransitGatewayPolicyTableEntry *> * _Nullable transitGatewayPolicyTableEntries;
 
 @end
 
@@ -35382,6 +35880,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable addTransitGatewayCidrBlocks;
 
 /**
+ <p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable amazonSideAsn;
+
+/**
  <p>The ID of the default association route table.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable associationDefaultRouteTableId;
@@ -37787,6 +38290,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @interface AWSEC2PeeringTgwInfo : AWSModel
 
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable coreNetworkId;
 
 /**
  <p>The ID of the Amazon Web Services account that owns the transit gateway.</p>
@@ -46447,9 +46955,19 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2PeeringTgwInfo * _Nullable accepterTgwInfo;
 
 /**
+ <p>The ID of the accepter transit gateway attachment.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable accepterTransitGatewayAttachmentId;
+
+/**
  <p>The time the transit gateway peering attachment was created.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable creationTime;
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayPeeringAttachmentOptions * _Nullable options;
 
 /**
  <p>Information about the requester transit gateway.</p>
@@ -46475,6 +46993,164 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the transit gateway peering attachment.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable transitGatewayAttachmentId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2TransitGatewayPeeringAttachmentOptions : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSEC2DynamicRoutingValue dynamicRouting;
+
+@end
+
+/**
+ <p>Describes a rule associated with a transit gateway policy.</p>
+ */
+@interface AWSEC2TransitGatewayPolicyRule : AWSModel
+
+
+/**
+ <p>The destination CIDR block for the transit gateway policy rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationCidrBlock;
+
+/**
+ <p>The port range for the transit gateway policy rule. Currently this is set to * (all).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationPortRange;
+
+/**
+ <p>The meta data tags used for the transit gateway policy rule.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayPolicyRuleMetaData * _Nullable metaData;
+
+/**
+ <p>The protocol used by the transit gateway policy rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable protocols;
+
+/**
+ <p>The source CIDR block for the transit gateway policy rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceCidrBlock;
+
+/**
+ <p>The port range for the transit gateway policy rule. Currently this is set to * (all).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourcePortRange;
+
+@end
+
+/**
+ <p>Describes the meta data tags associated with a transit gateway policy rule.</p>
+ */
+@interface AWSEC2TransitGatewayPolicyRuleMetaData : AWSModel
+
+
+/**
+ <p>The key name for the transit gateway policy rule meta data tag.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable metaDataKey;
+
+/**
+ <p>The value of the key for the transit gateway policy rule meta data tag.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable metaDataValue;
+
+@end
+
+/**
+ <p>Describes a transit gateway policy table.</p>
+ */
+@interface AWSEC2TransitGatewayPolicyTable : AWSModel
+
+
+/**
+ <p>The timestamp when the transit gateway policy table was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationTime;
+
+/**
+ <p>The state of the transit gateway policy table</p>
+ */
+@property (nonatomic, assign) AWSEC2TransitGatewayPolicyTableState state;
+
+/**
+ <p>he key-value pairs associated with the transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+/**
+ <p>The ID of the transit gateway.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayId;
+
+/**
+ <p>The ID of the transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayPolicyTableId;
+
+@end
+
+/**
+ <p>Describes a transit gateway policy table association.</p>
+ */
+@interface AWSEC2TransitGatewayPolicyTableAssociation : AWSModel
+
+
+/**
+ <p>The resource ID of the transit gateway attachment.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceId;
+
+/**
+ <p>The resource type for the transit gateway policy table association.</p>
+ */
+@property (nonatomic, assign) AWSEC2TransitGatewayAttachmentResourceType resourceType;
+
+/**
+ <p>The state of the transit gateway policy table association.</p>
+ */
+@property (nonatomic, assign) AWSEC2TransitGatewayAssociationState state;
+
+/**
+ <p>The ID of the transit gateway attachment.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayAttachmentId;
+
+/**
+ <p>The ID of the transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayPolicyTableId;
+
+@end
+
+/**
+ <p>Describes a transit gateway policy table entry</p>
+ */
+@interface AWSEC2TransitGatewayPolicyTableEntry : AWSModel
+
+
+/**
+ <p>The policy rule associated with the transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayPolicyRule * _Nullable policyRule;
+
+/**
+ <p>The rule number for the transit gateway policy table entry.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyRuleNumber;
+
+/**
+ <p>The ID of the target route table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable targetRouteTableId;
 
 @end
 
@@ -46566,6 +47242,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable transitGatewayAttachmentId;
 
 /**
+ <p>The ID of the transit gateway route table announcement.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayRouteTableAnnouncementId;
+
+/**
  <p>The ID of the transit gateway route table.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable transitGatewayRouteTableId;
@@ -46647,6 +47328,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2TransitGatewayRouteAttachment *> * _Nullable transitGatewayAttachments;
 
 /**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayRouteTableAnnouncementId;
+
+/**
  <p>The route type.</p>
  */
 @property (nonatomic, assign) AWSEC2TransitGatewayRouteType types;
@@ -46720,6 +47406,69 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>Describes a transit gateway route table announcement.</p>
+ */
+@interface AWSEC2TransitGatewayRouteTableAnnouncement : AWSModel
+
+
+/**
+ <p>The direction for the route table announcement.</p>
+ */
+@property (nonatomic, assign) AWSEC2TransitGatewayRouteTableAnnouncementDirection announcementDirection;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable coreNetworkId;
+
+/**
+ <p>The timestamp when the transit gateway route table announcement was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationTime;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable peerCoreNetworkId;
+
+/**
+ <p>The ID of the peer transit gateway.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable peerTransitGatewayId;
+
+/**
+ <p>The ID of the peering attachment.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable peeringAttachmentId;
+
+/**
+ <p>The state of the transit gateway announcement.</p>
+ */
+@property (nonatomic, assign) AWSEC2TransitGatewayRouteTableAnnouncementState state;
+
+/**
+ <p>The key-value pairs associated with the route table announcement.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+/**
+ <p>The ID of the transit gateway.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayId;
+
+/**
+ <p>The ID of the transit gateway route table announcement.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayRouteTableAnnouncementId;
+
+/**
+ <p>The ID of the transit gateway route table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayRouteTableId;
+
+@end
+
+/**
  <p>Describes an association between a route table and a resource attachment.</p>
  */
 @interface AWSEC2TransitGatewayRouteTableAssociation : AWSModel
@@ -46772,6 +47521,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the attachment.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable transitGatewayAttachmentId;
+
+/**
+ <p>The ID of the transit gateway route table announcement.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayRouteTableAnnouncementId;
 
 @end
 
