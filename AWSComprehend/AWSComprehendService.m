@@ -25,7 +25,7 @@
 #import "AWSComprehendResources.h"
 
 static NSString *const AWSInfoComprehend = @"Comprehend";
-NSString *const AWSComprehendSDKVersion = @"2.27.10";
+NSString *const AWSComprehendSDKVersion = @"2.27.11";
 
 
 @interface AWSComprehendResponseSerializer : AWSJSONResponseSerializer
