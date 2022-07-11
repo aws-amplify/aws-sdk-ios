@@ -74,13 +74,20 @@ extension AWSMobileClient {
     ///   - proposedPassword: the new password which user wants to set.
     ///   - completionHandler: completionHandler which will be called when the result is avilable. If error is nil, the change was successful.
     public func changePassword(currentPassword: String, proposedPassword: String, completionHandler: @escaping ((Error?) -> Void)) {
-        self.userpoolOpsHelper.currentActiveUser!.changePassword(currentPassword, proposedPassword: proposedPassword).continueWith { (task) -> Any? in
-            if let error = task.error {
-                completionHandler(AWSMobileClientError.makeMobileClientError(from: error))
-            } else if let _ = task.result {
-                completionHandler(nil)
+        self.getTokens { _, error in
+            if let error = error {
+                completionHandler(error)
+                return
             }
-            return nil
+            self.userpoolOpsHelper.currentActiveUser!.changePassword(currentPassword, proposedPassword: proposedPassword).continueWith { (task) -> Any? in
+                if let error = task.error {
+                    completionHandler(AWSMobileClientError.makeMobileClientError(from: error))
+                } else if let _ = task.result {
+                    completionHandler(nil)
+                }
+                return nil
+            }
         }
+
     }
 }

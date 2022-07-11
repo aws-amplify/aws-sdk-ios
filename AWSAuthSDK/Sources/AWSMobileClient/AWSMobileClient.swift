@@ -43,7 +43,7 @@ final public class AWSMobileClient: _AWSMobileClient {
     internal let initializationQueue = DispatchQueue(label: "awsmobileclient.credentials.fetch")
     
     /// Operation Queue to make sure there is only 1 active API call which is fetching/ waiting for UserPools token.
-    lazy var tokenFetchOperationQueue: OperationQueue = {
+    internal let tokenFetchOperationQueue: OperationQueue = {
         var queue = OperationQueue()
         queue.name = "AWSMobileClient.tokenFetchOperationQueue"
         queue.maxConcurrentOperationCount = 1
