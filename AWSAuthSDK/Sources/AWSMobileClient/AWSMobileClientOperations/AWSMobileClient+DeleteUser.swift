@@ -27,27 +27,35 @@ extension AWSMobileClient {
             completionHandler(AWSMobileClientError.invalidConfiguration(message: errorMessage))
             return
         }
-        let _ = currentActiveUser.delete().continueWith { [weak self] (task) -> Any? in
-            guard let self = self else {
-                let message = "Unexpectedly encountered nil when unwrapping self. This should not happen."
-                completionHandler(AWSMobileClientError.unknown(message: message))
+        self.getTokens { _, error in
+            if let error = error {
+                completionHandler(error)
+                return
+            }
+
+            let _ = currentActiveUser.delete().continueWith { [weak self] (task) -> Any? in
+                guard let self = self else {
+                    let message = "Unexpectedly encountered nil when unwrapping self. This should not happen."
+                    completionHandler(AWSMobileClientError.unknown(message: message))
+                    return nil
+                }
+                if task.result != nil {
+                    // User was successfully deleted.
+                    // Attempt global signout, revoke access tokens, and sign out locally.
+                    //
+                    // In the case of hosted UI, launching a web session to remove the session cookie is
+                    // unnessary because the user's account is no longer valid to receive new tokens.
+                    let _ = currentActiveUser.globalSignOut().continueWith { _ in
+                        // Attempt to revoke access tokens and sign out locally.
+                        self.revokeAccessTokensAndSignOutLocally(completionHandler: completionHandler)
+                    }
+                } else if let error = task.error {
+                    // If there is an error deleting the user, we notify the developer.
+                    completionHandler(AWSMobileClientError.makeMobileClientError(from: error))
+                }
                 return nil
             }
-            if task.result != nil {
-                // User was successfully deleted.
-                // Attempt global signout, revoke access tokens, and sign out locally.
-                //
-                // In the case of hosted UI, launching a web session to remove the session cookie is
-                // unnessary because the user's account is no longer valid to receive new tokens.
-                let _ = currentActiveUser.globalSignOut().continueWith { _ in
-                    // Attempt to revoke access tokens and sign out locally.
-                    self.revokeAccessTokensAndSignOutLocally(completionHandler: completionHandler)
-                }
-            } else if let error = task.error {
-                // If there is an error deleting the user, we notify the developer.
-                completionHandler(AWSMobileClientError.makeMobileClientError(from: error))
-            }
-            return nil
         }
+
     }
 }
