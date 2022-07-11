@@ -2,7 +2,11 @@
 
 ## Unreleased
 
--Features for next release
+### Bug Fixes
+
+- **AWSMobileClient**
+  - fix(awsmobileClient): AWSMobileclient will refresh the token before making user attribute calls (See [PR #4215](https://github.com/aws-amplify/aws-sdk-ios/pull/4215))
+  - fix(AWSMobileClient): Change logic to handle weak reference of token operations (See [PR #4205](https://github.com/aws-amplify/aws-sdk-ios/pull/4205))
 
 ## 2.27.11
 
