@@ -25,7 +25,7 @@
 #import "AWSPollyResources.h"
 
 static NSString *const AWSInfoPolly = @"Polly";
-NSString *const AWSPollySDKVersion = @"2.27.11";
+NSString *const AWSPollySDKVersion = @"2.27.12";
 
 
 @interface AWSPollyResponseSerializer : AWSJSONResponseSerializer
