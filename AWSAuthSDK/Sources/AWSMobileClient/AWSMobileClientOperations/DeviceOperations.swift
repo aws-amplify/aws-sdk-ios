@@ -21,22 +21,29 @@ public class DeviceOperations {
     ///   - paginationToken: The pagination token returned in previous list call to get more devices.
     ///   - completionHandler: completion handler for result or error.
     public func list(limit: Int = 60, paginationToken: String? = nil, completionHandler: @escaping ((ListDevicesResult?, Error?) -> Void)) {
-        mobileClient?.userpoolOpsHelper.currentActiveUser!.listDevices(Int32(limit), paginationToken: paginationToken).continueWith { (task) -> Any? in
-            if let error = task.error {
-                completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
-            } else if let result = task.result {
-                var devices: [Device] = []
-                if result.devices != nil {
-                    for device in result.devices! {
-                        devices.append(self.getMCDeviceForCognitoDevice(device: device))
-                    }
-                }
-                
-                let listResult = ListDevicesResult(devices: devices, paginationToken: result.paginationToken)
-                completionHandler(listResult, nil)
+        mobileClient?.getTokens{ _, error in
+            if let error = error {
+                completionHandler(nil, error)
             }
-            return nil
+            self.mobileClient?.userpoolOpsHelper.currentActiveUser!.listDevices(Int32(limit), paginationToken: paginationToken).continueWith { (task) -> Any? in
+                if let error = task.error {
+                    completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
+                } else if let result = task.result {
+                    var devices: [Device] = []
+                    if result.devices != nil {
+                        for device in result.devices! {
+                            devices.append(self.getMCDeviceForCognitoDevice(device: device))
+                        }
+                    }
+
+                    let listResult = ListDevicesResult(devices: devices, paginationToken: result.paginationToken)
+                    completionHandler(listResult, nil)
+                }
+                return nil
+            }
+
         }
+
     }
     
     
@@ -47,13 +54,18 @@ public class DeviceOperations {
     ///   - remembered: true if device has to be remembered. false to set it to not remembered.
     ///   - completionHandler: completion handler for result or error.
     public func updateStatus(deviceId: String, remembered: Bool, completionHandler: @escaping ((UpdateDeviceStatusResult?, Error?) -> Void)) {
-        mobileClient!.userpoolOpsHelper.currentActiveUser!.updateDeviceStatus(deviceId, remembered: remembered).continueWith { (task) -> Any? in
-            if let error = task.error {
-                completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
-            } else if let _ = task.result {
-                completionHandler(UpdateDeviceStatusResult(), nil)
+        mobileClient?.getTokens{ _, error in
+            if let error = error {
+                completionHandler(nil, error)
             }
-            return nil
+            self.mobileClient!.userpoolOpsHelper.currentActiveUser!.updateDeviceStatus(deviceId, remembered: remembered).continueWith { (task) -> Any? in
+                if let error = task.error {
+                    completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
+                } else if let _ = task.result {
+                    completionHandler(UpdateDeviceStatusResult(), nil)
+                }
+                return nil
+            }
         }
     }
     
@@ -63,13 +75,18 @@ public class DeviceOperations {
     ///   - remembered: true if device has to be remembered. false to set it to not remembered.
     ///   - completionHandler: completion handler for result or error.
     public func updateStatus(remembered: Bool, completionHandler: @escaping ((UpdateDeviceStatusResult?, Error?) -> Void)) {
-        mobileClient!.userpoolOpsHelper.currentActiveUser!.updateDeviceStatus(remembered).continueWith { (task) -> Any? in
-            if let error = task.error {
-                completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
-            } else if let _ = task.result {
-                completionHandler(UpdateDeviceStatusResult(), nil)
+        mobileClient?.getTokens{ _, error in
+            if let error = error {
+                completionHandler(nil, error)
             }
-            return nil
+            self.mobileClient!.userpoolOpsHelper.currentActiveUser!.updateDeviceStatus(remembered).continueWith { (task) -> Any? in
+                if let error = task.error {
+                    completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
+                } else if let _ = task.result {
+                    completionHandler(UpdateDeviceStatusResult(), nil)
+                }
+                return nil
+            }
         }
     }
     
@@ -80,13 +97,18 @@ public class DeviceOperations {
     ///   - deviceId: deviceId for device whose details need to be fetched.
     ///   - completionHandler: completion handler for result or error.
     public func get(deviceId: String, completionHandler: @escaping ((Device?, Error?) -> Void)) {
-        mobileClient!.userpoolOpsHelper.currentActiveUser!.getDevice(deviceId).continueWith { (task) -> Any? in
-            if let error = task.error {
-                completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
-            } else if let result = task.result {
-                completionHandler(self.getMCDeviceForCognitoDevice(device: result.device), nil)
+        mobileClient?.getTokens{ _, error in
+            if let error = error {
+                completionHandler(nil, error)
             }
-            return nil
+            self.mobileClient!.userpoolOpsHelper.currentActiveUser!.getDevice(deviceId).continueWith { (task) -> Any? in
+                if let error = task.error {
+                    completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
+                } else if let result = task.result {
+                    completionHandler(self.getMCDeviceForCognitoDevice(device: result.device), nil)
+                }
+                return nil
+            }
         }
     }
     
@@ -95,13 +117,18 @@ public class DeviceOperations {
     ///
     /// - Parameter completionHandler: completion handler for result or error.
     public func get(_ completionHandler: @escaping ((Device?, Error?) -> Void)) {
-        mobileClient!.userpoolOpsHelper.currentActiveUser!.getDevice().continueWith { (task) -> Any? in
-            if let error = task.error {
-                completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
-            } else if let result = task.result {
-                completionHandler(self.getMCDeviceForCognitoDevice(device: result.device), nil)
+        mobileClient?.getTokens{ _, error in
+            if let error = error {
+                completionHandler(nil, error)
             }
-            return nil
+            self.mobileClient!.userpoolOpsHelper.currentActiveUser!.getDevice().continueWith { (task) -> Any? in
+                if let error = task.error {
+                    completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
+                } else if let result = task.result {
+                    completionHandler(self.getMCDeviceForCognitoDevice(device: result.device), nil)
+                }
+                return nil
+            }
         }
     }
     
@@ -112,13 +139,18 @@ public class DeviceOperations {
     ///   - deviceId: The deviceId of device which needs to be stopped being tracked.
     ///   - completionHandler: completion handler for result or error.
     public func forget(deviceId: String, completionHandler: @escaping ((Error?) -> Void)) {
-        mobileClient!.userpoolOpsHelper.currentActiveUser!.forgetDevice(deviceId).continueWith { (task) -> Any? in
-            if let error = task.error {
-                completionHandler(AWSMobileClientError.makeMobileClientError(from: error))
-            } else if let _ = task.result {
-                completionHandler(nil)
+        mobileClient?.getTokens{ _, error in
+            if let error = error {
+                completionHandler(error)
             }
-            return nil
+            self.mobileClient!.userpoolOpsHelper.currentActiveUser!.forgetDevice(deviceId).continueWith { (task) -> Any? in
+                if let error = task.error {
+                    completionHandler(AWSMobileClientError.makeMobileClientError(from: error))
+                } else if let _ = task.result {
+                    completionHandler(nil)
+                }
+                return nil
+            }
         }
     }
     
@@ -127,13 +159,18 @@ public class DeviceOperations {
     ///
     /// - Parameter completionHandler: completion handler for result or error.
     public func forget(_ completionHandler: @escaping ((Error?) -> Void)) {
-        mobileClient!.userpoolOpsHelper.currentActiveUser!.forgetDevice().continueWith { (task) -> Any? in
-            if let error = task.error {
-                completionHandler(AWSMobileClientError.makeMobileClientError(from: error))
-            } else if let _ = task.result {
-                completionHandler(nil)
+        mobileClient?.getTokens{ _, error in
+            if let error = error {
+                completionHandler(error)
             }
-            return nil
+            self.mobileClient!.userpoolOpsHelper.currentActiveUser!.forgetDevice().continueWith { (task) -> Any? in
+                if let error = task.error {
+                    completionHandler(AWSMobileClientError.makeMobileClientError(from: error))
+                } else if let _ = task.result {
+                    completionHandler(nil)
+                }
+                return nil
+            }
         }
     }
     
