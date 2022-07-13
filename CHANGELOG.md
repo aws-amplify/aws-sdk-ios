@@ -4,6 +4,11 @@
 
 -Features for next release
 
+### Bug Fixes
+
+- **AWSIoT**
+  - fix(iot): Adds support for handling certificate with certificateId (See [PR #4219](https://github.com/aws-amplify/aws-sdk-ios/pull/4219))
+
 ## 2.27.12
 
 ### Bug Fixes
