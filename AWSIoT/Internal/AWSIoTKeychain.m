@@ -121,7 +121,7 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
     sanityCheck = SecItemDelete((CFDictionaryRef)queryPublicKey);
     if (sanityCheck != noErr) {
         if (sanityCheck == errSecItemNotFound) {
-            AWSDDLogError(@"Error removing public key errSecItemNotFound");
+            AWSDDLogError(@"Error removing public key: errSecItemNotFound");
         } else {
             AWSDDLogError(@"Error removing public key, OSStatus == %d.", (int)sanityCheck);
             status = NO;
@@ -160,7 +160,11 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
 }
 
 + (BOOL)addCertificateToKeychain:(NSString*)cert {
-        return [AWSIoTKeychain addCertificate:[AWSIoTKeychain certToDer:cert]];
+    return [AWSIoTKeychain addCertificateToKeychain:cert tag:[AWSIoTKeychain certTag]];
+}
+
++ (BOOL)addCertificateToKeychain:(NSString*)cert tag:(NSString*)tag {
+    return [AWSIoTKeychain addCertificate:[AWSIoTKeychain certToDer:cert] withTag:tag];
 }
 
 + (BOOL)addCertificateFromPemFile:(NSString*)fileName withTag:(NSString*)tag {
@@ -191,30 +195,8 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
     return [AWSIoTKeychain addCertificate:certData withTag:tag];
 }
 
-+ (BOOL)addCertificate:(NSData*)cert {
-    SecCertificateRef certRef = SecCertificateCreateWithData(kCFAllocatorDefault, (__bridge CFDataRef)cert);
-    if (certRef == NULL) {
-        AWSDDLogError(@"Error create Sec Certificate from data");
-        return NO;
-    }
-    return [self addCertificateRef:certRef];
-}
-
-
-+ (BOOL)addCertificateRef:(SecCertificateRef)certRef {
-    NSMutableDictionary * queryCertificate = [[NSMutableDictionary alloc] init];
-    
-    [queryCertificate setObject:(id)kSecClassCertificate forKey:(id)kSecClass];
-    [queryCertificate setObject:[AWSIoTKeychain certTag] forKey:(id)kSecAttrLabel];
-    [queryCertificate setObject:(__bridge id)certRef forKey:(id)kSecValueRef];
-    [queryCertificate setObject:(__bridge id)[AWSIoTKeychain accessibilityType] forKey:(id)kSecAttrAccessible];
-
-    OSStatus sanityCheck = SecItemAdd((CFDictionaryRef)queryCertificate, nil);
-    if ((sanityCheck != noErr) && (sanityCheck != errSecDuplicateItem)) {
-        AWSDDLogError(@"add certificate to keychain with error: %d", (int)sanityCheck);
-        return NO;
-    }
-    return YES;
++ (BOOL)addCertificate:(NSData *)cert {
+    return [AWSIoTKeychain addCertificate:cert withTag:[AWSIoTKeychain certTag]];
 }
 
 + (BOOL)addCertificate:(NSData*)cert withTag:(NSString*)tag {
@@ -223,7 +205,14 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
         AWSDDLogError(@"Error create Sec Certificate from data");
         return NO;
     }
-    
+    return [AWSIoTKeychain addCertificateRef:certRef tag:tag];
+}
+
++ (BOOL)addCertificateRef:(SecCertificateRef)certRef {
+    return [AWSIoTKeychain addCertificateRef:certRef tag:[AWSIoTKeychain certTag]];
+}
+
++ (BOOL)addCertificateRef:(SecCertificateRef)certRef tag:(NSString*)tag {
     NSMutableDictionary * queryCertificate = [[NSMutableDictionary alloc] init];
     
     [queryCertificate setObject:(id)kSecClassCertificate forKey:(id)kSecClass];
@@ -236,12 +225,10 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
         AWSDDLogError(@"add certificate to keychain with error: %d", (int)sanityCheck);
         return NO;
     }
-    
     return YES;
 }
 
 + (BOOL)removeCertificate {
-    
     NSMutableDictionary * queryCertificate = [[NSMutableDictionary alloc] init];
     
     [queryCertificate setObject:(id)kSecClassCertificate forKey:(id)kSecClass];
@@ -259,7 +246,6 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
     
     return YES;
 }
-
 
 + (BOOL)removeCertificateWithTag:(NSString*)tag {
     
@@ -522,7 +508,7 @@ static AWSIoTKeyChainAccessibility _accessibility = AWSIoTKeyChainAccessibilityA
     OSStatus sanityCheck = SecItemDelete((CFDictionaryRef)queryPrivateKey);
     if (sanityCheck != noErr) {
         if (sanityCheck == errSecItemNotFound) {
-            AWSDDLogError(@"Error removing private key errSecItemNotFound");
+            AWSDDLogError(@"Error removing private key: errSecItemNotFound");
         } else {
             AWSDDLogError(@"Error removing private key, OSStatus == %d.", (int)sanityCheck);
             return NO;
