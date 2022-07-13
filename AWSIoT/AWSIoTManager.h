@@ -35,6 +35,13 @@
 @property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration;
 
 /**
+ Enables the custom tag which will include the certificateId when adding a certificate.
+
+ Default: False
+ */
+@property (nonatomic, class, assign) BOOL tagCertificateEnabled;
+
+/**
  Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with `defaultServiceConfiguration` from `[AWSServiceManager defaultServiceManager]`. The reference to this object is maintained by the SDK, and you do not need to retain it manually.
 
  For example, set the default service configuration in `- application:didFinishLaunchingWithOptions:`
@@ -201,7 +208,6 @@
   */
 + (BOOL)importIdentityFromPKCS12Data:(NSData *)pkcs12Data passPhrase:(NSString *)passPhrase certificateId:(NSString *)certificateId;
 
-
 /**
  *  Validates the certificate with the given identifier of certificate.
  *
@@ -217,6 +223,8 @@
 *  @return TRUE if certificate is deleted, else FALSE
  */
 + (BOOL)deleteCertificate;
+
++ (BOOL)deleteCertificateWithCertificateId:(NSString*)certificateId NS_SWIFT_NAME(deleteCertificate(certificateId:));
 
 + (void)setKeyChainAccessibility:(AWSIoTKeyChainAccessibility)accessibility;
 

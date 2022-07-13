@@ -403,7 +403,7 @@
     self.keepAliveInterval = theKeepAliveInterval;
     self.connectStatusCallback = callback;
     
-    return [ self webSocketConnectWithClientId];
+    return [self webSocketConnectWithClientId];
 }
 
 - (BOOL)connectWithClientId:(NSString *)clientId
