@@ -37,7 +37,7 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
 @property (nonatomic) NSMutableDictionary* globalAttributes;
 @property (nonatomic) NSMutableDictionary* globalMetrics;
 @property (nonatomic) AWSPinpointEndpointProfile *endpointProfile;
-
+@property (nonatomic, strong) AWSUICKeyChainStore *keychain;
 @end
 
 @interface AWSPinpointConfiguration()
@@ -63,9 +63,26 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
 - (instancetype) initWithContext:(AWSPinpointContext *) context {
     if (self = [super init]) {
         _context = context;
-        NSDictionary *customAttributes = [context.configuration.userDefaults objectForKey:AWSPinpointEndpointAttributesKey];
+        _keychain = context.keychain;
+        [self migrateLegacyKeyValueStore];
+        
+        NSData *customAttributesData = [_keychain dataForKey:AWSPinpointEndpointAttributesKey];
+        NSError *decodingError;
+        NSDictionary *customAttributes = [AWSNSCodingUtilities versionSafeUnarchivedObjectOfClass:[NSDictionary class]
+                                                                               fromData:customAttributesData
+                                                                                  error:&decodingError];
+        if (decodingError) {
+            AWSDDLogError(@"Error decoding global endpoint attributes: %@", decodingError);
+        }
         _globalAttributes = [[NSMutableDictionary alloc] initWithDictionary:customAttributes];
-        NSDictionary *customMetrics = [context.configuration.userDefaults objectForKey:AWSPinpointEndpointMetricsKey];
+        
+        NSData *customMetricsData = [_keychain dataForKey:AWSPinpointEndpointMetricsKey];
+        NSDictionary *customMetrics = [AWSNSCodingUtilities versionSafeUnarchivedObjectOfClass:[NSDictionary class]
+                                                                                      fromData:customMetricsData
+                                                                                         error:&decodingError];
+        if (decodingError) {
+            AWSDDLogError(@"Error decoding global endpoint metrics: %@", decodingError);
+        }
         _globalMetrics = [[NSMutableDictionary alloc] initWithDictionary:customMetrics];
     }
     
@@ -75,8 +92,8 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
 - (AWSPinpointEndpointProfile *) currentEndpointProfile {
     AWSPinpointEndpointProfile *localEndpointProfile;
     if (!self.endpointProfile) {
-        if ([self.context.configuration.userDefaults objectForKey:AWSPinpointEndpointProfileKey] != nil) {
-            NSData *endpointProfileData = [self.context.configuration.userDefaults objectForKey:AWSPinpointEndpointProfileKey];
+        if ([_keychain dataForKey:AWSPinpointEndpointProfileKey] != nil) {
+            NSData *endpointProfileData = [_keychain dataForKey:AWSPinpointEndpointProfileKey];
 
             NSError *decodingError;
             localEndpointProfile = [AWSNSCodingUtilities versionSafeUnarchivedObjectOfClass:[AWSPinpointEndpointProfile class]
@@ -92,8 +109,7 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
                 [localEndpointProfile removeAllAttributes];
             } else {
                 @synchronized (self) {
-                    [self.context.configuration.userDefaults removeObjectForKey:AWSPinpointEndpointProfileKey];
-                    [self.context.configuration.userDefaults synchronize];
+                    [_keychain removeItemForKey:AWSPinpointEndpointProfileKey];
                 }
                 localEndpointProfile = [[AWSPinpointEndpointProfile alloc] initWithContext: self.context];
             }
@@ -143,6 +159,43 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
     }
 }
 
+- (void)migrateLegacyKeyValueStore {
+    NSUserDefaults *userDefaults = self.context.configuration.userDefaults;
+    if ([userDefaults dataForKey:AWSPinpointEndpointProfileKey] != nil) {
+        NSData *endpointProfileData = [userDefaults dataForKey:AWSPinpointEndpointProfileKey];
+        [_keychain setData:endpointProfileData forKey:AWSPinpointEndpointProfileKey];
+        [userDefaults removeObjectForKey:AWSPinpointEndpointProfileKey];
+    }
+    
+    if ([userDefaults objectForKey:AWSPinpointEndpointAttributesKey] != nil) {
+        NSDictionary *attributes = [userDefaults objectForKey:AWSPinpointEndpointAttributesKey];
+        NSError *codingError;
+        NSData *attributesData = [AWSNSCodingUtilities versionSafeArchivedDataWithRootObject:attributes
+                                                                            requiringSecureCoding:YES
+                                                                                            error:&codingError];
+        if (codingError) {
+            AWSDDLogError(@"Error archiving global attributes data. Updating service but not persisting locally: %@", codingError);
+        }
+        [_keychain setData:attributesData forKey:AWSPinpointEndpointAttributesKey];
+        [userDefaults removeObjectForKey:AWSPinpointEndpointAttributesKey];
+    }
+    
+    if ([userDefaults objectForKey:AWSPinpointEndpointAttributesKey] != nil) {
+        NSError *codingError;
+        NSDictionary *metrics = [userDefaults objectForKey:AWSPinpointEndpointMetricsKey];
+        NSData *metricsData = [AWSNSCodingUtilities versionSafeArchivedDataWithRootObject:metrics
+                                                                            requiringSecureCoding:YES
+                                                                                            error:&codingError];
+        if (codingError) {
+            AWSDDLogError(@"Error archiving global metrics data. Updating service but not persisting locally: %@", codingError);
+        }
+        [_keychain setData:metricsData forKey:AWSPinpointEndpointMetricsKey];
+        [userDefaults removeObjectForKey:AWSPinpointEndpointMetricsKey];
+    }
+    
+    [userDefaults synchronize];
+}
+
 #pragma mark - Endpoint Client -
 - (nonnull AWSTask *)updateEndpointProfile:(nonnull AWSPinpointEndpointProfile*) endpointProfile {
     
@@ -165,9 +218,7 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
         if (codingError) {
             AWSDDLogError(@"Error archiving endpointProfileData. Updating service but not persisting locally: %@", codingError);
         }
-
-        [self.context.configuration.userDefaults setObject:endpointProfileData forKey:AWSPinpointEndpointProfileKey];
-        [self.context.configuration.userDefaults synchronize];
+        [_keychain setData:endpointProfileData forKey:AWSPinpointEndpointProfileKey];
     }
 
     return [[self.context.targetingService updateEndpoint:[self updateEndpointRequestForEndpoint:self.endpointProfile]] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
@@ -207,8 +258,14 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
     @synchronized(self) {
         //Save value to disk
         [self.globalAttributes setValue:theValue forKey:theKey];
-        [self.context.configuration.userDefaults setObject:self.globalAttributes forKey:AWSPinpointEndpointAttributesKey];
-        [self.context.configuration.userDefaults synchronize];
+        NSError *codingError;
+        NSData *globalAttributesData = [AWSNSCodingUtilities versionSafeArchivedDataWithRootObject:self.globalAttributes
+                                                                            requiringSecureCoding:YES
+                                                                                            error:&codingError];
+        if (codingError) {
+            AWSDDLogError(@"Error archiving globalAttributesData. Updating service but not persisting locally: %@", codingError);
+        }
+        [_keychain setData:globalAttributesData forKey:AWSPinpointEndpointAttributesKey];
     }
 }
 
@@ -220,9 +277,14 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
     }
     
     @synchronized(self) {
-        [self.globalAttributes removeObjectForKey:theKey];
-        [self.context.configuration.userDefaults setObject:self.globalAttributes forKey:AWSPinpointEndpointAttributesKey];
-        [self.context.configuration.userDefaults synchronize];
+        NSError *codingError;
+        NSData *globalAttributesData = [AWSNSCodingUtilities versionSafeArchivedDataWithRootObject:self.globalAttributes
+                                                                            requiringSecureCoding:YES
+                                                                                            error:&codingError];
+        if (codingError) {
+            AWSDDLogError(@"Error archiving globalAttributesData. Updating service but not persisting locally: %@", codingError);
+        }
+        [_keychain setData:globalAttributesData forKey:AWSPinpointEndpointAttributesKey];
     }
 }
 
@@ -243,8 +305,14 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
     
     @synchronized(self) {
         [self.globalMetrics setValue:theValue forKey:theKey];
-        [self.context.configuration.userDefaults setObject:self.globalMetrics forKey:AWSPinpointEndpointMetricsKey];
-        [self.context.configuration.userDefaults synchronize];
+        NSError *codingError;
+        NSData *globalMetricsData = [AWSNSCodingUtilities versionSafeArchivedDataWithRootObject:self.globalMetrics
+                                                                            requiringSecureCoding:YES
+                                                                                            error:&codingError];
+        if (codingError) {
+            AWSDDLogError(@"Error archiving globalMetricsData. Updating service but not persisting locally: %@", codingError);
+        }
+        [_keychain setData:globalMetricsData forKey:AWSPinpointEndpointMetricsKey];
     }
 }
 
@@ -257,8 +325,14 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
     
     @synchronized(self) {
         [self.globalMetrics removeObjectForKey:theKey];
-        [self.context.configuration.userDefaults setObject:self.globalMetrics forKey:AWSPinpointEndpointMetricsKey];
-        [self.context.configuration.userDefaults synchronize];
+        NSError *codingError;
+        NSData *globalMetricsData = [AWSNSCodingUtilities versionSafeArchivedDataWithRootObject:self.globalMetrics
+                                                                            requiringSecureCoding:YES
+                                                                                            error:&codingError];
+        if (codingError) {
+            AWSDDLogError(@"Error archiving globalMetricsData. Updating service but not persisting locally: %@", codingError);
+        }
+        [_keychain setData:globalMetricsData forKey:AWSPinpointEndpointMetricsKey];
     }
 }
 

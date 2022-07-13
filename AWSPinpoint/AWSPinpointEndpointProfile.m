@@ -14,6 +14,7 @@
  */
 
 #import <AWSCore/AWSCocoaLumberjack.h>
+#import <AWSCore/AWSUICKeyChainStore.h>
 #import "AWSPinpointEndpointProfile.h"
 #import "AWSPinpointContext.h"
 #import "AWSPinpointConfiguration.h"
@@ -64,22 +65,35 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
                             endpointId:endpointId
                 applicationLevelOptOut:applicationLevelOptOut
                                  debug:debug
-                          userDefaults:[NSUserDefaults standardUserDefaults]];
+                          userDefaults:[NSUserDefaults standardUserDefaults]
+                              keychain:[AWSUICKeyChainStore keyChainStoreWithService:AWSPinpointContextKeychainService]];
 }
 
 - (instancetype) initWithApplicationId:(NSString*) applicationId
                             endpointId:(NSString*) endpointId
                 applicationLevelOptOut:(BOOL) applicationLevelOptOut
                                  debug:(BOOL) debug
-                          userDefaults:(NSUserDefaults*) userDefaults {
+                          userDefaults:(NSUserDefaults*) userDefaults
+                              keychain: (AWSUICKeyChainStore*) keychain {
     if (self = [super init]) {
-        NSData *tokenData = [userDefaults objectForKey:AWSDeviceTokenKey];
-        NSString *deviceTokenString = [AWSPinpointEndpointProfile hexStringFromData:tokenData];
-        
+        if ([userDefaults objectForKey:AWSDeviceTokenKey]) {
+            NSData *tokenData = [userDefaults objectForKey:AWSDeviceTokenKey];
+            NSString *deviceTokenString = [AWSPinpointEndpointProfile hexStringFromData:tokenData];
+            _address = deviceTokenString;
+            
+            //move to keychain and remove from user defaults
+            [keychain setData:tokenData forKey:AWSDeviceTokenKey];
+            [userDefaults removeObjectForKey:AWSDeviceTokenKey];
+            [userDefaults synchronize];
+        } else {
+            NSData *tokenData = [keychain dataForKey:AWSDeviceTokenKey];
+            NSString *deviceTokenString = [AWSPinpointEndpointProfile hexStringFromData:tokenData];
+            _address = deviceTokenString;
+        }
+
         _applicationId = applicationId;
         _endpointId = endpointId;
         _channelType  = debug? DEBUG_CHANNEL_TYPE : CHANNEL_TYPE;
-        _address = deviceTokenString;
         _location = [AWSPinpointEndpointProfileLocation new];
         _demographic = [AWSPinpointEndpointProfileDemographic defaultAWSPinpointEndpointProfileDemographic];
         _effectiveDate = [AWSPinpointDateUtils utcTimeMillisNow];
@@ -100,17 +114,13 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
 - (instancetype)initWithContext:(AWSPinpointContext *) context {
     BOOL applicationLevelOptOut = [self isApplicationLevelOptOut:context];
     if(context.configuration.userDefaults != nil) {
-        return [self initWithApplicationId:context.configuration.appId endpointId:context.uniqueId applicationLevelOptOut:applicationLevelOptOut debug:context.configuration.debug userDefaults:context.configuration.userDefaults];
+        return [self initWithApplicationId:context.configuration.appId endpointId:context.uniqueId applicationLevelOptOut:applicationLevelOptOut debug:context.configuration.debug userDefaults:context.configuration.userDefaults keychain: context.keychain];
     }
     return [self initWithApplicationId: context.configuration.appId endpointId:context.uniqueId applicationLevelOptOut:applicationLevelOptOut debug:context.configuration.debug];
 }
 
 - (void) updateEndpointProfileWithContext:(AWSPinpointContext *) context {
-    NSUserDefaults *userDefaults = context.configuration.userDefaults;
-    if (userDefaults == nil) {
-        userDefaults = [NSUserDefaults standardUserDefaults];
-    }
-    NSData *tokenData = [userDefaults objectForKey:AWSDeviceTokenKey];
+    NSData *tokenData = [context.keychain dataForKey:AWSDeviceTokenKey];
     NSString *deviceTokenString = [AWSPinpointEndpointProfile hexStringFromData:tokenData];
     @synchronized (self) {
         _channelType = context.configuration.debug ? DEBUG_CHANNEL_TYPE : CHANNEL_TYPE;
