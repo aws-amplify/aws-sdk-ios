@@ -65,28 +65,43 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
         _context = context;
         _keychain = context.keychain;
         [self migrateLegacyKeyValueStore];
-        
-        NSData *customAttributesData = [_keychain dataForKey:AWSPinpointEndpointAttributesKey];
+        [self initGlobalAttributes];
+        [self initGlobalMetrics];
+    }
+    
+    return self;
+}
+
+- (void)initGlobalAttributes {
+    NSData *customAttributesData = [_keychain dataForKey:AWSPinpointEndpointAttributesKey];
+    if (customAttributesData == nil) {
+        _globalAttributes = [[NSMutableDictionary alloc] init];
+    } else {
+        NSSet *allowableClasses = [[NSSet alloc] initWithObjects:[NSMutableString class],
+                                   [NSDictionary class],
+                                   [NSArray class],
+                                   nil];
         NSError *decodingError;
-        NSDictionary *customAttributes = [AWSNSCodingUtilities versionSafeUnarchivedObjectOfClass:[NSDictionary class]
-                                                                               fromData:customAttributesData
-                                                                                  error:&decodingError];
+        NSMutableDictionary *customAttributes = [AWSNSCodingUtilities versionSafeUnarchivedObjectOfClasses:allowableClasses fromData:customAttributesData error:&decodingError];
         if (decodingError) {
             AWSDDLogError(@"Error decoding global endpoint attributes: %@", decodingError);
         }
         _globalAttributes = [[NSMutableDictionary alloc] initWithDictionary:customAttributes];
-        
-        NSData *customMetricsData = [_keychain dataForKey:AWSPinpointEndpointMetricsKey];
-        NSDictionary *customMetrics = [AWSNSCodingUtilities versionSafeUnarchivedObjectOfClass:[NSDictionary class]
-                                                                                      fromData:customMetricsData
-                                                                                         error:&decodingError];
+    }
+}
+
+- (void) initGlobalMetrics {
+    NSData *customMetricsData = [_keychain dataForKey:AWSPinpointEndpointMetricsKey];
+    if (customMetricsData == nil) {
+        _globalMetrics = [[NSMutableDictionary alloc] init];
+    } else {
+        NSError *decodingError;
+        NSMutableDictionary *customMetrics = [AWSNSCodingUtilities versionSafeMutableDictionaryFromData:customMetricsData error:&decodingError];
         if (decodingError) {
             AWSDDLogError(@"Error decoding global endpoint metrics: %@", decodingError);
         }
         _globalMetrics = [[NSMutableDictionary alloc] initWithDictionary:customMetrics];
     }
-    
-    return self;
 }
 
 - (AWSPinpointEndpointProfile *) currentEndpointProfile {
@@ -168,7 +183,7 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
     }
     
     if ([userDefaults objectForKey:AWSPinpointEndpointAttributesKey] != nil) {
-        NSDictionary *attributes = [userDefaults objectForKey:AWSPinpointEndpointAttributesKey];
+        NSMutableDictionary *attributes = [userDefaults objectForKey:AWSPinpointEndpointAttributesKey];
         NSError *codingError;
         NSData *attributesData = [AWSNSCodingUtilities versionSafeArchivedDataWithRootObject:attributes
                                                                             requiringSecureCoding:YES
@@ -180,9 +195,9 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
         [userDefaults removeObjectForKey:AWSPinpointEndpointAttributesKey];
     }
     
-    if ([userDefaults objectForKey:AWSPinpointEndpointAttributesKey] != nil) {
+    if ([userDefaults objectForKey:AWSPinpointEndpointMetricsKey] != nil) {
         NSError *codingError;
-        NSDictionary *metrics = [userDefaults objectForKey:AWSPinpointEndpointMetricsKey];
+        NSMutableDictionary *metrics = [userDefaults objectForKey:AWSPinpointEndpointMetricsKey];
         NSData *metricsData = [AWSNSCodingUtilities versionSafeArchivedDataWithRootObject:metrics
                                                                             requiringSecureCoding:YES
                                                                                             error:&codingError];
@@ -277,6 +292,7 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
     }
     
     @synchronized(self) {
+        [self.globalAttributes removeObjectForKey:theKey];
         NSError *codingError;
         NSData *globalAttributesData = [AWSNSCodingUtilities versionSafeArchivedDataWithRootObject:self.globalAttributes
                                                                             requiringSecureCoding:YES
