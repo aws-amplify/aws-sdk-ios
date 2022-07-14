@@ -25,7 +25,7 @@
 #import "AWSTranslateResources.h"
 
 static NSString *const AWSInfoTranslate = @"Translate";
-NSString *const AWSTranslateSDKVersion = @"2.27.10";
+NSString *const AWSTranslateSDKVersion = @"2.27.12";
 
 
 @interface AWSTranslateResponseSerializer : AWSJSONResponseSerializer
@@ -51,6 +51,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"ServiceUnavailableException" : @(AWSTranslateErrorServiceUnavailable),
                             @"TextSizeLimitExceededException" : @(AWSTranslateErrorTextSizeLimitExceeded),
                             @"TooManyRequestsException" : @(AWSTranslateErrorTooManyRequests),
+                            @"UnsupportedDisplayLanguageCodeException" : @(AWSTranslateErrorUnsupportedDisplayLanguageCode),
                             @"UnsupportedLanguagePairException" : @(AWSTranslateErrorUnsupportedLanguagePair),
                             };
 }
@@ -436,6 +437,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSTranslateImportTerminologyResponse *response, NSError *error))completionHandler {
     [[self importTerminology:request] continueWithBlock:^id _Nullable(AWSTask<AWSTranslateImportTerminologyResponse *> * _Nonnull task) {
         AWSTranslateImportTerminologyResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTranslateListLanguagesResponse *> *)listLanguages:(AWSTranslateListLanguagesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSShineFrontendService_20170701"
+                 operationName:@"ListLanguages"
+                   outputClass:[AWSTranslateListLanguagesResponse class]];
+}
+
+- (void)listLanguages:(AWSTranslateListLanguagesRequest *)request
+     completionHandler:(void (^)(AWSTranslateListLanguagesResponse *response, NSError *error))completionHandler {
+    [[self listLanguages:request] continueWithBlock:^id _Nullable(AWSTask<AWSTranslateListLanguagesResponse *> * _Nonnull task) {
+        AWSTranslateListLanguagesResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
