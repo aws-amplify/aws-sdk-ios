@@ -1,6 +1,6 @@
 # Logs Guidance
 
-When providing logs in an issue please following these recommendations.
+When providing logs in an issue please follow these recommendations.
 
 1. Use an editor to clear out any sensitive information.
 2. Remove lines which are not relevant to the problem.
