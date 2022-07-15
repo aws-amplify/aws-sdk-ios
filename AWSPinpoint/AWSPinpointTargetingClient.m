@@ -189,10 +189,11 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
                                                                             requiringSecureCoding:YES
                                                                                             error:&codingError];
         if (codingError) {
-            AWSDDLogError(@"Error archiving global attributes data. Updating service but not persisting locally: %@", codingError);
+            AWSDDLogError(@"Error migrating global attributes data from NSUserDefaults to Keychain with error: %@", codingError);
+        } else {
+            [_keychain setData:attributesData forKey:AWSPinpointEndpointAttributesKey];
+            [userDefaults removeObjectForKey:AWSPinpointEndpointAttributesKey];
         }
-        [_keychain setData:attributesData forKey:AWSPinpointEndpointAttributesKey];
-        [userDefaults removeObjectForKey:AWSPinpointEndpointAttributesKey];
     }
     
     if ([userDefaults objectForKey:AWSPinpointEndpointMetricsKey] != nil) {
@@ -202,10 +203,11 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
                                                                             requiringSecureCoding:YES
                                                                                             error:&codingError];
         if (codingError) {
-            AWSDDLogError(@"Error archiving global metrics data. Updating service but not persisting locally: %@", codingError);
+            AWSDDLogError(@"Error migrating global metrics from NSUserDefaults to Keychain with error: %@", codingError);
+        } else {
+            [_keychain setData:metricsData forKey:AWSPinpointEndpointMetricsKey];
+            [userDefaults removeObjectForKey:AWSPinpointEndpointMetricsKey];
         }
-        [_keychain setData:metricsData forKey:AWSPinpointEndpointMetricsKey];
-        [userDefaults removeObjectForKey:AWSPinpointEndpointMetricsKey];
     }
     
     [userDefaults synchronize];

@@ -76,21 +76,18 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
                           userDefaults:(NSUserDefaults*) userDefaults
                               keychain: (AWSUICKeyChainStore*) keychain {
     if (self = [super init]) {
-        if ([userDefaults objectForKey:AWSDeviceTokenKey]) {
-            NSData *tokenData = [userDefaults objectForKey:AWSDeviceTokenKey];
-            NSString *deviceTokenString = [AWSPinpointEndpointProfile hexStringFromData:tokenData];
-            _address = deviceTokenString;
-            
+        NSData *tokenData = [userDefaults objectForKey:AWSDeviceTokenKey];
+        if (tokenData != nil) {
             //move to keychain and remove from user defaults
             [keychain setData:tokenData forKey:AWSDeviceTokenKey];
             [userDefaults removeObjectForKey:AWSDeviceTokenKey];
             [userDefaults synchronize];
         } else {
-            NSData *tokenData = [keychain dataForKey:AWSDeviceTokenKey];
-            NSString *deviceTokenString = [AWSPinpointEndpointProfile hexStringFromData:tokenData];
-            _address = deviceTokenString;
+            tokenData = [keychain dataForKey:AWSDeviceTokenKey];
         }
 
+        NSString *deviceTokenString = [AWSPinpointEndpointProfile hexStringFromData:tokenData];
+        _address = deviceTokenString;
         _applicationId = applicationId;
         _endpointId = endpointId;
         _channelType  = debug? DEBUG_CHANNEL_TYPE : CHANNEL_TYPE;
