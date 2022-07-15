@@ -161,3 +161,50 @@ extension FetchUserPoolTokensOperation.TokenFetchError: Equatable {
         }
     }
 }
+
+extension FetchUserPoolTokensOperation.TokenFetchState: CustomDebugStringConvertible {
+
+    var debugDescription: String {
+        switch self {
+
+        case .notStarted:
+            return "notStarted"
+        case .fetching:
+            return "fetching"
+        case .waitingForSignIn:
+            return "waitingForSignIn"
+        case .releasedSignInWait:
+            return "releasedSignInWait"
+        case .fetched:
+            return "fetched"
+        case .error(let error):
+            return "error \(error)"
+        }
+    }
+}
+
+extension FetchUserPoolTokensOperation.TokenFetchEvent: CustomDebugStringConvertible {
+
+    var debugDescription: String {
+        switch self {
+        case .cancelled:
+            return "cancelled"
+        case .startOperation:
+            return "startOperation"
+        case .tokenFetched:
+            return "tokenFetched"
+        case .tokenExpired:
+            return "tokenExpired"
+        case .serviceError(let error):
+            return "serviceError \(error)"
+        case .signedIn:
+            return "signedIn"
+        case .signedOut:
+            return "signedOut"
+        case .releaseWait:
+            return "releaseWait"
+        case .noUserFound:
+            return "noUserFound"
+        }
+    }
+}

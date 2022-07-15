@@ -1176,6 +1176,18 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         if ([value caseInsensitiveCompare:@"Hannah"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdHannah);
         }
+        if ([value caseInsensitiveCompare:@"Arthur"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdArthur);
+        }
+        if ([value caseInsensitiveCompare:@"Daniel"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdDaniel);
+        }
+        if ([value caseInsensitiveCompare:@"Liam"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdLiam);
+        }
+        if ([value caseInsensitiveCompare:@"Pedro"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdPedro);
+        }
         return @(AWSPollyVoiceIdUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1313,6 +1325,14 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"Arlet";
             case AWSPollyVoiceIdHannah:
                 return @"Hannah";
+            case AWSPollyVoiceIdArthur:
+                return @"Arthur";
+            case AWSPollyVoiceIdDaniel:
+                return @"Daniel";
+            case AWSPollyVoiceIdLiam:
+                return @"Liam";
+            case AWSPollyVoiceIdPedro:
+                return @"Pedro";
             default:
                 return nil;
         }
@@ -1856,6 +1876,18 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         if ([value caseInsensitiveCompare:@"Hannah"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdHannah);
         }
+        if ([value caseInsensitiveCompare:@"Arthur"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdArthur);
+        }
+        if ([value caseInsensitiveCompare:@"Daniel"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdDaniel);
+        }
+        if ([value caseInsensitiveCompare:@"Liam"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdLiam);
+        }
+        if ([value caseInsensitiveCompare:@"Pedro"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdPedro);
+        }
         return @(AWSPollyVoiceIdUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1993,6 +2025,14 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"Arlet";
             case AWSPollyVoiceIdHannah:
                 return @"Hannah";
+            case AWSPollyVoiceIdArthur:
+                return @"Arthur";
+            case AWSPollyVoiceIdDaniel:
+                return @"Daniel";
+            case AWSPollyVoiceIdLiam:
+                return @"Liam";
+            case AWSPollyVoiceIdPedro:
+                return @"Pedro";
             default:
                 return nil;
         }
@@ -2473,6 +2513,18 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         if ([value caseInsensitiveCompare:@"Hannah"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdHannah);
         }
+        if ([value caseInsensitiveCompare:@"Arthur"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdArthur);
+        }
+        if ([value caseInsensitiveCompare:@"Daniel"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdDaniel);
+        }
+        if ([value caseInsensitiveCompare:@"Liam"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdLiam);
+        }
+        if ([value caseInsensitiveCompare:@"Pedro"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdPedro);
+        }
         return @(AWSPollyVoiceIdUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2610,6 +2662,14 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"Arlet";
             case AWSPollyVoiceIdHannah:
                 return @"Hannah";
+            case AWSPollyVoiceIdArthur:
+                return @"Arthur";
+            case AWSPollyVoiceIdDaniel:
+                return @"Daniel";
+            case AWSPollyVoiceIdLiam:
+                return @"Liam";
+            case AWSPollyVoiceIdPedro:
+                return @"Pedro";
             default:
                 return nil;
         }
@@ -2876,6 +2936,18 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         if ([value caseInsensitiveCompare:@"Hannah"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdHannah);
         }
+        if ([value caseInsensitiveCompare:@"Arthur"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdArthur);
+        }
+        if ([value caseInsensitiveCompare:@"Daniel"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdDaniel);
+        }
+        if ([value caseInsensitiveCompare:@"Liam"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdLiam);
+        }
+        if ([value caseInsensitiveCompare:@"Pedro"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdPedro);
+        }
         return @(AWSPollyVoiceIdUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3013,6 +3085,14 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"Arlet";
             case AWSPollyVoiceIdHannah:
                 return @"Hannah";
+            case AWSPollyVoiceIdArthur:
+                return @"Arthur";
+            case AWSPollyVoiceIdDaniel:
+                return @"Daniel";
+            case AWSPollyVoiceIdLiam:
+                return @"Liam";
+            case AWSPollyVoiceIdPedro:
+                return @"Pedro";
             default:
                 return nil;
         }

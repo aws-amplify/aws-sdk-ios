@@ -840,6 +840,7 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceAttributeName) {
     AWSEC2InstanceAttributeNameSriovNetSupport,
     AWSEC2InstanceAttributeNameEnaSupport,
     AWSEC2InstanceAttributeNameEnclaveOptions,
+    AWSEC2InstanceAttributeNameDisableApiStop,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2InstanceAutoRecoveryState) {
@@ -1449,6 +1450,17 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeI4I_8xlarge,
     AWSEC2InstanceTypeI4I_16xlarge,
     AWSEC2InstanceTypeI4I_32xlarge,
+    AWSEC2InstanceTypeI4I_metal,
+    AWSEC2InstanceTypeX2Idn_metal,
+    AWSEC2InstanceTypeX2Iedn_metal,
+    AWSEC2InstanceTypeC7G_medium,
+    AWSEC2InstanceTypeC7G_large,
+    AWSEC2InstanceTypeC7G_xlarge,
+    AWSEC2InstanceTypeC7G_2xlarge,
+    AWSEC2InstanceTypeC7G_4xlarge,
+    AWSEC2InstanceTypeC7G_8xlarge,
+    AWSEC2InstanceTypeC7G_12xlarge,
+    AWSEC2InstanceTypeC7G_16xlarge,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2InstanceTypeHypervisor) {
@@ -2204,6 +2216,12 @@ typedef NS_ENUM(NSInteger, AWSEC2SpotInstanceType) {
     AWSEC2SpotInstanceTypePersistent,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2SpreadLevel) {
+    AWSEC2SpreadLevelUnknown,
+    AWSEC2SpreadLevelHost,
+    AWSEC2SpreadLevelRack,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2State) {
     AWSEC2StateUnknown,
     AWSEC2StatePendingAcceptance,
@@ -2358,6 +2376,7 @@ typedef NS_ENUM(NSInteger, AWSEC2TrafficMirrorTargetType) {
     AWSEC2TrafficMirrorTargetTypeUnknown,
     AWSEC2TrafficMirrorTargetTypeNetworkInterface,
     AWSEC2TrafficMirrorTargetTypeNetworkLoadBalancer,
+    AWSEC2TrafficMirrorTargetTypeGatewayLoadBalancerEndpoint,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2TrafficType) {
@@ -7365,7 +7384,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2EndDateType endDateType;
 
 /**
- <p>Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.</p>
+ <p><i>Deprecated.</i></p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable ephemeralStorage;
 
@@ -8931,7 +8950,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2EndDateType endDateType;
 
 /**
- <p>Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.</p>
+ <p><i>Deprecated.</i></p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable ephemeralStorage;
 
@@ -9231,7 +9250,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The Internet-routable IP address for the customer gateway's outside interface. The address must be static.</p>
+ <p> IPv4 address for the customer gateway device's outside interface. The address must be static. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipAddress;
+
+/**
+ <p><i>This member has been deprecated.</i> The Internet-routable IP address for the customer gateway's outside interface. The address must be static.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable publicIp;
 
@@ -10130,7 +10154,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p><p>Constraint: Maximum 128 ASCII characters.</p>
+ <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p><p>Constraint: Maximum 128 ASCII characters.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -10150,7 +10174,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable launchTemplateName;
 
 /**
- <p>The tags to apply to the launch template during creation.</p>
+ <p>The tags to apply to the launch template on creation. To tag the launch template, the resource type must be <code>launch-template</code>.</p><note><p>To specify the tags for the resources that are created when an instance is launched, you must use the <code>TagSpecifications</code> parameter in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestLaunchTemplateData.html">launch template data</a> structure.</p></note>
  */
 @property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
 
@@ -10186,7 +10210,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p><p>Constraint: Maximum 128 ASCII characters.</p>
+ <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p><p>Constraint: Maximum 128 ASCII characters.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -10819,6 +10843,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The number of partitions. Valid only when <b>Strategy</b> is set to <code>partition</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable partitionCount;
+
+/**
+ <p>Determines how placement groups spread instances. </p><ul><li><p>Host – You can use <code>host</code> only with Outpost placement groups.</p></li><li><p>Rack – No usage restrictions.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSEC2SpreadLevel spreadLevel;
 
 /**
  <p>The placement strategy.</p>
@@ -11728,6 +11757,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the Gateway Load Balancer endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable gatewayLoadBalancerEndpointId;
 
 /**
  <p>The network interface ID that is associated with the target.</p>
@@ -12865,7 +12899,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable deviceName;
 
 /**
- <p>The Internet-routable IP address of the customer gateway's outside interface.</p>
+ <p>The IP address of the customer gateway device's outside interface.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipAddress;
 
@@ -15891,7 +15925,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters.</p><ul><li><p><code>bgp-asn</code> - The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).</p></li><li><p><code>customer-gateway-id</code> - The ID of the customer gateway.</p></li><li><p><code>ip-address</code> - The IP address of the customer gateway's Internet-routable external interface.</p></li><li><p><code>state</code> - The state of the customer gateway (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p></li><li><p><code>type</code> - The type of customer gateway. Currently, the only supported type is <code>ipsec.1</code>.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
+ <p>One or more filters.</p><ul><li><p><code>bgp-asn</code> - The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).</p></li><li><p><code>customer-gateway-id</code> - The ID of the customer gateway.</p></li><li><p><code>ip-address</code> - The IP address of the customer gateway device's external interface.</p></li><li><p><code>state</code> - The state of the customer gateway (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p></li><li><p><code>type</code> - The type of customer gateway. Currently, the only supported type is <code>ipsec.1</code>.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -18432,7 +18466,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters.</p><ul><li><p><code>association.association-id</code> - The ID of an association ID for the ACL.</p></li><li><p><code>association.network-acl-id</code> - The ID of the network ACL involved in the association.</p></li><li><p><code>association.subnet-id</code> - The ID of the subnet involved in the association.</p></li><li><p><code>default</code> - Indicates whether the ACL is the default network ACL for the VPC.</p></li><li><p><code>entry.cidr</code> - The IPv4 CIDR range specified in the entry.</p></li><li><p><code>entry.icmp.code</code> - The ICMP code specified in the entry, if any.</p></li><li><p><code>entry.icmp.type</code> - The ICMP type specified in the entry, if any.</p></li><li><p><code>entry.ipv6-cidr</code> - The IPv6 CIDR range specified in the entry.</p></li><li><p><code>entry.port-range.from</code> - The start of the port range specified in the entry. </p></li><li><p><code>entry.port-range.to</code> - The end of the port range specified in the entry. </p></li><li><p><code>entry.protocol</code> - The protocol specified in the entry (<code>tcp</code> | <code>udp</code> | <code>icmp</code> or a protocol number).</p></li><li><p><code>entry.rule-action</code> - Allows or denies the matching traffic (<code>allow</code> | <code>deny</code>).</p></li><li><p><code>entry.rule-number</code> - The number of an entry (in other words, rule) in the set of ACL entries.</p></li><li><p><code>network-acl-id</code> - The ID of the network ACL.</p></li><li><p><code>owner-id</code> - The ID of the Amazon Web Services account that owns the network ACL.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>vpc-id</code> - The ID of the VPC for the network ACL.</p></li></ul>
+ <p>One or more filters.</p><ul><li><p><code>association.association-id</code> - The ID of an association ID for the ACL.</p></li><li><p><code>association.network-acl-id</code> - The ID of the network ACL involved in the association.</p></li><li><p><code>association.subnet-id</code> - The ID of the subnet involved in the association.</p></li><li><p><code>default</code> - Indicates whether the ACL is the default network ACL for the VPC.</p></li><li><p><code>entry.cidr</code> - The IPv4 CIDR range specified in the entry.</p></li><li><p><code>entry.icmp.code</code> - The ICMP code specified in the entry, if any.</p></li><li><p><code>entry.icmp.type</code> - The ICMP type specified in the entry, if any.</p></li><li><p><code>entry.ipv6-cidr</code> - The IPv6 CIDR range specified in the entry.</p></li><li><p><code>entry.port-range.from</code> - The start of the port range specified in the entry. </p></li><li><p><code>entry.port-range.to</code> - The end of the port range specified in the entry. </p></li><li><p><code>entry.protocol</code> - The protocol specified in the entry (<code>tcp</code> | <code>udp</code> | <code>icmp</code> or a protocol number).</p></li><li><p><code>entry.rule-action</code> - Allows or denies the matching traffic (<code>allow</code> | <code>deny</code>).</p></li><li><p><code>entry.egress</code> - A Boolean that indicates the type of rule. Specify <code>true</code> for egress rules, or <code>false</code> for ingress rules.</p></li><li><p><code>entry.rule-number</code> - The number of an entry (in other words, rule) in the set of ACL entries.</p></li><li><p><code>network-acl-id</code> - The ID of the network ACL.</p></li><li><p><code>owner-id</code> - The ID of the Amazon Web Services account that owns the network ACL.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>vpc-id</code> - The ID of the VPC for the network ACL.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -18871,7 +18905,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The filters.</p><ul><li><p><code>group-name</code> - The name of the placement group.</p></li><li><p><code>group-arn</code> - The Amazon Resource Name (ARN) of the placement group.</p></li><li><p><code>state</code> - The state of the placement group (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p></li><li><p><code>strategy</code> - The strategy of the placement group (<code>cluster</code> | <code>spread</code> | <code>partition</code>).</p></li><li><p><code>tag:&lt;key&gt;</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.</p></li></ul>
+ <p>The filters.</p><ul><li><p><code>group-name</code> - The name of the placement group.</p></li><li><p><code>group-arn</code> - The Amazon Resource Name (ARN) of the placement group.</p></li><li><p><code>spread-level</code> - The spread level for the placement group (<code>host</code> | <code>rack</code>). </p></li><li><p><code>state</code> - The state of the placement group (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p></li><li><p><code>strategy</code> - The strategy of the placement group (<code>cluster</code> | <code>spread</code> | <code>partition</code>).</p></li><li><p><code>tag:&lt;key&gt;</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -23916,7 +23950,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable eventDescription;
 
 /**
- <p>The event.</p><p><code>error</code> events:</p><ul><li><p><code>iamFleetRoleInvalid</code> - The EC2 Fleet or Spot Fleet does not have the required permissions either to launch or terminate an instance.</p></li><li><p><code>allLaunchSpecsTemporarilyBlacklisted</code> - None of the configurations are valid, and several attempts to launch instances have failed. For more information, see the description of the event.</p></li><li><p><code>spotInstanceCountLimitExceeded</code> - You've reached the limit on the number of Spot Instances that you can launch.</p></li><li><p><code>spotFleetRequestConfigurationInvalid</code> - The configuration is not valid. For more information, see the description of the event.</p></li></ul><p><code>fleetRequestChange</code> events:</p><ul><li><p><code>active</code> - The EC2 Fleet or Spot Fleet request has been validated and Amazon EC2 is attempting to maintain the target number of running instances.</p></li><li><p><code>cancelled</code> - The EC2 Fleet or Spot Fleet request is canceled and has no running instances. The EC2 Fleet or Spot Fleet will be deleted two days after its instances are terminated.</p></li><li><p><code>cancelled_running</code> - The EC2 Fleet or Spot Fleet request is canceled and does not launch additional instances. Its existing instances continue to run until they are interrupted or terminated. The request remains in this state until all instances are interrupted or terminated.</p></li><li><p><code>cancelled_terminating</code> - The EC2 Fleet or Spot Fleet request is canceled and its instances are terminating. The request remains in this state until all instances are terminated.</p></li><li><p><code>expired</code> - The EC2 Fleet or Spot Fleet request has expired. If the request was created with <code>TerminateInstancesWithExpiration</code> set, a subsequent <code>terminated</code> event indicates that the instances are terminated.</p></li><li><p><code>modify_in_progress</code> - The EC2 Fleet or Spot Fleet request is being modified. The request remains in this state until the modification is fully processed.</p></li><li><p><code>modify_succeeded</code> - The EC2 Fleet or Spot Fleet request was modified.</p></li><li><p><code>submitted</code> - The EC2 Fleet or Spot Fleet request is being evaluated and Amazon EC2 is preparing to launch the target number of instances.</p></li><li><p><code>progress</code> - The EC2 Fleet or Spot Fleet request is in the process of being fulfilled.</p></li></ul><p><code>instanceChange</code> events:</p><ul><li><p><code>launched</code> - A new instance was launched.</p></li><li><p><code>terminated</code> - An instance was terminated by the user.</p></li><li><p><code>termination_notified</code> - An instance termination notification was sent when a Spot Instance was terminated by Amazon EC2 during scale-down, when the target capacity of the fleet was modified down, for example, from a target capacity of 4 to a target capacity of 3.</p></li></ul><p><code>Information</code> events:</p><ul><li><p><code>fleetProgressHalted</code> - The price in every launch specification is not valid because it is below the Spot price (all the launch specifications have produced <code>launchSpecUnusable</code> events). A launch specification might become valid if the Spot price changes.</p></li><li><p><code>launchSpecTemporarilyBlacklisted</code> - The configuration is not valid and several attempts to launch instances have failed. For more information, see the description of the event.</p></li><li><p><code>launchSpecUnusable</code> - The price in a launch specification is not valid because it is below the Spot price.</p></li><li><p><code>registerWithLoadBalancersFailed</code> - An attempt to register instances with load balancers failed. For more information, see the description of the event.</p></li></ul>
+ <p>The event.</p><p><code>error</code> events:</p><ul><li><p><code>iamFleetRoleInvalid</code> - The EC2 Fleet or Spot Fleet does not have the required permissions either to launch or terminate an instance.</p></li><li><p><code>allLaunchSpecsTemporarilyBlacklisted</code> - None of the configurations are valid, and several attempts to launch instances have failed. For more information, see the description of the event.</p></li><li><p><code>spotInstanceCountLimitExceeded</code> - You've reached the limit on the number of Spot Instances that you can launch.</p></li><li><p><code>spotFleetRequestConfigurationInvalid</code> - The configuration is not valid. For more information, see the description of the event.</p></li></ul><p><code>fleetRequestChange</code> events:</p><ul><li><p><code>active</code> - The EC2 Fleet or Spot Fleet request has been validated and Amazon EC2 is attempting to maintain the target number of running instances.</p></li><li><p><code>deleted</code> (EC2 Fleet) / <code>cancelled</code> (Spot Fleet) - The EC2 Fleet is deleted or the Spot Fleet request is canceled and has no running instances. The EC2 Fleet or Spot Fleet will be deleted two days after its instances are terminated.</p></li><li><p><code>deleted_running</code> (EC2 Fleet) / <code>cancelled_running</code> (Spot Fleet) - The EC2 Fleet is deleted or the Spot Fleet request is canceled and does not launch additional instances. Its existing instances continue to run until they are interrupted or terminated. The request remains in this state until all instances are interrupted or terminated.</p></li><li><p><code>deleted_terminating</code> (EC2 Fleet) / <code>cancelled_terminating</code> (Spot Fleet) - The EC2 Fleet is deleted or the Spot Fleet request is canceled and its instances are terminating. The request remains in this state until all instances are terminated.</p></li><li><p><code>expired</code> - The EC2 Fleet or Spot Fleet request has expired. If the request was created with <code>TerminateInstancesWithExpiration</code> set, a subsequent <code>terminated</code> event indicates that the instances are terminated.</p></li><li><p><code>modify_in_progress</code> - The EC2 Fleet or Spot Fleet request is being modified. The request remains in this state until the modification is fully processed.</p></li><li><p><code>modify_succeeded</code> - The EC2 Fleet or Spot Fleet request was modified.</p></li><li><p><code>submitted</code> - The EC2 Fleet or Spot Fleet request is being evaluated and Amazon EC2 is preparing to launch the target number of instances.</p></li><li><p><code>progress</code> - The EC2 Fleet or Spot Fleet request is in the process of being fulfilled.</p></li></ul><p><code>instanceChange</code> events:</p><ul><li><p><code>launched</code> - A new instance was launched.</p></li><li><p><code>terminated</code> - An instance was terminated by the user.</p></li><li><p><code>termination_notified</code> - An instance termination notification was sent when a Spot Instance was terminated by Amazon EC2 during scale-down, when the target capacity of the fleet was modified down, for example, from a target capacity of 4 to a target capacity of 3.</p></li></ul><p><code>Information</code> events:</p><ul><li><p><code>fleetProgressHalted</code> - The price in every launch specification is not valid because it is below the Spot price (all the launch specifications have produced <code>launchSpecUnusable</code> events). A launch specification might become valid if the Spot price changes.</p></li><li><p><code>launchSpecTemporarilyBlacklisted</code> - The configuration is not valid and several attempts to launch instances have failed. For more information, see the description of the event.</p></li><li><p><code>launchSpecUnusable</code> - The price in a launch specification is not valid because it is below the Spot price.</p></li><li><p><code>registerWithLoadBalancersFailed</code> - An attempt to register instances with load balancers failed. For more information, see the description of the event.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable eventSubType;
 
@@ -29047,6 +29081,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2InstanceBlockDeviceMapping *> * _Nullable blockDeviceMappings;
 
 /**
+ <p>To enable the instance for Amazon Web Services Stop Protection, set this parameter to <code>true</code>; otherwise, set it to <code>false</code>.</p>
+ */
+@property (nonatomic, strong) AWSEC2AttributeBooleanValue * _Nullable disableApiStop;
+
+/**
  <p>If the value is <code>true</code>, you can't terminate the instance through the Amazon EC2 console, CLI, or API; otherwise, you can.</p>
  */
 @property (nonatomic, strong) AWSEC2AttributeBooleanValue * _Nullable disableApiTermination;
@@ -30020,7 +30059,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2LocalStorage localStorage;
 
 /**
- <p>The type of local storage that is required.</p><ul><li><p>For instance types with hard disk drive (HDD) storage, specify <code>hdd</code>.</p></li><li><p>For instance types with solid state drive (SDD) storage, specify <code>sdd</code>.</p></li></ul><p>Default: <code>hdd</code> and <code>sdd</code></p>
+ <p>The type of local storage that is required.</p><ul><li><p>For instance types with hard disk drive (HDD) storage, specify <code>hdd</code>.</p></li><li><p>For instance types with solid state drive (SSD) storage, specify <code>ssd</code>.</p></li></ul><p>Default: <code>hdd</code> and <code>ssd</code></p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable localStorageTypes;
 
@@ -30134,7 +30173,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2LocalStorage localStorage;
 
 /**
- <p>The type of local storage that is required.</p><ul><li><p>For instance types with hard disk drive (HDD) storage, specify <code>hdd</code>.</p></li><li><p>For instance types with solid state drive (SDD) storage, specify <code>sdd</code>.</p></li></ul><p>Default: <code>hdd</code> and <code>sdd</code></p>
+ <p>The type of local storage that is required.</p><ul><li><p>For instance types with hard disk drive (HDD) storage, specify <code>hdd</code>.</p></li><li><p>For instance types with solid state drive (SSD) storage, specify <code>ssd</code>.</p></li></ul><p>Default: <code>hdd</code> and <code>ssd</code></p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable localStorageTypes;
 
@@ -31987,7 +32026,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html"> What is Amazon Web Services Nitro Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p>
+ <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html">What is Amazon Web Services Nitro Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p>
  */
 @interface AWSEC2LaunchTemplateEnclaveOptionsRequest : AWSModel
 
@@ -32013,7 +32052,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Indicates whether the instance is configured for hibernation. This parameter is valid only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation prerequisites</a>.</p>
+ <p>Indicates whether the instance is configured for hibernation. This parameter is valid only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation prerequisites</a>.</p>
  */
 @interface AWSEC2LaunchTemplateHibernationOptionsRequest : AWSModel
 
@@ -32701,13 +32740,13 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>The tag specification for the launch template.</p>
+ <p>The tags specification for the launch template.</p>
  */
 @interface AWSEC2LaunchTemplateTagSpecification : AWSModel
 
 
 /**
- <p>The type of resource.</p>
+ <p>The type of resource to tag.</p>
  */
 @property (nonatomic, assign) AWSEC2ResourceType resourceType;
 
@@ -32719,13 +32758,13 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>The tags specification for the launch template.</p>
+ <p>The tags specification for the resources that are created during instance launch.</p>
  */
 @interface AWSEC2LaunchTemplateTagSpecificationRequest : AWSModel
 
 
 /**
- <p>The type of resource to tag. Currently, the resource types that support tagging on creation are <code>instance</code>, <code>volume</code>, <code>elastic-gpu</code>, <code>network-interface</code>, and <code>spot-instances-request</code>. To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
+ <p>The type of resource to tag.</p><p>The <code>Valid Values</code> are all the resource types that can be tagged. However, when creating a launch template, you can specify tags for the following resource types only: <code>instance</code> | <code>volume</code> | <code>elastic-gpu</code> | <code>network-interface</code> | <code>spot-instances-request</code></p><p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
  */
 @property (nonatomic, assign) AWSEC2ResourceType resourceType;
 
@@ -34077,6 +34116,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2InstanceBlockDeviceMappingSpecification *> * _Nullable blockDeviceMappings;
 
 /**
+ <p>Indicates whether an instance is enabled for stop protection. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop Protection</a>.</p><p/>
+ */
+@property (nonatomic, strong) AWSEC2AttributeBooleanValue * _Nullable disableApiStop;
+
+/**
  <p>If the value is <code>true</code>, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. You cannot use this parameter for Spot Instances.</p>
  */
 @property (nonatomic, strong) AWSEC2AttributeBooleanValue * _Nullable disableApiTermination;
@@ -34686,7 +34730,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p><p>Constraint: Maximum 128 ASCII characters.</p>
+ <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p><p>Constraint: Maximum 128 ASCII characters.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -37594,7 +37638,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable subnet;
 
 /**
- <p>Describes a path component.</p>
+ <p>The transit gateway.</p>
  */
 @property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable transitGateway;
 
@@ -37990,6 +38034,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The number of partitions. Valid only if <b>strategy</b> is set to <code>partition</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable partitionCount;
+
+/**
+ <p> The spread level for the placement group. <i>Only</i> Outpost placement groups can be spread across hosts. </p>
+ */
+@property (nonatomic, assign) AWSEC2SpreadLevel spreadLevel;
 
 /**
  <p>The state of the placement group.</p>
@@ -39946,9 +39995,14 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2LaunchTemplateCpuOptionsRequest * _Nullable cpuOptions;
 
 /**
- <p>The credit option for CPU usage of the instance. Valid for T2, T3, or T3a instances only.</p>
+ <p>The credit option for CPU usage of the instance. Valid only for T instances.</p>
  */
 @property (nonatomic, strong) AWSEC2CreditSpecificationRequest * _Nullable creditSpecification;
+
+/**
+ <p>Indicates whether to enable the instance for stop protection. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop Protection</a>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable disableApiStop;
 
 /**
  <p>If you set this parameter to <code>true</code>, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after launch, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html">ModifyInstanceAttribute</a>. Alternatively, if you set <code>InstanceInitiatedShutdownBehavior</code> to <code>terminate</code>, you can terminate the instance by running the shutdown command from the instance.</p>
@@ -39976,7 +40030,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2LaunchTemplateEnclaveOptionsRequest * _Nullable enclaveOptions;
 
 /**
- <p>Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSEC2LaunchTemplateHibernationOptionsRequest * _Nullable hibernationOptions;
 
@@ -40006,12 +40060,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2InstanceRequirementsRequest * _Nullable instanceRequirements;
 
 /**
- <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>If you specify <code>InstanceTypes</code>, you can't specify <code>InstanceRequirements</code>.</p>
+ <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>If you specify <code>InstanceTypes</code>, you can't specify <code>InstanceRequirements</code>.</p>
  */
 @property (nonatomic, assign) AWSEC2InstanceType instanceType;
 
 /**
- <p>The ID of the kernel.</p><important><p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">User Provided Kernels</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></important>
+ <p>The ID of the kernel.</p><important><p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">User provided kernels</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable kernelId;
 
@@ -40056,7 +40110,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2LaunchTemplatePrivateDnsNameOptionsRequest * _Nullable privateDnsNameOptions;
 
 /**
- <p>The ID of the RAM disk.</p><important><p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">User Provided Kernels</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></important>
+ <p>The ID of the RAM disk.</p><important><p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">User provided kernels</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable ramDiskId;
 
@@ -40071,12 +40125,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroups;
 
 /**
- <p>The tags to apply to the resources during launch. You can only tag instances and volumes on launch. The specified tags are applied to all instances or volumes that are created during launch. To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
+ <p>The tags to apply to the resources that are created during instance launch.</p><p>You can specify tags for the following resources only:</p><ul><li><p>Instances</p></li><li><p>Volumes</p></li><li><p>Elastic graphics</p></li><li><p>Spot Instance requests</p></li><li><p>Network interfaces</p></li></ul><p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p><note><p>To tag the launch template itself, you must use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">TagSpecification</a> parameter.</p></note>
  */
 @property (nonatomic, strong) NSArray<AWSEC2LaunchTemplateTagSpecificationRequest *> * _Nullable tagSpecifications;
 
 /**
- <p>The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Running Commands on Your Linux Instance at Launch</a> (Linux) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data">Adding User Data</a> (Windows).</p><p>If you are creating the launch template for use with Batch, the user data must be provided in the <a href="https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive"> MIME multi-part archive format</a>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html">Amazon EC2 user data in launch templates</a> in the <i>Batch User Guide</i>.</p>
+ <p>The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Run commands on your Linux instance at launch</a> (Linux) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instancedata-add-user-data.html">Work with instance user data</a> (Windows) in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>If you are creating the launch template for use with Batch, the user data must be provided in the <a href="https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive"> MIME multi-part archive format</a>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html">Amazon EC2 user data in launch templates</a> in the <i>Batch User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userData;
 
@@ -41052,6 +41106,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2CreditSpecification * _Nullable creditSpecification;
 
 /**
+ <p>Indicates whether the instance is enabled for stop protection. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop Protection</a>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable disableApiStop;
+
+/**
  <p>If set to <code>true</code>, indicates that the instance cannot be terminated using the Amazon EC2 console, command line tool, or API.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable disableApiTermination;
@@ -41172,7 +41231,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroups;
 
 /**
- <p>The tags.</p>
+ <p>The tags that are applied to the resources that are created during instance launch.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2LaunchTemplateTagSpecification *> * _Nullable tagSpecifications;
 
@@ -41862,6 +41921,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The credit option for CPU usage of the burstable performance instance. Valid values are <code>standard</code> and <code>unlimited</code>. To change this attribute after launch, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCreditSpecification.html"> ModifyInstanceCreditSpecification</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p><p>Default: <code>standard</code> (T2 instances) or <code>unlimited</code> (T3/T3a instances)</p><p>For T3 instances with <code>host</code> tenancy, only <code>standard</code> is supported.</p>
  */
 @property (nonatomic, strong) AWSEC2CreditSpecificationRequest * _Nullable creditSpecification;
+
+/**
+ <p>Indicates whether an instance is enabled for stop protection. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop Protection</a>. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable disableApiStop;
 
 /**
  <p>If you set this parameter to <code>true</code>, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after launch, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html">ModifyInstanceAttribute</a>. Alternatively, if you set <code>InstanceInitiatedShutdownBehavior</code> to <code>terminate</code>, you can terminate the instance by running the shutdown command from the instance.</p><p>Default: <code>false</code></p>
@@ -45632,6 +45696,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
+ <p>The ID of the Gateway Load Balancer endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable gatewayLoadBalancerEndpointId;
+
+/**
  <p>The network interface ID that is attached to the target.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable networkInterfaceId;
@@ -47405,12 +47474,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The error code that indicates why the parameter or parameter combination is not valid. For more information about error codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error Codes</a>.</p>
+ <p>The error code that indicates why the parameter or parameter combination is not valid. For more information about error codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error codes</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable code;
 
 /**
- <p>The error message that describes why the parameter or parameter combination is not valid. For more information about error messages, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error Codes</a>.</p>
+ <p>The error message that describes why the parameter or parameter combination is not valid. For more information about error messages, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error codes</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable message;
 
@@ -48442,6 +48511,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable localIpv6NetworkCidr;
 
 /**
+ <p>The type of IPv4 address assigned to the outside interface of the customer gateway.</p><p>Valid values: <code>PrivateIpv4</code> | <code>PublicIpv4</code></p><p>Default: <code>PublicIpv4</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable outsideIpAddressType;
+
+/**
  <p>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable remoteIpv4NetworkCidr;
@@ -48455,6 +48529,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable staticRoutesOnly;
+
+/**
+ <p>The transit gateway attachment ID in use for the VPN tunnel.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transportTransitGatewayAttachmentId;
 
 /**
  <p>Indicates whether the VPN tunnels process IPv4 or IPv6 traffic.</p>
@@ -48490,6 +48569,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable localIpv6NetworkCidr;
 
 /**
+ <p>The type of IPv4 address assigned to the outside interface of the customer gateway device.</p><p>Valid values: <code>PrivateIpv4</code> | <code>PublicIpv4</code></p><p>Default: <code>PublicIpv4</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable outsideIpAddressType;
+
+/**
  <p>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</p><p>Default: <code>0.0.0.0/0</code></p>
  */
 @property (nonatomic, strong) NSString * _Nullable remoteIpv4NetworkCidr;
@@ -48503,6 +48587,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Indicate whether the VPN connection uses static routes only. If you are creating a VPN connection for a device that does not support BGP, you must specify <code>true</code>. Use <a>CreateVpnConnectionRoute</a> to create a static route.</p><p>Default: <code>false</code></p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable staticRoutesOnly;
+
+/**
+ <p>The transit gateway attachment ID to use for the VPN tunnel.</p><p>Required if <code>OutsideIpAddressType</code> is set to <code>PrivateIpv4</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transportTransitGatewayAttachmentId;
 
 /**
  <p>Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.</p><p>Default: <code>ipv4</code></p>

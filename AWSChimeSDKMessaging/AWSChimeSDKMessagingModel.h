@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -115,6 +115,17 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingPushNotificationType) {
     AWSChimeSDKMessagingPushNotificationTypeVoip,
 };
 
+typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSearchFieldKey) {
+    AWSChimeSDKMessagingSearchFieldKeyUnknown,
+    AWSChimeSDKMessagingSearchFieldKeyMembers,
+};
+
+typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSearchFieldOperator) {
+    AWSChimeSDKMessagingSearchFieldOperatorUnknown,
+    AWSChimeSDKMessagingSearchFieldOperatorEquals,
+    AWSChimeSDKMessagingSearchFieldOperatorIncludes,
+};
+
 typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
     AWSChimeSDKMessagingSortOrderUnknown,
     AWSChimeSDKMessagingSortOrderAscending,
@@ -218,6 +229,9 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 @class AWSChimeSDKMessagingPutChannelMembershipPreferencesResponse;
 @class AWSChimeSDKMessagingRedactChannelMessageRequest;
 @class AWSChimeSDKMessagingRedactChannelMessageResponse;
+@class AWSChimeSDKMessagingSearchChannelsRequest;
+@class AWSChimeSDKMessagingSearchChannelsResponse;
+@class AWSChimeSDKMessagingSearchField;
 @class AWSChimeSDKMessagingSendChannelMessageRequest;
 @class AWSChimeSDKMessagingSendChannelMessageResponse;
 @class AWSChimeSDKMessagingTag;
@@ -239,7 +253,7 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 
 
 /**
- <p>The time at which a message was last read.</p>
+ <p>The time at which an <code>AppInstanceUser</code> last marked a channel as read.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable readMarkerTimestamp;
 
@@ -1152,6 +1166,11 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 @property (nonatomic, strong) NSString * _Nullable appInstanceArn;
 
 /**
+ <p>The ID of the channel in the request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable channelId;
+
+/**
  <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable chimeBearer;
@@ -1162,6 +1181,11 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 @property (nonatomic, strong) NSString * _Nullable clientRequestToken;
 
 /**
+ <p>The ARNs of the channel members in the request.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable memberArns;
+
+/**
  <p>The metadata of the creation request. Limited to 1KB and UTF-8.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable metadata;
@@ -1170,6 +1194,11 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
  <p>The channel mode: <code>UNRESTRICTED</code> or <code>RESTRICTED</code>. Administrators, moderators, and channel members can add themselves and other members to unrestricted channels. Only administrators and moderators can add members to restricted channels.</p>
  */
 @property (nonatomic, assign) AWSChimeSDKMessagingChannelMode mode;
+
+/**
+ <p>The ARNs of the channel moderators in the request.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable moderatorArns;
 
 /**
  <p>The name of the channel.</p>
@@ -1887,7 +1916,7 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 
 
 /**
- <p>The token passed by previous API calls until all requested users are returned.</p>
+ <p>The information for the requested channel memberships.</p>
  */
 @property (nonatomic, strong) NSArray<AWSChimeSDKMessagingChannelMembershipForAppInstanceUserSummary *> * _Nullable channelMemberships;
 
@@ -2340,7 +2369,7 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 @property (nonatomic, assign) AWSChimeSDKMessagingAllowNotifications allowNotifications;
 
 /**
- <p>The simple JSON object used to send a subset of a push notification to the requsted member.</p>
+ <p>The simple JSON object used to send a subset of a push notification to the requested member.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable filterRule;
 
@@ -2435,6 +2464,76 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
  <p>The ID of the message being redacted.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable messageId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSChimeSDKMessagingSearchChannelsRequest : AWSRequest
+
+
+/**
+ <p>The <code>AppInstanceUserArn</code> of the user making the API call.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable chimeBearer;
+
+/**
+ <p>A list of the <code>Field</code> objects in the channel being searched.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSChimeSDKMessagingSearchField *> * _Nullable fields;
+
+/**
+ <p>The maximum number of channels that you want returned.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token returned from previous API requests until the number of channels is reached.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSChimeSDKMessagingSearchChannelsResponse : AWSModel
+
+
+/**
+ <p>A list of the channels in the request.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSChimeSDKMessagingChannelSummary *> * _Nullable channels;
+
+/**
+ <p>The token returned from previous API responses until the number of channels is reached.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ <p>A <code>Field</code> of the channel that you want to search.</p>
+ Required parameters: [Key, Values, Operator]
+ */
+@interface AWSChimeSDKMessagingSearchField : AWSModel
+
+
+/**
+ <p>An <code>enum</code> value that indicates the key to search the channel on. <code>MEMBERS</code> allows you to search channels based on memberships. You can use it with the <code>EQUALS</code> operator to get channels whose memberships are equal to the specified values, and with the <code>INCLUDES</code> operator to get channels whose memberships include the specified values.</p>
+ */
+@property (nonatomic, assign) AWSChimeSDKMessagingSearchFieldKey key;
+
+/**
+ <p>The operator used to compare field values, currently <code>EQUALS</code> or <code>INCLUDES</code>. Use the <code>EQUALS</code> operator to find channels whose memberships equal the specified values. Use the <code>INCLUDES</code> operator to find channels whose memberships include the specified values.</p>
+ */
+@property (nonatomic, assign) AWSChimeSDKMessagingSearchFieldOperator operator;
+
+/**
+ <p>The values that you want to search for, a list of strings. The values must be <code>AppInstanceUserArns</code> specified as a list of strings.</p><note><p>This operation isn't supported for <code>AppInstanceUsers</code> with large number of memberships.</p></note>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable values;
 
 @end
 
