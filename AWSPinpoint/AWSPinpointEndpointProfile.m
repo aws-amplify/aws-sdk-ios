@@ -78,19 +78,23 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
     if (self = [super init]) {
         NSData *tokenData = [userDefaults objectForKey:AWSDeviceTokenKey];
         if (tokenData != nil) {
-            //move to keychain and remove from user defaults
-            [keychain setData:tokenData forKey:AWSDeviceTokenKey];
+            //move to keychain if it's nil
+            //if keychain already has a device token, keep the existing/newer token
+            //remove token from user defaults
+            if ([keychain dataForKey:AWSDeviceTokenKey] == nil) {
+                [keychain setData:tokenData forKey:AWSDeviceTokenKey];
+            }
             [userDefaults removeObjectForKey:AWSDeviceTokenKey];
             [userDefaults synchronize];
         } else {
             tokenData = [keychain dataForKey:AWSDeviceTokenKey];
         }
-
         NSString *deviceTokenString = [AWSPinpointEndpointProfile hexStringFromData:tokenData];
-        _address = deviceTokenString;
+        
         _applicationId = applicationId;
         _endpointId = endpointId;
         _channelType  = debug? DEBUG_CHANNEL_TYPE : CHANNEL_TYPE;
+        _address = deviceTokenString;
         _location = [AWSPinpointEndpointProfileLocation new];
         _demographic = [AWSPinpointEndpointProfileDemographic defaultAWSPinpointEndpointProfileDemographic];
         _effectiveDate = [AWSPinpointDateUtils utcTimeMillisNow];
