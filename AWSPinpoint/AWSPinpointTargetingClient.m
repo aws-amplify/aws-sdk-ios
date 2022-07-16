@@ -280,9 +280,10 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
                                                                             requiringSecureCoding:YES
                                                                                             error:&codingError];
         if (codingError) {
-            AWSDDLogError(@"Error archiving globalAttributesData. Updating service but not persisting locally: %@", codingError);
+            AWSDDLogError(@"Error archiving globalAttributesData with error: %@", codingError);
+        } else {
+            [_keychain setData:globalAttributesData forKey:AWSPinpointEndpointAttributesKey];
         }
-        [_keychain setData:globalAttributesData forKey:AWSPinpointEndpointAttributesKey];
     }
 }
 
@@ -300,9 +301,10 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
                                                                             requiringSecureCoding:YES
                                                                                             error:&codingError];
         if (codingError) {
-            AWSDDLogError(@"Error archiving globalAttributesData. Updating service but not persisting locally: %@", codingError);
+            AWSDDLogError(@"Error archiving globalAttributesData with error: %@", codingError);
+        } else {
+            [_keychain setData:globalAttributesData forKey:AWSPinpointEndpointAttributesKey];
         }
-        [_keychain setData:globalAttributesData forKey:AWSPinpointEndpointAttributesKey];
     }
 }
 
@@ -328,9 +330,10 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
                                                                             requiringSecureCoding:YES
                                                                                             error:&codingError];
         if (codingError) {
-            AWSDDLogError(@"Error archiving globalMetricsData. Updating service but not persisting locally: %@", codingError);
+            AWSDDLogError(@"Error archiving globalMetricsData with error: %@", codingError);
+        } else {
+            [_keychain setData:globalMetricsData forKey:AWSPinpointEndpointMetricsKey];
         }
-        [_keychain setData:globalMetricsData forKey:AWSPinpointEndpointMetricsKey];
     }
 }
 
@@ -348,9 +351,11 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
                                                                             requiringSecureCoding:YES
                                                                                             error:&codingError];
         if (codingError) {
-            AWSDDLogError(@"Error archiving globalMetricsData. Updating service but not persisting locally: %@", codingError);
+            AWSDDLogError(@"Error archiving globalMetricsData with error: %@", codingError);
+        } else {
+            [_keychain setData:globalMetricsData forKey:AWSPinpointEndpointMetricsKey];
         }
-        [_keychain setData:globalMetricsData forKey:AWSPinpointEndpointMetricsKey];
+        
     }
 }
 
