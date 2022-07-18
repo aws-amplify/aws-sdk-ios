@@ -246,6 +246,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"HMAC_512"] == NSOrderedSame) {
             return @(AWSKMSCustomerMasterKeySpecHmac512);
         }
+        if ([value caseInsensitiveCompare:@"SM2"] == NSOrderedSame) {
+            return @(AWSKMSCustomerMasterKeySpecSm2);
+        }
         return @(AWSKMSCustomerMasterKeySpecUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -273,6 +276,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"HMAC_384";
             case AWSKMSCustomerMasterKeySpecHmac512:
                 return @"HMAC_512";
+            case AWSKMSCustomerMasterKeySpecSm2:
+                return @"SM2";
             default:
                 return nil;
         }
@@ -317,6 +322,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"HMAC_512"] == NSOrderedSame) {
             return @(AWSKMSKeySpecHmac512);
         }
+        if ([value caseInsensitiveCompare:@"SM2"] == NSOrderedSame) {
+            return @(AWSKMSKeySpecSm2);
+        }
         return @(AWSKMSKeySpecUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -344,6 +352,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"HMAC_384";
             case AWSKMSKeySpecHmac512:
                 return @"HMAC_512";
+            case AWSKMSKeySpecSm2:
+                return @"SM2";
             default:
                 return nil;
         }
@@ -473,6 +483,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"SUBNET_NOT_FOUND"] == NSOrderedSame) {
             return @(AWSKMSConnectionErrorCodeTypeSubnetNotFound);
         }
+        if ([value caseInsensitiveCompare:@"INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET"] == NSOrderedSame) {
+            return @(AWSKMSConnectionErrorCodeTypeInsufficientFreeAddressesInSubnet);
+        }
         return @(AWSKMSConnectionErrorCodeTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -494,6 +507,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"USER_LOGGED_IN";
             case AWSKMSConnectionErrorCodeTypeSubnetNotFound:
                 return @"SUBNET_NOT_FOUND";
+            case AWSKMSConnectionErrorCodeTypeInsufficientFreeAddressesInSubnet:
+                return @"INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET";
             default:
                 return nil;
         }
@@ -573,6 +588,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"RSAES_OAEP_SHA_256"] == NSOrderedSame) {
             return @(AWSKMSEncryptionAlgorithmSpecRsaesOaepSha256);
         }
+        if ([value caseInsensitiveCompare:@"SM2PKE"] == NSOrderedSame) {
+            return @(AWSKMSEncryptionAlgorithmSpecSm2pke);
+        }
         return @(AWSKMSEncryptionAlgorithmSpecUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -582,6 +600,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"RSAES_OAEP_SHA_1";
             case AWSKMSEncryptionAlgorithmSpecRsaesOaepSha256:
                 return @"RSAES_OAEP_SHA_256";
+            case AWSKMSEncryptionAlgorithmSpecSm2pke:
+                return @"SM2PKE";
             default:
                 return nil;
         }
@@ -615,6 +635,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"RSAES_OAEP_SHA_256"] == NSOrderedSame) {
             return @(AWSKMSEncryptionAlgorithmSpecRsaesOaepSha256);
         }
+        if ([value caseInsensitiveCompare:@"SM2PKE"] == NSOrderedSame) {
+            return @(AWSKMSEncryptionAlgorithmSpecSm2pke);
+        }
         return @(AWSKMSEncryptionAlgorithmSpecUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -624,6 +647,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"RSAES_OAEP_SHA_1";
             case AWSKMSEncryptionAlgorithmSpecRsaesOaepSha256:
                 return @"RSAES_OAEP_SHA_256";
+            case AWSKMSEncryptionAlgorithmSpecSm2pke:
+                return @"SM2PKE";
             default:
                 return nil;
         }
@@ -857,6 +882,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"RSAES_OAEP_SHA_256"] == NSOrderedSame) {
             return @(AWSKMSEncryptionAlgorithmSpecRsaesOaepSha256);
         }
+        if ([value caseInsensitiveCompare:@"SM2PKE"] == NSOrderedSame) {
+            return @(AWSKMSEncryptionAlgorithmSpecSm2pke);
+        }
         return @(AWSKMSEncryptionAlgorithmSpecUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -866,6 +894,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"RSAES_OAEP_SHA_1";
             case AWSKMSEncryptionAlgorithmSpecRsaesOaepSha256:
                 return @"RSAES_OAEP_SHA_256";
+            case AWSKMSEncryptionAlgorithmSpecSm2pke:
+                return @"SM2PKE";
             default:
                 return nil;
         }
@@ -899,6 +929,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"RSAES_OAEP_SHA_256"] == NSOrderedSame) {
             return @(AWSKMSEncryptionAlgorithmSpecRsaesOaepSha256);
         }
+        if ([value caseInsensitiveCompare:@"SM2PKE"] == NSOrderedSame) {
+            return @(AWSKMSEncryptionAlgorithmSpecSm2pke);
+        }
         return @(AWSKMSEncryptionAlgorithmSpecUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -908,6 +941,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"RSAES_OAEP_SHA_1";
             case AWSKMSEncryptionAlgorithmSpecRsaesOaepSha256:
                 return @"RSAES_OAEP_SHA_256";
+            case AWSKMSEncryptionAlgorithmSpecSm2pke:
+                return @"SM2PKE";
             default:
                 return nil;
         }
@@ -954,6 +989,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"ECC_SECG_P256K1"] == NSOrderedSame) {
             return @(AWSKMSDataKeyPairSpecEccSecgP256k1);
         }
+        if ([value caseInsensitiveCompare:@"SM2"] == NSOrderedSame) {
+            return @(AWSKMSDataKeyPairSpecSm2);
+        }
         return @(AWSKMSDataKeyPairSpecUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -971,6 +1009,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"ECC_NIST_P521";
             case AWSKMSDataKeyPairSpecEccSecgP256k1:
                 return @"ECC_SECG_P256K1";
+            case AWSKMSDataKeyPairSpecSm2:
+                return @"SM2";
             default:
                 return nil;
         }
@@ -1018,6 +1058,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"ECC_SECG_P256K1"] == NSOrderedSame) {
             return @(AWSKMSDataKeyPairSpecEccSecgP256k1);
         }
+        if ([value caseInsensitiveCompare:@"SM2"] == NSOrderedSame) {
+            return @(AWSKMSDataKeyPairSpecSm2);
+        }
         return @(AWSKMSDataKeyPairSpecUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1035,6 +1078,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"ECC_NIST_P521";
             case AWSKMSDataKeyPairSpecEccSecgP256k1:
                 return @"ECC_SECG_P256K1";
+            case AWSKMSDataKeyPairSpecSm2:
+                return @"SM2";
             default:
                 return nil;
         }
@@ -1081,6 +1126,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"ECC_SECG_P256K1"] == NSOrderedSame) {
             return @(AWSKMSDataKeyPairSpecEccSecgP256k1);
         }
+        if ([value caseInsensitiveCompare:@"SM2"] == NSOrderedSame) {
+            return @(AWSKMSDataKeyPairSpecSm2);
+        }
         return @(AWSKMSDataKeyPairSpecUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1098,6 +1146,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"ECC_NIST_P521";
             case AWSKMSDataKeyPairSpecEccSecgP256k1:
                 return @"ECC_SECG_P256K1";
+            case AWSKMSDataKeyPairSpecSm2:
+                return @"SM2";
             default:
                 return nil;
         }
@@ -1144,6 +1194,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"ECC_SECG_P256K1"] == NSOrderedSame) {
             return @(AWSKMSDataKeyPairSpecEccSecgP256k1);
         }
+        if ([value caseInsensitiveCompare:@"SM2"] == NSOrderedSame) {
+            return @(AWSKMSDataKeyPairSpecSm2);
+        }
         return @(AWSKMSDataKeyPairSpecUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1161,6 +1214,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"ECC_NIST_P521";
             case AWSKMSDataKeyPairSpecEccSecgP256k1:
                 return @"ECC_SECG_P256K1";
+            case AWSKMSDataKeyPairSpecSm2:
+                return @"SM2";
             default:
                 return nil;
         }
@@ -1613,6 +1668,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"HMAC_512"] == NSOrderedSame) {
             return @(AWSKMSCustomerMasterKeySpecHmac512);
         }
+        if ([value caseInsensitiveCompare:@"SM2"] == NSOrderedSame) {
+            return @(AWSKMSCustomerMasterKeySpecSm2);
+        }
         return @(AWSKMSCustomerMasterKeySpecUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1640,6 +1698,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"HMAC_384";
             case AWSKMSCustomerMasterKeySpecHmac512:
                 return @"HMAC_512";
+            case AWSKMSCustomerMasterKeySpecSm2:
+                return @"SM2";
             default:
                 return nil;
         }
@@ -1684,6 +1744,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"HMAC_512"] == NSOrderedSame) {
             return @(AWSKMSKeySpecHmac512);
         }
+        if ([value caseInsensitiveCompare:@"SM2"] == NSOrderedSame) {
+            return @(AWSKMSKeySpecSm2);
+        }
         return @(AWSKMSKeySpecUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1711,6 +1774,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"HMAC_384";
             case AWSKMSKeySpecHmac512:
                 return @"HMAC_512";
+            case AWSKMSKeySpecSm2:
+                return @"SM2";
             default:
                 return nil;
         }
@@ -1944,6 +2009,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"HMAC_512"] == NSOrderedSame) {
             return @(AWSKMSCustomerMasterKeySpecHmac512);
         }
+        if ([value caseInsensitiveCompare:@"SM2"] == NSOrderedSame) {
+            return @(AWSKMSCustomerMasterKeySpecSm2);
+        }
         return @(AWSKMSCustomerMasterKeySpecUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1971,6 +2039,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"HMAC_384";
             case AWSKMSCustomerMasterKeySpecHmac512:
                 return @"HMAC_512";
+            case AWSKMSCustomerMasterKeySpecSm2:
+                return @"SM2";
             default:
                 return nil;
         }
@@ -2065,6 +2135,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"HMAC_512"] == NSOrderedSame) {
             return @(AWSKMSKeySpecHmac512);
         }
+        if ([value caseInsensitiveCompare:@"SM2"] == NSOrderedSame) {
+            return @(AWSKMSKeySpecSm2);
+        }
         return @(AWSKMSKeySpecUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2092,6 +2165,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"HMAC_384";
             case AWSKMSKeySpecHmac512:
                 return @"HMAC_512";
+            case AWSKMSKeySpecSm2:
+                return @"SM2";
             default:
                 return nil;
         }
@@ -2515,6 +2590,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"RSAES_OAEP_SHA_256"] == NSOrderedSame) {
             return @(AWSKMSEncryptionAlgorithmSpecRsaesOaepSha256);
         }
+        if ([value caseInsensitiveCompare:@"SM2PKE"] == NSOrderedSame) {
+            return @(AWSKMSEncryptionAlgorithmSpecSm2pke);
+        }
         return @(AWSKMSEncryptionAlgorithmSpecUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2524,6 +2602,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"RSAES_OAEP_SHA_1";
             case AWSKMSEncryptionAlgorithmSpecRsaesOaepSha256:
                 return @"RSAES_OAEP_SHA_256";
+            case AWSKMSEncryptionAlgorithmSpecSm2pke:
+                return @"SM2PKE";
             default:
                 return nil;
         }
@@ -2541,6 +2621,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"RSAES_OAEP_SHA_256"] == NSOrderedSame) {
             return @(AWSKMSEncryptionAlgorithmSpecRsaesOaepSha256);
         }
+        if ([value caseInsensitiveCompare:@"SM2PKE"] == NSOrderedSame) {
+            return @(AWSKMSEncryptionAlgorithmSpecSm2pke);
+        }
         return @(AWSKMSEncryptionAlgorithmSpecUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2550,6 +2633,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"RSAES_OAEP_SHA_1";
             case AWSKMSEncryptionAlgorithmSpecRsaesOaepSha256:
                 return @"RSAES_OAEP_SHA_256";
+            case AWSKMSEncryptionAlgorithmSpecSm2pke:
+                return @"SM2PKE";
             default:
                 return nil;
         }
@@ -2585,6 +2670,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"RSAES_OAEP_SHA_256"] == NSOrderedSame) {
             return @(AWSKMSEncryptionAlgorithmSpecRsaesOaepSha256);
         }
+        if ([value caseInsensitiveCompare:@"SM2PKE"] == NSOrderedSame) {
+            return @(AWSKMSEncryptionAlgorithmSpecSm2pke);
+        }
         return @(AWSKMSEncryptionAlgorithmSpecUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2594,6 +2682,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"RSAES_OAEP_SHA_1";
             case AWSKMSEncryptionAlgorithmSpecRsaesOaepSha256:
                 return @"RSAES_OAEP_SHA_256";
+            case AWSKMSEncryptionAlgorithmSpecSm2pke:
+                return @"SM2PKE";
             default:
                 return nil;
         }
@@ -2611,6 +2701,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"RSAES_OAEP_SHA_256"] == NSOrderedSame) {
             return @(AWSKMSEncryptionAlgorithmSpecRsaesOaepSha256);
         }
+        if ([value caseInsensitiveCompare:@"SM2PKE"] == NSOrderedSame) {
+            return @(AWSKMSEncryptionAlgorithmSpecSm2pke);
+        }
         return @(AWSKMSEncryptionAlgorithmSpecUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2620,6 +2713,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"RSAES_OAEP_SHA_1";
             case AWSKMSEncryptionAlgorithmSpecRsaesOaepSha256:
                 return @"RSAES_OAEP_SHA_256";
+            case AWSKMSEncryptionAlgorithmSpecSm2pke:
+                return @"SM2PKE";
             default:
                 return nil;
         }
@@ -2863,6 +2958,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"ECDSA_SHA_512"] == NSOrderedSame) {
             return @(AWSKMSSigningAlgorithmSpecEcdsaSha512);
         }
+        if ([value caseInsensitiveCompare:@"SM2DSA"] == NSOrderedSame) {
+            return @(AWSKMSSigningAlgorithmSpecSm2dsa);
+        }
         return @(AWSKMSSigningAlgorithmSpecUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2884,6 +2982,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"ECDSA_SHA_384";
             case AWSKMSSigningAlgorithmSpecEcdsaSha512:
                 return @"ECDSA_SHA_512";
+            case AWSKMSSigningAlgorithmSpecSm2dsa:
+                return @"SM2DSA";
             default:
                 return nil;
         }
@@ -2935,6 +3035,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"ECDSA_SHA_512"] == NSOrderedSame) {
             return @(AWSKMSSigningAlgorithmSpecEcdsaSha512);
         }
+        if ([value caseInsensitiveCompare:@"SM2DSA"] == NSOrderedSame) {
+            return @(AWSKMSSigningAlgorithmSpecSm2dsa);
+        }
         return @(AWSKMSSigningAlgorithmSpecUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2956,6 +3059,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"ECDSA_SHA_384";
             case AWSKMSSigningAlgorithmSpecEcdsaSha512:
                 return @"ECDSA_SHA_512";
+            case AWSKMSSigningAlgorithmSpecSm2dsa:
+                return @"SM2DSA";
             default:
                 return nil;
         }
@@ -3246,6 +3351,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"ECDSA_SHA_512"] == NSOrderedSame) {
             return @(AWSKMSSigningAlgorithmSpecEcdsaSha512);
         }
+        if ([value caseInsensitiveCompare:@"SM2DSA"] == NSOrderedSame) {
+            return @(AWSKMSSigningAlgorithmSpecSm2dsa);
+        }
         return @(AWSKMSSigningAlgorithmSpecUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3267,6 +3375,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"ECDSA_SHA_384";
             case AWSKMSSigningAlgorithmSpecEcdsaSha512:
                 return @"ECDSA_SHA_512";
+            case AWSKMSSigningAlgorithmSpecSm2dsa:
+                return @"SM2DSA";
             default:
                 return nil;
         }
@@ -3318,6 +3428,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"ECDSA_SHA_512"] == NSOrderedSame) {
             return @(AWSKMSSigningAlgorithmSpecEcdsaSha512);
         }
+        if ([value caseInsensitiveCompare:@"SM2DSA"] == NSOrderedSame) {
+            return @(AWSKMSSigningAlgorithmSpecSm2dsa);
+        }
         return @(AWSKMSSigningAlgorithmSpecUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3339,6 +3452,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"ECDSA_SHA_384";
             case AWSKMSSigningAlgorithmSpecEcdsaSha512:
                 return @"ECDSA_SHA_512";
+            case AWSKMSSigningAlgorithmSpecSm2dsa:
+                return @"SM2DSA";
             default:
                 return nil;
         }
