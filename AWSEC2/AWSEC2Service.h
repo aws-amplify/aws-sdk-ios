@@ -400,7 +400,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)allocateHosts:(AWSEC2AllocateHostsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AllocateHostsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool. For more information, see <a href="/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the AllocateIpamPoolCidr service method.
 
@@ -412,7 +412,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2AllocateIpamPoolCidrResult *> *)allocateIpamPoolCidr:(AWSEC2AllocateIpamPoolCidrRequest *)request;
 
 /**
- <p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool. For more information, see <a href="/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the AllocateIpamPoolCidr service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -720,6 +720,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2AssociateTransitGatewayMulticastDomainResult
  */
 - (void)associateTransitGatewayMulticastDomain:(AWSEC2AssociateTransitGatewayMulticastDomainRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AssociateTransitGatewayMulticastDomainResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Associates the specified transit gateway attachment with a transit gateway policy table.</p>
+ 
+ @param request A container for the necessary parameters to execute the AssociateTransitGatewayPolicyTable service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2AssociateTransitGatewayPolicyTableResult`.
+ 
+ @see AWSEC2AssociateTransitGatewayPolicyTableRequest
+ @see AWSEC2AssociateTransitGatewayPolicyTableResult
+ */
+- (AWSTask<AWSEC2AssociateTransitGatewayPolicyTableResult *> *)associateTransitGatewayPolicyTable:(AWSEC2AssociateTransitGatewayPolicyTableRequest *)request;
+
+/**
+ <p>Associates the specified transit gateway attachment with a transit gateway policy table.</p>
+ 
+ @param request A container for the necessary parameters to execute the AssociateTransitGatewayPolicyTable service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2AssociateTransitGatewayPolicyTableRequest
+ @see AWSEC2AssociateTransitGatewayPolicyTableResult
+ */
+- (void)associateTransitGatewayPolicyTable:(AWSEC2AssociateTransitGatewayPolicyTableRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AssociateTransitGatewayPolicyTableResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Associates the specified attachment with the specified transit gateway route table. You can associate only one route table with an attachment.</p>
@@ -1763,7 +1788,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createInternetGateway:(AWSEC2CreateInternetGatewayRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateInternetGatewayResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Create an IPAM. Amazon VPC IP Address Manager (IPAM) is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization.</p><p>For more information, see <a href="/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>Create an IPAM. Amazon VPC IP Address Manager (IPAM) is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the CreateIpam service method.
 
@@ -1775,7 +1800,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateIpamResult *> *)createIpam:(AWSEC2CreateIpamRequest *)request;
 
 /**
- <p>Create an IPAM. Amazon VPC IP Address Manager (IPAM) is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization.</p><p>For more information, see <a href="/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>Create an IPAM. Amazon VPC IP Address Manager (IPAM) is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the CreateIpam service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1788,7 +1813,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createIpam:(AWSEC2CreateIpamRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateIpamResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Create an IP address pool for Amazon VPC IP Address Manager (IPAM). In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.</p><p>For more information, see <a href="/vpc/latest/ipam/create-top-ipam.html">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>Create an IP address pool for Amazon VPC IP Address Manager (IPAM). In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-top-ipam.html">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the CreateIpamPool service method.
 
@@ -1800,7 +1825,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateIpamPoolResult *> *)createIpamPool:(AWSEC2CreateIpamPoolRequest *)request;
 
 /**
- <p>Create an IP address pool for Amazon VPC IP Address Manager (IPAM). In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.</p><p>For more information, see <a href="/vpc/latest/ipam/create-top-ipam.html">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>Create an IP address pool for Amazon VPC IP Address Manager (IPAM). In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-top-ipam.html">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the CreateIpamPool service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1813,7 +1838,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createIpamPool:(AWSEC2CreateIpamPoolRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateIpamPoolResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Create an IPAM scope. In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p><p>For more information, see <a href="/vpc/latest/ipam/add-scope-ipam.html">Add a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ <p>Create an IPAM scope. In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/add-scope-ipam.html">Add a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateIpamScope service method.
 
@@ -1825,7 +1850,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateIpamScopeResult *> *)createIpamScope:(AWSEC2CreateIpamScopeRequest *)request;
 
 /**
- <p>Create an IPAM scope. In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p><p>For more information, see <a href="/vpc/latest/ipam/add-scope-ipam.html">Add a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ <p>Create an IPAM scope. In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/add-scope-ipam.html">Add a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateIpamScope service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1888,7 +1913,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createLaunchTemplate:(AWSEC2CreateLaunchTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateLaunchTemplateResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a new version for a launch template. You can specify an existing version of launch template from which to base the new version.</p><p>Launch template versions are numbered in the order in which they are created. You cannot specify, change, or replace the numbering of launch template versions.</p><p>Launch templates are immutable; after you create a launch template, you can't modify it. Instead, you can create a new version of the launch template that includes any changes you require.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions">Modify a launch template (manage launch template versions)</a>in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Creates a new version of a launch template. You can specify an existing version of launch template from which to base the new version.</p><p>Launch template versions are numbered in the order in which they are created. You cannot specify, change, or replace the numbering of launch template versions.</p><p>Launch templates are immutable; after you create a launch template, you can't modify it. Instead, you can create a new version of the launch template that includes any changes you require.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions">Modify a launch template (manage launch template versions)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateLaunchTemplateVersion service method.
 
@@ -1900,7 +1925,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateLaunchTemplateVersionResult *> *)createLaunchTemplateVersion:(AWSEC2CreateLaunchTemplateVersionRequest *)request;
 
 /**
- <p>Creates a new version for a launch template. You can specify an existing version of launch template from which to base the new version.</p><p>Launch template versions are numbered in the order in which they are created. You cannot specify, change, or replace the numbering of launch template versions.</p><p>Launch templates are immutable; after you create a launch template, you can't modify it. Instead, you can create a new version of the launch template that includes any changes you require.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions">Modify a launch template (manage launch template versions)</a>in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Creates a new version of a launch template. You can specify an existing version of launch template from which to base the new version.</p><p>Launch template versions are numbered in the order in which they are created. You cannot specify, change, or replace the numbering of launch template versions.</p><p>Launch templates are immutable; after you create a launch template, you can't modify it. Instead, you can create a new version of the launch template that includes any changes you require.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions">Modify a launch template (manage launch template versions)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateLaunchTemplateVersion service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2510,7 +2535,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createSubnetCidrReservation:(AWSEC2CreateSubnetCidrReservationRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateSubnetCidrReservationResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Adds or overwrites only the specified tags for the specified Amazon EC2 resource or resources. When you specify an existing tag key, the value is overwritten with the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.</p><p>For more information about tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging Your Resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about creating IAM policies that control users' access to resources based on tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html">Supported Resource-Level Permissions for Amazon EC2 API Actions</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Adds or overwrites only the specified tags for the specified Amazon EC2 resource or resources. When you specify an existing tag key, the value is overwritten with the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.</p><p>For more information about tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about creating IAM policies that control users' access to resources based on tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html">Supported resource-level permissions for Amazon EC2 API actions</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateTags service method.
 
@@ -2521,7 +2546,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask *)createTags:(AWSEC2CreateTagsRequest *)request;
 
 /**
- <p>Adds or overwrites only the specified tags for the specified Amazon EC2 resource or resources. When you specify an existing tag key, the value is overwritten with the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.</p><p>For more information about tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging Your Resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about creating IAM policies that control users' access to resources based on tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html">Supported Resource-Level Permissions for Amazon EC2 API Actions</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Adds or overwrites only the specified tags for the specified Amazon EC2 resource or resources. When you specify an existing tag key, the value is overwritten with the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.</p><p>For more information about tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about creating IAM policies that control users' access to resources based on tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html">Supported resource-level permissions for Amazon EC2 API actions</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateTags service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2757,6 +2782,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createTransitGatewayPeeringAttachment:(AWSEC2CreateTransitGatewayPeeringAttachmentRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateTransitGatewayPeeringAttachmentResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Creates a transit gateway policy table.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateTransitGatewayPolicyTable service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateTransitGatewayPolicyTableResult`.
+ 
+ @see AWSEC2CreateTransitGatewayPolicyTableRequest
+ @see AWSEC2CreateTransitGatewayPolicyTableResult
+ */
+- (AWSTask<AWSEC2CreateTransitGatewayPolicyTableResult *> *)createTransitGatewayPolicyTable:(AWSEC2CreateTransitGatewayPolicyTableRequest *)request;
+
+/**
+ <p>Creates a transit gateway policy table.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateTransitGatewayPolicyTable service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateTransitGatewayPolicyTableRequest
+ @see AWSEC2CreateTransitGatewayPolicyTableResult
+ */
+- (void)createTransitGatewayPolicyTable:(AWSEC2CreateTransitGatewayPolicyTableRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateTransitGatewayPolicyTableResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Creates a reference (route) to a prefix list in a specified transit gateway route table.</p>
  
  @param request A container for the necessary parameters to execute the CreateTransitGatewayPrefixListReference service method.
@@ -2830,6 +2880,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2CreateTransitGatewayRouteTableResult
  */
 - (void)createTransitGatewayRouteTable:(AWSEC2CreateTransitGatewayRouteTableRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateTransitGatewayRouteTableResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Advertises a new transit gateway route table.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateTransitGatewayRouteTableAnnouncement service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateTransitGatewayRouteTableAnnouncementResult`.
+ 
+ @see AWSEC2CreateTransitGatewayRouteTableAnnouncementRequest
+ @see AWSEC2CreateTransitGatewayRouteTableAnnouncementResult
+ */
+- (AWSTask<AWSEC2CreateTransitGatewayRouteTableAnnouncementResult *> *)createTransitGatewayRouteTableAnnouncement:(AWSEC2CreateTransitGatewayRouteTableAnnouncementRequest *)request;
+
+/**
+ <p>Advertises a new transit gateway route table.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateTransitGatewayRouteTableAnnouncement service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateTransitGatewayRouteTableAnnouncementRequest
+ @see AWSEC2CreateTransitGatewayRouteTableAnnouncementResult
+ */
+- (void)createTransitGatewayRouteTableAnnouncement:(AWSEC2CreateTransitGatewayRouteTableAnnouncementRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateTransitGatewayRouteTableAnnouncementResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Attaches the specified VPC to the specified transit gateway.</p><p>If you attach a VPC with a CIDR range that overlaps the CIDR range of a VPC that is already attached, the new VPC CIDR range is not propagated to the default propagation route table.</p><p>To send VPC traffic to an attached transit gateway, add a route to the VPC route table using <a>CreateRoute</a>.</p>
@@ -3345,7 +3420,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deleteInternetGateway:(AWSEC2DeleteInternetGatewayRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Delete an IPAM. Deleting an IPAM removes all monitored data associated with the IPAM including the historical data for CIDRs.</p><p>For more information, see <a href="/vpc/latest/ipam/delete-ipam.html">Delete an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>Delete an IPAM. Deleting an IPAM removes all monitored data associated with the IPAM including the historical data for CIDRs.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/delete-ipam.html">Delete an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the DeleteIpam service method.
 
@@ -3357,7 +3432,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DeleteIpamResult *> *)deleteIpam:(AWSEC2DeleteIpamRequest *)request;
 
 /**
- <p>Delete an IPAM. Deleting an IPAM removes all monitored data associated with the IPAM including the historical data for CIDRs.</p><p>For more information, see <a href="/vpc/latest/ipam/delete-ipam.html">Delete an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>Delete an IPAM. Deleting an IPAM removes all monitored data associated with the IPAM including the historical data for CIDRs.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/delete-ipam.html">Delete an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the DeleteIpam service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3370,7 +3445,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deleteIpam:(AWSEC2DeleteIpamRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteIpamResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Delete an IPAM pool.</p><note><p>You cannot delete an IPAM pool if there are allocations in it or CIDRs provisioned to it. To release allocations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html">ReleaseIpamPoolAllocation</a>. To deprovision pool CIDRs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html">DeprovisionIpamPoolCidr</a>.</p></note><p>For more information, see <a href="/vpc/latest/ipam/delete-pool-ipam.html">Delete a pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>Delete an IPAM pool.</p><note><p>You cannot delete an IPAM pool if there are allocations in it or CIDRs provisioned to it. To release allocations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html">ReleaseIpamPoolAllocation</a>. To deprovision pool CIDRs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html">DeprovisionIpamPoolCidr</a>.</p></note><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/delete-pool-ipam.html">Delete a pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the DeleteIpamPool service method.
 
@@ -3382,7 +3457,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DeleteIpamPoolResult *> *)deleteIpamPool:(AWSEC2DeleteIpamPoolRequest *)request;
 
 /**
- <p>Delete an IPAM pool.</p><note><p>You cannot delete an IPAM pool if there are allocations in it or CIDRs provisioned to it. To release allocations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html">ReleaseIpamPoolAllocation</a>. To deprovision pool CIDRs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html">DeprovisionIpamPoolCidr</a>.</p></note><p>For more information, see <a href="/vpc/latest/ipam/delete-pool-ipam.html">Delete a pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>Delete an IPAM pool.</p><note><p>You cannot delete an IPAM pool if there are allocations in it or CIDRs provisioned to it. To release allocations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html">ReleaseIpamPoolAllocation</a>. To deprovision pool CIDRs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html">DeprovisionIpamPoolCidr</a>.</p></note><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/delete-pool-ipam.html">Delete a pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the DeleteIpamPool service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3395,7 +3470,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deleteIpamPool:(AWSEC2DeleteIpamPoolRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteIpamPoolResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Delete the scope for an IPAM. You cannot delete the default scopes.</p><p>For more information, see <a href="/vpc/latest/ipam/delete-scope-ipam.html">Delete a scope</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>Delete the scope for an IPAM. You cannot delete the default scopes.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/delete-scope-ipam.html">Delete a scope</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the DeleteIpamScope service method.
 
@@ -3407,7 +3482,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DeleteIpamScopeResult *> *)deleteIpamScope:(AWSEC2DeleteIpamScopeRequest *)request;
 
 /**
- <p>Delete the scope for an IPAM. You cannot delete the default scopes.</p><p>For more information, see <a href="/vpc/latest/ipam/delete-scope-ipam.html">Delete a scope</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>Delete the scope for an IPAM. You cannot delete the default scopes.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/delete-scope-ipam.html">Delete a scope</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the DeleteIpamScope service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4012,7 +4087,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deleteSubnetCidrReservation:(AWSEC2DeleteSubnetCidrReservationRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteSubnetCidrReservationResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the specified set of tags from the specified set of resources.</p><p>To list the current tags, use <a>DescribeTags</a>. For more information about tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging Your Resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Deletes the specified set of tags from the specified set of resources.</p><p>To list the current tags, use <a>DescribeTags</a>. For more information about tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DeleteTags service method.
 
@@ -4023,7 +4098,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask *)deleteTags:(AWSEC2DeleteTagsRequest *)request;
 
 /**
- <p>Deletes the specified set of tags from the specified set of resources.</p><p>To list the current tags, use <a>DescribeTags</a>. For more information about tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging Your Resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Deletes the specified set of tags from the specified set of resources.</p><p>To list the current tags, use <a>DescribeTags</a>. For more information about tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DeleteTags service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4259,6 +4334,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deleteTransitGatewayPeeringAttachment:(AWSEC2DeleteTransitGatewayPeeringAttachmentRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteTransitGatewayPeeringAttachmentResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Deletes the specified transit gateway policy table.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTransitGatewayPolicyTable service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteTransitGatewayPolicyTableResult`.
+ 
+ @see AWSEC2DeleteTransitGatewayPolicyTableRequest
+ @see AWSEC2DeleteTransitGatewayPolicyTableResult
+ */
+- (AWSTask<AWSEC2DeleteTransitGatewayPolicyTableResult *> *)deleteTransitGatewayPolicyTable:(AWSEC2DeleteTransitGatewayPolicyTableRequest *)request;
+
+/**
+ <p>Deletes the specified transit gateway policy table.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTransitGatewayPolicyTable service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteTransitGatewayPolicyTableRequest
+ @see AWSEC2DeleteTransitGatewayPolicyTableResult
+ */
+- (void)deleteTransitGatewayPolicyTable:(AWSEC2DeleteTransitGatewayPolicyTableRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteTransitGatewayPolicyTableResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Deletes a reference (route) to a prefix list in a specified transit gateway route table.</p>
  
  @param request A container for the necessary parameters to execute the DeleteTransitGatewayPrefixListReference service method.
@@ -4332,6 +4432,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2DeleteTransitGatewayRouteTableResult
  */
 - (void)deleteTransitGatewayRouteTable:(AWSEC2DeleteTransitGatewayRouteTableRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteTransitGatewayRouteTableResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Advertises to the transit gateway that a transit gateway route table is deleted.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTransitGatewayRouteTableAnnouncement service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteTransitGatewayRouteTableAnnouncementResult`.
+ 
+ @see AWSEC2DeleteTransitGatewayRouteTableAnnouncementRequest
+ @see AWSEC2DeleteTransitGatewayRouteTableAnnouncementResult
+ */
+- (AWSTask<AWSEC2DeleteTransitGatewayRouteTableAnnouncementResult *> *)deleteTransitGatewayRouteTableAnnouncement:(AWSEC2DeleteTransitGatewayRouteTableAnnouncementRequest *)request;
+
+/**
+ <p>Advertises to the transit gateway that a transit gateway route table is deleted.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTransitGatewayRouteTableAnnouncement service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteTransitGatewayRouteTableAnnouncementRequest
+ @see AWSEC2DeleteTransitGatewayRouteTableAnnouncementResult
+ */
+- (void)deleteTransitGatewayRouteTableAnnouncement:(AWSEC2DeleteTransitGatewayRouteTableAnnouncementRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteTransitGatewayRouteTableAnnouncementResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deletes the specified VPC attachment.</p>
@@ -4594,7 +4719,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deprovisionByoipCidr:(AWSEC2DeprovisionByoipCidrRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeprovisionByoipCidrResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deprovision a CIDR provisioned from an IPAM pool. If you deprovision a CIDR from a pool that has a source pool, the CIDR is recycled back into the source pool. For more information, see <a href="/vpc/latest/ipam/depro-pool-cidr-ipam.html">Deprovision pool CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ <p>Deprovision a CIDR provisioned from an IPAM pool. If you deprovision a CIDR from a pool that has a source pool, the CIDR is recycled back into the source pool. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/depro-pool-cidr-ipam.html">Deprovision pool CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DeprovisionIpamPoolCidr service method.
 
@@ -4606,7 +4731,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DeprovisionIpamPoolCidrResult *> *)deprovisionIpamPoolCidr:(AWSEC2DeprovisionIpamPoolCidrRequest *)request;
 
 /**
- <p>Deprovision a CIDR provisioned from an IPAM pool. If you deprovision a CIDR from a pool that has a source pool, the CIDR is recycled back into the source pool. For more information, see <a href="/vpc/latest/ipam/depro-pool-cidr-ipam.html">Deprovision pool CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ <p>Deprovision a CIDR provisioned from an IPAM pool. If you deprovision a CIDR from a pool that has a source pool, the CIDR is recycled back into the source pool. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/depro-pool-cidr-ipam.html">Deprovision pool CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DeprovisionIpamPoolCidr service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -6066,7 +6191,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeIpamScopes:(AWSEC2DescribeIpamScopesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeIpamScopesResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Get information about your IPAM pools.</p><p>For more information, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>Get information about your IPAM pools.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the DescribeIpams service method.
 
@@ -6078,7 +6203,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeIpamsResult *> *)describeIpams:(AWSEC2DescribeIpamsRequest *)request;
 
 /**
- <p>Get information about your IPAM pools.</p><p>For more information, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>Get information about your IPAM pools.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the DescribeIpams service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -7316,7 +7441,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeSubnets:(AWSEC2DescribeSubnetsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeSubnetsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes the specified tags for your EC2 resources.</p><p>For more information about tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging Your Resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Describes the specified tags for your EC2 resources.</p><p>For more information about tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeTags service method.
 
@@ -7328,7 +7453,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeTagsResult *> *)describeTags:(AWSEC2DescribeTagsRequest *)request;
 
 /**
- <p>Describes the specified tags for your EC2 resources.</p><p>For more information about tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging Your Resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Describes the specified tags for your EC2 resources.</p><p>For more information about tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeTags service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -7539,6 +7664,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2DescribeTransitGatewayPeeringAttachmentsResult
  */
 - (void)describeTransitGatewayPeeringAttachments:(AWSEC2DescribeTransitGatewayPeeringAttachmentsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeTransitGatewayPeeringAttachmentsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes one or more transit gateway route policy tables. </p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTransitGatewayPolicyTables service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeTransitGatewayPolicyTablesResult`.
+ 
+ @see AWSEC2DescribeTransitGatewayPolicyTablesRequest
+ @see AWSEC2DescribeTransitGatewayPolicyTablesResult
+ */
+- (AWSTask<AWSEC2DescribeTransitGatewayPolicyTablesResult *> *)describeTransitGatewayPolicyTables:(AWSEC2DescribeTransitGatewayPolicyTablesRequest *)request;
+
+/**
+ <p>Describes one or more transit gateway route policy tables. </p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTransitGatewayPolicyTables service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeTransitGatewayPolicyTablesRequest
+ @see AWSEC2DescribeTransitGatewayPolicyTablesResult
+ */
+- (void)describeTransitGatewayPolicyTables:(AWSEC2DescribeTransitGatewayPolicyTablesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeTransitGatewayPolicyTablesResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes one or more transit gateway route table advertisements.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTransitGatewayRouteTableAnnouncements service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeTransitGatewayRouteTableAnnouncementsResult`.
+ 
+ @see AWSEC2DescribeTransitGatewayRouteTableAnnouncementsRequest
+ @see AWSEC2DescribeTransitGatewayRouteTableAnnouncementsResult
+ */
+- (AWSTask<AWSEC2DescribeTransitGatewayRouteTableAnnouncementsResult *> *)describeTransitGatewayRouteTableAnnouncements:(AWSEC2DescribeTransitGatewayRouteTableAnnouncementsRequest *)request;
+
+/**
+ <p>Describes one or more transit gateway route table advertisements.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTransitGatewayRouteTableAnnouncements service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeTransitGatewayRouteTableAnnouncementsRequest
+ @see AWSEC2DescribeTransitGatewayRouteTableAnnouncementsResult
+ */
+- (void)describeTransitGatewayRouteTableAnnouncements:(AWSEC2DescribeTransitGatewayRouteTableAnnouncementsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeTransitGatewayRouteTableAnnouncementsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Describes one or more transit gateway route tables. By default, all transit gateway route tables are described. Alternatively, you can filter the results.</p>
@@ -8282,7 +8457,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)disableImageDeprecation:(AWSEC2DisableImageDeprecationRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisableImageDeprecationResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Disable the IPAM account. For more information, see <a href="/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>Disable the IPAM account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the DisableIpamOrganizationAdminAccount service method.
 
@@ -8294,7 +8469,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DisableIpamOrganizationAdminAccountResult *> *)disableIpamOrganizationAdminAccount:(AWSEC2DisableIpamOrganizationAdminAccountRequest *)request;
 
 /**
- <p>Disable the IPAM account. For more information, see <a href="/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>Disable the IPAM account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the DisableIpamOrganizationAdminAccount service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -8623,6 +8798,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)disassociateTransitGatewayMulticastDomain:(AWSEC2DisassociateTransitGatewayMulticastDomainRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisassociateTransitGatewayMulticastDomainResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Removes the association between an an attachment and a policy table.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisassociateTransitGatewayPolicyTable service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DisassociateTransitGatewayPolicyTableResult`.
+ 
+ @see AWSEC2DisassociateTransitGatewayPolicyTableRequest
+ @see AWSEC2DisassociateTransitGatewayPolicyTableResult
+ */
+- (AWSTask<AWSEC2DisassociateTransitGatewayPolicyTableResult *> *)disassociateTransitGatewayPolicyTable:(AWSEC2DisassociateTransitGatewayPolicyTableRequest *)request;
+
+/**
+ <p>Removes the association between an an attachment and a policy table.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisassociateTransitGatewayPolicyTable service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DisassociateTransitGatewayPolicyTableRequest
+ @see AWSEC2DisassociateTransitGatewayPolicyTableResult
+ */
+- (void)disassociateTransitGatewayPolicyTable:(AWSEC2DisassociateTransitGatewayPolicyTableRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisassociateTransitGatewayPolicyTableResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Disassociates a resource attachment from a transit gateway route table.</p>
  
  @param request A container for the necessary parameters to execute the DisassociateTransitGatewayRouteTable service method.
@@ -8798,7 +8998,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)enableImageDeprecation:(AWSEC2EnableImageDeprecationRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2EnableImageDeprecationResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Enable an Organizations member account as the IPAM admin account. You cannot select the Organizations management account as the IPAM admin account. For more information, see <a href="/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>Enable an Organizations member account as the IPAM admin account. You cannot select the Organizations management account as the IPAM admin account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the EnableIpamOrganizationAdminAccount service method.
 
@@ -8810,7 +9010,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2EnableIpamOrganizationAdminAccountResult *> *)enableIpamOrganizationAdminAccount:(AWSEC2EnableIpamOrganizationAdminAccountRequest *)request;
 
 /**
- <p>Enable an Organizations member account as the IPAM admin account. You cannot select the Organizations management account as the IPAM admin account. For more information, see <a href="/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>Enable an Organizations member account as the IPAM admin account. You cannot select the Organizations management account as the IPAM admin account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the EnableIpamOrganizationAdminAccount service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -9417,7 +9617,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)getInstanceUefiData:(AWSEC2GetInstanceUefiDataRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetInstanceUefiDataResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Retrieve historical information about a CIDR within an IPAM scope. For more information, see <a href="/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ <p>Retrieve historical information about a CIDR within an IPAM scope. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the GetIpamAddressHistory service method.
 
@@ -9429,7 +9629,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2GetIpamAddressHistoryResult *> *)getIpamAddressHistory:(AWSEC2GetIpamAddressHistoryRequest *)request;
 
 /**
- <p>Retrieve historical information about a CIDR within an IPAM scope. For more information, see <a href="/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ <p>Retrieve historical information about a CIDR within an IPAM scope. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the GetIpamAddressHistory service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -9517,7 +9717,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)getIpamResourceCidrs:(AWSEC2GetIpamResourceCidrsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetIpamResourceCidrsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Retrieves the configuration data of the specified instance. You can use this data to create a launch template. </p><p>This action calls on other describe actions to get instance information. Depending on your instance configuration, you may need to allow the following actions in your IAM policy: DescribeSpotInstanceRequests, DescribeInstanceCreditSpecifications, DescribeVolumes, DescribeInstanceAttribute, and DescribeElasticGpus. Or, you can allow <code>describe*</code> depending on your instance requirements.</p>
+ <p>Retrieves the configuration data of the specified instance. You can use this data to create a launch template. </p><p>This action calls on other describe actions to get instance information. Depending on your instance configuration, you may need to allow the following actions in your IAM policy: <code>DescribeSpotInstanceRequests</code>, <code>DescribeInstanceCreditSpecifications</code>, <code>DescribeVolumes</code>, <code>DescribeInstanceAttribute</code>, and <code>DescribeElasticGpus</code>. Or, you can allow <code>describe*</code> depending on your instance requirements.</p>
  
  @param request A container for the necessary parameters to execute the GetLaunchTemplateData service method.
 
@@ -9529,7 +9729,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2GetLaunchTemplateDataResult *> *)getLaunchTemplateData:(AWSEC2GetLaunchTemplateDataRequest *)request;
 
 /**
- <p>Retrieves the configuration data of the specified instance. You can use this data to create a launch template. </p><p>This action calls on other describe actions to get instance information. Depending on your instance configuration, you may need to allow the following actions in your IAM policy: DescribeSpotInstanceRequests, DescribeInstanceCreditSpecifications, DescribeVolumes, DescribeInstanceAttribute, and DescribeElasticGpus. Or, you can allow <code>describe*</code> depending on your instance requirements.</p>
+ <p>Retrieves the configuration data of the specified instance. You can use this data to create a launch template. </p><p>This action calls on other describe actions to get instance information. Depending on your instance configuration, you may need to allow the following actions in your IAM policy: <code>DescribeSpotInstanceRequests</code>, <code>DescribeInstanceCreditSpecifications</code>, <code>DescribeVolumes</code>, <code>DescribeInstanceAttribute</code>, and <code>DescribeElasticGpus</code>. Or, you can allow <code>describe*</code> depending on your instance requirements.</p>
  
  @param request A container for the necessary parameters to execute the GetLaunchTemplateData service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -9815,6 +10015,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2GetTransitGatewayMulticastDomainAssociationsResult
  */
 - (void)getTransitGatewayMulticastDomainAssociations:(AWSEC2GetTransitGatewayMulticastDomainAssociationsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetTransitGatewayMulticastDomainAssociationsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Gets a list of the transit gateway policy table associations.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetTransitGatewayPolicyTableAssociations service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetTransitGatewayPolicyTableAssociationsResult`.
+ 
+ @see AWSEC2GetTransitGatewayPolicyTableAssociationsRequest
+ @see AWSEC2GetTransitGatewayPolicyTableAssociationsResult
+ */
+- (AWSTask<AWSEC2GetTransitGatewayPolicyTableAssociationsResult *> *)getTransitGatewayPolicyTableAssociations:(AWSEC2GetTransitGatewayPolicyTableAssociationsRequest *)request;
+
+/**
+ <p>Gets a list of the transit gateway policy table associations.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetTransitGatewayPolicyTableAssociations service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetTransitGatewayPolicyTableAssociationsRequest
+ @see AWSEC2GetTransitGatewayPolicyTableAssociationsResult
+ */
+- (void)getTransitGatewayPolicyTableAssociations:(AWSEC2GetTransitGatewayPolicyTableAssociationsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetTransitGatewayPolicyTableAssociationsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Returns a list of transit gateway policy table entries.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetTransitGatewayPolicyTableEntries service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetTransitGatewayPolicyTableEntriesResult`.
+ 
+ @see AWSEC2GetTransitGatewayPolicyTableEntriesRequest
+ @see AWSEC2GetTransitGatewayPolicyTableEntriesResult
+ */
+- (AWSTask<AWSEC2GetTransitGatewayPolicyTableEntriesResult *> *)getTransitGatewayPolicyTableEntries:(AWSEC2GetTransitGatewayPolicyTableEntriesRequest *)request;
+
+/**
+ <p>Returns a list of transit gateway policy table entries.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetTransitGatewayPolicyTableEntries service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetTransitGatewayPolicyTableEntriesRequest
+ @see AWSEC2GetTransitGatewayPolicyTableEntriesResult
+ */
+- (void)getTransitGatewayPolicyTableEntries:(AWSEC2GetTransitGatewayPolicyTableEntriesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetTransitGatewayPolicyTableEntriesResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Gets information about the prefix list references in a specified transit gateway route table.</p>
@@ -10680,7 +10930,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)modifyIpam:(AWSEC2ModifyIpamRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyIpamResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Modify the configurations of an IPAM pool.</p><p>For more information, see <a href="/vpc/latest/ipam/mod-pool-ipam.html">Modify a pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>Modify the configurations of an IPAM pool.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/mod-pool-ipam.html">Modify a pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the ModifyIpamPool service method.
 
@@ -10692,7 +10942,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2ModifyIpamPoolResult *> *)modifyIpamPool:(AWSEC2ModifyIpamPoolRequest *)request;
 
 /**
- <p>Modify the configurations of an IPAM pool.</p><p>For more information, see <a href="/vpc/latest/ipam/mod-pool-ipam.html">Modify a pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>Modify the configurations of an IPAM pool.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/mod-pool-ipam.html">Modify a pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the ModifyIpamPool service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -10705,7 +10955,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)modifyIpamPool:(AWSEC2ModifyIpamPoolRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyIpamPoolResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Modify a resource CIDR. You can use this action to transfer resource CIDRs between scopes and ignore resource CIDRs that you do not want to manage. If set to false, the resource will not be tracked for overlap, it cannot be auto-imported into a pool, and it will be removed from any pool it has an allocation in.</p><p>For more information, see <a href="/vpc/latest/ipam/move-resource-ipam.html">Move resource CIDRs between scopes</a> and <a href="/vpc/latest/ipam/change-monitoring-state-ipam.html">Change the monitoring state of resource CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ <p>Modify a resource CIDR. You can use this action to transfer resource CIDRs between scopes and ignore resource CIDRs that you do not want to manage. If set to false, the resource will not be tracked for overlap, it cannot be auto-imported into a pool, and it will be removed from any pool it has an allocation in.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/move-resource-ipam.html">Move resource CIDRs between scopes</a> and <a href="https://docs.aws.amazon.com/vpc/latest/ipam/change-monitoring-state-ipam.html">Change the monitoring state of resource CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ModifyIpamResourceCidr service method.
 
@@ -10717,7 +10967,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2ModifyIpamResourceCidrResult *> *)modifyIpamResourceCidr:(AWSEC2ModifyIpamResourceCidrRequest *)request;
 
 /**
- <p>Modify a resource CIDR. You can use this action to transfer resource CIDRs between scopes and ignore resource CIDRs that you do not want to manage. If set to false, the resource will not be tracked for overlap, it cannot be auto-imported into a pool, and it will be removed from any pool it has an allocation in.</p><p>For more information, see <a href="/vpc/latest/ipam/move-resource-ipam.html">Move resource CIDRs between scopes</a> and <a href="/vpc/latest/ipam/change-monitoring-state-ipam.html">Change the monitoring state of resource CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ <p>Modify a resource CIDR. You can use this action to transfer resource CIDRs between scopes and ignore resource CIDRs that you do not want to manage. If set to false, the resource will not be tracked for overlap, it cannot be auto-imported into a pool, and it will be removed from any pool it has an allocation in.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/move-resource-ipam.html">Move resource CIDRs between scopes</a> and <a href="https://docs.aws.amazon.com/vpc/latest/ipam/change-monitoring-state-ipam.html">Change the monitoring state of resource CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ModifyIpamResourceCidr service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -11540,7 +11790,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)moveAddressToVpc:(AWSEC2MoveAddressToVpcRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2MoveAddressToVpcResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Move an BYOIP IPv4 CIDR to IPAM from a public IPv4 pool.</p><p>If you already have an IPv4 BYOIP CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href="/vpc/latest/ipam/tutorials-byoip-ipam.html">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>
+ <p>Move an BYOIP IPv4 CIDR to IPAM from a public IPv4 pool.</p><p>If you already have an IPv4 BYOIP CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>
  
  @param request A container for the necessary parameters to execute the MoveByoipCidrToIpam service method.
 
@@ -11552,7 +11802,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2MoveByoipCidrToIpamResult *> *)moveByoipCidrToIpam:(AWSEC2MoveByoipCidrToIpamRequest *)request;
 
 /**
- <p>Move an BYOIP IPv4 CIDR to IPAM from a public IPv4 pool.</p><p>If you already have an IPv4 BYOIP CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href="/vpc/latest/ipam/tutorials-byoip-ipam.html">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>
+ <p>Move an BYOIP IPv4 CIDR to IPAM from a public IPv4 pool.</p><p>If you already have an IPv4 BYOIP CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>
  
  @param request A container for the necessary parameters to execute the MoveByoipCidrToIpam service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -11590,7 +11840,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)provisionByoipCidr:(AWSEC2ProvisionByoipCidrRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ProvisionByoipCidrResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Provision a CIDR to an IPAM pool. You can use this action to provision new CIDRs to a top-level pool or to transfer a CIDR from a top-level pool to a pool within it.</p><p>For more information, see <a href="/vpc/latest/ipam/prov-cidr-ipam.html">Provision CIDRs to pools</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>Provision a CIDR to an IPAM pool. You can use this action to provision new CIDRs to a top-level pool or to transfer a CIDR from a top-level pool to a pool within it.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/prov-cidr-ipam.html">Provision CIDRs to pools</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the ProvisionIpamPoolCidr service method.
 
@@ -11602,7 +11852,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2ProvisionIpamPoolCidrResult *> *)provisionIpamPoolCidr:(AWSEC2ProvisionIpamPoolCidrRequest *)request;
 
 /**
- <p>Provision a CIDR to an IPAM pool. You can use this action to provision new CIDRs to a top-level pool or to transfer a CIDR from a top-level pool to a pool within it.</p><p>For more information, see <a href="/vpc/latest/ipam/prov-cidr-ipam.html">Provision CIDRs to pools</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>Provision a CIDR to an IPAM pool. You can use this action to provision new CIDRs to a top-level pool or to transfer a CIDR from a top-level pool to a pool within it.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/prov-cidr-ipam.html">Provision CIDRs to pools</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the ProvisionIpamPoolCidr service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -11615,7 +11865,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)provisionIpamPoolCidr:(AWSEC2ProvisionIpamPoolCidrRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ProvisionIpamPoolCidrResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Provision a CIDR to a public IPv4 pool.</p><p>For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ <p>Provision a CIDR to a public IPv4 pool.</p><p>For more information about IPAM, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ProvisionPublicIpv4PoolCidr service method.
 
@@ -11627,7 +11877,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2ProvisionPublicIpv4PoolCidrResult *> *)provisionPublicIpv4PoolCidr:(AWSEC2ProvisionPublicIpv4PoolCidrRequest *)request;
 
 /**
- <p>Provision a CIDR to a public IPv4 pool.</p><p>For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ <p>Provision a CIDR to a public IPv4 pool.</p><p>For more information about IPAM, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ProvisionPublicIpv4PoolCidr service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -11737,7 +11987,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)rebootInstances:(AWSEC2RebootInstancesRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Registers an AMI. When you're creating an AMI, this is the final step you must complete before you can launch an instance from the AMI. For more information about creating AMIs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Creating your own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><note><p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI in a single request, so you don't have to register the AMI yourself.</p></note><p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration. If you make changes to an image, deregister the previous image and register the new image.</p><p><b>Register a snapshot of a root device volume</b></p><p>You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. You specify the snapshot using a block device mapping. You can't set the encryption state of the volume using the block device mapping. If the snapshot is encrypted, or encryption by default is enabled, the root volume of an instance launched from the AMI is encrypted.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create a Linux AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use encryption with Amazon EBS-backed AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p><b>Amazon Web Services Marketplace product codes</b></p><p>If any snapshots have Amazon Web Services Marketplace product codes, they are copied to the new AMI.</p><p>Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES), use the Amazon EC2 billing product code associated with an AMI to verify the subscription status for package updates. To create a new AMI for operating systems that require a billing product code, instead of registering the AMI, do the following to preserve the billing product code association:</p><ol><li><p>Launch an instance from an existing AMI with that billing product code.</p></li><li><p>Customize the instance.</p></li><li><p>Create an AMI from the instance using <a>CreateImage</a>.</p></li></ol><p>If you purchase a Reserved Instance to apply to an On-Demand Instance that was launched from an AMI with a billing product code, make sure that the Reserved Instance has the matching billing product code. If you purchase a Reserved Instance without the matching billing product code, the Reserved Instance will not be applied to the On-Demand Instance. For information about how to obtain the platform details and billing information of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understanding AMI billing</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Registers an AMI. When you're creating an AMI, this is the final step you must complete before you can launch an instance from the AMI. For more information about creating AMIs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Creating your own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><note><p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI in a single request, so you don't have to register the AMI yourself. We recommend that you always use <a>CreateImage</a> unless you have a specific reason to use RegisterImage.</p></note><p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration. If you make changes to an image, deregister the previous image and register the new image.</p><p><b>Register a snapshot of a root device volume</b></p><p>You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. You specify the snapshot using a block device mapping. You can't set the encryption state of the volume using the block device mapping. If the snapshot is encrypted, or encryption by default is enabled, the root volume of an instance launched from the AMI is encrypted.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create a Linux AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use encryption with Amazon EBS-backed AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p><b>Amazon Web Services Marketplace product codes</b></p><p>If any snapshots have Amazon Web Services Marketplace product codes, they are copied to the new AMI.</p><p>Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES), use the Amazon EC2 billing product code associated with an AMI to verify the subscription status for package updates. To create a new AMI for operating systems that require a billing product code, instead of registering the AMI, do the following to preserve the billing product code association:</p><ol><li><p>Launch an instance from an existing AMI with that billing product code.</p></li><li><p>Customize the instance.</p></li><li><p>Create an AMI from the instance using <a>CreateImage</a>.</p></li></ol><p>If you purchase a Reserved Instance to apply to an On-Demand Instance that was launched from an AMI with a billing product code, make sure that the Reserved Instance has the matching billing product code. If you purchase a Reserved Instance without the matching billing product code, the Reserved Instance will not be applied to the On-Demand Instance. For information about how to obtain the platform details and billing information of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understanding AMI billing</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the RegisterImage service method.
 
@@ -11749,7 +11999,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2RegisterImageResult *> *)registerImage:(AWSEC2RegisterImageRequest *)request;
 
 /**
- <p>Registers an AMI. When you're creating an AMI, this is the final step you must complete before you can launch an instance from the AMI. For more information about creating AMIs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Creating your own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><note><p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI in a single request, so you don't have to register the AMI yourself.</p></note><p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration. If you make changes to an image, deregister the previous image and register the new image.</p><p><b>Register a snapshot of a root device volume</b></p><p>You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. You specify the snapshot using a block device mapping. You can't set the encryption state of the volume using the block device mapping. If the snapshot is encrypted, or encryption by default is enabled, the root volume of an instance launched from the AMI is encrypted.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create a Linux AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use encryption with Amazon EBS-backed AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p><b>Amazon Web Services Marketplace product codes</b></p><p>If any snapshots have Amazon Web Services Marketplace product codes, they are copied to the new AMI.</p><p>Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES), use the Amazon EC2 billing product code associated with an AMI to verify the subscription status for package updates. To create a new AMI for operating systems that require a billing product code, instead of registering the AMI, do the following to preserve the billing product code association:</p><ol><li><p>Launch an instance from an existing AMI with that billing product code.</p></li><li><p>Customize the instance.</p></li><li><p>Create an AMI from the instance using <a>CreateImage</a>.</p></li></ol><p>If you purchase a Reserved Instance to apply to an On-Demand Instance that was launched from an AMI with a billing product code, make sure that the Reserved Instance has the matching billing product code. If you purchase a Reserved Instance without the matching billing product code, the Reserved Instance will not be applied to the On-Demand Instance. For information about how to obtain the platform details and billing information of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understanding AMI billing</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Registers an AMI. When you're creating an AMI, this is the final step you must complete before you can launch an instance from the AMI. For more information about creating AMIs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Creating your own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><note><p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI in a single request, so you don't have to register the AMI yourself. We recommend that you always use <a>CreateImage</a> unless you have a specific reason to use RegisterImage.</p></note><p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration. If you make changes to an image, deregister the previous image and register the new image.</p><p><b>Register a snapshot of a root device volume</b></p><p>You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. You specify the snapshot using a block device mapping. You can't set the encryption state of the volume using the block device mapping. If the snapshot is encrypted, or encryption by default is enabled, the root volume of an instance launched from the AMI is encrypted.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create a Linux AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use encryption with Amazon EBS-backed AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p><b>Amazon Web Services Marketplace product codes</b></p><p>If any snapshots have Amazon Web Services Marketplace product codes, they are copied to the new AMI.</p><p>Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES), use the Amazon EC2 billing product code associated with an AMI to verify the subscription status for package updates. To create a new AMI for operating systems that require a billing product code, instead of registering the AMI, do the following to preserve the billing product code association:</p><ol><li><p>Launch an instance from an existing AMI with that billing product code.</p></li><li><p>Customize the instance.</p></li><li><p>Create an AMI from the instance using <a>CreateImage</a>.</p></li></ol><p>If you purchase a Reserved Instance to apply to an On-Demand Instance that was launched from an AMI with a billing product code, make sure that the Reserved Instance has the matching billing product code. If you purchase a Reserved Instance without the matching billing product code, the Reserved Instance will not be applied to the On-Demand Instance. For information about how to obtain the platform details and billing information of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understanding AMI billing</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the RegisterImage service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -12009,7 +12259,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)releaseHosts:(AWSEC2ReleaseHostsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ReleaseHostsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Release an allocation within an IPAM pool. You can only use this action to release manual allocations. To remove an allocation for a resource without deleting the resource, set its monitored state to false using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamResourceCidr.html">ModifyIpamResourceCidr</a>. For more information, see <a href="/vpc/latest/ipam/release-pool-alloc-ipam.html">Release an allocation</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>Release an allocation within an IPAM pool. You can only use this action to release manual allocations. To remove an allocation for a resource without deleting the resource, set its monitored state to false using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamResourceCidr.html">ModifyIpamResourceCidr</a>. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/release-pool-alloc-ipam.html">Release an allocation</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the ReleaseIpamPoolAllocation service method.
 
@@ -12021,7 +12271,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2ReleaseIpamPoolAllocationResult *> *)releaseIpamPoolAllocation:(AWSEC2ReleaseIpamPoolAllocationRequest *)request;
 
 /**
- <p>Release an allocation within an IPAM pool. You can only use this action to release manual allocations. To remove an allocation for a resource without deleting the resource, set its monitored state to false using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamResourceCidr.html">ModifyIpamResourceCidr</a>. For more information, see <a href="/vpc/latest/ipam/release-pool-alloc-ipam.html">Release an allocation</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>Release an allocation within an IPAM pool. You can only use this action to release manual allocations. To remove an allocation for a resource without deleting the resource, set its monitored state to false using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamResourceCidr.html">ModifyIpamResourceCidr</a>. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/release-pool-alloc-ipam.html">Release an allocation</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the ReleaseIpamPoolAllocation service method.
  @param completionHandler The completion handler to call when the load request is complete.

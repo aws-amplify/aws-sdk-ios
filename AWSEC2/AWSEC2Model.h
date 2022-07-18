@@ -525,6 +525,12 @@ typedef NS_ENUM(NSInteger, AWSEC2DomainType) {
     AWSEC2DomainTypeStandard,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2DynamicRoutingValue) {
+    AWSEC2DynamicRoutingValueUnknown,
+    AWSEC2DynamicRoutingValueEnable,
+    AWSEC2DynamicRoutingValueDisable,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2EbsEncryptionSupport) {
     AWSEC2EbsEncryptionSupportUnknown,
     AWSEC2EbsEncryptionSupportUnsupported,
@@ -715,6 +721,8 @@ typedef NS_ENUM(NSInteger, AWSEC2FlowLogsResourceType) {
     AWSEC2FlowLogsResourceTypeVpc,
     AWSEC2FlowLogsResourceTypeSubnet,
     AWSEC2FlowLogsResourceTypeNetworkInterface,
+    AWSEC2FlowLogsResourceTypeTransitGateway,
+    AWSEC2FlowLogsResourceTypeTransitGatewayAttachment,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2FpgaImageAttributeName) {
@@ -2092,7 +2100,9 @@ typedef NS_ENUM(NSInteger, AWSEC2ResourceType) {
     AWSEC2ResourceTypeTransitGatewayAttachment,
     AWSEC2ResourceTypeTransitGatewayConnectPeer,
     AWSEC2ResourceTypeTransitGatewayMulticastDomain,
+    AWSEC2ResourceTypeTransitGatewayPolicyTable,
     AWSEC2ResourceTypeTransitGatewayRouteTable,
+    AWSEC2ResourceTypeTransitGatewayRouteTableAnnouncement,
     AWSEC2ResourceTypeVolume,
     AWSEC2ResourceTypeVPC,
     AWSEC2ResourceTypeVpcEndpoint,
@@ -2448,6 +2458,14 @@ typedef NS_ENUM(NSInteger, AWSEC2TransitGatewayMulticastDomainState) {
     AWSEC2TransitGatewayMulticastDomainStateDeleted,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2TransitGatewayPolicyTableState) {
+    AWSEC2TransitGatewayPolicyTableStateUnknown,
+    AWSEC2TransitGatewayPolicyTableStatePending,
+    AWSEC2TransitGatewayPolicyTableStateAvailable,
+    AWSEC2TransitGatewayPolicyTableStateDeleting,
+    AWSEC2TransitGatewayPolicyTableStateDeleted,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2TransitGatewayPrefixListReferenceState) {
     AWSEC2TransitGatewayPrefixListReferenceStateUnknown,
     AWSEC2TransitGatewayPrefixListReferenceStatePending,
@@ -2471,6 +2489,22 @@ typedef NS_ENUM(NSInteger, AWSEC2TransitGatewayRouteState) {
     AWSEC2TransitGatewayRouteStateBlackhole,
     AWSEC2TransitGatewayRouteStateDeleting,
     AWSEC2TransitGatewayRouteStateDeleted,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2TransitGatewayRouteTableAnnouncementDirection) {
+    AWSEC2TransitGatewayRouteTableAnnouncementDirectionUnknown,
+    AWSEC2TransitGatewayRouteTableAnnouncementDirectionOutgoing,
+    AWSEC2TransitGatewayRouteTableAnnouncementDirectionIncoming,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2TransitGatewayRouteTableAnnouncementState) {
+    AWSEC2TransitGatewayRouteTableAnnouncementStateUnknown,
+    AWSEC2TransitGatewayRouteTableAnnouncementStateAvailable,
+    AWSEC2TransitGatewayRouteTableAnnouncementStatePending,
+    AWSEC2TransitGatewayRouteTableAnnouncementStateFailing,
+    AWSEC2TransitGatewayRouteTableAnnouncementStateFailed,
+    AWSEC2TransitGatewayRouteTableAnnouncementStateDeleting,
+    AWSEC2TransitGatewayRouteTableAnnouncementStateDeleted,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2TransitGatewayRouteTableState) {
@@ -2749,6 +2783,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2AssociateSubnetCidrBlockResult;
 @class AWSEC2AssociateTransitGatewayMulticastDomainRequest;
 @class AWSEC2AssociateTransitGatewayMulticastDomainResult;
+@class AWSEC2AssociateTransitGatewayPolicyTableRequest;
+@class AWSEC2AssociateTransitGatewayPolicyTableResult;
 @class AWSEC2AssociateTransitGatewayRouteTableRequest;
 @class AWSEC2AssociateTransitGatewayRouteTableResult;
 @class AWSEC2AssociateTrunkInterfaceRequest;
@@ -2971,13 +3007,18 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2CreateTransitGatewayMulticastDomainRequestOptions;
 @class AWSEC2CreateTransitGatewayMulticastDomainResult;
 @class AWSEC2CreateTransitGatewayPeeringAttachmentRequest;
+@class AWSEC2CreateTransitGatewayPeeringAttachmentRequestOptions;
 @class AWSEC2CreateTransitGatewayPeeringAttachmentResult;
+@class AWSEC2CreateTransitGatewayPolicyTableRequest;
+@class AWSEC2CreateTransitGatewayPolicyTableResult;
 @class AWSEC2CreateTransitGatewayPrefixListReferenceRequest;
 @class AWSEC2CreateTransitGatewayPrefixListReferenceResult;
 @class AWSEC2CreateTransitGatewayRequest;
 @class AWSEC2CreateTransitGatewayResult;
 @class AWSEC2CreateTransitGatewayRouteRequest;
 @class AWSEC2CreateTransitGatewayRouteResult;
+@class AWSEC2CreateTransitGatewayRouteTableAnnouncementRequest;
+@class AWSEC2CreateTransitGatewayRouteTableAnnouncementResult;
 @class AWSEC2CreateTransitGatewayRouteTableRequest;
 @class AWSEC2CreateTransitGatewayRouteTableResult;
 @class AWSEC2CreateTransitGatewayVpcAttachmentRequest;
@@ -3091,12 +3132,16 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DeleteTransitGatewayMulticastDomainResult;
 @class AWSEC2DeleteTransitGatewayPeeringAttachmentRequest;
 @class AWSEC2DeleteTransitGatewayPeeringAttachmentResult;
+@class AWSEC2DeleteTransitGatewayPolicyTableRequest;
+@class AWSEC2DeleteTransitGatewayPolicyTableResult;
 @class AWSEC2DeleteTransitGatewayPrefixListReferenceRequest;
 @class AWSEC2DeleteTransitGatewayPrefixListReferenceResult;
 @class AWSEC2DeleteTransitGatewayRequest;
 @class AWSEC2DeleteTransitGatewayResult;
 @class AWSEC2DeleteTransitGatewayRouteRequest;
 @class AWSEC2DeleteTransitGatewayRouteResult;
+@class AWSEC2DeleteTransitGatewayRouteTableAnnouncementRequest;
+@class AWSEC2DeleteTransitGatewayRouteTableAnnouncementResult;
 @class AWSEC2DeleteTransitGatewayRouteTableRequest;
 @class AWSEC2DeleteTransitGatewayRouteTableResult;
 @class AWSEC2DeleteTransitGatewayVpcAttachmentRequest;
@@ -3354,6 +3399,10 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DescribeTransitGatewayMulticastDomainsResult;
 @class AWSEC2DescribeTransitGatewayPeeringAttachmentsRequest;
 @class AWSEC2DescribeTransitGatewayPeeringAttachmentsResult;
+@class AWSEC2DescribeTransitGatewayPolicyTablesRequest;
+@class AWSEC2DescribeTransitGatewayPolicyTablesResult;
+@class AWSEC2DescribeTransitGatewayRouteTableAnnouncementsRequest;
+@class AWSEC2DescribeTransitGatewayRouteTableAnnouncementsResult;
 @class AWSEC2DescribeTransitGatewayRouteTablesRequest;
 @class AWSEC2DescribeTransitGatewayRouteTablesResult;
 @class AWSEC2DescribeTransitGatewayVpcAttachmentsRequest;
@@ -3445,6 +3494,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DisassociateSubnetCidrBlockResult;
 @class AWSEC2DisassociateTransitGatewayMulticastDomainRequest;
 @class AWSEC2DisassociateTransitGatewayMulticastDomainResult;
+@class AWSEC2DisassociateTransitGatewayPolicyTableRequest;
+@class AWSEC2DisassociateTransitGatewayPolicyTableResult;
 @class AWSEC2DisassociateTransitGatewayRouteTableRequest;
 @class AWSEC2DisassociateTransitGatewayRouteTableResult;
 @class AWSEC2DisassociateTrunkInterfaceRequest;
@@ -3604,6 +3655,10 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2GetTransitGatewayAttachmentPropagationsResult;
 @class AWSEC2GetTransitGatewayMulticastDomainAssociationsRequest;
 @class AWSEC2GetTransitGatewayMulticastDomainAssociationsResult;
+@class AWSEC2GetTransitGatewayPolicyTableAssociationsRequest;
+@class AWSEC2GetTransitGatewayPolicyTableAssociationsResult;
+@class AWSEC2GetTransitGatewayPolicyTableEntriesRequest;
+@class AWSEC2GetTransitGatewayPolicyTableEntriesResult;
 @class AWSEC2GetTransitGatewayPrefixListReferencesRequest;
 @class AWSEC2GetTransitGatewayPrefixListReferencesResult;
 @class AWSEC2GetTransitGatewayRouteTableAssociationsRequest;
@@ -4233,6 +4288,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2TransitGatewayMulticastRegisteredGroupSources;
 @class AWSEC2TransitGatewayOptions;
 @class AWSEC2TransitGatewayPeeringAttachment;
+@class AWSEC2TransitGatewayPeeringAttachmentOptions;
+@class AWSEC2TransitGatewayPolicyRule;
+@class AWSEC2TransitGatewayPolicyRuleMetaData;
+@class AWSEC2TransitGatewayPolicyTable;
+@class AWSEC2TransitGatewayPolicyTableAssociation;
+@class AWSEC2TransitGatewayPolicyTableEntry;
 @class AWSEC2TransitGatewayPrefixListAttachment;
 @class AWSEC2TransitGatewayPrefixListReference;
 @class AWSEC2TransitGatewayPropagation;
@@ -4240,6 +4301,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2TransitGatewayRoute;
 @class AWSEC2TransitGatewayRouteAttachment;
 @class AWSEC2TransitGatewayRouteTable;
+@class AWSEC2TransitGatewayRouteTableAnnouncement;
 @class AWSEC2TransitGatewayRouteTableAssociation;
 @class AWSEC2TransitGatewayRouteTablePropagation;
 @class AWSEC2TransitGatewayRouteTableRoute;
@@ -4715,7 +4777,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Add an operating Region to an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p><p>For more information about operating Regions, see <a href="/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>Add an operating Region to an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p><p>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  */
 @interface AWSEC2AddIpamOperatingRegion : AWSModel
 
@@ -5927,6 +5989,42 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2AssociateTransitGatewayPolicyTableRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the transit gateway attachment to associate with the policy table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayAttachmentId;
+
+/**
+ <p>The ID of the transit gateway policy table to associate with the transit gateway attachment.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayPolicyTableId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2AssociateTransitGatewayPolicyTableResult : AWSModel
+
+
+/**
+ <p>Describes the association of a transit gateway and a transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayPolicyTableAssociation * _Nullable association;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2AssociateTransitGatewayRouteTableRequest : AWSRequest
 
 
@@ -6033,12 +6131,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable cidrBlock;
 
 /**
- <p>Associate a CIDR allocated from an IPv4 IPAM pool to a VPC. For more information about Amazon VPC IP Address Manager (IPAM), see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ <p>Associate a CIDR allocated from an IPv4 IPAM pool to a VPC. For more information about Amazon VPC IP Address Manager (IPAM), see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipv4IpamPoolId;
 
 /**
- <p>The netmask length of the IPv4 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>The netmask length of the IPv4 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable ipv4NetmaskLength;
 
@@ -6053,12 +6151,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable ipv6CidrBlockNetworkBorderGroup;
 
 /**
- <p>Associates a CIDR allocated from an IPv6 IPAM pool to a VPC. For more information about Amazon VPC IP Address Manager (IPAM), see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ <p>Associates a CIDR allocated from an IPv6 IPAM pool to a VPC. For more information about Amazon VPC IP Address Manager (IPAM), see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipv6IpamPoolId;
 
 /**
- <p>The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable ipv6NetmaskLength;
 
@@ -10044,7 +10142,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The operating Regions for the IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p><p>For more information about operating Regions, see <a href="/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>The operating Regions for the IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p><p>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2AddIpamOperatingRegion *> * _Nullable operatingRegions;
 
@@ -10225,12 +10323,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2RequestLaunchTemplateData * _Nullable launchTemplateData;
 
 /**
- <p>The ID of the launch template. You must specify either the launch template ID or launch template name in the request.</p>
+ <p>The ID of the launch template.</p><p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateId;
 
 /**
- <p>The name of the launch template. You must specify either the launch template ID or launch template name in the request.</p>
+ <p>The name of the launch template.</p><p>You must specify the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateName;
 
@@ -11985,6 +12083,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
+ <p>Requests a transit gateway peering attachment.</p>
+ */
+@property (nonatomic, strong) AWSEC2CreateTransitGatewayPeeringAttachmentRequestOptions * _Nullable options;
+
+/**
  <p>The ID of the Amazon Web Services account that owns the peer transit gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable peerAccountId;
@@ -12012,6 +12115,19 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>Describes whether dynamic routing is enabled or disabled for the transit gateway peering request.</p>
+ */
+@interface AWSEC2CreateTransitGatewayPeeringAttachmentRequestOptions : AWSModel
+
+
+/**
+ <p>Indicates whether dynamic routing is enabled or disabled.</p>
+ */
+@property (nonatomic, assign) AWSEC2DynamicRoutingValue dynamicRouting;
+
+@end
+
+/**
  
  */
 @interface AWSEC2CreateTransitGatewayPeeringAttachmentResult : AWSModel
@@ -12021,6 +12137,42 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The transit gateway peering attachment.</p>
  */
 @property (nonatomic, strong) AWSEC2TransitGatewayPeeringAttachment * _Nullable transitGatewayPeeringAttachment;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateTransitGatewayPolicyTableRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The tags specification for the transit gateway policy table created during the request.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+/**
+ <p>The ID of the transit gateway used for the policy table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateTransitGatewayPolicyTableResult : AWSModel
+
+
+/**
+ <p>Describes the created transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayPolicyTable * _Nullable transitGatewayPolicyTable;
 
 @end
 
@@ -12154,6 +12306,47 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the route.</p>
  */
 @property (nonatomic, strong) AWSEC2TransitGatewayRoute * _Nullable route;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateTransitGatewayRouteTableAnnouncementRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the peering attachment.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable peeringAttachmentId;
+
+/**
+ <p>The tags specifications applied to the transit gateway route table announcement.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+/**
+ <p>The ID of the transit gateway route table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayRouteTableId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateTransitGatewayRouteTableAnnouncementResult : AWSModel
+
+
+/**
+ <p>Provides details about the transit gateway route table announcement.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayRouteTableAnnouncement * _Nullable transitGatewayRouteTableAnnouncement;
 
 @end
 
@@ -12668,12 +12861,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2Tenancy instanceTenancy;
 
 /**
- <p>The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. For more information, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipv4IpamPoolId;
 
 /**
- <p>The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ <p>The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable ipv4NetmaskLength;
 
@@ -12688,12 +12881,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable ipv6CidrBlockNetworkBorderGroup;
 
 /**
- <p>The ID of an IPv6 IPAM pool which will be used to allocate this VPC an IPv6 CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization. For more information, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ <p>The ID of an IPv6 IPAM pool which will be used to allocate this VPC an IPv6 CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipv6IpamPoolId;
 
 /**
- <p>The netmask length of the IPv6 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ <p>The netmask length of the IPv6 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable ipv6NetmaskLength;
 
@@ -12846,27 +13039,27 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes the credit option for CPU usage of a T2, T3, or T3a instance.</p>
+ <p>Describes the credit option for CPU usage of a T instance.</p>
  */
 @interface AWSEC2CreditSpecification : AWSModel
 
 
 /**
- <p>The credit option for CPU usage of a T2, T3, or T3a instance. Valid values are <code>standard</code> and <code>unlimited</code>.</p>
+ <p>The credit option for CPU usage of a T instance.</p><p>Valid values: <code>standard</code> | <code>unlimited</code></p>
  */
 @property (nonatomic, strong) NSString * _Nullable cpuCredits;
 
 @end
 
 /**
- <p>The credit option for CPU usage of a T2, T3, or T3a instance.</p>
+ <p>The credit option for CPU usage of a T instance.</p>
  Required parameters: [CpuCredits]
  */
 @interface AWSEC2CreditSpecificationRequest : AWSModel
 
 
 /**
- <p>The credit option for CPU usage of a T2, T3, or T3a instance. Valid values are <code>standard</code> and <code>unlimited</code>.</p>
+ <p>The credit option for CPU usage of a T instance.</p><p>Valid values: <code>standard</code> | <code>unlimited</code></p>
  */
 @property (nonatomic, strong) NSString * _Nullable cpuCredits;
 
@@ -13440,12 +13633,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The ID of the launch template. You must specify either the launch template ID or launch template name in the request.</p>
+ <p>The ID of the launch template.</p><p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateId;
 
 /**
- <p>The name of the launch template. You must specify either the launch template ID or launch template name in the request.</p>
+ <p>The name of the launch template.</p><p>You must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateName;
 
@@ -13476,12 +13669,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The ID of the launch template. You must specify either the launch template ID or launch template name in the request.</p>
+ <p>The ID of the launch template.</p><p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateId;
 
 /**
- <p>The name of the launch template. You must specify either the launch template ID or launch template name in the request.</p>
+ <p>The name of the launch template.</p><p>You must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateName;
 
@@ -14447,6 +14640,37 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2DeleteTransitGatewayPolicyTableRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The transit gateway policy table to delete.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayPolicyTableId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteTransitGatewayPolicyTableResult : AWSModel
+
+
+/**
+ <p>Provides details about the deleted transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayPolicyTable * _Nullable transitGatewayPolicyTable;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2DeleteTransitGatewayPrefixListReferenceRequest : AWSRequest
 
 
@@ -14544,6 +14768,37 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the route.</p>
  */
 @property (nonatomic, strong) AWSEC2TransitGatewayRoute * _Nullable route;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteTransitGatewayRouteTableAnnouncementRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The transit gateway route table ID that's being deleted. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayRouteTableAnnouncementId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteTransitGatewayRouteTableAnnouncementResult : AWSModel
+
+
+/**
+ <p>Provides details about a deleted transit gateway route table.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayRouteTableAnnouncement * _Nullable transitGatewayRouteTableAnnouncement;
 
 @end
 
@@ -17885,12 +18140,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The ID of the launch template. To describe one or more versions of a specified launch template, you must specify either the launch template ID or the launch template name in the request. To describe all the latest or default launch template versions in your account, you must omit this parameter.</p>
+ <p>The ID of the launch template.</p><p>To describe one or more versions of a specified launch template, you must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p><p>To describe all the latest or default launch template versions in your account, you must omit this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateId;
 
 /**
- <p>The name of the launch template. To describe one or more versions of a specified launch template, you must specify either the launch template ID or the launch template name in the request. To describe all the latest or default launch template versions in your account, you must omit this parameter.</p>
+ <p>The name of the launch template.</p><p>To describe one or more versions of a specified launch template, you must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p><p>To describe all the latest or default launch template versions in your account, you must omit this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateName;
 
@@ -17915,7 +18170,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>One or more versions of the launch template. Valid values depend on whether you are describing a specified launch template (by ID or name) or all launch templates in your account.</p><p>To describe one or more versions of a specified launch template, valid values are <code>$Latest</code>, <code>$Default</code>, and numbers.</p><p>To describe all launch templates in your account that are defined as the latest version, the valid value is <code>$Latest</code>. To describe all launch templates in your account that are defined as the default version, the valid value is <code>$Default</code>. You can specify <code>$Latest</code> and <code>$Default</code> in the same call. You cannot specify numbers.</p>
+ <p>One or more versions of the launch template. Valid values depend on whether you are describing a specified launch template (by ID or name) or all launch templates in your account.</p><p>To describe one or more versions of a specified launch template, valid values are <code>$Latest</code>, <code>$Default</code>, and numbers.</p><p>To describe all launch templates in your account that are defined as the latest version, the valid value is <code>$Latest</code>. To describe all launch templates in your account that are defined as the default version, the valid value is <code>$Default</code>. You can specify <code>$Latest</code> and <code>$Default</code> in the same request. You cannot specify numbers.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable versions;
 
@@ -20781,6 +21036,108 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2DescribeTransitGatewayPolicyTablesRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The filters associated with the transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The IDs of the transit gateway policy tables.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable transitGatewayPolicyTableIds;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeTransitGatewayPolicyTablesResult : AWSModel
+
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Describes the transit gateway policy tables.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TransitGatewayPolicyTable *> * _Nullable transitGatewayPolicyTables;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeTransitGatewayRouteTableAnnouncementsRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The filters associated with the transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The IDs of the transit gateway route tables that are being advertised.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable transitGatewayRouteTableAnnouncementIds;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeTransitGatewayRouteTableAnnouncementsResult : AWSModel
+
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Describes the transit gateway route table announcement.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TransitGatewayRouteTableAnnouncement *> * _Nullable transitGatewayRouteTableAnnouncements;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2DescribeTransitGatewayRouteTablesRequest : AWSRequest
 
 
@@ -22407,6 +22764,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable transitGatewayAttachmentId;
 
 /**
+ <p>The ID of the route table announcement.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayRouteTableAnnouncementId;
+
+/**
  <p>The ID of the propagation route table.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable transitGatewayRouteTableId;
@@ -22756,6 +23118,42 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the association.</p>
  */
 @property (nonatomic, strong) AWSEC2TransitGatewayMulticastDomainAssociations * _Nullable associations;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DisassociateTransitGatewayPolicyTableRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the transit gateway attachment to disassociate from the policy table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayAttachmentId;
+
+/**
+ <p>The ID of the disassociated policy table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayPolicyTableId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DisassociateTransitGatewayPolicyTableResult : AWSModel
+
+
+/**
+ <p>Returns details about the transit gateway policy table disassociation.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayPolicyTableAssociation * _Nullable association;
 
 @end
 
@@ -23792,6 +24190,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the attachment.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable transitGatewayAttachmentId;
+
+/**
+ <p>The ID of the transit gateway route table announcement.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayRouteTableAnnouncementId;
 
 /**
  <p>The ID of the propagation route table.</p>
@@ -25009,7 +25412,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2InstanceType instanceType;
 
 /**
- <p>The maximum price per unit hour that you are willing to pay for a Spot Instance.</p>
+ <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price. </p><important><p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable maxPrice;
 
@@ -25057,7 +25460,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2InstanceType instanceType;
 
 /**
- <p>The maximum price per unit hour that you are willing to pay for a Spot Instance.</p>
+ <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price. </p><important><p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable maxPrice;
 
@@ -25084,18 +25487,18 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes the Amazon EC2 launch template and the launch template version that can be used by a Spot Fleet request to configure Amazon EC2 instances. For information about launch templates, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launching an instance from a launch template</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+ <p>The Amazon EC2 launch template that can be used by a Spot Fleet to configure Amazon EC2 instances. You must specify either the ID or name of the launch template in the request, but not both.</p><p>For information about launch templates, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launch an instance from a launch template</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
  */
 @interface AWSEC2FleetLaunchTemplateSpecification : AWSModel
 
 
 /**
- <p>The ID of the launch template. If you specify the template ID, you can't specify the template name.</p>
+ <p>The ID of the launch template.</p><p>You must specify the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateId;
 
 /**
- <p>The name of the launch template. If you specify the template name, you can't specify the template ID.</p>
+ <p>The name of the launch template.</p><p>You must specify the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateName;
 
@@ -25107,18 +25510,18 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes the Amazon EC2 launch template and the launch template version that can be used by an EC2 Fleet to configure Amazon EC2 instances. For information about launch templates, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launching an instance from a launch template</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>The Amazon EC2 launch template that can be used by an EC2 Fleet to configure Amazon EC2 instances. You must specify either the ID or name of the launch template in the request, but not both.</p><p>For information about launch templates, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launch an instance from a launch template</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 @interface AWSEC2FleetLaunchTemplateSpecificationRequest : AWSModel
 
 
 /**
- <p>The ID of the launch template. If you specify the template ID, you can't specify the template name.</p>
+ <p>The ID of the launch template.</p><p>You must specify the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateId;
 
 /**
- <p>The name of the launch template. If you specify the template name, you can't specify the template ID.</p>
+ <p>The name of the launch template.</p><p>You must specify the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateName;
 
@@ -26900,6 +27303,103 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetTransitGatewayPolicyTableAssociationsRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The filters associated with the transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The ID of the transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayPolicyTableId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetTransitGatewayPolicyTableAssociationsResult : AWSModel
+
+
+/**
+ <p>Returns details about the transit gateway policy table association.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TransitGatewayPolicyTableAssociation *> * _Nullable associations;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetTransitGatewayPolicyTableEntriesRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The filters associated with the transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The ID of the transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayPolicyTableId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetTransitGatewayPolicyTableEntriesResult : AWSModel
+
+
+/**
+ <p>The entries for the transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TransitGatewayPolicyTableEntry *> * _Nullable transitGatewayPolicyTableEntries;
 
 @end
 
@@ -30079,7 +30579,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2NetworkInterfaceCount * _Nullable networkInterfaceCount;
 
 /**
- <p>The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage above the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.</p><p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p><p>To turn off price protection, specify a high value, such as <code>999999</code>.</p><p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p><note><p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.</p></note><p>Default: <code>20</code></p>
+ <p>The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage above the least expensive current generation M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.</p><p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p><p>To turn off price protection, specify a high value, such as <code>999999</code>.</p><p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p><note><p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.</p></note><p>Default: <code>20</code></p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable onDemandMaxPricePercentageOverLowestPrice;
 
@@ -30089,7 +30589,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable requireHibernateSupport;
 
 /**
- <p>The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage above the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.</p><p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p><p>To turn off price protection, specify a high value, such as <code>999999</code>.</p><p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p><note><p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.</p></note><p>Default: <code>100</code></p>
+ <p>The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage above the least expensive current generation M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.</p><p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p><p>To turn off price protection, specify a high value, such as <code>999999</code>.</p><p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p><note><p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.</p></note><p>Default: <code>100</code></p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable spotMaxPricePercentageOverLowestPrice;
 
@@ -30193,7 +30693,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2NetworkInterfaceCountRequest * _Nullable networkInterfaceCount;
 
 /**
- <p>The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage above the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.</p><p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p><p>To turn off price protection, specify a high value, such as <code>999999</code>.</p><p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p><note><p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.</p></note><p>Default: <code>20</code></p>
+ <p>The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage above the least expensive current generation M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.</p><p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p><p>To turn off price protection, specify a high value, such as <code>999999</code>.</p><p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p><note><p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.</p></note><p>Default: <code>20</code></p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable onDemandMaxPricePercentageOverLowestPrice;
 
@@ -30203,7 +30703,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable requireHibernateSupport;
 
 /**
- <p>The price protection threshold for Spot Instance. This is the maximum you’ll pay for an Spot Instance, expressed as a percentage above the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.</p><p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p><p>To turn off price protection, specify a high value, such as <code>999999</code>.</p><p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p><note><p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.</p></note><p>Default: <code>100</code></p>
+ <p>The price protection threshold for Spot Instance. This is the maximum you’ll pay for an Spot Instance, expressed as a percentage above the least expensive current generation M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.</p><p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p><p>To turn off price protection, specify a high value, such as <code>999999</code>.</p><p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p><note><p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.</p></note><p>Default: <code>100</code></p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable spotMaxPricePercentageOverLowestPrice;
 
@@ -30772,7 +31272,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization. For more information, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ <p>IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  */
 @interface AWSEC2Ipam : AWSModel
 
@@ -30798,7 +31298,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable ipamRegion;
 
 /**
- <p>The operating Regions for an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p><p>For more information about operating Regions, see <a href="/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ <p>The operating Regions for an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p><p>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2IpamOperatingRegion *> * _Nullable operatingRegions;
 
@@ -30818,7 +31318,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable publicDefaultScopeId;
 
 /**
- <p>The number of scopes in the IPAM. The scope quota is 5. For more information on quotas, see <a href="/vpc/latest/ipam/quotas-ipam.html">Quotas in IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>The number of scopes in the IPAM. The scope quota is 5. For more information on quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html">Quotas in IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable scopeCount;
 
@@ -30835,7 +31335,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>The historical record of a CIDR within an IPAM scope. For more information, see <a href="/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>The historical record of a CIDR within an IPAM scope. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  */
 @interface AWSEC2IpamAddressHistoryRecord : AWSModel
 
@@ -30846,7 +31346,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable resourceCidr;
 
 /**
- <p>The compliance status of a resource. For more information on compliance statuses, see <a href="/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ <p>The compliance status of a resource. For more information on compliance statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  */
 @property (nonatomic, assign) AWSEC2IpamComplianceStatus resourceComplianceStatus;
 
@@ -30861,7 +31361,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable resourceName;
 
 /**
- <p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href="/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ <p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  */
 @property (nonatomic, assign) AWSEC2IpamOverlapStatus resourceOverlapStatus;
 
@@ -30916,7 +31416,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>The operating Regions for an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p><p>For more information about operating Regions, see <a href="/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ <p>The operating Regions for an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p><p>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  */
 @interface AWSEC2IpamOperatingRegion : AWSModel
 
@@ -31015,7 +31515,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable ownerId;
 
 /**
- <p>The depth of pools in your IPAM pool. The pool depth quota is 10. For more information, see <a href="/vpc/latest/ipam/quotas-ipam.html">Quotas in IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
+ <p>The depth of pools in your IPAM pool. The pool depth quota is 10. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html">Quotas in IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable poolDepth;
 
@@ -31137,12 +31637,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The compliance status of the IPAM resource. For more information on compliance statuses, see <a href="/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ <p>The compliance status of the IPAM resource. For more information on compliance statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  */
 @property (nonatomic, assign) AWSEC2IpamComplianceStatus complianceStatus;
 
 /**
- <p>The IP address space in the IPAM pool that is allocated to this resource. To convert the decimal to a percentage, multiply the decimal by 100.</p>
+ <p>The percentage of IP address space in use. To convert the decimal to a percentage, multiply the decimal by 100. Note the following:</p><ul><li><p>For a resources that are VPCs, this is the percentage of IP address space in the VPC that's taken up by subnet CIDRs. </p></li><li><p>For resources that are subnets, if the subnet has an IPv4 CIDR provisioned to it, this is the percentage of IPv4 address space in the subnet that's in use. If the subnet has an IPv6 CIDR provisioned to it, the percentage of IPv6 address space in use is not represented. The percentage of IPv6 address space in use cannot currently be calculated. </p></li><li><p>For resources that are public IPv4 pools, this is the percentage of IP address space in the pool that's been allocated to Elastic IP addresses (EIPs). </p></li></ul>
  */
 @property (nonatomic, strong) NSNumber * _Nullable ipUsage;
 
@@ -31162,12 +31662,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable ipamScopeId;
 
 /**
- <p>The management state of the resource. For more information about management states, see <a href="/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ <p>The management state of the resource. For more information about management states, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  */
 @property (nonatomic, assign) AWSEC2IpamManagementState managementState;
 
 /**
- <p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href="/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ <p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  */
 @property (nonatomic, assign) AWSEC2IpamOverlapStatus overlapStatus;
 
@@ -31232,7 +31732,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p><p>For more information, see <a href="/vpc/latest/ipam/how-it-works-ipam.html">How IPAM works</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ <p>In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/how-it-works-ipam.html">How IPAM works</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  */
 @interface AWSEC2IpamScope : AWSModel
 
@@ -31873,7 +32373,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable coreCount;
 
 /**
- <p>The number of threads per CPU core. To disable multithreading for the instance, specify a value of 1. Otherwise, specify the default value of 2.</p>
+ <p>The number of threads per CPU core. To disable multithreading for the instance, specify a value of <code>1</code>. Otherwise, specify the default value of <code>2</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable threadsPerCore;
 
@@ -32163,7 +32663,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 @interface AWSEC2LaunchTemplateInstanceMetadataOptions : AWSModel
 
@@ -32201,7 +32701,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 @interface AWSEC2LaunchTemplateInstanceMetadataOptionsRequest : AWSModel
 
@@ -32217,7 +32717,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2LaunchTemplateInstanceMetadataProtocolIpv6 httpProtocolIpv6;
 
 /**
- <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.</p><p>Default: 1</p><p>Possible values: Integers from 1 to 64</p>
+ <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.</p><p>Default: <code>1</code></p><p>Possible values: Integers from 1 to 64</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable httpPutResponseHopLimit;
 
@@ -32492,7 +32992,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable priority;
 
 /**
- <p>The maximum price per unit hour that you are willing to pay for a Spot Instance.</p>
+ <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p><important><p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable spotPrice;
 
@@ -32657,12 +33157,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The ID of the launch template.</p>
+ <p>The ID of the launch template.</p><p>You must specify the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateId;
 
 /**
- <p>The name of the launch template.</p>
+ <p>The name of the launch template.</p><p>You must specify the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateName;
 
@@ -32690,7 +33190,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2InstanceInterruptionBehavior instanceInterruptionBehavior;
 
 /**
- <p>The maximum hourly price you're willing to pay for the Spot Instances.</p>
+ <p>The maximum hourly price you're willing to pay for the Spot Instances. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p><important><p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable maxPrice;
 
@@ -32713,7 +33213,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The required duration for the Spot Instances (also known as Spot blocks), in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).</p>
+ <p>Deprecated.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable blockDurationMinutes;
 
@@ -32723,7 +33223,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2InstanceInterruptionBehavior instanceInterruptionBehavior;
 
 /**
- <p>The maximum hourly price you're willing to pay for the Spot Instances.</p>
+ <p>The maximum hourly price you're willing to pay for the Spot Instances. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p><important><p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable maxPrice;
 
@@ -32733,7 +33233,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2SpotInstanceType spotInstanceType;
 
 /**
- <p>The end date of the request. For a one-time request, the request remains active until all instances launch, the request is canceled, or this date is reached. If the request is persistent, it remains active until it is canceled or this date and time is reached. The default end date is 7 days from the current date.</p>
+ <p>The end date of the request, in UTC format (<i>YYYY-MM-DD</i>T<i>HH:MM:SS</i>Z). Supported only for persistent requests.</p><ul><li><p>For a persistent request, the request remains active until the <code>ValidUntil</code> date and time is reached. Otherwise, the request remains active until you cancel it.</p></li><li><p>For a one-time request, <code>ValidUntil</code> is not supported. The request remains active until all instances launch or you cancel the request.</p></li></ul><p>Default: 7 days from the current date</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable validUntil;
 
@@ -34521,7 +35021,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Add tag allocation rules to a pool. For more information about allocation rules, see <a href="/vpc/latest/ipam/create-top-ipam.html">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ <p>Add tag allocation rules to a pool. For more information about allocation rules, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-top-ipam.html">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2RequestIpamResourceTag *> * _Nullable addAllocationResourceTags;
 
@@ -34592,7 +35092,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Choose the operating Regions for the IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p><p>For more information about operating Regions, see <a href="/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ <p>Choose the operating Regions for the IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p><p>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2AddIpamOperatingRegion *> * _Nullable addOperatingRegions;
 
@@ -34745,12 +35245,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The ID of the launch template. You must specify either the launch template ID or launch template name in the request.</p>
+ <p>The ID of the launch template.</p><p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateId;
 
 /**
- <p>The name of the launch template. You must specify either the launch template ID or launch template name in the request.</p>
+ <p>The name of the launch template.</p><p>You must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchTemplateName;
 
@@ -35380,6 +35880,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Adds IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable addTransitGatewayCidrBlocks;
+
+/**
+ <p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable amazonSideAsn;
 
 /**
  <p>The ID of the default association route table.</p>
@@ -37789,6 +38294,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
+ <p>The ID of the core network where the transit gateway peer is located.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable coreNetworkId;
+
+/**
  <p>The ID of the Amazon Web Services account that owns the transit gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ownerId;
@@ -39543,7 +40053,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Remove an operating Region from an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p><p>For more information about operating Regions, see <a href="/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i></p>
+ <p>Remove an operating Region from an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p><p>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i></p>
  */
 @interface AWSEC2RemoveIpamOperatingRegion : AWSModel
 
@@ -40215,7 +40725,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2RequestSpotLaunchSpecification * _Nullable launchSpecification;
 
 /**
- <p>The maximum price per hour that you are willing to pay for a Spot Instance. The default is the On-Demand price.</p>
+ <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p><important><p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable spotPrice;
 
@@ -41923,7 +42433,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2CreditSpecificationRequest * _Nullable creditSpecification;
 
 /**
- <p>Indicates whether an instance is enabled for stop protection. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop Protection</a>. </p>
+ <p>Indicates whether an instance is enabled for stop protection. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop protection</a>. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable disableApiStop;
 
@@ -42083,7 +42593,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable subnetId;
 
 /**
- <p>The tags to apply to the resources during launch. You can only tag instances and volumes on launch. The specified tags are applied to all instances or volumes that are created during launch. To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
+ <p>The tags to apply to the resources that are created during instance launch.</p><p>You can specify tags for the following resources only:</p><ul><li><p>Instances</p></li><li><p>Volumes</p></li><li><p>Elastic graphics</p></li><li><p>Spot Instance requests</p></li><li><p>Network interfaces</p></li></ul><p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
 
@@ -43259,7 +43769,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable serviceId;
 
 /**
- <p>The Amazon Resource Name (ARN) of the service.</p>
+ <p>The name of the service.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable serviceName;
 
@@ -43869,7 +44379,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2GroupIdentifier *> * _Nullable securityGroups;
 
 /**
- <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. If this value is not specified, the default is the Spot price specified for the fleet. To determine the Spot price per unit hour, divide the Spot price by the value of <code>WeightedCapacity</code>.</p>
+ <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p><important><p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable spotPrice;
 
@@ -44044,7 +44554,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable spotMaxTotalPrice;
 
 /**
- <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. The default is the On-Demand price.</p>
+ <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p><important><p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable spotPrice;
 
@@ -44170,7 +44680,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable spotInstanceRequestId;
 
 /**
- <p>The maximum price per hour that you are willing to pay for a Spot Instance.</p>
+ <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p><important><p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable spotPrice;
 
@@ -44277,7 +44787,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2InstanceInterruptionBehavior instanceInterruptionBehavior;
 
 /**
- <p>The maximum hourly price you're willing to pay for the Spot Instances. The default is the On-Demand price.</p>
+ <p>The maximum hourly price that you're willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p><important><p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable maxPrice;
 
@@ -44320,7 +44830,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2FleetSpotMaintenanceStrategies * _Nullable maintenanceStrategies;
 
 /**
- <p>The maximum amount per hour for Spot Instances that you're willing to pay.</p>
+ <p>The maximum amount per hour for Spot Instances that you're willing to pay. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p><important><p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable maxTotalPrice;
 
@@ -44368,7 +44878,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2FleetSpotMaintenanceStrategiesRequest * _Nullable maintenanceStrategies;
 
 /**
- <p>The maximum amount per hour for Spot Instances that you're willing to pay.</p>
+ <p>The maximum amount per hour for Spot Instances that you're willing to pay. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p><important><p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable maxTotalPrice;
 
@@ -44436,7 +44946,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes the maximum price per hour that you are willing to pay for a Spot Instance.</p>
+ <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p><important><p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p></important>
  */
 @interface AWSEC2SpotPrice : AWSModel
 
@@ -44457,7 +44967,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2RIProductDescription productDescription;
 
 /**
- <p>The maximum price per hour that you are willing to pay for a Spot Instance.</p>
+ <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p><important><p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable spotPrice;
 
@@ -45119,7 +45629,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>The tags to apply to a resource when the resource is being created.</p>
+ <p>The tags to apply to a resource when the resource is being created.</p><note><p>The <code>Valid Values</code> lists all the resource types that can be tagged. However, the action you're using might not support tagging all of these resource types. If you try to tag a resource type that is unsupported for the action you're using, you'll get an error.</p></note>
  */
 @interface AWSEC2TagSpecification : AWSModel
 
@@ -46447,9 +46957,19 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2PeeringTgwInfo * _Nullable accepterTgwInfo;
 
 /**
+ <p>The ID of the accepter transit gateway attachment.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable accepterTransitGatewayAttachmentId;
+
+/**
  <p>The time the transit gateway peering attachment was created.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable creationTime;
+
+/**
+ <p>Details about the transit gateway peering attachment.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayPeeringAttachmentOptions * _Nullable options;
 
 /**
  <p>Information about the requester transit gateway.</p>
@@ -46475,6 +46995,164 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the transit gateway peering attachment.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable transitGatewayAttachmentId;
+
+@end
+
+/**
+ <p>Describes dynamic routing for the transit gateway peering attachment.</p>
+ */
+@interface AWSEC2TransitGatewayPeeringAttachmentOptions : AWSModel
+
+
+/**
+ <p>Describes whether dynamic routing is enabled or disabled for the transit gateway peering attachment.</p>
+ */
+@property (nonatomic, assign) AWSEC2DynamicRoutingValue dynamicRouting;
+
+@end
+
+/**
+ <p>Describes a rule associated with a transit gateway policy.</p>
+ */
+@interface AWSEC2TransitGatewayPolicyRule : AWSModel
+
+
+/**
+ <p>The destination CIDR block for the transit gateway policy rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationCidrBlock;
+
+/**
+ <p>The port range for the transit gateway policy rule. Currently this is set to * (all).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationPortRange;
+
+/**
+ <p>The meta data tags used for the transit gateway policy rule.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayPolicyRuleMetaData * _Nullable metaData;
+
+/**
+ <p>The protocol used by the transit gateway policy rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable protocols;
+
+/**
+ <p>The source CIDR block for the transit gateway policy rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceCidrBlock;
+
+/**
+ <p>The port range for the transit gateway policy rule. Currently this is set to * (all).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourcePortRange;
+
+@end
+
+/**
+ <p>Describes the meta data tags associated with a transit gateway policy rule.</p>
+ */
+@interface AWSEC2TransitGatewayPolicyRuleMetaData : AWSModel
+
+
+/**
+ <p>The key name for the transit gateway policy rule meta data tag.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable metaDataKey;
+
+/**
+ <p>The value of the key for the transit gateway policy rule meta data tag.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable metaDataValue;
+
+@end
+
+/**
+ <p>Describes a transit gateway policy table.</p>
+ */
+@interface AWSEC2TransitGatewayPolicyTable : AWSModel
+
+
+/**
+ <p>The timestamp when the transit gateway policy table was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationTime;
+
+/**
+ <p>The state of the transit gateway policy table</p>
+ */
+@property (nonatomic, assign) AWSEC2TransitGatewayPolicyTableState state;
+
+/**
+ <p>he key-value pairs associated with the transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+/**
+ <p>The ID of the transit gateway.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayId;
+
+/**
+ <p>The ID of the transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayPolicyTableId;
+
+@end
+
+/**
+ <p>Describes a transit gateway policy table association.</p>
+ */
+@interface AWSEC2TransitGatewayPolicyTableAssociation : AWSModel
+
+
+/**
+ <p>The resource ID of the transit gateway attachment.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceId;
+
+/**
+ <p>The resource type for the transit gateway policy table association.</p>
+ */
+@property (nonatomic, assign) AWSEC2TransitGatewayAttachmentResourceType resourceType;
+
+/**
+ <p>The state of the transit gateway policy table association.</p>
+ */
+@property (nonatomic, assign) AWSEC2TransitGatewayAssociationState state;
+
+/**
+ <p>The ID of the transit gateway attachment.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayAttachmentId;
+
+/**
+ <p>The ID of the transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayPolicyTableId;
+
+@end
+
+/**
+ <p>Describes a transit gateway policy table entry</p>
+ */
+@interface AWSEC2TransitGatewayPolicyTableEntry : AWSModel
+
+
+/**
+ <p>The policy rule associated with the transit gateway policy table.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayPolicyRule * _Nullable policyRule;
+
+/**
+ <p>The rule number for the transit gateway policy table entry.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyRuleNumber;
+
+/**
+ <p>The ID of the target route table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable targetRouteTableId;
 
 @end
 
@@ -46566,6 +47244,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable transitGatewayAttachmentId;
 
 /**
+ <p>The ID of the transit gateway route table announcement.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayRouteTableAnnouncementId;
+
+/**
  <p>The ID of the transit gateway route table.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable transitGatewayRouteTableId;
@@ -46647,6 +47330,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2TransitGatewayRouteAttachment *> * _Nullable transitGatewayAttachments;
 
 /**
+ <p>The ID of the transit gateway route table announcement. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayRouteTableAnnouncementId;
+
+/**
  <p>The route type.</p>
  */
 @property (nonatomic, assign) AWSEC2TransitGatewayRouteType types;
@@ -46720,6 +47408,69 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>Describes a transit gateway route table announcement.</p>
+ */
+@interface AWSEC2TransitGatewayRouteTableAnnouncement : AWSModel
+
+
+/**
+ <p>The direction for the route table announcement.</p>
+ */
+@property (nonatomic, assign) AWSEC2TransitGatewayRouteTableAnnouncementDirection announcementDirection;
+
+/**
+ <p>The ID of the core network for the transit gateway route table announcement.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable coreNetworkId;
+
+/**
+ <p>The timestamp when the transit gateway route table announcement was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationTime;
+
+/**
+ <p>The ID of the core network ID for the peer.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable peerCoreNetworkId;
+
+/**
+ <p>The ID of the peer transit gateway.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable peerTransitGatewayId;
+
+/**
+ <p>The ID of the peering attachment.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable peeringAttachmentId;
+
+/**
+ <p>The state of the transit gateway announcement.</p>
+ */
+@property (nonatomic, assign) AWSEC2TransitGatewayRouteTableAnnouncementState state;
+
+/**
+ <p>The key-value pairs associated with the route table announcement.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+/**
+ <p>The ID of the transit gateway.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayId;
+
+/**
+ <p>The ID of the transit gateway route table announcement.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayRouteTableAnnouncementId;
+
+/**
+ <p>The ID of the transit gateway route table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayRouteTableId;
+
+@end
+
+/**
  <p>Describes an association between a route table and a resource attachment.</p>
  */
 @interface AWSEC2TransitGatewayRouteTableAssociation : AWSModel
@@ -46772,6 +47523,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the attachment.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable transitGatewayAttachmentId;
+
+/**
+ <p>The ID of the transit gateway route table announcement.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayRouteTableAnnouncementId;
 
 @end
 

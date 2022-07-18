@@ -168,7 +168,7 @@
       },\
       \"input\":{\"shape\":\"AllocateIpamPoolCidrRequest\"},\
       \"output\":{\"shape\":\"AllocateIpamPoolCidrResult\"},\
-      \"documentation\":\"<p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool. For more information, see <a href=\\\"/vpc/latest/ipam/allocate-cidrs-ipam.html\\\">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
+      \"documentation\":\"<p>Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html\\\">Allocate CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
     },\
     \"ApplySecurityGroupsToClientVpnTargetNetwork\":{\
       \"name\":\"ApplySecurityGroupsToClientVpnTargetNetwork\",\
@@ -288,6 +288,16 @@
       \"input\":{\"shape\":\"AssociateTransitGatewayMulticastDomainRequest\"},\
       \"output\":{\"shape\":\"AssociateTransitGatewayMulticastDomainResult\"},\
       \"documentation\":\"<p>Associates the specified subnets and transit gateway attachments with the specified transit gateway multicast domain.</p> <p>The transit gateway attachment must be in the available state before you can add a resource. Use <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html\\\">DescribeTransitGatewayAttachments</a> to see the state of the attachment.</p>\"\
+    },\
+    \"AssociateTransitGatewayPolicyTable\":{\
+      \"name\":\"AssociateTransitGatewayPolicyTable\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"AssociateTransitGatewayPolicyTableRequest\"},\
+      \"output\":{\"shape\":\"AssociateTransitGatewayPolicyTableResult\"},\
+      \"documentation\":\"<p>Associates the specified transit gateway attachment with a transit gateway policy table.</p>\"\
     },\
     \"AssociateTransitGatewayRouteTable\":{\
       \"name\":\"AssociateTransitGatewayRouteTable\",\
@@ -714,7 +724,7 @@
       },\
       \"input\":{\"shape\":\"CreateIpamRequest\"},\
       \"output\":{\"shape\":\"CreateIpamResult\"},\
-      \"documentation\":\"<p>Create an IPAM. Amazon VPC IP Address Manager (IPAM) is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization.</p> <p>For more information, see <a href=\\\"/vpc/latest/ipam/create-ipam.html\\\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
+      \"documentation\":\"<p>Create an IPAM. Amazon VPC IP Address Manager (IPAM) is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html\\\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
     },\
     \"CreateIpamPool\":{\
       \"name\":\"CreateIpamPool\",\
@@ -724,7 +734,7 @@
       },\
       \"input\":{\"shape\":\"CreateIpamPoolRequest\"},\
       \"output\":{\"shape\":\"CreateIpamPoolResult\"},\
-      \"documentation\":\"<p>Create an IP address pool for Amazon VPC IP Address Manager (IPAM). In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.</p> <p>For more information, see <a href=\\\"/vpc/latest/ipam/create-top-ipam.html\\\">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
+      \"documentation\":\"<p>Create an IP address pool for Amazon VPC IP Address Manager (IPAM). In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/create-top-ipam.html\\\">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
     },\
     \"CreateIpamScope\":{\
       \"name\":\"CreateIpamScope\",\
@@ -734,7 +744,7 @@
       },\
       \"input\":{\"shape\":\"CreateIpamScopeRequest\"},\
       \"output\":{\"shape\":\"CreateIpamScopeResult\"},\
-      \"documentation\":\"<p>Create an IPAM scope. In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p> <p>For more information, see <a href=\\\"/vpc/latest/ipam/add-scope-ipam.html\\\">Add a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Create an IPAM scope. In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/add-scope-ipam.html\\\">Add a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
     },\
     \"CreateKeyPair\":{\
       \"name\":\"CreateKeyPair\",\
@@ -764,7 +774,7 @@
       },\
       \"input\":{\"shape\":\"CreateLaunchTemplateVersionRequest\"},\
       \"output\":{\"shape\":\"CreateLaunchTemplateVersionResult\"},\
-      \"documentation\":\"<p>Creates a new version for a launch template. You can specify an existing version of launch template from which to base the new version.</p> <p>Launch template versions are numbered in the order in which they are created. You cannot specify, change, or replace the numbering of launch template versions.</p> <p>Launch templates are immutable; after you create a launch template, you can't modify it. Instead, you can create a new version of the launch template that includes any changes you require.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions\\\">Modify a launch template (manage launch template versions)</a>in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Creates a new version of a launch template. You can specify an existing version of launch template from which to base the new version.</p> <p>Launch template versions are numbered in the order in which they are created. You cannot specify, change, or replace the numbering of launch template versions.</p> <p>Launch templates are immutable; after you create a launch template, you can't modify it. Instead, you can create a new version of the launch template that includes any changes you require.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions\\\">Modify a launch template (manage launch template versions)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
     },\
     \"CreateLocalGatewayRoute\":{\
       \"name\":\"CreateLocalGatewayRoute\",\
@@ -1012,7 +1022,7 @@
         \"requestUri\":\"/\"\
       },\
       \"input\":{\"shape\":\"CreateTagsRequest\"},\
-      \"documentation\":\"<p>Adds or overwrites only the specified tags for the specified Amazon EC2 resource or resources. When you specify an existing tag key, the value is overwritten with the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.</p> <p>For more information about tags, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\\\">Tagging Your Resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about creating IAM policies that control users' access to resources based on tags, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html\\\">Supported Resource-Level Permissions for Amazon EC2 API Actions</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Adds or overwrites only the specified tags for the specified Amazon EC2 resource or resources. When you specify an existing tag key, the value is overwritten with the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.</p> <p>For more information about tags, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\\\">Tag your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about creating IAM policies that control users' access to resources based on tags, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html\\\">Supported resource-level permissions for Amazon EC2 API actions</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
     },\
     \"CreateTrafficMirrorFilter\":{\
       \"name\":\"CreateTrafficMirrorFilter\",\
@@ -1104,6 +1114,16 @@
       \"output\":{\"shape\":\"CreateTransitGatewayPeeringAttachmentResult\"},\
       \"documentation\":\"<p>Requests a transit gateway peering attachment between the specified transit gateway (requester) and a peer transit gateway (accepter). The peer transit gateway can be in your account or a different Amazon Web Services account.</p> <p>After you create the peering attachment, the owner of the accepter transit gateway must accept the attachment request.</p>\"\
     },\
+    \"CreateTransitGatewayPolicyTable\":{\
+      \"name\":\"CreateTransitGatewayPolicyTable\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"CreateTransitGatewayPolicyTableRequest\"},\
+      \"output\":{\"shape\":\"CreateTransitGatewayPolicyTableResult\"},\
+      \"documentation\":\"<p>Creates a transit gateway policy table.</p>\"\
+    },\
     \"CreateTransitGatewayPrefixListReference\":{\
       \"name\":\"CreateTransitGatewayPrefixListReference\",\
       \"http\":{\
@@ -1133,6 +1153,16 @@
       \"input\":{\"shape\":\"CreateTransitGatewayRouteTableRequest\"},\
       \"output\":{\"shape\":\"CreateTransitGatewayRouteTableResult\"},\
       \"documentation\":\"<p>Creates a route table for the specified transit gateway.</p>\"\
+    },\
+    \"CreateTransitGatewayRouteTableAnnouncement\":{\
+      \"name\":\"CreateTransitGatewayRouteTableAnnouncement\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"CreateTransitGatewayRouteTableAnnouncementRequest\"},\
+      \"output\":{\"shape\":\"CreateTransitGatewayRouteTableAnnouncementResult\"},\
+      \"documentation\":\"<p>Advertises a new transit gateway route table.</p>\"\
     },\
     \"CreateTransitGatewayVpcAttachment\":{\
       \"name\":\"CreateTransitGatewayVpcAttachment\",\
@@ -1348,7 +1378,7 @@
       },\
       \"input\":{\"shape\":\"DeleteIpamRequest\"},\
       \"output\":{\"shape\":\"DeleteIpamResult\"},\
-      \"documentation\":\"<p>Delete an IPAM. Deleting an IPAM removes all monitored data associated with the IPAM including the historical data for CIDRs.</p> <p>For more information, see <a href=\\\"/vpc/latest/ipam/delete-ipam.html\\\">Delete an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
+      \"documentation\":\"<p>Delete an IPAM. Deleting an IPAM removes all monitored data associated with the IPAM including the historical data for CIDRs.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/delete-ipam.html\\\">Delete an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
     },\
     \"DeleteIpamPool\":{\
       \"name\":\"DeleteIpamPool\",\
@@ -1358,7 +1388,7 @@
       },\
       \"input\":{\"shape\":\"DeleteIpamPoolRequest\"},\
       \"output\":{\"shape\":\"DeleteIpamPoolResult\"},\
-      \"documentation\":\"<p>Delete an IPAM pool.</p> <note> <p>You cannot delete an IPAM pool if there are allocations in it or CIDRs provisioned to it. To release allocations, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html\\\">ReleaseIpamPoolAllocation</a>. To deprovision pool CIDRs, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html\\\">DeprovisionIpamPoolCidr</a>.</p> </note> <p>For more information, see <a href=\\\"/vpc/latest/ipam/delete-pool-ipam.html\\\">Delete a pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
+      \"documentation\":\"<p>Delete an IPAM pool.</p> <note> <p>You cannot delete an IPAM pool if there are allocations in it or CIDRs provisioned to it. To release allocations, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html\\\">ReleaseIpamPoolAllocation</a>. To deprovision pool CIDRs, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html\\\">DeprovisionIpamPoolCidr</a>.</p> </note> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/delete-pool-ipam.html\\\">Delete a pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
     },\
     \"DeleteIpamScope\":{\
       \"name\":\"DeleteIpamScope\",\
@@ -1368,7 +1398,7 @@
       },\
       \"input\":{\"shape\":\"DeleteIpamScopeRequest\"},\
       \"output\":{\"shape\":\"DeleteIpamScopeResult\"},\
-      \"documentation\":\"<p>Delete the scope for an IPAM. You cannot delete the default scopes.</p> <p>For more information, see <a href=\\\"/vpc/latest/ipam/delete-scope-ipam.html\\\">Delete a scope</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
+      \"documentation\":\"<p>Delete the scope for an IPAM. You cannot delete the default scopes.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/delete-scope-ipam.html\\\">Delete a scope</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
     },\
     \"DeleteKeyPair\":{\
       \"name\":\"DeleteKeyPair\",\
@@ -1616,7 +1646,7 @@
         \"requestUri\":\"/\"\
       },\
       \"input\":{\"shape\":\"DeleteTagsRequest\"},\
-      \"documentation\":\"<p>Deletes the specified set of tags from the specified set of resources.</p> <p>To list the current tags, use <a>DescribeTags</a>. For more information about tags, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\\\">Tagging Your Resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Deletes the specified set of tags from the specified set of resources.</p> <p>To list the current tags, use <a>DescribeTags</a>. For more information about tags, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\\\">Tag your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
     },\
     \"DeleteTrafficMirrorFilter\":{\
       \"name\":\"DeleteTrafficMirrorFilter\",\
@@ -1708,6 +1738,16 @@
       \"output\":{\"shape\":\"DeleteTransitGatewayPeeringAttachmentResult\"},\
       \"documentation\":\"<p>Deletes a transit gateway peering attachment.</p>\"\
     },\
+    \"DeleteTransitGatewayPolicyTable\":{\
+      \"name\":\"DeleteTransitGatewayPolicyTable\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DeleteTransitGatewayPolicyTableRequest\"},\
+      \"output\":{\"shape\":\"DeleteTransitGatewayPolicyTableResult\"},\
+      \"documentation\":\"<p>Deletes the specified transit gateway policy table.</p>\"\
+    },\
     \"DeleteTransitGatewayPrefixListReference\":{\
       \"name\":\"DeleteTransitGatewayPrefixListReference\",\
       \"http\":{\
@@ -1737,6 +1777,16 @@
       \"input\":{\"shape\":\"DeleteTransitGatewayRouteTableRequest\"},\
       \"output\":{\"shape\":\"DeleteTransitGatewayRouteTableResult\"},\
       \"documentation\":\"<p>Deletes the specified transit gateway route table. You must disassociate the route table from any transit gateway route tables before you can delete it.</p>\"\
+    },\
+    \"DeleteTransitGatewayRouteTableAnnouncement\":{\
+      \"name\":\"DeleteTransitGatewayRouteTableAnnouncement\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DeleteTransitGatewayRouteTableAnnouncementRequest\"},\
+      \"output\":{\"shape\":\"DeleteTransitGatewayRouteTableAnnouncementResult\"},\
+      \"documentation\":\"<p>Advertises to the transit gateway that a transit gateway route table is deleted.</p>\"\
     },\
     \"DeleteTransitGatewayVpcAttachment\":{\
       \"name\":\"DeleteTransitGatewayVpcAttachment\",\
@@ -1851,7 +1901,7 @@
       },\
       \"input\":{\"shape\":\"DeprovisionIpamPoolCidrRequest\"},\
       \"output\":{\"shape\":\"DeprovisionIpamPoolCidrResult\"},\
-      \"documentation\":\"<p>Deprovision a CIDR provisioned from an IPAM pool. If you deprovision a CIDR from a pool that has a source pool, the CIDR is recycled back into the source pool. For more information, see <a href=\\\"/vpc/latest/ipam/depro-pool-cidr-ipam.html\\\">Deprovision pool CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Deprovision a CIDR provisioned from an IPAM pool. If you deprovision a CIDR from a pool that has a source pool, the CIDR is recycled back into the source pool. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/depro-pool-cidr-ipam.html\\\">Deprovision pool CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
     },\
     \"DeprovisionPublicIpv4PoolCidr\":{\
       \"name\":\"DeprovisionPublicIpv4PoolCidr\",\
@@ -2440,7 +2490,7 @@
       },\
       \"input\":{\"shape\":\"DescribeIpamsRequest\"},\
       \"output\":{\"shape\":\"DescribeIpamsResult\"},\
-      \"documentation\":\"<p>Get information about your IPAM pools.</p> <p>For more information, see <a href=\\\"/vpc/latest/ipam/what-is-it-ipam.html\\\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
+      \"documentation\":\"<p>Get information about your IPAM pools.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\\\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
     },\
     \"DescribeIpv6Pools\":{\
       \"name\":\"DescribeIpv6Pools\",\
@@ -2940,7 +2990,7 @@
       },\
       \"input\":{\"shape\":\"DescribeTagsRequest\"},\
       \"output\":{\"shape\":\"DescribeTagsResult\"},\
-      \"documentation\":\"<p>Describes the specified tags for your EC2 resources.</p> <p>For more information about tags, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\\\">Tagging Your Resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Describes the specified tags for your EC2 resources.</p> <p>For more information about tags, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\\\">Tag your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
     },\
     \"DescribeTrafficMirrorFilters\":{\
       \"name\":\"DescribeTrafficMirrorFilters\",\
@@ -3021,6 +3071,26 @@
       \"input\":{\"shape\":\"DescribeTransitGatewayPeeringAttachmentsRequest\"},\
       \"output\":{\"shape\":\"DescribeTransitGatewayPeeringAttachmentsResult\"},\
       \"documentation\":\"<p>Describes your transit gateway peering attachments.</p>\"\
+    },\
+    \"DescribeTransitGatewayPolicyTables\":{\
+      \"name\":\"DescribeTransitGatewayPolicyTables\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DescribeTransitGatewayPolicyTablesRequest\"},\
+      \"output\":{\"shape\":\"DescribeTransitGatewayPolicyTablesResult\"},\
+      \"documentation\":\"<p>Describes one or more transit gateway route policy tables. </p>\"\
+    },\
+    \"DescribeTransitGatewayRouteTableAnnouncements\":{\
+      \"name\":\"DescribeTransitGatewayRouteTableAnnouncements\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DescribeTransitGatewayRouteTableAnnouncementsRequest\"},\
+      \"output\":{\"shape\":\"DescribeTransitGatewayRouteTableAnnouncementsResult\"},\
+      \"documentation\":\"<p>Describes one or more transit gateway route table advertisements.</p>\"\
     },\
     \"DescribeTransitGatewayRouteTables\":{\
       \"name\":\"DescribeTransitGatewayRouteTables\",\
@@ -3327,7 +3397,7 @@
       },\
       \"input\":{\"shape\":\"DisableIpamOrganizationAdminAccountRequest\"},\
       \"output\":{\"shape\":\"DisableIpamOrganizationAdminAccountResult\"},\
-      \"documentation\":\"<p>Disable the IPAM account. For more information, see <a href=\\\"/vpc/latest/ipam/enable-integ-ipam.html\\\">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
+      \"documentation\":\"<p>Disable the IPAM account. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html\\\">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
     },\
     \"DisableSerialConsoleAccess\":{\
       \"name\":\"DisableSerialConsoleAccess\",\
@@ -3456,6 +3526,16 @@
       \"output\":{\"shape\":\"DisassociateTransitGatewayMulticastDomainResult\"},\
       \"documentation\":\"<p>Disassociates the specified subnets from the transit gateway multicast domain. </p>\"\
     },\
+    \"DisassociateTransitGatewayPolicyTable\":{\
+      \"name\":\"DisassociateTransitGatewayPolicyTable\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DisassociateTransitGatewayPolicyTableRequest\"},\
+      \"output\":{\"shape\":\"DisassociateTransitGatewayPolicyTableResult\"},\
+      \"documentation\":\"<p>Removes the association between an an attachment and a policy table.</p>\"\
+    },\
     \"DisassociateTransitGatewayRouteTable\":{\
       \"name\":\"DisassociateTransitGatewayRouteTable\",\
       \"http\":{\
@@ -3534,7 +3614,7 @@
       },\
       \"input\":{\"shape\":\"EnableIpamOrganizationAdminAccountRequest\"},\
       \"output\":{\"shape\":\"EnableIpamOrganizationAdminAccountResult\"},\
-      \"documentation\":\"<p>Enable an Organizations member account as the IPAM admin account. You cannot select the Organizations management account as the IPAM admin account. For more information, see <a href=\\\"/vpc/latest/ipam/enable-integ-ipam.html\\\">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
+      \"documentation\":\"<p>Enable an Organizations member account as the IPAM admin account. You cannot select the Organizations management account as the IPAM admin account. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html\\\">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
     },\
     \"EnableSerialConsoleAccess\":{\
       \"name\":\"EnableSerialConsoleAccess\",\
@@ -3782,7 +3862,7 @@
       },\
       \"input\":{\"shape\":\"GetIpamAddressHistoryRequest\"},\
       \"output\":{\"shape\":\"GetIpamAddressHistoryResult\"},\
-      \"documentation\":\"<p>Retrieve historical information about a CIDR within an IPAM scope. For more information, see <a href=\\\"/vpc/latest/ipam/view-history-cidr-ipam.html\\\">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Retrieve historical information about a CIDR within an IPAM scope. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/view-history-cidr-ipam.html\\\">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
     },\
     \"GetIpamPoolAllocations\":{\
       \"name\":\"GetIpamPoolAllocations\",\
@@ -3822,7 +3902,7 @@
       },\
       \"input\":{\"shape\":\"GetLaunchTemplateDataRequest\"},\
       \"output\":{\"shape\":\"GetLaunchTemplateDataResult\"},\
-      \"documentation\":\"<p>Retrieves the configuration data of the specified instance. You can use this data to create a launch template. </p> <p>This action calls on other describe actions to get instance information. Depending on your instance configuration, you may need to allow the following actions in your IAM policy: DescribeSpotInstanceRequests, DescribeInstanceCreditSpecifications, DescribeVolumes, DescribeInstanceAttribute, and DescribeElasticGpus. Or, you can allow <code>describe*</code> depending on your instance requirements.</p>\"\
+      \"documentation\":\"<p>Retrieves the configuration data of the specified instance. You can use this data to create a launch template. </p> <p>This action calls on other describe actions to get instance information. Depending on your instance configuration, you may need to allow the following actions in your IAM policy: <code>DescribeSpotInstanceRequests</code>, <code>DescribeInstanceCreditSpecifications</code>, <code>DescribeVolumes</code>, <code>DescribeInstanceAttribute</code>, and <code>DescribeElasticGpus</code>. Or, you can allow <code>describe*</code> depending on your instance requirements.</p>\"\
     },\
     \"GetManagedPrefixListAssociations\":{\
       \"name\":\"GetManagedPrefixListAssociations\",\
@@ -3933,6 +4013,26 @@
       \"input\":{\"shape\":\"GetTransitGatewayMulticastDomainAssociationsRequest\"},\
       \"output\":{\"shape\":\"GetTransitGatewayMulticastDomainAssociationsResult\"},\
       \"documentation\":\"<p>Gets information about the associations for the transit gateway multicast domain.</p>\"\
+    },\
+    \"GetTransitGatewayPolicyTableAssociations\":{\
+      \"name\":\"GetTransitGatewayPolicyTableAssociations\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"GetTransitGatewayPolicyTableAssociationsRequest\"},\
+      \"output\":{\"shape\":\"GetTransitGatewayPolicyTableAssociationsResult\"},\
+      \"documentation\":\"<p>Gets a list of the transit gateway policy table associations.</p>\"\
+    },\
+    \"GetTransitGatewayPolicyTableEntries\":{\
+      \"name\":\"GetTransitGatewayPolicyTableEntries\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"GetTransitGatewayPolicyTableEntriesRequest\"},\
+      \"output\":{\"shape\":\"GetTransitGatewayPolicyTableEntriesResult\"},\
+      \"documentation\":\"<p>Returns a list of transit gateway policy table entries.</p>\"\
     },\
     \"GetTransitGatewayPrefixListReferences\":{\
       \"name\":\"GetTransitGatewayPrefixListReferences\",\
@@ -4288,7 +4388,7 @@
       },\
       \"input\":{\"shape\":\"ModifyIpamPoolRequest\"},\
       \"output\":{\"shape\":\"ModifyIpamPoolResult\"},\
-      \"documentation\":\"<p>Modify the configurations of an IPAM pool.</p> <p>For more information, see <a href=\\\"/vpc/latest/ipam/mod-pool-ipam.html\\\">Modify a pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
+      \"documentation\":\"<p>Modify the configurations of an IPAM pool.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/mod-pool-ipam.html\\\">Modify a pool</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
     },\
     \"ModifyIpamResourceCidr\":{\
       \"name\":\"ModifyIpamResourceCidr\",\
@@ -4298,7 +4398,7 @@
       },\
       \"input\":{\"shape\":\"ModifyIpamResourceCidrRequest\"},\
       \"output\":{\"shape\":\"ModifyIpamResourceCidrResult\"},\
-      \"documentation\":\"<p>Modify a resource CIDR. You can use this action to transfer resource CIDRs between scopes and ignore resource CIDRs that you do not want to manage. If set to false, the resource will not be tracked for overlap, it cannot be auto-imported into a pool, and it will be removed from any pool it has an allocation in.</p> <p>For more information, see <a href=\\\"/vpc/latest/ipam/move-resource-ipam.html\\\">Move resource CIDRs between scopes</a> and <a href=\\\"/vpc/latest/ipam/change-monitoring-state-ipam.html\\\">Change the monitoring state of resource CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Modify a resource CIDR. You can use this action to transfer resource CIDRs between scopes and ignore resource CIDRs that you do not want to manage. If set to false, the resource will not be tracked for overlap, it cannot be auto-imported into a pool, and it will be removed from any pool it has an allocation in.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/move-resource-ipam.html\\\">Move resource CIDRs between scopes</a> and <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/change-monitoring-state-ipam.html\\\">Change the monitoring state of resource CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
     },\
     \"ModifyIpamScope\":{\
       \"name\":\"ModifyIpamScope\",\
@@ -4633,7 +4733,7 @@
       },\
       \"input\":{\"shape\":\"MoveByoipCidrToIpamRequest\"},\
       \"output\":{\"shape\":\"MoveByoipCidrToIpamResult\"},\
-      \"documentation\":\"<p>Move an BYOIP IPv4 CIDR to IPAM from a public IPv4 pool.</p> <p>If you already have an IPv4 BYOIP CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href=\\\"/vpc/latest/ipam/tutorials-byoip-ipam.html\\\">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>\"\
+      \"documentation\":\"<p>Move an BYOIP IPv4 CIDR to IPAM from a public IPv4 pool.</p> <p>If you already have an IPv4 BYOIP CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html\\\">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>\"\
     },\
     \"ProvisionByoipCidr\":{\
       \"name\":\"ProvisionByoipCidr\",\
@@ -4653,7 +4753,7 @@
       },\
       \"input\":{\"shape\":\"ProvisionIpamPoolCidrRequest\"},\
       \"output\":{\"shape\":\"ProvisionIpamPoolCidrResult\"},\
-      \"documentation\":\"<p>Provision a CIDR to an IPAM pool. You can use this action to provision new CIDRs to a top-level pool or to transfer a CIDR from a top-level pool to a pool within it.</p> <p>For more information, see <a href=\\\"/vpc/latest/ipam/prov-cidr-ipam.html\\\">Provision CIDRs to pools</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
+      \"documentation\":\"<p>Provision a CIDR to an IPAM pool. You can use this action to provision new CIDRs to a top-level pool or to transfer a CIDR from a top-level pool to a pool within it.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/prov-cidr-ipam.html\\\">Provision CIDRs to pools</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
     },\
     \"ProvisionPublicIpv4PoolCidr\":{\
       \"name\":\"ProvisionPublicIpv4PoolCidr\",\
@@ -4663,7 +4763,7 @@
       },\
       \"input\":{\"shape\":\"ProvisionPublicIpv4PoolCidrRequest\"},\
       \"output\":{\"shape\":\"ProvisionPublicIpv4PoolCidrResult\"},\
-      \"documentation\":\"<p>Provision a CIDR to a public IPv4 pool.</p> <p>For more information about IPAM, see <a href=\\\"/vpc/latest/ipam/what-is-it-ipam.html\\\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Provision a CIDR to a public IPv4 pool.</p> <p>For more information about IPAM, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\\\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
     },\
     \"PurchaseHostReservation\":{\
       \"name\":\"PurchaseHostReservation\",\
@@ -4712,7 +4812,7 @@
       },\
       \"input\":{\"shape\":\"RegisterImageRequest\"},\
       \"output\":{\"shape\":\"RegisterImageResult\"},\
-      \"documentation\":\"<p>Registers an AMI. When you're creating an AMI, this is the final step you must complete before you can launch an instance from the AMI. For more information about creating AMIs, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html\\\">Creating your own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <note> <p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI in a single request, so you don't have to register the AMI yourself.</p> </note> <p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration. If you make changes to an image, deregister the previous image and register the new image.</p> <p> <b>Register a snapshot of a root device volume</b> </p> <p>You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. You specify the snapshot using a block device mapping. You can't set the encryption state of the volume using the block device mapping. If the snapshot is encrypted, or encryption by default is enabled, the root volume of an instance launched from the AMI is encrypted.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot\\\">Create a Linux AMI from a snapshot</a> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html\\\">Use encryption with Amazon EBS-backed AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p> <b>Amazon Web Services Marketplace product codes</b> </p> <p>If any snapshots have Amazon Web Services Marketplace product codes, they are copied to the new AMI.</p> <p>Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES), use the Amazon EC2 billing product code associated with an AMI to verify the subscription status for package updates. To create a new AMI for operating systems that require a billing product code, instead of registering the AMI, do the following to preserve the billing product code association:</p> <ol> <li> <p>Launch an instance from an existing AMI with that billing product code.</p> </li> <li> <p>Customize the instance.</p> </li> <li> <p>Create an AMI from the instance using <a>CreateImage</a>.</p> </li> </ol> <p>If you purchase a Reserved Instance to apply to an On-Demand Instance that was launched from an AMI with a billing product code, make sure that the Reserved Instance has the matching billing product code. If you purchase a Reserved Instance without the matching billing product code, the Reserved Instance will not be applied to the On-Demand Instance. For information about how to obtain the platform details and billing information of an AMI, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html\\\">Understanding AMI billing</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Registers an AMI. When you're creating an AMI, this is the final step you must complete before you can launch an instance from the AMI. For more information about creating AMIs, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html\\\">Creating your own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <note> <p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI in a single request, so you don't have to register the AMI yourself. We recommend that you always use <a>CreateImage</a> unless you have a specific reason to use RegisterImage.</p> </note> <p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration. If you make changes to an image, deregister the previous image and register the new image.</p> <p> <b>Register a snapshot of a root device volume</b> </p> <p>You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. You specify the snapshot using a block device mapping. You can't set the encryption state of the volume using the block device mapping. If the snapshot is encrypted, or encryption by default is enabled, the root volume of an instance launched from the AMI is encrypted.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot\\\">Create a Linux AMI from a snapshot</a> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html\\\">Use encryption with Amazon EBS-backed AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p> <b>Amazon Web Services Marketplace product codes</b> </p> <p>If any snapshots have Amazon Web Services Marketplace product codes, they are copied to the new AMI.</p> <p>Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES), use the Amazon EC2 billing product code associated with an AMI to verify the subscription status for package updates. To create a new AMI for operating systems that require a billing product code, instead of registering the AMI, do the following to preserve the billing product code association:</p> <ol> <li> <p>Launch an instance from an existing AMI with that billing product code.</p> </li> <li> <p>Customize the instance.</p> </li> <li> <p>Create an AMI from the instance using <a>CreateImage</a>.</p> </li> </ol> <p>If you purchase a Reserved Instance to apply to an On-Demand Instance that was launched from an AMI with a billing product code, make sure that the Reserved Instance has the matching billing product code. If you purchase a Reserved Instance without the matching billing product code, the Reserved Instance will not be applied to the On-Demand Instance. For information about how to obtain the platform details and billing information of an AMI, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html\\\">Understanding AMI billing</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
     },\
     \"RegisterInstanceEventNotificationAttributes\":{\
       \"name\":\"RegisterInstanceEventNotificationAttributes\",\
@@ -4821,7 +4921,7 @@
       },\
       \"input\":{\"shape\":\"ReleaseIpamPoolAllocationRequest\"},\
       \"output\":{\"shape\":\"ReleaseIpamPoolAllocationResult\"},\
-      \"documentation\":\"<p>Release an allocation within an IPAM pool. You can only use this action to release manual allocations. To remove an allocation for a resource without deleting the resource, set its monitored state to false using <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamResourceCidr.html\\\">ModifyIpamResourceCidr</a>. For more information, see <a href=\\\"/vpc/latest/ipam/release-pool-alloc-ipam.html\\\">Release an allocation</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
+      \"documentation\":\"<p>Release an allocation within an IPAM pool. You can only use this action to release manual allocations. To remove an allocation for a resource without deleting the resource, set its monitored state to false using <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamResourceCidr.html\\\">ModifyIpamResourceCidr</a>. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/release-pool-alloc-ipam.html\\\">Release an allocation</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
     },\
     \"ReplaceIamInstanceProfileAssociation\":{\
       \"name\":\"ReplaceIamInstanceProfileAssociation\",\
@@ -5715,7 +5815,7 @@
           \"documentation\":\"<p>The name of the operating Region.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Add an operating Region to an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p> <p>For more information about operating Regions, see <a href=\\\"/vpc/latest/ipam/create-ipam.html\\\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
+      \"documentation\":\"<p>Add an operating Region to an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p> <p>For more information about operating Regions, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html\\\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
     },\
     \"AddIpamOperatingRegionSet\":{\
       \"type\":\"list\",\
@@ -6966,6 +7066,37 @@
         }\
       }\
     },\
+    \"AssociateTransitGatewayPolicyTableRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"TransitGatewayPolicyTableId\",\
+        \"TransitGatewayAttachmentId\"\
+      ],\
+      \"members\":{\
+        \"TransitGatewayPolicyTableId\":{\
+          \"shape\":\"TransitGatewayPolicyTableId\",\
+          \"documentation\":\"<p>The ID of the transit gateway policy table to associate with the transit gateway attachment.</p>\"\
+        },\
+        \"TransitGatewayAttachmentId\":{\
+          \"shape\":\"TransitGatewayAttachmentId\",\
+          \"documentation\":\"<p>The ID of the transit gateway attachment to associate with the policy table.</p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"AssociateTransitGatewayPolicyTableResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Association\":{\
+          \"shape\":\"TransitGatewayPolicyTableAssociation\",\
+          \"documentation\":\"<p>Describes the association of a transit gateway and a transit gateway policy table.</p>\",\
+          \"locationName\":\"association\"\
+        }\
+      }\
+    },\
     \"AssociateTransitGatewayRouteTableRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -7078,19 +7209,19 @@
         },\
         \"Ipv4IpamPoolId\":{\
           \"shape\":\"IpamPoolId\",\
-          \"documentation\":\"<p>Associate a CIDR allocated from an IPv4 IPAM pool to a VPC. For more information about Amazon VPC IP Address Manager (IPAM), see <a href=\\\"/vpc/latest/ipam/what-is-it-ipam.html\\\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
+          \"documentation\":\"<p>Associate a CIDR allocated from an IPv4 IPAM pool to a VPC. For more information about Amazon VPC IP Address Manager (IPAM), see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\\\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
         },\
         \"Ipv4NetmaskLength\":{\
           \"shape\":\"NetmaskLength\",\
-          \"documentation\":\"<p>The netmask length of the IPv4 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href=\\\"/vpc/latest/ipam/what-is-it-ipam.html\\\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
+          \"documentation\":\"<p>The netmask length of the IPv4 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\\\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
         },\
         \"Ipv6IpamPoolId\":{\
           \"shape\":\"IpamPoolId\",\
-          \"documentation\":\"<p>Associates a CIDR allocated from an IPv6 IPAM pool to a VPC. For more information about Amazon VPC IP Address Manager (IPAM), see <a href=\\\"/vpc/latest/ipam/what-is-it-ipam.html\\\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
+          \"documentation\":\"<p>Associates a CIDR allocated from an IPv6 IPAM pool to a VPC. For more information about Amazon VPC IP Address Manager (IPAM), see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\\\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
         },\
         \"Ipv6NetmaskLength\":{\
           \"shape\":\"NetmaskLength\",\
-          \"documentation\":\"<p>The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href=\\\"/vpc/latest/ipam/what-is-it-ipam.html\\\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
+          \"documentation\":\"<p>The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\\\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
         }\
       }\
     },\
@@ -10930,8 +11061,7 @@
       \"type\":\"structure\",\
       \"required\":[\
         \"ResourceIds\",\
-        \"ResourceType\",\
-        \"TrafficType\"\
+        \"ResourceType\"\
       ],\
       \"members\":{\
         \"DryRun\":{\
@@ -11316,7 +11446,7 @@
         },\
         \"OperatingRegions\":{\
           \"shape\":\"AddIpamOperatingRegionSet\",\
-          \"documentation\":\"<p>The operating Regions for the IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p> <p>For more information about operating Regions, see <a href=\\\"/vpc/latest/ipam/create-ipam.html\\\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\",\
+          \"documentation\":\"<p>The operating Regions for the IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p> <p>For more information about operating Regions, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html\\\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\",\
           \"locationName\":\"OperatingRegion\"\
         },\
         \"TagSpecifications\":{\
@@ -11470,11 +11600,11 @@
         },\
         \"LaunchTemplateId\":{\
           \"shape\":\"LaunchTemplateId\",\
-          \"documentation\":\"<p>The ID of the launch template. You must specify either the launch template ID or launch template name in the request.</p>\"\
+          \"documentation\":\"<p>The ID of the launch template.</p> <p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>\"\
         },\
         \"LaunchTemplateName\":{\
           \"shape\":\"LaunchTemplateName\",\
-          \"documentation\":\"<p>The name of the launch template. You must specify either the launch template ID or launch template name in the request.</p>\"\
+          \"documentation\":\"<p>The name of the launch template.</p> <p>You must specify the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>\"\
         },\
         \"SourceVersion\":{\
           \"shape\":\"String\",\
@@ -13034,6 +13164,10 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The Region where the peer transit gateway is located.</p>\"\
         },\
+        \"Options\":{\
+          \"shape\":\"CreateTransitGatewayPeeringAttachmentRequestOptions\",\
+          \"documentation\":\"<p>Requests a transit gateway peering attachment.</p>\"\
+        },\
         \"TagSpecifications\":{\
           \"shape\":\"TagSpecificationList\",\
           \"documentation\":\"<p>The tags to apply to the transit gateway peering attachment.</p>\",\
@@ -13045,6 +13179,16 @@
         }\
       }\
     },\
+    \"CreateTransitGatewayPeeringAttachmentRequestOptions\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"DynamicRouting\":{\
+          \"shape\":\"DynamicRoutingValue\",\
+          \"documentation\":\"<p>Indicates whether dynamic routing is enabled or disabled.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes whether dynamic routing is enabled or disabled for the transit gateway peering request.</p>\"\
+    },\
     \"CreateTransitGatewayPeeringAttachmentResult\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -13052,6 +13196,34 @@
           \"shape\":\"TransitGatewayPeeringAttachment\",\
           \"documentation\":\"<p>The transit gateway peering attachment.</p>\",\
           \"locationName\":\"transitGatewayPeeringAttachment\"\
+        }\
+      }\
+    },\
+    \"CreateTransitGatewayPolicyTableRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"TransitGatewayId\"],\
+      \"members\":{\
+        \"TransitGatewayId\":{\
+          \"shape\":\"TransitGatewayId\",\
+          \"documentation\":\"<p>The ID of the transit gateway used for the policy table.</p>\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p>The tags specification for the transit gateway policy table created during the request.</p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateTransitGatewayPolicyTableResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TransitGatewayPolicyTable\":{\
+          \"shape\":\"TransitGatewayPolicyTable\",\
+          \"documentation\":\"<p>Describes the created transit gateway policy table.</p>\",\
+          \"locationName\":\"transitGatewayPolicyTable\"\
         }\
       }\
     },\
@@ -13162,6 +13334,42 @@
           \"shape\":\"TransitGatewayRoute\",\
           \"documentation\":\"<p>Information about the route.</p>\",\
           \"locationName\":\"route\"\
+        }\
+      }\
+    },\
+    \"CreateTransitGatewayRouteTableAnnouncementRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"TransitGatewayRouteTableId\",\
+        \"PeeringAttachmentId\"\
+      ],\
+      \"members\":{\
+        \"TransitGatewayRouteTableId\":{\
+          \"shape\":\"TransitGatewayRouteTableId\",\
+          \"documentation\":\"<p>The ID of the transit gateway route table.</p>\"\
+        },\
+        \"PeeringAttachmentId\":{\
+          \"shape\":\"TransitGatewayAttachmentId\",\
+          \"documentation\":\"<p>The ID of the peering attachment.</p>\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p>The tags specifications applied to the transit gateway route table announcement.</p>\",\
+          \"locationName\":\"TagSpecification\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateTransitGatewayRouteTableAnnouncementResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TransitGatewayRouteTableAnnouncement\":{\
+          \"shape\":\"TransitGatewayRouteTableAnnouncement\",\
+          \"documentation\":\"<p>Provides details about the transit gateway route table announcement.</p>\",\
+          \"locationName\":\"transitGatewayRouteTableAnnouncement\"\
         }\
       }\
     },\
@@ -13606,19 +13814,19 @@
         },\
         \"Ipv4IpamPoolId\":{\
           \"shape\":\"IpamPoolId\",\
-          \"documentation\":\"<p>The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. For more information, see <a href=\\\"/vpc/latest/ipam/what-is-it-ipam.html\\\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
+          \"documentation\":\"<p>The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\\\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
         },\
         \"Ipv4NetmaskLength\":{\
           \"shape\":\"NetmaskLength\",\
-          \"documentation\":\"<p>The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href=\\\"/vpc/latest/ipam/what-is-it-ipam.html\\\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
+          \"documentation\":\"<p>The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\\\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
         },\
         \"Ipv6IpamPoolId\":{\
           \"shape\":\"IpamPoolId\",\
-          \"documentation\":\"<p>The ID of an IPv6 IPAM pool which will be used to allocate this VPC an IPv6 CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization. For more information, see <a href=\\\"/vpc/latest/ipam/what-is-it-ipam.html\\\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
+          \"documentation\":\"<p>The ID of an IPv6 IPAM pool which will be used to allocate this VPC an IPv6 CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\\\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
         },\
         \"Ipv6NetmaskLength\":{\
           \"shape\":\"NetmaskLength\",\
-          \"documentation\":\"<p>The netmask length of the IPv6 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href=\\\"/vpc/latest/ipam/what-is-it-ipam.html\\\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
+          \"documentation\":\"<p>The netmask length of the IPv6 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\\\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
         },\
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
@@ -13766,11 +13974,11 @@
       \"members\":{\
         \"CpuCredits\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The credit option for CPU usage of a T2, T3, or T3a instance. Valid values are <code>standard</code> and <code>unlimited</code>.</p>\",\
+          \"documentation\":\"<p>The credit option for CPU usage of a T instance.</p> <p>Valid values: <code>standard</code> | <code>unlimited</code> </p>\",\
           \"locationName\":\"cpuCredits\"\
         }\
       },\
-      \"documentation\":\"<p>Describes the credit option for CPU usage of a T2, T3, or T3a instance.</p>\"\
+      \"documentation\":\"<p>Describes the credit option for CPU usage of a T instance.</p>\"\
     },\
     \"CreditSpecificationRequest\":{\
       \"type\":\"structure\",\
@@ -13778,10 +13986,10 @@
       \"members\":{\
         \"CpuCredits\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The credit option for CPU usage of a T2, T3, or T3a instance. Valid values are <code>standard</code> and <code>unlimited</code>.</p>\"\
+          \"documentation\":\"<p>The credit option for CPU usage of a T instance.</p> <p>Valid values: <code>standard</code> | <code>unlimited</code> </p>\"\
         }\
       },\
-      \"documentation\":\"<p>The credit option for CPU usage of a T2, T3, or T3a instance.</p>\"\
+      \"documentation\":\"<p>The credit option for CPU usage of a T instance.</p>\"\
     },\
     \"CurrencyCodeValues\":{\
       \"type\":\"string\",\
@@ -14346,11 +14554,11 @@
         },\
         \"LaunchTemplateId\":{\
           \"shape\":\"LaunchTemplateId\",\
-          \"documentation\":\"<p>The ID of the launch template. You must specify either the launch template ID or launch template name in the request.</p>\"\
+          \"documentation\":\"<p>The ID of the launch template.</p> <p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>\"\
         },\
         \"LaunchTemplateName\":{\
           \"shape\":\"LaunchTemplateName\",\
-          \"documentation\":\"<p>The name of the launch template. You must specify either the launch template ID or launch template name in the request.</p>\"\
+          \"documentation\":\"<p>The name of the launch template.</p> <p>You must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>\"\
         }\
       }\
     },\
@@ -14374,11 +14582,11 @@
         },\
         \"LaunchTemplateId\":{\
           \"shape\":\"LaunchTemplateId\",\
-          \"documentation\":\"<p>The ID of the launch template. You must specify either the launch template ID or launch template name in the request.</p>\"\
+          \"documentation\":\"<p>The ID of the launch template.</p> <p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>\"\
         },\
         \"LaunchTemplateName\":{\
           \"shape\":\"LaunchTemplateName\",\
-          \"documentation\":\"<p>The name of the launch template. You must specify either the launch template ID or launch template name in the request.</p>\"\
+          \"documentation\":\"<p>The name of the launch template.</p> <p>You must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>\"\
         },\
         \"Versions\":{\
           \"shape\":\"VersionStringList\",\
@@ -15200,6 +15408,30 @@
         }\
       }\
     },\
+    \"DeleteTransitGatewayPolicyTableRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"TransitGatewayPolicyTableId\"],\
+      \"members\":{\
+        \"TransitGatewayPolicyTableId\":{\
+          \"shape\":\"TransitGatewayPolicyTableId\",\
+          \"documentation\":\"<p>The transit gateway policy table to delete.</p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"DeleteTransitGatewayPolicyTableResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TransitGatewayPolicyTable\":{\
+          \"shape\":\"TransitGatewayPolicyTable\",\
+          \"documentation\":\"<p>Provides details about the deleted transit gateway policy table.</p>\",\
+          \"locationName\":\"transitGatewayPolicyTable\"\
+        }\
+      }\
+    },\
     \"DeleteTransitGatewayPrefixListReferenceRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -15283,6 +15515,30 @@
           \"shape\":\"TransitGatewayRoute\",\
           \"documentation\":\"<p>Information about the route.</p>\",\
           \"locationName\":\"route\"\
+        }\
+      }\
+    },\
+    \"DeleteTransitGatewayRouteTableAnnouncementRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"TransitGatewayRouteTableAnnouncementId\"],\
+      \"members\":{\
+        \"TransitGatewayRouteTableAnnouncementId\":{\
+          \"shape\":\"TransitGatewayRouteTableAnnouncementId\",\
+          \"documentation\":\"<p>The transit gateway route table ID that's being deleted. </p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"DeleteTransitGatewayRouteTableAnnouncementResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TransitGatewayRouteTableAnnouncement\":{\
+          \"shape\":\"TransitGatewayRouteTableAnnouncement\",\
+          \"documentation\":\"<p>Provides details about a deleted transit gateway route table.</p>\",\
+          \"locationName\":\"transitGatewayRouteTableAnnouncement\"\
         }\
       }\
     },\
@@ -18207,15 +18463,15 @@
         },\
         \"LaunchTemplateId\":{\
           \"shape\":\"LaunchTemplateId\",\
-          \"documentation\":\"<p>The ID of the launch template. To describe one or more versions of a specified launch template, you must specify either the launch template ID or the launch template name in the request. To describe all the latest or default launch template versions in your account, you must omit this parameter.</p>\"\
+          \"documentation\":\"<p>The ID of the launch template.</p> <p>To describe one or more versions of a specified launch template, you must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p> <p>To describe all the latest or default launch template versions in your account, you must omit this parameter.</p>\"\
         },\
         \"LaunchTemplateName\":{\
           \"shape\":\"LaunchTemplateName\",\
-          \"documentation\":\"<p>The name of the launch template. To describe one or more versions of a specified launch template, you must specify either the launch template ID or the launch template name in the request. To describe all the latest or default launch template versions in your account, you must omit this parameter.</p>\"\
+          \"documentation\":\"<p>The name of the launch template.</p> <p>To describe one or more versions of a specified launch template, you must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p> <p>To describe all the latest or default launch template versions in your account, you must omit this parameter.</p>\"\
         },\
         \"Versions\":{\
           \"shape\":\"VersionStringList\",\
-          \"documentation\":\"<p>One or more versions of the launch template. Valid values depend on whether you are describing a specified launch template (by ID or name) or all launch templates in your account.</p> <p>To describe one or more versions of a specified launch template, valid values are <code>$Latest</code>, <code>$Default</code>, and numbers.</p> <p>To describe all launch templates in your account that are defined as the latest version, the valid value is <code>$Latest</code>. To describe all launch templates in your account that are defined as the default version, the valid value is <code>$Default</code>. You can specify <code>$Latest</code> and <code>$Default</code> in the same call. You cannot specify numbers.</p>\",\
+          \"documentation\":\"<p>One or more versions of the launch template. Valid values depend on whether you are describing a specified launch template (by ID or name) or all launch templates in your account.</p> <p>To describe one or more versions of a specified launch template, valid values are <code>$Latest</code>, <code>$Default</code>, and numbers.</p> <p>To describe all launch templates in your account that are defined as the latest version, the valid value is <code>$Latest</code>. To describe all launch templates in your account that are defined as the default version, the valid value is <code>$Default</code>. You can specify <code>$Latest</code> and <code>$Default</code> in the same request. You cannot specify numbers.</p>\",\
           \"locationName\":\"LaunchTemplateVersion\"\
         },\
         \"MinVersion\":{\
@@ -20759,6 +21015,88 @@
         }\
       }\
     },\
+    \"DescribeTransitGatewayPolicyTablesRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TransitGatewayPolicyTableIds\":{\
+          \"shape\":\"TransitGatewayPolicyTableIdStringList\",\
+          \"documentation\":\"<p>The IDs of the transit gateway policy tables.</p>\"\
+        },\
+        \"Filters\":{\
+          \"shape\":\"FilterList\",\
+          \"documentation\":\"<p>The filters associated with the transit gateway policy table.</p>\",\
+          \"locationName\":\"Filter\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"TransitGatewayMaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The token for the next page of results.</p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeTransitGatewayPolicyTablesResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TransitGatewayPolicyTables\":{\
+          \"shape\":\"TransitGatewayPolicyTableList\",\
+          \"documentation\":\"<p>Describes the transit gateway policy tables.</p>\",\
+          \"locationName\":\"transitGatewayPolicyTables\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The token for the next page of results.</p>\",\
+          \"locationName\":\"nextToken\"\
+        }\
+      }\
+    },\
+    \"DescribeTransitGatewayRouteTableAnnouncementsRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TransitGatewayRouteTableAnnouncementIds\":{\
+          \"shape\":\"TransitGatewayRouteTableAnnouncementIdStringList\",\
+          \"documentation\":\"<p>The IDs of the transit gateway route tables that are being advertised.</p>\"\
+        },\
+        \"Filters\":{\
+          \"shape\":\"FilterList\",\
+          \"documentation\":\"<p>The filters associated with the transit gateway policy table.</p>\",\
+          \"locationName\":\"Filter\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"TransitGatewayMaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The token for the next page of results.</p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeTransitGatewayRouteTableAnnouncementsResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TransitGatewayRouteTableAnnouncements\":{\
+          \"shape\":\"TransitGatewayRouteTableAnnouncementList\",\
+          \"documentation\":\"<p>Describes the transit gateway route table announcement.</p>\",\
+          \"locationName\":\"transitGatewayRouteTableAnnouncements\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The token for the next page of results.</p>\",\
+          \"locationName\":\"nextToken\"\
+        }\
+      }\
+    },\
     \"DescribeTransitGatewayRouteTablesRequest\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -22231,10 +22569,7 @@
     },\
     \"DisableTransitGatewayRouteTablePropagationRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\
-        \"TransitGatewayRouteTableId\",\
-        \"TransitGatewayAttachmentId\"\
-      ],\
+      \"required\":[\"TransitGatewayRouteTableId\"],\
       \"members\":{\
         \"TransitGatewayRouteTableId\":{\
           \"shape\":\"TransitGatewayRouteTableId\",\
@@ -22247,6 +22582,10 @@
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"TransitGatewayRouteTableAnnouncementId\":{\
+          \"shape\":\"TransitGatewayRouteTableAnnouncementId\",\
+          \"documentation\":\"<p>The ID of the route table announcement.</p>\"\
         }\
       }\
     },\
@@ -22529,6 +22868,37 @@
           \"shape\":\"TransitGatewayMulticastDomainAssociations\",\
           \"documentation\":\"<p>Information about the association.</p>\",\
           \"locationName\":\"associations\"\
+        }\
+      }\
+    },\
+    \"DisassociateTransitGatewayPolicyTableRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"TransitGatewayPolicyTableId\",\
+        \"TransitGatewayAttachmentId\"\
+      ],\
+      \"members\":{\
+        \"TransitGatewayPolicyTableId\":{\
+          \"shape\":\"TransitGatewayPolicyTableId\",\
+          \"documentation\":\"<p>The ID of the disassociated policy table.</p>\"\
+        },\
+        \"TransitGatewayAttachmentId\":{\
+          \"shape\":\"TransitGatewayAttachmentId\",\
+          \"documentation\":\"<p>The ID of the transit gateway attachment to disassociate from the policy table.</p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"DisassociateTransitGatewayPolicyTableResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Association\":{\
+          \"shape\":\"TransitGatewayPolicyTableAssociation\",\
+          \"documentation\":\"<p>Returns details about the transit gateway policy table disassociation.</p>\",\
+          \"locationName\":\"association\"\
         }\
       }\
     },\
@@ -22857,6 +23227,13 @@
       \"type\":\"double\",\
       \"max\":99.999,\
       \"min\":0.001\
+    },\
+    \"DynamicRoutingValue\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"enable\",\
+        \"disable\"\
+      ]\
     },\
     \"EbsBlockDevice\":{\
       \"type\":\"structure\",\
@@ -23648,10 +24025,7 @@
     },\
     \"EnableTransitGatewayRouteTablePropagationRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\
-        \"TransitGatewayRouteTableId\",\
-        \"TransitGatewayAttachmentId\"\
-      ],\
+      \"required\":[\"TransitGatewayRouteTableId\"],\
       \"members\":{\
         \"TransitGatewayRouteTableId\":{\
           \"shape\":\"TransitGatewayRouteTableId\",\
@@ -23664,6 +24038,10 @@
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"TransitGatewayRouteTableAnnouncementId\":{\
+          \"shape\":\"TransitGatewayRouteTableAnnouncementId\",\
+          \"documentation\":\"<p>The ID of the transit gateway route table announcement.</p>\"\
         }\
       }\
     },\
@@ -25019,7 +25397,7 @@
         },\
         \"MaxPrice\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The maximum price per unit hour that you are willing to pay for a Spot Instance.</p>\",\
+          \"documentation\":\"<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price. </p> <important> <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p> </important>\",\
           \"locationName\":\"maxPrice\"\
         },\
         \"SubnetId\":{\
@@ -25078,7 +25456,7 @@
         },\
         \"MaxPrice\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The maximum price per unit hour that you are willing to pay for a Spot Instance.</p>\"\
+          \"documentation\":\"<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price. </p> <important> <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p> </important>\"\
         },\
         \"SubnetId\":{\
           \"shape\":\"SubnetId\",\
@@ -25112,12 +25490,12 @@
       \"members\":{\
         \"LaunchTemplateId\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The ID of the launch template. If you specify the template ID, you can't specify the template name.</p>\",\
+          \"documentation\":\"<p>The ID of the launch template.</p> <p>You must specify the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>\",\
           \"locationName\":\"launchTemplateId\"\
         },\
         \"LaunchTemplateName\":{\
           \"shape\":\"LaunchTemplateName\",\
-          \"documentation\":\"<p>The name of the launch template. If you specify the template name, you can't specify the template ID.</p>\",\
+          \"documentation\":\"<p>The name of the launch template.</p> <p>You must specify the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>\",\
           \"locationName\":\"launchTemplateName\"\
         },\
         \"Version\":{\
@@ -25126,25 +25504,25 @@
           \"locationName\":\"version\"\
         }\
       },\
-      \"documentation\":\"<p>Describes the Amazon EC2 launch template and the launch template version that can be used by a Spot Fleet request to configure Amazon EC2 instances. For information about launch templates, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\\\">Launching an instance from a launch template</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>\"\
+      \"documentation\":\"<p>The Amazon EC2 launch template that can be used by a Spot Fleet to configure Amazon EC2 instances. You must specify either the ID or name of the launch template in the request, but not both.</p> <p>For information about launch templates, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\\\">Launch an instance from a launch template</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>\"\
     },\
     \"FleetLaunchTemplateSpecificationRequest\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"LaunchTemplateId\":{\
           \"shape\":\"LaunchTemplateId\",\
-          \"documentation\":\"<p>The ID of the launch template. If you specify the template ID, you can't specify the template name.</p>\"\
+          \"documentation\":\"<p>The ID of the launch template.</p> <p>You must specify the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>\"\
         },\
         \"LaunchTemplateName\":{\
           \"shape\":\"LaunchTemplateName\",\
-          \"documentation\":\"<p>The name of the launch template. If you specify the template name, you can't specify the template ID.</p>\"\
+          \"documentation\":\"<p>The name of the launch template.</p> <p>You must specify the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>\"\
         },\
         \"Version\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>The launch template version number, <code>$Latest</code>, or <code>$Default</code>. You must specify a value, otherwise the request fails.</p> <p>If the value is <code>$Latest</code>, Amazon EC2 uses the latest version of the launch template.</p> <p>If the value is <code>$Default</code>, Amazon EC2 uses the default version of the launch template.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Describes the Amazon EC2 launch template and the launch template version that can be used by an EC2 Fleet to configure Amazon EC2 instances. For information about launch templates, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\\\">Launching an instance from a launch template</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
+      \"documentation\":\"<p>The Amazon EC2 launch template that can be used by an EC2 Fleet to configure Amazon EC2 instances. You must specify either the ID or name of the launch template in the request, but not both.</p> <p>For information about launch templates, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\\\">Launch an instance from a launch template</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
     },\
     \"FleetOnDemandAllocationStrategy\":{\
       \"type\":\"string\",\
@@ -25347,7 +25725,9 @@
       \"enum\":[\
         \"VPC\",\
         \"Subnet\",\
-        \"NetworkInterface\"\
+        \"NetworkInterface\",\
+        \"TransitGateway\",\
+        \"TransitGatewayAttachment\"\
       ]\
     },\
     \"FpgaDeviceCount\":{\"type\":\"integer\"},\
@@ -26806,6 +27186,85 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>\",\
           \"locationName\":\"nextToken\"\
+        }\
+      }\
+    },\
+    \"GetTransitGatewayPolicyTableAssociationsRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"TransitGatewayPolicyTableId\"],\
+      \"members\":{\
+        \"TransitGatewayPolicyTableId\":{\
+          \"shape\":\"TransitGatewayPolicyTableId\",\
+          \"documentation\":\"<p>The ID of the transit gateway policy table.</p>\"\
+        },\
+        \"Filters\":{\
+          \"shape\":\"FilterList\",\
+          \"documentation\":\"<p>The filters associated with the transit gateway policy table.</p>\",\
+          \"locationName\":\"Filter\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"TransitGatewayMaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The token for the next page of results.</p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"GetTransitGatewayPolicyTableAssociationsResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Associations\":{\
+          \"shape\":\"TransitGatewayPolicyTableAssociationList\",\
+          \"documentation\":\"<p>Returns details about the transit gateway policy table association.</p>\",\
+          \"locationName\":\"associations\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The token for the next page of results.</p>\",\
+          \"locationName\":\"nextToken\"\
+        }\
+      }\
+    },\
+    \"GetTransitGatewayPolicyTableEntriesRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"TransitGatewayPolicyTableId\"],\
+      \"members\":{\
+        \"TransitGatewayPolicyTableId\":{\
+          \"shape\":\"TransitGatewayPolicyTableId\",\
+          \"documentation\":\"<p>The ID of the transit gateway policy table.</p>\"\
+        },\
+        \"Filters\":{\
+          \"shape\":\"FilterList\",\
+          \"documentation\":\"<p>The filters associated with the transit gateway policy table.</p>\",\
+          \"locationName\":\"Filter\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"TransitGatewayMaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The token for the next page of results.</p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"GetTransitGatewayPolicyTableEntriesResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TransitGatewayPolicyTableEntries\":{\
+          \"shape\":\"TransitGatewayPolicyTableEntryList\",\
+          \"documentation\":\"<p>The entries for the transit gateway policy table.</p>\",\
+          \"locationName\":\"transitGatewayPolicyTableEntries\"\
         }\
       }\
     },\
@@ -30276,12 +30735,12 @@
         },\
         \"SpotMaxPricePercentageOverLowestPrice\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The price protection threshold for Spot Instances. This is the maximum youâll pay for a Spot Instance, expressed as a percentage above the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.</p> <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p> <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p> <p>This parameter is not supported for <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html\\\">GetSpotPlacementScores</a> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html\\\">GetInstanceTypesFromInstanceRequirements</a>.</p> <note> <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.</p> </note> <p>Default: <code>100</code> </p>\",\
+          \"documentation\":\"<p>The price protection threshold for Spot Instances. This is the maximum youâll pay for a Spot Instance, expressed as a percentage above the least expensive current generation M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.</p> <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p> <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p> <p>This parameter is not supported for <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html\\\">GetSpotPlacementScores</a> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html\\\">GetInstanceTypesFromInstanceRequirements</a>.</p> <note> <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.</p> </note> <p>Default: <code>100</code> </p>\",\
           \"locationName\":\"spotMaxPricePercentageOverLowestPrice\"\
         },\
         \"OnDemandMaxPricePercentageOverLowestPrice\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The price protection threshold for On-Demand Instances. This is the maximum youâll pay for an On-Demand Instance, expressed as a percentage above the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.</p> <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p> <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p> <p>This parameter is not supported for <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html\\\">GetSpotPlacementScores</a> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html\\\">GetInstanceTypesFromInstanceRequirements</a>.</p> <note> <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.</p> </note> <p>Default: <code>20</code> </p>\",\
+          \"documentation\":\"<p>The price protection threshold for On-Demand Instances. This is the maximum youâll pay for an On-Demand Instance, expressed as a percentage above the least expensive current generation M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.</p> <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p> <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p> <p>This parameter is not supported for <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html\\\">GetSpotPlacementScores</a> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html\\\">GetInstanceTypesFromInstanceRequirements</a>.</p> <note> <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.</p> </note> <p>Default: <code>20</code> </p>\",\
           \"locationName\":\"onDemandMaxPricePercentageOverLowestPrice\"\
         },\
         \"BareMetal\":{\
@@ -30388,11 +30847,11 @@
         },\
         \"SpotMaxPricePercentageOverLowestPrice\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The price protection threshold for Spot Instance. This is the maximum youâll pay for an Spot Instance, expressed as a percentage above the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.</p> <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p> <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p> <p>This parameter is not supported for <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html\\\">GetSpotPlacementScores</a> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html\\\">GetInstanceTypesFromInstanceRequirements</a>.</p> <note> <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.</p> </note> <p>Default: <code>100</code> </p>\"\
+          \"documentation\":\"<p>The price protection threshold for Spot Instance. This is the maximum youâll pay for an Spot Instance, expressed as a percentage above the least expensive current generation M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.</p> <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p> <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p> <p>This parameter is not supported for <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html\\\">GetSpotPlacementScores</a> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html\\\">GetInstanceTypesFromInstanceRequirements</a>.</p> <note> <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.</p> </note> <p>Default: <code>100</code> </p>\"\
         },\
         \"OnDemandMaxPricePercentageOverLowestPrice\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The price protection threshold for On-Demand Instances. This is the maximum youâll pay for an On-Demand Instance, expressed as a percentage above the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.</p> <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p> <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p> <p>This parameter is not supported for <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html\\\">GetSpotPlacementScores</a> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html\\\">GetInstanceTypesFromInstanceRequirements</a>.</p> <note> <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.</p> </note> <p>Default: <code>20</code> </p>\"\
+          \"documentation\":\"<p>The price protection threshold for On-Demand Instances. This is the maximum youâll pay for an On-Demand Instance, expressed as a percentage above the least expensive current generation M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.</p> <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p> <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p> <p>This parameter is not supported for <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html\\\">GetSpotPlacementScores</a> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html\\\">GetInstanceTypesFromInstanceRequirements</a>.</p> <note> <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or <code>memory-mib</code>, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.</p> </note> <p>Default: <code>20</code> </p>\"\
         },\
         \"BareMetal\":{\
           \"shape\":\"BareMetal\",\
@@ -31718,7 +32177,7 @@
         },\
         \"ScopeCount\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The number of scopes in the IPAM. The scope quota is 5. For more information on quotas, see <a href=\\\"/vpc/latest/ipam/quotas-ipam.html\\\">Quotas in IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\",\
+          \"documentation\":\"<p>The number of scopes in the IPAM. The scope quota is 5. For more information on quotas, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html\\\">Quotas in IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\",\
           \"locationName\":\"scopeCount\"\
         },\
         \"Description\":{\
@@ -31728,7 +32187,7 @@
         },\
         \"OperatingRegions\":{\
           \"shape\":\"IpamOperatingRegionSet\",\
-          \"documentation\":\"<p>The operating Regions for an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p> <p>For more information about operating Regions, see <a href=\\\"/vpc/latest/ipam/create-ipam.html\\\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\",\
+          \"documentation\":\"<p>The operating Regions for an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p> <p>For more information about operating Regions, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html\\\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\",\
           \"locationName\":\"operatingRegionSet\"\
         },\
         \"State\":{\
@@ -31742,7 +32201,7 @@
           \"locationName\":\"tagSet\"\
         }\
       },\
-      \"documentation\":\"<p>IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization. For more information, see <a href=\\\"/vpc/latest/ipam/what-is-it-ipam.html\\\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
+      \"documentation\":\"<p>IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html\\\">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
     },\
     \"IpamAddressHistoryMaxResults\":{\
       \"type\":\"integer\",\
@@ -31784,12 +32243,12 @@
         },\
         \"ResourceComplianceStatus\":{\
           \"shape\":\"IpamComplianceStatus\",\
-          \"documentation\":\"<p>The compliance status of a resource. For more information on compliance statuses, see <a href=\\\"/vpc/latest/ipam/monitor-cidr-compliance-ipam.html\\\">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\",\
+          \"documentation\":\"<p>The compliance status of a resource. For more information on compliance statuses, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html\\\">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\",\
           \"locationName\":\"resourceComplianceStatus\"\
         },\
         \"ResourceOverlapStatus\":{\
           \"shape\":\"IpamOverlapStatus\",\
-          \"documentation\":\"<p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href=\\\"/vpc/latest/ipam/monitor-cidr-compliance-ipam.html\\\">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\",\
+          \"documentation\":\"<p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html\\\">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\",\
           \"locationName\":\"resourceOverlapStatus\"\
         },\
         \"VpcId\":{\
@@ -31808,7 +32267,7 @@
           \"locationName\":\"sampledEndTime\"\
         }\
       },\
-      \"documentation\":\"<p>The historical record of a CIDR within an IPAM scope. For more information, see <a href=\\\"/vpc/latest/ipam/view-history-cidr-ipam.html\\\">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
+      \"documentation\":\"<p>The historical record of a CIDR within an IPAM scope. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/view-history-cidr-ipam.html\\\">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\"\
     },\
     \"IpamAddressHistoryRecordSet\":{\
       \"type\":\"list\",\
@@ -31878,7 +32337,7 @@
           \"locationName\":\"regionName\"\
         }\
       },\
-      \"documentation\":\"<p>The operating Regions for an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p> <p>For more information about operating Regions, see <a href=\\\"/vpc/latest/ipam/create-ipam.html\\\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
+      \"documentation\":\"<p>The operating Regions for an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p> <p>For more information about operating Regions, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html\\\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
     },\
     \"IpamOperatingRegionSet\":{\
       \"type\":\"list\",\
@@ -31945,7 +32404,7 @@
         },\
         \"PoolDepth\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The depth of pools in your IPAM pool. The pool depth quota is 10. For more information, see <a href=\\\"/vpc/latest/ipam/quotas-ipam.html\\\">Quotas in IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\",\
+          \"documentation\":\"<p>The depth of pools in your IPAM pool. The pool depth quota is 10. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html\\\">Quotas in IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </p>\",\
           \"locationName\":\"poolDepth\"\
         },\
         \"State\":{\
@@ -32221,22 +32680,22 @@
         },\
         \"IpUsage\":{\
           \"shape\":\"BoxedDouble\",\
-          \"documentation\":\"<p>The IP address space in the IPAM pool that is allocated to this resource. To convert the decimal to a percentage, multiply the decimal by 100.</p>\",\
+          \"documentation\":\"<p>The percentage of IP address space in use. To convert the decimal to a percentage, multiply the decimal by 100. Note the following:</p> <ul> <li> <p>For a resources that are VPCs, this is the percentage of IP address space in the VPC that's taken up by subnet CIDRs. </p> </li> <li> <p>For resources that are subnets, if the subnet has an IPv4 CIDR provisioned to it, this is the percentage of IPv4 address space in the subnet that's in use. If the subnet has an IPv6 CIDR provisioned to it, the percentage of IPv6 address space in use is not represented. The percentage of IPv6 address space in use cannot currently be calculated. </p> </li> <li> <p>For resources that are public IPv4 pools, this is the percentage of IP address space in the pool that's been allocated to Elastic IP addresses (EIPs). </p> </li> </ul>\",\
           \"locationName\":\"ipUsage\"\
         },\
         \"ComplianceStatus\":{\
           \"shape\":\"IpamComplianceStatus\",\
-          \"documentation\":\"<p>The compliance status of the IPAM resource. For more information on compliance statuses, see <a href=\\\"/vpc/latest/ipam/monitor-cidr-compliance-ipam.html\\\">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\",\
+          \"documentation\":\"<p>The compliance status of the IPAM resource. For more information on compliance statuses, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html\\\">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\",\
           \"locationName\":\"complianceStatus\"\
         },\
         \"ManagementState\":{\
           \"shape\":\"IpamManagementState\",\
-          \"documentation\":\"<p>The management state of the resource. For more information about management states, see <a href=\\\"/vpc/latest/ipam/monitor-cidr-compliance-ipam.html\\\">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\",\
+          \"documentation\":\"<p>The management state of the resource. For more information about management states, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html\\\">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\",\
           \"locationName\":\"managementState\"\
         },\
         \"OverlapStatus\":{\
           \"shape\":\"IpamOverlapStatus\",\
-          \"documentation\":\"<p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href=\\\"/vpc/latest/ipam/monitor-cidr-compliance-ipam.html\\\">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\",\
+          \"documentation\":\"<p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html\\\">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\",\
           \"locationName\":\"overlapStatus\"\
         },\
         \"VpcId\":{\
@@ -32346,7 +32805,7 @@
           \"locationName\":\"tagSet\"\
         }\
       },\
-      \"documentation\":\"<p>In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p> <p>For more information, see <a href=\\\"/vpc/latest/ipam/how-it-works-ipam.html\\\">How IPAM works</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
+      \"documentation\":\"<p>In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/how-it-works-ipam.html\\\">How IPAM works</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\"\
     },\
     \"IpamScopeId\":{\"type\":\"string\"},\
     \"IpamScopeSet\":{\
@@ -33103,7 +33562,7 @@
         },\
         \"ThreadsPerCore\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The number of threads per CPU core. To disable multithreading for the instance, specify a value of 1. Otherwise, specify the default value of 2.</p>\"\
+          \"documentation\":\"<p>The number of threads per CPU core. To disable multithreading for the instance, specify a value of <code>1</code>. Otherwise, specify the default value of <code>2</code>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The CPU options for the instance. Both the core count and threads per core must be specified in the request.</p>\"\
@@ -33431,7 +33890,7 @@
           \"locationName\":\"instanceMetadataTags\"\
         }\
       },\
-      \"documentation\":\"<p>The metadata options for the instance. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html\\\">Instance Metadata and User Data</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>The metadata options for the instance. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html\\\">Instance metadata and user data</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
     },\
     \"LaunchTemplateInstanceMetadataOptionsRequest\":{\
       \"type\":\"structure\",\
@@ -33442,7 +33901,7 @@
         },\
         \"HttpPutResponseHopLimit\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.</p> <p>Default: 1</p> <p>Possible values: Integers from 1 to 64</p>\"\
+          \"documentation\":\"<p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.</p> <p>Default: <code>1</code> </p> <p>Possible values: Integers from 1 to 64</p>\"\
         },\
         \"HttpEndpoint\":{\
           \"shape\":\"LaunchTemplateInstanceMetadataEndpointState\",\
@@ -33457,7 +33916,7 @@
           \"documentation\":\"<p>Set to <code>enabled</code> to allow access to instance tags from the instance metadata. Set to <code>disabled</code> to turn off access to instance tags from the instance metadata. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS\\\">Work with instance tags using the instance metadata</a>.</p> <p>Default: <code>disabled</code> </p>\"\
         }\
       },\
-      \"documentation\":\"<p>The metadata options for the instance. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html\\\">Instance Metadata and User Data</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>The metadata options for the instance. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html\\\">Instance metadata and user data</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
     },\
     \"LaunchTemplateInstanceMetadataOptionsState\":{\
       \"type\":\"string\",\
@@ -33738,7 +34197,7 @@
         },\
         \"SpotPrice\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The maximum price per unit hour that you are willing to pay for a Spot Instance.</p>\",\
+          \"documentation\":\"<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p> <important> <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p> </important>\",\
           \"locationName\":\"spotPrice\"\
         },\
         \"SubnetId\":{\
@@ -33911,11 +34370,11 @@
       \"members\":{\
         \"LaunchTemplateId\":{\
           \"shape\":\"LaunchTemplateId\",\
-          \"documentation\":\"<p>The ID of the launch template.</p>\"\
+          \"documentation\":\"<p>The ID of the launch template.</p> <p>You must specify the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>\"\
         },\
         \"LaunchTemplateName\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The name of the launch template.</p>\"\
+          \"documentation\":\"<p>The name of the launch template.</p> <p>You must specify the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>\"\
         },\
         \"Version\":{\
           \"shape\":\"String\",\
@@ -33929,7 +34388,7 @@
       \"members\":{\
         \"MaxPrice\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The maximum hourly price you're willing to pay for the Spot Instances.</p>\",\
+          \"documentation\":\"<p>The maximum hourly price you're willing to pay for the Spot Instances. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p> <important> <p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p> </important>\",\
           \"locationName\":\"maxPrice\"\
         },\
         \"SpotInstanceType\":{\
@@ -33960,7 +34419,7 @@
       \"members\":{\
         \"MaxPrice\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The maximum hourly price you're willing to pay for the Spot Instances.</p>\"\
+          \"documentation\":\"<p>The maximum hourly price you're willing to pay for the Spot Instances. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p> <important> <p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p> </important>\"\
         },\
         \"SpotInstanceType\":{\
           \"shape\":\"SpotInstanceType\",\
@@ -33968,11 +34427,11 @@
         },\
         \"BlockDurationMinutes\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The required duration for the Spot Instances (also known as Spot blocks), in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).</p>\"\
+          \"documentation\":\"<p>Deprecated.</p>\"\
         },\
         \"ValidUntil\":{\
           \"shape\":\"DateTime\",\
-          \"documentation\":\"<p>The end date of the request. For a one-time request, the request remains active until all instances launch, the request is canceled, or this date is reached. If the request is persistent, it remains active until it is canceled or this date and time is reached. The default end date is 7 days from the current date.</p>\"\
+          \"documentation\":\"<p>The end date of the request, in UTC format (<i>YYYY-MM-DD</i>T<i>HH:MM:SS</i>Z). Supported only for persistent requests.</p> <ul> <li> <p>For a persistent request, the request remains active until the <code>ValidUntil</code> date and time is reached. Otherwise, the request remains active until you cancel it.</p> </li> <li> <p>For a one-time request, <code>ValidUntil</code> is not supported. The request remains active until all instances launch or you cancel the request.</p> </li> </ul> <p>Default: 7 days from the current date</p>\"\
         },\
         \"InstanceInterruptionBehavior\":{\
           \"shape\":\"InstanceInterruptionBehavior\",\
@@ -35827,7 +36286,7 @@
         },\
         \"AddAllocationResourceTags\":{\
           \"shape\":\"RequestIpamResourceTagList\",\
-          \"documentation\":\"<p>Add tag allocation rules to a pool. For more information about allocation rules, see <a href=\\\"/vpc/latest/ipam/create-top-ipam.html\\\">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\",\
+          \"documentation\":\"<p>Add tag allocation rules to a pool. For more information about allocation rules, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/create-top-ipam.html\\\">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\",\
           \"locationName\":\"AddAllocationResourceTag\"\
         },\
         \"RemoveAllocationResourceTags\":{\
@@ -35865,7 +36324,7 @@
         },\
         \"AddOperatingRegions\":{\
           \"shape\":\"AddIpamOperatingRegionSet\",\
-          \"documentation\":\"<p>Choose the operating Regions for the IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p> <p>For more information about operating Regions, see <a href=\\\"/vpc/latest/ipam/create-ipam.html\\\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\",\
+          \"documentation\":\"<p>Choose the operating Regions for the IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p> <p>For more information about operating Regions, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html\\\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>\",\
           \"locationName\":\"AddOperatingRegion\"\
         },\
         \"RemoveOperatingRegions\":{\
@@ -35975,11 +36434,11 @@
         },\
         \"LaunchTemplateId\":{\
           \"shape\":\"LaunchTemplateId\",\
-          \"documentation\":\"<p>The ID of the launch template. You must specify either the launch template ID or launch template name in the request.</p>\"\
+          \"documentation\":\"<p>The ID of the launch template.</p> <p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>\"\
         },\
         \"LaunchTemplateName\":{\
           \"shape\":\"LaunchTemplateName\",\
-          \"documentation\":\"<p>The name of the launch template. You must specify either the launch template ID or launch template name in the request.</p>\"\
+          \"documentation\":\"<p>The name of the launch template.</p> <p>You must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>\"\
         },\
         \"DefaultVersion\":{\
           \"shape\":\"String\",\
@@ -36541,6 +37000,10 @@
         \"PropagationDefaultRouteTableId\":{\
           \"shape\":\"TransitGatewayRouteTableId\",\
           \"documentation\":\"<p>The ID of the default propagation route table.</p>\"\
+        },\
+        \"AmazonSideAsn\":{\
+          \"shape\":\"Long\",\
+          \"documentation\":\"<p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The transit gateway options.</p>\"\
@@ -39021,6 +39484,11 @@
           \"documentation\":\"<p>The ID of the transit gateway.</p>\",\
           \"locationName\":\"transitGatewayId\"\
         },\
+        \"CoreNetworkId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the core network where the transit gateway peer is located.</p>\",\
+          \"locationName\":\"coreNetworkId\"\
+        },\
         \"OwnerId\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>The ID of the Amazon Web Services account that owns the transit gateway.</p>\",\
@@ -41004,7 +41472,7 @@
           \"documentation\":\"<p>The name of the operating Region you want to remove.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Remove an operating Region from an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p> <p>For more information about operating Regions, see <a href=\\\"/vpc/latest/ipam/create-ipam.html\\\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i> </p>\"\
+      \"documentation\":\"<p>Remove an operating Region from an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p> <p>For more information about operating Regions, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html\\\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i> </p>\"\
     },\
     \"RemoveIpamOperatingRegionSet\":{\
       \"type\":\"list\",\
@@ -41696,7 +42164,7 @@
         },\
         \"SpotPrice\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The maximum price per hour that you are willing to pay for a Spot Instance. The default is the On-Demand price.</p>\",\
+          \"documentation\":\"<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p> <important> <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p> </important>\",\
           \"locationName\":\"spotPrice\"\
         },\
         \"Type\":{\
@@ -42700,7 +43168,9 @@
         \"transit-gateway-attachment\",\
         \"transit-gateway-connect-peer\",\
         \"transit-gateway-multicast-domain\",\
+        \"transit-gateway-policy-table\",\
         \"transit-gateway-route-table\",\
+        \"transit-gateway-route-table-announcement\",\
         \"volume\",\
         \"vpc\",\
         \"vpc-endpoint\",\
@@ -43695,7 +44165,7 @@
         },\
         \"TagSpecifications\":{\
           \"shape\":\"TagSpecificationList\",\
-          \"documentation\":\"<p>The tags to apply to the resources during launch. You can only tag instances and volumes on launch. The specified tags are applied to all instances or volumes that are created during launch. To tag a resource after it has been created, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\\\">CreateTags</a>.</p>\",\
+          \"documentation\":\"<p>The tags to apply to the resources that are created during instance launch.</p> <p>You can specify tags for the following resources only:</p> <ul> <li> <p>Instances</p> </li> <li> <p>Volumes</p> </li> <li> <p>Elastic graphics</p> </li> <li> <p>Spot Instance requests</p> </li> <li> <p>Network interfaces</p> </li> </ul> <p>To tag a resource after it has been created, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\\\">CreateTags</a>.</p>\",\
           \"locationName\":\"TagSpecification\"\
         },\
         \"LaunchTemplate\":{\
@@ -43745,7 +44215,7 @@
         },\
         \"DisableApiStop\":{\
           \"shape\":\"Boolean\",\
-          \"documentation\":\"<p>Indicates whether an instance is enabled for stop protection. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection\\\">Stop Protection</a>. </p>\"\
+          \"documentation\":\"<p>Indicates whether an instance is enabled for stop protection. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection\\\">Stop protection</a>. </p>\"\
         }\
       }\
     },\
@@ -44871,7 +45341,7 @@
       \"members\":{\
         \"ServiceName\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the service.</p>\",\
+          \"documentation\":\"<p>The name of the service.</p>\",\
           \"locationName\":\"serviceName\"\
         },\
         \"ServiceId\":{\
@@ -45596,7 +46066,7 @@
         },\
         \"SpotPrice\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. If this value is not specified, the default is the Spot price specified for the fleet. To determine the Spot price per unit hour, divide the Spot price by the value of <code>WeightedCapacity</code>.</p>\",\
+          \"documentation\":\"<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p> <important> <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p> </important>\",\
           \"locationName\":\"spotPrice\"\
         },\
         \"SubnetId\":{\
@@ -45733,7 +46203,7 @@
         },\
         \"SpotPrice\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. The default is the On-Demand price.</p>\",\
+          \"documentation\":\"<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p> <important> <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p> </important>\",\
           \"locationName\":\"spotPrice\"\
         },\
         \"TargetCapacity\":{\
@@ -45920,7 +46390,7 @@
         },\
         \"SpotPrice\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The maximum price per hour that you are willing to pay for a Spot Instance.</p>\",\
+          \"documentation\":\"<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p> <important> <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p> </important>\",\
           \"locationName\":\"spotPrice\"\
         },\
         \"State\":{\
@@ -46046,7 +46516,7 @@
       \"members\":{\
         \"MaxPrice\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The maximum hourly price you're willing to pay for the Spot Instances. The default is the On-Demand price.</p>\"\
+          \"documentation\":\"<p>The maximum hourly price that you're willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p> <important> <p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p> </important>\"\
         },\
         \"SpotInstanceType\":{\
           \"shape\":\"SpotInstanceType\",\
@@ -46107,7 +46577,7 @@
         },\
         \"MaxTotalPrice\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The maximum amount per hour for Spot Instances that you're willing to pay.</p>\",\
+          \"documentation\":\"<p>The maximum amount per hour for Spot Instances that you're willing to pay. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p> <important> <p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p> </important>\",\
           \"locationName\":\"maxTotalPrice\"\
         }\
       },\
@@ -46146,7 +46616,7 @@
         },\
         \"MaxTotalPrice\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The maximum amount per hour for Spot Instances that you're willing to pay.</p>\"\
+          \"documentation\":\"<p>The maximum amount per hour for Spot Instances that you're willing to pay. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p> <important> <p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p> </important>\"\
         }\
       },\
       \"documentation\":\"<p>Describes the configuration of Spot Instances in an EC2 Fleet request.</p>\"\
@@ -46230,7 +46700,7 @@
         },\
         \"SpotPrice\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The maximum price per hour that you are willing to pay for a Spot Instance.</p>\",\
+          \"documentation\":\"<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p> <important> <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p> </important>\",\
           \"locationName\":\"spotPrice\"\
         },\
         \"Timestamp\":{\
@@ -46239,7 +46709,7 @@
           \"locationName\":\"timestamp\"\
         }\
       },\
-      \"documentation\":\"<p>Describes the maximum price per hour that you are willing to pay for a Spot Instance.</p>\"\
+      \"documentation\":\"<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p> <important> <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p> </important>\"\
     },\
     \"SpotPriceHistoryList\":{\
       \"type\":\"list\",\
@@ -47052,7 +47522,7 @@
           \"locationName\":\"Tag\"\
         }\
       },\
-      \"documentation\":\"<p>The tags to apply to a resource when the resource is being created.</p>\"\
+      \"documentation\":\"<p>The tags to apply to a resource when the resource is being created.</p> <note> <p>The <code>Valid Values</code> lists all the resource types that can be tagged. However, the action you're using might not support tagging all of these resource types. If you try to tag a resource type that is unsupported for the action you're using, you'll get an error.</p> </note>\"\
     },\
     \"TagSpecificationList\":{\
       \"type\":\"list\",\
@@ -48670,6 +49140,11 @@
           \"documentation\":\"<p>The ID of the transit gateway peering attachment.</p>\",\
           \"locationName\":\"transitGatewayAttachmentId\"\
         },\
+        \"AccepterTransitGatewayAttachmentId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the accepter transit gateway attachment.</p>\",\
+          \"locationName\":\"accepterTransitGatewayAttachmentId\"\
+        },\
         \"RequesterTgwInfo\":{\
           \"shape\":\"PeeringTgwInfo\",\
           \"documentation\":\"<p>Information about the requester transit gateway.</p>\",\
@@ -48679,6 +49154,11 @@
           \"shape\":\"PeeringTgwInfo\",\
           \"documentation\":\"<p>Information about the accepter transit gateway.</p>\",\
           \"locationName\":\"accepterTgwInfo\"\
+        },\
+        \"Options\":{\
+          \"shape\":\"TransitGatewayPeeringAttachmentOptions\",\
+          \"documentation\":\"<p>Details about the transit gateway peering attachment.</p>\",\
+          \"locationName\":\"options\"\
         },\
         \"Status\":{\
           \"shape\":\"PeeringAttachmentStatus\",\
@@ -48709,6 +49189,190 @@
         \"shape\":\"TransitGatewayPeeringAttachment\",\
         \"locationName\":\"item\"\
       }\
+    },\
+    \"TransitGatewayPeeringAttachmentOptions\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"DynamicRouting\":{\
+          \"shape\":\"DynamicRoutingValue\",\
+          \"documentation\":\"<p>Describes whether dynamic routing is enabled or disabled for the transit gateway peering attachment.</p>\",\
+          \"locationName\":\"dynamicRouting\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes dynamic routing for the transit gateway peering attachment.</p>\"\
+    },\
+    \"TransitGatewayPolicyRule\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"SourceCidrBlock\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The source CIDR block for the transit gateway policy rule.</p>\",\
+          \"locationName\":\"sourceCidrBlock\"\
+        },\
+        \"SourcePortRange\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The port range for the transit gateway policy rule. Currently this is set to * (all).</p>\",\
+          \"locationName\":\"sourcePortRange\"\
+        },\
+        \"DestinationCidrBlock\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The destination CIDR block for the transit gateway policy rule.</p>\",\
+          \"locationName\":\"destinationCidrBlock\"\
+        },\
+        \"DestinationPortRange\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The port range for the transit gateway policy rule. Currently this is set to * (all).</p>\",\
+          \"locationName\":\"destinationPortRange\"\
+        },\
+        \"Protocol\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The protocol used by the transit gateway policy rule.</p>\",\
+          \"locationName\":\"protocol\"\
+        },\
+        \"MetaData\":{\
+          \"shape\":\"TransitGatewayPolicyRuleMetaData\",\
+          \"documentation\":\"<p>The meta data tags used for the transit gateway policy rule.</p>\",\
+          \"locationName\":\"metaData\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes a rule associated with a transit gateway policy.</p>\"\
+    },\
+    \"TransitGatewayPolicyRuleMetaData\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"MetaDataKey\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The key name for the transit gateway policy rule meta data tag.</p>\",\
+          \"locationName\":\"metaDataKey\"\
+        },\
+        \"MetaDataValue\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The value of the key for the transit gateway policy rule meta data tag.</p>\",\
+          \"locationName\":\"metaDataValue\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes the meta data tags associated with a transit gateway policy rule.</p>\"\
+    },\
+    \"TransitGatewayPolicyTable\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TransitGatewayPolicyTableId\":{\
+          \"shape\":\"TransitGatewayPolicyTableId\",\
+          \"documentation\":\"<p>The ID of the transit gateway policy table.</p>\",\
+          \"locationName\":\"transitGatewayPolicyTableId\"\
+        },\
+        \"TransitGatewayId\":{\
+          \"shape\":\"TransitGatewayId\",\
+          \"documentation\":\"<p>The ID of the transit gateway.</p>\",\
+          \"locationName\":\"transitGatewayId\"\
+        },\
+        \"State\":{\
+          \"shape\":\"TransitGatewayPolicyTableState\",\
+          \"documentation\":\"<p>The state of the transit gateway policy table</p>\",\
+          \"locationName\":\"state\"\
+        },\
+        \"CreationTime\":{\
+          \"shape\":\"DateTime\",\
+          \"documentation\":\"<p>The timestamp when the transit gateway policy table was created.</p>\",\
+          \"locationName\":\"creationTime\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>he key-value pairs associated with the transit gateway policy table.</p>\",\
+          \"locationName\":\"tagSet\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes a transit gateway policy table.</p>\"\
+    },\
+    \"TransitGatewayPolicyTableAssociation\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TransitGatewayPolicyTableId\":{\
+          \"shape\":\"TransitGatewayPolicyTableId\",\
+          \"documentation\":\"<p>The ID of the transit gateway policy table.</p>\",\
+          \"locationName\":\"transitGatewayPolicyTableId\"\
+        },\
+        \"TransitGatewayAttachmentId\":{\
+          \"shape\":\"TransitGatewayAttachmentId\",\
+          \"documentation\":\"<p>The ID of the transit gateway attachment.</p>\",\
+          \"locationName\":\"transitGatewayAttachmentId\"\
+        },\
+        \"ResourceId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The resource ID of the transit gateway attachment.</p>\",\
+          \"locationName\":\"resourceId\"\
+        },\
+        \"ResourceType\":{\
+          \"shape\":\"TransitGatewayAttachmentResourceType\",\
+          \"documentation\":\"<p>The resource type for the transit gateway policy table association.</p>\",\
+          \"locationName\":\"resourceType\"\
+        },\
+        \"State\":{\
+          \"shape\":\"TransitGatewayAssociationState\",\
+          \"documentation\":\"<p>The state of the transit gateway policy table association.</p>\",\
+          \"locationName\":\"state\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes a transit gateway policy table association.</p>\"\
+    },\
+    \"TransitGatewayPolicyTableAssociationList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"TransitGatewayPolicyTableAssociation\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"TransitGatewayPolicyTableEntry\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"PolicyRuleNumber\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The rule number for the transit gateway policy table entry.</p>\",\
+          \"locationName\":\"policyRuleNumber\"\
+        },\
+        \"PolicyRule\":{\
+          \"shape\":\"TransitGatewayPolicyRule\",\
+          \"documentation\":\"<p>The policy rule associated with the transit gateway policy table.</p>\",\
+          \"locationName\":\"policyRule\"\
+        },\
+        \"TargetRouteTableId\":{\
+          \"shape\":\"TransitGatewayRouteTableId\",\
+          \"documentation\":\"<p>The ID of the target route table.</p>\",\
+          \"locationName\":\"targetRouteTableId\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes a transit gateway policy table entry</p>\"\
+    },\
+    \"TransitGatewayPolicyTableEntryList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"TransitGatewayPolicyTableEntry\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"TransitGatewayPolicyTableId\":{\"type\":\"string\"},\
+    \"TransitGatewayPolicyTableIdStringList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"TransitGatewayPolicyTableId\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"TransitGatewayPolicyTableList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"TransitGatewayPolicyTable\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"TransitGatewayPolicyTableState\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"pending\",\
+        \"available\",\
+        \"deleting\",\
+        \"deleted\"\
+      ]\
     },\
     \"TransitGatewayPrefixListAttachment\":{\
       \"type\":\"structure\",\
@@ -48810,6 +49474,11 @@
           \"shape\":\"TransitGatewayPropagationState\",\
           \"documentation\":\"<p>The state.</p>\",\
           \"locationName\":\"state\"\
+        },\
+        \"TransitGatewayRouteTableAnnouncementId\":{\
+          \"shape\":\"TransitGatewayRouteTableAnnouncementId\",\
+          \"documentation\":\"<p>The ID of the transit gateway route table announcement.</p>\",\
+          \"locationName\":\"transitGatewayRouteTableAnnouncementId\"\
         }\
       },\
       \"documentation\":\"<p>Describes route propagation.</p>\"\
@@ -48873,6 +49542,11 @@
           \"shape\":\"PrefixListResourceId\",\
           \"documentation\":\"<p>The ID of the prefix list used for destination matches.</p>\",\
           \"locationName\":\"prefixListId\"\
+        },\
+        \"TransitGatewayRouteTableAnnouncementId\":{\
+          \"shape\":\"TransitGatewayRouteTableAnnouncementId\",\
+          \"documentation\":\"<p>The ID of the transit gateway route table announcement. </p>\",\
+          \"locationName\":\"transitGatewayRouteTableAnnouncementId\"\
         },\
         \"TransitGatewayAttachments\":{\
           \"shape\":\"TransitGatewayRouteAttachmentList\",\
@@ -48978,6 +49652,100 @@
       },\
       \"documentation\":\"<p>Describes a transit gateway route table.</p>\"\
     },\
+    \"TransitGatewayRouteTableAnnouncement\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TransitGatewayRouteTableAnnouncementId\":{\
+          \"shape\":\"TransitGatewayRouteTableAnnouncementId\",\
+          \"documentation\":\"<p>The ID of the transit gateway route table announcement.</p>\",\
+          \"locationName\":\"transitGatewayRouteTableAnnouncementId\"\
+        },\
+        \"TransitGatewayId\":{\
+          \"shape\":\"TransitGatewayId\",\
+          \"documentation\":\"<p>The ID of the transit gateway.</p>\",\
+          \"locationName\":\"transitGatewayId\"\
+        },\
+        \"CoreNetworkId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the core network for the transit gateway route table announcement.</p>\",\
+          \"locationName\":\"coreNetworkId\"\
+        },\
+        \"PeerTransitGatewayId\":{\
+          \"shape\":\"TransitGatewayId\",\
+          \"documentation\":\"<p>The ID of the peer transit gateway.</p>\",\
+          \"locationName\":\"peerTransitGatewayId\"\
+        },\
+        \"PeerCoreNetworkId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the core network ID for the peer.</p>\",\
+          \"locationName\":\"peerCoreNetworkId\"\
+        },\
+        \"PeeringAttachmentId\":{\
+          \"shape\":\"TransitGatewayAttachmentId\",\
+          \"documentation\":\"<p>The ID of the peering attachment.</p>\",\
+          \"locationName\":\"peeringAttachmentId\"\
+        },\
+        \"AnnouncementDirection\":{\
+          \"shape\":\"TransitGatewayRouteTableAnnouncementDirection\",\
+          \"documentation\":\"<p>The direction for the route table announcement.</p>\",\
+          \"locationName\":\"announcementDirection\"\
+        },\
+        \"TransitGatewayRouteTableId\":{\
+          \"shape\":\"TransitGatewayRouteTableId\",\
+          \"documentation\":\"<p>The ID of the transit gateway route table.</p>\",\
+          \"locationName\":\"transitGatewayRouteTableId\"\
+        },\
+        \"State\":{\
+          \"shape\":\"TransitGatewayRouteTableAnnouncementState\",\
+          \"documentation\":\"<p>The state of the transit gateway announcement.</p>\",\
+          \"locationName\":\"state\"\
+        },\
+        \"CreationTime\":{\
+          \"shape\":\"DateTime\",\
+          \"documentation\":\"<p>The timestamp when the transit gateway route table announcement was created.</p>\",\
+          \"locationName\":\"creationTime\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>The key-value pairs associated with the route table announcement.</p>\",\
+          \"locationName\":\"tagSet\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes a transit gateway route table announcement.</p>\"\
+    },\
+    \"TransitGatewayRouteTableAnnouncementDirection\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"outgoing\",\
+        \"incoming\"\
+      ]\
+    },\
+    \"TransitGatewayRouteTableAnnouncementId\":{\"type\":\"string\"},\
+    \"TransitGatewayRouteTableAnnouncementIdStringList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"TransitGatewayRouteTableAnnouncementId\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"TransitGatewayRouteTableAnnouncementList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"TransitGatewayRouteTableAnnouncement\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"TransitGatewayRouteTableAnnouncementState\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"available\",\
+        \"pending\",\
+        \"failing\",\
+        \"failed\",\
+        \"deleting\",\
+        \"deleted\"\
+      ]\
+    },\
     \"TransitGatewayRouteTableAssociation\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -49048,6 +49816,11 @@
           \"shape\":\"TransitGatewayPropagationState\",\
           \"documentation\":\"<p>The state of the resource.</p>\",\
           \"locationName\":\"state\"\
+        },\
+        \"TransitGatewayRouteTableAnnouncementId\":{\
+          \"shape\":\"TransitGatewayRouteTableAnnouncementId\",\
+          \"documentation\":\"<p>The ID of the transit gateway route table announcement.</p>\",\
+          \"locationName\":\"transitGatewayRouteTableAnnouncementId\"\
         }\
       },\
       \"documentation\":\"<p>Describes a route table propagation.</p>\"\
