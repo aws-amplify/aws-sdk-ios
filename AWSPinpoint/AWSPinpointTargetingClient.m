@@ -74,9 +74,9 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
 
 - (void)initGlobalAttributes {
     NSData *customAttributesData = [_keychain dataForKey:AWSPinpointEndpointAttributesKey];
-    if (customAttributesData == nil) {
-        _globalAttributes = [[NSMutableDictionary alloc] init];
-    } else {
+    NSMutableDictionary *attributes = [_context.configuration.userDefaults objectForKey:AWSPinpointEndpointAttributesKey];
+    
+    if (customAttributesData != nil) {
         NSSet *allowableClasses = [[NSSet alloc] initWithObjects:[NSMutableString class],
                                    [NSDictionary class],
                                    [NSArray class],
@@ -85,31 +85,47 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
         NSMutableDictionary *customAttributes = [AWSNSCodingUtilities versionSafeUnarchivedObjectOfClasses:allowableClasses fromData:customAttributesData error:&decodingError];
         if (decodingError) {
             AWSDDLogError(@"Error decoding global endpoint attributes: %@", decodingError);
+            _globalAttributes = [[NSMutableDictionary alloc] init];
+            return;
         }
         _globalAttributes = [[NSMutableDictionary alloc] initWithDictionary:customAttributes];
+        
+    } else if (attributes != nil) {
+        _globalAttributes = [[NSMutableDictionary alloc] initWithDictionary:attributes];
+    } else {
+        _globalAttributes = [[NSMutableDictionary alloc] init];
     }
 }
 
 - (void) initGlobalMetrics {
     NSData *customMetricsData = [_keychain dataForKey:AWSPinpointEndpointMetricsKey];
-    if (customMetricsData == nil) {
-        _globalMetrics = [[NSMutableDictionary alloc] init];
-    } else {
+    NSMutableDictionary *metrics = [_context.configuration.userDefaults objectForKey:AWSPinpointEndpointMetricsKey];
+    
+    if (customMetricsData != nil) {
         NSError *decodingError;
         NSMutableDictionary *customMetrics = [AWSNSCodingUtilities versionSafeMutableDictionaryFromData:customMetricsData error:&decodingError];
         if (decodingError) {
             AWSDDLogError(@"Error decoding global endpoint metrics: %@", decodingError);
+            _globalMetrics = [[NSMutableDictionary alloc] init];
+            return;
         }
         _globalMetrics = [[NSMutableDictionary alloc] initWithDictionary:customMetrics];
+    } else if (metrics != nil) {
+        _globalMetrics = [[NSMutableDictionary alloc] initWithDictionary:metrics];
+    } else {
+        _globalMetrics = [[NSMutableDictionary alloc] init];
     }
 }
 
 - (AWSPinpointEndpointProfile *) currentEndpointProfile {
     AWSPinpointEndpointProfile *localEndpointProfile;
     if (!self.endpointProfile) {
-        if ([_keychain dataForKey:AWSPinpointEndpointProfileKey] != nil) {
-            NSData *endpointProfileData = [_keychain dataForKey:AWSPinpointEndpointProfileKey];
-
+        NSData *endpointProfileData = [_keychain dataForKey:AWSPinpointEndpointProfileKey];
+        if (endpointProfileData == nil) {
+            endpointProfileData = [_context.configuration.userDefaults objectForKey:AWSPinpointEndpointProfileKey];
+        }
+        
+        if (endpointProfileData != nil) {
             NSError *decodingError;
             localEndpointProfile = [AWSNSCodingUtilities versionSafeUnarchivedObjectOfClass:[AWSPinpointEndpointProfile class]
                                                                                    fromData:endpointProfileData
@@ -125,6 +141,8 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
             } else {
                 @synchronized (self) {
                     [_keychain removeItemForKey:AWSPinpointEndpointProfileKey];
+                    [_context.configuration.userDefaults removeObjectForKey:AWSPinpointEndpointProfileKey];
+                    [_context.configuration.userDefaults synchronize];
                 }
                 localEndpointProfile = [[AWSPinpointEndpointProfile alloc] initWithContext: self.context];
             }
