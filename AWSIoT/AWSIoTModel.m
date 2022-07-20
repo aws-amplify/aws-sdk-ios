@@ -8050,6 +8050,20 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTIndexingFilter
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"namedShadowNames" : @"namedShadowNames",
+             };
+}
+
+@end
+
 @implementation AWSIoTIotAnalyticsAction
 
 + (BOOL)supportsSecureCoding {
@@ -14282,6 +14296,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 	return @{
              @"customFields" : @"customFields",
              @"deviceDefenderIndexingMode" : @"deviceDefenderIndexingMode",
+             @"filter" : @"filter",
              @"managedFields" : @"managedFields",
              @"namedShadowIndexingMode" : @"namedShadowIndexingMode",
              @"thingConnectivityIndexingMode" : @"thingConnectivityIndexingMode",
@@ -14312,6 +14327,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)filterJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTIndexingFilter class]];
 }
 
 + (NSValueTransformer *)managedFieldsJSONTransformer {

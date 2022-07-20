@@ -294,7 +294,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)attachPolicy:(AWSIoTAttachPolicyRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Attaches the specified policy to the specified principal (certificate or other credential).</p><p><b>Note:</b> This action is deprecated. Please use <a>AttachPolicy</a> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachPrincipalPolicy</a> action.</p>
+ <p>Attaches the specified policy to the specified principal (certificate or other credential).</p><p><b>Note:</b> This action is deprecated and works as expected for backward compatibility, but we won't add enhancements. Use <a>AttachPolicy</a> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachPrincipalPolicy</a> action.</p>
  
  @param request A container for the necessary parameters to execute the AttachPrincipalPolicy service method.
 
@@ -305,7 +305,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)attachPrincipalPolicy:(AWSIoTAttachPrincipalPolicyRequest *)request;
 
 /**
- <p>Attaches the specified policy to the specified principal (certificate or other credential).</p><p><b>Note:</b> This action is deprecated. Please use <a>AttachPolicy</a> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachPrincipalPolicy</a> action.</p>
+ <p>Attaches the specified policy to the specified principal (certificate or other credential).</p><p><b>Note:</b> This action is deprecated and works as expected for backward compatibility, but we won't add enhancements. Use <a>AttachPolicy</a> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachPrincipalPolicy</a> action.</p>
  
  @param request A container for the necessary parameters to execute the AttachPrincipalPolicy service method.
  @param completionHandler The completion handler to call when the load request is complete.
