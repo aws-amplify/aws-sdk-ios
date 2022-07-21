@@ -625,7 +625,14 @@
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTManager.h",
-      "line": 221,
+      "line": 227,
+      "symbol": "AWSIoTManager.+deleteCertificateWithCertificateId:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTManager.h",
+      "line": 229,
       "symbol": "AWSIoTManager.+setKeyChainAccessibility:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"

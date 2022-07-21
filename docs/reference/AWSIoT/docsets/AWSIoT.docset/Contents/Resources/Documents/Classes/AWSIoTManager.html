@@ -17,7 +17,7 @@
     <a title="AWSIoTManager Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSIoT 2.27.12 Docs</a> (84% documented)</p>
+        <p><a href="../index.html">AWSIoT 2.27.13 Docs</a> (84% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSIoT.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -2326,6 +2326,13 @@
 <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span><span class="p">;</span>
 
 <span class="cm">/**
+ Enables the custom tag which will include the certificateId when adding a certificate.
+
+ Default: False
+ */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">class</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">tagCertificateEnabled</span><span class="p">;</span>
+
+<span class="cm">/**
  Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with `defaultServiceConfiguration` from `[AWSServiceManager defaultServiceManager]`. The reference to this object is maintained by the SDK, and you do not need to retain it manually.
 
  For example, set the default service configuration in `- application:didFinishLaunchingWithOptions:`
@@ -2492,7 +2499,6 @@
   */</span>
 <span class="k">+</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">importIdentityFromPKCS12Data</span><span class="p">:(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">pkcs12Data</span> <span class="nf">passPhrase</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">passPhrase</span> <span class="nf">certificateId</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">certificateId</span><span class="p">;</span>
 
-
 <span class="cm">/**
  *  Validates the certificate with the given identifier of certificate.
  *
@@ -2508,6 +2514,8 @@
 *  @return TRUE if certificate is deleted, else FALSE
  */</span>
 <span class="k">+</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">deleteCertificate</span><span class="p">;</span>
+
+<span class="k">+</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">deleteCertificateWithCertificateId</span><span class="p">:(</span><span class="n">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">certificateId</span> <span class="n">NS_SWIFT_NAME</span><span class="p">(</span><span class="n">deleteCertificate</span><span class="p">(</span><span class="n">certificateId</span><span class="o">:</span><span class="p">));</span>
 
 <span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setKeyChainAccessibility</span><span class="p">:(</span><span class="n"><a href="../Enums/AWSIoTKeyChainAccessibility.html">AWSIoTKeyChainAccessibility</a></span><span class="p">)</span><span class="nv">accessibility</span><span class="p">;</span>
 
@@ -2552,6 +2560,40 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSIoTManager(cpy)tagCertificateEnabled"></a>
+                    <a name="//apple_ref/objc/Property/tagCertificateEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSIoTManager(cpy)tagCertificateEnabled">tagCertificateEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enables the custom tag which will include the certificateId when adding a certificate.</p>
+
+<p>Default: False</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">class</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">tagCertificateEnabled</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="k">var</span> <span class="nv">tagCertificateEnabled</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -3122,6 +3164,38 @@ keys: commonName, countryName, organizationName, organizationalUnitName</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSIoTManager(cm)deleteCertificateWithCertificateId:"></a>
+                    <a name="//apple_ref/objc/Method/+deleteCertificateWithCertificateId:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSIoTManager(cm)deleteCertificateWithCertificateId:">+deleteCertificateWithCertificateId:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">deleteCertificateWithCertificateId</span><span class="p">:(</span><span class="n">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">certificateId</span> <span class="n">NS_SWIFT_NAME</span><span class="p">(</span><span class="n">deleteCertificate</span><span class="p">(</span><span class="n">certificateId</span><span class="o">:</span><span class="p">));</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">deleteCertificate</span><span class="p">(</span><span class="nv">certificateId</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSIoTManager(cm)setKeyChainAccessibility:"></a>
                     <a name="//apple_ref/objc/Method/+setKeyChainAccessibility:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSIoTManager(cm)setKeyChainAccessibility:">+setKeyChainAccessibility:<wbr></a>
@@ -3156,7 +3230,7 @@ keys: commonName, countryName, organizationName, organizationalUnitName</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-07-12)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-07-21)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
