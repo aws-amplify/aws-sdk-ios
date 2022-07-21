@@ -2,9 +2,10 @@
 
 ## Unreleased
 
--Features for next release
-
 ### Bug Fixes
+
+- **AWSMobileClient**
+  - Fixes duplicated callbacks when getToken fails on device operations (See https://github.com/aws-amplify/aws-sdk-ios/pull/4229)
 
 - **AWSIoT**
   - Adds support for handling certificate with certificateId (See [PR #4219](https://github.com/aws-amplify/aws-sdk-ios/pull/4219))
