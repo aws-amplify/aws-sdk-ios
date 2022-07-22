@@ -4,6 +4,11 @@
 
 -Features for next release
 
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSTranscribe
+
 ## 2.27.13
 
 ### Bug Fixes
