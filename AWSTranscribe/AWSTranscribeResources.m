@@ -1590,7 +1590,6 @@
         \"af-ZA\",\
         \"ar-AE\",\
         \"ar-SA\",\
-        \"cy-GB\",\
         \"da-DK\",\
         \"de-CH\",\
         \"de-DE\",\
@@ -1606,8 +1605,6 @@
         \"fa-IR\",\
         \"fr-CA\",\
         \"fr-FR\",\
-        \"ga-IE\",\
-        \"gd-GB\",\
         \"he-IL\",\
         \"hi-IN\",\
         \"id-ID\",\
@@ -3153,7 +3150,8 @@
       \"type\":\"structure\",\
       \"required\":[\
         \"VocabularyName\",\
-        \"LanguageCode\"\
+        \"LanguageCode\",\
+        \"VocabularyFileUri\"\
       ],\
       \"members\":{\
         \"VocabularyName\":{\
