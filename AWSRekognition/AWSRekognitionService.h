@@ -1400,7 +1400,7 @@ FOUNDATION_EXPORT NSString *const AWSRekognitionSDKVersion;
 - (void)startPersonTracking:(AWSRekognitionStartPersonTrackingRequest *)request completionHandler:(void (^ _Nullable)(AWSRekognitionStartPersonTrackingResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Starts the running of the version of a model. Starting a model takes a while to complete. To check the current state of the model, use <a>DescribeProjectVersions</a>.</p><p>Once the model is running, you can detect custom labels in new images by calling <a>DetectCustomLabels</a>.</p><note><p>You are charged for the amount of time that the model is running. To stop a running model, call <a>StopProjectVersion</a>.</p></note><p>This operation requires permissions to perform the <code>rekognition:StartProjectVersion</code> action.</p>
+ <p>Starts the running of the version of a model. Starting a model takes a while to complete. To check the current state of the model, use <a>DescribeProjectVersions</a>.</p><p>Once the model is running, you can detect custom labels in new images by calling <a>DetectCustomLabels</a>.</p><note><p>You are charged for the amount of time that the model is running. To stop a running model, call <a>StopProjectVersion</a>.</p></note><p>For more information, see <i>Running a trained Amazon Rekognition Custom Labels model</i> in the Amazon Rekognition Custom Labels Guide.</p><p>This operation requires permissions to perform the <code>rekognition:StartProjectVersion</code> action.</p>
  
  @param request A container for the necessary parameters to execute the StartProjectVersion service method.
 
@@ -1412,7 +1412,7 @@ FOUNDATION_EXPORT NSString *const AWSRekognitionSDKVersion;
 - (AWSTask<AWSRekognitionStartProjectVersionResponse *> *)startProjectVersion:(AWSRekognitionStartProjectVersionRequest *)request;
 
 /**
- <p>Starts the running of the version of a model. Starting a model takes a while to complete. To check the current state of the model, use <a>DescribeProjectVersions</a>.</p><p>Once the model is running, you can detect custom labels in new images by calling <a>DetectCustomLabels</a>.</p><note><p>You are charged for the amount of time that the model is running. To stop a running model, call <a>StopProjectVersion</a>.</p></note><p>This operation requires permissions to perform the <code>rekognition:StartProjectVersion</code> action.</p>
+ <p>Starts the running of the version of a model. Starting a model takes a while to complete. To check the current state of the model, use <a>DescribeProjectVersions</a>.</p><p>Once the model is running, you can detect custom labels in new images by calling <a>DetectCustomLabels</a>.</p><note><p>You are charged for the amount of time that the model is running. To stop a running model, call <a>StopProjectVersion</a>.</p></note><p>For more information, see <i>Running a trained Amazon Rekognition Custom Labels model</i> in the Amazon Rekognition Custom Labels Guide.</p><p>This operation requires permissions to perform the <code>rekognition:StartProjectVersion</code> action.</p>
  
  @param request A container for the necessary parameters to execute the StartProjectVersion service method.
  @param completionHandler The completion handler to call when the load request is complete.
