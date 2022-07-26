@@ -24,6 +24,7 @@ public class DeviceOperations {
         mobileClient?.getTokens{ _, error in
             if let error = error {
                 completionHandler(nil, error)
+                return
             }
             self.mobileClient?.userpoolOpsHelper.currentActiveUser!.listDevices(Int32(limit), paginationToken: paginationToken).continueWith { (task) -> Any? in
                 if let error = task.error {
@@ -57,6 +58,7 @@ public class DeviceOperations {
         mobileClient?.getTokens{ _, error in
             if let error = error {
                 completionHandler(nil, error)
+                return
             }
             self.mobileClient!.userpoolOpsHelper.currentActiveUser!.updateDeviceStatus(deviceId, remembered: remembered).continueWith { (task) -> Any? in
                 if let error = task.error {
@@ -78,6 +80,7 @@ public class DeviceOperations {
         mobileClient?.getTokens{ _, error in
             if let error = error {
                 completionHandler(nil, error)
+                return
             }
             self.mobileClient!.userpoolOpsHelper.currentActiveUser!.updateDeviceStatus(remembered).continueWith { (task) -> Any? in
                 if let error = task.error {
@@ -100,6 +103,7 @@ public class DeviceOperations {
         mobileClient?.getTokens{ _, error in
             if let error = error {
                 completionHandler(nil, error)
+                return
             }
             self.mobileClient!.userpoolOpsHelper.currentActiveUser!.getDevice(deviceId).continueWith { (task) -> Any? in
                 if let error = task.error {
@@ -120,6 +124,7 @@ public class DeviceOperations {
         mobileClient?.getTokens{ _, error in
             if let error = error {
                 completionHandler(nil, error)
+                return
             }
             self.mobileClient!.userpoolOpsHelper.currentActiveUser!.getDevice().continueWith { (task) -> Any? in
                 if let error = task.error {
@@ -142,6 +147,7 @@ public class DeviceOperations {
         mobileClient?.getTokens{ _, error in
             if let error = error {
                 completionHandler(error)
+                return
             }
             self.mobileClient!.userpoolOpsHelper.currentActiveUser!.forgetDevice(deviceId).continueWith { (task) -> Any? in
                 if let error = task.error {
@@ -162,6 +168,7 @@ public class DeviceOperations {
         mobileClient?.getTokens{ _, error in
             if let error = error {
                 completionHandler(error)
+                return
             }
             self.mobileClient!.userpoolOpsHelper.currentActiveUser!.forgetDevice().continueWith { (task) -> Any? in
                 if let error = task.error {

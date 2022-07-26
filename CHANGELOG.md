@@ -4,10 +4,15 @@
 
 -Features for next release
 
+## 2.27.13
+
 ### Bug Fixes
 
 - **AWSPinpoint**
   - Migrate key-value storage from NSUserdefaults to Keychain (See [PR #4223](https://github.com/aws-amplify/aws-sdk-ios/pull/4223))
+  
+- **AWSMobileClient**
+  - Fixes duplicated callbacks when getToken fails on device operations (See https://github.com/aws-amplify/aws-sdk-ios/pull/4229)
   
 - **AWSIoT**
   - Adds support for handling certificate with certificateId (See [PR #4219](https://github.com/aws-amplify/aws-sdk-ios/pull/4219))
