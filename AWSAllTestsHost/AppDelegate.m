@@ -24,6 +24,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    NSString *domain = [NSBundle mainBundle].bundleIdentifier;
+    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:domain];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     return YES;
 }
 
