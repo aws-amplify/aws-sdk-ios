@@ -1139,7 +1139,8 @@
         \"Arthur\",\
         \"Daniel\",\
         \"Liam\",\
-        \"Pedro\"\
+        \"Pedro\",\
+        \"Kajal\"\
       ]\
     },\
     \"VoiceList\":{\
