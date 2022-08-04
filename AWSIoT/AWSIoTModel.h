@@ -533,6 +533,12 @@ typedef NS_ENUM(NSInteger, AWSIoTTargetSelection) {
     AWSIoTTargetSelectionSnapshot,
 };
 
+typedef NS_ENUM(NSInteger, AWSIoTTemplateType) {
+    AWSIoTTemplateTypeUnknown,
+    AWSIoTTemplateTypeFleetProvisioning,
+    AWSIoTTemplateTypeJitp,
+};
+
 typedef NS_ENUM(NSInteger, AWSIoTThingConnectivityIndexingMode) {
     AWSIoTThingConnectivityIndexingModeUnknown,
     AWSIoTThingConnectivityIndexingModeOff,
@@ -900,6 +906,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTHttpUrlDestinationProperties;
 @class AWSIoTHttpUrlDestinationSummary;
 @class AWSIoTImplicitDeny;
+@class AWSIoTIndexingFilter;
 @class AWSIoTIotAnalyticsAction;
 @class AWSIoTIotEventsAction;
 @class AWSIoTIotSiteWiseAction;
@@ -4200,12 +4207,12 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The description of the fleet provisioning template.</p>
+ <p>The description of the provisioning template.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>True to enable the fleet provisioning template, otherwise false.</p>
+ <p>True to enable the provisioning template, otherwise false.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
@@ -4215,24 +4222,29 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) AWSIoTProvisioningHook * _Nullable preProvisioningHook;
 
 /**
- <p>The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.</p>
+ <p>The role ARN for the role associated with the provisioning template. This IoT role grants permission to provision a device.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable provisioningRoleArn;
 
 /**
- <p>Metadata which can be used to manage the fleet provisioning template.</p><note><p>For URI Request parameters use format: ...key1=value1&amp;key2=value2...</p><p>For the CLI command-line parameter use format: &amp;&amp;tags "key1=value1&amp;key2=value2..."</p><p>For the cli-input-json file use format: "tags": "key1=value1&amp;key2=value2..."</p></note>
+ <p>Metadata which can be used to manage the provisioning template.</p><note><p>For URI Request parameters use format: ...key1=value1&amp;key2=value2...</p><p>For the CLI command-line parameter use format: &amp;&amp;tags "key1=value1&amp;key2=value2..."</p><p>For the cli-input-json file use format: "tags": "key1=value1&amp;key2=value2..."</p></note>
  */
 @property (nonatomic, strong) NSArray<AWSIoTTag *> * _Nullable tags;
 
 /**
- <p>The JSON formatted contents of the fleet provisioning template.</p>
+ <p>The JSON formatted contents of the provisioning template.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable templateBody;
 
 /**
- <p>The name of the fleet provisioning template.</p>
+ <p>The name of the provisioning template.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable templateName;
+
+/**
+ <p>The type you define in a provisioning template. You can create a template with only one type. You can't change the template type after its creation. The default value is <code>FLEET_PROVISIONING</code>. For more information about provisioning template, see: <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning template</a>. </p>
+ */
+@property (nonatomic, assign) AWSIoTTemplateType types;
 
 @end
 
@@ -4243,7 +4255,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The default version of the fleet provisioning template.</p>
+ <p>The default version of the provisioning template.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable defaultVersionId;
 
@@ -4253,7 +4265,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable templateArn;
 
 /**
- <p>The name of the fleet provisioning template.</p>
+ <p>The name of the provisioning template.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable templateName;
 
@@ -4271,12 +4283,12 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSNumber * _Nullable setAsDefault;
 
 /**
- <p>The JSON formatted contents of the fleet provisioning template.</p>
+ <p>The JSON formatted contents of the provisioning template.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable templateBody;
 
 /**
- <p>The name of the fleet provisioning template.</p>
+ <p>The name of the provisioning template.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable templateName;
 
@@ -4289,7 +4301,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>True if the fleet provisioning template version is the default version, otherwise false.</p>
+ <p>True if the provisioning template version is the default version, otherwise false.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable isDefaultVersion;
 
@@ -4299,12 +4311,12 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable templateArn;
 
 /**
- <p>The name of the fleet provisioning template.</p>
+ <p>The name of the provisioning template.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable templateName;
 
 /**
- <p>The version of the fleet provisioning template.</p>
+ <p>The version of the provisioning template.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable versionId;
 
@@ -5181,12 +5193,12 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The name of the fleet provisioning template version to delete.</p>
+ <p>The name of the provisioning template version to delete.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable templateName;
 
 /**
- <p>The fleet provisioning template version ID to delete.</p>
+ <p>The provisioning template version ID to delete.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable versionId;
 
@@ -6495,7 +6507,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The name of the fleet provisioning template.</p>
+ <p>The name of the provisioning template.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable templateName;
 
@@ -6508,7 +6520,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The date when the fleet provisioning template was created.</p>
+ <p>The date when the provisioning template was created.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable creationDate;
 
@@ -6518,17 +6530,17 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSNumber * _Nullable defaultVersionId;
 
 /**
- <p>The description of the fleet provisioning template.</p>
+ <p>The description of the provisioning template.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>True if the fleet provisioning template is enabled, otherwise false.</p>
+ <p>True if the provisioning template is enabled, otherwise false.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 /**
- <p>The date when the fleet provisioning template was last modified.</p>
+ <p>The date when the provisioning template was last modified.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable lastModifiedDate;
 
@@ -6543,19 +6555,24 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable provisioningRoleArn;
 
 /**
- <p>The ARN of the fleet provisioning template.</p>
+ <p>The ARN of the provisioning template.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable templateArn;
 
 /**
- <p>The JSON formatted contents of the fleet provisioning template.</p>
+ <p>The JSON formatted contents of the provisioning template.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable templateBody;
 
 /**
- <p>The name of the fleet provisioning template.</p>
+ <p>The name of the provisioning template.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable templateName;
+
+/**
+ <p>The type you define in a provisioning template. You can create a template with only one type. You can't change the template type after its creation. The default value is <code>FLEET_PROVISIONING</code>. For more information about provisioning template, see: <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning template</a>. </p>
+ */
+@property (nonatomic, assign) AWSIoTTemplateType types;
 
 @end
 
@@ -6571,7 +6588,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable templateName;
 
 /**
- <p>The fleet provisioning template version ID.</p>
+ <p>The provisioning template version ID.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable versionId;
 
@@ -6584,22 +6601,22 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The date when the fleet provisioning template version was created.</p>
+ <p>The date when the provisioning template version was created.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable creationDate;
 
 /**
- <p>True if the fleet provisioning template version is the default version.</p>
+ <p>True if the provisioning template version is the default version.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable isDefaultVersion;
 
 /**
- <p>The JSON formatted contents of the fleet provisioning template version.</p>
+ <p>The JSON formatted contents of the provisioning template version.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable templateBody;
 
 /**
- <p>The fleet provisioning template version ID.</p>
+ <p>The provisioning template version ID.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable versionId;
 
@@ -8421,6 +8438,19 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @end
 
 /**
+ <p>Provides additional filters for specific data sources. Named shadow is the only data source that currently supports and requires a filter. To add named shadows to your fleet indexing configuration, set <code>namedShadowIndexingMode</code> to be <code>ON</code> and specify your shadow names in <code>filter</code>.</p>
+ */
+@interface AWSIoTIndexingFilter : AWSModel
+
+
+/**
+ <p>The shadow names that you select to index. The default maximum number of shadow names for indexing is 10. To increase the limit, see <a href="https://docs.aws.amazon.com/general/latest/gr/iot_device_management.html#fleet-indexing-limits">Amazon Web Services IoT Device Management Quotas</a> in the <i>Amazon Web Services General Reference</i>. </p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable namedShadowNames;
+
+@end
+
+/**
  <p>Sends message data to an IoT Analytics channel.</p>
  */
 @interface AWSIoTIotAnalyticsAction : AWSModel
@@ -9520,6 +9550,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  */
 @property (nonatomic, strong) NSNumber * _Nullable pageSize;
 
+/**
+ <p>The name of the provisioning template.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable templateName;
+
 @end
 
 /**
@@ -10570,7 +10605,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The name of the fleet provisioning template.</p>
+ <p>The name of the provisioning template.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable templateName;
 
@@ -10588,7 +10623,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The list of fleet provisioning template versions.</p>
+ <p>The list of provisioning template versions.</p>
  */
 @property (nonatomic, strong) NSArray<AWSIoTProvisioningTemplateVersionSummary *> * _Nullable versions;
 
@@ -10624,7 +10659,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>A list of fleet provisioning templates</p>
+ <p>A list of provisioning templates</p>
  */
 @property (nonatomic, strong) NSArray<AWSIoTProvisioningTemplateSummary *> * _Nullable templates;
 
@@ -12230,18 +12265,18 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @end
 
 /**
- <p>A summary of information about a fleet provisioning template.</p>
+ <p>A summary of information about a provisioning template.</p>
  */
 @interface AWSIoTProvisioningTemplateSummary : AWSModel
 
 
 /**
- <p>The date when the fleet provisioning template summary was created.</p>
+ <p>The date when the provisioning template summary was created.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable creationDate;
 
 /**
- <p>The description of the fleet provisioning template.</p>
+ <p>The description of the provisioning template.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable detail;
 
@@ -12251,19 +12286,24 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 /**
- <p>The date when the fleet provisioning template summary was last modified.</p>
+ <p>The date when the provisioning template summary was last modified.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable lastModifiedDate;
 
 /**
- <p>The ARN of the fleet provisioning template.</p>
+ <p>The ARN of the provisioning template.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable templateArn;
 
 /**
- <p>The name of the fleet provisioning template.</p>
+ <p>The name of the provisioning template.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable templateName;
+
+/**
+ <p>The type you define in a provisioning template. You can create a template with only one type. You can't change the template type after its creation. The default value is <code>FLEET_PROVISIONING</code>. For more information about provisioning template, see: <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning template</a>. </p>
+ */
+@property (nonatomic, assign) AWSIoTTemplateType types;
 
 @end
 
@@ -12274,12 +12314,12 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The date when the fleet provisioning template version was created</p>
+ <p>The date when the provisioning template version was created</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable creationDate;
 
 /**
- <p>True if the fleet provisioning template version is the default version, otherwise false.</p>
+ <p>True if the provisioning template version is the default version, otherwise false.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable isDefaultVersion;
 
@@ -12597,6 +12637,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The template body.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable templateBody;
+
+/**
+ <p>The name of the provisioning template.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable templateName;
 
 @end
 
@@ -14214,6 +14259,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, assign) AWSIoTDeviceDefenderIndexingMode deviceDefenderIndexingMode;
 
 /**
+ <p>Provides additional filters for specific data sources. Named shadow is the only data source that currently supports and requires a filter. To add named shadows to your fleet indexing configuration, set <code>namedShadowIndexingMode</code> to be <code>ON</code> and specify your shadow names in <code>filter</code>.</p>
+ */
+@property (nonatomic, strong) AWSIoTIndexingFilter * _Nullable filter;
+
+/**
  <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing service.</p>
  */
 @property (nonatomic, strong) NSArray<AWSIoTField *> * _Nullable managedFields;
@@ -15382,12 +15432,12 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSNumber * _Nullable defaultVersionId;
 
 /**
- <p>The description of the fleet provisioning template.</p>
+ <p>The description of the provisioning template.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>True to enable the fleet provisioning template, otherwise false.</p>
+ <p>True to enable the provisioning template, otherwise false.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
@@ -15407,7 +15457,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSNumber * _Nullable removePreProvisioningHook;
 
 /**
- <p>The name of the fleet provisioning template.</p>
+ <p>The name of the provisioning template.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable templateName;
 

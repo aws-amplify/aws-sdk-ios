@@ -294,7 +294,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)attachPolicy:(AWSIoTAttachPolicyRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Attaches the specified policy to the specified principal (certificate or other credential).</p><p><b>Note:</b> This action is deprecated. Please use <a>AttachPolicy</a> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachPrincipalPolicy</a> action.</p>
+ <p>Attaches the specified policy to the specified principal (certificate or other credential).</p><p><b>Note:</b> This action is deprecated and works as expected for backward compatibility, but we won't add enhancements. Use <a>AttachPolicy</a> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachPrincipalPolicy</a> action.</p>
  
  @param request A container for the necessary parameters to execute the AttachPrincipalPolicy service method.
 
@@ -305,7 +305,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)attachPrincipalPolicy:(AWSIoTAttachPrincipalPolicyRequest *)request;
 
 /**
- <p>Attaches the specified policy to the specified principal (certificate or other credential).</p><p><b>Note:</b> This action is deprecated. Please use <a>AttachPolicy</a> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachPrincipalPolicy</a> action.</p>
+ <p>Attaches the specified policy to the specified principal (certificate or other credential).</p><p><b>Note:</b> This action is deprecated and works as expected for backward compatibility, but we won't add enhancements. Use <a>AttachPolicy</a> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachPrincipalPolicy</a> action.</p>
  
  @param request A container for the necessary parameters to execute the AttachPrincipalPolicy service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -985,7 +985,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createProvisioningClaim:(AWSIoTCreateProvisioningClaimRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateProvisioningClaimResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a fleet provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningTemplate</a> action.</p>
+ <p>Creates a provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningTemplate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateProvisioningTemplate service method.
 
@@ -997,7 +997,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateProvisioningTemplateResponse *> *)createProvisioningTemplate:(AWSIoTCreateProvisioningTemplateRequest *)request;
 
 /**
- <p>Creates a fleet provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningTemplate</a> action.</p>
+ <p>Creates a provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningTemplate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateProvisioningTemplate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1010,7 +1010,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createProvisioningTemplate:(AWSIoTCreateProvisioningTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateProvisioningTemplateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a new version of a fleet provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningTemplateVersion</a> action.</p>
+ <p>Creates a new version of a provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningTemplateVersion</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateProvisioningTemplateVersion service method.
 
@@ -1022,7 +1022,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateProvisioningTemplateVersionResponse *> *)createProvisioningTemplateVersion:(AWSIoTCreateProvisioningTemplateVersionRequest *)request;
 
 /**
- <p>Creates a new version of a fleet provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningTemplateVersion</a> action.</p>
+ <p>Creates a new version of a provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningTemplateVersion</a> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateProvisioningTemplateVersion service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1686,7 +1686,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deletePolicyVersion:(AWSIoTDeletePolicyVersionRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a fleet provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteProvisioningTemplate</a> action.</p>
+ <p>Deletes a provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteProvisioningTemplate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteProvisioningTemplate service method.
 
@@ -1698,7 +1698,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDeleteProvisioningTemplateResponse *> *)deleteProvisioningTemplate:(AWSIoTDeleteProvisioningTemplateRequest *)request;
 
 /**
- <p>Deletes a fleet provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteProvisioningTemplate</a> action.</p>
+ <p>Deletes a provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteProvisioningTemplate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteProvisioningTemplate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1711,7 +1711,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteProvisioningTemplate:(AWSIoTDeleteProvisioningTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteProvisioningTemplateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a fleet provisioning template version.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteProvisioningTemplateVersion</a> action.</p>
+ <p>Deletes a provisioning template version.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteProvisioningTemplateVersion</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteProvisioningTemplateVersion service method.
 
@@ -1723,7 +1723,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDeleteProvisioningTemplateVersionResponse *> *)deleteProvisioningTemplateVersion:(AWSIoTDeleteProvisioningTemplateVersionRequest *)request;
 
 /**
- <p>Deletes a fleet provisioning template version.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteProvisioningTemplateVersion</a> action.</p>
+ <p>Deletes a provisioning template version.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteProvisioningTemplateVersion</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DeleteProvisioningTemplateVersion service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2605,7 +2605,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeMitigationAction:(AWSIoTDescribeMitigationActionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeMitigationActionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns information about a fleet provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeProvisioningTemplate</a> action.</p>
+ <p>Returns information about a provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeProvisioningTemplate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeProvisioningTemplate service method.
 
@@ -2617,7 +2617,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeProvisioningTemplateResponse *> *)describeProvisioningTemplate:(AWSIoTDescribeProvisioningTemplateRequest *)request;
 
 /**
- <p>Returns information about a fleet provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeProvisioningTemplate</a> action.</p>
+ <p>Returns information about a provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeProvisioningTemplate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeProvisioningTemplate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2630,7 +2630,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeProvisioningTemplate:(AWSIoTDescribeProvisioningTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeProvisioningTemplateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns information about a fleet provisioning template version.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeProvisioningTemplateVersion</a> action.</p>
+ <p>Returns information about a provisioning template version.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeProvisioningTemplateVersion</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeProvisioningTemplateVersion service method.
 
@@ -2642,7 +2642,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeProvisioningTemplateVersionResponse *> *)describeProvisioningTemplateVersion:(AWSIoTDescribeProvisioningTemplateVersionRequest *)request;
 
 /**
- <p>Returns information about a fleet provisioning template version.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeProvisioningTemplateVersion</a> action.</p>
+ <p>Returns information about a provisioning template version.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeProvisioningTemplateVersion</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DescribeProvisioningTemplateVersion service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2877,7 +2877,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)detachPolicy:(AWSIoTDetachPolicyRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Removes the specified policy from the specified certificate.</p><note><p>This action is deprecated. Please use <a>DetachPolicy</a> instead.</p></note><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DetachPrincipalPolicy</a> action.</p>
+ <p>Removes the specified policy from the specified certificate.</p><p><b>Note:</b> This action is deprecated and works as expected for backward compatibility, but we won't add enhancements. Use <a>DetachPolicy</a> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DetachPrincipalPolicy</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DetachPrincipalPolicy service method.
 
@@ -2888,7 +2888,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)detachPrincipalPolicy:(AWSIoTDetachPrincipalPolicyRequest *)request;
 
 /**
- <p>Removes the specified policy from the specified certificate.</p><note><p>This action is deprecated. Please use <a>DetachPolicy</a> instead.</p></note><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DetachPrincipalPolicy</a> action.</p>
+ <p>Removes the specified policy from the specified certificate.</p><p><b>Note:</b> This action is deprecated and works as expected for backward compatibility, but we won't add enhancements. Use <a>DetachPolicy</a> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DetachPrincipalPolicy</a> action.</p>
  
  @param request A container for the necessary parameters to execute the DetachPrincipalPolicy service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4118,7 +4118,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listPolicies:(AWSIoTListPoliciesRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListPoliciesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the principals associated with the specified policy.</p><p><b>Note:</b> This action is deprecated. Please use <a>ListTargetsForPolicy</a> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPolicyPrincipals</a> action.</p>
+ <p>Lists the principals associated with the specified policy.</p><p><b>Note:</b> This action is deprecated and works as expected for backward compatibility, but we won't add enhancements. Use <a>ListTargetsForPolicy</a> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPolicyPrincipals</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListPolicyPrincipals service method.
 
@@ -4130,7 +4130,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListPolicyPrincipalsResponse *> *)listPolicyPrincipals:(AWSIoTListPolicyPrincipalsRequest *)request;
 
 /**
- <p>Lists the principals associated with the specified policy.</p><p><b>Note:</b> This action is deprecated. Please use <a>ListTargetsForPolicy</a> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPolicyPrincipals</a> action.</p>
+ <p>Lists the principals associated with the specified policy.</p><p><b>Note:</b> This action is deprecated and works as expected for backward compatibility, but we won't add enhancements. Use <a>ListTargetsForPolicy</a> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPolicyPrincipals</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListPolicyPrincipals service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4168,7 +4168,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listPolicyVersions:(AWSIoTListPolicyVersionsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListPolicyVersionsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax">AmazonCognito Identity format</a>.</p><p><b>Note:</b> This action is deprecated. Please use <a>ListAttachedPolicies</a> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPrincipalPolicies</a> action.</p>
+ <p>Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax">AmazonCognito Identity format</a>.</p><p><b>Note:</b> This action is deprecated and works as expected for backward compatibility, but we won't add enhancements. Use <a>ListAttachedPolicies</a> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPrincipalPolicies</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListPrincipalPolicies service method.
 
@@ -4180,7 +4180,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListPrincipalPoliciesResponse *> *)listPrincipalPolicies:(AWSIoTListPrincipalPoliciesRequest *)request;
 
 /**
- <p>Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax">AmazonCognito Identity format</a>.</p><p><b>Note:</b> This action is deprecated. Please use <a>ListAttachedPolicies</a> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPrincipalPolicies</a> action.</p>
+ <p>Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax">AmazonCognito Identity format</a>.</p><p><b>Note:</b> This action is deprecated and works as expected for backward compatibility, but we won't add enhancements. Use <a>ListAttachedPolicies</a> instead.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPrincipalPolicies</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListPrincipalPolicies service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4218,7 +4218,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listPrincipalThings:(AWSIoTListPrincipalThingsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListPrincipalThingsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>A list of fleet provisioning template versions.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListProvisioningTemplateVersions</a> action.</p>
+ <p>A list of provisioning template versions.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListProvisioningTemplateVersions</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListProvisioningTemplateVersions service method.
 
@@ -4230,7 +4230,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListProvisioningTemplateVersionsResponse *> *)listProvisioningTemplateVersions:(AWSIoTListProvisioningTemplateVersionsRequest *)request;
 
 /**
- <p>A list of fleet provisioning template versions.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListProvisioningTemplateVersions</a> action.</p>
+ <p>A list of provisioning template versions.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListProvisioningTemplateVersions</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListProvisioningTemplateVersions service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4243,7 +4243,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listProvisioningTemplateVersions:(AWSIoTListProvisioningTemplateVersionsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListProvisioningTemplateVersionsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the fleet provisioning templates in your Amazon Web Services account.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListProvisioningTemplates</a> action.</p>
+ <p>Lists the provisioning templates in your Amazon Web Services account.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListProvisioningTemplates</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListProvisioningTemplates service method.
 
@@ -4255,7 +4255,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListProvisioningTemplatesResponse *> *)listProvisioningTemplates:(AWSIoTListProvisioningTemplatesRequest *)request;
 
 /**
- <p>Lists the fleet provisioning templates in your Amazon Web Services account.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListProvisioningTemplates</a> action.</p>
+ <p>Lists the provisioning templates in your Amazon Web Services account.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListProvisioningTemplates</a> action.</p>
  
  @param request A container for the necessary parameters to execute the ListProvisioningTemplates service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4822,7 +4822,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
  
  @param request A container for the necessary parameters to execute the RegisterCACertificate service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTRegisterCACertificateResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorResourceAlreadyExists`, `AWSIoTErrorRegistrationCodeValidation`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorCertificateValidation`, `AWSIoTErrorThrottling`, `AWSIoTErrorLimitExceeded`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTRegisterCACertificateResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorResourceNotFound`, `AWSIoTErrorResourceAlreadyExists`, `AWSIoTErrorRegistrationCodeValidation`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorCertificateValidation`, `AWSIoTErrorThrottling`, `AWSIoTErrorLimitExceeded`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
  
  @see AWSIoTRegisterCACertificateRequest
  @see AWSIoTRegisterCACertificateResponse
@@ -4835,7 +4835,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
  @param request A container for the necessary parameters to execute the RegisterCACertificate service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorResourceAlreadyExists`, `AWSIoTErrorRegistrationCodeValidation`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorCertificateValidation`, `AWSIoTErrorThrottling`, `AWSIoTErrorLimitExceeded`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorResourceNotFound`, `AWSIoTErrorResourceAlreadyExists`, `AWSIoTErrorRegistrationCodeValidation`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorCertificateValidation`, `AWSIoTErrorThrottling`, `AWSIoTErrorLimitExceeded`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`.
  
  @see AWSIoTRegisterCACertificateRequest
  @see AWSIoTRegisterCACertificateResponse
@@ -5763,7 +5763,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)updateMitigationAction:(AWSIoTUpdateMitigationActionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTUpdateMitigationActionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates a fleet provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateProvisioningTemplate</a> action.</p>
+ <p>Updates a provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateProvisioningTemplate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateProvisioningTemplate service method.
 
@@ -5775,7 +5775,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTUpdateProvisioningTemplateResponse *> *)updateProvisioningTemplate:(AWSIoTUpdateProvisioningTemplateRequest *)request;
 
 /**
- <p>Updates a fleet provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateProvisioningTemplate</a> action.</p>
+ <p>Updates a provisioning template.</p><p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateProvisioningTemplate</a> action.</p>
  
  @param request A container for the necessary parameters to execute the UpdateProvisioningTemplate service method.
  @param completionHandler The completion handler to call when the load request is complete.
