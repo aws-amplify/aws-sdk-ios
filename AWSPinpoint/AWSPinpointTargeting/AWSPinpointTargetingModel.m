@@ -6626,6 +6626,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 	return @{
              @"activities" : @"Activities",
              @"applicationId" : @"ApplicationId",
+             @"closedDays" : @"ClosedDays",
              @"creationDate" : @"CreationDate",
              @"identifier" : @"Id",
              @"journeyChannelSettings" : @"JourneyChannelSettings",
@@ -6633,10 +6634,12 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
              @"limits" : @"Limits",
              @"localTime" : @"LocalTime",
              @"name" : @"Name",
+             @"openHours" : @"OpenHours",
              @"quietTime" : @"QuietTime",
              @"refreshFrequency" : @"RefreshFrequency",
              @"refreshOnSegmentUpdate" : @"RefreshOnSegmentUpdate",
              @"schedule" : @"Schedule",
+             @"sendingSchedule" : @"SendingSchedule",
              @"startActivity" : @"StartActivity",
              @"startCondition" : @"StartCondition",
              @"state" : @"State",
@@ -6653,12 +6656,20 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
     }];
 }
 
++ (NSValueTransformer *)closedDaysJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingClosedDays class]];
+}
+
 + (NSValueTransformer *)journeyChannelSettingsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingJourneyChannelSettings class]];
 }
 
 + (NSValueTransformer *)limitsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingJourneyLimits class]];
+}
+
++ (NSValueTransformer *)openHoursJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingOpenHours class]];
 }
 
 + (NSValueTransformer *)quietTimeJSONTransformer {
@@ -10594,16 +10605,19 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"activities" : @"Activities",
+             @"closedDays" : @"ClosedDays",
              @"creationDate" : @"CreationDate",
              @"journeyChannelSettings" : @"JourneyChannelSettings",
              @"lastModifiedDate" : @"LastModifiedDate",
              @"limits" : @"Limits",
              @"localTime" : @"LocalTime",
              @"name" : @"Name",
+             @"openHours" : @"OpenHours",
              @"quietTime" : @"QuietTime",
              @"refreshFrequency" : @"RefreshFrequency",
              @"refreshOnSegmentUpdate" : @"RefreshOnSegmentUpdate",
              @"schedule" : @"Schedule",
+             @"sendingSchedule" : @"SendingSchedule",
              @"startActivity" : @"StartActivity",
              @"startCondition" : @"StartCondition",
              @"state" : @"State",
@@ -10619,12 +10633,20 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
     }];
 }
 
++ (NSValueTransformer *)closedDaysJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingClosedDays class]];
+}
+
 + (NSValueTransformer *)journeyChannelSettingsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingJourneyChannelSettings class]];
 }
 
 + (NSValueTransformer *)limitsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingJourneyLimits class]];
+}
+
++ (NSValueTransformer *)openHoursJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingOpenHours class]];
 }
 
 + (NSValueTransformer *)quietTimeJSONTransformer {
@@ -10739,6 +10761,133 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 + (NSValueTransformer *)templateConfigurationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingTemplateConfiguration class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingOpenHoursRule
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"endTime" : @"EndTime",
+             @"startTime" : @"StartTime",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingOpenHours
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"CUSTOM" : @"CUSTOM",
+             @"EMAIL" : @"EMAIL",
+             @"PUSH" : @"PUSH",
+             @"SMS" : @"SMS",
+             @"VOICE" : @"VOICE",
+             };
+}
+
++ (NSValueTransformer *)CUSTOMJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONArrayDictionary:JSONDictionary arrayElementType:@"structure" withModelClass:[AWSPinpointTargetingOpenHoursRule class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONArrayDictionaryFromMapMTLDictionary:mapMTLDictionary arrayElementType:@"structure"];
+    }];
+}
+
++ (NSValueTransformer *)EMAILJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONArrayDictionary:JSONDictionary arrayElementType:@"structure" withModelClass:[AWSPinpointTargetingOpenHoursRule class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONArrayDictionaryFromMapMTLDictionary:mapMTLDictionary arrayElementType:@"structure"];
+    }];
+}
+
++ (NSValueTransformer *)PUSHJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONArrayDictionary:JSONDictionary arrayElementType:@"structure" withModelClass:[AWSPinpointTargetingOpenHoursRule class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONArrayDictionaryFromMapMTLDictionary:mapMTLDictionary arrayElementType:@"structure"];
+    }];
+}
+
++ (NSValueTransformer *)SMSJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONArrayDictionary:JSONDictionary arrayElementType:@"structure" withModelClass:[AWSPinpointTargetingOpenHoursRule class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONArrayDictionaryFromMapMTLDictionary:mapMTLDictionary arrayElementType:@"structure"];
+    }];
+}
+
++ (NSValueTransformer *)VOICEJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONArrayDictionary:JSONDictionary arrayElementType:@"structure" withModelClass:[AWSPinpointTargetingOpenHoursRule class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONArrayDictionaryFromMapMTLDictionary:mapMTLDictionary arrayElementType:@"structure"];
+    }];
+}
+
+@end
+
+@implementation AWSPinpointTargetingClosedDaysRule
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"endDateTime" : @"EndDateTime",
+             @"name" : @"Name",
+             @"startDateTime" : @"StartDateTime",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingClosedDays
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"CUSTOM" : @"CUSTOM",
+             @"EMAIL" : @"EMAIL",
+             @"PUSH" : @"PUSH",
+             @"SMS" : @"SMS",
+             @"VOICE" : @"VOICE",
+             };
+}
+
++ (NSValueTransformer *)CUSTOMJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingClosedDaysRule class]];
+}
+
++ (NSValueTransformer *)EMAILJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingClosedDaysRule class]];
+}
+
++ (NSValueTransformer *)PUSHJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingClosedDaysRule class]];
+}
+
++ (NSValueTransformer *)SMSJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingClosedDaysRule class]];
+}
+
++ (NSValueTransformer *)VOICEJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingClosedDaysRule class]];
 }
 
 @end
