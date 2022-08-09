@@ -833,6 +833,21 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 @end
 
+@implementation AWSLocationCircle
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"center" : @"Center",
+             @"radius" : @"Radius",
+             };
+}
+
+@end
+
 @implementation AWSLocationCreateGeofenceCollectionRequest
 
 + (BOOL)supportsSecureCoding {
@@ -1880,8 +1895,13 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"circle" : @"Circle",
              @"polygon" : @"Polygon",
              };
+}
+
++ (NSValueTransformer *)circleJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLocationCircle class]];
 }
 
 @end
