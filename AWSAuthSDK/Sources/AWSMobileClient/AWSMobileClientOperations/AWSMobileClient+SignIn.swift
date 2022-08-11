@@ -29,6 +29,7 @@ extension AWSMobileClient {
     ///   - completionHandler: completionHandler which will be called when result is available.
     public func signIn(username: String,
                        password: String,
+                       migrationEnabled:Bool,
                        validationData: [String: String]? = nil,
                        clientMetaData: [String: String] = [:],
                        completionHandler: @escaping ((SignInResult?, Error?) -> Void)) {

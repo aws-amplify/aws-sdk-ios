@@ -326,6 +326,36 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
     }]];
 }
 
+- (AWSTask<AWSCognitoIdentityUserSession *> *)getSessionForMigrateUser:(NSString *)username
+                                                password:(NSString *)password
+                                              migrationEnabled:(BOOL)migrationEnabled
+                                          validationData:(nullable NSArray<AWSCognitoIdentityUserAttributeType *> *)validationData
+                                          clientMetaData:(nullable NSDictionary<NSString *, NSString*> *) clientMetaData
+                                              isInitialCustomChallenge:(BOOL)isInitialCustomChallenge {
+    AWSTask *authenticationTask = nil;
+    if (self.pool.userPoolConfiguration.migrationEnabled || migrationEnabled) {
+        authenticationTask = [self migrationAuth:username
+                                        password:password
+                                  validationData:validationData
+                                  clientMetaData:clientMetaData
+                                   lastChallenge:nil];
+    } else {
+        authenticationTask = [self srpAuthInternal:username
+                                          password:password
+                                    validationData:validationData
+                                    clientMetaData:clientMetaData
+                                     lastChallenge:nil
+                          isInitialCustomChallenge:isInitialCustomChallenge];
+    }
+    
+    return [self setConfirmationStatus: [authenticationTask continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderRespondToAuthChallengeResponse *> * _Nonnull task) {
+        
+        return [self getSessionInternal:task];
+        
+    }]];
+    
+}
+
 - (AWSTask<AWSCognitoIdentityUserSession*>*) getSession:(NSString *) username
                                                password:(NSString *) password
                                          validationData:(NSArray<AWSCognitoIdentityUserAttributeType*>*) validationData
