@@ -1081,6 +1081,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSChimeSDKMessagingListSubChannelsResponse *> *)listSubChannels:(AWSChimeSDKMessagingListSubChannelsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/channels/{channelArn}/subchannels"
+                  targetPrefix:@""
+                 operationName:@"ListSubChannels"
+                   outputClass:[AWSChimeSDKMessagingListSubChannelsResponse class]];
+}
+
+- (void)listSubChannels:(AWSChimeSDKMessagingListSubChannelsRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKMessagingListSubChannelsResponse *response, NSError *error))completionHandler {
+    [[self listSubChannels:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingListSubChannelsResponse *> * _Nonnull task) {
+        AWSChimeSDKMessagingListSubChannelsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSChimeSDKMessagingListTagsForResourceResponse *> *)listTagsForResource:(AWSChimeSDKMessagingListTagsForResourceRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
