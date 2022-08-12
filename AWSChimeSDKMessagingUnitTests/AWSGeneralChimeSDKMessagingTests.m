@@ -1729,6 +1729,54 @@ static id mockNetworking = nil;
     [AWSChimeSDKMessaging removeChimeSDKMessagingForKey:key];
 }
 
+- (void)testListSubChannels {
+    NSString *key = @"testListSubChannels";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSChimeSDKMessaging registerChimeSDKMessagingWithConfiguration:configuration forKey:key];
+
+    AWSChimeSDKMessaging *awsClient = [AWSChimeSDKMessaging ChimeSDKMessagingForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSChimeSDKMessaging ChimeSDKMessagingForKey:key] listSubChannels:[AWSChimeSDKMessagingListSubChannelsRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSChimeSDKMessaging removeChimeSDKMessagingForKey:key];
+}
+
+- (void)testListSubChannelsCompletionHandler {
+    NSString *key = @"testListSubChannels";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSChimeSDKMessaging registerChimeSDKMessagingWithConfiguration:configuration forKey:key];
+
+    AWSChimeSDKMessaging *awsClient = [AWSChimeSDKMessaging ChimeSDKMessagingForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSChimeSDKMessaging ChimeSDKMessagingForKey:key] listSubChannels:[AWSChimeSDKMessagingListSubChannelsRequest new] completionHandler:^(AWSChimeSDKMessagingListSubChannelsResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSChimeSDKMessaging removeChimeSDKMessagingForKey:key];
+}
+
 - (void)testListTagsForResource {
     NSString *key = @"testListTagsForResource";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];

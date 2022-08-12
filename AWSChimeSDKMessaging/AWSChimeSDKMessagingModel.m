@@ -27,6 +27,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"readMarkerTimestamp" : @"ReadMarkerTimestamp",
+             @"subChannelId" : @"SubChannelId",
              @"types" : @"Type",
              };
 }
@@ -89,6 +90,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"channelArn" : @"ChannelArn",
              @"invitedBy" : @"InvitedBy",
              @"members" : @"Members",
+             @"subChannelId" : @"SubChannelId",
              @"types" : @"Type",
              };
 }
@@ -237,6 +239,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"channelArn" : @"ChannelArn",
              @"chimeBearer" : @"ChimeBearer",
              @"memberArns" : @"MemberArns",
+             @"subChannelId" : @"SubChannelId",
              @"types" : @"Type",
              };
 }
@@ -299,6 +302,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"channelFlowArn" : @"ChannelFlowArn",
              @"createdBy" : @"CreatedBy",
              @"createdTimestamp" : @"CreatedTimestamp",
+             @"elasticChannelConfiguration" : @"ElasticChannelConfiguration",
              @"lastMessageTimestamp" : @"LastMessageTimestamp",
              @"lastUpdatedTimestamp" : @"LastUpdatedTimestamp",
              @"metadata" : @"Metadata",
@@ -318,6 +322,10 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
++ (NSValueTransformer *)elasticChannelConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKMessagingElasticChannelConfiguration class]];
 }
 
 + (NSValueTransformer *)lastMessageTimestampJSONTransformer {
@@ -598,6 +606,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"invitedBy" : @"InvitedBy",
              @"lastUpdatedTimestamp" : @"LastUpdatedTimestamp",
              @"member" : @"Member",
+             @"subChannelId" : @"SubChannelId",
              @"types" : @"Type",
              };
 }
@@ -728,6 +737,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"redacted" : @"Redacted",
              @"sender" : @"Sender",
              @"status" : @"Status",
+             @"subChannelId" : @"SubChannelId",
              @"types" : @"Type",
              };
 }
@@ -829,6 +839,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"messageId" : @"MessageId",
              @"metadata" : @"Metadata",
              @"pushNotification" : @"PushNotification",
+             @"subChannelId" : @"SubChannelId",
              };
 }
 
@@ -1201,6 +1212,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"channelArn" : @"ChannelArn",
              @"chimeBearer" : @"ChimeBearer",
              @"memberArn" : @"MemberArn",
+             @"subChannelId" : @"SubChannelId",
              @"types" : @"Type",
              };
 }
@@ -1238,6 +1250,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
 	return @{
              @"channelArn" : @"ChannelArn",
              @"member" : @"Member",
+             @"subChannelId" : @"SubChannelId",
              };
 }
 
@@ -1294,6 +1307,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"channelId" : @"ChannelId",
              @"chimeBearer" : @"ChimeBearer",
              @"clientRequestToken" : @"ClientRequestToken",
+             @"elasticChannelConfiguration" : @"ElasticChannelConfiguration",
              @"memberArns" : @"MemberArns",
              @"metadata" : @"Metadata",
              @"mode" : @"Mode",
@@ -1302,6 +1316,10 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"privacy" : @"Privacy",
              @"tags" : @"Tags",
              };
+}
+
++ (NSValueTransformer *)elasticChannelConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKMessagingElasticChannelConfiguration class]];
 }
 
 + (NSValueTransformer *)modeJSONTransformer {
@@ -1407,6 +1425,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"channelArn" : @"ChannelArn",
              @"chimeBearer" : @"ChimeBearer",
              @"memberArn" : @"MemberArn",
+             @"subChannelId" : @"SubChannelId",
              };
 }
 
@@ -1423,6 +1442,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"channelArn" : @"ChannelArn",
              @"chimeBearer" : @"ChimeBearer",
              @"messageId" : @"MessageId",
+             @"subChannelId" : @"SubChannelId",
              };
 }
 
@@ -1454,6 +1474,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
 	return @{
              @"channelArn" : @"ChannelArn",
              @"chimeBearer" : @"ChimeBearer",
+             @"subChannelId" : @"SubChannelId",
              };
 }
 
@@ -1570,6 +1591,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"channelArn" : @"ChannelArn",
              @"chimeBearer" : @"ChimeBearer",
              @"memberArn" : @"MemberArn",
+             @"subChannelId" : @"SubChannelId",
              };
 }
 
@@ -1710,6 +1732,22 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
 
 @end
 
+@implementation AWSChimeSDKMessagingElasticChannelConfiguration
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maximumSubChannels" : @"MaximumSubChannels",
+             @"minimumMembershipPercentage" : @"MinimumMembershipPercentage",
+             @"targetMembershipsPerSubChannel" : @"TargetMembershipsPerSubChannel",
+             };
+}
+
+@end
+
 @implementation AWSChimeSDKMessagingGetChannelMembershipPreferencesRequest
 
 + (BOOL)supportsSecureCoding {
@@ -1761,6 +1799,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"channelArn" : @"ChannelArn",
              @"chimeBearer" : @"ChimeBearer",
              @"messageId" : @"MessageId",
+             @"subChannelId" : @"SubChannelId",
              };
 }
 
@@ -1795,6 +1834,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"channelArn" : @"ChannelArn",
              @"chimeBearer" : @"ChimeBearer",
              @"messageId" : @"MessageId",
+             @"subChannelId" : @"SubChannelId",
              };
 }
 
@@ -2010,6 +2050,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"chimeBearer" : @"ChimeBearer",
              @"maxResults" : @"MaxResults",
              @"nextToken" : @"NextToken",
+             @"subChannelId" : @"SubChannelId",
              @"types" : @"Type",
              };
 }
@@ -2072,6 +2113,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"notAfter" : @"NotAfter",
              @"notBefore" : @"NotBefore",
              @"sortOrder" : @"SortOrder",
+             @"subChannelId" : @"SubChannelId",
              };
 }
 
@@ -2125,6 +2167,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"channelArn" : @"ChannelArn",
              @"channelMessages" : @"ChannelMessages",
              @"nextToken" : @"NextToken",
+             @"subChannelId" : @"SubChannelId",
              };
 }
 
@@ -2296,6 +2339,43 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
 
 + (NSValueTransformer *)channelsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSChimeSDKMessagingChannelSummary class]];
+}
+
+@end
+
+@implementation AWSChimeSDKMessagingListSubChannelsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"channelArn" : @"ChannelArn",
+             @"chimeBearer" : @"ChimeBearer",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
+@end
+
+@implementation AWSChimeSDKMessagingListSubChannelsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"channelArn" : @"ChannelArn",
+             @"nextToken" : @"NextToken",
+             @"subChannels" : @"SubChannels",
+             };
+}
+
++ (NSValueTransformer *)subChannelsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSChimeSDKMessagingSubChannelSummary class]];
 }
 
 @end
@@ -2554,6 +2634,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"channelArn" : @"ChannelArn",
              @"chimeBearer" : @"ChimeBearer",
              @"messageId" : @"MessageId",
+             @"subChannelId" : @"SubChannelId",
              };
 }
 
@@ -2569,6 +2650,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
 	return @{
              @"channelArn" : @"ChannelArn",
              @"messageId" : @"MessageId",
+             @"subChannelId" : @"SubChannelId",
              };
 }
 
@@ -2683,6 +2765,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"metadata" : @"Metadata",
              @"persistence" : @"Persistence",
              @"pushNotification" : @"PushNotification",
+             @"subChannelId" : @"SubChannelId",
              @"types" : @"Type",
              };
 }
@@ -2754,11 +2837,27 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"channelArn" : @"ChannelArn",
              @"messageId" : @"MessageId",
              @"status" : @"Status",
+             @"subChannelId" : @"SubChannelId",
              };
 }
 
 + (NSValueTransformer *)statusJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSChimeSDKMessagingChannelMessageStatusStructure class]];
+}
+
+@end
+
+@implementation AWSChimeSDKMessagingSubChannelSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"membershipCount" : @"MembershipCount",
+             @"subChannelId" : @"SubChannelId",
+             };
 }
 
 @end
@@ -2859,6 +2958,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"content" : @"Content",
              @"messageId" : @"MessageId",
              @"metadata" : @"Metadata",
+             @"subChannelId" : @"SubChannelId",
              };
 }
 
@@ -2875,6 +2975,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
              @"channelArn" : @"ChannelArn",
              @"messageId" : @"MessageId",
              @"status" : @"Status",
+             @"subChannelId" : @"SubChannelId",
              };
 }
 
@@ -2894,6 +2995,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
 	return @{
              @"channelArn" : @"ChannelArn",
              @"chimeBearer" : @"ChimeBearer",
+             @"subChannelId" : @"SubChannelId",
              };
 }
 
@@ -2908,6 +3010,7 @@ NSString *const AWSChimeSDKMessagingErrorDomain = @"com.amazonaws.AWSChimeSDKMes
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"channelArn" : @"ChannelArn",
+             @"subChannelId" : @"SubChannelId",
              };
 }
 
