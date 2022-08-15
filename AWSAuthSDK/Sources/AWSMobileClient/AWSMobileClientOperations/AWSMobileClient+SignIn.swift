@@ -59,8 +59,9 @@ extension AWSMobileClient {
             if (isCustomAuth) {
                 userPassword = password
             }
-            user!.getSession(username,
+            user!.getSessionForMigrateUser(username,
                              password: password,
+                             migrationEnabled: migrationEnabled,
                              validationData: validationAttributes,
                              clientMetaData: clientMetaData,
                              isInitialCustomChallenge: isCustomAuth).continueWith { (task) -> Any? in
