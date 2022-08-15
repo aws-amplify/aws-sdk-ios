@@ -22,7 +22,8 @@
                             endpointId:(NSString *)endpointId
                 applicationLevelOptOut:(BOOL)applicationLevelOptOut
                                  debug:(BOOL)debug
-                          userDefaults:(NSUserDefaults *)userDefaults;
+                          userDefaults:(NSUserDefaults *)userDefaults
+                              keychain:(AWSUICKeyChainStore *)keychain;
 
 @end
 
@@ -55,7 +56,7 @@
                                                                                          endpointId:@"endpoint-id-123"
                                                                              applicationLevelOptOut:YES
                                                                                               debug:YES
-                                                                                       userDefaults:nil];
+                                                                                       userDefaults:[NSUserDefaults standardUserDefaults] keychain:[AWSUICKeyChainStore keyChainStoreWithService: @"com.amazonaws.AWSPinpointContext"]];
 
     NSError *error;
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:profile
@@ -82,7 +83,7 @@
                                                                                          endpointId:@"endpoint-id-123"
                                                                              applicationLevelOptOut:YES
                                                                                               debug:YES
-                                                                                       userDefaults:nil];
+                                                                                       userDefaults:[NSUserDefaults standardUserDefaults] keychain:[AWSUICKeyChainStore keyChainStoreWithService: @"com.amazonaws.AWSPinpointContext"]];
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:profile];
 
     AWSPinpointEndpointProfile *unarchivedProfile = (AWSPinpointEndpointProfile *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
