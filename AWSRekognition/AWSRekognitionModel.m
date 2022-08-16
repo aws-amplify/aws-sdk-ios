@@ -477,6 +477,44 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionReplicateProjectVersionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"destinationProjectArn" : @"DestinationProjectArn",
+             @"kmsKeyId" : @"KmsKeyId",
+             @"outputConfig" : @"OutputConfig",
+             @"sourceProjectArn" : @"SourceProjectArn",
+             @"sourceProjectVersionArn" : @"SourceProjectVersionArn",
+             @"tags" : @"Tags",
+             @"versionName" : @"VersionName",
+             };
+}
+
++ (NSValueTransformer *)outputConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionOutputConfig class]];
+}
+
+@end
+
+@implementation AWSRekognitionReplicateProjectVersionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"projectVersionArn" : @"ProjectVersionArn",
+             };
+}
+
+@end
+
 @implementation AWSRekognitionCoversBodyPart
 
 + (BOOL)supportsSecureCoding {
@@ -1127,6 +1165,30 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionDeleteProjectPolicyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"policyName" : @"PolicyName",
+             @"policyRevisionId" : @"PolicyRevisionId",
+             @"projectArn" : @"ProjectArn",
+             };
+}
+
+@end
+
+@implementation AWSRekognitionDeleteProjectPolicyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
 @implementation AWSRekognitionDeleteProjectRequest
 
 + (BOOL)supportsSecureCoding {
@@ -1236,6 +1298,15 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
         if ([value caseInsensitiveCompare:@"DELETING"] == NSOrderedSame) {
             return @(AWSRekognitionProjectVersionStatusDeleting);
         }
+        if ([value caseInsensitiveCompare:@"COPYING_IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusCopyingInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"COPYING_COMPLETED"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusCopyingCompleted);
+        }
+        if ([value caseInsensitiveCompare:@"COPYING_FAILED"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusCopyingFailed);
+        }
         return @(AWSRekognitionProjectVersionStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1257,6 +1328,12 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
                 return @"STOPPED";
             case AWSRekognitionProjectVersionStatusDeleting:
                 return @"DELETING";
+            case AWSRekognitionProjectVersionStatusCopyingInProgress:
+                return @"COPYING_IN_PROGRESS";
+            case AWSRekognitionProjectVersionStatusCopyingCompleted:
+                return @"COPYING_COMPLETED";
+            case AWSRekognitionProjectVersionStatusCopyingFailed:
+                return @"COPYING_FAILED";
             default:
                 return nil;
         }
@@ -3742,6 +3819,41 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionListProjectPoliciesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             @"projectArn" : @"ProjectArn",
+             };
+}
+
+@end
+
+@implementation AWSRekognitionListProjectPoliciesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"projectPolicies" : @"ProjectPolicies",
+             };
+}
+
++ (NSValueTransformer *)projectPoliciesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionProjectPolicy class]];
+}
+
+@end
+
 @implementation AWSRekognitionListStreamProcessorsRequest
 
 + (BOOL)supportsSecureCoding {
@@ -4047,6 +4159,41 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionProjectPolicy
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"creationTimestamp" : @"CreationTimestamp",
+             @"lastUpdatedTimestamp" : @"LastUpdatedTimestamp",
+             @"policyDocument" : @"PolicyDocument",
+             @"policyName" : @"PolicyName",
+             @"policyRevisionId" : @"PolicyRevisionId",
+             @"projectArn" : @"ProjectArn",
+             };
+}
+
++ (NSValueTransformer *)creationTimestampJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)lastUpdatedTimestampJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
 @implementation AWSRekognitionProjectVersionDescription
 
 + (BOOL)supportsSecureCoding {
@@ -4060,9 +4207,11 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
              @"evaluationResult" : @"EvaluationResult",
              @"kmsKeyId" : @"KmsKeyId",
              @"manifestSummary" : @"ManifestSummary",
+             @"maxInferenceUnits" : @"MaxInferenceUnits",
              @"minInferenceUnits" : @"MinInferenceUnits",
              @"outputConfig" : @"OutputConfig",
              @"projectVersionArn" : @"ProjectVersionArn",
+             @"sourceProjectVersionArn" : @"SourceProjectVersionArn",
              @"status" : @"Status",
              @"statusMessage" : @"StatusMessage",
              @"testingDataResult" : @"TestingDataResult",
@@ -4120,6 +4269,15 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
         if ([value caseInsensitiveCompare:@"DELETING"] == NSOrderedSame) {
             return @(AWSRekognitionProjectVersionStatusDeleting);
         }
+        if ([value caseInsensitiveCompare:@"COPYING_IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusCopyingInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"COPYING_COMPLETED"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusCopyingCompleted);
+        }
+        if ([value caseInsensitiveCompare:@"COPYING_FAILED"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusCopyingFailed);
+        }
         return @(AWSRekognitionProjectVersionStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -4141,6 +4299,12 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
                 return @"STOPPED";
             case AWSRekognitionProjectVersionStatusDeleting:
                 return @"DELETING";
+            case AWSRekognitionProjectVersionStatusCopyingInProgress:
+                return @"COPYING_IN_PROGRESS";
+            case AWSRekognitionProjectVersionStatusCopyingCompleted:
+                return @"COPYING_COMPLETED";
+            case AWSRekognitionProjectVersionStatusCopyingFailed:
+                return @"COPYING_FAILED";
             default:
                 return nil;
         }
@@ -4267,6 +4431,37 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
              @"personsIndeterminate" : @"PersonsIndeterminate",
              @"personsWithRequiredEquipment" : @"PersonsWithRequiredEquipment",
              @"personsWithoutRequiredEquipment" : @"PersonsWithoutRequiredEquipment",
+             };
+}
+
+@end
+
+@implementation AWSRekognitionPutProjectPolicyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"policyDocument" : @"PolicyDocument",
+             @"policyName" : @"PolicyName",
+             @"policyRevisionId" : @"PolicyRevisionId",
+             @"projectArn" : @"ProjectArn",
+             };
+}
+
+@end
+
+@implementation AWSRekognitionPutProjectPolicyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"policyRevisionId" : @"PolicyRevisionId",
              };
 }
 
@@ -4907,6 +5102,7 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"maxInferenceUnits" : @"MaxInferenceUnits",
              @"minInferenceUnits" : @"MinInferenceUnits",
              @"projectVersionArn" : @"ProjectVersionArn",
              };
@@ -4955,6 +5151,15 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
         if ([value caseInsensitiveCompare:@"DELETING"] == NSOrderedSame) {
             return @(AWSRekognitionProjectVersionStatusDeleting);
         }
+        if ([value caseInsensitiveCompare:@"COPYING_IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusCopyingInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"COPYING_COMPLETED"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusCopyingCompleted);
+        }
+        if ([value caseInsensitiveCompare:@"COPYING_FAILED"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusCopyingFailed);
+        }
         return @(AWSRekognitionProjectVersionStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -4976,6 +5181,12 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
                 return @"STOPPED";
             case AWSRekognitionProjectVersionStatusDeleting:
                 return @"DELETING";
+            case AWSRekognitionProjectVersionStatusCopyingInProgress:
+                return @"COPYING_IN_PROGRESS";
+            case AWSRekognitionProjectVersionStatusCopyingCompleted:
+                return @"COPYING_COMPLETED";
+            case AWSRekognitionProjectVersionStatusCopyingFailed:
+                return @"COPYING_FAILED";
             default:
                 return nil;
         }
@@ -5245,6 +5456,15 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
         if ([value caseInsensitiveCompare:@"DELETING"] == NSOrderedSame) {
             return @(AWSRekognitionProjectVersionStatusDeleting);
         }
+        if ([value caseInsensitiveCompare:@"COPYING_IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusCopyingInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"COPYING_COMPLETED"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusCopyingCompleted);
+        }
+        if ([value caseInsensitiveCompare:@"COPYING_FAILED"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusCopyingFailed);
+        }
         return @(AWSRekognitionProjectVersionStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -5266,6 +5486,12 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
                 return @"STOPPED";
             case AWSRekognitionProjectVersionStatusDeleting:
                 return @"DELETING";
+            case AWSRekognitionProjectVersionStatusCopyingInProgress:
+                return @"COPYING_IN_PROGRESS";
+            case AWSRekognitionProjectVersionStatusCopyingCompleted:
+                return @"COPYING_COMPLETED";
+            case AWSRekognitionProjectVersionStatusCopyingFailed:
+                return @"COPYING_FAILED";
             default:
                 return nil;
         }
