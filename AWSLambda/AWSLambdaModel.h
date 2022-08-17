@@ -238,6 +238,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaAliasConfiguration;
 @class AWSLambdaAliasRoutingConfiguration;
 @class AWSLambdaAllowedPublishers;
+@class AWSLambdaAmazonManagedKafkaEventSourceConfig;
 @class AWSLambdaCodeSigningConfig;
 @class AWSLambdaCodeSigningPolicies;
 @class AWSLambdaConcurrency;
@@ -351,6 +352,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaRemoveLayerVersionPermissionRequest;
 @class AWSLambdaRemovePermissionRequest;
 @class AWSLambdaSelfManagedEventSource;
+@class AWSLambdaSelfManagedKafkaEventSourceConfig;
 @class AWSLambdaSourceAccessConfiguration;
 @class AWSLambdaTagResourceRequest;
 @class AWSLambdaTracingConfig;
@@ -622,6 +624,19 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
+ <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
+ */
+@interface AWSLambdaAmazonManagedKafkaEventSourceConfig : AWSModel
+
+
+/**
+ <p>The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see <a>services-msk-consumer-group-id</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable consumerGroupId;
+
+@end
+
+/**
  <p>Details about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html">Code signing configuration</a>. </p>
  Required parameters: [CodeSigningConfigId, CodeSigningConfigArn, AllowedPublishers, CodeSigningPolicies, LastModified]
  */
@@ -800,7 +815,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</p></li></ul>
+ <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
+ */
+@property (nonatomic, strong) AWSLambdaAmazonManagedKafkaEventSourceConfig * _Nullable amazonManagedKafkaEventSourceConfig;
+
+/**
+ <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Self-managed Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</p></li></ul>
  */
 @property (nonatomic, strong) NSNumber * _Nullable batchSize;
 
@@ -850,7 +870,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable maximumRecordAgeInSeconds;
 
 /**
- <p>(Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>
+ <p>(Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumRetryAttempts;
 
@@ -865,9 +885,14 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable queues;
 
 /**
- <p>The Self-Managed Apache Kafka cluster to send records.</p>
+ <p>The self-managed Apache Kafka cluster to receive records from.</p>
  */
 @property (nonatomic, strong) AWSLambdaSelfManagedEventSource * _Nullable selfManagedEventSource;
+
+/**
+ <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
+ */
+@property (nonatomic, strong) AWSLambdaSelfManagedKafkaEventSourceConfig * _Nullable selfManagedKafkaEventSourceConfig;
 
 /**
  <p>An array of authentication protocols or VPC components required to secure your event source.</p>
@@ -875,7 +900,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<AWSLambdaSourceAccessConfiguration *> * _Nullable sourceAccessConfigurations;
 
 /**
- <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>
+ <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources. <code>AT_TIMESTAMP</code> is supported only for Amazon Kinesis streams.</p>
  */
 @property (nonatomic, assign) AWSLambdaEventSourcePosition startingPosition;
 
@@ -890,7 +915,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable topics;
 
 /**
- <p>(Streams only) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
+ <p>(Streams only) The duration in seconds of a processing window. The range is between 1 second and 900 seconds.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable tumblingWindowInSeconds;
 
@@ -1344,6 +1369,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
+ <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
+ */
+@property (nonatomic, strong) AWSLambdaAmazonManagedKafkaEventSourceConfig * _Nullable amazonManagedKafkaEventSourceConfig;
+
+/**
  <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p><p>Default value: Varies by service. For Amazon SQS, the default is 10. For all other services, the default is 100.</p><p>Related setting: When you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable batchSize;
@@ -1417,6 +1447,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The self-managed Apache Kafka cluster for your event source.</p>
  */
 @property (nonatomic, strong) AWSLambdaSelfManagedEventSource * _Nullable selfManagedEventSource;
+
+/**
+ <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
+ */
+@property (nonatomic, strong) AWSLambdaSelfManagedKafkaEventSourceConfig * _Nullable selfManagedKafkaEventSourceConfig;
 
 /**
  <p>An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.</p>
@@ -3525,13 +3560,26 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
+ <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
+ */
+@interface AWSLambdaSelfManagedKafkaEventSourceConfig : AWSModel
+
+
+/**
+ <p>The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see <a>services-msk-consumer-group-id</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable consumerGroupId;
+
+@end
+
+/**
  <p>To secure and define access to your event source, you can specify the authentication protocol, VPC components, or virtual host.</p>
  */
 @interface AWSLambdaSourceAccessConfiguration : AWSModel
 
 
 /**
- <p>The type of authentication protocol, VPC components, or virtual host for your event source. For example: <code>"Type":"SASL_SCRAM_512_AUTH"</code>.</p><ul><li><p><code>BASIC_AUTH</code> - (Amazon MQ) The Secrets Manager secret that stores your broker credentials.</p></li><li><p><code>BASIC_AUTH</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.</p></li><li><p><code>VPC_SUBNET</code> - The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.</p></li><li><p><code>VPC_SECURITY_GROUP</code> - The VPC security group used to manage access to your self-managed Apache Kafka brokers.</p></li><li><p><code>SASL_SCRAM_256_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.</p></li><li><p><code>SASL_SCRAM_512_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.</p></li><li><p><code>VIRTUAL_HOST</code> - (Amazon MQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.</p></li><li><p><code>CLIENT_CERTIFICATE_TLS_AUTH</code> - (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.</p></li><li><p><code>SERVER_ROOT_CA_CERTIFICATE</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers. </p></li></ul>
+ <p>The type of authentication protocol, VPC components, or virtual host for your event source. For example: <code>"Type":"SASL_SCRAM_512_AUTH"</code>.</p><ul><li><p><code>BASIC_AUTH</code> - (Amazon MQ) The Secrets Manager secret that stores your broker credentials.</p></li><li><p><code>BASIC_AUTH</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.</p></li><li><p><code>VPC_SUBNET</code> - The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.</p></li><li><p><code>VPC_SECURITY_GROUP</code> - The VPC security group used to manage access to your self-managed Apache Kafka brokers.</p></li><li><p><code>SASL_SCRAM_256_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.</p></li><li><p><code>SASL_SCRAM_512_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.</p></li><li><p><code>VIRTUAL_HOST</code> - (Amazon MQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.</p></li><li><p><code>CLIENT_CERTIFICATE_TLS_AUTH</code> - (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.</p></li><li><p><code>SERVER_ROOT_CA_CERTIFICATE</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers. </p></li></ul>
  */
 @property (nonatomic, assign) AWSLambdaSourceAccessType types;
 
@@ -3690,7 +3738,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</p></li></ul>
+ <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Self-managed Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</p></li></ul>
  */
 @property (nonatomic, strong) NSNumber * _Nullable batchSize;
 
@@ -3735,7 +3783,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable maximumRecordAgeInSeconds;
 
 /**
- <p>(Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>
+ <p>(Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumRetryAttempts;
 
@@ -3750,7 +3798,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<AWSLambdaSourceAccessConfiguration *> * _Nullable sourceAccessConfigurations;
 
 /**
- <p>(Streams only) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
+ <p>(Streams only) The duration in seconds of a processing window. The range is between 1 second and 900 seconds.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable tumblingWindowInSeconds;
 

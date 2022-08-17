@@ -28,6 +28,7 @@
 - (void) test_AWSLambdaAliasConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaAliasRoutingConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaAllowedPublishers API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaAmazonManagedKafkaEventSourceConfig API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaCodeSigningConfig API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaCodeSigningPolicies API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaConcurrency API_AVAILABLE(ios(11));
@@ -141,6 +142,7 @@
 - (void) test_AWSLambdaRemoveLayerVersionPermissionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaRemovePermissionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaSelfManagedEventSource API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaSelfManagedKafkaEventSourceConfig API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaSourceAccessConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaTagResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaTracingConfig API_AVAILABLE(ios(11));
@@ -196,6 +198,10 @@
 
 - (void) test_AWSLambdaAllowedPublishers {
     [self validateSecureCodingForClass:[AWSLambdaAllowedPublishers class]];
+}
+
+- (void) test_AWSLambdaAmazonManagedKafkaEventSourceConfig {
+    [self validateSecureCodingForClass:[AWSLambdaAmazonManagedKafkaEventSourceConfig class]];
 }
 
 - (void) test_AWSLambdaCodeSigningConfig {
@@ -648,6 +654,10 @@
 
 - (void) test_AWSLambdaSelfManagedEventSource {
     [self validateSecureCodingForClass:[AWSLambdaSelfManagedEventSource class]];
+}
+
+- (void) test_AWSLambdaSelfManagedKafkaEventSourceConfig {
+    [self validateSecureCodingForClass:[AWSLambdaSelfManagedKafkaEventSourceConfig class]];
 }
 
 - (void) test_AWSLambdaSourceAccessConfiguration {
