@@ -46,6 +46,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"DuplicateProviderException" : @(AWSCognitoIdentityProviderErrorDuplicateProvider),
                             @"EnableSoftwareTokenMFAException" : @(AWSCognitoIdentityProviderErrorEnableSoftwareTokenMFA),
                             @"ExpiredCodeException" : @(AWSCognitoIdentityProviderErrorExpiredCode),
+                            @"ForbiddenException" : @(AWSCognitoIdentityProviderErrorForbidden),
                             @"GroupExistsException" : @(AWSCognitoIdentityProviderErrorGroupExists),
                             @"InternalErrorException" : @(AWSCognitoIdentityProviderErrorInternalError),
                             @"InvalidEmailRoleAccessPolicyException" : @(AWSCognitoIdentityProviderErrorInvalidEmailRoleAccessPolicy),
