@@ -33,6 +33,8 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBErrorType) {
     AWSDynamoDBErrorGlobalTableAlreadyExists,
     AWSDynamoDBErrorGlobalTableNotFound,
     AWSDynamoDBErrorIdempotentParameterMismatch,
+    AWSDynamoDBErrorImportConflict,
+    AWSDynamoDBErrorImportNotFound,
     AWSDynamoDBErrorIndexNotFound,
     AWSDynamoDBErrorInternalServer,
     AWSDynamoDBErrorInvalidExportTime,
@@ -178,12 +180,35 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBGlobalTableStatus) {
     AWSDynamoDBGlobalTableStatusUpdating,
 };
 
+typedef NS_ENUM(NSInteger, AWSDynamoDBImportStatus) {
+    AWSDynamoDBImportStatusUnknown,
+    AWSDynamoDBImportStatusInProgress,
+    AWSDynamoDBImportStatusCompleted,
+    AWSDynamoDBImportStatusCancelling,
+    AWSDynamoDBImportStatusCancelled,
+    AWSDynamoDBImportStatusFailed,
+};
+
 typedef NS_ENUM(NSInteger, AWSDynamoDBIndexStatus) {
     AWSDynamoDBIndexStatusUnknown,
     AWSDynamoDBIndexStatusCreating,
     AWSDynamoDBIndexStatusUpdating,
     AWSDynamoDBIndexStatusDeleting,
     AWSDynamoDBIndexStatusActive,
+};
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBInputCompressionType) {
+    AWSDynamoDBInputCompressionTypeUnknown,
+    AWSDynamoDBInputCompressionTypeGzip,
+    AWSDynamoDBInputCompressionTypeZstd,
+    AWSDynamoDBInputCompressionTypeNone,
+};
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBInputFormat) {
+    AWSDynamoDBInputFormatUnknown,
+    AWSDynamoDBInputFormatDynamodbJson,
+    AWSDynamoDBInputFormatIon,
+    AWSDynamoDBInputFormatCsv,
 };
 
 typedef NS_ENUM(NSInteger, AWSDynamoDBKeyType) {
@@ -352,6 +377,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBCreateReplicationGroupMemberAction;
 @class AWSDynamoDBCreateTableInput;
 @class AWSDynamoDBCreateTableOutput;
+@class AWSDynamoDBCsvOptions;
 @class AWSDynamoDBRemove;
 @class AWSDynamoDBDeleteBackupInput;
 @class AWSDynamoDBDeleteBackupOutput;
@@ -377,6 +403,8 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBDescribeGlobalTableOutput;
 @class AWSDynamoDBDescribeGlobalTableSettingsInput;
 @class AWSDynamoDBDescribeGlobalTableSettingsOutput;
+@class AWSDynamoDBDescribeImportInput;
+@class AWSDynamoDBDescribeImportOutput;
 @class AWSDynamoDBDescribeKinesisStreamingDestinationInput;
 @class AWSDynamoDBDescribeKinesisStreamingDestinationOutput;
 @class AWSDynamoDBDescribeLimitsInput;
@@ -409,6 +437,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBGlobalTable;
 @class AWSDynamoDBGlobalTableDescription;
 @class AWSDynamoDBGlobalTableGlobalSecondaryIndexSettingsUpdate;
+@class AWSDynamoDBImportSummary;
+@class AWSDynamoDBImportTableDescription;
+@class AWSDynamoDBImportTableInput;
+@class AWSDynamoDBImportTableOutput;
+@class AWSDynamoDBInputFormatOptions;
 @class AWSDynamoDBItemCollectionMetrics;
 @class AWSDynamoDBItemResponse;
 @class AWSDynamoDBKeySchemaElement;
@@ -424,6 +457,8 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBListExportsOutput;
 @class AWSDynamoDBListGlobalTablesInput;
 @class AWSDynamoDBListGlobalTablesOutput;
+@class AWSDynamoDBListImportsInput;
+@class AWSDynamoDBListImportsOutput;
 @class AWSDynamoDBListTablesInput;
 @class AWSDynamoDBListTablesOutput;
 @class AWSDynamoDBListTagsOfResourceInput;
@@ -463,6 +498,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBRestoreTableFromBackupOutput;
 @class AWSDynamoDBRestoreTableToPointInTimeInput;
 @class AWSDynamoDBRestoreTableToPointInTimeOutput;
+@class AWSDynamoDBS3BucketSource;
 @class AWSDynamoDBSSEDescription;
 @class AWSDynamoDBSSESpecification;
 @class AWSDynamoDBScanInput;
@@ -472,6 +508,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBStreamSpecification;
 @class AWSDynamoDBTableAutoScalingDescription;
 @class AWSDynamoDBTableClassSummary;
+@class AWSDynamoDBTableCreationParameters;
 @class AWSDynamoDBTableDescription;
 @class AWSDynamoDBTag;
 @class AWSDynamoDBTagResourceInput;
@@ -999,7 +1036,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBBatchStatementErrorCodeEnum code;
 
 /**
- <p> The error message associated with the PartiQL batch resposne. </p>
+ <p> The error message associated with the PartiQL batch response. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable message;
 
@@ -1523,6 +1560,24 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ <p> Processing options for the CSV file being imported. </p>
+ */
+@interface AWSDynamoDBCsvOptions : AWSModel
+
+
+/**
+ <p> The delimiter used for separating items in the CSV file being imported. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable delimiter;
+
+/**
+ <p> List of the headers used to specify a common header for all source CSV files being imported. If this field is specified then the first line of each CSV file is treated as data instead of the header. If this field is not specified the the first line of each CSV file is treated as the header. </p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable headerList;
+
+@end
+
+/**
  <p>Represents a request to perform a <code>DeleteItem</code> operation.</p>
  Required parameters: [Key, TableName]
  */
@@ -1967,6 +2022,32 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 /**
  
  */
+@interface AWSDynamoDBDescribeImportInput : AWSRequest
+
+
+/**
+ <p> The Amazon Resource Name (ARN) associated with the table you're importing to. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable importArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBDescribeImportOutput : AWSModel
+
+
+/**
+ <p> Represents the properties of the table created for the import, and parameters of the import. The import parameters include import status, how many items were processed, and how many errors were encountered. </p>
+ */
+@property (nonatomic, strong) AWSDynamoDBImportTableDescription * _Nullable importTableDescription;
+
+@end
+
+/**
+ 
+ */
 @interface AWSDynamoDBDescribeKinesisStreamingDestinationInput : AWSRequest
 
 
@@ -2392,7 +2473,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>Providing a <code>ClientToken</code> makes the call to <code>ExportTableToPointInTimeInput</code> idempotent, meaning that multiple identical calls have the same effect as one single call.</p><p>A client token is valid for 8 hours after the first request that uses it is completed. After 8 hours, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 8 hours, or the result might not be idempotent.</p><p>If you submit a request with the same client token but a change in other parameters within the 8-hour idempotency window, DynamoDB returns an <code>IdempotentParameterMismatch</code> exception.</p>
+ <p>Providing a <code>ClientToken</code> makes the call to <code>ExportTableToPointInTimeInput</code> idempotent, meaning that multiple identical calls have the same effect as one single call.</p><p>A client token is valid for 8 hours after the first request that uses it is completed. After 8 hours, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 8 hours, or the result might not be idempotent.</p><p>If you submit a request with the same client token but a change in other parameters within the 8-hour idempotency window, DynamoDB returns an <code>ImportConflictException</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -2787,6 +2868,221 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ <p> Summary information about the source file for the import. </p>
+ */
+@interface AWSDynamoDBImportSummary : AWSModel
+
+
+/**
+ <p> The Amazon Resource Number (ARN) of the Cloudwatch Log Group associated with this import task. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable cloudWatchLogGroupArn;
+
+/**
+ <p> The time at which this import task ended. (Does this include the successful complete creation of the table it was imported to?) </p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable endTime;
+
+/**
+ <p> The Amazon Resource Number (ARN) corresponding to the import request. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable importArn;
+
+/**
+ <p> The status of the import operation. </p>
+ */
+@property (nonatomic, assign) AWSDynamoDBImportStatus importStatus;
+
+/**
+ <p> The format of the source data. Valid values are <code>CSV</code>, <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBInputFormat inputFormat;
+
+/**
+ <p> The path and S3 bucket of the source file that is being imported. This includes the S3Bucket (required), S3KeyPrefix (optional) and S3BucketOwner (optional if the bucket is owned by the requester). </p>
+ */
+@property (nonatomic, strong) AWSDynamoDBS3BucketSource * _Nullable s3BucketSource;
+
+/**
+ <p> The time at which this import task began. </p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable startTime;
+
+/**
+ <p> The Amazon Resource Number (ARN) of the table being imported into. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableArn;
+
+@end
+
+/**
+ <p> Represents the properties of the table being imported into. </p>
+ */
+@interface AWSDynamoDBImportTableDescription : AWSModel
+
+
+/**
+ <p> The client token that was provided for the import task. Reusing the client token on retry makes a call to <code>ImportTable</code> idempotent. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p> The Amazon Resource Number (ARN) of the Cloudwatch Log Group associated with the target table. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable cloudWatchLogGroupArn;
+
+/**
+ <p> The time at which the creation of the table associated with this import task completed. </p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable endTime;
+
+/**
+ <p> The number of errors occurred on importing the source file into the target table. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable errorCount;
+
+/**
+ <p> The error code corresponding to the failure that the import job ran into during execution. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable failureCode;
+
+/**
+ <p> The error message corresponding to the failure that the import job ran into during execution. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable failureMessage;
+
+/**
+ <p> The Amazon Resource Number (ARN) corresponding to the import request. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable importArn;
+
+/**
+ <p> The status of the import. </p>
+ */
+@property (nonatomic, assign) AWSDynamoDBImportStatus importStatus;
+
+/**
+ <p> The number of items successfully imported into the new table. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable importedItemCount;
+
+/**
+ <p> The compression options for the data that has been imported into the target table. The values are NONE, GZIP, or ZSTD. </p>
+ */
+@property (nonatomic, assign) AWSDynamoDBInputCompressionType inputCompressionType;
+
+/**
+ <p> The format of the source data going into the target table. </p>
+ */
+@property (nonatomic, assign) AWSDynamoDBInputFormat inputFormat;
+
+/**
+ <p> The format options for the data that was imported into the target table. There is one value, CsvOption. </p>
+ */
+@property (nonatomic, strong) AWSDynamoDBInputFormatOptions * _Nullable inputFormatOptions;
+
+/**
+ <p> The total number of items processed from the source file. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable processedItemCount;
+
+/**
+ <p> The total size of data processed from the source file, in Bytes. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable processedSizeBytes;
+
+/**
+ <p> Values for the S3 bucket the source file is imported from. Includes bucket name (required), key prefix (optional) and bucket account owner ID (optional). </p>
+ */
+@property (nonatomic, strong) AWSDynamoDBS3BucketSource * _Nullable s3BucketSource;
+
+/**
+ <p> The time when this import task started. </p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable startTime;
+
+/**
+ <p> The Amazon Resource Number (ARN) of the table being imported into. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableArn;
+
+/**
+ <p> The parameters for the new table that is being imported into. </p>
+ */
+@property (nonatomic, strong) AWSDynamoDBTableCreationParameters * _Nullable tableCreationParameters;
+
+/**
+ <p> The table id corresponding to the table created by import table process. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBImportTableInput : AWSRequest
+
+
+/**
+ <p>Providing a <code>ClientToken</code> makes the call to <code>ImportTableInput</code> idempotent, meaning that multiple identical calls have the same effect as one single call.</p><p>A client token is valid for 8 hours after the first request that uses it is completed. After 8 hours, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 8 hours, or the result might not be idempotent.</p><p>If you submit a request with the same client token but a change in other parameters within the 8-hour idempotency window, DynamoDB returns an <code>IdempotentParameterMismatch</code> exception.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p> Type of compression to be used on the input coming from the imported table. </p>
+ */
+@property (nonatomic, assign) AWSDynamoDBInputCompressionType inputCompressionType;
+
+/**
+ <p> The format of the source data. Valid values for <code>ImportFormat</code> are <code>CSV</code>, <code>DYNAMODB_JSON</code> or <code>ION</code>. </p>
+ */
+@property (nonatomic, assign) AWSDynamoDBInputFormat inputFormat;
+
+/**
+ <p> Additional properties that specify how the input is formatted, </p>
+ */
+@property (nonatomic, strong) AWSDynamoDBInputFormatOptions * _Nullable inputFormatOptions;
+
+/**
+ <p> The S3 bucket that provides the source for the import. </p>
+ */
+@property (nonatomic, strong) AWSDynamoDBS3BucketSource * _Nullable s3BucketSource;
+
+/**
+ <p>Parameters for the table to import the data into. </p>
+ */
+@property (nonatomic, strong) AWSDynamoDBTableCreationParameters * _Nullable tableCreationParameters;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBImportTableOutput : AWSModel
+
+
+/**
+ <p> Represents the properties of the table created for the import, and parameters of the import. The import parameters include import status, how many items were processed, and how many errors were encountered. </p>
+ */
+@property (nonatomic, strong) AWSDynamoDBImportTableDescription * _Nullable importTableDescription;
+
+@end
+
+/**
+ <p> The format options for the data that was imported into the target table. There is one value, CsvOption.</p>
+ */
+@interface AWSDynamoDBInputFormatOptions : AWSModel
+
+
+/**
+ <p> The options for imported source files in CSV format. The values are Delimiter and HeaderList. </p>
+ */
+@property (nonatomic, strong) AWSDynamoDBCsvOptions * _Nullable csv;
+
+@end
+
+/**
  <p>Information about item collections, if any, that were affected by the operation. <code>ItemCollectionMetrics</code> is only returned if the request asked for it. If the table does not have any local secondary indexes, this information is not returned in the response.</p>
  */
 @interface AWSDynamoDBItemCollectionMetrics : AWSModel
@@ -3110,6 +3406,47 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>Last evaluated global table name.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable lastEvaluatedGlobalTableName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBListImportsInput : AWSRequest
+
+
+/**
+ <p> An optional string that, if supplied, must be copied from the output of a previous call to <code>ListImports</code>. When provided in this manner, the API fetches the next page of results. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p> The number of <code>ImportSummary </code>objects returned in a single page. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable pageSize;
+
+/**
+ <p> The Amazon Resource Name (ARN) associated with the table that was imported to. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBListImportsOutput : AWSModel
+
+
+/**
+ <p> A list of <code>ImportSummary</code> objects. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBImportSummary *> * _Nullable importSummaryList;
+
+/**
+ <p> If this value is returned, there are additional results to be displayed. To retrieve them, call <code>ListImports</code> again, with <code>NextToken</code> set to this value. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
@@ -4226,6 +4563,30 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ <p> The S3 bucket that is being imported from. </p>
+ Required parameters: [S3Bucket]
+ */
+@interface AWSDynamoDBS3BucketSource : AWSModel
+
+
+/**
+ <p> The S3 bucket that is being imported from. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3Bucket;
+
+/**
+ <p> The account number of the S3 bucket that is being imported from. If the bucket is owned by the requester this is optional. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3BucketOwner;
+
+/**
+ <p> The key prefix shared by all S3 Objects that are being imported. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3KeyPrefix;
+
+@end
+
+/**
  <p>The description of the server-side encryption status on the specified table.</p>
  */
 @interface AWSDynamoDBSSEDescription : AWSModel
@@ -4542,6 +4903,50 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>The table class of the specified table. Valid values are <code>STANDARD</code> and <code>STANDARD_INFREQUENT_ACCESS</code>.</p>
  */
 @property (nonatomic, assign) AWSDynamoDBTableClass tableClass;
+
+@end
+
+/**
+ <p> The parameters for the table created as part of the import operation. </p>
+ Required parameters: [TableName, AttributeDefinitions, KeySchema]
+ */
+@interface AWSDynamoDBTableCreationParameters : AWSModel
+
+
+/**
+ <p> The attributes of the table created as part of the import operation. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBAttributeDefinition *> * _Nullable attributeDefinitions;
+
+/**
+ <p> The billing mode for provisioning the table created as part of the import operation. </p>
+ */
+@property (nonatomic, assign) AWSDynamoDBBillingMode billingMode;
+
+/**
+ <p> The Global Secondary Indexes (GSI) of the table to be created as part of the import operation. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBGlobalSecondaryIndex *> * _Nullable globalSecondaryIndexes;
+
+/**
+ <p> The primary key and option sort key of the table created as part of the import operation. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBKeySchemaElement *> * _Nullable keySchema;
+
+/**
+ <p>Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the <code>UpdateTable</code> operation.</p><p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBProvisionedThroughput * _Nullable provisionedThroughput;
+
+/**
+ <p>Represents the settings used to enable server-side encryption.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBSSESpecification * _Nullable SSESpecification;
+
+/**
+ <p> The name of the table created as part of the import operation. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
 
 @end
 
