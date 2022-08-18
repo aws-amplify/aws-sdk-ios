@@ -4,6 +4,11 @@
 
 -Features for next release
 
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSCognitoIdentityProvider
+
 ## 2.27.13
 
 ### Bug Fixes
