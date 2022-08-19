@@ -1788,6 +1788,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectGetCurrentUserDataResponse *> *)getCurrentUserData:(AWSConnectGetCurrentUserDataRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/metrics/userdata/{InstanceId}"
+                  targetPrefix:@""
+                 operationName:@"GetCurrentUserData"
+                   outputClass:[AWSConnectGetCurrentUserDataResponse class]];
+}
+
+- (void)getCurrentUserData:(AWSConnectGetCurrentUserDataRequest *)request
+     completionHandler:(void (^)(AWSConnectGetCurrentUserDataResponse *response, NSError *error))completionHandler {
+    [[self getCurrentUserData:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectGetCurrentUserDataResponse *> * _Nonnull task) {
+        AWSConnectGetCurrentUserDataResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectGetFederationTokenResponse *> *)getFederationToken:(AWSConnectGetFederationTokenRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -2628,6 +2651,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectSearchAvailablePhoneNumbersResponse *response, NSError *error))completionHandler {
     [[self searchAvailablePhoneNumbers:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectSearchAvailablePhoneNumbersResponse *> * _Nonnull task) {
         AWSConnectSearchAvailablePhoneNumbersResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectSearchSecurityProfilesResponse *> *)searchSecurityProfiles:(AWSConnectSearchSecurityProfilesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/search-security-profiles"
+                  targetPrefix:@""
+                 operationName:@"SearchSecurityProfiles"
+                   outputClass:[AWSConnectSearchSecurityProfilesResponse class]];
+}
+
+- (void)searchSecurityProfiles:(AWSConnectSearchSecurityProfilesRequest *)request
+     completionHandler:(void (^)(AWSConnectSearchSecurityProfilesResponse *response, NSError *error))completionHandler {
+    [[self searchSecurityProfiles:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectSearchSecurityProfilesResponse *> * _Nonnull task) {
+        AWSConnectSearchSecurityProfilesResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

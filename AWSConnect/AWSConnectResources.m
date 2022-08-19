@@ -192,7 +192,7 @@
         {\"shape\":\"InternalServiceException\"},\
         {\"shape\":\"AccessDeniedException\"}\
       ],\
-      \"documentation\":\"<p>Associates a contact flow with a phone number claimed to your Amazon Connect instance.</p>\"\
+      \"documentation\":\"<p>Associates a flow with a phone number claimed to your Amazon Connect instance.</p>\"\
     },\
     \"AssociateQueueQuickConnects\":{\
       \"name\":\"AssociateQueueQuickConnects\",\
@@ -301,7 +301,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Creates a contact flow for the specified Amazon Connect instance.</p> <p>You can also create and update contact flows using the <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html\\\">Amazon Connect Flow language</a>.</p>\"\
+      \"documentation\":\"<p>Creates a flow for the specified Amazon Connect instance.</p> <p>You can also create and update flows using the <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html\\\">Amazon Connect Flow language</a>.</p>\"\
     },\
     \"CreateContactFlowModule\":{\
       \"name\":\"CreateContactFlowModule\",\
@@ -323,7 +323,7 @@
         {\"shape\":\"IdempotencyException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Creates a contact flow module for the specified Amazon Connect instance. </p>\"\
+      \"documentation\":\"<p>Creates a flow module for the specified Amazon Connect instance. </p>\"\
     },\
     \"CreateHoursOfOperation\":{\
       \"name\":\"CreateHoursOfOperation\",\
@@ -561,7 +561,7 @@
         {\"shape\":\"InternalServiceException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Deletes a contact flow for the specified Amazon Connect instance.</p>\"\
+      \"documentation\":\"<p>Deletes a flow for the specified Amazon Connect instance.</p>\"\
     },\
     \"DeleteContactFlowModule\":{\
       \"name\":\"DeleteContactFlowModule\",\
@@ -579,7 +579,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Deletes the specified contact flow module.</p>\"\
+      \"documentation\":\"<p>Deletes the specified flow module.</p>\"\
     },\
     \"DeleteHoursOfOperation\":{\
       \"name\":\"DeleteHoursOfOperation\",\
@@ -793,7 +793,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Describes the specified contact flow.</p> <p>You can also create and update contact flows using the <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html\\\">Amazon Connect Flow language</a>.</p>\"\
+      \"documentation\":\"<p>Describes the specified flow.</p> <p>You can also create and update flows using the <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html\\\">Amazon Connect Flow language</a>.</p>\"\
     },\
     \"DescribeContactFlowModule\":{\
       \"name\":\"DescribeContactFlowModule\",\
@@ -811,7 +811,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Describes the specified contact flow module.</p>\"\
+      \"documentation\":\"<p>Describes the specified flow module.</p>\"\
     },\
     \"DescribeHoursOfOperation\":{\
       \"name\":\"DescribeHoursOfOperation\",\
@@ -1093,7 +1093,7 @@
         {\"shape\":\"InvalidParameterException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Remove the Lambda function from the dropdown options available in the relevant contact flow blocks.</p>\"\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Remove the Lambda function from the dropdown options available in the relevant flow blocks.</p>\"\
     },\
     \"DisassociateLexBot\":{\
       \"name\":\"DisassociateLexBot\",\
@@ -1125,7 +1125,7 @@
         {\"shape\":\"InternalServiceException\"},\
         {\"shape\":\"AccessDeniedException\"}\
       ],\
-      \"documentation\":\"<p>Removes the contact flow association from a phone number claimed to your Amazon Connect instance, if a contact flow association exists.</p>\"\
+      \"documentation\":\"<p>Removes the flow association from a phone number claimed to your Amazon Connect instance, if a flow association exists.</p>\"\
     },\
     \"DisassociateQueueQuickConnects\":{\
       \"name\":\"DisassociateQueueQuickConnects\",\
@@ -1206,6 +1206,23 @@
         {\"shape\":\"ResourceNotFoundException\"}\
       ],\
       \"documentation\":\"<p>Gets the real-time metric data from the specified Amazon Connect instance.</p> <p>For a description of each metric, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html\\\">Real-time Metrics Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
+    },\
+    \"GetCurrentUserData\":{\
+      \"name\":\"GetCurrentUserData\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/metrics/userdata/{InstanceId}\"\
+      },\
+      \"input\":{\"shape\":\"GetCurrentUserDataRequest\"},\
+      \"output\":{\"shape\":\"GetCurrentUserDataResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ResourceNotFoundException\"}\
+      ],\
+      \"documentation\":\"<p>Gets the real-time active user data from the specified Amazon Connect instance. </p>\"\
     },\
     \"GetFederationToken\":{\
       \"name\":\"GetFederationToken\",\
@@ -1325,7 +1342,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Provides information about the contact flow modules for the specified Amazon Connect instance.</p>\"\
+      \"documentation\":\"<p>Provides information about the flow modules for the specified Amazon Connect instance.</p>\"\
     },\
     \"ListContactFlows\":{\
       \"name\":\"ListContactFlows\",\
@@ -1342,7 +1359,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Provides information about the contact flows for the specified Amazon Connect instance.</p> <p>You can also create and update contact flows using the <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html\\\">Amazon Connect Flow language</a>.</p> <p>For more information about contact flows, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html\\\">Contact Flows</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
+      \"documentation\":\"<p>Provides information about the flows for the specified Amazon Connect instance.</p> <p>You can also create and update flows using the <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html\\\">Amazon Connect Flow language</a>.</p> <p>For more information about flows, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html\\\">Flows</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
     },\
     \"ListContactReferences\":{\
       \"name\":\"ListContactReferences\",\
@@ -1473,7 +1490,7 @@
         {\"shape\":\"InvalidParameterException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Returns a paginated list of all Lambda functions that display in the dropdown options in the relevant contact flow blocks.</p>\"\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Returns a paginated list of all Lambda functions that display in the dropdown options in the relevant flow blocks.</p>\"\
     },\
     \"ListLexBots\":{\
       \"name\":\"ListLexBots\",\
@@ -1830,6 +1847,23 @@
       ],\
       \"documentation\":\"<p>Searches for available phone numbers that you can claim to your Amazon Connect instance.</p>\"\
     },\
+    \"SearchSecurityProfiles\":{\
+      \"name\":\"SearchSecurityProfiles\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/search-security-profiles\"\
+      },\
+      \"input\":{\"shape\":\"SearchSecurityProfilesRequest\"},\
+      \"output\":{\"shape\":\"SearchSecurityProfilesResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Searches security profiles in an Amazon Connect instance, with optional filtering.</p>\"\
+    },\
     \"SearchUsers\":{\
       \"name\":\"SearchUsers\",\
       \"http\":{\
@@ -1878,7 +1912,7 @@
         {\"shape\":\"InternalServiceException\"},\
         {\"shape\":\"LimitExceededException\"}\
       ],\
-      \"documentation\":\"<p>Initiates a contact flow to start a new chat for the customer. Response of this API provides a token required to obtain credentials from the <a href=\\\"https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html\\\">CreateParticipantConnection</a> API in the Amazon Connect Participant Service.</p> <p>When a new chat contact is successfully created, clients must subscribe to the participantâs connection for the created chat within 5 minutes. This is achieved by invoking <a href=\\\"https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html\\\">CreateParticipantConnection</a> with WEBSOCKET and CONNECTION_CREDENTIALS. </p> <p>A 429 error occurs in the following situations:</p> <ul> <li> <p>API rate limit is exceeded. API TPS throttling returns a <code>TooManyRequests</code> exception.</p> </li> <li> <p>The <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html\\\">quota for concurrent active chats</a> is exceeded. Active chat throttling returns a <code>LimitExceededException</code>.</p> </li> </ul> <p>If you use the <code>ChatDurationInMinutes</code> parameter and receive a 400 error, your account may not support the ability to configure custom chat durations. For more information, contact Amazon Web Services Support. </p> <p>For more information about chat, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/chat.html\\\">Chat</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
+      \"documentation\":\"<p>Initiates a flow to start a new chat for the customer. Response of this API provides a token required to obtain credentials from the <a href=\\\"https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html\\\">CreateParticipantConnection</a> API in the Amazon Connect Participant Service.</p> <p>When a new chat contact is successfully created, clients must subscribe to the participantâs connection for the created chat within 5 minutes. This is achieved by invoking <a href=\\\"https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html\\\">CreateParticipantConnection</a> with WEBSOCKET and CONNECTION_CREDENTIALS. </p> <p>A 429 error occurs in the following situations:</p> <ul> <li> <p>API rate limit is exceeded. API TPS throttling returns a <code>TooManyRequests</code> exception.</p> </li> <li> <p>The <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html\\\">quota for concurrent active chats</a> is exceeded. Active chat throttling returns a <code>LimitExceededException</code>.</p> </li> </ul> <p>If you use the <code>ChatDurationInMinutes</code> parameter and receive a 400 error, your account may not support the ability to configure custom chat durations. For more information, contact Amazon Web Services Support. </p> <p>For more information about chat, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/chat.html\\\">Chat</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
     },\
     \"StartContactRecording\":{\
       \"name\":\"StartContactRecording\",\
@@ -1930,7 +1964,7 @@
         {\"shape\":\"DestinationNotAllowedException\"},\
         {\"shape\":\"OutboundContactNotPermittedException\"}\
       ],\
-      \"documentation\":\"<p>Places an outbound call to a contact, and then initiates the contact flow. It performs the actions in the contact flow that's specified (in <code>ContactFlowId</code>).</p> <p>Agents do not initiate the outbound API, which means that they do not dial the contact. If the contact flow places an outbound call to a contact, and then puts the contact in queue, the call is then routed to the agent, like any other inbound case.</p> <p>There is a 60-second dialing timeout for this operation. If the call is not connected after 60 seconds, it fails.</p> <note> <p>UK numbers with a 447 prefix are not allowed by default. Before you can dial these UK mobile numbers, you must submit a service quota increase request. For more information, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html\\\">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. </p> </note> <note> <p>Campaign calls are not allowed by default. Before you can make a call with <code>TrafficType</code> = <code>CAMPAIGN</code>, you must submit a service quota increase request. For more information, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html\\\">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. </p> </note>\"\
+      \"documentation\":\"<p>Places an outbound call to a contact, and then initiates the flow. It performs the actions in the flow that's specified (in <code>ContactFlowId</code>).</p> <p>Agents do not initiate the outbound API, which means that they do not dial the contact. If the flow places an outbound call to a contact, and then puts the contact in queue, the call is then routed to the agent, like any other inbound case.</p> <p>There is a 60-second dialing timeout for this operation. If the call is not connected after 60 seconds, it fails.</p> <note> <p>UK numbers with a 447 prefix are not allowed by default. Before you can dial these UK mobile numbers, you must submit a service quota increase request. For more information, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html\\\">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. </p> </note> <note> <p>Campaign calls are not allowed by default. Before you can make a call with <code>TrafficType</code> = <code>CAMPAIGN</code>, you must submit a service quota increase request to the quota <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#outbound-communications-quotas\\\">Amazon Connect campaigns</a>. </p> </note>\"\
     },\
     \"StartTaskContact\":{\
       \"name\":\"StartTaskContact\",\
@@ -1948,7 +1982,7 @@
         {\"shape\":\"ServiceQuotaExceededException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Initiates a contact flow to start a new task.</p>\"\
+      \"documentation\":\"<p>Initiates a flow to start a new task.</p>\"\
     },\
     \"StopContact\":{\
       \"name\":\"StopContact\",\
@@ -2027,7 +2061,7 @@
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Adds the specified tags to the specified resource.</p> <p>The supported resource types are users, routing profiles, queues, quick connects, contact flows, agent status, hours of operation, phone number, security profiles, and task templates.</p> <p>For sample policies that use tags, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html\\\">Amazon Connect Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
+      \"documentation\":\"<p>Adds the specified tags to the specified resource.</p> <p>Some of the supported resource types are agents, routing profiles, queues, quick connects, contact flows, agent statuses, hours of operation, phone numbers, security profiles, and task templates. For a complete list, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html\\\">Tagging resources in Amazon Connect</a>.</p> <p>For sample policies that use tags, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html\\\">Amazon Connect Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
     },\
     \"TransferContact\":{\
       \"name\":\"TransferContact\",\
@@ -2046,7 +2080,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Transfers contacts from one agent or queue to another agent or queue at any point after a contact is created. You can transfer a contact to another queue by providing the contact flow which orchestrates the contact to the destination queue. This gives you more control over contact handling and helps you adhere to the service level agreement (SLA) guaranteed to your customers.</p> <p>Note the following requirements:</p> <ul> <li> <p>Transfer is supported for only <code>TASK</code> contacts.</p> </li> <li> <p>Do not use both <code>QueueId</code> and <code>UserId</code> in the same call.</p> </li> <li> <p>The following contact flow types are supported: Inbound contact flow, Transfer to agent flow, and Transfer to queue flow.</p> </li> <li> <p>The <code>TransferContact</code> API can be called only on active contacts.</p> </li> <li> <p>A contact cannot be transferred more than 11 times.</p> </li> </ul>\"\
+      \"documentation\":\"<p>Transfers contacts from one agent or queue to another agent or queue at any point after a contact is created. You can transfer a contact to another queue by providing the flow which orchestrates the contact to the destination queue. This gives you more control over contact handling and helps you adhere to the service level agreement (SLA) guaranteed to your customers.</p> <p>Note the following requirements:</p> <ul> <li> <p>Transfer is supported for only <code>TASK</code> contacts.</p> </li> <li> <p>Do not use both <code>QueueId</code> and <code>UserId</code> in the same call.</p> </li> <li> <p>The following flow types are supported: Inbound flow, Transfer to agent flow, and Transfer to queue flow.</p> </li> <li> <p>The <code>TransferContact</code> API can be called only on active contacts.</p> </li> <li> <p>A contact cannot be transferred more than 11 times.</p> </li> </ul>\"\
     },\
     \"UntagResource\":{\
       \"name\":\"UntagResource\",\
@@ -2113,7 +2147,7 @@
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Creates or updates user-defined contact attributes associated with the specified contact.</p> <p>You can create or update user-defined attributes for both ongoing and completed contacts. For example, while the call is active, you can update the customer's name or the reason the customer called. You can add notes about steps that the agent took during the call that display to the next agent that takes the call. You can also update attributes for a contact using data from your CRM application and save the data with the contact in Amazon Connect. You could also flag calls for additional analysis, such as legal review or to identify abusive callers.</p> <p>Contact attributes are available in Amazon Connect for 24 months, and are then deleted. For information about CTR retention and the maximum size of the CTR attributes section, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits\\\">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>. </p> <p> <b>Important:</b> You cannot use the operation to update attributes for contacts that occurred prior to the release of the API, which was September 12, 2018. You can update attributes only for contacts that started after the release of the API. If you attempt to update attributes for a contact that occurred prior to the release of the API, a 400 error is returned. This applies also to queued callbacks that were initiated prior to the release of the API but are still active in your instance.</p>\"\
+      \"documentation\":\"<p>Creates or updates user-defined contact attributes associated with the specified contact.</p> <p>You can create or update user-defined attributes for both ongoing and completed contacts. For example, while the call is active, you can update the customer's name or the reason the customer called. You can add notes about steps that the agent took during the call that display to the next agent that takes the call. You can also update attributes for a contact using data from your CRM application and save the data with the contact in Amazon Connect. You could also flag calls for additional analysis, such as legal review or to identify abusive callers.</p> <p>Contact attributes are available in Amazon Connect for 24 months, and are then deleted. For information about contact record retention and the maximum size of the contact record attributes section, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits\\\">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>. </p>\"\
     },\
     \"UpdateContactFlowContent\":{\
       \"name\":\"UpdateContactFlowContent\",\
@@ -2130,7 +2164,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Updates the specified contact flow.</p> <p>You can also create and update contact flows using the <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html\\\">Amazon Connect Flow language</a>.</p>\"\
+      \"documentation\":\"<p>Updates the specified flow.</p> <p>You can also create and update flows using the <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html\\\">Amazon Connect Flow language</a>.</p>\"\
     },\
     \"UpdateContactFlowMetadata\":{\
       \"name\":\"UpdateContactFlowMetadata\",\
@@ -2147,7 +2181,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Updates metadata about specified contact flow.</p>\"\
+      \"documentation\":\"<p>Updates metadata about specified flow.</p>\"\
     },\
     \"UpdateContactFlowModuleContent\":{\
       \"name\":\"UpdateContactFlowModuleContent\",\
@@ -2165,7 +2199,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Updates specified contact flow module for the specified Amazon Connect instance. </p>\"\
+      \"documentation\":\"<p>Updates specified flow module for the specified Amazon Connect instance. </p>\"\
     },\
     \"UpdateContactFlowModuleMetadata\":{\
       \"name\":\"UpdateContactFlowModuleMetadata\",\
@@ -2184,7 +2218,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Updates metadata about specified contact flow module.</p>\"\
+      \"documentation\":\"<p>Updates metadata about specified flow module.</p>\"\
     },\
     \"UpdateContactFlowName\":{\
       \"name\":\"UpdateContactFlowName\",\
@@ -2201,7 +2235,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>The name of the contact flow.</p> <p>You can also create and update contact flows using the <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html\\\">Amazon Connect Flow language</a>.</p>\"\
+      \"documentation\":\"<p>The name of the flow.</p> <p>You can also create and update flows using the <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html\\\">Amazon Connect Flow language</a>.</p>\"\
     },\
     \"UpdateContactSchedule\":{\
       \"name\":\"UpdateContactSchedule\",\
@@ -2631,6 +2665,41 @@
       \"type\":\"integer\",\
       \"min\":0\
     },\
+    \"AgentContactReference\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact in this instance of Amazon Connect. </p>\"\
+        },\
+        \"Channel\":{\
+          \"shape\":\"Channel\",\
+          \"documentation\":\"<p>The channel of the contact.</p>\"\
+        },\
+        \"InitiationMethod\":{\
+          \"shape\":\"ContactInitiationMethod\",\
+          \"documentation\":\"<p>How the contact was initiated.</p>\"\
+        },\
+        \"AgentContactState\":{\
+          \"shape\":\"ContactState\",\
+          \"documentation\":\"<p>The <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html\\\">state of the contact</a>.</p>\"\
+        },\
+        \"StateStartTimestamp\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>The epoch timestamp when the contact state started.</p>\"\
+        },\
+        \"ConnectedToAgentTimestamp\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>The time at which the contact was connected to an agent.</p>\"\
+        },\
+        \"Queue\":{\"shape\":\"QueueReference\"}\
+      },\
+      \"documentation\":\"<p>Information about the <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_Contact.html\\\">contact</a> associated to the user.</p>\"\
+    },\
+    \"AgentContactReferenceList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"AgentContactReference\"}\
+    },\
     \"AgentFirstName\":{\
       \"type\":\"string\",\
       \"max\":100,\
@@ -2693,7 +2762,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about an agent status.</p>\"\
@@ -2713,6 +2782,20 @@
       \"type\":\"integer\",\
       \"max\":50,\
       \"min\":1\
+    },\
+    \"AgentStatusReference\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"StatusStartTimestamp\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>The start timestamp of the agent's status.</p>\"\
+        },\
+        \"StatusArn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the agent's status.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about the agent's status.</p>\"\
     },\
     \"AgentStatusState\":{\
       \"type\":\"string\",\
@@ -2942,7 +3025,7 @@
         },\
         \"ContactFlowId\":{\
           \"shape\":\"ContactFlowId\",\
-          \"documentation\":\"<p>The identifier of the contact flow.</p>\"\
+          \"documentation\":\"<p>The identifier of the flow.</p>\"\
         }\
       }\
     },\
@@ -3128,6 +3211,11 @@
         \"TASK\"\
       ]\
     },\
+    \"ChannelToCountMap\":{\
+      \"type\":\"map\",\
+      \"key\":{\"shape\":\"Channel\"},\
+      \"value\":{\"shape\":\"IntegerCount\"}\
+    },\
     \"Channels\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"Channel\"},\
@@ -3203,7 +3291,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"ClientToken\":{\
           \"shape\":\"ClientToken\",\
@@ -3258,7 +3346,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"PhoneNumberStatus\":{\
           \"shape\":\"PhoneNumberStatus\",\
@@ -3347,43 +3435,53 @@
       },\
       \"documentation\":\"<p>Contains information about a contact.</p>\"\
     },\
+    \"ContactFilter\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ContactStates\":{\
+          \"shape\":\"ContactStates\",\
+          \"documentation\":\"<p>A list of up to 9 <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html\\\">contact states</a>.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Filters user data based on the contact information that is associated to the users. It contains a list of <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html\\\">contact states</a>.</p>\"\
+    },\
     \"ContactFlow\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"Arn\":{\
           \"shape\":\"ARN\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the contact flow.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the flow.</p>\"\
         },\
         \"Id\":{\
           \"shape\":\"ContactFlowId\",\
-          \"documentation\":\"<p>The identifier of the contact flow.</p>\"\
+          \"documentation\":\"<p>The identifier of the flow.</p>\"\
         },\
         \"Name\":{\
           \"shape\":\"ContactFlowName\",\
-          \"documentation\":\"<p>The name of the contact flow.</p>\"\
+          \"documentation\":\"<p>The name of the flow.</p>\"\
         },\
         \"Type\":{\
           \"shape\":\"ContactFlowType\",\
-          \"documentation\":\"<p>The type of the contact flow. For descriptions of the available types, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types\\\">Choose a Contact Flow Type</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
+          \"documentation\":\"<p>The type of the flow. For descriptions of the available types, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types\\\">Choose a flow type</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
         },\
         \"State\":{\
           \"shape\":\"ContactFlowState\",\
-          \"documentation\":\"<p>The type of contact flow.</p>\"\
+          \"documentation\":\"<p>The type of flow.</p>\"\
         },\
         \"Description\":{\
           \"shape\":\"ContactFlowDescription\",\
-          \"documentation\":\"<p>The description of the contact flow.</p>\"\
+          \"documentation\":\"<p>The description of the flow.</p>\"\
         },\
         \"Content\":{\
           \"shape\":\"ContactFlowContent\",\
-          \"documentation\":\"<p>The content of the contact flow.</p>\"\
+          \"documentation\":\"<p>The content of the flow.</p>\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>One or more tags.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Contains information about a contact flow.</p>\"\
+      \"documentation\":\"<p>Contains information about a flow.</p>\"\
     },\
     \"ContactFlowContent\":{\"type\":\"string\"},\
     \"ContactFlowDescription\":{\"type\":\"string\"},\
@@ -3400,34 +3498,34 @@
         },\
         \"Id\":{\
           \"shape\":\"ContactFlowModuleId\",\
-          \"documentation\":\"<p>The identifier of the contact flow module.</p>\"\
+          \"documentation\":\"<p>The identifier of the flow module.</p>\"\
         },\
         \"Name\":{\
           \"shape\":\"ContactFlowModuleName\",\
-          \"documentation\":\"<p>The name of the contact flow module.</p>\"\
+          \"documentation\":\"<p>The name of the flow module.</p>\"\
         },\
         \"Content\":{\
           \"shape\":\"ContactFlowModuleContent\",\
-          \"documentation\":\"<p>The content of the contact flow module.</p>\"\
+          \"documentation\":\"<p>The content of the flow module.</p>\"\
         },\
         \"Description\":{\
           \"shape\":\"ContactFlowModuleDescription\",\
-          \"documentation\":\"<p>The description of the contact flow module.</p>\"\
+          \"documentation\":\"<p>The description of the flow module.</p>\"\
         },\
         \"State\":{\
           \"shape\":\"ContactFlowModuleState\",\
-          \"documentation\":\"<p>The type of contact flow module.</p>\"\
+          \"documentation\":\"<p>The type of flow module.</p>\"\
         },\
         \"Status\":{\
           \"shape\":\"ContactFlowModuleStatus\",\
-          \"documentation\":\"<p>The status of the contact flow module.</p>\"\
+          \"documentation\":\"<p>The status of the flow module.</p>\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Contains information about a contact flow module.</p>\"\
+      \"documentation\":\"<p>Contains information about a flow module.</p>\"\
     },\
     \"ContactFlowModuleContent\":{\
       \"type\":\"string\",\
@@ -3470,22 +3568,22 @@
       \"members\":{\
         \"Id\":{\
           \"shape\":\"ContactFlowModuleId\",\
-          \"documentation\":\"<p>The identifier of the contact flow module.</p>\"\
+          \"documentation\":\"<p>The identifier of the flow module.</p>\"\
         },\
         \"Arn\":{\
           \"shape\":\"ARN\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the contact flow module.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the flow module.</p>\"\
         },\
         \"Name\":{\
           \"shape\":\"ContactFlowModuleName\",\
-          \"documentation\":\"<p>The name of the contact flow module.</p>\"\
+          \"documentation\":\"<p>The name of the flow module.</p>\"\
         },\
         \"State\":{\
           \"shape\":\"ContactFlowModuleState\",\
-          \"documentation\":\"<p>The type of contact flow module.</p>\"\
+          \"documentation\":\"<p>The type of flow module.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Contains summary information about a contact flow.</p>\"\
+      \"documentation\":\"<p>Contains summary information about a flow.</p>\"\
     },\
     \"ContactFlowModulesSummaryList\":{\
       \"type\":\"list\",\
@@ -3500,7 +3598,7 @@
       \"members\":{\
         \"Message\":{\"shape\":\"Message\"}\
       },\
-      \"documentation\":\"<p>The contact flow has not been published.</p>\",\
+      \"documentation\":\"<p>The flow has not been published.</p>\",\
       \"error\":{\"httpStatusCode\":404},\
       \"exception\":true\
     },\
@@ -3516,26 +3614,26 @@
       \"members\":{\
         \"Id\":{\
           \"shape\":\"ContactFlowId\",\
-          \"documentation\":\"<p>The identifier of the contact flow.</p>\"\
+          \"documentation\":\"<p>The identifier of the flow.</p>\"\
         },\
         \"Arn\":{\
           \"shape\":\"ARN\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the contact flow.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the flow.</p>\"\
         },\
         \"Name\":{\
           \"shape\":\"ContactFlowName\",\
-          \"documentation\":\"<p>The name of the contact flow.</p>\"\
+          \"documentation\":\"<p>The name of the flow.</p>\"\
         },\
         \"ContactFlowType\":{\
           \"shape\":\"ContactFlowType\",\
-          \"documentation\":\"<p>The type of contact flow.</p>\"\
+          \"documentation\":\"<p>The type of flow.</p>\"\
         },\
         \"ContactFlowState\":{\
           \"shape\":\"ContactFlowState\",\
-          \"documentation\":\"<p>The type of contact flow.</p>\"\
+          \"documentation\":\"<p>The type of flow.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Contains summary information about a contact flow.</p> <p>You can also create and update contact flows using the <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html\\\">Amazon Connect Flow language</a>.</p>\"\
+      \"documentation\":\"<p>Contains summary information about a flow.</p> <p>You can also create and update flows using the <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html\\\">Amazon Connect Flow language</a>.</p>\"\
     },\
     \"ContactFlowSummaryList\":{\
       \"type\":\"list\",\
@@ -3593,6 +3691,25 @@
       \"key\":{\"shape\":\"ReferenceKey\"},\
       \"value\":{\"shape\":\"Reference\"}\
     },\
+    \"ContactState\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"INCOMING\",\
+        \"PENDING\",\
+        \"CONNECTING\",\
+        \"CONNECTED\",\
+        \"CONNECTED_ONHOLD\",\
+        \"MISSED\",\
+        \"ERROR\",\
+        \"ENDED\",\
+        \"REJECTED\"\
+      ]\
+    },\
+    \"ContactStates\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ContactState\"},\
+      \"max\":9\
+    },\
     \"ControlPlaneTagFilter\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -3644,7 +3761,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -3677,19 +3794,19 @@
         },\
         \"Name\":{\
           \"shape\":\"ContactFlowModuleName\",\
-          \"documentation\":\"<p>The name of the contact flow module.</p>\"\
+          \"documentation\":\"<p>The name of the flow module.</p>\"\
         },\
         \"Description\":{\
           \"shape\":\"ContactFlowModuleDescription\",\
-          \"documentation\":\"<p>The description of the contact flow module. </p>\"\
+          \"documentation\":\"<p>The description of the flow module. </p>\"\
         },\
         \"Content\":{\
           \"shape\":\"ContactFlowModuleContent\",\
-          \"documentation\":\"<p>The content of the contact flow module.</p>\"\
+          \"documentation\":\"<p>The content of the flow module.</p>\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"ClientToken\":{\
           \"shape\":\"ClientToken\",\
@@ -3703,11 +3820,11 @@
       \"members\":{\
         \"Id\":{\
           \"shape\":\"ContactFlowModuleId\",\
-          \"documentation\":\"<p>The identifier of the contact flow module.</p>\"\
+          \"documentation\":\"<p>The identifier of the flow module.</p>\"\
         },\
         \"Arn\":{\
           \"shape\":\"ARN\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the contact flow module.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the flow module.</p>\"\
         }\
       }\
     },\
@@ -3728,23 +3845,23 @@
         },\
         \"Name\":{\
           \"shape\":\"ContactFlowName\",\
-          \"documentation\":\"<p>The name of the contact flow.</p>\"\
+          \"documentation\":\"<p>The name of the flow.</p>\"\
         },\
         \"Type\":{\
           \"shape\":\"ContactFlowType\",\
-          \"documentation\":\"<p>The type of the contact flow. For descriptions of the available types, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types\\\">Choose a Contact Flow Type</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
+          \"documentation\":\"<p>The type of the flow. For descriptions of the available types, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types\\\">Choose a flow type</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
         },\
         \"Description\":{\
           \"shape\":\"ContactFlowDescription\",\
-          \"documentation\":\"<p>The description of the contact flow. </p>\"\
+          \"documentation\":\"<p>The description of the flow. </p>\"\
         },\
         \"Content\":{\
           \"shape\":\"ContactFlowContent\",\
-          \"documentation\":\"<p>The content of the contact flow. </p>\"\
+          \"documentation\":\"<p>The content of the flow. </p>\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>One or more tags.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -3753,11 +3870,11 @@
       \"members\":{\
         \"ContactFlowId\":{\
           \"shape\":\"ContactFlowId\",\
-          \"documentation\":\"<p>The identifier of the contact flow.</p>\"\
+          \"documentation\":\"<p>The identifier of the flow.</p>\"\
         },\
         \"ContactFlowArn\":{\
           \"shape\":\"ARN\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the contact flow.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the flow.</p>\"\
         }\
       }\
     },\
@@ -3794,7 +3911,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -3878,7 +3995,7 @@
         },\
         \"IntegrationArn\":{\
           \"shape\":\"ARN\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the integration.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the integration.</p> <note> <p>When integrating with Amazon Pinpoint, the Amazon Connect and Amazon Pinpoint instances must be in the same account.</p> </note>\"\
         },\
         \"SourceApplicationUrl\":{\
           \"shape\":\"URI\",\
@@ -3894,7 +4011,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -3952,7 +4069,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -3997,7 +4114,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -4052,7 +4169,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>One or more tags.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -4096,7 +4213,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -4205,7 +4322,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -4245,7 +4362,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -4312,7 +4429,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>One or more tags.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -4363,7 +4480,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -4551,7 +4668,7 @@
         },\
         \"ContactFlowModuleId\":{\
           \"shape\":\"ContactFlowModuleId\",\
-          \"documentation\":\"<p>The identifier of the contact flow module.</p>\",\
+          \"documentation\":\"<p>The identifier of the flow module.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"ContactFlowModuleId\"\
         }\
@@ -4577,7 +4694,7 @@
         },\
         \"ContactFlowId\":{\
           \"shape\":\"ContactFlowId\",\
-          \"documentation\":\"<p>The identifier of the contact flow.</p>\",\
+          \"documentation\":\"<p>The identifier of the flow.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"ContactFlowId\"\
         }\
@@ -4863,7 +4980,7 @@
         },\
         \"ContactFlowModuleId\":{\
           \"shape\":\"ContactFlowModuleId\",\
-          \"documentation\":\"<p>The identifier of the contact flow module.</p>\",\
+          \"documentation\":\"<p>The identifier of the flow module.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"ContactFlowModuleId\"\
         }\
@@ -4874,7 +4991,7 @@
       \"members\":{\
         \"ContactFlowModule\":{\
           \"shape\":\"ContactFlowModule\",\
-          \"documentation\":\"<p>Information about the contact flow module.</p>\"\
+          \"documentation\":\"<p>Information about the flow module.</p>\"\
         }\
       }\
     },\
@@ -4893,7 +5010,7 @@
         },\
         \"ContactFlowId\":{\
           \"shape\":\"ContactFlowId\",\
-          \"documentation\":\"<p>The identifier of the contact flow.</p>\",\
+          \"documentation\":\"<p>The identifier of the flow.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"ContactFlowId\"\
         }\
@@ -4904,7 +5021,7 @@
       \"members\":{\
         \"ContactFlow\":{\
           \"shape\":\"ContactFlow\",\
-          \"documentation\":\"<p>Information about the contact flow.</p>\"\
+          \"documentation\":\"<p>Information about the flow.</p>\"\
         }\
       }\
     },\
@@ -5729,6 +5846,47 @@
         }\
       }\
     },\
+    \"GetCurrentUserDataRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"Filters\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"Filters\":{\
+          \"shape\":\"UserDataFilters\",\
+          \"documentation\":\"<p>Filters up to 100 <code>Queues</code>, or up to 9 <code>ContactStates</code>. The user data is retrieved only for those users who are associated with the queues and have contacts that are in the specified <code>ContactState</code>. </p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResult100\",\
+          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"box\":true\
+        }\
+      }\
+    },\
+    \"GetCurrentUserDataResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>If there are additional results, this is the token for the next set of results.</p>\"\
+        },\
+        \"UserDataList\":{\
+          \"shape\":\"UserDataList\",\
+          \"documentation\":\"<p>A list of the user data that is returned.</p>\"\
+        }\
+      }\
+    },\
     \"GetFederationTokenRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"InstanceId\"],\
@@ -5895,7 +6053,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -5936,7 +6094,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a hierarchy group.</p>\"\
@@ -5985,6 +6143,20 @@
     \"HierarchyGroupSummaryList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"HierarchyGroupSummary\"}\
+    },\
+    \"HierarchyGroupSummaryReference\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Id\":{\
+          \"shape\":\"HierarchyGroupId\",\
+          \"documentation\":\"<p>The unique identifier for the hierarchy group.</p>\"\
+        },\
+        \"Arn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for the hierarchy group. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about the hierarchy group.</p>\"\
     },\
     \"HierarchyLevel\":{\
       \"type\":\"structure\",\
@@ -6042,6 +6214,32 @@
         }\
       },\
       \"documentation\":\"<p>Contains information about the levels of a hierarchy group.</p>\"\
+    },\
+    \"HierarchyPathReference\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"LevelOne\":{\
+          \"shape\":\"HierarchyGroupSummaryReference\",\
+          \"documentation\":\"<p>Information about level one.</p>\"\
+        },\
+        \"LevelTwo\":{\
+          \"shape\":\"HierarchyGroupSummaryReference\",\
+          \"documentation\":\"<p>Information about level two.</p>\"\
+        },\
+        \"LevelThree\":{\
+          \"shape\":\"HierarchyGroupSummaryReference\",\
+          \"documentation\":\"<p>Information about level three.</p>\"\
+        },\
+        \"LevelFour\":{\
+          \"shape\":\"HierarchyGroupSummaryReference\",\
+          \"documentation\":\"<p>Information about level four.</p>\"\
+        },\
+        \"LevelFive\":{\
+          \"shape\":\"HierarchyGroupSummaryReference\",\
+          \"documentation\":\"<p>Information about level five.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about the levels in the hierarchy group.</p>\"\
     },\
     \"HierarchyStructure\":{\
       \"type\":\"structure\",\
@@ -6229,7 +6427,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information about of the hours of operation.</p>\"\
@@ -6390,7 +6588,8 @@
         \"AUTO_RESOLVE_BEST_VOICES\",\
         \"USE_CUSTOM_TTS_VOICES\",\
         \"EARLY_MEDIA\",\
-        \"MULTI_PARTY_CONFERENCE\"\
+        \"MULTI_PARTY_CONFERENCE\",\
+        \"HIGH_VOLUME_OUTBOUND\"\
       ]\
     },\
     \"InstanceAttributeValue\":{\
@@ -6514,6 +6713,10 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"InstanceSummary\"}\
     },\
+    \"IntegerCount\":{\
+      \"type\":\"integer\",\
+      \"min\":0\
+    },\
     \"IntegrationAssociationId\":{\
       \"type\":\"string\",\
       \"max\":200,\
@@ -6588,10 +6791,10 @@
       \"members\":{\
         \"problems\":{\
           \"shape\":\"Problems\",\
-          \"documentation\":\"<p>The problems with the contact flow. Please fix before trying again.</p>\"\
+          \"documentation\":\"<p>The problems with the flow. Please fix before trying again.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>The contact flow is not valid.</p>\",\
+      \"documentation\":\"<p>The flow is not valid.</p>\",\
       \"error\":{\"httpStatusCode\":400},\
       \"exception\":true\
     },\
@@ -6917,7 +7120,7 @@
         },\
         \"ContactFlowModuleState\":{\
           \"shape\":\"ContactFlowModuleState\",\
-          \"documentation\":\"<p>The state of the contact flow module.</p>\",\
+          \"documentation\":\"<p>The state of the flow module.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"state\"\
         }\
@@ -6928,7 +7131,7 @@
       \"members\":{\
         \"ContactFlowModulesSummaryList\":{\
           \"shape\":\"ContactFlowModulesSummaryList\",\
-          \"documentation\":\"<p>Information about the contact flow module.</p>\"\
+          \"documentation\":\"<p>Information about the flow module.</p>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"NextToken\",\
@@ -6948,7 +7151,7 @@
         },\
         \"ContactFlowTypes\":{\
           \"shape\":\"ContactFlowTypes\",\
-          \"documentation\":\"<p>The type of contact flow.</p>\",\
+          \"documentation\":\"<p>The type of flow.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"contactFlowTypes\"\
         },\
@@ -6960,7 +7163,7 @@
         },\
         \"MaxResults\":{\
           \"shape\":\"MaxResult1000\",\
-          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"documentation\":\"<p>The maximum number of results to return per page. The default MaxResult size is 100.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"maxResults\"\
         }\
@@ -6971,7 +7174,7 @@
       \"members\":{\
         \"ContactFlowSummaryList\":{\
           \"shape\":\"ContactFlowSummaryList\",\
-          \"documentation\":\"<p>Information about the contact flows.</p>\"\
+          \"documentation\":\"<p>Information about the flows.</p>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"NextToken\",\
@@ -7018,7 +7221,7 @@
       \"members\":{\
         \"ReferenceSummaryList\":{\
           \"shape\":\"ReferenceSummaryList\",\
-          \"documentation\":\"<p>Information about the contact flows.</p>\"\
+          \"documentation\":\"<p>Information about the flows.</p>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"NextToken\",\
@@ -7082,7 +7285,7 @@
         },\
         \"MaxResults\":{\
           \"shape\":\"MaxResult1000\",\
-          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"documentation\":\"<p>The maximum number of results to return per page. The default MaxResult size is 100.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"maxResults\"\
         }\
@@ -7367,7 +7570,7 @@
         },\
         \"MaxResults\":{\
           \"shape\":\"MaxResult1000\",\
-          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"documentation\":\"<p>The maximum number of results to return per page. The default MaxResult size is 100.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"maxResults\"\
         }\
@@ -7481,7 +7684,7 @@
         },\
         \"MaxResults\":{\
           \"shape\":\"MaxResult1000\",\
-          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"documentation\":\"<p>The maximum number of results to return per page. The default MaxResult size is 100.</p>\",\
           \"box\":true,\
           \"location\":\"querystring\",\
           \"locationName\":\"maxResults\"\
@@ -7528,7 +7731,7 @@
         },\
         \"MaxResults\":{\
           \"shape\":\"MaxResult100\",\
-          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"documentation\":\"<p>The maximum number of results to return per page. The default MaxResult size is 100.</p>\",\
           \"box\":true,\
           \"location\":\"querystring\",\
           \"locationName\":\"maxResults\"\
@@ -7572,7 +7775,7 @@
         },\
         \"MaxResults\":{\
           \"shape\":\"MaxResult1000\",\
-          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"documentation\":\"<p>The maximum number of results to return per page. The default MaxResult size is 100.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"maxResults\"\
         }\
@@ -7609,7 +7812,7 @@
         },\
         \"MaxResults\":{\
           \"shape\":\"MaxResult1000\",\
-          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"documentation\":\"<p>The maximum number of results to return per page. The default MaxResult size is 100.</p>\",\
           \"box\":true,\
           \"location\":\"querystring\",\
           \"locationName\":\"maxResults\"\
@@ -7662,7 +7865,7 @@
         },\
         \"MaxResults\":{\
           \"shape\":\"MaxResult100\",\
-          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"documentation\":\"<p>The maximum number of results to return per page. The default MaxResult size is 100.</p>\",\
           \"box\":true,\
           \"location\":\"querystring\",\
           \"locationName\":\"maxResults\"\
@@ -7700,7 +7903,7 @@
         },\
         \"MaxResults\":{\
           \"shape\":\"MaxResult1000\",\
-          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"documentation\":\"<p>The maximum number of results to return per page. The default MaxResult size is 100.</p>\",\
           \"box\":true,\
           \"location\":\"querystring\",\
           \"locationName\":\"maxResults\"\
@@ -7823,7 +8026,7 @@
         },\
         \"MaxResults\":{\
           \"shape\":\"MaxResult1000\",\
-          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"documentation\":\"<p>The maximum number of results to return per page. The default MaxResult size is 100.</p>\",\
           \"box\":true,\
           \"location\":\"querystring\",\
           \"locationName\":\"maxResults\"\
@@ -7980,7 +8183,7 @@
         },\
         \"MaxResults\":{\
           \"shape\":\"MaxResult1000\",\
-          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"documentation\":\"<p>The maximum number of results to return per page. The default MaxResult size is 100.</p>\",\
           \"box\":true,\
           \"location\":\"querystring\",\
           \"locationName\":\"maxResults\"\
@@ -8018,7 +8221,7 @@
         },\
         \"MaxResults\":{\
           \"shape\":\"MaxResult1000\",\
-          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"documentation\":\"<p>The maximum number of results to return per page. The default MaxResult size is 100.</p>\",\
           \"box\":true,\
           \"location\":\"querystring\",\
           \"locationName\":\"maxResults\"\
@@ -8620,7 +8823,7 @@
         \"Message\":{\"shape\":\"Message\"},\
         \"PropertyList\":{\"shape\":\"PropertyValidationExceptionPropertyList\"}\
       },\
-      \"documentation\":\"<p/>\",\
+      \"documentation\":\"<p>The property is not valid.</p>\",\
       \"error\":{\"httpStatusCode\":400},\
       \"exception\":true\
     },\
@@ -8731,7 +8934,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a queue.</p>\"\
@@ -8778,10 +8981,10 @@
         },\
         \"ContactFlowId\":{\
           \"shape\":\"ContactFlowId\",\
-          \"documentation\":\"<p>The identifier of the contact flow.</p>\"\
+          \"documentation\":\"<p>The identifier of the flow.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Contains information about a queue for a quick connect. The contact flow must be of type Transfer to Queue.</p>\"\
+      \"documentation\":\"<p>Contains information about a queue for a quick connect. The flow must be of type Transfer to Queue.</p>\"\
     },\
     \"QueueReference\":{\
       \"type\":\"structure\",\
@@ -8873,7 +9076,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a quick connect.</p>\"\
@@ -9200,7 +9403,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>One or more tags.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a routing profile.</p>\"\
@@ -9311,6 +9514,20 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"RoutingProfileQueueReference\"}\
     },\
+    \"RoutingProfileReference\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Id\":{\
+          \"shape\":\"RoutingProfileId\",\
+          \"documentation\":\"<p>The identifier of the routing profile.</p>\"\
+        },\
+        \"Arn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the routing profile.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about the routing profile assigned to the user.</p>\"\
+    },\
     \"RoutingProfileSummary\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -9400,6 +9617,50 @@
         \"AvailableNumbersList\":{\
           \"shape\":\"AvailableNumbersList\",\
           \"documentation\":\"<p>A list of available phone numbers that you can claim for your Amazon Connect instance.</p>\"\
+        }\
+      }\
+    },\
+    \"SearchSecurityProfilesRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"InstanceId\"],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken2500\",\
+          \"documentation\":\"<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResult100\",\
+          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"box\":true\
+        },\
+        \"SearchCriteria\":{\
+          \"shape\":\"SecurityProfileSearchCriteria\",\
+          \"documentation\":\"<p>The search criteria to be used to return security profiles.</p>\"\
+        },\
+        \"SearchFilter\":{\
+          \"shape\":\"SecurityProfilesSearchFilter\",\
+          \"documentation\":\"<p>Filters to be applied to search results.</p>\"\
+        }\
+      }\
+    },\
+    \"SearchSecurityProfilesResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"SecurityProfiles\":{\
+          \"shape\":\"SecurityProfilesSearchSummaryList\",\
+          \"documentation\":\"<p>Information about the security profiles.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken2500\",\
+          \"documentation\":\"<p>If there are additional results, this is the token for the next set of results.</p>\"\
+        },\
+        \"ApproximateTotalCount\":{\
+          \"shape\":\"ApproximateTotalCount\",\
+          \"documentation\":\"<p>The total number of security profiles which matched your search query.</p>\"\
         }\
       }\
     },\
@@ -9535,7 +9796,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a security profile.</p>\"\
@@ -9556,6 +9817,55 @@
       \"type\":\"string\",\
       \"max\":128,\
       \"min\":1\
+    },\
+    \"SecurityProfileSearchConditionList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"SecurityProfileSearchCriteria\"}\
+    },\
+    \"SecurityProfileSearchCriteria\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"OrConditions\":{\
+          \"shape\":\"SecurityProfileSearchConditionList\",\
+          \"documentation\":\"<p>A list of conditions which would be applied together with an OR condition.</p>\"\
+        },\
+        \"AndConditions\":{\
+          \"shape\":\"SecurityProfileSearchConditionList\",\
+          \"documentation\":\"<p>A list of conditions which would be applied together with an AND condition.</p>\"\
+        },\
+        \"StringCondition\":{\"shape\":\"StringCondition\"}\
+      },\
+      \"documentation\":\"<p>The search criteria to be used to return security profiles.</p>\"\
+    },\
+    \"SecurityProfileSearchSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Id\":{\
+          \"shape\":\"SecurityProfileId\",\
+          \"documentation\":\"<p>The identifier of the security profile.</p>\"\
+        },\
+        \"OrganizationResourceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The organization resource identifier.</p>\"\
+        },\
+        \"Arn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the security profile.</p>\"\
+        },\
+        \"SecurityProfileName\":{\
+          \"shape\":\"SecurityProfileName\",\
+          \"documentation\":\"<p>The name of the security profile.</p>\"\
+        },\
+        \"Description\":{\
+          \"shape\":\"SecurityProfileDescription\",\
+          \"documentation\":\"<p>The description of the security profile.</p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagMap\",\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about the returned security profiles.</p>\"\
     },\
     \"SecurityProfileSummary\":{\
       \"type\":\"structure\",\
@@ -9578,6 +9888,17 @@
     \"SecurityProfileSummaryList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"SecurityProfileSummary\"}\
+    },\
+    \"SecurityProfilesSearchFilter\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TagFilter\":{\"shape\":\"ControlPlaneTagFilter\"}\
+      },\
+      \"documentation\":\"<p>Filters to be applied to search results.</p>\"\
+    },\
+    \"SecurityProfilesSearchSummaryList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"SecurityProfileSearchSummary\"}\
     },\
     \"SecurityToken\":{\
       \"type\":\"string\",\
@@ -9624,11 +9945,11 @@
         },\
         \"ContactFlowId\":{\
           \"shape\":\"ContactFlowId\",\
-          \"documentation\":\"<p>The identifier of the contact flow for initiating the chat. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the contact flow. On the contact flow page, under the name of the contact flow, choose <b>Show additional flow information</b>. The ContactFlowId is the last part of the ARN, shown here in bold: </p> <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b> </p>\"\
+          \"documentation\":\"<p>The identifier of the flow for initiating the chat. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the flow. On the flow page, under the name of the flow, choose <b>Show additional flow information</b>. The ContactFlowId is the last part of the ARN, shown here in bold: </p> <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b> </p>\"\
         },\
         \"Attributes\":{\
           \"shape\":\"Attributes\",\
-          \"documentation\":\"<p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes. They can be accessed in contact flows just like any other contact attributes. </p> <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.</p>\"\
+          \"documentation\":\"<p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes. They can be accessed in flows just like any other contact attributes. </p> <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.</p>\"\
         },\
         \"ParticipantDetails\":{\
           \"shape\":\"ParticipantDetails\",\
@@ -9754,7 +10075,7 @@
         },\
         \"ContactFlowId\":{\
           \"shape\":\"ContactFlowId\",\
-          \"documentation\":\"<p>The identifier of the contact flow for the outbound call. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the contact flow. On the contact flow page, under the name of the contact flow, choose <b>Show additional flow information</b>. The ContactFlowId is the last part of the ARN, shown here in bold: </p> <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b> </p>\"\
+          \"documentation\":\"<p>The identifier of the flow for the outbound call. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the flow. On the flow page, under the name of the flow, choose <b>Show additional flow information</b>. The ContactFlowId is the last part of the ARN, shown here in bold: </p> <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b> </p>\"\
         },\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
@@ -9771,11 +10092,11 @@
         },\
         \"QueueId\":{\
           \"shape\":\"QueueId\",\
-          \"documentation\":\"<p>The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.</p>\"\
+          \"documentation\":\"<p>The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the flow is used. If you do not specify a queue, you must specify a source phone number.</p>\"\
         },\
         \"Attributes\":{\
           \"shape\":\"Attributes\",\
-          \"documentation\":\"<p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in contact flows just like any other contact attributes.</p> <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.</p>\"\
+          \"documentation\":\"<p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in flows just like any other contact attributes.</p> <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.</p>\"\
         },\
         \"AnswerMachineDetectionConfig\":{\
           \"shape\":\"AnswerMachineDetectionConfig\",\
@@ -9817,11 +10138,11 @@
         },\
         \"ContactFlowId\":{\
           \"shape\":\"ContactFlowId\",\
-          \"documentation\":\"<p>The identifier of the contact flow for initiating the tasks. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the contact flow. On the contact flow page, under the name of the contact flow, choose <b>Show additional flow information</b>. The ContactFlowId is the last part of the ARN, shown here in bold: </p> <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b> </p>\"\
+          \"documentation\":\"<p>The identifier of the flow for initiating the tasks. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the flow. On the flow page, under the name of the flow, choose <b>Show additional flow information</b>. The ContactFlowId is the last part of the ARN, shown here in bold: </p> <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b> </p>\"\
         },\
         \"Attributes\":{\
           \"shape\":\"Attributes\",\
-          \"documentation\":\"<p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in contact flows just like any other contact attributes.</p> <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.</p>\"\
+          \"documentation\":\"<p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in flows just like any other contact attributes.</p> <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.</p>\"\
         },\
         \"Name\":{\
           \"shape\":\"Name\",\
@@ -9842,7 +10163,7 @@
         },\
         \"ScheduledTime\":{\
           \"shape\":\"Timestamp\",\
-          \"documentation\":\"<p>The timestamp, in Unix Epoch seconds format, at which to start running the inbound contact flow. The scheduled time cannot be in the past. It must be within up to 6 days in future. </p>\"\
+          \"documentation\":\"<p>The timestamp, in Unix Epoch seconds format, at which to start running the inbound flow. The scheduled time cannot be in the past. It must be within up to 6 days in future. </p>\"\
         },\
         \"TaskTemplateId\":{\
           \"shape\":\"TaskTemplateId\",\
@@ -10094,7 +10415,7 @@
         },\
         \"tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>One or more tags. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       }\
     },\
@@ -10335,7 +10656,7 @@
         },\
         \"ContactId\":{\
           \"shape\":\"ContactId\",\
-          \"documentation\":\"<p>The identifier of the contact in this instance of Amazon Connect </p>\"\
+          \"documentation\":\"<p>The identifier of the contact in this instance of Amazon Connect. </p>\"\
         },\
         \"QueueId\":{\
           \"shape\":\"QueueId\",\
@@ -10347,7 +10668,7 @@
         },\
         \"ContactFlowId\":{\
           \"shape\":\"ContactFlowId\",\
-          \"documentation\":\"<p>The identifier of the contact flow.</p>\"\
+          \"documentation\":\"<p>The identifier of the flow.</p>\"\
         },\
         \"ClientToken\":{\
           \"shape\":\"ClientToken\",\
@@ -10361,7 +10682,7 @@
       \"members\":{\
         \"ContactId\":{\
           \"shape\":\"ContactId\",\
-          \"documentation\":\"<p>The identifier of the contact in this instance of Amazon Connect </p>\"\
+          \"documentation\":\"<p>The identifier of the contact in this instance of Amazon Connect. </p>\"\
         },\
         \"ContactArn\":{\
           \"shape\":\"ARN\",\
@@ -10468,7 +10789,7 @@
         },\
         \"Attributes\":{\
           \"shape\":\"Attributes\",\
-          \"documentation\":\"<p>The Amazon Connect attributes. These attributes can be accessed in contact flows just like any other contact attributes.</p> <p>You can have up to 32,768 UTF-8 bytes across all attributes for a contact. Attribute keys can include only alphanumeric, dash, and underscore characters.</p>\"\
+          \"documentation\":\"<p>The Amazon Connect attributes. These attributes can be accessed in flows just like any other contact attributes.</p> <p>You can have up to 32,768 UTF-8 bytes across all attributes for a contact. Attribute keys can include only alphanumeric, dash, and underscore characters.</p>\"\
         }\
       }\
     },\
@@ -10493,13 +10814,13 @@
         },\
         \"ContactFlowId\":{\
           \"shape\":\"ContactFlowId\",\
-          \"documentation\":\"<p>The identifier of the contact flow.</p>\",\
+          \"documentation\":\"<p>The identifier of the flow.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"ContactFlowId\"\
         },\
         \"Content\":{\
           \"shape\":\"ContactFlowContent\",\
-          \"documentation\":\"<p>The JSON string that represents contact flowâs content. For an example, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/flow-language-example.html\\\">Example contact flow in Amazon Connect Flow language</a> in the <i>Amazon Connect Administrator Guide</i>. </p>\"\
+          \"documentation\":\"<p>The JSON string that represents flow's content. For an example, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/flow-language-example.html\\\">Example contact flow in Amazon Connect Flow language</a> in the <i>Amazon Connect Administrator Guide</i>. </p>\"\
         }\
       }\
     },\
@@ -10518,21 +10839,21 @@
         },\
         \"ContactFlowId\":{\
           \"shape\":\"ContactFlowId\",\
-          \"documentation\":\"<p>The identifier of the contact flow.</p>\",\
+          \"documentation\":\"<p>The identifier of the flow.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"ContactFlowId\"\
         },\
         \"Name\":{\
           \"shape\":\"ContactFlowName\",\
-          \"documentation\":\"<p>TThe name of the contact flow.</p>\"\
+          \"documentation\":\"<p>TThe name of the flow.</p>\"\
         },\
         \"Description\":{\
           \"shape\":\"ContactFlowDescription\",\
-          \"documentation\":\"<p>The description of the contact flow.</p>\"\
+          \"documentation\":\"<p>The description of the flow.</p>\"\
         },\
         \"ContactFlowState\":{\
           \"shape\":\"ContactFlowState\",\
-          \"documentation\":\"<p>The state of contact flow.</p>\"\
+          \"documentation\":\"<p>The state of flow.</p>\"\
         }\
       }\
     },\
@@ -10552,13 +10873,13 @@
         },\
         \"ContactFlowModuleId\":{\
           \"shape\":\"ContactFlowModuleId\",\
-          \"documentation\":\"<p>The identifier of the contact flow module.</p>\",\
+          \"documentation\":\"<p>The identifier of the flow module.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"ContactFlowModuleId\"\
         },\
         \"Content\":{\
           \"shape\":\"ContactFlowModuleContent\",\
-          \"documentation\":\"<p>The content of the contact flow module.</p>\"\
+          \"documentation\":\"<p>The content of the flow module.</p>\"\
         }\
       }\
     },\
@@ -10582,21 +10903,21 @@
         },\
         \"ContactFlowModuleId\":{\
           \"shape\":\"ContactFlowModuleId\",\
-          \"documentation\":\"<p>The identifier of the contact flow module.</p>\",\
+          \"documentation\":\"<p>The identifier of the flow module.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"ContactFlowModuleId\"\
         },\
         \"Name\":{\
           \"shape\":\"ContactFlowModuleName\",\
-          \"documentation\":\"<p>The name of the contact flow module.</p>\"\
+          \"documentation\":\"<p>The name of the flow module.</p>\"\
         },\
         \"Description\":{\
           \"shape\":\"ContactFlowModuleDescription\",\
-          \"documentation\":\"<p>The description of the contact flow module.</p>\"\
+          \"documentation\":\"<p>The description of the flow module.</p>\"\
         },\
         \"State\":{\
           \"shape\":\"ContactFlowModuleState\",\
-          \"documentation\":\"<p>The state of contact flow module.</p>\"\
+          \"documentation\":\"<p>The state of flow module.</p>\"\
         }\
       }\
     },\
@@ -10620,17 +10941,17 @@
         },\
         \"ContactFlowId\":{\
           \"shape\":\"ContactFlowId\",\
-          \"documentation\":\"<p>The identifier of the contact flow.</p>\",\
+          \"documentation\":\"<p>The identifier of the flow.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"ContactFlowId\"\
         },\
         \"Name\":{\
           \"shape\":\"ContactFlowName\",\
-          \"documentation\":\"<p>The name of the contact flow.</p>\"\
+          \"documentation\":\"<p>The name of the flow.</p>\"\
         },\
         \"Description\":{\
           \"shape\":\"ContactFlowDescription\",\
-          \"documentation\":\"<p>The description of the contact flow.</p>\"\
+          \"documentation\":\"<p>The description of the flow.</p>\"\
         }\
       }\
     },\
@@ -10690,7 +11011,7 @@
         },\
         \"ScheduledTime\":{\
           \"shape\":\"Timestamp\",\
-          \"documentation\":\"<p>The timestamp, in Unix Epoch seconds format, at which to start running the inbound contact flow. The scheduled time cannot be in the past. It must be within up to 6 days in future. </p>\"\
+          \"documentation\":\"<p>The timestamp, in Unix Epoch seconds format, at which to start running the inbound flow. The scheduled time cannot be in the past. It must be within up to 6 days in future. </p>\"\
         }\
       }\
     },\
@@ -11533,6 +11854,62 @@
       },\
       \"documentation\":\"<p>Contains information about a user account for a Amazon Connect instance.</p>\"\
     },\
+    \"UserData\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"User\":{\
+          \"shape\":\"UserReference\",\
+          \"documentation\":\"<p>Information about the user for the data that is returned. It contains resourceId and ARN of the user. </p>\"\
+        },\
+        \"RoutingProfile\":{\
+          \"shape\":\"RoutingProfileReference\",\
+          \"documentation\":\"<p>Information about the routing profile that is assigned to the user.</p>\"\
+        },\
+        \"HierarchyPath\":{\
+          \"shape\":\"HierarchyPathReference\",\
+          \"documentation\":\"<p>Contains information about the levels of a hierarchy group assigned to a user.</p>\"\
+        },\
+        \"Status\":{\
+          \"shape\":\"AgentStatusReference\",\
+          \"documentation\":\"<p>The status of the agent that they manually set in their Contact Control Panel (CCP), or that the supervisor manually changes in the real-time metrics report.</p>\"\
+        },\
+        \"AvailableSlotsByChannel\":{\
+          \"shape\":\"ChannelToCountMap\",\
+          \"documentation\":\"<p>A map of available slots by channel. The key is a channel name. The value is an integer: the available number of slots. </p>\"\
+        },\
+        \"MaxSlotsByChannel\":{\
+          \"shape\":\"ChannelToCountMap\",\
+          \"documentation\":\"<p>A map of maximum slots by channel. The key is a channel name. The value is an integer: the maximum number of slots. This is calculated from <a href=\\\"https://docs.aws.amazon.com/connect/latest/APIReference/API_MediaConcurrency.html\\\">MediaConcurrency</a> of the RoutingProfile assigned to the agent. </p>\"\
+        },\
+        \"ActiveSlotsByChannel\":{\
+          \"shape\":\"ChannelToCountMap\",\
+          \"documentation\":\"<p> A map of active slots by channel. The key is a channel name. The value is an integer: the number of active slots. </p>\"\
+        },\
+        \"Contacts\":{\
+          \"shape\":\"AgentContactReferenceList\",\
+          \"documentation\":\"<p>A list of contact reference information.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Data for a user.</p>\"\
+    },\
+    \"UserDataFilters\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Queues\":{\
+          \"shape\":\"Queues\",\
+          \"documentation\":\"<p>Contains information about a queue resource for which metrics are returned.</p>\"\
+        },\
+        \"ContactFilter\":{\
+          \"shape\":\"ContactFilter\",\
+          \"documentation\":\"<p>A filter for the user data based on the contact information that is associated to the user. It contains a list of contact states. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A filter for the user data.</p>\"\
+    },\
+    \"UserDataList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"UserData\"}\
+    },\
     \"UserId\":{\"type\":\"string\"},\
     \"UserIdentityInfo\":{\
       \"type\":\"structure\",\
@@ -11611,10 +11988,24 @@
         },\
         \"ContactFlowId\":{\
           \"shape\":\"ContactFlowId\",\
-          \"documentation\":\"<p>The identifier of the contact flow.</p>\"\
+          \"documentation\":\"<p>The identifier of the flow.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about the quick connect configuration settings for a user. The contact flow must be of type Transfer to Agent.</p>\"\
+    },\
+    \"UserReference\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Id\":{\
+          \"shape\":\"UserId\",\
+          \"documentation\":\"<p>The unique identifier for the user.</p>\"\
+        },\
+        \"Arn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for the user.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about the user.</p>\"\
     },\
     \"UserSearchConditionList\":{\
       \"type\":\"list\",\
@@ -11683,7 +12074,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         },\
         \"Username\":{\
           \"shape\":\"AgentUsername\",\
@@ -11764,7 +12155,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagMap\",\
-          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource.</p>\"\
+          \"documentation\":\"<p>The tags used to organize, track, or control access for this resource. For example, { \\\"tags\\\": {\\\"key1\\\":\\\"value1\\\", \\\"key2\\\":\\\"value2\\\"} }.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a custom vocabulary.</p>\"\
@@ -11894,7 +12285,7 @@
     },\
     \"timestamp\":{\"type\":\"timestamp\"}\
   },\
-  \"documentation\":\"<p>Amazon Connect is a cloud-based contact center solution that you use to set up and manage a customer contact center and provide reliable customer engagement at any scale.</p> <p>Amazon Connect provides metrics and real-time reporting that enable you to optimize contact routing. You can also resolve customer issues more efficiently by getting customers in touch with the appropriate agents.</p> <p>There are limits to the number of Amazon Connect resources that you can create. There are also limits to the number of requests that you can make per second. For more information, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html\\\">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p> <p>You can connect programmatically to an Amazon Web Services service by using an endpoint. For a list of Amazon Connect endpoints, see <a href=\\\"https://docs.aws.amazon.com/general/latest/gr/connect_region.html\\\">Amazon Connect Endpoints</a>.</p> <note> <p>Working with contact flows? Check out the <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html\\\">Amazon Connect Flow language</a>.</p> </note>\"\
+  \"documentation\":\"<p>Amazon Connect is a cloud-based contact center solution that you use to set up and manage a customer contact center and provide reliable customer engagement at any scale.</p> <p>Amazon Connect provides metrics and real-time reporting that enable you to optimize contact routing. You can also resolve customer issues more efficiently by getting customers in touch with the appropriate agents.</p> <p>There are limits to the number of Amazon Connect resources that you can create. There are also limits to the number of requests that you can make per second. For more information, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html\\\">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p> <p>You can connect programmatically to an Amazon Web Services service by using an endpoint. For a list of Amazon Connect endpoints, see <a href=\\\"https://docs.aws.amazon.com/general/latest/gr/connect_region.html\\\">Amazon Connect Endpoints</a>.</p> <note> <p>Working with flows? Check out the <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html\\\">Amazon Connect Flow language</a>.</p> </note>\"\
 }\
 ";
 }
