@@ -87,6 +87,8 @@
 - (void) test_AWSEC2AssociateSubnetCidrBlockResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AssociateTransitGatewayMulticastDomainRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AssociateTransitGatewayMulticastDomainResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2AssociateTransitGatewayPolicyTableRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2AssociateTransitGatewayPolicyTableResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AssociateTransitGatewayRouteTableRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AssociateTransitGatewayRouteTableResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AssociateTrunkInterfaceRequest API_AVAILABLE(ios(11));
@@ -182,6 +184,8 @@
 - (void) test_AWSEC2ClientVpnEndpointStatus API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ClientVpnRoute API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ClientVpnRouteStatus API_AVAILABLE(ios(11));
+- (void) test_AWSEC2CloudWatchLogOptions API_AVAILABLE(ios(11));
+- (void) test_AWSEC2CloudWatchLogOptionsSpecification API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CoipAddressUsage API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CoipPool API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ConfirmProductInstanceRequest API_AVAILABLE(ios(11));
@@ -309,13 +313,18 @@
 - (void) test_AWSEC2CreateTransitGatewayMulticastDomainRequestOptions API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateTransitGatewayMulticastDomainResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateTransitGatewayPeeringAttachmentRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2CreateTransitGatewayPeeringAttachmentRequestOptions API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateTransitGatewayPeeringAttachmentResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2CreateTransitGatewayPolicyTableRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2CreateTransitGatewayPolicyTableResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateTransitGatewayPrefixListReferenceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateTransitGatewayPrefixListReferenceResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateTransitGatewayRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateTransitGatewayResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateTransitGatewayRouteRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateTransitGatewayRouteResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2CreateTransitGatewayRouteTableAnnouncementRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2CreateTransitGatewayRouteTableAnnouncementResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateTransitGatewayRouteTableRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateTransitGatewayRouteTableResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateTransitGatewayVpcAttachmentRequest API_AVAILABLE(ios(11));
@@ -429,12 +438,16 @@
 - (void) test_AWSEC2DeleteTransitGatewayMulticastDomainResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteTransitGatewayPeeringAttachmentRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteTransitGatewayPeeringAttachmentResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DeleteTransitGatewayPolicyTableRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DeleteTransitGatewayPolicyTableResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteTransitGatewayPrefixListReferenceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteTransitGatewayPrefixListReferenceResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteTransitGatewayRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteTransitGatewayResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteTransitGatewayRouteRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteTransitGatewayRouteResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DeleteTransitGatewayRouteTableAnnouncementRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DeleteTransitGatewayRouteTableAnnouncementResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteTransitGatewayRouteTableRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteTransitGatewayRouteTableResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteTransitGatewayVpcAttachmentRequest API_AVAILABLE(ios(11));
@@ -692,6 +705,10 @@
 - (void) test_AWSEC2DescribeTransitGatewayMulticastDomainsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeTransitGatewayPeeringAttachmentsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeTransitGatewayPeeringAttachmentsResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DescribeTransitGatewayPolicyTablesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DescribeTransitGatewayPolicyTablesResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DescribeTransitGatewayRouteTableAnnouncementsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DescribeTransitGatewayRouteTableAnnouncementsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeTransitGatewayRouteTablesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeTransitGatewayRouteTablesResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeTransitGatewayVpcAttachmentsRequest API_AVAILABLE(ios(11));
@@ -783,6 +800,8 @@
 - (void) test_AWSEC2DisassociateSubnetCidrBlockResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisassociateTransitGatewayMulticastDomainRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisassociateTransitGatewayMulticastDomainResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DisassociateTransitGatewayPolicyTableRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DisassociateTransitGatewayPolicyTableResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisassociateTransitGatewayRouteTableRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisassociateTransitGatewayRouteTableResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisassociateTrunkInterfaceRequest API_AVAILABLE(ios(11));
@@ -942,6 +961,10 @@
 - (void) test_AWSEC2GetTransitGatewayAttachmentPropagationsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetTransitGatewayMulticastDomainAssociationsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetTransitGatewayMulticastDomainAssociationsResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetTransitGatewayPolicyTableAssociationsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetTransitGatewayPolicyTableAssociationsResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetTransitGatewayPolicyTableEntriesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetTransitGatewayPolicyTableEntriesResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetTransitGatewayPrefixListReferencesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetTransitGatewayPrefixListReferencesResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetTransitGatewayRouteTableAssociationsRequest API_AVAILABLE(ios(11));
@@ -1571,6 +1594,12 @@
 - (void) test_AWSEC2TransitGatewayMulticastRegisteredGroupSources API_AVAILABLE(ios(11));
 - (void) test_AWSEC2TransitGatewayOptions API_AVAILABLE(ios(11));
 - (void) test_AWSEC2TransitGatewayPeeringAttachment API_AVAILABLE(ios(11));
+- (void) test_AWSEC2TransitGatewayPeeringAttachmentOptions API_AVAILABLE(ios(11));
+- (void) test_AWSEC2TransitGatewayPolicyRule API_AVAILABLE(ios(11));
+- (void) test_AWSEC2TransitGatewayPolicyRuleMetaData API_AVAILABLE(ios(11));
+- (void) test_AWSEC2TransitGatewayPolicyTable API_AVAILABLE(ios(11));
+- (void) test_AWSEC2TransitGatewayPolicyTableAssociation API_AVAILABLE(ios(11));
+- (void) test_AWSEC2TransitGatewayPolicyTableEntry API_AVAILABLE(ios(11));
 - (void) test_AWSEC2TransitGatewayPrefixListAttachment API_AVAILABLE(ios(11));
 - (void) test_AWSEC2TransitGatewayPrefixListReference API_AVAILABLE(ios(11));
 - (void) test_AWSEC2TransitGatewayPropagation API_AVAILABLE(ios(11));
@@ -1578,6 +1607,7 @@
 - (void) test_AWSEC2TransitGatewayRoute API_AVAILABLE(ios(11));
 - (void) test_AWSEC2TransitGatewayRouteAttachment API_AVAILABLE(ios(11));
 - (void) test_AWSEC2TransitGatewayRouteTable API_AVAILABLE(ios(11));
+- (void) test_AWSEC2TransitGatewayRouteTableAnnouncement API_AVAILABLE(ios(11));
 - (void) test_AWSEC2TransitGatewayRouteTableAssociation API_AVAILABLE(ios(11));
 - (void) test_AWSEC2TransitGatewayRouteTablePropagation API_AVAILABLE(ios(11));
 - (void) test_AWSEC2TransitGatewayRouteTableRoute API_AVAILABLE(ios(11));
@@ -1636,6 +1666,8 @@
 - (void) test_AWSEC2VpnConnectionOptionsSpecification API_AVAILABLE(ios(11));
 - (void) test_AWSEC2VpnGateway API_AVAILABLE(ios(11));
 - (void) test_AWSEC2VpnStaticRoute API_AVAILABLE(ios(11));
+- (void) test_AWSEC2VpnTunnelLogOptions API_AVAILABLE(ios(11));
+- (void) test_AWSEC2VpnTunnelLogOptionsSpecification API_AVAILABLE(ios(11));
 - (void) test_AWSEC2VpnTunnelOptionsSpecification API_AVAILABLE(ios(11));
 - (void) test_AWSEC2WithdrawByoipCidrRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2WithdrawByoipCidrResult API_AVAILABLE(ios(11));
@@ -1914,6 +1946,14 @@
 
 - (void) test_AWSEC2AssociateTransitGatewayMulticastDomainResult {
     [self validateSecureCodingForClass:[AWSEC2AssociateTransitGatewayMulticastDomainResult class]];
+}
+
+- (void) test_AWSEC2AssociateTransitGatewayPolicyTableRequest {
+    [self validateSecureCodingForClass:[AWSEC2AssociateTransitGatewayPolicyTableRequest class]];
+}
+
+- (void) test_AWSEC2AssociateTransitGatewayPolicyTableResult {
+    [self validateSecureCodingForClass:[AWSEC2AssociateTransitGatewayPolicyTableResult class]];
 }
 
 - (void) test_AWSEC2AssociateTransitGatewayRouteTableRequest {
@@ -2294,6 +2334,14 @@
 
 - (void) test_AWSEC2ClientVpnRouteStatus {
     [self validateSecureCodingForClass:[AWSEC2ClientVpnRouteStatus class]];
+}
+
+- (void) test_AWSEC2CloudWatchLogOptions {
+    [self validateSecureCodingForClass:[AWSEC2CloudWatchLogOptions class]];
+}
+
+- (void) test_AWSEC2CloudWatchLogOptionsSpecification {
+    [self validateSecureCodingForClass:[AWSEC2CloudWatchLogOptionsSpecification class]];
 }
 
 - (void) test_AWSEC2CoipAddressUsage {
@@ -2804,8 +2852,20 @@
     [self validateSecureCodingForClass:[AWSEC2CreateTransitGatewayPeeringAttachmentRequest class]];
 }
 
+- (void) test_AWSEC2CreateTransitGatewayPeeringAttachmentRequestOptions {
+    [self validateSecureCodingForClass:[AWSEC2CreateTransitGatewayPeeringAttachmentRequestOptions class]];
+}
+
 - (void) test_AWSEC2CreateTransitGatewayPeeringAttachmentResult {
     [self validateSecureCodingForClass:[AWSEC2CreateTransitGatewayPeeringAttachmentResult class]];
+}
+
+- (void) test_AWSEC2CreateTransitGatewayPolicyTableRequest {
+    [self validateSecureCodingForClass:[AWSEC2CreateTransitGatewayPolicyTableRequest class]];
+}
+
+- (void) test_AWSEC2CreateTransitGatewayPolicyTableResult {
+    [self validateSecureCodingForClass:[AWSEC2CreateTransitGatewayPolicyTableResult class]];
 }
 
 - (void) test_AWSEC2CreateTransitGatewayPrefixListReferenceRequest {
@@ -2830,6 +2890,14 @@
 
 - (void) test_AWSEC2CreateTransitGatewayRouteResult {
     [self validateSecureCodingForClass:[AWSEC2CreateTransitGatewayRouteResult class]];
+}
+
+- (void) test_AWSEC2CreateTransitGatewayRouteTableAnnouncementRequest {
+    [self validateSecureCodingForClass:[AWSEC2CreateTransitGatewayRouteTableAnnouncementRequest class]];
+}
+
+- (void) test_AWSEC2CreateTransitGatewayRouteTableAnnouncementResult {
+    [self validateSecureCodingForClass:[AWSEC2CreateTransitGatewayRouteTableAnnouncementResult class]];
 }
 
 - (void) test_AWSEC2CreateTransitGatewayRouteTableRequest {
@@ -3284,6 +3352,14 @@
     [self validateSecureCodingForClass:[AWSEC2DeleteTransitGatewayPeeringAttachmentResult class]];
 }
 
+- (void) test_AWSEC2DeleteTransitGatewayPolicyTableRequest {
+    [self validateSecureCodingForClass:[AWSEC2DeleteTransitGatewayPolicyTableRequest class]];
+}
+
+- (void) test_AWSEC2DeleteTransitGatewayPolicyTableResult {
+    [self validateSecureCodingForClass:[AWSEC2DeleteTransitGatewayPolicyTableResult class]];
+}
+
 - (void) test_AWSEC2DeleteTransitGatewayPrefixListReferenceRequest {
     [self validateSecureCodingForClass:[AWSEC2DeleteTransitGatewayPrefixListReferenceRequest class]];
 }
@@ -3306,6 +3382,14 @@
 
 - (void) test_AWSEC2DeleteTransitGatewayRouteResult {
     [self validateSecureCodingForClass:[AWSEC2DeleteTransitGatewayRouteResult class]];
+}
+
+- (void) test_AWSEC2DeleteTransitGatewayRouteTableAnnouncementRequest {
+    [self validateSecureCodingForClass:[AWSEC2DeleteTransitGatewayRouteTableAnnouncementRequest class]];
+}
+
+- (void) test_AWSEC2DeleteTransitGatewayRouteTableAnnouncementResult {
+    [self validateSecureCodingForClass:[AWSEC2DeleteTransitGatewayRouteTableAnnouncementResult class]];
 }
 
 - (void) test_AWSEC2DeleteTransitGatewayRouteTableRequest {
@@ -4336,6 +4420,22 @@
     [self validateSecureCodingForClass:[AWSEC2DescribeTransitGatewayPeeringAttachmentsResult class]];
 }
 
+- (void) test_AWSEC2DescribeTransitGatewayPolicyTablesRequest {
+    [self validateSecureCodingForClass:[AWSEC2DescribeTransitGatewayPolicyTablesRequest class]];
+}
+
+- (void) test_AWSEC2DescribeTransitGatewayPolicyTablesResult {
+    [self validateSecureCodingForClass:[AWSEC2DescribeTransitGatewayPolicyTablesResult class]];
+}
+
+- (void) test_AWSEC2DescribeTransitGatewayRouteTableAnnouncementsRequest {
+    [self validateSecureCodingForClass:[AWSEC2DescribeTransitGatewayRouteTableAnnouncementsRequest class]];
+}
+
+- (void) test_AWSEC2DescribeTransitGatewayRouteTableAnnouncementsResult {
+    [self validateSecureCodingForClass:[AWSEC2DescribeTransitGatewayRouteTableAnnouncementsResult class]];
+}
+
 - (void) test_AWSEC2DescribeTransitGatewayRouteTablesRequest {
     [self validateSecureCodingForClass:[AWSEC2DescribeTransitGatewayRouteTablesRequest class]];
 }
@@ -4698,6 +4798,14 @@
 
 - (void) test_AWSEC2DisassociateTransitGatewayMulticastDomainResult {
     [self validateSecureCodingForClass:[AWSEC2DisassociateTransitGatewayMulticastDomainResult class]];
+}
+
+- (void) test_AWSEC2DisassociateTransitGatewayPolicyTableRequest {
+    [self validateSecureCodingForClass:[AWSEC2DisassociateTransitGatewayPolicyTableRequest class]];
+}
+
+- (void) test_AWSEC2DisassociateTransitGatewayPolicyTableResult {
+    [self validateSecureCodingForClass:[AWSEC2DisassociateTransitGatewayPolicyTableResult class]];
 }
 
 - (void) test_AWSEC2DisassociateTransitGatewayRouteTableRequest {
@@ -5334,6 +5442,22 @@
 
 - (void) test_AWSEC2GetTransitGatewayMulticastDomainAssociationsResult {
     [self validateSecureCodingForClass:[AWSEC2GetTransitGatewayMulticastDomainAssociationsResult class]];
+}
+
+- (void) test_AWSEC2GetTransitGatewayPolicyTableAssociationsRequest {
+    [self validateSecureCodingForClass:[AWSEC2GetTransitGatewayPolicyTableAssociationsRequest class]];
+}
+
+- (void) test_AWSEC2GetTransitGatewayPolicyTableAssociationsResult {
+    [self validateSecureCodingForClass:[AWSEC2GetTransitGatewayPolicyTableAssociationsResult class]];
+}
+
+- (void) test_AWSEC2GetTransitGatewayPolicyTableEntriesRequest {
+    [self validateSecureCodingForClass:[AWSEC2GetTransitGatewayPolicyTableEntriesRequest class]];
+}
+
+- (void) test_AWSEC2GetTransitGatewayPolicyTableEntriesResult {
+    [self validateSecureCodingForClass:[AWSEC2GetTransitGatewayPolicyTableEntriesResult class]];
 }
 
 - (void) test_AWSEC2GetTransitGatewayPrefixListReferencesRequest {
@@ -7852,6 +7976,30 @@
     [self validateSecureCodingForClass:[AWSEC2TransitGatewayPeeringAttachment class]];
 }
 
+- (void) test_AWSEC2TransitGatewayPeeringAttachmentOptions {
+    [self validateSecureCodingForClass:[AWSEC2TransitGatewayPeeringAttachmentOptions class]];
+}
+
+- (void) test_AWSEC2TransitGatewayPolicyRule {
+    [self validateSecureCodingForClass:[AWSEC2TransitGatewayPolicyRule class]];
+}
+
+- (void) test_AWSEC2TransitGatewayPolicyRuleMetaData {
+    [self validateSecureCodingForClass:[AWSEC2TransitGatewayPolicyRuleMetaData class]];
+}
+
+- (void) test_AWSEC2TransitGatewayPolicyTable {
+    [self validateSecureCodingForClass:[AWSEC2TransitGatewayPolicyTable class]];
+}
+
+- (void) test_AWSEC2TransitGatewayPolicyTableAssociation {
+    [self validateSecureCodingForClass:[AWSEC2TransitGatewayPolicyTableAssociation class]];
+}
+
+- (void) test_AWSEC2TransitGatewayPolicyTableEntry {
+    [self validateSecureCodingForClass:[AWSEC2TransitGatewayPolicyTableEntry class]];
+}
+
 - (void) test_AWSEC2TransitGatewayPrefixListAttachment {
     [self validateSecureCodingForClass:[AWSEC2TransitGatewayPrefixListAttachment class]];
 }
@@ -7878,6 +8026,10 @@
 
 - (void) test_AWSEC2TransitGatewayRouteTable {
     [self validateSecureCodingForClass:[AWSEC2TransitGatewayRouteTable class]];
+}
+
+- (void) test_AWSEC2TransitGatewayRouteTableAnnouncement {
+    [self validateSecureCodingForClass:[AWSEC2TransitGatewayRouteTableAnnouncement class]];
 }
 
 - (void) test_AWSEC2TransitGatewayRouteTableAssociation {
@@ -8110,6 +8262,14 @@
 
 - (void) test_AWSEC2VpnStaticRoute {
     [self validateSecureCodingForClass:[AWSEC2VpnStaticRoute class]];
+}
+
+- (void) test_AWSEC2VpnTunnelLogOptions {
+    [self validateSecureCodingForClass:[AWSEC2VpnTunnelLogOptions class]];
+}
+
+- (void) test_AWSEC2VpnTunnelLogOptionsSpecification {
+    [self validateSecureCodingForClass:[AWSEC2VpnTunnelLogOptionsSpecification class]];
 }
 
 - (void) test_AWSEC2VpnTunnelOptionsSpecification {
