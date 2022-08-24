@@ -776,6 +776,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2AssociateTransitGatewayPolicyTableResult *> *)associateTransitGatewayPolicyTable:(AWSEC2AssociateTransitGatewayPolicyTableRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"AssociateTransitGatewayPolicyTable"
+                   outputClass:[AWSEC2AssociateTransitGatewayPolicyTableResult class]];
+}
+
+- (void)associateTransitGatewayPolicyTable:(AWSEC2AssociateTransitGatewayPolicyTableRequest *)request
+     completionHandler:(void (^)(AWSEC2AssociateTransitGatewayPolicyTableResult *response, NSError *error))completionHandler {
+    [[self associateTransitGatewayPolicyTable:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2AssociateTransitGatewayPolicyTableResult *> * _Nonnull task) {
+        AWSEC2AssociateTransitGatewayPolicyTableResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2AssociateTransitGatewayRouteTableResult *> *)associateTransitGatewayRouteTable:(AWSEC2AssociateTransitGatewayRouteTableRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -2657,6 +2680,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2CreateTransitGatewayPolicyTableResult *> *)createTransitGatewayPolicyTable:(AWSEC2CreateTransitGatewayPolicyTableRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"CreateTransitGatewayPolicyTable"
+                   outputClass:[AWSEC2CreateTransitGatewayPolicyTableResult class]];
+}
+
+- (void)createTransitGatewayPolicyTable:(AWSEC2CreateTransitGatewayPolicyTableRequest *)request
+     completionHandler:(void (^)(AWSEC2CreateTransitGatewayPolicyTableResult *response, NSError *error))completionHandler {
+    [[self createTransitGatewayPolicyTable:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CreateTransitGatewayPolicyTableResult *> * _Nonnull task) {
+        AWSEC2CreateTransitGatewayPolicyTableResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2CreateTransitGatewayPrefixListReferenceResult *> *)createTransitGatewayPrefixListReference:(AWSEC2CreateTransitGatewayPrefixListReferenceRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -2716,6 +2762,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2CreateTransitGatewayRouteTableResult *response, NSError *error))completionHandler {
     [[self createTransitGatewayRouteTable:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CreateTransitGatewayRouteTableResult *> * _Nonnull task) {
         AWSEC2CreateTransitGatewayRouteTableResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2CreateTransitGatewayRouteTableAnnouncementResult *> *)createTransitGatewayRouteTableAnnouncement:(AWSEC2CreateTransitGatewayRouteTableAnnouncementRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"CreateTransitGatewayRouteTableAnnouncement"
+                   outputClass:[AWSEC2CreateTransitGatewayRouteTableAnnouncementResult class]];
+}
+
+- (void)createTransitGatewayRouteTableAnnouncement:(AWSEC2CreateTransitGatewayRouteTableAnnouncementRequest *)request
+     completionHandler:(void (^)(AWSEC2CreateTransitGatewayRouteTableAnnouncementResult *response, NSError *error))completionHandler {
+    [[self createTransitGatewayRouteTableAnnouncement:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CreateTransitGatewayRouteTableAnnouncementResult *> * _Nonnull task) {
+        AWSEC2CreateTransitGatewayRouteTableAnnouncementResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -4067,6 +4136,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2DeleteTransitGatewayPolicyTableResult *> *)deleteTransitGatewayPolicyTable:(AWSEC2DeleteTransitGatewayPolicyTableRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DeleteTransitGatewayPolicyTable"
+                   outputClass:[AWSEC2DeleteTransitGatewayPolicyTableResult class]];
+}
+
+- (void)deleteTransitGatewayPolicyTable:(AWSEC2DeleteTransitGatewayPolicyTableRequest *)request
+     completionHandler:(void (^)(AWSEC2DeleteTransitGatewayPolicyTableResult *response, NSError *error))completionHandler {
+    [[self deleteTransitGatewayPolicyTable:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DeleteTransitGatewayPolicyTableResult *> * _Nonnull task) {
+        AWSEC2DeleteTransitGatewayPolicyTableResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2DeleteTransitGatewayPrefixListReferenceResult *> *)deleteTransitGatewayPrefixListReference:(AWSEC2DeleteTransitGatewayPrefixListReferenceRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -4126,6 +4218,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2DeleteTransitGatewayRouteTableResult *response, NSError *error))completionHandler {
     [[self deleteTransitGatewayRouteTable:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DeleteTransitGatewayRouteTableResult *> * _Nonnull task) {
         AWSEC2DeleteTransitGatewayRouteTableResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DeleteTransitGatewayRouteTableAnnouncementResult *> *)deleteTransitGatewayRouteTableAnnouncement:(AWSEC2DeleteTransitGatewayRouteTableAnnouncementRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DeleteTransitGatewayRouteTableAnnouncement"
+                   outputClass:[AWSEC2DeleteTransitGatewayRouteTableAnnouncementResult class]];
+}
+
+- (void)deleteTransitGatewayRouteTableAnnouncement:(AWSEC2DeleteTransitGatewayRouteTableAnnouncementRequest *)request
+     completionHandler:(void (^)(AWSEC2DeleteTransitGatewayRouteTableAnnouncementResult *response, NSError *error))completionHandler {
+    [[self deleteTransitGatewayRouteTableAnnouncement:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DeleteTransitGatewayRouteTableAnnouncementResult *> * _Nonnull task) {
+        AWSEC2DeleteTransitGatewayRouteTableAnnouncementResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -7097,6 +7212,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2DescribeTransitGatewayPolicyTablesResult *> *)describeTransitGatewayPolicyTables:(AWSEC2DescribeTransitGatewayPolicyTablesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeTransitGatewayPolicyTables"
+                   outputClass:[AWSEC2DescribeTransitGatewayPolicyTablesResult class]];
+}
+
+- (void)describeTransitGatewayPolicyTables:(AWSEC2DescribeTransitGatewayPolicyTablesRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribeTransitGatewayPolicyTablesResult *response, NSError *error))completionHandler {
+    [[self describeTransitGatewayPolicyTables:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeTransitGatewayPolicyTablesResult *> * _Nonnull task) {
+        AWSEC2DescribeTransitGatewayPolicyTablesResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DescribeTransitGatewayRouteTableAnnouncementsResult *> *)describeTransitGatewayRouteTableAnnouncements:(AWSEC2DescribeTransitGatewayRouteTableAnnouncementsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeTransitGatewayRouteTableAnnouncements"
+                   outputClass:[AWSEC2DescribeTransitGatewayRouteTableAnnouncementsResult class]];
+}
+
+- (void)describeTransitGatewayRouteTableAnnouncements:(AWSEC2DescribeTransitGatewayRouteTableAnnouncementsRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribeTransitGatewayRouteTableAnnouncementsResult *response, NSError *error))completionHandler {
+    [[self describeTransitGatewayRouteTableAnnouncements:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeTransitGatewayRouteTableAnnouncementsResult *> * _Nonnull task) {
+        AWSEC2DescribeTransitGatewayRouteTableAnnouncementsResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2DescribeTransitGatewayRouteTablesResult *> *)describeTransitGatewayRouteTables:(AWSEC2DescribeTransitGatewayRouteTablesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -8093,6 +8254,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2DisassociateTransitGatewayMulticastDomainResult *response, NSError *error))completionHandler {
     [[self disassociateTransitGatewayMulticastDomain:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DisassociateTransitGatewayMulticastDomainResult *> * _Nonnull task) {
         AWSEC2DisassociateTransitGatewayMulticastDomainResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DisassociateTransitGatewayPolicyTableResult *> *)disassociateTransitGatewayPolicyTable:(AWSEC2DisassociateTransitGatewayPolicyTableRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DisassociateTransitGatewayPolicyTable"
+                   outputClass:[AWSEC2DisassociateTransitGatewayPolicyTableResult class]];
+}
+
+- (void)disassociateTransitGatewayPolicyTable:(AWSEC2DisassociateTransitGatewayPolicyTableRequest *)request
+     completionHandler:(void (^)(AWSEC2DisassociateTransitGatewayPolicyTableResult *response, NSError *error))completionHandler {
+    [[self disassociateTransitGatewayPolicyTable:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DisassociateTransitGatewayPolicyTableResult *> * _Nonnull task) {
+        AWSEC2DisassociateTransitGatewayPolicyTableResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -9195,6 +9379,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2GetTransitGatewayMulticastDomainAssociationsResult *response, NSError *error))completionHandler {
     [[self getTransitGatewayMulticastDomainAssociations:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetTransitGatewayMulticastDomainAssociationsResult *> * _Nonnull task) {
         AWSEC2GetTransitGatewayMulticastDomainAssociationsResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2GetTransitGatewayPolicyTableAssociationsResult *> *)getTransitGatewayPolicyTableAssociations:(AWSEC2GetTransitGatewayPolicyTableAssociationsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetTransitGatewayPolicyTableAssociations"
+                   outputClass:[AWSEC2GetTransitGatewayPolicyTableAssociationsResult class]];
+}
+
+- (void)getTransitGatewayPolicyTableAssociations:(AWSEC2GetTransitGatewayPolicyTableAssociationsRequest *)request
+     completionHandler:(void (^)(AWSEC2GetTransitGatewayPolicyTableAssociationsResult *response, NSError *error))completionHandler {
+    [[self getTransitGatewayPolicyTableAssociations:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetTransitGatewayPolicyTableAssociationsResult *> * _Nonnull task) {
+        AWSEC2GetTransitGatewayPolicyTableAssociationsResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2GetTransitGatewayPolicyTableEntriesResult *> *)getTransitGatewayPolicyTableEntries:(AWSEC2GetTransitGatewayPolicyTableEntriesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetTransitGatewayPolicyTableEntries"
+                   outputClass:[AWSEC2GetTransitGatewayPolicyTableEntriesResult class]];
+}
+
+- (void)getTransitGatewayPolicyTableEntries:(AWSEC2GetTransitGatewayPolicyTableEntriesRequest *)request
+     completionHandler:(void (^)(AWSEC2GetTransitGatewayPolicyTableEntriesResult *response, NSError *error))completionHandler {
+    [[self getTransitGatewayPolicyTableEntries:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetTransitGatewayPolicyTableEntriesResult *> * _Nonnull task) {
+        AWSEC2GetTransitGatewayPolicyTableEntriesResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
