@@ -201,7 +201,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
  
  @param request A container for the necessary parameters to execute the BatchCreateChannelMembership service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKMessagingBatchCreateChannelMembershipResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorServiceFailure`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorThrottledClient`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKMessagingBatchCreateChannelMembershipResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorServiceFailure`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorNotFound`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorResourceLimitExceeded`.
  
  @see AWSChimeSDKMessagingBatchCreateChannelMembershipRequest
  @see AWSChimeSDKMessagingBatchCreateChannelMembershipResponse
@@ -214,7 +214,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
  @param request A container for the necessary parameters to execute the BatchCreateChannelMembership service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorServiceFailure`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorThrottledClient`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorServiceFailure`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorNotFound`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorResourceLimitExceeded`.
  
  @see AWSChimeSDKMessagingBatchCreateChannelMembershipRequest
  @see AWSChimeSDKMessagingBatchCreateChannelMembershipResponse
@@ -326,7 +326,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
  
  @param request A container for the necessary parameters to execute the CreateChannelMembership service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKMessagingCreateChannelMembershipResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorConflict`, `AWSChimeSDKMessagingErrorResourceLimitExceeded`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKMessagingCreateChannelMembershipResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorNotFound`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorConflict`, `AWSChimeSDKMessagingErrorResourceLimitExceeded`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
  
  @see AWSChimeSDKMessagingCreateChannelMembershipRequest
  @see AWSChimeSDKMessagingCreateChannelMembershipResponse
@@ -339,7 +339,7 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
  @param request A container for the necessary parameters to execute the CreateChannelMembership service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorConflict`, `AWSChimeSDKMessagingErrorResourceLimitExceeded`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorNotFound`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorConflict`, `AWSChimeSDKMessagingErrorResourceLimitExceeded`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
  
  @see AWSChimeSDKMessagingCreateChannelMembershipRequest
  @see AWSChimeSDKMessagingCreateChannelMembershipResponse
@@ -1024,6 +1024,31 @@ FOUNDATION_EXPORT NSString *const AWSChimeSDKMessagingSDKVersion;
  @see AWSChimeSDKMessagingListChannelsModeratedByAppInstanceUserResponse
  */
 - (void)listChannelsModeratedByAppInstanceUser:(AWSChimeSDKMessagingListChannelsModeratedByAppInstanceUserRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingListChannelsModeratedByAppInstanceUserResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Lists all the SubChannels in an elastic channel when given a channel ID. Available only to the app instance admins and channel moderators of elastic channels.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListSubChannels service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSChimeSDKMessagingListSubChannelsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingListSubChannelsRequest
+ @see AWSChimeSDKMessagingListSubChannelsResponse
+ */
+- (AWSTask<AWSChimeSDKMessagingListSubChannelsResponse *> *)listSubChannels:(AWSChimeSDKMessagingListSubChannelsRequest *)request;
+
+/**
+ <p>Lists all the SubChannels in an elastic channel when given a channel ID. Available only to the app instance admins and channel moderators of elastic channels.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListSubChannels service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSChimeSDKMessagingErrorDomain` domain and the following error code: `AWSChimeSDKMessagingErrorBadRequest`, `AWSChimeSDKMessagingErrorForbidden`, `AWSChimeSDKMessagingErrorUnauthorizedClient`, `AWSChimeSDKMessagingErrorThrottledClient`, `AWSChimeSDKMessagingErrorServiceUnavailable`, `AWSChimeSDKMessagingErrorServiceFailure`.
+ 
+ @see AWSChimeSDKMessagingListSubChannelsRequest
+ @see AWSChimeSDKMessagingListSubChannelsResponse
+ */
+- (void)listSubChannels:(AWSChimeSDKMessagingListSubChannelsRequest *)request completionHandler:(void (^ _Nullable)(AWSChimeSDKMessagingListSubChannelsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Lists the tags applied to an Amazon Chime SDK messaging resource.</p>

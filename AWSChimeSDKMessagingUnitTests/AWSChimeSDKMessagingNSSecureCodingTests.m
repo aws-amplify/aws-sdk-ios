@@ -76,6 +76,7 @@
 - (void) test_AWSChimeSDKMessagingDescribeChannelRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingDescribeChannelResponse API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingDisassociateChannelFlowRequest API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKMessagingElasticChannelConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingGetChannelMembershipPreferencesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingGetChannelMembershipPreferencesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingGetChannelMessageRequest API_AVAILABLE(ios(11));
@@ -104,6 +105,8 @@
 - (void) test_AWSChimeSDKMessagingListChannelsModeratedByAppInstanceUserResponse API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingListChannelsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingListChannelsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKMessagingListSubChannelsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKMessagingListSubChannelsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingListTagsForResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingListTagsForResourceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingMessageAttributeValue API_AVAILABLE(ios(11));
@@ -121,6 +124,7 @@
 - (void) test_AWSChimeSDKMessagingSearchField API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingSendChannelMessageRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingSendChannelMessageResponse API_AVAILABLE(ios(11));
+- (void) test_AWSChimeSDKMessagingSubChannelSummary API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingTag API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingTagResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSChimeSDKMessagingUntagResourceRequest API_AVAILABLE(ios(11));
@@ -365,6 +369,10 @@
     [self validateSecureCodingForClass:[AWSChimeSDKMessagingDisassociateChannelFlowRequest class]];
 }
 
+- (void) test_AWSChimeSDKMessagingElasticChannelConfiguration {
+    [self validateSecureCodingForClass:[AWSChimeSDKMessagingElasticChannelConfiguration class]];
+}
+
 - (void) test_AWSChimeSDKMessagingGetChannelMembershipPreferencesRequest {
     [self validateSecureCodingForClass:[AWSChimeSDKMessagingGetChannelMembershipPreferencesRequest class]];
 }
@@ -477,6 +485,14 @@
     [self validateSecureCodingForClass:[AWSChimeSDKMessagingListChannelsResponse class]];
 }
 
+- (void) test_AWSChimeSDKMessagingListSubChannelsRequest {
+    [self validateSecureCodingForClass:[AWSChimeSDKMessagingListSubChannelsRequest class]];
+}
+
+- (void) test_AWSChimeSDKMessagingListSubChannelsResponse {
+    [self validateSecureCodingForClass:[AWSChimeSDKMessagingListSubChannelsResponse class]];
+}
+
 - (void) test_AWSChimeSDKMessagingListTagsForResourceRequest {
     [self validateSecureCodingForClass:[AWSChimeSDKMessagingListTagsForResourceRequest class]];
 }
@@ -543,6 +559,10 @@
 
 - (void) test_AWSChimeSDKMessagingSendChannelMessageResponse {
     [self validateSecureCodingForClass:[AWSChimeSDKMessagingSendChannelMessageResponse class]];
+}
+
+- (void) test_AWSChimeSDKMessagingSubChannelSummary {
+    [self validateSecureCodingForClass:[AWSChimeSDKMessagingSubChannelSummary class]];
 }
 
 - (void) test_AWSChimeSDKMessagingTag {
