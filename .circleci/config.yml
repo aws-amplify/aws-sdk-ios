@@ -240,7 +240,7 @@ commands:
 jobs:
   build:
     macos:
-      xcode: "12.1.0"
+      xcode: "13.2.1"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -263,7 +263,7 @@ jobs:
 
   build_test_host_apps:
     macos:
-      xcode: "12.1.0"
+      xcode: "13.2.1"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -280,7 +280,7 @@ jobs:
 
   unit_test:
     macos:
-      xcode: "12.1.0"
+      xcode: "13.2.1"
     parameters:
       project:
         default: "AWSiOSSDKv2.xcodeproj"
@@ -333,7 +333,7 @@ jobs:
 
   integ_test:
     macos:
-      xcode: "12.1.0"
+      xcode: "13.2.1"
     parameters:
       project:
         default: "AWSiOSSDKv2.xcodeproj"
@@ -384,7 +384,7 @@ jobs:
 
   release_tag:
     macos:
-      xcode: "12.1.0"
+      xcode: "13.2.1"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -401,7 +401,7 @@ jobs:
 
   build_xcframeworks:
     macos:
-      xcode: "12.3.0"
+      xcode: "13.2.1"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -419,7 +419,7 @@ jobs:
 
   release_carthage:
     macos:
-      xcode: "12.3.0"
+      xcode: "13.2.1"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -440,7 +440,7 @@ jobs:
 
   release_cocoapods:
     macos:
-      xcode: "12.1.0"
+      xcode: "13.2.1"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -458,7 +458,7 @@ jobs:
 
   release_docs:
     macos:
-      xcode: "12.1.0"
+      xcode: "13.2.1"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -488,7 +488,7 @@ jobs:
 
   add_doc_tag:
     macos:
-      xcode: "12.1.0"
+      xcode: "13.2.1"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -502,7 +502,7 @@ jobs:
 
   bump_ios_sampleapp_version:
     macos:
-      xcode: "12.1.0"
+      xcode: "13.2.1"
     steps:
       - skip_job_unless_required
       - set_environment_variables
@@ -520,7 +520,7 @@ jobs:
             python3 CircleciScripts/build_iossample.py "$(pwd)/aws-sdk-ios-samples"
   release_ios_s3:
     macos:
-      xcode: "12.1.0"
+      xcode: "13.2.1"
     environment:
       TERM: xterm-256color
     steps:
@@ -564,7 +564,7 @@ jobs:
 
   bump_sdk_version:
     macos:
-      xcode: "12.1.0"
+      xcode: "13.2.1"
     steps:
       - skip_job_unless_required
       - set_environment_variables
