@@ -17,7 +17,7 @@
     <a title="AWSDynamoDB Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSDynamoDB 2.27.13 Docs</a> (79% documented)</p>
+        <p><a href="../index.html">AWSDynamoDB 2.27.14 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSDynamoDB.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -161,6 +161,9 @@
                 <a href="../Classes/AWSDynamoDBCreateTableOutput.html">AWSDynamoDBCreateTableOutput</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBCsvOptions.html">AWSDynamoDBCsvOptions</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBDeleteBackupInput.html">AWSDynamoDBDeleteBackupInput</a>
               </li>
               <li class="nav-group-task">
@@ -231,6 +234,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBDescribeGlobalTableSettingsOutput.html">AWSDynamoDBDescribeGlobalTableSettingsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBDescribeImportInput.html">AWSDynamoDBDescribeImportInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBDescribeImportOutput.html">AWSDynamoDBDescribeImportOutput</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBDescribeKinesisStreamingDestinationInput.html">AWSDynamoDBDescribeKinesisStreamingDestinationInput</a>
@@ -329,6 +338,21 @@
                 <a href="../Classes/AWSDynamoDBGlobalTableGlobalSecondaryIndexSettingsUpdate.html">AWSDynamoDBGlobalTableGlobalSecondaryIndexSettingsUpdate</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBImportSummary.html">AWSDynamoDBImportSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBImportTableDescription.html">AWSDynamoDBImportTableDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBImportTableInput.html">AWSDynamoDBImportTableInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBImportTableOutput.html">AWSDynamoDBImportTableOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBInputFormatOptions.html">AWSDynamoDBInputFormatOptions</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBItemCollectionMetrics.html">AWSDynamoDBItemCollectionMetrics</a>
               </li>
               <li class="nav-group-task">
@@ -372,6 +396,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBListGlobalTablesOutput.html">AWSDynamoDBListGlobalTablesOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBListImportsInput.html">AWSDynamoDBListImportsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBListImportsOutput.html">AWSDynamoDBListImportsOutput</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBListTablesInput.html">AWSDynamoDBListTablesInput</a>
@@ -512,6 +542,9 @@
                 <a href="../Classes/AWSDynamoDBRestoreTableToPointInTimeOutput.html">AWSDynamoDBRestoreTableToPointInTimeOutput</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBS3BucketSource.html">AWSDynamoDBS3BucketSource</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBSSEDescription.html">AWSDynamoDBSSEDescription</a>
               </li>
               <li class="nav-group-task">
@@ -540,6 +573,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBTableClassSummary.html">AWSDynamoDBTableClassSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBTableCreationParameters.html">AWSDynamoDBTableCreationParameters</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBTableDescription.html">AWSDynamoDBTableDescription</a>
@@ -708,7 +744,16 @@
                 <a href="../Enums/AWSDynamoDBGlobalTableStatus.html">AWSDynamoDBGlobalTableStatus</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSDynamoDBImportStatus.html">AWSDynamoDBImportStatus</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSDynamoDBIndexStatus.html">AWSDynamoDBIndexStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSDynamoDBInputCompressionType.html">AWSDynamoDBInputCompressionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSDynamoDBInputFormat.html">AWSDynamoDBInputFormat</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSDynamoDBKeyType.html">AWSDynamoDBKeyType</a>
@@ -3427,6 +3472,147 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSDynamoDB(im)describeImport:"></a>
+                    <a name="//apple_ref/objc/Method/-describeImport:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDB(im)describeImport:">-describeImport:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p> Represents the properties of the import. </p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSDynamoDBDescribeImportInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSDynamoDBDescribeImportOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">describeImport</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSDynamoDBDescribeImportInput.html">AWSDynamoDBDescribeImportInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeImport</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeImportInput.html">AWSDynamoDBDescribeImportInput</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DescribeImport service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSDynamoDBDescribeImportOutput.html">AWSDynamoDBDescribeImportOutput</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSDynamoDBErrorDomain">AWSDynamoDBErrorDomain</a></code> domain and the following error code: <code>AWSDynamoDBErrorImportNotFound</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSDynamoDB(im)describeImport:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-describeImport:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDB(im)describeImport:completionHandler:">-describeImport:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p> Represents the properties of the import. </p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSDynamoDBDescribeImportInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSDynamoDBDescribeImportOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">describeImport</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSDynamoDBDescribeImportInput.html">AWSDynamoDBDescribeImportInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+     <span class="nf">completionHandler</span><span class="p">:</span>
+         <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSDynamoDBDescribeImportOutput.html">AWSDynamoDBDescribeImportOutput</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                            <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeImport</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeImportInput.html">AWSDynamoDBDescribeImportInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeImportOutput.html">AWSDynamoDBDescribeImportOutput</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DescribeImport service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSDynamoDBErrorDomain">AWSDynamoDBErrorDomain</a></code> domain and the following error code: <code>AWSDynamoDBErrorImportNotFound</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSDynamoDB(im)describeKinesisStreamingDestination:"></a>
                     <a name="//apple_ref/objc/Method/-describeKinesisStreamingDestination:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSDynamoDB(im)describeKinesisStreamingDestination:">-describeKinesisStreamingDestination:<wbr></a>
@@ -4997,6 +5183,147 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSDynamoDB(im)importTable:"></a>
+                    <a name="//apple_ref/objc/Method/-importTable:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDB(im)importTable:">-importTable:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p> Imports table data from an S3 bucket. </p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSDynamoDBImportTableInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSDynamoDBImportTableOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">importTable</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSDynamoDBImportTableInput.html">AWSDynamoDBImportTableInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">importTable</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBImportTableInput.html">AWSDynamoDBImportTableInput</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ImportTable service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSDynamoDBImportTableOutput.html">AWSDynamoDBImportTableOutput</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSDynamoDBErrorDomain">AWSDynamoDBErrorDomain</a></code> domain and the following error code: <code>AWSDynamoDBErrorResourceInUse</code>, <code>AWSDynamoDBErrorLimitExceeded</code>, <code>AWSDynamoDBErrorImportConflict</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSDynamoDB(im)importTable:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-importTable:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDB(im)importTable:completionHandler:">-importTable:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p> Imports table data from an S3 bucket. </p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSDynamoDBImportTableInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSDynamoDBImportTableOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">importTable</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSDynamoDBImportTableInput.html">AWSDynamoDBImportTableInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+    <span class="nf">completionHandler</span><span class="p">:</span>
+        <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSDynamoDBImportTableOutput.html">AWSDynamoDBImportTableOutput</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                           <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">importTable</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBImportTableInput.html">AWSDynamoDBImportTableInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBImportTableOutput.html">AWSDynamoDBImportTableOutput</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ImportTable service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSDynamoDBErrorDomain">AWSDynamoDBErrorDomain</a></code> domain and the following error code: <code>AWSDynamoDBErrorResourceInUse</code>, <code>AWSDynamoDBErrorLimitExceeded</code>, <code>AWSDynamoDBErrorImportConflict</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSDynamoDB(im)listBackups:"></a>
                     <a name="//apple_ref/objc/Method/-listBackups:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSDynamoDB(im)listBackups:">-listBackups:<wbr></a>
@@ -5552,6 +5879,147 @@
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSDynamoDBErrorDomain">AWSDynamoDBErrorDomain</a></code> domain and the following error code: <code>AWSDynamoDBErrorInternalServer</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSDynamoDB(im)listImports:"></a>
+                    <a name="//apple_ref/objc/Method/-listImports:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDB(im)listImports:">-listImports:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p> Lists completed imports within the past 90 days. </p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSDynamoDBListImportsInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSDynamoDBListImportsOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">listImports</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSDynamoDBListImportsInput.html">AWSDynamoDBListImportsInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listImports</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBListImportsInput.html">AWSDynamoDBListImportsInput</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListImports service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSDynamoDBListImportsOutput.html">AWSDynamoDBListImportsOutput</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSDynamoDBErrorDomain">AWSDynamoDBErrorDomain</a></code> domain and the following error code: <code>AWSDynamoDBErrorLimitExceeded</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSDynamoDB(im)listImports:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-listImports:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDB(im)listImports:completionHandler:">-listImports:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p> Lists completed imports within the past 90 days. </p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSDynamoDBListImportsInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSDynamoDBListImportsOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">listImports</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSDynamoDBListImportsInput.html">AWSDynamoDBListImportsInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+    <span class="nf">completionHandler</span><span class="p">:</span>
+        <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSDynamoDBListImportsOutput.html">AWSDynamoDBListImportsOutput</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                           <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listImports</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBListImportsInput.html">AWSDynamoDBListImportsInput</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSDynamoDBListImportsOutput.html">AWSDynamoDBListImportsOutput</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListImports service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSDynamoDBErrorDomain">AWSDynamoDBErrorDomain</a></code> domain and the following error code: <code>AWSDynamoDBErrorLimitExceeded</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -8237,7 +8705,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-07-21)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-08-25)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

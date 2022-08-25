@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSDynamoDB 2.27.13 Docs</a> (79% documented)</p>
+        <p><a href="index.html">AWSDynamoDB 2.27.14 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSDynamoDB.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -161,6 +161,9 @@
                 <a href="Classes/AWSDynamoDBCreateTableOutput.html">AWSDynamoDBCreateTableOutput</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBCsvOptions.html">AWSDynamoDBCsvOptions</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSDynamoDBDeleteBackupInput.html">AWSDynamoDBDeleteBackupInput</a>
               </li>
               <li class="nav-group-task">
@@ -231,6 +234,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSDynamoDBDescribeGlobalTableSettingsOutput.html">AWSDynamoDBDescribeGlobalTableSettingsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBDescribeImportInput.html">AWSDynamoDBDescribeImportInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBDescribeImportOutput.html">AWSDynamoDBDescribeImportOutput</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSDynamoDBDescribeKinesisStreamingDestinationInput.html">AWSDynamoDBDescribeKinesisStreamingDestinationInput</a>
@@ -329,6 +338,21 @@
                 <a href="Classes/AWSDynamoDBGlobalTableGlobalSecondaryIndexSettingsUpdate.html">AWSDynamoDBGlobalTableGlobalSecondaryIndexSettingsUpdate</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBImportSummary.html">AWSDynamoDBImportSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBImportTableDescription.html">AWSDynamoDBImportTableDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBImportTableInput.html">AWSDynamoDBImportTableInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBImportTableOutput.html">AWSDynamoDBImportTableOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBInputFormatOptions.html">AWSDynamoDBInputFormatOptions</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSDynamoDBItemCollectionMetrics.html">AWSDynamoDBItemCollectionMetrics</a>
               </li>
               <li class="nav-group-task">
@@ -372,6 +396,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSDynamoDBListGlobalTablesOutput.html">AWSDynamoDBListGlobalTablesOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBListImportsInput.html">AWSDynamoDBListImportsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBListImportsOutput.html">AWSDynamoDBListImportsOutput</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSDynamoDBListTablesInput.html">AWSDynamoDBListTablesInput</a>
@@ -512,6 +542,9 @@
                 <a href="Classes/AWSDynamoDBRestoreTableToPointInTimeOutput.html">AWSDynamoDBRestoreTableToPointInTimeOutput</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBS3BucketSource.html">AWSDynamoDBS3BucketSource</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSDynamoDBSSEDescription.html">AWSDynamoDBSSEDescription</a>
               </li>
               <li class="nav-group-task">
@@ -540,6 +573,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSDynamoDBTableClassSummary.html">AWSDynamoDBTableClassSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBTableCreationParameters.html">AWSDynamoDBTableCreationParameters</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSDynamoDBTableDescription.html">AWSDynamoDBTableDescription</a>
@@ -708,7 +744,16 @@
                 <a href="Enums/AWSDynamoDBGlobalTableStatus.html">AWSDynamoDBGlobalTableStatus</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/AWSDynamoDBImportStatus.html">AWSDynamoDBImportStatus</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/AWSDynamoDBIndexStatus.html">AWSDynamoDBIndexStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSDynamoDBInputCompressionType.html">AWSDynamoDBInputCompressionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSDynamoDBInputFormat.html">AWSDynamoDBInputFormat</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSDynamoDBKeyType.html">AWSDynamoDBKeyType</a>
@@ -2099,6 +2144,39 @@ Required parameters: [ComparisonOperator]</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSDynamoDBCsvOptions"></a>
+                    <a name="//apple_ref/objc/Class/AWSDynamoDBCsvOptions" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDBCsvOptions">AWSDynamoDBCsvOptions</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p> Processing options for the CSV file being imported. </p>
+
+                        <a href="Classes/AWSDynamoDBCsvOptions.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSDynamoDBCsvOptions</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSDynamoDBCsvOptions</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSDynamoDBRemove"></a>
                     <a name="//apple_ref/objc/Class/AWSDynamoDBRemove" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSDynamoDBRemove">AWSDynamoDBRemove</a>
@@ -2912,6 +2990,70 @@ Required parameters: [ComparisonOperator]</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSDynamoDBDescribeGlobalTableSettingsOutput</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSDynamoDBDescribeImportInput"></a>
+                    <a name="//apple_ref/objc/Class/AWSDynamoDBDescribeImportInput" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDBDescribeImportInput">AWSDynamoDBDescribeImportInput</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSDynamoDBDescribeImportInput.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSDynamoDBDescribeImportInput</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSDynamoDBDescribeImportInput</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSDynamoDBDescribeImportOutput"></a>
+                    <a name="//apple_ref/objc/Class/AWSDynamoDBDescribeImportOutput" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDBDescribeImportOutput">AWSDynamoDBDescribeImportOutput</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSDynamoDBDescribeImportOutput.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSDynamoDBDescribeImportOutput</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSDynamoDBDescribeImportOutput</span></code></pre>
 
                         </div>
                       </div>
@@ -3976,6 +4118,169 @@ Required parameters: [ComparisonOperator]</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSDynamoDBImportSummary"></a>
+                    <a name="//apple_ref/objc/Class/AWSDynamoDBImportSummary" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDBImportSummary">AWSDynamoDBImportSummary</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p> Summary information about the source file for the import. </p>
+
+                        <a href="Classes/AWSDynamoDBImportSummary.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSDynamoDBImportSummary</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSDynamoDBImportSummary</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSDynamoDBImportTableDescription"></a>
+                    <a name="//apple_ref/objc/Class/AWSDynamoDBImportTableDescription" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDBImportTableDescription">AWSDynamoDBImportTableDescription</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p> Represents the properties of the table being imported into. </p>
+
+                        <a href="Classes/AWSDynamoDBImportTableDescription.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSDynamoDBImportTableDescription</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSDynamoDBImportTableDescription</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSDynamoDBImportTableInput"></a>
+                    <a name="//apple_ref/objc/Class/AWSDynamoDBImportTableInput" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDBImportTableInput">AWSDynamoDBImportTableInput</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSDynamoDBImportTableInput.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSDynamoDBImportTableInput</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSDynamoDBImportTableInput</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSDynamoDBImportTableOutput"></a>
+                    <a name="//apple_ref/objc/Class/AWSDynamoDBImportTableOutput" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDBImportTableOutput">AWSDynamoDBImportTableOutput</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSDynamoDBImportTableOutput.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSDynamoDBImportTableOutput</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSDynamoDBImportTableOutput</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSDynamoDBInputFormatOptions"></a>
+                    <a name="//apple_ref/objc/Class/AWSDynamoDBInputFormatOptions" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDBInputFormatOptions">AWSDynamoDBInputFormatOptions</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p> The format options for the data that was imported into the target table. There is one value, CsvOption.</p>
+
+                        <a href="Classes/AWSDynamoDBInputFormatOptions.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSDynamoDBInputFormatOptions</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSDynamoDBInputFormatOptions</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSDynamoDBItemCollectionMetrics"></a>
                     <a name="//apple_ref/objc/Class/AWSDynamoDBItemCollectionMetrics" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSDynamoDBItemCollectionMetrics">AWSDynamoDBItemCollectionMetrics</a>
@@ -4456,6 +4761,70 @@ Required parameters: [ComparisonOperator]</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSDynamoDBListGlobalTablesOutput</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSDynamoDBListImportsInput"></a>
+                    <a name="//apple_ref/objc/Class/AWSDynamoDBListImportsInput" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDBListImportsInput">AWSDynamoDBListImportsInput</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSDynamoDBListImportsInput.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSDynamoDBListImportsInput</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSDynamoDBListImportsInput</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSDynamoDBListImportsOutput"></a>
+                    <a name="//apple_ref/objc/Class/AWSDynamoDBListImportsOutput" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDBListImportsOutput">AWSDynamoDBListImportsOutput</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSDynamoDBListImportsOutput.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSDynamoDBListImportsOutput</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSDynamoDBListImportsOutput</span></code></pre>
 
                         </div>
                       </div>
@@ -5776,6 +6145,41 @@ Required parameters: [ComparisonOperator]</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSDynamoDBS3BucketSource"></a>
+                    <a name="//apple_ref/objc/Class/AWSDynamoDBS3BucketSource" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDBS3BucketSource">AWSDynamoDBS3BucketSource</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p> The S3 bucket that is being imported from. </p>
+
+<p>Required parameters: [S3Bucket]</p>
+
+                        <a href="Classes/AWSDynamoDBS3BucketSource.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSDynamoDBS3BucketSource</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSDynamoDBS3BucketSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSDynamoDBSSEDescription"></a>
                     <a name="//apple_ref/objc/Class/AWSDynamoDBSSEDescription" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSDynamoDBSSEDescription">AWSDynamoDBSSEDescription</a>
@@ -6070,6 +6474,41 @@ Required parameters: [ComparisonOperator]</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSDynamoDBTableClassSummary</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSDynamoDBTableCreationParameters"></a>
+                    <a name="//apple_ref/objc/Class/AWSDynamoDBTableCreationParameters" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDBTableCreationParameters">AWSDynamoDBTableCreationParameters</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p> The parameters for the table created as part of the import operation. </p>
+
+<p>Required parameters: [TableName, AttributeDefinitions, KeySchema]</p>
+
+                        <a href="Classes/AWSDynamoDBTableCreationParameters.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSDynamoDBTableCreationParameters</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSDynamoDBTableCreationParameters</span></code></pre>
 
                         </div>
                       </div>
@@ -7407,7 +7846,7 @@ Required parameters: [ComparisonOperator]</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-07-21)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-08-25)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
