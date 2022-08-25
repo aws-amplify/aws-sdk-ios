@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSLocation 2.27.13 Docs</a> (89% documented)</p>
+        <p><a href="index.html">AWSLocation 2.27.14 Docs</a> (89% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLocation.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -135,6 +135,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSLocationCalculateRouteTruckModeOptions.html">AWSLocationCalculateRouteTruckModeOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLocationCircle.html">AWSLocationCircle</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSLocationCreateGeofenceCollectionRequest.html">AWSLocationCreateGeofenceCollectionRequest</a>
@@ -1589,6 +1592,41 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSLocationCircle"></a>
+                    <a name="//apple_ref/objc/Class/AWSLocationCircle" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationCircle">AWSLocationCircle</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A circle on the earth, as defined by a center point and a radius.</p>
+
+<p>Required parameters: [Center, Radius]</p>
+
+                        <a href="Classes/AWSLocationCircle.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationCircle</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationCircle</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSLocationCreateGeofenceCollectionRequest"></a>
                     <a name="//apple_ref/objc/Class/AWSLocationCreateGeofenceCollectionRequest" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSLocationCreateGeofenceCollectionRequest">AWSLocationCreateGeofenceCollectionRequest</a>
@@ -2720,7 +2758,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Contains the geofence geometry details.</p><note><p>Amazon Location doesn&rsquo;t currently support polygons with holes, multipolygons, polygons that are wound clockwise, or that cross the antimeridian. </p></note></p>
+                        <p><p>Contains the geofence geometry details.</p><p>A geofence geometry is made up of either a polygon or a circle. Can be either a polygon or a circle. Including both will return a validation error.</p><note><p>Amazon Location doesn&rsquo;t currently support polygons with holes, multipolygons, polygons that are wound clockwise, or that cross the antimeridian. </p></note></p>
 
                         <a href="Classes/AWSLocationGeofenceGeometry.html" class="slightly-smaller">See more</a>
                       </div>
@@ -5416,7 +5454,7 @@ Required parameters: [Code]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Suite of geospatial services including Maps, Places, Routes, Tracking, and Geofencing</p>
+                        <p>&ldquo;Suite of geospatial services including Maps, Places, Routes, Tracking, and Geofencing&rdquo;</p>
 
                         <a href="Classes/AWSLocation.html" class="slightly-smaller">See more</a>
                       </div>
@@ -5441,7 +5479,7 @@ Required parameters: [Code]</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-07-21)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-08-25)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

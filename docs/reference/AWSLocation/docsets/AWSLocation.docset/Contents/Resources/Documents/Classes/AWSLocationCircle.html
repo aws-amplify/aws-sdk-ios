@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSLocationSearchPlaceIndexForPositionResponse Class Reference</title>
+    <title>AWSLocationCircle Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSLocationSearchPlaceIndexForPositionResponse" class="dashAnchor"></a>
-    <a title="AWSLocationSearchPlaceIndexForPositionResponse Class Reference"></a>
+    <a name="//apple_ref/objc/Class/AWSLocationCircle" class="dashAnchor"></a>
+    <a title="AWSLocationCircle Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSLocation 2.27.14 Docs</a> (89% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSLocation Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        AWSLocationSearchPlaceIndexForPositionResponse Class Reference
+        AWSLocationCircle Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -552,20 +552,23 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSLocationSearchPlaceIndexForPositionResponse</h1>
+            <h1>AWSLocationCircle</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationSearchPlaceIndexForPositionResponse</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationCircle</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationSearchPlaceIndexForPositionResponse</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationCircle</span></code></pre>
 
                 </div>
               </div>
-            
+            <p>A circle on the earth, as defined by a center point and a radius.</p>
+
+<p>Required parameters: [Center, Radius]</p>
+
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -573,9 +576,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSLocationSearchPlaceIndexForPositionResponse(py)results"></a>
-                    <a name="//apple_ref/objc/Property/results" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLocationSearchPlaceIndexForPositionResponse(py)results">results</a>
+                    <a name="/c:objc(cs)AWSLocationCircle(py)center"></a>
+                    <a name="//apple_ref/objc/Property/center" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationCircle(py)center">center</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -583,19 +586,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns a list of Places closest to the specified position. Each result contains additional information about the Places returned.</p>
+                        <p>A single point geometry, specifying the center of the circle, using <a href="https://gisgeography.com/wgs84-world-geodetic-system/">WGS 84</a> coordinates, in the form <code>[longitude, latitude]</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/AWSLocationSearchForPositionResult.html">AWSLocationSearchForPositionResult</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">results</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSNumber</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">center</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">results</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/AWSLocationSearchForPositionResult.html">AWSLocationSearchForPositionResult</a></span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">center</span><span class="p">:</span> <span class="p">[</span><span class="kt">NSNumber</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -605,9 +608,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSLocationSearchPlaceIndexForPositionResponse(py)summary"></a>
-                    <a name="//apple_ref/objc/Property/summary" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLocationSearchPlaceIndexForPositionResponse(py)summary">summary</a>
+                    <a name="/c:objc(cs)AWSLocationCircle(py)radius"></a>
+                    <a name="//apple_ref/objc/Property/radius" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationCircle(py)radius">radius</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -615,19 +618,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Contains a summary of the request. Echoes the input values for <code>Position</code>, <code>Language</code>, <code>MaxResults</code>, and the <code>DataSource</code> of the place index. </p>
+                        <p>The radius of the circle in meters. Must be greater than zero and no larger than 100,000 (100 kilometers).</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSLocationSearchPlaceIndexForPositionSummary.html">AWSLocationSearchPlaceIndexForPositionSummary</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">summary</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">radius</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">summary</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationSearchPlaceIndexForPositionSummary.html">AWSLocationSearchPlaceIndexForPositionSummary</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">radius</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>

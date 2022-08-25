@@ -17,7 +17,7 @@
     <a title="AWSLocationGeofenceGeometry Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLocation 2.27.13 Docs</a> (89% documented)</p>
+        <p><a href="../index.html">AWSLocation 2.27.14 Docs</a> (89% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLocation.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -135,6 +135,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLocationCalculateRouteTruckModeOptions.html">AWSLocationCalculateRouteTruckModeOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationCircle.html">AWSLocationCircle</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLocationCreateGeofenceCollectionRequest.html">AWSLocationCreateGeofenceCollectionRequest</a>
@@ -562,12 +565,44 @@
 
                 </div>
               </div>
-            <p><p>Contains the geofence geometry details.</p><note><p>Amazon Location doesn&rsquo;t currently support polygons with holes, multipolygons, polygons that are wound clockwise, or that cross the antimeridian. </p></note></p>
+            <p><p>Contains the geofence geometry details.</p><p>A geofence geometry is made up of either a polygon or a circle. Can be either a polygon or a circle. Including both will return a validation error.</p><note><p>Amazon Location doesn&rsquo;t currently support polygons with holes, multipolygons, polygons that are wound clockwise, or that cross the antimeridian. </p></note></p>
 
           </section>
           <section class="section task-group-section">
             <div class="task-group">
               <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocationGeofenceGeometry(py)circle"></a>
+                    <a name="//apple_ref/objc/Property/circle" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationGeofenceGeometry(py)circle">circle</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A circle on the earth, as defined by a center point and a radius.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSLocationCircle.html">AWSLocationCircle</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">circle</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">circle</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationCircle.html">AWSLocationCircle</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -581,7 +616,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An array of 1 or more linear rings. A linear ring is an array of 4 or more vertices, where the first and last vertex are the same to form a closed boundary. Each vertex is a 2-dimensional point of the form: <code>[longitude, latitude]</code>. </p><p>The first linear ring is an outer ring, describing the polygon&rsquo;s boundary. Subsequent linear rings may be inner or outer rings to describe holes and islands. Outer rings must list their vertices in counter-clockwise order around the ring&rsquo;s center, where the left side is the polygon&rsquo;s exterior. Inner rings must list their vertices in clockwise order, where the left side is the polygon&rsquo;s interior.</p>
+                        <p>An array of 1 or more linear rings. A linear ring is an array of 4 or more vertices, where the first and last vertex are the same to form a closed boundary. Each vertex is a 2-dimensional point of the form: <code>[longitude, latitude]</code>. </p><p>The first linear ring is an outer ring, describing the polygon&rsquo;s boundary. Subsequent linear rings may be inner or outer rings to describe holes and islands. Outer rings must list their vertices in counter-clockwise order around the ring&rsquo;s center, where the left side is the polygon&rsquo;s exterior. Inner rings must list their vertices in clockwise order, where the left side is the polygon&rsquo;s interior.</p><p>A geofence polygon can consist of between 4 and 1,000 vertices.</p>
 
                       </div>
                       <div class="declaration">
@@ -605,7 +640,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-07-21)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-08-25)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
