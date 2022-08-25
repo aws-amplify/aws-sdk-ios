@@ -25,7 +25,7 @@
 #import "AWSCognitoIdentityProviderResources.h"
 
 static NSString *const AWSInfoCognitoIdentityProvider = @"CognitoIdentityProvider";
-NSString *const AWSCognitoIdentityProviderSDKVersion = @"2.27.13";
+NSString *const AWSCognitoIdentityProviderSDKVersion = @"2.27.14";
 
 
 @interface AWSCognitoIdentityProviderResponseSerializer : AWSJSONResponseSerializer
