@@ -2,7 +2,21 @@
 
 ## Unreleased
 
--Features for next release
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSEC2  
+  - AWSConnect
+  - AWSKMS
+  - AWSAutoScaling
+  - AWSPolly
+  - AWSIoT
+  - AWSPinpoint
+  - AWSLocation
+  - AWSChimeSDKMessaging
+  - AWSRekognition
+  - AWSLambda
+  - AWSDynamoDB
 
 ## 2.27.13
 
