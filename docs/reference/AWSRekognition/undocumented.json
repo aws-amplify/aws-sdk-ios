@@ -101,1112 +101,1126 @@
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
       "line": 34,
-      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorInvalidS3Object",
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorInvalidPolicyRevisionId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
       "line": 35,
-      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorLimitExceeded",
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorInvalidS3Object",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
       "line": 36,
-      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorProvisionedThroughputExceeded",
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
       "line": 37,
-      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorResourceAlreadyExists",
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorMalformedPolicyDocument",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
       "line": 38,
-      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorResourceInUse",
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorProvisionedThroughputExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
       "line": 39,
-      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorResourceNotFound",
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorResourceAlreadyExists",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
       "line": 40,
-      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorResourceNotReady",
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorResourceInUse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
       "line": 41,
-      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorServiceQuotaExceeded",
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorResourceNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
       "line": 42,
-      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorThrottling",
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorResourceNotReady",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
       "line": 43,
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorServiceQuotaExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "line": 44,
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorThrottling",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "line": 45,
       "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorVideoTooLarge",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 46,
+      "line": 48,
       "symbol": "AWSRekognitionAttribute",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 46,
+      "line": 48,
       "symbol": "AWSRekognitionAttribute",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 47,
+      "line": 49,
       "symbol": "AWSRekognitionAttribute.AWSRekognitionAttributeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 48,
+      "line": 50,
       "symbol": "AWSRekognitionAttribute.AWSRekognitionAttributeDefault",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 49,
+      "line": 51,
       "symbol": "AWSRekognitionAttribute.AWSRekognitionAttributeAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 52,
+      "line": 54,
       "symbol": "AWSRekognitionBodyPart",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 52,
+      "line": 54,
       "symbol": "AWSRekognitionBodyPart",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 53,
+      "line": 55,
       "symbol": "AWSRekognitionBodyPart.AWSRekognitionBodyPartUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 54,
+      "line": 56,
       "symbol": "AWSRekognitionBodyPart.AWSRekognitionBodyPartFace",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 55,
+      "line": 57,
       "symbol": "AWSRekognitionBodyPart.AWSRekognitionBodyPartHead",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 56,
+      "line": 58,
       "symbol": "AWSRekognitionBodyPart.AWSRekognitionBodyPartLeftHand",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 57,
+      "line": 59,
       "symbol": "AWSRekognitionBodyPart.AWSRekognitionBodyPartRightHand",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 60,
+      "line": 62,
       "symbol": "AWSRekognitionCelebrityRecognitionSortBy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 60,
+      "line": 62,
       "symbol": "AWSRekognitionCelebrityRecognitionSortBy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 61,
+      "line": 63,
       "symbol": "AWSRekognitionCelebrityRecognitionSortBy.AWSRekognitionCelebrityRecognitionSortByUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 62,
+      "line": 64,
       "symbol": "AWSRekognitionCelebrityRecognitionSortBy.AWSRekognitionCelebrityRecognitionSortById",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 63,
+      "line": 65,
       "symbol": "AWSRekognitionCelebrityRecognitionSortBy.AWSRekognitionCelebrityRecognitionSortByTimestamp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 66,
+      "line": 68,
       "symbol": "AWSRekognitionContentClassifier",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 66,
+      "line": 68,
       "symbol": "AWSRekognitionContentClassifier",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 67,
+      "line": 69,
       "symbol": "AWSRekognitionContentClassifier.AWSRekognitionContentClassifierUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 68,
+      "line": 70,
       "symbol": "AWSRekognitionContentClassifier.AWSRekognitionContentClassifierFreeOfPersonallyIdentifiableInformation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 69,
+      "line": 71,
       "symbol": "AWSRekognitionContentClassifier.AWSRekognitionContentClassifierFreeOfAdultContent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 72,
+      "line": 74,
       "symbol": "AWSRekognitionContentModerationSortBy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 72,
+      "line": 74,
       "symbol": "AWSRekognitionContentModerationSortBy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 73,
+      "line": 75,
       "symbol": "AWSRekognitionContentModerationSortBy.AWSRekognitionContentModerationSortByUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 74,
+      "line": 76,
       "symbol": "AWSRekognitionContentModerationSortBy.AWSRekognitionContentModerationSortByName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 75,
+      "line": 77,
       "symbol": "AWSRekognitionContentModerationSortBy.AWSRekognitionContentModerationSortByTimestamp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 78,
+      "line": 80,
       "symbol": "AWSRekognitionDatasetStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 78,
+      "line": 80,
       "symbol": "AWSRekognitionDatasetStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 79,
+      "line": 81,
       "symbol": "AWSRekognitionDatasetStatus.AWSRekognitionDatasetStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 80,
+      "line": 82,
       "symbol": "AWSRekognitionDatasetStatus.AWSRekognitionDatasetStatusCreateInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 81,
+      "line": 83,
       "symbol": "AWSRekognitionDatasetStatus.AWSRekognitionDatasetStatusCreateComplete",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 82,
+      "line": 84,
       "symbol": "AWSRekognitionDatasetStatus.AWSRekognitionDatasetStatusCreateFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 83,
+      "line": 85,
       "symbol": "AWSRekognitionDatasetStatus.AWSRekognitionDatasetStatusUpdateInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 84,
+      "line": 86,
       "symbol": "AWSRekognitionDatasetStatus.AWSRekognitionDatasetStatusUpdateComplete",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 85,
+      "line": 87,
       "symbol": "AWSRekognitionDatasetStatus.AWSRekognitionDatasetStatusUpdateFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 86,
+      "line": 88,
       "symbol": "AWSRekognitionDatasetStatus.AWSRekognitionDatasetStatusDeleteInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 89,
+      "line": 91,
       "symbol": "AWSRekognitionDatasetStatusMessageCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 89,
+      "line": 91,
       "symbol": "AWSRekognitionDatasetStatusMessageCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 90,
+      "line": 92,
       "symbol": "AWSRekognitionDatasetStatusMessageCode.AWSRekognitionDatasetStatusMessageCodeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 91,
+      "line": 93,
       "symbol": "AWSRekognitionDatasetStatusMessageCode.AWSRekognitionDatasetStatusMessageCodeSuccess",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 92,
+      "line": 94,
       "symbol": "AWSRekognitionDatasetStatusMessageCode.AWSRekognitionDatasetStatusMessageCodeServiceError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 93,
+      "line": 95,
       "symbol": "AWSRekognitionDatasetStatusMessageCode.AWSRekognitionDatasetStatusMessageCodeClientError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 96,
+      "line": 98,
       "symbol": "AWSRekognitionDatasetType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 96,
+      "line": 98,
       "symbol": "AWSRekognitionDatasetType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 97,
+      "line": 99,
       "symbol": "AWSRekognitionDatasetType.AWSRekognitionDatasetTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 98,
+      "line": 100,
       "symbol": "AWSRekognitionDatasetType.AWSRekognitionDatasetTypeTrain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 99,
+      "line": 101,
       "symbol": "AWSRekognitionDatasetType.AWSRekognitionDatasetTypeTest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 102,
+      "line": 104,
       "symbol": "AWSRekognitionEmotionName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 102,
+      "line": 104,
       "symbol": "AWSRekognitionEmotionName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 103,
+      "line": 105,
       "symbol": "AWSRekognitionEmotionName.AWSRekognitionEmotionNameUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 104,
+      "line": 106,
       "symbol": "AWSRekognitionEmotionName.AWSRekognitionEmotionNameHappy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 105,
+      "line": 107,
       "symbol": "AWSRekognitionEmotionName.AWSRekognitionEmotionNameSad",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 106,
+      "line": 108,
       "symbol": "AWSRekognitionEmotionName.AWSRekognitionEmotionNameAngry",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 107,
+      "line": 109,
       "symbol": "AWSRekognitionEmotionName.AWSRekognitionEmotionNameConfused",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 108,
+      "line": 110,
       "symbol": "AWSRekognitionEmotionName.AWSRekognitionEmotionNameDisgusted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 109,
+      "line": 111,
       "symbol": "AWSRekognitionEmotionName.AWSRekognitionEmotionNameSurprised",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 110,
+      "line": 112,
       "symbol": "AWSRekognitionEmotionName.AWSRekognitionEmotionNameCalm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 111,
+      "line": 113,
       "symbol": "AWSRekognitionEmotionName.AWSRekognitionEmotionNameFear",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 114,
+      "line": 116,
       "symbol": "AWSRekognitionFaceAttributes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 114,
+      "line": 116,
       "symbol": "AWSRekognitionFaceAttributes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 115,
+      "line": 117,
       "symbol": "AWSRekognitionFaceAttributes.AWSRekognitionFaceAttributesUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 116,
+      "line": 118,
       "symbol": "AWSRekognitionFaceAttributes.AWSRekognitionFaceAttributesDefault",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 117,
+      "line": 119,
       "symbol": "AWSRekognitionFaceAttributes.AWSRekognitionFaceAttributesAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 120,
+      "line": 122,
       "symbol": "AWSRekognitionFaceSearchSortBy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 120,
+      "line": 122,
       "symbol": "AWSRekognitionFaceSearchSortBy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 121,
+      "line": 123,
       "symbol": "AWSRekognitionFaceSearchSortBy.AWSRekognitionFaceSearchSortByUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 122,
+      "line": 124,
       "symbol": "AWSRekognitionFaceSearchSortBy.AWSRekognitionFaceSearchSortByIndex",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 123,
+      "line": 125,
       "symbol": "AWSRekognitionFaceSearchSortBy.AWSRekognitionFaceSearchSortByTimestamp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 126,
+      "line": 128,
       "symbol": "AWSRekognitionGenderType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 126,
+      "line": 128,
       "symbol": "AWSRekognitionGenderType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 127,
+      "line": 129,
       "symbol": "AWSRekognitionGenderType.AWSRekognitionGenderTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 128,
+      "line": 130,
       "symbol": "AWSRekognitionGenderType.AWSRekognitionGenderTypeMale",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 129,
+      "line": 131,
       "symbol": "AWSRekognitionGenderType.AWSRekognitionGenderTypeFemale",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 132,
+      "line": 134,
       "symbol": "AWSRekognitionKnownGenderType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 132,
+      "line": 134,
       "symbol": "AWSRekognitionKnownGenderType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 133,
+      "line": 135,
       "symbol": "AWSRekognitionKnownGenderType.AWSRekognitionKnownGenderTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 134,
+      "line": 136,
       "symbol": "AWSRekognitionKnownGenderType.AWSRekognitionKnownGenderTypeMale",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 135,
+      "line": 137,
       "symbol": "AWSRekognitionKnownGenderType.AWSRekognitionKnownGenderTypeFemale",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 136,
+      "line": 138,
       "symbol": "AWSRekognitionKnownGenderType.AWSRekognitionKnownGenderTypeNonbinary",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 137,
+      "line": 139,
       "symbol": "AWSRekognitionKnownGenderType.AWSRekognitionKnownGenderTypeUnlisted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 140,
+      "line": 142,
       "symbol": "AWSRekognitionLabelDetectionSortBy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 140,
+      "line": 142,
       "symbol": "AWSRekognitionLabelDetectionSortBy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 141,
+      "line": 143,
       "symbol": "AWSRekognitionLabelDetectionSortBy.AWSRekognitionLabelDetectionSortByUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 142,
+      "line": 144,
       "symbol": "AWSRekognitionLabelDetectionSortBy.AWSRekognitionLabelDetectionSortByName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 143,
+      "line": 145,
       "symbol": "AWSRekognitionLabelDetectionSortBy.AWSRekognitionLabelDetectionSortByTimestamp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 146,
+      "line": 148,
       "symbol": "AWSRekognitionLandmarkType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 146,
+      "line": 148,
       "symbol": "AWSRekognitionLandmarkType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 147,
+      "line": 149,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 148,
+      "line": 150,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeEyeLeft",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 149,
+      "line": 151,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeEyeRight",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 150,
+      "line": 152,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeNose",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 151,
+      "line": 153,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeMouthLeft",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 152,
+      "line": 154,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeMouthRight",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 153,
+      "line": 155,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeLeftEyeBrowLeft",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 154,
+      "line": 156,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeLeftEyeBrowRight",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 155,
+      "line": 157,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeLeftEyeBrowUp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 156,
+      "line": 158,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeRightEyeBrowLeft",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 157,
+      "line": 159,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeRightEyeBrowRight",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 158,
+      "line": 160,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeRightEyeBrowUp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 159,
+      "line": 161,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeLeftEyeLeft",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 160,
+      "line": 162,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeLeftEyeRight",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 161,
+      "line": 163,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeLeftEyeUp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 162,
+      "line": 164,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeLeftEyeDown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 163,
+      "line": 165,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeRightEyeLeft",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 164,
+      "line": 166,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeRightEyeRight",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 165,
+      "line": 167,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeRightEyeUp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 166,
+      "line": 168,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeRightEyeDown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 167,
+      "line": 169,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeNoseLeft",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 168,
+      "line": 170,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeNoseRight",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 169,
+      "line": 171,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeMouthUp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 170,
+      "line": 172,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeMouthDown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 171,
+      "line": 173,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeLeftPupil",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 172,
+      "line": 174,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeRightPupil",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 173,
+      "line": 175,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeUpperJawlineLeft",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 174,
+      "line": 176,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeMidJawlineLeft",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 175,
+      "line": 177,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeChinBottom",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 176,
+      "line": 178,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeMidJawlineRight",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 177,
+      "line": 179,
       "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeUpperJawlineRight",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 180,
+      "line": 182,
       "symbol": "AWSRekognitionOrientationCorrection",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 180,
+      "line": 182,
       "symbol": "AWSRekognitionOrientationCorrection",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 181,
+      "line": 183,
       "symbol": "AWSRekognitionOrientationCorrection.AWSRekognitionOrientationCorrectionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 182,
+      "line": 184,
       "symbol": "AWSRekognitionOrientationCorrection.AWSRekognitionOrientationCorrectionRotate0",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 183,
+      "line": 185,
       "symbol": "AWSRekognitionOrientationCorrection.AWSRekognitionOrientationCorrectionRotate90",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 184,
+      "line": 186,
       "symbol": "AWSRekognitionOrientationCorrection.AWSRekognitionOrientationCorrectionRotate180",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 185,
+      "line": 187,
       "symbol": "AWSRekognitionOrientationCorrection.AWSRekognitionOrientationCorrectionRotate270",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 188,
+      "line": 190,
       "symbol": "AWSRekognitionPersonTrackingSortBy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 188,
+      "line": 190,
       "symbol": "AWSRekognitionPersonTrackingSortBy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 189,
+      "line": 191,
       "symbol": "AWSRekognitionPersonTrackingSortBy.AWSRekognitionPersonTrackingSortByUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 190,
+      "line": 192,
       "symbol": "AWSRekognitionPersonTrackingSortBy.AWSRekognitionPersonTrackingSortByIndex",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 191,
+      "line": 193,
       "symbol": "AWSRekognitionPersonTrackingSortBy.AWSRekognitionPersonTrackingSortByTimestamp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 194,
+      "line": 196,
       "symbol": "AWSRekognitionProjectStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 194,
+      "line": 196,
       "symbol": "AWSRekognitionProjectStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 195,
+      "line": 197,
       "symbol": "AWSRekognitionProjectStatus.AWSRekognitionProjectStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 196,
+      "line": 198,
       "symbol": "AWSRekognitionProjectStatus.AWSRekognitionProjectStatusCreating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 197,
+      "line": 199,
       "symbol": "AWSRekognitionProjectStatus.AWSRekognitionProjectStatusCreated",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 198,
+      "line": 200,
       "symbol": "AWSRekognitionProjectStatus.AWSRekognitionProjectStatusDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 201,
+      "line": 203,
       "symbol": "AWSRekognitionProjectVersionStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 201,
+      "line": 203,
       "symbol": "AWSRekognitionProjectVersionStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 202,
+      "line": 204,
       "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 203,
+      "line": 205,
       "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusTrainingInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 204,
+      "line": 206,
       "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusTrainingCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 205,
+      "line": 207,
       "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusTrainingFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 206,
+      "line": 208,
       "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusStarting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 207,
+      "line": 209,
       "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusRunning",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 208,
+      "line": 210,
       "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 209,
+      "line": 211,
       "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusStopping",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 210,
+      "line": 212,
       "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusStopped",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 211,
+      "line": 213,
       "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
@@ -1214,482 +1228,503 @@
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
       "line": 214,
-      "symbol": "AWSRekognitionProtectiveEquipmentType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 214,
-      "symbol": "AWSRekognitionProtectiveEquipmentType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusCopyingInProgress",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
       "line": 215,
-      "symbol": "AWSRekognitionProtectiveEquipmentType.AWSRekognitionProtectiveEquipmentTypeUnknown",
+      "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusCopyingCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
       "line": 216,
+      "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusCopyingFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "line": 219,
+      "symbol": "AWSRekognitionProtectiveEquipmentType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "line": 219,
+      "symbol": "AWSRekognitionProtectiveEquipmentType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "line": 220,
+      "symbol": "AWSRekognitionProtectiveEquipmentType.AWSRekognitionProtectiveEquipmentTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
+      "line": 221,
       "symbol": "AWSRekognitionProtectiveEquipmentType.AWSRekognitionProtectiveEquipmentTypeFaceCover",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 217,
+      "line": 222,
       "symbol": "AWSRekognitionProtectiveEquipmentType.AWSRekognitionProtectiveEquipmentTypeHandCover",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 218,
+      "line": 223,
       "symbol": "AWSRekognitionProtectiveEquipmentType.AWSRekognitionProtectiveEquipmentTypeHeadCover",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 221,
+      "line": 226,
       "symbol": "AWSRekognitionQualityFilter",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 221,
+      "line": 226,
       "symbol": "AWSRekognitionQualityFilter",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 222,
+      "line": 227,
       "symbol": "AWSRekognitionQualityFilter.AWSRekognitionQualityFilterUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 223,
+      "line": 228,
       "symbol": "AWSRekognitionQualityFilter.AWSRekognitionQualityFilterNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 224,
+      "line": 229,
       "symbol": "AWSRekognitionQualityFilter.AWSRekognitionQualityFilterAuto",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 225,
+      "line": 230,
       "symbol": "AWSRekognitionQualityFilter.AWSRekognitionQualityFilterLow",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 226,
+      "line": 231,
       "symbol": "AWSRekognitionQualityFilter.AWSRekognitionQualityFilterMedium",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 227,
+      "line": 232,
       "symbol": "AWSRekognitionQualityFilter.AWSRekognitionQualityFilterHigh",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 230,
+      "line": 235,
       "symbol": "AWSRekognitionReason",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 230,
+      "line": 235,
       "symbol": "AWSRekognitionReason",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 231,
+      "line": 236,
       "symbol": "AWSRekognitionReason.AWSRekognitionReasonUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 232,
+      "line": 237,
       "symbol": "AWSRekognitionReason.AWSRekognitionReasonExceedsMaxFaces",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 233,
+      "line": 238,
       "symbol": "AWSRekognitionReason.AWSRekognitionReasonExtremePose",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 234,
+      "line": 239,
       "symbol": "AWSRekognitionReason.AWSRekognitionReasonLowBrightness",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 235,
+      "line": 240,
       "symbol": "AWSRekognitionReason.AWSRekognitionReasonLowSharpness",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 236,
+      "line": 241,
       "symbol": "AWSRekognitionReason.AWSRekognitionReasonLowConfidence",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 237,
+      "line": 242,
       "symbol": "AWSRekognitionReason.AWSRekognitionReasonSmallBoundingBox",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 238,
+      "line": 243,
       "symbol": "AWSRekognitionReason.AWSRekognitionReasonLowFaceQuality",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 241,
+      "line": 246,
       "symbol": "AWSRekognitionSegmentType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 241,
+      "line": 246,
       "symbol": "AWSRekognitionSegmentType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 242,
+      "line": 247,
       "symbol": "AWSRekognitionSegmentType.AWSRekognitionSegmentTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 243,
+      "line": 248,
       "symbol": "AWSRekognitionSegmentType.AWSRekognitionSegmentTypeTechnicalCue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 244,
+      "line": 249,
       "symbol": "AWSRekognitionSegmentType.AWSRekognitionSegmentTypeShot",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 247,
+      "line": 252,
       "symbol": "AWSRekognitionStreamProcessorParameterToDelete",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 247,
+      "line": 252,
       "symbol": "AWSRekognitionStreamProcessorParameterToDelete",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 248,
+      "line": 253,
       "symbol": "AWSRekognitionStreamProcessorParameterToDelete.AWSRekognitionStreamProcessorParameterToDeleteUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 249,
+      "line": 254,
       "symbol": "AWSRekognitionStreamProcessorParameterToDelete.AWSRekognitionStreamProcessorParameterToDeleteConnectedHomeMinConfidence",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 250,
+      "line": 255,
       "symbol": "AWSRekognitionStreamProcessorParameterToDelete.AWSRekognitionStreamProcessorParameterToDeleteRegionsOfInterest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 253,
+      "line": 258,
       "symbol": "AWSRekognitionStreamProcessorStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 253,
+      "line": 258,
       "symbol": "AWSRekognitionStreamProcessorStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 254,
+      "line": 259,
       "symbol": "AWSRekognitionStreamProcessorStatus.AWSRekognitionStreamProcessorStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 255,
+      "line": 260,
       "symbol": "AWSRekognitionStreamProcessorStatus.AWSRekognitionStreamProcessorStatusStopped",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 256,
+      "line": 261,
       "symbol": "AWSRekognitionStreamProcessorStatus.AWSRekognitionStreamProcessorStatusStarting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 257,
+      "line": 262,
       "symbol": "AWSRekognitionStreamProcessorStatus.AWSRekognitionStreamProcessorStatusRunning",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 258,
+      "line": 263,
       "symbol": "AWSRekognitionStreamProcessorStatus.AWSRekognitionStreamProcessorStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 259,
+      "line": 264,
       "symbol": "AWSRekognitionStreamProcessorStatus.AWSRekognitionStreamProcessorStatusStopping",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 260,
+      "line": 265,
       "symbol": "AWSRekognitionStreamProcessorStatus.AWSRekognitionStreamProcessorStatusUpdating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 263,
+      "line": 268,
       "symbol": "AWSRekognitionTechnicalCueType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 263,
+      "line": 268,
       "symbol": "AWSRekognitionTechnicalCueType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 264,
+      "line": 269,
       "symbol": "AWSRekognitionTechnicalCueType.AWSRekognitionTechnicalCueTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 265,
+      "line": 270,
       "symbol": "AWSRekognitionTechnicalCueType.AWSRekognitionTechnicalCueTypeColorBars",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 266,
+      "line": 271,
       "symbol": "AWSRekognitionTechnicalCueType.AWSRekognitionTechnicalCueTypeEndCredits",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 267,
+      "line": 272,
       "symbol": "AWSRekognitionTechnicalCueType.AWSRekognitionTechnicalCueTypeBlackFrames",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 268,
+      "line": 273,
       "symbol": "AWSRekognitionTechnicalCueType.AWSRekognitionTechnicalCueTypeOpeningCredits",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 269,
+      "line": 274,
       "symbol": "AWSRekognitionTechnicalCueType.AWSRekognitionTechnicalCueTypeStudioLogo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 270,
+      "line": 275,
       "symbol": "AWSRekognitionTechnicalCueType.AWSRekognitionTechnicalCueTypeSlate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 271,
+      "line": 276,
       "symbol": "AWSRekognitionTechnicalCueType.AWSRekognitionTechnicalCueTypeContent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 274,
+      "line": 279,
       "symbol": "AWSRekognitionTextTypes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 274,
+      "line": 279,
       "symbol": "AWSRekognitionTextTypes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 275,
+      "line": 280,
       "symbol": "AWSRekognitionTextTypes.AWSRekognitionTextTypesUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 276,
+      "line": 281,
       "symbol": "AWSRekognitionTextTypes.AWSRekognitionTextTypesLine",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 277,
+      "line": 282,
       "symbol": "AWSRekognitionTextTypes.AWSRekognitionTextTypesWord",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 280,
+      "line": 285,
       "symbol": "AWSRekognitionVideoColorRange",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 280,
+      "line": 285,
       "symbol": "AWSRekognitionVideoColorRange",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 281,
+      "line": 286,
       "symbol": "AWSRekognitionVideoColorRange.AWSRekognitionVideoColorRangeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 282,
+      "line": 287,
       "symbol": "AWSRekognitionVideoColorRange.AWSRekognitionVideoColorRangeFull",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 283,
+      "line": 288,
       "symbol": "AWSRekognitionVideoColorRange.AWSRekognitionVideoColorRangeLimited",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 286,
+      "line": 291,
       "symbol": "AWSRekognitionVideoJobStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 286,
+      "line": 291,
       "symbol": "AWSRekognitionVideoJobStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 287,
+      "line": 292,
       "symbol": "AWSRekognitionVideoJobStatus.AWSRekognitionVideoJobStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 288,
+      "line": 293,
       "symbol": "AWSRekognitionVideoJobStatus.AWSRekognitionVideoJobStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 289,
+      "line": 294,
       "symbol": "AWSRekognitionVideoJobStatus.AWSRekognitionVideoJobStatusSucceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSRekognition/AWSRekognitionModel.h",
-      "line": 290,
+      "line": 295,
       "symbol": "AWSRekognitionVideoJobStatus.AWSRekognitionVideoJobStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
