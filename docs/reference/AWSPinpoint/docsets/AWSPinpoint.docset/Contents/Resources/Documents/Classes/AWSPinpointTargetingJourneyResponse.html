@@ -17,7 +17,7 @@
     <a title="AWSPinpointTargetingJourneyResponse Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSPinpoint 2.27.13 Docs</a> (90% documented)</p>
+        <p><a href="../index.html">AWSPinpoint 2.27.14 Docs</a> (90% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSPinpoint.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -207,6 +207,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingClient.html">AWSPinpointTargetingClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingClosedDays.html">AWSPinpointTargetingClosedDays</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingClosedDaysRule.html">AWSPinpointTargetingClosedDaysRule</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingCondition.html">AWSPinpointTargetingCondition</a>
@@ -989,6 +995,12 @@
                 <a href="../Classes/AWSPinpointTargetingNumberValidateResponse.html">AWSPinpointTargetingNumberValidateResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingOpenHours.html">AWSPinpointTargetingOpenHours</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingOpenHoursRule.html">AWSPinpointTargetingOpenHoursRule</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingOverrideButtonConfiguration.html">AWSPinpointTargetingOverrideButtonConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -1473,6 +1485,9 @@
                 <a href="../Enums/AWSPinpointTargetingChannelType.html">AWSPinpointTargetingChannelType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSPinpointTargetingDayOfWeek.html">AWSPinpointTargetingDayOfWeek</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSPinpointTargetingDeliveryStatus.html">AWSPinpointTargetingDeliveryStatus</a>
               </li>
               <li class="nav-group-task">
@@ -1635,6 +1650,38 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">applicationId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPinpointTargetingJourneyResponse(py)closedDays"></a>
+                    <a name="//apple_ref/objc/Property/closedDays" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointTargetingJourneyResponse(py)closedDays">closedDays</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The time when journey will stop sending messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSPinpointTargetingClosedDays.html">AWSPinpointTargetingClosedDays</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">closedDays</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">closedDays</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSPinpointTargetingClosedDays.html">AWSPinpointTargetingClosedDays</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -1868,6 +1915,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSPinpointTargetingJourneyResponse(py)openHours"></a>
+                    <a name="//apple_ref/objc/Property/openHours" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointTargetingJourneyResponse(py)openHours">openHours</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The time when journey allow to send messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSPinpointTargetingOpenHours.html">AWSPinpointTargetingOpenHours</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">openHours</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">openHours</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSPinpointTargetingOpenHours.html">AWSPinpointTargetingOpenHours</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSPinpointTargetingJourneyResponse(py)quietTime"></a>
                     <a name="//apple_ref/objc/Property/quietTime" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSPinpointTargetingJourneyResponse(py)quietTime">quietTime</a>
@@ -1987,6 +2066,38 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">schedule</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSPinpointTargetingJourneySchedule.html">AWSPinpointTargetingJourneySchedule</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPinpointTargetingJourneyResponse(py)sendingSchedule"></a>
+                    <a name="//apple_ref/objc/Property/sendingSchedule" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointTargetingJourneyResponse(py)sendingSchedule">sendingSchedule</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays). This flag should be set to true in order to allow (OpenHours and ClosedDays)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">sendingSchedule</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">sendingSchedule</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -2158,7 +2269,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-07-21)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-08-25)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

@@ -1681,6 +1681,76 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 254,
+      "symbol": "AWSPinpointTargetingDayOfWeek",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 254,
+      "symbol": "AWSPinpointTargetingDayOfWeek",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 255,
+      "symbol": "AWSPinpointTargetingDayOfWeek.AWSPinpointTargetingDayOfWeekUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 256,
+      "symbol": "AWSPinpointTargetingDayOfWeek.AWSPinpointTargetingDayOfWeekMonday",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 257,
+      "symbol": "AWSPinpointTargetingDayOfWeek.AWSPinpointTargetingDayOfWeekTuesday",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 258,
+      "symbol": "AWSPinpointTargetingDayOfWeek.AWSPinpointTargetingDayOfWeekWednesday",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 259,
+      "symbol": "AWSPinpointTargetingDayOfWeek.AWSPinpointTargetingDayOfWeekThursday",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 260,
+      "symbol": "AWSPinpointTargetingDayOfWeek.AWSPinpointTargetingDayOfWeekFriday",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 261,
+      "symbol": "AWSPinpointTargetingDayOfWeek.AWSPinpointTargetingDayOfWeekSaturday",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 262,
+      "symbol": "AWSPinpointTargetingDayOfWeek.AWSPinpointTargetingDayOfWeekSunday",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingResources.h",
       "line": 18,
       "symbol": "AWSPinpointTargetingResources",
