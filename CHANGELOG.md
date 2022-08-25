@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+### Bug Fixes
+
+- **AWSMobileClient**
+  - Add missing parameters for SignInResult init in getNewPasswordDetails (See [PR #4200](https://github.com/aws-amplify/aws-sdk-ios/pull/4200))
+
+- **AWSPinpoint**
+  - Migrate key-value storage from NSUserdefaults to Keychain (See [PR #4223](https://github.com/aws-amplify/aws-sdk-ios/pull/4223))
+
 ### Misc. Updates
 
 - Model updates for the following services
@@ -21,9 +29,6 @@
 ## 2.27.13
 
 ### Bug Fixes
-
-- **AWSPinpoint**
-  - Migrate key-value storage from NSUserdefaults to Keychain (See [PR #4223](https://github.com/aws-amplify/aws-sdk-ios/pull/4223))
   
 - **AWSMobileClient**
   - Fixes duplicated callbacks when getToken fails on device operations (See https://github.com/aws-amplify/aws-sdk-ios/pull/4229)
