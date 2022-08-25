@@ -344,6 +344,7 @@
 - (void) test_AWSIoTHttpUrlDestinationProperties API_AVAILABLE(ios(11));
 - (void) test_AWSIoTHttpUrlDestinationSummary API_AVAILABLE(ios(11));
 - (void) test_AWSIoTImplicitDeny API_AVAILABLE(ios(11));
+- (void) test_AWSIoTIndexingFilter API_AVAILABLE(ios(11));
 - (void) test_AWSIoTIotAnalyticsAction API_AVAILABLE(ios(11));
 - (void) test_AWSIoTIotEventsAction API_AVAILABLE(ios(11));
 - (void) test_AWSIoTIotSiteWiseAction API_AVAILABLE(ios(11));
@@ -1962,6 +1963,10 @@
 
 - (void) test_AWSIoTImplicitDeny {
     [self validateSecureCodingForClass:[AWSIoTImplicitDeny class]];
+}
+
+- (void) test_AWSIoTIndexingFilter {
+    [self validateSecureCodingForClass:[AWSIoTIndexingFilter class]];
 }
 
 - (void) test_AWSIoTIotAnalyticsAction {

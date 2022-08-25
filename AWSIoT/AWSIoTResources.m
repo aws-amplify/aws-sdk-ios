@@ -170,7 +170,7 @@
         {\"shape\":\"InternalFailureException\"},\
         {\"shape\":\"LimitExceededException\"}\
       ],\
-      \"documentation\":\"<p>Attaches the specified policy to the specified principal (certificate or other credential).</p> <p> <b>Note:</b> This action is deprecated. Please use <a>AttachPolicy</a> instead.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">AttachPrincipalPolicy</a> action.</p>\",\
+      \"documentation\":\"<p>Attaches the specified policy to the specified principal (certificate or other credential).</p> <p> <b>Note:</b> This action is deprecated and works as expected for backward compatibility, but we won't add enhancements. Use <a>AttachPolicy</a> instead.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">AttachPrincipalPolicy</a> action.</p>\",\
       \"deprecated\":true\
     },\
     \"AttachSecurityProfile\":{\
@@ -672,7 +672,7 @@
         {\"shape\":\"UnauthorizedException\"},\
         {\"shape\":\"ResourceAlreadyExistsException\"}\
       ],\
-      \"documentation\":\"<p>Creates a fleet provisioning template.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">CreateProvisioningTemplate</a> action.</p>\"\
+      \"documentation\":\"<p>Creates a provisioning template.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">CreateProvisioningTemplate</a> action.</p>\"\
     },\
     \"CreateProvisioningTemplateVersion\":{\
       \"name\":\"CreateProvisioningTemplateVersion\",\
@@ -691,7 +691,7 @@
         {\"shape\":\"UnauthorizedException\"},\
         {\"shape\":\"ConflictingResourceUpdateException\"}\
       ],\
-      \"documentation\":\"<p>Creates a new version of a fleet provisioning template.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">CreateProvisioningTemplateVersion</a> action.</p>\"\
+      \"documentation\":\"<p>Creates a new version of a provisioning template.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">CreateProvisioningTemplateVersion</a> action.</p>\"\
     },\
     \"CreateRoleAlias\":{\
       \"name\":\"CreateRoleAlias\",\
@@ -1172,7 +1172,7 @@
         {\"shape\":\"ConflictingResourceUpdateException\"},\
         {\"shape\":\"UnauthorizedException\"}\
       ],\
-      \"documentation\":\"<p>Deletes a fleet provisioning template.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">DeleteProvisioningTemplate</a> action.</p>\"\
+      \"documentation\":\"<p>Deletes a provisioning template.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">DeleteProvisioningTemplate</a> action.</p>\"\
     },\
     \"DeleteProvisioningTemplateVersion\":{\
       \"name\":\"DeleteProvisioningTemplateVersion\",\
@@ -1191,7 +1191,7 @@
         {\"shape\":\"ConflictingResourceUpdateException\"},\
         {\"shape\":\"DeleteConflictException\"}\
       ],\
-      \"documentation\":\"<p>Deletes a fleet provisioning template version.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">DeleteProvisioningTemplateVersion</a> action.</p>\"\
+      \"documentation\":\"<p>Deletes a provisioning template version.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">DeleteProvisioningTemplateVersion</a> action.</p>\"\
     },\
     \"DeleteRegistrationCode\":{\
       \"name\":\"DeleteRegistrationCode\",\
@@ -1791,7 +1791,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"UnauthorizedException\"}\
       ],\
-      \"documentation\":\"<p>Returns information about a fleet provisioning template.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">DescribeProvisioningTemplate</a> action.</p>\"\
+      \"documentation\":\"<p>Returns information about a provisioning template.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">DescribeProvisioningTemplate</a> action.</p>\"\
     },\
     \"DescribeProvisioningTemplateVersion\":{\
       \"name\":\"DescribeProvisioningTemplateVersion\",\
@@ -1808,7 +1808,7 @@
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"UnauthorizedException\"}\
       ],\
-      \"documentation\":\"<p>Returns information about a fleet provisioning template version.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">DescribeProvisioningTemplateVersion</a> action.</p>\"\
+      \"documentation\":\"<p>Returns information about a provisioning template version.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">DescribeProvisioningTemplateVersion</a> action.</p>\"\
     },\
     \"DescribeRoleAlias\":{\
       \"name\":\"DescribeRoleAlias\",\
@@ -1979,7 +1979,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"InternalFailureException\"}\
       ],\
-      \"documentation\":\"<p>Removes the specified policy from the specified certificate.</p> <note> <p>This action is deprecated. Please use <a>DetachPolicy</a> instead.</p> </note> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">DetachPrincipalPolicy</a> action.</p>\",\
+      \"documentation\":\"<p>Removes the specified policy from the specified certificate.</p> <p> <b>Note:</b> This action is deprecated and works as expected for backward compatibility, but we won't add enhancements. Use <a>DetachPolicy</a> instead.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">DetachPrincipalPolicy</a> action.</p>\",\
       \"deprecated\":true\
     },\
     \"DetachSecurityProfile\":{\
@@ -2815,7 +2815,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"InternalFailureException\"}\
       ],\
-      \"documentation\":\"<p>Lists the principals associated with the specified policy.</p> <p> <b>Note:</b> This action is deprecated. Please use <a>ListTargetsForPolicy</a> instead.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">ListPolicyPrincipals</a> action.</p>\",\
+      \"documentation\":\"<p>Lists the principals associated with the specified policy.</p> <p> <b>Note:</b> This action is deprecated and works as expected for backward compatibility, but we won't add enhancements. Use <a>ListTargetsForPolicy</a> instead.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">ListPolicyPrincipals</a> action.</p>\",\
       \"deprecated\":true\
     },\
     \"ListPolicyVersions\":{\
@@ -2852,7 +2852,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"InternalFailureException\"}\
       ],\
-      \"documentation\":\"<p>Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in <a href=\\\"https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax\\\">AmazonCognito Identity format</a>.</p> <p> <b>Note:</b> This action is deprecated. Please use <a>ListAttachedPolicies</a> instead.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">ListPrincipalPolicies</a> action.</p>\",\
+      \"documentation\":\"<p>Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in <a href=\\\"https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax\\\">AmazonCognito Identity format</a>.</p> <p> <b>Note:</b> This action is deprecated and works as expected for backward compatibility, but we won't add enhancements. Use <a>ListAttachedPolicies</a> instead.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">ListPrincipalPolicies</a> action.</p>\",\
       \"deprecated\":true\
     },\
     \"ListPrincipalThings\":{\
@@ -2888,7 +2888,7 @@
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"UnauthorizedException\"}\
       ],\
-      \"documentation\":\"<p>A list of fleet provisioning template versions.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">ListProvisioningTemplateVersions</a> action.</p>\"\
+      \"documentation\":\"<p>A list of provisioning template versions.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">ListProvisioningTemplateVersions</a> action.</p>\"\
     },\
     \"ListProvisioningTemplates\":{\
       \"name\":\"ListProvisioningTemplates\",\
@@ -2904,7 +2904,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"UnauthorizedException\"}\
       ],\
-      \"documentation\":\"<p>Lists the fleet provisioning templates in your Amazon Web Services account.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">ListProvisioningTemplates</a> action.</p>\"\
+      \"documentation\":\"<p>Lists the provisioning templates in your Amazon Web Services account.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">ListProvisioningTemplates</a> action.</p>\"\
     },\
     \"ListRoleAliases\":{\
       \"name\":\"ListRoleAliases\",\
@@ -3272,6 +3272,7 @@
       \"input\":{\"shape\":\"RegisterCACertificateRequest\"},\
       \"output\":{\"shape\":\"RegisterCACertificateResponse\"},\
       \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"ResourceAlreadyExistsException\"},\
         {\"shape\":\"RegistrationCodeValidationException\"},\
         {\"shape\":\"InvalidRequestException\"},\
@@ -3955,7 +3956,7 @@
         {\"shape\":\"UnauthorizedException\"},\
         {\"shape\":\"ConflictingResourceUpdateException\"}\
       ],\
-      \"documentation\":\"<p>Updates a fleet provisioning template.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">UpdateProvisioningTemplate</a> action.</p>\"\
+      \"documentation\":\"<p>Updates a provisioning template.</p> <p>Requires permission to access the <a href=\\\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions\\\">UpdateProvisioningTemplate</a> action.</p>\"\
     },\
     \"UpdateRoleAlias\":{\
       \"name\":\"UpdateRoleAlias\",\
@@ -7220,23 +7221,23 @@
       \"members\":{\
         \"templateName\":{\
           \"shape\":\"TemplateName\",\
-          \"documentation\":\"<p>The name of the fleet provisioning template.</p>\"\
+          \"documentation\":\"<p>The name of the provisioning template.</p>\"\
         },\
         \"description\":{\
           \"shape\":\"TemplateDescription\",\
-          \"documentation\":\"<p>The description of the fleet provisioning template.</p>\"\
+          \"documentation\":\"<p>The description of the provisioning template.</p>\"\
         },\
         \"templateBody\":{\
           \"shape\":\"TemplateBody\",\
-          \"documentation\":\"<p>The JSON formatted contents of the fleet provisioning template.</p>\"\
+          \"documentation\":\"<p>The JSON formatted contents of the provisioning template.</p>\"\
         },\
         \"enabled\":{\
           \"shape\":\"Enabled\",\
-          \"documentation\":\"<p>True to enable the fleet provisioning template, otherwise false.</p>\"\
+          \"documentation\":\"<p>True to enable the provisioning template, otherwise false.</p>\"\
         },\
         \"provisioningRoleArn\":{\
           \"shape\":\"RoleArn\",\
-          \"documentation\":\"<p>The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.</p>\"\
+          \"documentation\":\"<p>The role ARN for the role associated with the provisioning template. This IoT role grants permission to provision a device.</p>\"\
         },\
         \"preProvisioningHook\":{\
           \"shape\":\"ProvisioningHook\",\
@@ -7244,7 +7245,11 @@
         },\
         \"tags\":{\
           \"shape\":\"TagList\",\
-          \"documentation\":\"<p>Metadata which can be used to manage the fleet provisioning template.</p> <note> <p>For URI Request parameters use format: ...key1=value1&amp;key2=value2...</p> <p>For the CLI command-line parameter use format: &amp;&amp;tags \\\"key1=value1&amp;key2=value2...\\\"</p> <p>For the cli-input-json file use format: \\\"tags\\\": \\\"key1=value1&amp;key2=value2...\\\"</p> </note>\"\
+          \"documentation\":\"<p>Metadata which can be used to manage the provisioning template.</p> <note> <p>For URI Request parameters use format: ...key1=value1&amp;key2=value2...</p> <p>For the CLI command-line parameter use format: &amp;&amp;tags \\\"key1=value1&amp;key2=value2...\\\"</p> <p>For the cli-input-json file use format: \\\"tags\\\": \\\"key1=value1&amp;key2=value2...\\\"</p> </note>\"\
+        },\
+        \"type\":{\
+          \"shape\":\"TemplateType\",\
+          \"documentation\":\"<p>The type you define in a provisioning template. You can create a template with only one type. You can't change the template type after its creation. The default value is <code>FLEET_PROVISIONING</code>. For more information about provisioning template, see: <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html\\\">Provisioning template</a>. </p>\"\
         }\
       }\
     },\
@@ -7257,11 +7262,11 @@
         },\
         \"templateName\":{\
           \"shape\":\"TemplateName\",\
-          \"documentation\":\"<p>The name of the fleet provisioning template.</p>\"\
+          \"documentation\":\"<p>The name of the provisioning template.</p>\"\
         },\
         \"defaultVersionId\":{\
           \"shape\":\"TemplateVersionId\",\
-          \"documentation\":\"<p>The default version of the fleet provisioning template.</p>\"\
+          \"documentation\":\"<p>The default version of the provisioning template.</p>\"\
         }\
       }\
     },\
@@ -7274,13 +7279,13 @@
       \"members\":{\
         \"templateName\":{\
           \"shape\":\"TemplateName\",\
-          \"documentation\":\"<p>The name of the fleet provisioning template.</p>\",\
+          \"documentation\":\"<p>The name of the provisioning template.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"templateName\"\
         },\
         \"templateBody\":{\
           \"shape\":\"TemplateBody\",\
-          \"documentation\":\"<p>The JSON formatted contents of the fleet provisioning template.</p>\"\
+          \"documentation\":\"<p>The JSON formatted contents of the provisioning template.</p>\"\
         },\
         \"setAsDefault\":{\
           \"shape\":\"SetAsDefault\",\
@@ -7299,15 +7304,15 @@
         },\
         \"templateName\":{\
           \"shape\":\"TemplateName\",\
-          \"documentation\":\"<p>The name of the fleet provisioning template.</p>\"\
+          \"documentation\":\"<p>The name of the provisioning template.</p>\"\
         },\
         \"versionId\":{\
           \"shape\":\"TemplateVersionId\",\
-          \"documentation\":\"<p>The version of the fleet provisioning template.</p>\"\
+          \"documentation\":\"<p>The version of the provisioning template.</p>\"\
         },\
         \"isDefaultVersion\":{\
           \"shape\":\"IsDefaultVersion\",\
-          \"documentation\":\"<p>True if the fleet provisioning template version is the default version, otherwise false.</p>\"\
+          \"documentation\":\"<p>True if the provisioning template version is the default version, otherwise false.</p>\"\
         }\
       }\
     },\
@@ -8139,13 +8144,13 @@
       \"members\":{\
         \"templateName\":{\
           \"shape\":\"TemplateName\",\
-          \"documentation\":\"<p>The name of the fleet provisioning template version to delete.</p>\",\
+          \"documentation\":\"<p>The name of the provisioning template version to delete.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"templateName\"\
         },\
         \"versionId\":{\
           \"shape\":\"TemplateVersionId\",\
-          \"documentation\":\"<p>The fleet provisioning template version ID to delete.</p>\",\
+          \"documentation\":\"<p>The provisioning template version ID to delete.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"versionId\"\
         }\
@@ -9197,7 +9202,7 @@
       \"members\":{\
         \"templateName\":{\
           \"shape\":\"TemplateName\",\
-          \"documentation\":\"<p>The name of the fleet provisioning template.</p>\",\
+          \"documentation\":\"<p>The name of the provisioning template.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"templateName\"\
         }\
@@ -9208,23 +9213,23 @@
       \"members\":{\
         \"templateArn\":{\
           \"shape\":\"TemplateArn\",\
-          \"documentation\":\"<p>The ARN of the fleet provisioning template.</p>\"\
+          \"documentation\":\"<p>The ARN of the provisioning template.</p>\"\
         },\
         \"templateName\":{\
           \"shape\":\"TemplateName\",\
-          \"documentation\":\"<p>The name of the fleet provisioning template.</p>\"\
+          \"documentation\":\"<p>The name of the provisioning template.</p>\"\
         },\
         \"description\":{\
           \"shape\":\"TemplateDescription\",\
-          \"documentation\":\"<p>The description of the fleet provisioning template.</p>\"\
+          \"documentation\":\"<p>The description of the provisioning template.</p>\"\
         },\
         \"creationDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date when the fleet provisioning template was created.</p>\"\
+          \"documentation\":\"<p>The date when the provisioning template was created.</p>\"\
         },\
         \"lastModifiedDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date when the fleet provisioning template was last modified.</p>\"\
+          \"documentation\":\"<p>The date when the provisioning template was last modified.</p>\"\
         },\
         \"defaultVersionId\":{\
           \"shape\":\"TemplateVersionId\",\
@@ -9232,11 +9237,11 @@
         },\
         \"templateBody\":{\
           \"shape\":\"TemplateBody\",\
-          \"documentation\":\"<p>The JSON formatted contents of the fleet provisioning template.</p>\"\
+          \"documentation\":\"<p>The JSON formatted contents of the provisioning template.</p>\"\
         },\
         \"enabled\":{\
           \"shape\":\"Enabled\",\
-          \"documentation\":\"<p>True if the fleet provisioning template is enabled, otherwise false.</p>\"\
+          \"documentation\":\"<p>True if the provisioning template is enabled, otherwise false.</p>\"\
         },\
         \"provisioningRoleArn\":{\
           \"shape\":\"RoleArn\",\
@@ -9245,6 +9250,10 @@
         \"preProvisioningHook\":{\
           \"shape\":\"ProvisioningHook\",\
           \"documentation\":\"<p>Gets information about a pre-provisioned hook.</p>\"\
+        },\
+        \"type\":{\
+          \"shape\":\"TemplateType\",\
+          \"documentation\":\"<p>The type you define in a provisioning template. You can create a template with only one type. You can't change the template type after its creation. The default value is <code>FLEET_PROVISIONING</code>. For more information about provisioning template, see: <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html\\\">Provisioning template</a>. </p>\"\
         }\
       }\
     },\
@@ -9263,7 +9272,7 @@
         },\
         \"versionId\":{\
           \"shape\":\"TemplateVersionId\",\
-          \"documentation\":\"<p>The fleet provisioning template version ID.</p>\",\
+          \"documentation\":\"<p>The provisioning template version ID.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"versionId\"\
         }\
@@ -9274,19 +9283,19 @@
       \"members\":{\
         \"versionId\":{\
           \"shape\":\"TemplateVersionId\",\
-          \"documentation\":\"<p>The fleet provisioning template version ID.</p>\"\
+          \"documentation\":\"<p>The provisioning template version ID.</p>\"\
         },\
         \"creationDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date when the fleet provisioning template version was created.</p>\"\
+          \"documentation\":\"<p>The date when the provisioning template version was created.</p>\"\
         },\
         \"templateBody\":{\
           \"shape\":\"TemplateBody\",\
-          \"documentation\":\"<p>The JSON formatted contents of the fleet provisioning template version.</p>\"\
+          \"documentation\":\"<p>The JSON formatted contents of the provisioning template version.</p>\"\
         },\
         \"isDefaultVersion\":{\
           \"shape\":\"IsDefaultVersion\",\
-          \"documentation\":\"<p>True if the fleet provisioning template version is the default version.</p>\"\
+          \"documentation\":\"<p>True if the provisioning template version is the default version.</p>\"\
         }\
       }\
     },\
@@ -11199,6 +11208,16 @@
         \"REBUILDING\"\
       ]\
     },\
+    \"IndexingFilter\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"namedShadowNames\":{\
+          \"shape\":\"NamedShadowNamesFilter\",\
+          \"documentation\":\"<p>The shadow names that you select to index. The default maximum number of shadow names for indexing is 10. To increase the limit, see <a href=\\\"https://docs.aws.amazon.com/general/latest/gr/iot_device_management.html#fleet-indexing-limits\\\">Amazon Web Services IoT Device Management Quotas</a> in the <i>Amazon Web Services General Reference</i>. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Provides additional filters for specific data sources. Named shadow is the only data source that currently supports and requires a filter. To add named shadows to your fleet indexing configuration, set <code>namedShadowIndexingMode</code> to be <code>ON</code> and specify your shadow names in <code>filter</code>.</p>\"\
+    },\
     \"InlineDocument\":{\"type\":\"string\"},\
     \"InputName\":{\
       \"type\":\"string\",\
@@ -12363,6 +12382,12 @@
           \"documentation\":\"<p>Determines the order of the results.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"isAscendingOrder\"\
+        },\
+        \"templateName\":{\
+          \"shape\":\"TemplateName\",\
+          \"documentation\":\"<p>The name of the provisioning template.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"templateName\"\
         }\
       },\
       \"documentation\":\"<p>Input for the ListCACertificates operation.</p>\"\
@@ -13328,7 +13353,7 @@
       \"members\":{\
         \"templateName\":{\
           \"shape\":\"TemplateName\",\
-          \"documentation\":\"<p>The name of the fleet provisioning template.</p>\",\
+          \"documentation\":\"<p>The name of the provisioning template.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"templateName\"\
         },\
@@ -13351,7 +13376,7 @@
       \"members\":{\
         \"versions\":{\
           \"shape\":\"ProvisioningTemplateVersionListing\",\
-          \"documentation\":\"<p>The list of fleet provisioning template versions.</p>\"\
+          \"documentation\":\"<p>The list of provisioning template versions.</p>\"\
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
@@ -13381,7 +13406,7 @@
       \"members\":{\
         \"templates\":{\
           \"shape\":\"ProvisioningTemplateListing\",\
-          \"documentation\":\"<p>A list of fleet provisioning templates</p>\"\
+          \"documentation\":\"<p>A list of provisioning templates</p>\"\
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
@@ -14682,6 +14707,10 @@
         \"ON\"\
       ]\
     },\
+    \"NamedShadowNamesFilter\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ShadowName\"}\
+    },\
     \"NamespaceId\":{\
       \"type\":\"string\",\
       \"max\":64,\
@@ -15204,30 +15233,34 @@
       \"members\":{\
         \"templateArn\":{\
           \"shape\":\"TemplateArn\",\
-          \"documentation\":\"<p>The ARN of the fleet provisioning template.</p>\"\
+          \"documentation\":\"<p>The ARN of the provisioning template.</p>\"\
         },\
         \"templateName\":{\
           \"shape\":\"TemplateName\",\
-          \"documentation\":\"<p>The name of the fleet provisioning template.</p>\"\
+          \"documentation\":\"<p>The name of the provisioning template.</p>\"\
         },\
         \"description\":{\
           \"shape\":\"TemplateDescription\",\
-          \"documentation\":\"<p>The description of the fleet provisioning template.</p>\"\
+          \"documentation\":\"<p>The description of the provisioning template.</p>\"\
         },\
         \"creationDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date when the fleet provisioning template summary was created.</p>\"\
+          \"documentation\":\"<p>The date when the provisioning template summary was created.</p>\"\
         },\
         \"lastModifiedDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date when the fleet provisioning template summary was last modified.</p>\"\
+          \"documentation\":\"<p>The date when the provisioning template summary was last modified.</p>\"\
         },\
         \"enabled\":{\
           \"shape\":\"Enabled\",\
           \"documentation\":\"<p>True if the fleet provision template is enabled, otherwise false.</p>\"\
+        },\
+        \"type\":{\
+          \"shape\":\"TemplateType\",\
+          \"documentation\":\"<p>The type you define in a provisioning template. You can create a template with only one type. You can't change the template type after its creation. The default value is <code>FLEET_PROVISIONING</code>. For more information about provisioning template, see: <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html\\\">Provisioning template</a>. </p>\"\
         }\
       },\
-      \"documentation\":\"<p>A summary of information about a fleet provisioning template.</p>\"\
+      \"documentation\":\"<p>A summary of information about a provisioning template.</p>\"\
     },\
     \"ProvisioningTemplateVersionListing\":{\
       \"type\":\"list\",\
@@ -15242,11 +15275,11 @@
         },\
         \"creationDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date when the fleet provisioning template version was created</p>\"\
+          \"documentation\":\"<p>The date when the provisioning template version was created</p>\"\
         },\
         \"isDefaultVersion\":{\
           \"shape\":\"IsDefaultVersion\",\
-          \"documentation\":\"<p>True if the fleet provisioning template version is the default version, otherwise false.</p>\"\
+          \"documentation\":\"<p>True if the provisioning template version is the default version, otherwise false.</p>\"\
         }\
       },\
       \"documentation\":\"<p>A summary of information about a fleet provision template version.</p>\"\
@@ -15566,6 +15599,10 @@
         \"roleArn\":{\
           \"shape\":\"RoleArn\",\
           \"documentation\":\"<p>The ARN of the role.</p>\"\
+        },\
+        \"templateName\":{\
+          \"shape\":\"TemplateName\",\
+          \"documentation\":\"<p>The name of the provisioning template.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The registration configuration.</p>\"\
@@ -16381,6 +16418,12 @@
         }\
       }\
     },\
+    \"ShadowName\":{\
+      \"type\":\"string\",\
+      \"max\":64,\
+      \"min\":1,\
+      \"pattern\":\"[a-zA-Z0-9:_-]+\"\
+    },\
     \"SigV4Authorization\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -17082,6 +17125,13 @@
       \"min\":1,\
       \"pattern\":\"^[0-9A-Za-z_-]+$\"\
     },\
+    \"TemplateType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"FLEET_PROVISIONING\",\
+        \"JITP\"\
+      ]\
+    },\
     \"TemplateVersionId\":{\"type\":\"integer\"},\
     \"TermsAggregation\":{\
       \"type\":\"structure\",\
@@ -17441,6 +17491,10 @@
         \"customFields\":{\
           \"shape\":\"Fields\",\
           \"documentation\":\"<p>Contains custom field names and their data type.</p>\"\
+        },\
+        \"filter\":{\
+          \"shape\":\"IndexingFilter\",\
+          \"documentation\":\"<p>Provides additional filters for specific data sources. Named shadow is the only data source that currently supports and requires a filter. To add named shadows to your fleet indexing configuration, set <code>namedShadowIndexingMode</code> to be <code>ON</code> and specify your shadow names in <code>filter</code>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The thing indexing configuration. For more information, see <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/managing-index.html\\\">Managing Thing Indexing</a>.</p>\"\
@@ -18554,17 +18608,17 @@
       \"members\":{\
         \"templateName\":{\
           \"shape\":\"TemplateName\",\
-          \"documentation\":\"<p>The name of the fleet provisioning template.</p>\",\
+          \"documentation\":\"<p>The name of the provisioning template.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"templateName\"\
         },\
         \"description\":{\
           \"shape\":\"TemplateDescription\",\
-          \"documentation\":\"<p>The description of the fleet provisioning template.</p>\"\
+          \"documentation\":\"<p>The description of the provisioning template.</p>\"\
         },\
         \"enabled\":{\
           \"shape\":\"Enabled\",\
-          \"documentation\":\"<p>True to enable the fleet provisioning template, otherwise false.</p>\"\
+          \"documentation\":\"<p>True to enable the provisioning template, otherwise false.</p>\"\
         },\
         \"defaultVersionId\":{\
           \"shape\":\"TemplateVersionId\",\
