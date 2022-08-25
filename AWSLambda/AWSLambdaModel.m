@@ -196,6 +196,20 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 @end
 
+@implementation AWSLambdaAmazonManagedKafkaEventSourceConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"consumerGroupId" : @"ConsumerGroupId",
+             };
+}
+
+@end
+
 @implementation AWSLambdaCodeSigningConfig
 
 + (BOOL)supportsSecureCoding {
@@ -363,6 +377,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"amazonManagedKafkaEventSourceConfig" : @"AmazonManagedKafkaEventSourceConfig",
              @"batchSize" : @"BatchSize",
              @"bisectBatchOnFunctionError" : @"BisectBatchOnFunctionError",
              @"destinationConfig" : @"DestinationConfig",
@@ -377,12 +392,17 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"parallelizationFactor" : @"ParallelizationFactor",
              @"queues" : @"Queues",
              @"selfManagedEventSource" : @"SelfManagedEventSource",
+             @"selfManagedKafkaEventSourceConfig" : @"SelfManagedKafkaEventSourceConfig",
              @"sourceAccessConfigurations" : @"SourceAccessConfigurations",
              @"startingPosition" : @"StartingPosition",
              @"startingPositionTimestamp" : @"StartingPositionTimestamp",
              @"topics" : @"Topics",
              @"tumblingWindowInSeconds" : @"TumblingWindowInSeconds",
              };
+}
+
++ (NSValueTransformer *)amazonManagedKafkaEventSourceConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaAmazonManagedKafkaEventSourceConfig class]];
 }
 
 + (NSValueTransformer *)destinationConfigJSONTransformer {
@@ -395,6 +415,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)selfManagedEventSourceJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaSelfManagedEventSource class]];
+}
+
++ (NSValueTransformer *)selfManagedKafkaEventSourceConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaSelfManagedKafkaEventSourceConfig class]];
 }
 
 + (NSValueTransformer *)sourceAccessConfigurationsJSONTransformer {
@@ -1017,6 +1041,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"amazonManagedKafkaEventSourceConfig" : @"AmazonManagedKafkaEventSourceConfig",
              @"batchSize" : @"BatchSize",
              @"bisectBatchOnFunctionError" : @"BisectBatchOnFunctionError",
              @"destinationConfig" : @"DestinationConfig",
@@ -1032,6 +1057,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"parallelizationFactor" : @"ParallelizationFactor",
              @"queues" : @"Queues",
              @"selfManagedEventSource" : @"SelfManagedEventSource",
+             @"selfManagedKafkaEventSourceConfig" : @"SelfManagedKafkaEventSourceConfig",
              @"sourceAccessConfigurations" : @"SourceAccessConfigurations",
              @"startingPosition" : @"StartingPosition",
              @"startingPositionTimestamp" : @"StartingPositionTimestamp",
@@ -1041,6 +1067,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"tumblingWindowInSeconds" : @"TumblingWindowInSeconds",
              @"UUID" : @"UUID",
              };
+}
+
++ (NSValueTransformer *)amazonManagedKafkaEventSourceConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaAmazonManagedKafkaEventSourceConfig class]];
 }
 
 + (NSValueTransformer *)destinationConfigJSONTransformer {
@@ -1061,6 +1091,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)selfManagedEventSourceJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaSelfManagedEventSource class]];
+}
+
++ (NSValueTransformer *)selfManagedKafkaEventSourceConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaSelfManagedKafkaEventSourceConfig class]];
 }
 
 + (NSValueTransformer *)sourceAccessConfigurationsJSONTransformer {
@@ -3489,6 +3523,20 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"endpoints" : @"Endpoints",
+             };
+}
+
+@end
+
+@implementation AWSLambdaSelfManagedKafkaEventSourceConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"consumerGroupId" : @"ConsumerGroupId",
              };
 }
 
