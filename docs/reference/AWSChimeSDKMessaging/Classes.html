@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSChimeSDKMessaging 2.27.13 Docs</a> (84% documented)</p>
+        <p><a href="index.html">AWSChimeSDKMessaging 2.27.14 Docs</a> (85% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSChimeSDKMessaging.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -215,6 +215,9 @@
                 <a href="Classes/AWSChimeSDKMessagingDisassociateChannelFlowRequest.html">AWSChimeSDKMessagingDisassociateChannelFlowRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSChimeSDKMessagingElasticChannelConfiguration.html">AWSChimeSDKMessagingElasticChannelConfiguration</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSChimeSDKMessagingGetChannelMembershipPreferencesRequest.html">AWSChimeSDKMessagingGetChannelMembershipPreferencesRequest</a>
               </li>
               <li class="nav-group-task">
@@ -299,6 +302,12 @@
                 <a href="Classes/AWSChimeSDKMessagingListChannelsResponse.html">AWSChimeSDKMessagingListChannelsResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSChimeSDKMessagingListSubChannelsRequest.html">AWSChimeSDKMessagingListSubChannelsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSChimeSDKMessagingListSubChannelsResponse.html">AWSChimeSDKMessagingListSubChannelsResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSChimeSDKMessagingListTagsForResourceRequest.html">AWSChimeSDKMessagingListTagsForResourceRequest</a>
               </li>
               <li class="nav-group-task">
@@ -351,6 +360,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSChimeSDKMessagingSendChannelMessageResponse.html">AWSChimeSDKMessagingSendChannelMessageResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSChimeSDKMessagingSubChannelSummary.html">AWSChimeSDKMessagingSubChannelSummary</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSChimeSDKMessagingTag.html">AWSChimeSDKMessagingTag</a>
@@ -2316,6 +2328,41 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSChimeSDKMessagingElasticChannelConfiguration"></a>
+                    <a name="//apple_ref/objc/Class/AWSChimeSDKMessagingElasticChannelConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSChimeSDKMessagingElasticChannelConfiguration">AWSChimeSDKMessagingElasticChannelConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The attributes required to configure and create an elastic channel. An elastic channel can support a maximum of 1-million members.</p>
+
+<p>Required parameters: [MaximumSubChannels, TargetMembershipsPerSubChannel, MinimumMembershipPercentage]</p>
+
+                        <a href="Classes/AWSChimeSDKMessagingElasticChannelConfiguration.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSChimeSDKMessagingElasticChannelConfiguration</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSChimeSDKMessagingElasticChannelConfiguration</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSChimeSDKMessagingGetChannelMembershipPreferencesRequest"></a>
                     <a name="//apple_ref/objc/Class/AWSChimeSDKMessagingGetChannelMembershipPreferencesRequest" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSChimeSDKMessagingGetChannelMembershipPreferencesRequest">AWSChimeSDKMessagingGetChannelMembershipPreferencesRequest</a>
@@ -3215,6 +3262,70 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSChimeSDKMessagingListSubChannelsRequest"></a>
+                    <a name="//apple_ref/objc/Class/AWSChimeSDKMessagingListSubChannelsRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSChimeSDKMessagingListSubChannelsRequest">AWSChimeSDKMessagingListSubChannelsRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSChimeSDKMessagingListSubChannelsRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSChimeSDKMessagingListSubChannelsRequest</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSChimeSDKMessagingListSubChannelsRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSChimeSDKMessagingListSubChannelsResponse"></a>
+                    <a name="//apple_ref/objc/Class/AWSChimeSDKMessagingListSubChannelsResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSChimeSDKMessagingListSubChannelsResponse">AWSChimeSDKMessagingListSubChannelsResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSChimeSDKMessagingListSubChannelsResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSChimeSDKMessagingListSubChannelsResponse</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSChimeSDKMessagingListSubChannelsResponse</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSChimeSDKMessagingListTagsForResourceRequest"></a>
                     <a name="//apple_ref/objc/Class/AWSChimeSDKMessagingListTagsForResourceRequest" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSChimeSDKMessagingListTagsForResourceRequest">AWSChimeSDKMessagingListTagsForResourceRequest</a>
@@ -3774,6 +3885,39 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSChimeSDKMessagingSubChannelSummary"></a>
+                    <a name="//apple_ref/objc/Class/AWSChimeSDKMessagingSubChannelSummary" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSChimeSDKMessagingSubChannelSummary">AWSChimeSDKMessagingSubChannelSummary</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Summary of the sub-channels associated with the elastic channel.</p>
+
+                        <a href="Classes/AWSChimeSDKMessagingSubChannelSummary.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSChimeSDKMessagingSubChannelSummary</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSChimeSDKMessagingSubChannelSummary</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSChimeSDKMessagingTag"></a>
                     <a name="//apple_ref/objc/Class/AWSChimeSDKMessagingTag" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSChimeSDKMessagingTag">AWSChimeSDKMessagingTag</a>
@@ -4203,7 +4347,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-07-21)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-08-25)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
