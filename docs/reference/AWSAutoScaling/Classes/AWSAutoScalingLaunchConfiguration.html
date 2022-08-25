@@ -17,7 +17,7 @@
     <a title="AWSAutoScalingLaunchConfiguration Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSAutoScaling 2.27.13 Docs</a> (81% documented)</p>
+        <p><a href="../index.html">AWSAutoScaling 2.27.14 Docs</a> (81% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSAutoScaling.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -670,7 +670,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>For Auto Scaling groups that are running in a VPC, specifies whether to assign a public IP address to the group&rsquo;s instances. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching Auto Scaling instances in a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+                        <p>Specifies whether to assign a public IPv4 address to the group&rsquo;s instances. If the instance is launched into a default subnet, the default is to assign a public IPv4 address, unless you disabled the option to assign a public IPv4 address on the subnet. If the instance is launched into a nondefault subnet, the default is not to assign a public IPv4 address, unless you enabled the option to assign a public IPv4 address on the subnet. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching Auto Scaling instances in a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
                       </div>
                       <div class="declaration">
@@ -702,7 +702,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A block device mapping, which specifies the block devices for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block Device Mapping</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+                        <p>The block device mapping entries that define the block devices to attach to the instances at launch. By default, the block devices specified in the block device mapping for the AMI are used. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block Device Mapping</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
 
                       </div>
                       <div class="declaration">
@@ -734,7 +734,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><i>EC2-Classic retires on August 15, 2022. This parameter is not supported after that date.</i></p><p>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.</p>
+                        <p><i>EC2-Classic retires on August 15, 2022. This property is not supported after that date.</i></p><p>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.</p>
 
                       </div>
                       <div class="declaration">
@@ -766,7 +766,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><i>EC2-Classic retires on August 15, 2022. This parameter is not supported after that date.</i></p><p>The IDs of one or more security groups for the VPC specified in <code>ClassicLinkVPCId</code>.</p>
+                        <p><i>EC2-Classic retires on August 15, 2022. This property is not supported after that date.</i></p><p>The IDs of one or more security groups for the VPC specified in <code>ClassicLinkVPCId</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -894,7 +894,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ID of the Amazon Machine Image (AMI) to use to launch your EC2 instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Finding an AMI</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+                        <p>The ID of the Amazon Machine Image (AMI) to use to launch your EC2 instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Find a Linux AMI</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
 
                       </div>
                       <div class="declaration">
@@ -958,7 +958,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The instance type for the instances.</p><p>For information about available instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes">Available Instance Types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+                        <p>The instance type for the instances. For information about available instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes">Available instance types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
 
                       </div>
                       <div class="declaration">
@@ -1302,7 +1302,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-07-21)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-08-25)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

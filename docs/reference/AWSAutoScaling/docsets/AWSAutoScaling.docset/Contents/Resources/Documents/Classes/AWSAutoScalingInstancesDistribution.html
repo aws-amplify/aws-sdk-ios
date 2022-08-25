@@ -17,7 +17,7 @@
     <a title="AWSAutoScalingInstancesDistribution Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSAutoScaling 2.27.13 Docs</a> (81% documented)</p>
+        <p><a href="../index.html">AWSAutoScaling 2.27.14 Docs</a> (81% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSAutoScaling.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -668,7 +668,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The order of the launch template overrides to use in fulfilling On-Demand capacity. </p><p>If you specify <code>lowest-price</code>, Amazon EC2 Auto Scaling uses price to determine the order, launching the lowest price first. </p><p>If you specify <code>prioritized</code>, Amazon EC2 Auto Scaling uses the priority that you assigned to each launch template override, launching the highest priority first. If all your On-Demand capacity cannot be fulfilled using your highest priority instance, then Amazon EC2 Auto Scaling launches the remaining capacity using the second priority instance type, and so on.</p><p>Default: <code>lowest-price</code> for Auto Scaling groups that specify <a>InstanceRequirements</a> in the overrides and <code>prioritized</code> for Auto Scaling groups that don&rsquo;t.</p>
+                        <p>The order of the launch template overrides to use in fulfilling On-Demand capacity. </p><p>If you specify <code>lowest-price</code>, Amazon EC2 Auto Scaling uses price to determine the order, launching the lowest price first. </p><p>If you specify <code>prioritized</code>, Amazon EC2 Auto Scaling uses the priority that you assigned to each launch template override, launching the highest priority first. If all your On-Demand capacity cannot be fulfilled using your highest priority instance, then Amazon EC2 Auto Scaling launches the remaining capacity using the second priority instance type, and so on.</p><p>Default: <code>lowest-price</code> for Auto Scaling groups that specify <a>InstanceRequirements</a> in the overrides and <code>prioritized</code> for Auto Scaling groups that don&rsquo;t.</p><p>Valid values: <code>lowest-price</code> | <code>prioritized</code></p>
 
                       </div>
                       <div class="declaration">
@@ -764,7 +764,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Indicates how to allocate instances across Spot Instance pools. </p><p>If the allocation strategy is <code>lowest-price</code>, the Auto Scaling group launches instances using the Spot pools with the lowest price, and evenly allocates your instances across the number of Spot pools that you specify. </p><p>If the allocation strategy is <code>capacity-optimized</code> (recommended), the Auto Scaling group launches instances using Spot pools that are optimally chosen based on the available Spot capacity. Alternatively, you can use <code>capacity-optimized-prioritized</code> and set the order of instance types in the list of launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling honors the instance type priorities on a best-effort basis but optimizes for capacity first. </p><p>Default: <code>lowest-price</code></p>
+                        <p>Indicates how to allocate instances across Spot Instance pools. </p><p>If the allocation strategy is <code>lowest-price</code>, the Auto Scaling group launches instances using the Spot pools with the lowest price, and evenly allocates your instances across the number of Spot pools that you specify. </p><p>If the allocation strategy is <code>capacity-optimized</code> (recommended), the Auto Scaling group launches instances using Spot pools that are optimally chosen based on the available Spot capacity. Alternatively, you can use <code>capacity-optimized-prioritized</code> and set the order of instance types in the list of launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling honors the instance type priorities on a best-effort basis but optimizes for capacity first. </p><p>Default: <code>lowest-price</code></p><p>Valid values: <code>lowest-price</code> | <code>capacity-optimized</code> | <code>capacity-optimized-prioritized</code></p>
 
                       </div>
                       <div class="declaration">
@@ -828,7 +828,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. If you keep the value at its default (unspecified), Amazon EC2 Auto Scaling uses the On-Demand price as the maximum Spot price. To remove a value that you previously set, include the property but specify an empty string (&ldquo;&rdquo;) for the value.</p>
+                        <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. If you keep the value at its default (unspecified), Amazon EC2 Auto Scaling uses the On-Demand price as the maximum Spot price. To remove a value that you previously set, include the property but specify an empty string (&ldquo;&rdquo;) for the value.</p><important><p>If your maximum price is lower than the Spot price for the instance types that you selected, your Spot Instances are not launched.</p></important><p>Valid Range: Minimum value of 0.001</p>
 
                       </div>
                       <div class="declaration">
@@ -852,7 +852,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-07-21)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-08-25)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
