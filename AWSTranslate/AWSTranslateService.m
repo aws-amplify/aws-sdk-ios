@@ -25,7 +25,7 @@
 #import "AWSTranslateResources.h"
 
 static NSString *const AWSInfoTranslate = @"Translate";
-NSString *const AWSTranslateSDKVersion = @"2.27.14";
+NSString *const AWSTranslateSDKVersion = @"2.27.15";
 
 
 @interface AWSTranslateResponseSerializer : AWSJSONResponseSerializer
