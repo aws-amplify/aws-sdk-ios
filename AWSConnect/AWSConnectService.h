@@ -1102,7 +1102,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)describeAgentStatus:(AWSConnectDescribeAgentStatusRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDescribeAgentStatusResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Describes the specified contact. </p><important><p>Contact information remains available in Amazon Connect for 24 months, and then it is deleted.</p></important>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Describes the specified contact. </p><important><p>Contact information remains available in Amazon Connect for 24 months, and then it is deleted.</p><p>Only data from November 12, 2021, and later is returned by this API.</p></important>
  
  @param request A container for the necessary parameters to execute the DescribeContact service method.
 
@@ -1114,7 +1114,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectDescribeContactResponse *> *)describeContact:(AWSConnectDescribeContactRequest *)request;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Describes the specified contact. </p><important><p>Contact information remains available in Amazon Connect for 24 months, and then it is deleted.</p></important>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Describes the specified contact. </p><important><p>Contact information remains available in Amazon Connect for 24 months, and then it is deleted.</p><p>Only data from November 12, 2021, and later is returned by this API.</p></important>
  
  @param request A container for the necessary parameters to execute the DescribeContact service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1900,7 +1900,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listApprovedOrigins:(AWSConnectListApprovedOriginsRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListApprovedOriginsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the instance. </p>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the instance. Use this API to returns both Amazon Lex V1 and V2 bots.</p>
  
  @param request A container for the necessary parameters to execute the ListBots service method.
 
@@ -1912,7 +1912,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectListBotsResponse *> *)listBots:(AWSConnectListBotsRequest *)request;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the instance. </p>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the instance. Use this API to returns both Amazon Lex V1 and V2 bots.</p>
  
  @param request A container for the necessary parameters to execute the ListBots service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2175,7 +2175,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listLambdaFunctions:(AWSConnectListLambdaFunctionsRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListLambdaFunctionsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Returns a paginated list of all the Amazon Lex bots currently associated with the instance.</p>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Returns a paginated list of all the Amazon Lex V1 bots currently associated with the instance. To return both Amazon Lex V1 and V2 bots, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListBots.html">ListBots</a> API. </p>
  
  @param request A container for the necessary parameters to execute the ListLexBots service method.
 
@@ -2187,7 +2187,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectListLexBotsResponse *> *)listLexBots:(AWSConnectListLexBotsRequest *)request;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Returns a paginated list of all the Amazon Lex bots currently associated with the instance.</p>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Returns a paginated list of all the Amazon Lex V1 bots currently associated with the instance. To return both Amazon Lex V1 and V2 bots, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListBots.html">ListBots</a> API. </p>
  
  @param request A container for the necessary parameters to execute the ListLexBots service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2695,6 +2695,56 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectSearchAvailablePhoneNumbersResponse
  */
 - (void)searchAvailablePhoneNumbers:(AWSConnectSearchAvailablePhoneNumbersRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectSearchAvailablePhoneNumbersResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Searches queues in an Amazon Connect instance, with optional filtering.</p>
+ 
+ @param request A container for the necessary parameters to execute the SearchQueues service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectSearchQueuesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectSearchQueuesRequest
+ @see AWSConnectSearchQueuesResponse
+ */
+- (AWSTask<AWSConnectSearchQueuesResponse *> *)searchQueues:(AWSConnectSearchQueuesRequest *)request;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Searches queues in an Amazon Connect instance, with optional filtering.</p>
+ 
+ @param request A container for the necessary parameters to execute the SearchQueues service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectSearchQueuesRequest
+ @see AWSConnectSearchQueuesResponse
+ */
+- (void)searchQueues:(AWSConnectSearchQueuesRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectSearchQueuesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Searches routing profiles in an Amazon Connect instance, with optional filtering.</p>
+ 
+ @param request A container for the necessary parameters to execute the SearchRoutingProfiles service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectSearchRoutingProfilesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectSearchRoutingProfilesRequest
+ @see AWSConnectSearchRoutingProfilesResponse
+ */
+- (AWSTask<AWSConnectSearchRoutingProfilesResponse *> *)searchRoutingProfiles:(AWSConnectSearchRoutingProfilesRequest *)request;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Searches routing profiles in an Amazon Connect instance, with optional filtering.</p>
+ 
+ @param request A container for the necessary parameters to execute the SearchRoutingProfiles service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectSearchRoutingProfilesRequest
+ @see AWSConnectSearchRoutingProfilesResponse
+ */
+- (void)searchRoutingProfiles:(AWSConnectSearchRoutingProfilesRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectSearchRoutingProfilesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Searches security profiles in an Amazon Connect instance, with optional filtering.</p>
