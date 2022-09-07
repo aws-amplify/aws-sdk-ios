@@ -567,6 +567,11 @@ typedef NS_ENUM(NSInteger, AWSConnectResourceType) {
     AWSConnectResourceTypeUser,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectSearchableQueueType) {
+    AWSConnectSearchableQueueTypeUnknown,
+    AWSConnectSearchableQueueTypeStandard,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectSourceType) {
     AWSConnectSourceTypeUnknown,
     AWSConnectSourceTypeSalesforce,
@@ -926,6 +931,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectQueueInfo;
 @class AWSConnectQueueQuickConnectConfig;
 @class AWSConnectQueueReference;
+@class AWSConnectQueueSearchCriteria;
+@class AWSConnectQueueSearchFilter;
 @class AWSConnectQueueSummary;
 @class AWSConnectQuickConnect;
 @class AWSConnectQuickConnectConfig;
@@ -942,10 +949,16 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectRoutingProfileQueueConfigSummary;
 @class AWSConnectRoutingProfileQueueReference;
 @class AWSConnectRoutingProfileReference;
+@class AWSConnectRoutingProfileSearchCriteria;
+@class AWSConnectRoutingProfileSearchFilter;
 @class AWSConnectRoutingProfileSummary;
 @class AWSConnectS3Config;
 @class AWSConnectSearchAvailablePhoneNumbersRequest;
 @class AWSConnectSearchAvailablePhoneNumbersResponse;
+@class AWSConnectSearchQueuesRequest;
+@class AWSConnectSearchQueuesResponse;
+@class AWSConnectSearchRoutingProfilesRequest;
+@class AWSConnectSearchRoutingProfilesResponse;
 @class AWSConnectSearchSecurityProfilesRequest;
 @class AWSConnectSearchSecurityProfilesResponse;
 @class AWSConnectSearchUsersRequest;
@@ -2473,7 +2486,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>Permissions assigned to the security profile.</p>
+ <p>Permissions assigned to the security profile. For a list of valid permissions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html">List of security profile permissions</a>. </p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable permissions;
 
@@ -6159,7 +6172,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The permissions granted to the security profile.</p>
+ <p>The permissions granted to the security profile. For a complete list of valid permissions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html">List of security profile permissions</a>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable permissions;
 
@@ -6751,6 +6764,47 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>The search criteria to be used to return queues.</p>
+ */
+@interface AWSConnectQueueSearchCriteria : AWSModel
+
+
+/**
+ <p>A list of conditions which would be applied together with an AND condition.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectQueueSearchCriteria *> * _Nullable andConditions;
+
+/**
+ <p>A list of conditions which would be applied together with an OR condition.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectQueueSearchCriteria *> * _Nullable orConditions;
+
+/**
+ <p>The type of queue.</p>
+ */
+@property (nonatomic, assign) AWSConnectSearchableQueueType queueTypeCondition;
+
+/**
+ <p>A leaf node condition which can be used to specify a string condition, for example, <code>username = 'abc'</code>. </p>
+ */
+@property (nonatomic, strong) AWSConnectStringCondition * _Nullable stringCondition;
+
+@end
+
+/**
+ <p>Filters to be applied to search results.</p>
+ */
+@interface AWSConnectQueueSearchFilter : AWSModel
+
+
+/**
+ <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p><ul><li><p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p></li><li><p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p></li></ul>
+ */
+@property (nonatomic, strong) AWSConnectControlPlaneTagFilter * _Nullable tagFilter;
+
+@end
+
+/**
  <p>Contains summary information about a queue.</p>
  */
 @interface AWSConnectQueueSummary : AWSModel
@@ -7037,6 +7091,16 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
+ <p>The number of associated queues in routing profile.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable numberOfAssociatedQueues;
+
+/**
+ <p>The number of associated users in routing profile.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable numberOfAssociatedUsers;
+
+/**
  <p>The Amazon Resource Name (ARN) of the routing profile.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable routingProfileArn;
@@ -7154,6 +7218,42 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>The search criteria to be used to return routing profiles.</p>
+ */
+@interface AWSConnectRoutingProfileSearchCriteria : AWSModel
+
+
+/**
+ <p>A list of conditions which would be applied together with an AND condition.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectRoutingProfileSearchCriteria *> * _Nullable andConditions;
+
+/**
+ <p>A list of conditions which would be applied together with an OR condition.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectRoutingProfileSearchCriteria *> * _Nullable orConditions;
+
+/**
+ <p>A leaf node condition which can be used to specify a string condition, for example, <code>username = 'abc'</code>. </p>
+ */
+@property (nonatomic, strong) AWSConnectStringCondition * _Nullable stringCondition;
+
+@end
+
+/**
+ <p>Filters to be applied to search results.</p>
+ */
+@interface AWSConnectRoutingProfileSearchFilter : AWSModel
+
+
+/**
+ <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p><ul><li><p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p></li><li><p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p></li></ul>
+ */
+@property (nonatomic, strong) AWSConnectControlPlaneTagFilter * _Nullable tagFilter;
+
+@end
+
+/**
  <p>Contains summary information about a routing profile.</p>
  */
 @interface AWSConnectRoutingProfileSummary : AWSModel
@@ -7259,6 +7359,118 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectSearchQueuesRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The search criteria to be used to return queues.</p>
+ */
+@property (nonatomic, strong) AWSConnectQueueSearchCriteria * _Nullable searchCriteria;
+
+/**
+ <p>Filters to be applied to search results.</p>
+ */
+@property (nonatomic, strong) AWSConnectQueueSearchFilter * _Nullable searchFilter;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectSearchQueuesResponse : AWSModel
+
+
+/**
+ <p>The total number of queues which matched your search query.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable approximateTotalCount;
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Information about the queues.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectQueue *> * _Nullable queues;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectSearchRoutingProfilesRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The search criteria to be used to return routing profiles.</p>
+ */
+@property (nonatomic, strong) AWSConnectRoutingProfileSearchCriteria * _Nullable searchCriteria;
+
+/**
+ <p>Filters to be applied to search results.</p>
+ */
+@property (nonatomic, strong) AWSConnectRoutingProfileSearchFilter * _Nullable searchFilter;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectSearchRoutingProfilesResponse : AWSModel
+
+
+/**
+ <p>The total number of routing profiles which matched your search query.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable approximateTotalCount;
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Information about the routing profiles.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectRoutingProfile *> * _Nullable routingProfiles;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectSearchSecurityProfilesRequest : AWSRequest
 
 
@@ -7334,7 +7546,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The search criteria to be used to return users.</p>
+ <p>The search criteria to be used to return users.</p><note><p>The <code>Username</code>, <code>Firstname</code>, and <code>Lastname</code> fields support "contains" queries with a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths outside of this range result in empty results. </p></note>
  */
 @property (nonatomic, strong) AWSConnectUserSearchCriteria * _Nullable searchCriteria;
 
@@ -8428,7 +8640,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>TThe name of the flow.</p>
+ <p>The name of the flow.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
 
@@ -9021,7 +9233,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The permissions granted to a security profile.</p>
+ <p>The permissions granted to a security profile. For a list of valid permissions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html">List of security profile permissions</a>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable permissions;
 
@@ -9582,7 +9794,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
- <p>The search criteria to be used to return users.</p>
+ <p>The search criteria to be used to return users.</p><note><p>The <code>Username</code>, <code>Firstname</code>, and <code>Lastname</code> fields support "contains" queries with a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths outside of this range result in empty results. </p></note>
  */
 @interface AWSConnectUserSearchCriteria : AWSModel
 
