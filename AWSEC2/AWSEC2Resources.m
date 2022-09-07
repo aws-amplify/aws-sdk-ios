@@ -43273,7 +43273,8 @@
         \"vpc-flow-log\",\
         \"capacity-reservation-fleet\",\
         \"traffic-mirror-filter-rule\",\
-        \"vpc-endpoint-connection-device-type\"\
+        \"vpc-endpoint-connection-device-type\",\
+        \"vpn-connection-device-type\"\
       ]\
     },\
     \"ResponseError\":{\
