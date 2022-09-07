@@ -269,6 +269,8 @@
 - (void) test_AWSConnectQueueInfo API_AVAILABLE(ios(11));
 - (void) test_AWSConnectQueueQuickConnectConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectQueueReference API_AVAILABLE(ios(11));
+- (void) test_AWSConnectQueueSearchCriteria API_AVAILABLE(ios(11));
+- (void) test_AWSConnectQueueSearchFilter API_AVAILABLE(ios(11));
 - (void) test_AWSConnectQueueSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectQuickConnect API_AVAILABLE(ios(11));
 - (void) test_AWSConnectQuickConnectConfig API_AVAILABLE(ios(11));
@@ -285,10 +287,16 @@
 - (void) test_AWSConnectRoutingProfileQueueConfigSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectRoutingProfileQueueReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectRoutingProfileReference API_AVAILABLE(ios(11));
+- (void) test_AWSConnectRoutingProfileSearchCriteria API_AVAILABLE(ios(11));
+- (void) test_AWSConnectRoutingProfileSearchFilter API_AVAILABLE(ios(11));
 - (void) test_AWSConnectRoutingProfileSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectS3Config API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSearchAvailablePhoneNumbersRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSearchAvailablePhoneNumbersResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectSearchQueuesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectSearchQueuesResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectSearchRoutingProfilesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectSearchRoutingProfilesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSearchSecurityProfilesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSearchSecurityProfilesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectSearchUsersRequest API_AVAILABLE(ios(11));
@@ -1395,6 +1403,14 @@
     [self validateSecureCodingForClass:[AWSConnectQueueReference class]];
 }
 
+- (void) test_AWSConnectQueueSearchCriteria {
+    [self validateSecureCodingForClass:[AWSConnectQueueSearchCriteria class]];
+}
+
+- (void) test_AWSConnectQueueSearchFilter {
+    [self validateSecureCodingForClass:[AWSConnectQueueSearchFilter class]];
+}
+
 - (void) test_AWSConnectQueueSummary {
     [self validateSecureCodingForClass:[AWSConnectQueueSummary class]];
 }
@@ -1459,6 +1475,14 @@
     [self validateSecureCodingForClass:[AWSConnectRoutingProfileReference class]];
 }
 
+- (void) test_AWSConnectRoutingProfileSearchCriteria {
+    [self validateSecureCodingForClass:[AWSConnectRoutingProfileSearchCriteria class]];
+}
+
+- (void) test_AWSConnectRoutingProfileSearchFilter {
+    [self validateSecureCodingForClass:[AWSConnectRoutingProfileSearchFilter class]];
+}
+
 - (void) test_AWSConnectRoutingProfileSummary {
     [self validateSecureCodingForClass:[AWSConnectRoutingProfileSummary class]];
 }
@@ -1473,6 +1497,22 @@
 
 - (void) test_AWSConnectSearchAvailablePhoneNumbersResponse {
     [self validateSecureCodingForClass:[AWSConnectSearchAvailablePhoneNumbersResponse class]];
+}
+
+- (void) test_AWSConnectSearchQueuesRequest {
+    [self validateSecureCodingForClass:[AWSConnectSearchQueuesRequest class]];
+}
+
+- (void) test_AWSConnectSearchQueuesResponse {
+    [self validateSecureCodingForClass:[AWSConnectSearchQueuesResponse class]];
+}
+
+- (void) test_AWSConnectSearchRoutingProfilesRequest {
+    [self validateSecureCodingForClass:[AWSConnectSearchRoutingProfilesRequest class]];
+}
+
+- (void) test_AWSConnectSearchRoutingProfilesResponse {
+    [self validateSecureCodingForClass:[AWSConnectSearchRoutingProfilesResponse class]];
 }
 
 - (void) test_AWSConnectSearchSecurityProfilesRequest {
