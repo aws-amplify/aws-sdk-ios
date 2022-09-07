@@ -39,6 +39,8 @@
 - (void) test_AWSSNSDeleteSMSSandboxPhoneNumberResult API_AVAILABLE(ios(11));
 - (void) test_AWSSNSDeleteTopicInput API_AVAILABLE(ios(11));
 - (void) test_AWSSNSEndpoint API_AVAILABLE(ios(11));
+- (void) test_AWSSNSGetDataProtectionPolicyInput API_AVAILABLE(ios(11));
+- (void) test_AWSSNSGetDataProtectionPolicyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSSNSGetEndpointAttributesInput API_AVAILABLE(ios(11));
 - (void) test_AWSSNSGetEndpointAttributesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSSNSGetPlatformApplicationAttributesInput API_AVAILABLE(ios(11));
@@ -80,6 +82,7 @@
 - (void) test_AWSSNSPublishBatchResultEntry API_AVAILABLE(ios(11));
 - (void) test_AWSSNSPublishInput API_AVAILABLE(ios(11));
 - (void) test_AWSSNSPublishResponse API_AVAILABLE(ios(11));
+- (void) test_AWSSNSPutDataProtectionPolicyInput API_AVAILABLE(ios(11));
 - (void) test_AWSSNSRemovePermissionInput API_AVAILABLE(ios(11));
 - (void) test_AWSSNSSMSSandboxPhoneNumber API_AVAILABLE(ios(11));
 - (void) test_AWSSNSSetEndpointAttributesInput API_AVAILABLE(ios(11));
@@ -183,6 +186,14 @@
 
 - (void) test_AWSSNSEndpoint {
     [self validateSecureCodingForClass:[AWSSNSEndpoint class]];
+}
+
+- (void) test_AWSSNSGetDataProtectionPolicyInput {
+    [self validateSecureCodingForClass:[AWSSNSGetDataProtectionPolicyInput class]];
+}
+
+- (void) test_AWSSNSGetDataProtectionPolicyResponse {
+    [self validateSecureCodingForClass:[AWSSNSGetDataProtectionPolicyResponse class]];
 }
 
 - (void) test_AWSSNSGetEndpointAttributesInput {
@@ -347,6 +358,10 @@
 
 - (void) test_AWSSNSPublishResponse {
     [self validateSecureCodingForClass:[AWSSNSPublishResponse class]];
+}
+
+- (void) test_AWSSNSPutDataProtectionPolicyInput {
+    [self validateSecureCodingForClass:[AWSSNSPutDataProtectionPolicyInput class]];
 }
 
 - (void) test_AWSSNSRemovePermissionInput {
