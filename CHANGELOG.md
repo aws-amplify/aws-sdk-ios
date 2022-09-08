@@ -4,6 +4,20 @@
 
 -Features for next release
 
+### Bug Fixes
+
+- **AWSMobileClient**
+  - Add getToken hashTable access inside a serial queue to avoid race condition (See [PR #4290](https://github.com/aws-amplify/aws-sdk-ios/pull/4290))
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSEC2  
+  - AWSConnect
+  - **Breaking Change** AWSCognitoIdentityProvider
+  - **Breaking Change** AWSTranscribe
+
+
 ## 2.27.15
 
 ### New features
