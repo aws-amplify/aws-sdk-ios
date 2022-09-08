@@ -438,6 +438,31 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (void)deleteTopic:(AWSSNSDeleteTopicInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Retrieves the specified inline <code>DataProtectionPolicy</code> document that is stored in the specified Amazon SNS topic. </p>
+ 
+ @param request A container for the necessary parameters to execute the GetDataProtectionPolicy service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSGetDataProtectionPolicyResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorNotFound`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorInvalidSecurity`.
+ 
+ @see AWSSNSGetDataProtectionPolicyInput
+ @see AWSSNSGetDataProtectionPolicyResponse
+ */
+- (AWSTask<AWSSNSGetDataProtectionPolicyResponse *> *)getDataProtectionPolicy:(AWSSNSGetDataProtectionPolicyInput *)request;
+
+/**
+ <p>Retrieves the specified inline <code>DataProtectionPolicy</code> document that is stored in the specified Amazon SNS topic. </p>
+ 
+ @param request A container for the necessary parameters to execute the GetDataProtectionPolicy service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorNotFound`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorInvalidSecurity`.
+ 
+ @see AWSSNSGetDataProtectionPolicyInput
+ @see AWSSNSGetDataProtectionPolicyResponse
+ */
+- (void)getDataProtectionPolicy:(AWSSNSGetDataProtectionPolicyInput *)request completionHandler:(void (^ _Nullable)(AWSSNSGetDataProtectionPolicyResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Retrieves the endpoint attributes for a device on one of the supported push notification services, such as GCM (Firebase Cloud Messaging) and APNS. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
  
  @param request A container for the necessary parameters to execute the GetEndpointAttributes service method.
@@ -842,7 +867,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
  
  @param request A container for the necessary parameters to execute the Publish service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSPublishResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInvalidParameterValue`, `AWSSNSErrorInternalError`, `AWSSNSErrorNotFound`, `AWSSNSErrorEndpointDisabled`, `AWSSNSErrorPlatformApplicationDisabled`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorKMSDisabled`, `AWSSNSErrorKMSInvalidState`, `AWSSNSErrorKMSNotFound`, `AWSSNSErrorKMSOptInRequired`, `AWSSNSErrorKMSThrottling`, `AWSSNSErrorKMSAccessDenied`, `AWSSNSErrorInvalidSecurity`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSPublishResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInvalidParameterValue`, `AWSSNSErrorInternalError`, `AWSSNSErrorNotFound`, `AWSSNSErrorEndpointDisabled`, `AWSSNSErrorPlatformApplicationDisabled`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorKMSDisabled`, `AWSSNSErrorKMSInvalidState`, `AWSSNSErrorKMSNotFound`, `AWSSNSErrorKMSOptInRequired`, `AWSSNSErrorKMSThrottling`, `AWSSNSErrorKMSAccessDenied`, `AWSSNSErrorInvalidSecurity`, `AWSSNSErrorValidation`.
  
  @see AWSSNSPublishInput
  @see AWSSNSPublishResponse
@@ -855,7 +880,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
  @param request A container for the necessary parameters to execute the Publish service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInvalidParameterValue`, `AWSSNSErrorInternalError`, `AWSSNSErrorNotFound`, `AWSSNSErrorEndpointDisabled`, `AWSSNSErrorPlatformApplicationDisabled`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorKMSDisabled`, `AWSSNSErrorKMSInvalidState`, `AWSSNSErrorKMSNotFound`, `AWSSNSErrorKMSOptInRequired`, `AWSSNSErrorKMSThrottling`, `AWSSNSErrorKMSAccessDenied`, `AWSSNSErrorInvalidSecurity`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInvalidParameterValue`, `AWSSNSErrorInternalError`, `AWSSNSErrorNotFound`, `AWSSNSErrorEndpointDisabled`, `AWSSNSErrorPlatformApplicationDisabled`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorKMSDisabled`, `AWSSNSErrorKMSInvalidState`, `AWSSNSErrorKMSNotFound`, `AWSSNSErrorKMSOptInRequired`, `AWSSNSErrorKMSThrottling`, `AWSSNSErrorKMSAccessDenied`, `AWSSNSErrorInvalidSecurity`, `AWSSNSErrorValidation`.
  
  @see AWSSNSPublishInput
  @see AWSSNSPublishResponse
@@ -867,7 +892,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
  
  @param request A container for the necessary parameters to execute the PublishBatch service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSPublishBatchResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInvalidParameterValue`, `AWSSNSErrorInternalError`, `AWSSNSErrorNotFound`, `AWSSNSErrorEndpointDisabled`, `AWSSNSErrorPlatformApplicationDisabled`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorBatchEntryIdsNotDistinct`, `AWSSNSErrorBatchRequestTooLong`, `AWSSNSErrorEmptyBatchRequest`, `AWSSNSErrorInvalidBatchEntryId`, `AWSSNSErrorTooManyEntriesInBatchRequest`, `AWSSNSErrorKMSDisabled`, `AWSSNSErrorKMSInvalidState`, `AWSSNSErrorKMSNotFound`, `AWSSNSErrorKMSOptInRequired`, `AWSSNSErrorKMSThrottling`, `AWSSNSErrorKMSAccessDenied`, `AWSSNSErrorInvalidSecurity`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSPublishBatchResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInvalidParameterValue`, `AWSSNSErrorInternalError`, `AWSSNSErrorNotFound`, `AWSSNSErrorEndpointDisabled`, `AWSSNSErrorPlatformApplicationDisabled`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorBatchEntryIdsNotDistinct`, `AWSSNSErrorBatchRequestTooLong`, `AWSSNSErrorEmptyBatchRequest`, `AWSSNSErrorInvalidBatchEntryId`, `AWSSNSErrorTooManyEntriesInBatchRequest`, `AWSSNSErrorKMSDisabled`, `AWSSNSErrorKMSInvalidState`, `AWSSNSErrorKMSNotFound`, `AWSSNSErrorKMSOptInRequired`, `AWSSNSErrorKMSThrottling`, `AWSSNSErrorKMSAccessDenied`, `AWSSNSErrorInvalidSecurity`, `AWSSNSErrorValidation`.
  
  @see AWSSNSPublishBatchInput
  @see AWSSNSPublishBatchResponse
@@ -880,12 +905,34 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
  @param request A container for the necessary parameters to execute the PublishBatch service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInvalidParameterValue`, `AWSSNSErrorInternalError`, `AWSSNSErrorNotFound`, `AWSSNSErrorEndpointDisabled`, `AWSSNSErrorPlatformApplicationDisabled`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorBatchEntryIdsNotDistinct`, `AWSSNSErrorBatchRequestTooLong`, `AWSSNSErrorEmptyBatchRequest`, `AWSSNSErrorInvalidBatchEntryId`, `AWSSNSErrorTooManyEntriesInBatchRequest`, `AWSSNSErrorKMSDisabled`, `AWSSNSErrorKMSInvalidState`, `AWSSNSErrorKMSNotFound`, `AWSSNSErrorKMSOptInRequired`, `AWSSNSErrorKMSThrottling`, `AWSSNSErrorKMSAccessDenied`, `AWSSNSErrorInvalidSecurity`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInvalidParameterValue`, `AWSSNSErrorInternalError`, `AWSSNSErrorNotFound`, `AWSSNSErrorEndpointDisabled`, `AWSSNSErrorPlatformApplicationDisabled`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorBatchEntryIdsNotDistinct`, `AWSSNSErrorBatchRequestTooLong`, `AWSSNSErrorEmptyBatchRequest`, `AWSSNSErrorInvalidBatchEntryId`, `AWSSNSErrorTooManyEntriesInBatchRequest`, `AWSSNSErrorKMSDisabled`, `AWSSNSErrorKMSInvalidState`, `AWSSNSErrorKMSNotFound`, `AWSSNSErrorKMSOptInRequired`, `AWSSNSErrorKMSThrottling`, `AWSSNSErrorKMSAccessDenied`, `AWSSNSErrorInvalidSecurity`, `AWSSNSErrorValidation`.
  
  @see AWSSNSPublishBatchInput
  @see AWSSNSPublishBatchResponse
  */
 - (void)publishBatch:(AWSSNSPublishBatchInput *)request completionHandler:(void (^ _Nullable)(AWSSNSPublishBatchResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Adds or updates an inline policy document that is stored in the specified Amazon SNS topic.</p>
+ 
+ @param request A container for the necessary parameters to execute the PutDataProtectionPolicy service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorNotFound`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorInvalidSecurity`.
+ 
+ @see AWSSNSPutDataProtectionPolicyInput
+ */
+- (AWSTask *)putDataProtectionPolicy:(AWSSNSPutDataProtectionPolicyInput *)request;
+
+/**
+ <p>Adds or updates an inline policy document that is stored in the specified Amazon SNS topic.</p>
+ 
+ @param request A container for the necessary parameters to execute the PutDataProtectionPolicy service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInvalidParameter`, `AWSSNSErrorInternalError`, `AWSSNSErrorNotFound`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorInvalidSecurity`.
+ 
+ @see AWSSNSPutDataProtectionPolicyInput
+ */
+- (void)putDataProtectionPolicy:(AWSSNSPutDataProtectionPolicyInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
  <p>Removes a statement from a topic's access control policy.</p>

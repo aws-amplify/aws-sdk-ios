@@ -279,6 +279,7 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"attributes" : @"Attributes",
+             @"dataProtectionPolicy" : @"DataProtectionPolicy",
              @"name" : @"Name",
              @"tags" : @"Tags",
              };
@@ -378,6 +379,34 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 	return @{
              @"attributes" : @"Attributes",
              @"endpointArn" : @"EndpointArn",
+             };
+}
+
+@end
+
+@implementation AWSSNSGetDataProtectionPolicyInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"ResourceArn",
+             };
+}
+
+@end
+
+@implementation AWSSNSGetDataProtectionPolicyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dataProtectionPolicy" : @"DataProtectionPolicy",
              };
 }
 
@@ -1073,6 +1102,21 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"messageId" : @"MessageId",
              @"sequenceNumber" : @"SequenceNumber",
+             };
+}
+
+@end
+
+@implementation AWSSNSPutDataProtectionPolicyInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dataProtectionPolicy" : @"DataProtectionPolicy",
+             @"resourceArn" : @"ResourceArn",
              };
 }
 
