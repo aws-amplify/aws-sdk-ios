@@ -14,6 +14,7 @@
 - Model updates for the following services
   - AWSEC2  
   - AWSConnect
+  - AWSSNS
   - **Breaking Change** AWSCognitoIdentityProvider
   - **Breaking Change** AWSTranscribe
 
