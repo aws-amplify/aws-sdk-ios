@@ -2157,6 +2157,7 @@ typedef NS_ENUM(NSInteger, AWSEC2ResourceType) {
     AWSEC2ResourceTypeCapacityReservationFleet,
     AWSEC2ResourceTypeTrafficMirrorFilterRule,
     AWSEC2ResourceTypeVpcEndpointConnectionDeviceType,
+    AWSEC2ResourceTypeVpnConnectionDeviceType,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2RootDeviceType) {

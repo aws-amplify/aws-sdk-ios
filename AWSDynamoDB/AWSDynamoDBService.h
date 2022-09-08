@@ -575,6 +575,31 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
 - (void)describeGlobalTableSettings:(AWSDynamoDBDescribeGlobalTableSettingsInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBDescribeGlobalTableSettingsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p> Represents the properties of the import. </p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeImport service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBDescribeImportOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorImportNotFound`.
+ 
+ @see AWSDynamoDBDescribeImportInput
+ @see AWSDynamoDBDescribeImportOutput
+ */
+- (AWSTask<AWSDynamoDBDescribeImportOutput *> *)describeImport:(AWSDynamoDBDescribeImportInput *)request;
+
+/**
+ <p> Represents the properties of the import. </p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeImport service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorImportNotFound`.
+ 
+ @see AWSDynamoDBDescribeImportInput
+ @see AWSDynamoDBDescribeImportOutput
+ */
+- (void)describeImport:(AWSDynamoDBDescribeImportInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBDescribeImportOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Returns information about the status of Kinesis streaming.</p>
  
  @param request A container for the necessary parameters to execute the DescribeKinesisStreamingDestination service method.
@@ -850,6 +875,31 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
 - (void)getItem:(AWSDynamoDBGetItemInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBGetItemOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p> Imports table data from an S3 bucket. </p>
+ 
+ @param request A container for the necessary parameters to execute the ImportTable service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBImportTableOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceInUse`, `AWSDynamoDBErrorLimitExceeded`, `AWSDynamoDBErrorImportConflict`.
+ 
+ @see AWSDynamoDBImportTableInput
+ @see AWSDynamoDBImportTableOutput
+ */
+- (AWSTask<AWSDynamoDBImportTableOutput *> *)importTable:(AWSDynamoDBImportTableInput *)request;
+
+/**
+ <p> Imports table data from an S3 bucket. </p>
+ 
+ @param request A container for the necessary parameters to execute the ImportTable service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceInUse`, `AWSDynamoDBErrorLimitExceeded`, `AWSDynamoDBErrorImportConflict`.
+ 
+ @see AWSDynamoDBImportTableInput
+ @see AWSDynamoDBImportTableOutput
+ */
+- (void)importTable:(AWSDynamoDBImportTableInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBImportTableOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>List backups associated with an Amazon Web Services account. To list backups for a given table, specify <code>TableName</code>. <code>ListBackups</code> returns a paginated list of results with at most 1 MB worth of items in a page. You can also specify a maximum number of entries to be returned in a page.</p><p>In the request, start time is inclusive, but end time is exclusive. Note that these boundaries are for the time at which the original backup was requested.</p><p>You can call <code>ListBackups</code> a maximum of five times per second.</p>
  
  @param request A container for the necessary parameters to execute the ListBackups service method.
@@ -948,6 +998,31 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
  @see AWSDynamoDBListGlobalTablesOutput
  */
 - (void)listGlobalTables:(AWSDynamoDBListGlobalTablesInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBListGlobalTablesOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p> Lists completed imports within the past 90 days. </p>
+ 
+ @param request A container for the necessary parameters to execute the ListImports service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBListImportsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorLimitExceeded`.
+ 
+ @see AWSDynamoDBListImportsInput
+ @see AWSDynamoDBListImportsOutput
+ */
+- (AWSTask<AWSDynamoDBListImportsOutput *> *)listImports:(AWSDynamoDBListImportsInput *)request;
+
+/**
+ <p> Lists completed imports within the past 90 days. </p>
+ 
+ @param request A container for the necessary parameters to execute the ListImports service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorLimitExceeded`.
+ 
+ @see AWSDynamoDBListImportsInput
+ @see AWSDynamoDBListImportsOutput
+ */
+- (void)listImports:(AWSDynamoDBListImportsInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBListImportsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Returns an array of table names associated with the current account and endpoint. The output from <code>ListTables</code> is paginated, with each page returning a maximum of 100 table names.</p>

@@ -31,8 +31,10 @@ typedef NS_ENUM(NSInteger, AWSRekognitionErrorType) {
     AWSRekognitionErrorInvalidImageFormat,
     AWSRekognitionErrorInvalidPaginationToken,
     AWSRekognitionErrorInvalidParameter,
+    AWSRekognitionErrorInvalidPolicyRevisionId,
     AWSRekognitionErrorInvalidS3Object,
     AWSRekognitionErrorLimitExceeded,
+    AWSRekognitionErrorMalformedPolicyDocument,
     AWSRekognitionErrorProvisionedThroughputExceeded,
     AWSRekognitionErrorResourceAlreadyExists,
     AWSRekognitionErrorResourceInUse,
@@ -209,6 +211,9 @@ typedef NS_ENUM(NSInteger, AWSRekognitionProjectVersionStatus) {
     AWSRekognitionProjectVersionStatusStopping,
     AWSRekognitionProjectVersionStatusStopped,
     AWSRekognitionProjectVersionStatusDeleting,
+    AWSRekognitionProjectVersionStatusCopyingInProgress,
+    AWSRekognitionProjectVersionStatusCopyingCompleted,
+    AWSRekognitionProjectVersionStatusCopyingFailed,
 };
 
 typedef NS_ENUM(NSInteger, AWSRekognitionProtectiveEquipmentType) {
@@ -307,6 +312,8 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionConnectedHomeSettings;
 @class AWSRekognitionConnectedHomeSettingsForUpdate;
 @class AWSRekognitionContentModerationDetection;
+@class AWSRekognitionReplicateProjectVersionRequest;
+@class AWSRekognitionReplicateProjectVersionResponse;
 @class AWSRekognitionCoversBodyPart;
 @class AWSRekognitionCreateCollectionRequest;
 @class AWSRekognitionCreateCollectionResponse;
@@ -332,6 +339,8 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionDeleteDatasetResponse;
 @class AWSRekognitionDeleteFacesRequest;
 @class AWSRekognitionDeleteFacesResponse;
+@class AWSRekognitionDeleteProjectPolicyRequest;
+@class AWSRekognitionDeleteProjectPolicyResponse;
 @class AWSRekognitionDeleteProjectRequest;
 @class AWSRekognitionDeleteProjectResponse;
 @class AWSRekognitionDeleteProjectVersionRequest;
@@ -420,6 +429,8 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionListDatasetLabelsResponse;
 @class AWSRekognitionListFacesRequest;
 @class AWSRekognitionListFacesResponse;
+@class AWSRekognitionListProjectPoliciesRequest;
+@class AWSRekognitionListProjectPoliciesResponse;
 @class AWSRekognitionListStreamProcessorsRequest;
 @class AWSRekognitionListStreamProcessorsResponse;
 @class AWSRekognitionListTagsForResourceRequest;
@@ -436,11 +447,14 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionPoint;
 @class AWSRekognitionPose;
 @class AWSRekognitionProjectDescription;
+@class AWSRekognitionProjectPolicy;
 @class AWSRekognitionProjectVersionDescription;
 @class AWSRekognitionProtectiveEquipmentBodyPart;
 @class AWSRekognitionProtectiveEquipmentPerson;
 @class AWSRekognitionProtectiveEquipmentSummarizationAttributes;
 @class AWSRekognitionProtectiveEquipmentSummary;
+@class AWSRekognitionPutProjectPolicyRequest;
+@class AWSRekognitionPutProjectPolicyResponse;
 @class AWSRekognitionRecognizeCelebritiesRequest;
 @class AWSRekognitionRecognizeCelebritiesResponse;
 @class AWSRekognitionRegionOfInterest;
@@ -931,6 +945,62 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
+ 
+ */
+@interface AWSRekognitionReplicateProjectVersionRequest : AWSRequest
+
+
+/**
+ <p>The ARN of the project in the trusted AWS account that you want to copy the model version to. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationProjectArn;
+
+/**
+ <p>The identifier for your AWS Key Management Service key (AWS KMS key). You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of your KMS key, an alias for your KMS key, or an alias ARN. The key is used to encrypt training results and manifest files written to the output Amazon S3 bucket (<code>OutputConfig</code>).</p><p>If you choose to use your own KMS key, you need the following permissions on the KMS key.</p><ul><li><p>kms:CreateGrant</p></li><li><p>kms:DescribeKey</p></li><li><p>kms:GenerateDataKey</p></li><li><p>kms:Decrypt</p></li></ul><p>If you don't specify a value for <code>KmsKeyId</code>, images copied into the service are encrypted using a key that AWS owns and manages.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable kmsKeyId;
+
+/**
+ <p>The S3 bucket and folder location where the training output for the source model version is placed.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionOutputConfig * _Nullable outputConfig;
+
+/**
+ <p>The ARN of the source project in the trusting AWS account.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceProjectArn;
+
+/**
+ <p>The ARN of the model version in the source project that you want to copy to a destination project.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceProjectVersionArn;
+
+/**
+ <p>The key-value tags to assign to the model version. </p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+/**
+ <p>A name for the version of the model that's copied to the destination project.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable versionName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionReplicateProjectVersionResponse : AWSModel
+
+
+/**
+ <p>The ARN of the copied model version in the destination project. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable projectVersionArn;
+
+@end
+
+/**
  <p>Information about an item of Personal Protective Equipment covering a corresponding body part. For more information, see <a>DetectProtectiveEquipment</a>.</p>
  */
 @interface AWSRekognitionCoversBodyPart : AWSModel
@@ -1144,7 +1214,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) AWSRekognitionStreamProcessorOutput * _Nullable output;
 
 /**
- <p> Specifies locations in the frames where Amazon Rekognition checks for objects or people. You can specify up to 10 regions of interest. This is an optional parameter for label detection stream processors and should not be used to create a face search stream processor. </p>
+ <p> Specifies locations in the frames where Amazon Rekognition checks for objects or people. You can specify up to 10 regions of interest, and each region has either a polygon or a bounding box. This is an optional parameter for label detection stream processors and should not be used to create a face search stream processor. </p>
  */
 @property (nonatomic, strong) NSArray<AWSRekognitionRegionOfInterest *> * _Nullable regionsOfInterest;
 
@@ -1448,6 +1518,37 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>An array of strings (face IDs) of the faces that were deleted.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable deletedFaces;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionDeleteProjectPolicyRequest : AWSRequest
+
+
+/**
+ <p>The name of the policy that you want to delete.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyName;
+
+/**
+ <p>The ID of the project policy revision that you want to delete.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyRevisionId;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the project that the project policy you want to delete is attached to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable projectArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionDeleteProjectPolicyResponse : AWSModel
+
 
 @end
 
@@ -3465,6 +3566,47 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 /**
  
  */
+@interface AWSRekognitionListProjectPoliciesRequest : AWSRequest
+
+
+/**
+ <p>The maximum number of results to return per paginated call. The largest value you can specify is 5. If you specify a value greater than 5, a ValidationException error occurs. The default value is 5. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The ARN of the project for which you want to list the project policies.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable projectArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionListProjectPoliciesResponse : AWSModel
+
+
+/**
+ <p>If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of project policies.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>A list of project policies attached to the project.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionProjectPolicy *> * _Nullable projectPolicies;
+
+@end
+
+/**
+ 
+ */
 @interface AWSRekognitionListStreamProcessorsRequest : AWSRequest
 
 
@@ -3767,6 +3909,44 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
+ <p>Describes a project policy in the response from <a>ListProjectPolicies</a>. </p><p></p>
+ */
+@interface AWSRekognitionProjectPolicy : AWSModel
+
+
+/**
+ <p>The Unix datetime for the creation of the project policy.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationTimestamp;
+
+/**
+ <p>The Unix datetime for when the project policy was last updated. </p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastUpdatedTimestamp;
+
+/**
+ <p>The JSON document for the project policy.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyDocument;
+
+/**
+ <p>The name of the project policy.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyName;
+
+/**
+ <p>The revision ID of the project policy.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyRevisionId;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the project to which the project policy is attached.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable projectArn;
+
+@end
+
+/**
  <p>A description of a version of an Amazon Rekognition Custom Labels model.</p>
  */
 @interface AWSRekognitionProjectVersionDescription : AWSModel
@@ -3798,6 +3978,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) AWSRekognitionGroundTruthManifest * _Nullable manifestSummary;
 
 /**
+ <p>The maximum number of inference units Amazon Rekognition Custom Labels uses to auto-scale the model. For more information, see <a>StartProjectVersion</a>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxInferenceUnits;
+
+/**
  <p>The minimum number of inference units used by the model. For more information, see <a>StartProjectVersion</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable minInferenceUnits;
@@ -3811,6 +3996,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>The Amazon Resource Name (ARN) of the model version. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable projectVersionArn;
+
+/**
+ <p>If the model version was copied from a different project, <code>SourceProjectVersionArn</code> contains the ARN of the source model version. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceProjectVersionArn;
 
 /**
  <p>The current status of the model version.</p>
@@ -3935,6 +4125,47 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 /**
  
  */
+@interface AWSRekognitionPutProjectPolicyRequest : AWSRequest
+
+
+/**
+ <p>A resource policy to add to the model. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow the IAM syntax. For more information about the contents of a JSON policy document, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON policy reference</a>. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyDocument;
+
+/**
+ <p>A name for the policy.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyName;
+
+/**
+ <p>The revision ID for the Project Policy. Each time you modify a policy, Amazon Rekognition Custom Labels generates and assigns a new <code>PolicyRevisionId</code> and then deletes the previous version of the policy.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyRevisionId;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the project that the project policy is attached to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable projectArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionPutProjectPolicyResponse : AWSModel
+
+
+/**
+ <p>The ID of the project policy.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyRevisionId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSRekognitionRecognizeCelebritiesRequest : AWSRequest
 
 
@@ -3969,7 +4200,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Specifies a location within the frame that Rekognition checks for objects of interest such as text, labels, or faces. It uses a <code>BoundingBox</code> or object or <code>Polygon</code> to set a region of the screen.</p><p>A word, face, or label is included in the region if it is more than half in that region. If there is more than one region, the word, face, or label is compared with all regions of the screen. Any object of interest that is more than half in a region is kept in the results.</p>
+ <p>Specifies a location within the frame that Rekognition checks for objects of interest such as text, labels, or faces. It uses a <code>BoundingBox</code> or <code>Polygon</code> to set a region of the screen.</p><p>A word, face, or label is included in the region if it is more than half in that region. If there is more than one region, the word, face, or label is compared with all regions of the screen. Any object of interest that is more than half in a region is kept in the results.</p>
  */
 @interface AWSRekognitionRegionOfInterest : AWSModel
 
@@ -4539,7 +4770,12 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>The minimum number of inference units to use. A single inference unit represents 1 hour of processing and can support up to 5 Transaction Pers Second (TPS). Use a higher number to increase the TPS throughput of your model. You are charged for the number of inference units that you use. </p>
+ <p>The maximum number of inference units to use for auto-scaling the model. If you don't specify a value, Amazon Rekognition Custom Labels doesn't auto-scale the model.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxInferenceUnits;
+
+/**
+ <p>The minimum number of inference units to use. A single inference unit represents 1 hour of processing. </p><p>For information about the number of transactions per second (TPS) that an inference unit can support, see <i>Running a trained Amazon Rekognition Custom Labels model</i> in the Amazon Rekognition Custom Labels Guide. </p><p>Use a higher number to increase the TPS throughput of your model. You are charged for the number of inference units that you use. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable minInferenceUnits;
 

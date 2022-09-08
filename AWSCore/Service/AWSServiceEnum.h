@@ -116,6 +116,10 @@ typedef NS_ENUM(NSInteger, AWSRegionType) {
      */
     AWSRegionAPEast1 NS_SWIFT_NAME(APEast1),
     /**
+     *  Middle East Central (UAE)
+     */
+    AWSRegionMECentral1 NS_SWIFT_NAME(MECentral1),
+    /**
      *  Middle East South (Bahrain)
      */
     AWSRegionMESouth1 NS_SWIFT_NAME(MESouth1),

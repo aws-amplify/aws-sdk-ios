@@ -25,7 +25,7 @@
 #import "AWSConnectResources.h"
 
 static NSString *const AWSInfoConnect = @"Connect";
-NSString *const AWSConnectSDKVersion = @"2.27.13";
+NSString *const AWSConnectSDKVersion = @"2.27.15";
 
 
 @interface AWSConnectResponseSerializer : AWSJSONResponseSerializer
@@ -2651,6 +2651,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectSearchAvailablePhoneNumbersResponse *response, NSError *error))completionHandler {
     [[self searchAvailablePhoneNumbers:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectSearchAvailablePhoneNumbersResponse *> * _Nonnull task) {
         AWSConnectSearchAvailablePhoneNumbersResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectSearchQueuesResponse *> *)searchQueues:(AWSConnectSearchQueuesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/search-queues"
+                  targetPrefix:@""
+                 operationName:@"SearchQueues"
+                   outputClass:[AWSConnectSearchQueuesResponse class]];
+}
+
+- (void)searchQueues:(AWSConnectSearchQueuesRequest *)request
+     completionHandler:(void (^)(AWSConnectSearchQueuesResponse *response, NSError *error))completionHandler {
+    [[self searchQueues:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectSearchQueuesResponse *> * _Nonnull task) {
+        AWSConnectSearchQueuesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectSearchRoutingProfilesResponse *> *)searchRoutingProfiles:(AWSConnectSearchRoutingProfilesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/search-routing-profiles"
+                  targetPrefix:@""
+                 operationName:@"SearchRoutingProfiles"
+                   outputClass:[AWSConnectSearchRoutingProfilesResponse class]];
+}
+
+- (void)searchRoutingProfiles:(AWSConnectSearchRoutingProfilesRequest *)request
+     completionHandler:(void (^)(AWSConnectSearchRoutingProfilesResponse *response, NSError *error))completionHandler {
+    [[self searchRoutingProfiles:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectSearchRoutingProfilesResponse *> * _Nonnull task) {
+        AWSConnectSearchRoutingProfilesResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

@@ -4,12 +4,41 @@
 
 -Features for next release
 
-## 2.27.13
+## 2.27.15
+
+### New features
+- **AWSCore**
+  - Support for `me-central-1` - Middle East (UAE) (see [AWS Regional Services List](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for a list of services supported in the region)
+
+## 2.27.14
 
 ### Bug Fixes
 
+- **AWSMobileClient**
+  - Add missing parameters for SignInResult init in getNewPasswordDetails (See [PR #4200](https://github.com/aws-amplify/aws-sdk-ios/pull/4200))
+
 - **AWSPinpoint**
   - Migrate key-value storage from NSUserdefaults to Keychain (See [PR #4223](https://github.com/aws-amplify/aws-sdk-ios/pull/4223))
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSEC2  
+  - AWSConnect
+  - AWSKMS
+  - AWSAutoScaling
+  - AWSPolly
+  - AWSIoT
+  - AWSPinpoint
+  - AWSLocation
+  - AWSChimeSDKMessaging
+  - AWSRekognition
+  - AWSLambda
+  - AWSDynamoDB
+
+## 2.27.13
+
+### Bug Fixes
   
 - **AWSMobileClient**
   - Fixes duplicated callbacks when getToken fails on device operations (See https://github.com/aws-amplify/aws-sdk-ios/pull/4229)

@@ -11831,6 +11831,69 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectQueueSearchCriteria
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"andConditions" : @"AndConditions",
+             @"orConditions" : @"OrConditions",
+             @"queueTypeCondition" : @"QueueTypeCondition",
+             @"stringCondition" : @"StringCondition",
+             };
+}
+
++ (NSValueTransformer *)andConditionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectQueueSearchCriteria class]];
+}
+
++ (NSValueTransformer *)orConditionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectQueueSearchCriteria class]];
+}
+
++ (NSValueTransformer *)queueTypeConditionJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"STANDARD"] == NSOrderedSame) {
+            return @(AWSConnectSearchableQueueTypeStandard);
+        }
+        return @(AWSConnectSearchableQueueTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectSearchableQueueTypeStandard:
+                return @"STANDARD";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)stringConditionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectStringCondition class]];
+}
+
+@end
+
+@implementation AWSConnectQueueSearchFilter
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"tagFilter" : @"TagFilter",
+             };
+}
+
++ (NSValueTransformer *)tagFilterJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectControlPlaneTagFilter class]];
+}
+
+@end
+
 @implementation AWSConnectQueueSummary
 
 + (BOOL)supportsSecureCoding {
@@ -12177,6 +12240,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"instanceId" : @"InstanceId",
              @"mediaConcurrencies" : @"MediaConcurrencies",
              @"name" : @"Name",
+             @"numberOfAssociatedQueues" : @"NumberOfAssociatedQueues",
+             @"numberOfAssociatedUsers" : @"NumberOfAssociatedUsers",
              @"routingProfileArn" : @"RoutingProfileArn",
              @"routingProfileId" : @"RoutingProfileId",
              @"tags" : @"Tags",
@@ -12306,6 +12371,52 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"arn" : @"Arn",
              @"identifier" : @"Id",
              };
+}
+
+@end
+
+@implementation AWSConnectRoutingProfileSearchCriteria
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"andConditions" : @"AndConditions",
+             @"orConditions" : @"OrConditions",
+             @"stringCondition" : @"StringCondition",
+             };
+}
+
++ (NSValueTransformer *)andConditionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectRoutingProfileSearchCriteria class]];
+}
+
++ (NSValueTransformer *)orConditionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectRoutingProfileSearchCriteria class]];
+}
+
++ (NSValueTransformer *)stringConditionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectStringCondition class]];
+}
+
+@end
+
+@implementation AWSConnectRoutingProfileSearchFilter
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"tagFilter" : @"TagFilter",
+             };
+}
+
++ (NSValueTransformer *)tagFilterJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectControlPlaneTagFilter class]];
 }
 
 @end
@@ -13597,6 +13708,98 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSValueTransformer *)availableNumbersListJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectAvailableNumberSummary class]];
+}
+
+@end
+
+@implementation AWSConnectSearchQueuesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             @"searchCriteria" : @"SearchCriteria",
+             @"searchFilter" : @"SearchFilter",
+             };
+}
+
++ (NSValueTransformer *)searchCriteriaJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectQueueSearchCriteria class]];
+}
+
++ (NSValueTransformer *)searchFilterJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectQueueSearchFilter class]];
+}
+
+@end
+
+@implementation AWSConnectSearchQueuesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"approximateTotalCount" : @"ApproximateTotalCount",
+             @"nextToken" : @"NextToken",
+             @"queues" : @"Queues",
+             };
+}
+
++ (NSValueTransformer *)queuesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectQueue class]];
+}
+
+@end
+
+@implementation AWSConnectSearchRoutingProfilesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             @"searchCriteria" : @"SearchCriteria",
+             @"searchFilter" : @"SearchFilter",
+             };
+}
+
++ (NSValueTransformer *)searchCriteriaJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectRoutingProfileSearchCriteria class]];
+}
+
++ (NSValueTransformer *)searchFilterJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectRoutingProfileSearchFilter class]];
+}
+
+@end
+
+@implementation AWSConnectSearchRoutingProfilesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"approximateTotalCount" : @"ApproximateTotalCount",
+             @"nextToken" : @"NextToken",
+             @"routingProfiles" : @"RoutingProfiles",
+             };
+}
+
++ (NSValueTransformer *)routingProfilesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectRoutingProfile class]];
 }
 
 @end
