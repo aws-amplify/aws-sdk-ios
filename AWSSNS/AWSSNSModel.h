@@ -114,6 +114,8 @@ typedef NS_ENUM(NSInteger, AWSSNSSMSSandboxPhoneNumberVerificationStatus) {
 @class AWSSNSDeleteSMSSandboxPhoneNumberResult;
 @class AWSSNSDeleteTopicInput;
 @class AWSSNSEndpoint;
+@class AWSSNSGetDataProtectionPolicyInput;
+@class AWSSNSGetDataProtectionPolicyResponse;
 @class AWSSNSGetEndpointAttributesInput;
 @class AWSSNSGetEndpointAttributesResponse;
 @class AWSSNSGetPlatformApplicationAttributesInput;
@@ -155,6 +157,7 @@ typedef NS_ENUM(NSInteger, AWSSNSSMSSandboxPhoneNumberVerificationStatus) {
 @class AWSSNSPublishBatchResultEntry;
 @class AWSSNSPublishInput;
 @class AWSSNSPublishResponse;
+@class AWSSNSPutDataProtectionPolicyInput;
 @class AWSSNSRemovePermissionInput;
 @class AWSSNSSMSSandboxPhoneNumber;
 @class AWSSNSSetEndpointAttributesInput;
@@ -415,6 +418,11 @@ typedef NS_ENUM(NSInteger, AWSSNSSMSSandboxPhoneNumberVerificationStatus) {
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
 /**
+ <p>The body of the policy document you want to use for this topic.</p><p>You can only add one policy per topic.</p><p>The policy must be in JSON string format.</p><p>Length Constraints: Maximum length of 30,720.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable dataProtectionPolicy;
+
+/**
  <p>The name of the topic you want to create.</p><p>Constraints: Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long.</p><p>For a FIFO (first-in-first-out) topic, the name must end with the <code>.fifo</code> suffix. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
@@ -516,6 +524,32 @@ typedef NS_ENUM(NSInteger, AWSSNSSMSSandboxPhoneNumberVerificationStatus) {
  <p>The <code>EndpointArn</code> for mobile app and device.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable endpointArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSSNSGetDataProtectionPolicyInput : AWSRequest
+
+
+/**
+ <p>The ARN of the topic whose <code>DataProtectionPolicy</code> you want to get.</p><p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the Amazon Web Services General Reference.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSSNSGetDataProtectionPolicyResponse : AWSModel
+
+
+/**
+ <p>Retrieves the <code>DataProtectionPolicy</code> in JSON string format.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable dataProtectionPolicy;
 
 @end
 
@@ -1244,6 +1278,24 @@ typedef NS_ENUM(NSInteger, AWSSNSSMSSandboxPhoneNumberVerificationStatus) {
  <p>This response element applies only to FIFO (first-in-first-out) topics. </p><p>The sequence number is a large, non-consecutive number that Amazon SNS assigns to each message. The length of <code>SequenceNumber</code> is 128 bits. <code>SequenceNumber</code> continues to increase for each <code>MessageGroupId</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sequenceNumber;
+
+@end
+
+/**
+ 
+ */
+@interface AWSSNSPutDataProtectionPolicyInput : AWSRequest
+
+
+/**
+ <p>The JSON serialization of the topic's <code>DataProtectionPolicy</code>.</p><p>The <code>DataProtectionPolicy</code> must be in JSON string format.</p><p>Length Constraints: Maximum length of 30,720.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable dataProtectionPolicy;
+
+/**
+ <p>The ARN of the topic whose <code>DataProtectionPolicy</code> you want to add or update.</p><p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the Amazon Web Services General Reference.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
 
 @end
 
