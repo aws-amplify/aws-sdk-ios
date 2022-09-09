@@ -17,7 +17,7 @@
     <a title="AWSConnect Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSConnect 2.27.15 Docs</a> (74% documented)</p>
+        <p><a href="../index.html">AWSConnect 2.28.0 Docs</a> (75% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSConnect.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -794,6 +794,12 @@
                 <a href="../Classes/AWSConnectQueueReference.html">AWSConnectQueueReference</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSConnectQueueSearchCriteria.html">AWSConnectQueueSearchCriteria</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectQueueSearchFilter.html">AWSConnectQueueSearchFilter</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSConnectQueueSummary.html">AWSConnectQueueSummary</a>
               </li>
               <li class="nav-group-task">
@@ -845,6 +851,12 @@
                 <a href="../Classes/AWSConnectRoutingProfileReference.html">AWSConnectRoutingProfileReference</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRoutingProfileSearchCriteria.html">AWSConnectRoutingProfileSearchCriteria</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectRoutingProfileSearchFilter.html">AWSConnectRoutingProfileSearchFilter</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSConnectRoutingProfileSummary.html">AWSConnectRoutingProfileSummary</a>
               </li>
               <li class="nav-group-task">
@@ -855,6 +867,18 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectSearchAvailablePhoneNumbersResponse.html">AWSConnectSearchAvailablePhoneNumbersResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSearchQueuesRequest.html">AWSConnectSearchQueuesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSearchQueuesResponse.html">AWSConnectSearchQueuesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSearchRoutingProfilesRequest.html">AWSConnectSearchRoutingProfilesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectSearchRoutingProfilesResponse.html">AWSConnectSearchRoutingProfilesResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectSearchSecurityProfilesRequest.html">AWSConnectSearchSecurityProfilesRequest</a>
@@ -1282,6 +1306,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSConnectResourceType.html">AWSConnectResourceType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectSearchableQueueType.html">AWSConnectSearchableQueueType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSConnectSourceType.html">AWSConnectSourceType</a>
@@ -7104,7 +7131,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Describes the specified contact. </p><important><p>Contact information remains available in Amazon Connect for 24 months, and then it is deleted.</p></important></p>
+                        <p><p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Describes the specified contact. </p><important><p>Contact information remains available in Amazon Connect for 24 months, and then it is deleted.</p><p>Only data from November 12, 2021, and later is returned by this API.</p></important></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectDescribeContactRequest</p>
@@ -7168,7 +7195,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Describes the specified contact. </p><important><p>Contact information remains available in Amazon Connect for 24 months, and then it is deleted.</p></important></p>
+                        <p><p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Describes the specified contact. </p><important><p>Contact information remains available in Amazon Connect for 24 months, and then it is deleted.</p><p>Only data from November 12, 2021, and later is returned by this API.</p></important></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectDescribeContactRequest</p>
@@ -11728,7 +11755,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the instance. </p>
+                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the instance. Use this API to returns both Amazon Lex V1 and V2 bots.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectListBotsRequest</p>
@@ -11792,7 +11819,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the instance. </p>
+                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the instance. Use this API to returns both Amazon Lex V1 and V2 bots.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectListBotsRequest</p>
@@ -13303,7 +13330,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Returns a paginated list of all the Amazon Lex bots currently associated with the instance.</p>
+                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Returns a paginated list of all the Amazon Lex V1 bots currently associated with the instance. To return both Amazon Lex V1 and V2 bots, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListBots.html">ListBots</a> API. </p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectListLexBotsRequest</p>
@@ -13367,7 +13394,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Returns a paginated list of all the Amazon Lex bots currently associated with the instance.</p>
+                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Returns a paginated list of all the Amazon Lex V1 bots currently associated with the instance. To return both Amazon Lex V1 and V2 bots, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListBots.html">ListBots</a> API. </p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectListLexBotsRequest</p>
@@ -16259,6 +16286,291 @@
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>, <code>AWSConnectErrorAccessDenied</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnect(im)searchQueues:"></a>
+                    <a name="//apple_ref/objc/Method/-searchQueues:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnect(im)searchQueues:">-searchQueues:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Searches queues in an Amazon Connect instance, with optional filtering.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectSearchQueuesRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectSearchQueuesResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">searchQueues</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectSearchQueuesRequest.html">AWSConnectSearchQueuesRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">searchQueues</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectSearchQueuesRequest.html">AWSConnectSearchQueuesRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the SearchQueues service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSConnectSearchQueuesResponse.html">AWSConnectSearchQueuesResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnect(im)searchQueues:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-searchQueues:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnect(im)searchQueues:completionHandler:">-searchQueues:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Searches queues in an Amazon Connect instance, with optional filtering.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectSearchQueuesRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectSearchQueuesResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">searchQueues</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectSearchQueuesRequest.html">AWSConnectSearchQueuesRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+    <span class="nf">completionHandler</span><span class="p">:</span>
+        <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSConnectSearchQueuesResponse.html">AWSConnectSearchQueuesResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                           <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">searchQueues</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectSearchQueuesRequest.html">AWSConnectSearchQueuesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectSearchQueuesResponse.html">AWSConnectSearchQueuesResponse</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the SearchQueues service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnect(im)searchRoutingProfiles:"></a>
+                    <a name="//apple_ref/objc/Method/-searchRoutingProfiles:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnect(im)searchRoutingProfiles:">-searchRoutingProfiles:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Searches routing profiles in an Amazon Connect instance, with optional filtering.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectSearchRoutingProfilesRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectSearchRoutingProfilesResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">searchRoutingProfiles</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectSearchRoutingProfilesRequest.html">AWSConnectSearchRoutingProfilesRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">searchRoutingProfiles</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectSearchRoutingProfilesRequest.html">AWSConnectSearchRoutingProfilesRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the SearchRoutingProfiles service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSConnectSearchRoutingProfilesResponse.html">AWSConnectSearchRoutingProfilesResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnect(im)searchRoutingProfiles:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-searchRoutingProfiles:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnect(im)searchRoutingProfiles:completionHandler:">-searchRoutingProfiles:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Searches routing profiles in an Amazon Connect instance, with optional filtering.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectSearchRoutingProfilesRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectSearchRoutingProfilesResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">searchRoutingProfiles</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectSearchRoutingProfilesRequest.html">AWSConnectSearchRoutingProfilesRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+            <span class="nf">completionHandler</span><span class="p">:</span>
+                <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                    <span class="n"><a href="../Classes/AWSConnectSearchRoutingProfilesResponse.html">AWSConnectSearchRoutingProfilesResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                    <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">searchRoutingProfiles</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectSearchRoutingProfilesRequest.html">AWSConnectSearchRoutingProfilesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSConnectSearchRoutingProfilesResponse.html">AWSConnectSearchRoutingProfilesResponse</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the SearchRoutingProfiles service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -22846,7 +23158,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-08-30)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-09-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

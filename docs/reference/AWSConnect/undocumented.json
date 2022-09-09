@@ -3608,678 +3608,706 @@
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 570,
-      "symbol": "AWSConnectSourceType",
+      "symbol": "AWSConnectSearchableQueueType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 570,
-      "symbol": "AWSConnectSourceType",
+      "symbol": "AWSConnectSearchableQueueType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 571,
-      "symbol": "AWSConnectSourceType.AWSConnectSourceTypeUnknown",
+      "symbol": "AWSConnectSearchableQueueType.AWSConnectSearchableQueueTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 572,
+      "symbol": "AWSConnectSearchableQueueType.AWSConnectSearchableQueueTypeStandard",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 575,
+      "symbol": "AWSConnectSourceType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 575,
+      "symbol": "AWSConnectSourceType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 576,
+      "symbol": "AWSConnectSourceType.AWSConnectSourceTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 577,
       "symbol": "AWSConnectSourceType.AWSConnectSourceTypeSalesforce",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 573,
+      "line": 578,
       "symbol": "AWSConnectSourceType.AWSConnectSourceTypeZendesk",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 576,
+      "line": 581,
       "symbol": "AWSConnectStatistic",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 576,
+      "line": 581,
       "symbol": "AWSConnectStatistic",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 577,
+      "line": 582,
       "symbol": "AWSConnectStatistic.AWSConnectStatisticUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 578,
+      "line": 583,
       "symbol": "AWSConnectStatistic.AWSConnectStatisticSum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 579,
+      "line": 584,
       "symbol": "AWSConnectStatistic.AWSConnectStatisticMax",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 580,
+      "line": 585,
       "symbol": "AWSConnectStatistic.AWSConnectStatisticAvg",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 583,
+      "line": 588,
       "symbol": "AWSConnectStorageType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 583,
+      "line": 588,
       "symbol": "AWSConnectStorageType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 584,
+      "line": 589,
       "symbol": "AWSConnectStorageType.AWSConnectStorageTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 585,
+      "line": 590,
       "symbol": "AWSConnectStorageType.AWSConnectStorageTypeS3",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 586,
+      "line": 591,
       "symbol": "AWSConnectStorageType.AWSConnectStorageTypeKinesisVideoStream",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 587,
+      "line": 592,
       "symbol": "AWSConnectStorageType.AWSConnectStorageTypeKinesisStream",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 588,
+      "line": 593,
       "symbol": "AWSConnectStorageType.AWSConnectStorageTypeKinesisFirehose",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 591,
+      "line": 596,
       "symbol": "AWSConnectStringComparisonType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 591,
+      "line": 596,
       "symbol": "AWSConnectStringComparisonType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 592,
+      "line": 597,
       "symbol": "AWSConnectStringComparisonType.AWSConnectStringComparisonTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 593,
+      "line": 598,
       "symbol": "AWSConnectStringComparisonType.AWSConnectStringComparisonTypeStartsWith",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 594,
+      "line": 599,
       "symbol": "AWSConnectStringComparisonType.AWSConnectStringComparisonTypeContains",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 595,
+      "line": 600,
       "symbol": "AWSConnectStringComparisonType.AWSConnectStringComparisonTypeExact",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 598,
+      "line": 603,
       "symbol": "AWSConnectTaskTemplateFieldType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 598,
+      "line": 603,
       "symbol": "AWSConnectTaskTemplateFieldType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 599,
+      "line": 604,
       "symbol": "AWSConnectTaskTemplateFieldType.AWSConnectTaskTemplateFieldTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 600,
+      "line": 605,
       "symbol": "AWSConnectTaskTemplateFieldType.AWSConnectTaskTemplateFieldTypeName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 601,
+      "line": 606,
       "symbol": "AWSConnectTaskTemplateFieldType.AWSConnectTaskTemplateFieldTypeDescription",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 602,
+      "line": 607,
       "symbol": "AWSConnectTaskTemplateFieldType.AWSConnectTaskTemplateFieldTypeScheduledTime",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 603,
+      "line": 608,
       "symbol": "AWSConnectTaskTemplateFieldType.AWSConnectTaskTemplateFieldTypeQuickConnect",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 604,
+      "line": 609,
       "symbol": "AWSConnectTaskTemplateFieldType.AWSConnectTaskTemplateFieldTypeUrl",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 605,
+      "line": 610,
       "symbol": "AWSConnectTaskTemplateFieldType.AWSConnectTaskTemplateFieldTypeNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 606,
+      "line": 611,
       "symbol": "AWSConnectTaskTemplateFieldType.AWSConnectTaskTemplateFieldTypeText",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 607,
+      "line": 612,
       "symbol": "AWSConnectTaskTemplateFieldType.AWSConnectTaskTemplateFieldTypeTextArea",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 608,
+      "line": 613,
       "symbol": "AWSConnectTaskTemplateFieldType.AWSConnectTaskTemplateFieldTypeDateTime",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 609,
+      "line": 614,
       "symbol": "AWSConnectTaskTemplateFieldType.AWSConnectTaskTemplateFieldTypeBoolean",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 610,
+      "line": 615,
       "symbol": "AWSConnectTaskTemplateFieldType.AWSConnectTaskTemplateFieldTypeSingleSelect",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 611,
+      "line": 616,
       "symbol": "AWSConnectTaskTemplateFieldType.AWSConnectTaskTemplateFieldTypeEmail",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 614,
+      "line": 619,
       "symbol": "AWSConnectTaskTemplateStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 614,
+      "line": 619,
       "symbol": "AWSConnectTaskTemplateStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 615,
+      "line": 620,
       "symbol": "AWSConnectTaskTemplateStatus.AWSConnectTaskTemplateStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 616,
+      "line": 621,
       "symbol": "AWSConnectTaskTemplateStatus.AWSConnectTaskTemplateStatusActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 617,
+      "line": 622,
       "symbol": "AWSConnectTaskTemplateStatus.AWSConnectTaskTemplateStatusInactive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 620,
+      "line": 625,
       "symbol": "AWSConnectTrafficType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 620,
+      "line": 625,
       "symbol": "AWSConnectTrafficType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 621,
+      "line": 626,
       "symbol": "AWSConnectTrafficType.AWSConnectTrafficTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 622,
+      "line": 627,
       "symbol": "AWSConnectTrafficType.AWSConnectTrafficTypeGeneral",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 623,
+      "line": 628,
       "symbol": "AWSConnectTrafficType.AWSConnectTrafficTypeCampaign",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 626,
+      "line": 631,
       "symbol": "AWSConnectUnit",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 626,
+      "line": 631,
       "symbol": "AWSConnectUnit",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 627,
+      "line": 632,
       "symbol": "AWSConnectUnit.AWSConnectUnitUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 628,
+      "line": 633,
       "symbol": "AWSConnectUnit.AWSConnectUnitSeconds",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 629,
+      "line": 634,
       "symbol": "AWSConnectUnit.AWSConnectUnitCount",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 630,
+      "line": 635,
       "symbol": "AWSConnectUnit.AWSConnectUnitPercent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 633,
+      "line": 638,
       "symbol": "AWSConnectUseCaseType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 633,
+      "line": 638,
       "symbol": "AWSConnectUseCaseType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 634,
+      "line": 639,
       "symbol": "AWSConnectUseCaseType.AWSConnectUseCaseTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 635,
+      "line": 640,
       "symbol": "AWSConnectUseCaseType.AWSConnectUseCaseTypeRulesEvaluation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 636,
+      "line": 641,
       "symbol": "AWSConnectUseCaseType.AWSConnectUseCaseTypeConnectCampaigns",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 639,
+      "line": 644,
       "symbol": "AWSConnectVocabularyLanguageCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 639,
+      "line": 644,
       "symbol": "AWSConnectVocabularyLanguageCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 640,
+      "line": 645,
       "symbol": "AWSConnectVocabularyLanguageCode.AWSConnectVocabularyLanguageCodeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 641,
+      "line": 646,
       "symbol": "AWSConnectVocabularyLanguageCode.AWSConnectVocabularyLanguageCodeArAE",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 642,
+      "line": 647,
       "symbol": "AWSConnectVocabularyLanguageCode.AWSConnectVocabularyLanguageCodeDeCH",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 643,
+      "line": 648,
       "symbol": "AWSConnectVocabularyLanguageCode.AWSConnectVocabularyLanguageCodeDeDE",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 644,
+      "line": 649,
       "symbol": "AWSConnectVocabularyLanguageCode.AWSConnectVocabularyLanguageCodeEnAB",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 645,
+      "line": 650,
       "symbol": "AWSConnectVocabularyLanguageCode.AWSConnectVocabularyLanguageCodeEnAU",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 646,
+      "line": 651,
       "symbol": "AWSConnectVocabularyLanguageCode.AWSConnectVocabularyLanguageCodeEnGB",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 647,
+      "line": 652,
       "symbol": "AWSConnectVocabularyLanguageCode.AWSConnectVocabularyLanguageCodeEnIE",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 648,
+      "line": 653,
       "symbol": "AWSConnectVocabularyLanguageCode.AWSConnectVocabularyLanguageCodeEnIN",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 649,
+      "line": 654,
       "symbol": "AWSConnectVocabularyLanguageCode.AWSConnectVocabularyLanguageCodeEnUS",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 650,
+      "line": 655,
       "symbol": "AWSConnectVocabularyLanguageCode.AWSConnectVocabularyLanguageCodeEnWL",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 651,
+      "line": 656,
       "symbol": "AWSConnectVocabularyLanguageCode.AWSConnectVocabularyLanguageCodeEsES",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 652,
+      "line": 657,
       "symbol": "AWSConnectVocabularyLanguageCode.AWSConnectVocabularyLanguageCodeEsUS",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 653,
+      "line": 658,
       "symbol": "AWSConnectVocabularyLanguageCode.AWSConnectVocabularyLanguageCodeFrCA",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 654,
+      "line": 659,
       "symbol": "AWSConnectVocabularyLanguageCode.AWSConnectVocabularyLanguageCodeFrFR",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 655,
+      "line": 660,
       "symbol": "AWSConnectVocabularyLanguageCode.AWSConnectVocabularyLanguageCodeHiIN",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 656,
+      "line": 661,
       "symbol": "AWSConnectVocabularyLanguageCode.AWSConnectVocabularyLanguageCodeItIT",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 657,
+      "line": 662,
       "symbol": "AWSConnectVocabularyLanguageCode.AWSConnectVocabularyLanguageCodeJaJP",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 658,
+      "line": 663,
       "symbol": "AWSConnectVocabularyLanguageCode.AWSConnectVocabularyLanguageCodeKoKR",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 659,
+      "line": 664,
       "symbol": "AWSConnectVocabularyLanguageCode.AWSConnectVocabularyLanguageCodePtBR",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 660,
+      "line": 665,
       "symbol": "AWSConnectVocabularyLanguageCode.AWSConnectVocabularyLanguageCodePtPT",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 661,
+      "line": 666,
       "symbol": "AWSConnectVocabularyLanguageCode.AWSConnectVocabularyLanguageCodeZhCN",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 664,
+      "line": 669,
       "symbol": "AWSConnectVocabularyState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 664,
+      "line": 669,
       "symbol": "AWSConnectVocabularyState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 665,
+      "line": 670,
       "symbol": "AWSConnectVocabularyState.AWSConnectVocabularyStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 666,
+      "line": 671,
       "symbol": "AWSConnectVocabularyState.AWSConnectVocabularyStateCreationInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 667,
+      "line": 672,
       "symbol": "AWSConnectVocabularyState.AWSConnectVocabularyStateActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 668,
+      "line": 673,
       "symbol": "AWSConnectVocabularyState.AWSConnectVocabularyStateCreationFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 669,
+      "line": 674,
       "symbol": "AWSConnectVocabularyState.AWSConnectVocabularyStateDeleteInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 672,
+      "line": 677,
       "symbol": "AWSConnectVoiceRecordingTrack",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 672,
+      "line": 677,
       "symbol": "AWSConnectVoiceRecordingTrack",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 673,
+      "line": 678,
       "symbol": "AWSConnectVoiceRecordingTrack.AWSConnectVoiceRecordingTrackUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 674,
+      "line": 679,
       "symbol": "AWSConnectVoiceRecordingTrack.AWSConnectVoiceRecordingTrackFromAgent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 675,
+      "line": 680,
       "symbol": "AWSConnectVoiceRecordingTrack.AWSConnectVoiceRecordingTrackToAgent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 676,
+      "line": 681,
       "symbol": "AWSConnectVoiceRecordingTrack.AWSConnectVoiceRecordingTrackAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
