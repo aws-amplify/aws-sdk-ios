@@ -93,6 +93,7 @@ extension AWSMobileClient {
                     }
                     completionHandler(
                         SignUpResult(signUpState: confirmedStatus!,
+                                     userSub: task?.result?.userSub,
                                      codeDeliveryDetails: codeDeliveryDetails),
                         nil)
                 }

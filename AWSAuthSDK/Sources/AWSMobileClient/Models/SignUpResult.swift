@@ -17,10 +17,12 @@ import Foundation
 /// Contains the result of the sign up operation.
 public struct SignUpResult {
     public let codeDeliveryDetails: UserCodeDeliveryDetails?
+    public let userSub: String?
     public let signUpConfirmationState: SignUpConfirmationState
 
-    internal init(signUpState: SignUpConfirmationState, codeDeliveryDetails: UserCodeDeliveryDetails?){
+    internal init(signUpState: SignUpConfirmationState, userSub: String? = nil, codeDeliveryDetails: UserCodeDeliveryDetails?){
         self.codeDeliveryDetails = codeDeliveryDetails
+        self.userSub = userSub
         self.signUpConfirmationState = signUpState
     }
 }
