@@ -4,6 +4,10 @@
 
 -Features for next release
 
+## 2.28.0
+
+-Features for next release
+
 ### Bug Fixes
 
 - **AWSMobileClient**
