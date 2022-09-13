@@ -1214,6 +1214,8 @@
 - (void) test_AWSEC2ModifyIpamScopeResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ModifyLaunchTemplateRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ModifyLaunchTemplateResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2ModifyLocalGatewayRouteRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2ModifyLocalGatewayRouteResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ModifyManagedPrefixListRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ModifyManagedPrefixListResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ModifyNetworkInterfaceAttributeRequest API_AVAILABLE(ios(11));
@@ -6454,6 +6456,14 @@
 
 - (void) test_AWSEC2ModifyLaunchTemplateResult {
     [self validateSecureCodingForClass:[AWSEC2ModifyLaunchTemplateResult class]];
+}
+
+- (void) test_AWSEC2ModifyLocalGatewayRouteRequest {
+    [self validateSecureCodingForClass:[AWSEC2ModifyLocalGatewayRouteRequest class]];
+}
+
+- (void) test_AWSEC2ModifyLocalGatewayRouteResult {
+    [self validateSecureCodingForClass:[AWSEC2ModifyLocalGatewayRouteResult class]];
 }
 
 - (void) test_AWSEC2ModifyManagedPrefixListRequest {

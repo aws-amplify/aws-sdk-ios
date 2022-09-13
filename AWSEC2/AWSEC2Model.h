@@ -42,6 +42,8 @@ typedef NS_ENUM(NSInteger, AWSEC2AcceleratorName) {
     AWSEC2AcceleratorNameM60,
     AWSEC2AcceleratorNameRadeonProV520,
     AWSEC2AcceleratorNameVu9p,
+    AWSEC2AcceleratorNameInferentia,
+    AWSEC2AcceleratorNameK520,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2AcceleratorType) {
@@ -1750,6 +1752,12 @@ typedef NS_ENUM(NSInteger, AWSEC2LocalGatewayRouteState) {
     AWSEC2LocalGatewayRouteStateBlackhole,
     AWSEC2LocalGatewayRouteStateDeleting,
     AWSEC2LocalGatewayRouteStateDeleted,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2LocalGatewayRouteTableMode) {
+    AWSEC2LocalGatewayRouteTableModeUnknown,
+    AWSEC2LocalGatewayRouteTableModeDirectVpcRouting,
+    AWSEC2LocalGatewayRouteTableModeCoip,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2LocalGatewayRouteType) {
@@ -3958,6 +3966,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2ModifyIpamScopeResult;
 @class AWSEC2ModifyLaunchTemplateRequest;
 @class AWSEC2ModifyLaunchTemplateResult;
+@class AWSEC2ModifyLocalGatewayRouteRequest;
+@class AWSEC2ModifyLocalGatewayRouteResult;
 @class AWSEC2ModifyManagedPrefixListRequest;
 @class AWSEC2ModifyManagedPrefixListResult;
 @class AWSEC2ModifyNetworkInterfaceAttributeRequest;
@@ -10490,6 +10500,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the virtual interface group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable localGatewayVirtualInterfaceGroupId;
+
+/**
+ <p>The ID of the network interface.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkInterfaceId;
 
 @end
 
@@ -33692,6 +33707,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
+ <p>The ID of the customer-owned address pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable coipPoolId;
+
+/**
  <p>The CIDR block used for destination matches.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable destinationCidrBlock;
@@ -33712,6 +33732,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable localGatewayVirtualInterfaceGroupId;
 
 /**
+ <p>The ID of the network interface.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkInterfaceId;
+
+/**
  <p>The ID of the Amazon Web Services account that owns the local gateway route.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ownerId;
@@ -33720,6 +33745,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The state of the route.</p>
  */
 @property (nonatomic, assign) AWSEC2LocalGatewayRouteState state;
+
+/**
+ <p>The ID of the subnet.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable subnetId;
 
 /**
  <p>The route type.</p>
@@ -33748,6 +33778,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the local gateway route table.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable localGatewayRouteTableId;
+
+/**
+ <p>The mode of the local gateway route table.</p>
+ */
+@property (nonatomic, assign) AWSEC2LocalGatewayRouteTableMode mode;
 
 /**
  <p>The Amazon Resource Name (ARN) of the Outpost.</p>
@@ -35379,6 +35414,47 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the launch template.</p>
  */
 @property (nonatomic, strong) AWSEC2LaunchTemplate * _Nullable launchTemplate;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyLocalGatewayRouteRequest : AWSRequest
+
+
+/**
+ <p>The CIDR block used for destination matches. The value that you provide must match the CIDR of an existing route in the table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationCidrBlock;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the local gateway route table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable localGatewayRouteTableId;
+
+/**
+ <p>The ID of the network interface.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkInterfaceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyLocalGatewayRouteResult : AWSModel
+
+
+/**
+ <p>Describes a route for a local gateway route table.</p>
+ */
+@property (nonatomic, strong) AWSEC2LocalGatewayRoute * _Nullable route;
 
 @end
 
