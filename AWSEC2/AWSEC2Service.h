@@ -1488,6 +1488,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createClientVpnRoute:(AWSEC2CreateClientVpnRouteRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateClientVpnRouteResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p> Creates a range of customer-owned IP addresses. </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateCoipCidr service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateCoipCidrResult`.
+ 
+ @see AWSEC2CreateCoipCidrRequest
+ @see AWSEC2CreateCoipCidrResult
+ */
+- (AWSTask<AWSEC2CreateCoipCidrResult *> *)createCoipCidr:(AWSEC2CreateCoipCidrRequest *)request;
+
+/**
+ <p> Creates a range of customer-owned IP addresses. </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateCoipCidr service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateCoipCidrRequest
+ @see AWSEC2CreateCoipCidrResult
+ */
+- (void)createCoipCidr:(AWSEC2CreateCoipCidrRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateCoipCidrResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p> Creates a pool of customer-owned IP (CoIP) addresses. </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateCoipPool service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateCoipPoolResult`.
+ 
+ @see AWSEC2CreateCoipPoolRequest
+ @see AWSEC2CreateCoipPoolResult
+ */
+- (AWSTask<AWSEC2CreateCoipPoolResult *> *)createCoipPool:(AWSEC2CreateCoipPoolRequest *)request;
+
+/**
+ <p> Creates a pool of customer-owned IP (CoIP) addresses. </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateCoipPool service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateCoipPoolRequest
+ @see AWSEC2CreateCoipPoolResult
+ */
+- (void)createCoipPool:(AWSEC2CreateCoipPoolRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateCoipPoolResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Provides information to Amazon Web Services about your customer gateway device. The customer gateway device is the appliance at your end of the VPN connection. You must provide the IP address of the customer gateway device’s external interface. The IP address must be static and can be behind a device performing network address translation (NAT).</p><p>For devices that use Border Gateway Protocol (BGP), you can also provide the device's BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your network. If you don't have an ASN already, you can use a private ASN. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/cgw-options.html">Customer gateway options for your Site-to-Site VPN connection</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p><p>To create more than one customer gateway with the same VPN type, IP address, and BGP ASN, specify a unique device name for each customer gateway. An identical request returns information about the existing customer gateway; it doesn't create a new customer gateway.</p>
  
  @param request A container for the necessary parameters to execute the CreateCustomerGateway service method.
@@ -1938,7 +1988,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createLaunchTemplateVersion:(AWSEC2CreateLaunchTemplateVersionRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateLaunchTemplateVersionResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a static route for the specified local gateway route table.</p>
+ <p>Creates a static route for the specified local gateway route table. You must specify one of the following targets: </p><ul><li><p><code>LocalGatewayVirtualInterfaceGroupId</code></p></li><li><p><code>NetworkInterfaceId</code></p></li></ul>
  
  @param request A container for the necessary parameters to execute the CreateLocalGatewayRoute service method.
 
@@ -1950,7 +2000,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateLocalGatewayRouteResult *> *)createLocalGatewayRoute:(AWSEC2CreateLocalGatewayRouteRequest *)request;
 
 /**
- <p>Creates a static route for the specified local gateway route table.</p>
+ <p>Creates a static route for the specified local gateway route table. You must specify one of the following targets: </p><ul><li><p><code>LocalGatewayVirtualInterfaceGroupId</code></p></li><li><p><code>NetworkInterfaceId</code></p></li></ul>
  
  @param request A container for the necessary parameters to execute the CreateLocalGatewayRoute service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1961,6 +2011,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2CreateLocalGatewayRouteResult
  */
 - (void)createLocalGatewayRoute:(AWSEC2CreateLocalGatewayRouteRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateLocalGatewayRouteResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p> Creates a local gateway route table. </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateLocalGatewayRouteTable service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateLocalGatewayRouteTableResult`.
+ 
+ @see AWSEC2CreateLocalGatewayRouteTableRequest
+ @see AWSEC2CreateLocalGatewayRouteTableResult
+ */
+- (AWSTask<AWSEC2CreateLocalGatewayRouteTableResult *> *)createLocalGatewayRouteTable:(AWSEC2CreateLocalGatewayRouteTableRequest *)request;
+
+/**
+ <p> Creates a local gateway route table. </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateLocalGatewayRouteTable service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateLocalGatewayRouteTableRequest
+ @see AWSEC2CreateLocalGatewayRouteTableResult
+ */
+- (void)createLocalGatewayRouteTable:(AWSEC2CreateLocalGatewayRouteTableRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateLocalGatewayRouteTableResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p> Creates a local gateway route table virtual interface group association. </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult`.
+ 
+ @see AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest
+ @see AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult
+ */
+- (AWSTask<AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult *> *)createLocalGatewayRouteTableVirtualInterfaceGroupAssociation:(AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest *)request;
+
+/**
+ <p> Creates a local gateway route table virtual interface group association. </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest
+ @see AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult
+ */
+- (void)createLocalGatewayRouteTableVirtualInterfaceGroupAssociation:(AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Associates the specified VPC with the specified local gateway route table.</p>
@@ -3229,6 +3329,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deleteClientVpnRoute:(AWSEC2DeleteClientVpnRouteRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteClientVpnRouteResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p> Deletes a range of customer-owned IP addresses. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteCoipCidr service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteCoipCidrResult`.
+ 
+ @see AWSEC2DeleteCoipCidrRequest
+ @see AWSEC2DeleteCoipCidrResult
+ */
+- (AWSTask<AWSEC2DeleteCoipCidrResult *> *)deleteCoipCidr:(AWSEC2DeleteCoipCidrRequest *)request;
+
+/**
+ <p> Deletes a range of customer-owned IP addresses. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteCoipCidr service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteCoipCidrRequest
+ @see AWSEC2DeleteCoipCidrResult
+ */
+- (void)deleteCoipCidr:(AWSEC2DeleteCoipCidrRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteCoipCidrResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes a pool of customer-owned IP (CoIP) addresses. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteCoipPool service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteCoipPoolResult`.
+ 
+ @see AWSEC2DeleteCoipPoolRequest
+ @see AWSEC2DeleteCoipPoolResult
+ */
+- (AWSTask<AWSEC2DeleteCoipPoolResult *> *)deleteCoipPool:(AWSEC2DeleteCoipPoolRequest *)request;
+
+/**
+ <p>Deletes a pool of customer-owned IP (CoIP) addresses. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteCoipPool service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteCoipPoolRequest
+ @see AWSEC2DeleteCoipPoolResult
+ */
+- (void)deleteCoipPool:(AWSEC2DeleteCoipPoolRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteCoipPoolResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Deletes the specified customer gateway. You must delete the VPN connection before you can delete the customer gateway.</p>
  
  @param request A container for the necessary parameters to execute the DeleteCustomerGateway service method.
@@ -3590,6 +3740,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2DeleteLocalGatewayRouteResult
  */
 - (void)deleteLocalGatewayRoute:(AWSEC2DeleteLocalGatewayRouteRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteLocalGatewayRouteResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p> Deletes a local gateway route table. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteLocalGatewayRouteTable service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteLocalGatewayRouteTableResult`.
+ 
+ @see AWSEC2DeleteLocalGatewayRouteTableRequest
+ @see AWSEC2DeleteLocalGatewayRouteTableResult
+ */
+- (AWSTask<AWSEC2DeleteLocalGatewayRouteTableResult *> *)deleteLocalGatewayRouteTable:(AWSEC2DeleteLocalGatewayRouteTableRequest *)request;
+
+/**
+ <p> Deletes a local gateway route table. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteLocalGatewayRouteTable service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteLocalGatewayRouteTableRequest
+ @see AWSEC2DeleteLocalGatewayRouteTableResult
+ */
+- (void)deleteLocalGatewayRouteTable:(AWSEC2DeleteLocalGatewayRouteTableRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteLocalGatewayRouteTableResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p> Deletes a local gateway route table virtual interface group association. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult`.
+ 
+ @see AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest
+ @see AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult
+ */
+- (AWSTask<AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult *> *)deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation:(AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest *)request;
+
+/**
+ <p> Deletes a local gateway route table virtual interface group association. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest
+ @see AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult
+ */
+- (void)deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation:(AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deletes the specified association between a VPC and local gateway route table.</p>
@@ -11028,6 +11228,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2ModifyLaunchTemplateResult
  */
 - (void)modifyLaunchTemplate:(AWSEC2ModifyLaunchTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyLaunchTemplateResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Modifies the specified local gateway route.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyLocalGatewayRoute service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyLocalGatewayRouteResult`.
+ 
+ @see AWSEC2ModifyLocalGatewayRouteRequest
+ @see AWSEC2ModifyLocalGatewayRouteResult
+ */
+- (AWSTask<AWSEC2ModifyLocalGatewayRouteResult *> *)modifyLocalGatewayRoute:(AWSEC2ModifyLocalGatewayRouteRequest *)request;
+
+/**
+ <p>Modifies the specified local gateway route.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyLocalGatewayRoute service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyLocalGatewayRouteRequest
+ @see AWSEC2ModifyLocalGatewayRouteResult
+ */
+- (void)modifyLocalGatewayRoute:(AWSEC2ModifyLocalGatewayRouteRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyLocalGatewayRouteResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Modifies the specified managed prefix list.</p><p>Adding or removing entries in a prefix list creates a new version of the prefix list. Changing the name of the prefix list does not affect the version.</p><p>If you specify a current version number that does not match the true current version number, the request fails.</p>
