@@ -42,6 +42,8 @@ typedef NS_ENUM(NSInteger, AWSEC2AcceleratorName) {
     AWSEC2AcceleratorNameM60,
     AWSEC2AcceleratorNameRadeonProV520,
     AWSEC2AcceleratorNameVu9p,
+    AWSEC2AcceleratorNameInferentia,
+    AWSEC2AcceleratorNameK520,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2AcceleratorType) {
@@ -1752,6 +1754,12 @@ typedef NS_ENUM(NSInteger, AWSEC2LocalGatewayRouteState) {
     AWSEC2LocalGatewayRouteStateDeleted,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2LocalGatewayRouteTableMode) {
+    AWSEC2LocalGatewayRouteTableModeUnknown,
+    AWSEC2LocalGatewayRouteTableModeDirectVpcRouting,
+    AWSEC2LocalGatewayRouteTableModeCoip,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2LocalGatewayRouteType) {
     AWSEC2LocalGatewayRouteTypeUnknown,
     AWSEC2LocalGatewayRouteTypeStatic,
@@ -2089,6 +2097,7 @@ typedef NS_ENUM(NSInteger, AWSEC2ResourceType) {
     AWSEC2ResourceTypeClientVpnEndpoint,
     AWSEC2ResourceTypeCustomerGateway,
     AWSEC2ResourceTypeCarrierGateway,
+    AWSEC2ResourceTypeCoipPool,
     AWSEC2ResourceTypeDedicatedHost,
     AWSEC2ResourceTypeDHCPOptions,
     AWSEC2ResourceTypeEgressOnlyInternetGateway,
@@ -2150,7 +2159,9 @@ typedef NS_ENUM(NSInteger, AWSEC2ResourceType) {
     AWSEC2ResourceTypeVolume,
     AWSEC2ResourceTypeVPC,
     AWSEC2ResourceTypeVpcEndpoint,
+    AWSEC2ResourceTypeVpcEndpointConnection,
     AWSEC2ResourceTypeVpcEndpointService,
+    AWSEC2ResourceTypeVpcEndpointServicePermission,
     AWSEC2ResourceTypeVpcPeeringConnection,
     AWSEC2ResourceTypeVpnConnection,
     AWSEC2ResourceTypeVpnGateway,
@@ -2787,6 +2798,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2ActiveInstance;
 @class AWSEC2AddIpamOperatingRegion;
 @class AWSEC2AddPrefixListEntry;
+@class AWSEC2AddedPrincipal;
 @class AWSEC2AdditionalDetail;
 @class AWSEC2Address;
 @class AWSEC2AddressAttribute;
@@ -2931,6 +2943,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2CloudWatchLogOptions;
 @class AWSEC2CloudWatchLogOptionsSpecification;
 @class AWSEC2CoipAddressUsage;
+@class AWSEC2CoipCidr;
 @class AWSEC2CoipPool;
 @class AWSEC2ConfirmProductInstanceRequest;
 @class AWSEC2ConfirmProductInstanceResult;
@@ -2956,6 +2969,10 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2CreateClientVpnEndpointResult;
 @class AWSEC2CreateClientVpnRouteRequest;
 @class AWSEC2CreateClientVpnRouteResult;
+@class AWSEC2CreateCoipCidrRequest;
+@class AWSEC2CreateCoipCidrResult;
+@class AWSEC2CreateCoipPoolRequest;
+@class AWSEC2CreateCoipPoolResult;
 @class AWSEC2CreateCustomerGatewayRequest;
 @class AWSEC2CreateCustomerGatewayResult;
 @class AWSEC2CreateDefaultSubnetRequest;
@@ -2995,6 +3012,10 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2CreateLaunchTemplateVersionResult;
 @class AWSEC2CreateLocalGatewayRouteRequest;
 @class AWSEC2CreateLocalGatewayRouteResult;
+@class AWSEC2CreateLocalGatewayRouteTableRequest;
+@class AWSEC2CreateLocalGatewayRouteTableResult;
+@class AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest;
+@class AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult;
 @class AWSEC2CreateLocalGatewayRouteTableVpcAssociationRequest;
 @class AWSEC2CreateLocalGatewayRouteTableVpcAssociationResult;
 @class AWSEC2CreateManagedPrefixListRequest;
@@ -3101,6 +3122,10 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DeleteClientVpnEndpointResult;
 @class AWSEC2DeleteClientVpnRouteRequest;
 @class AWSEC2DeleteClientVpnRouteResult;
+@class AWSEC2DeleteCoipCidrRequest;
+@class AWSEC2DeleteCoipCidrResult;
+@class AWSEC2DeleteCoipPoolRequest;
+@class AWSEC2DeleteCoipPoolResult;
 @class AWSEC2DeleteCustomerGatewayRequest;
 @class AWSEC2DeleteDhcpOptionsRequest;
 @class AWSEC2DeleteEgressOnlyInternetGatewayRequest;
@@ -3132,6 +3157,10 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DeleteLaunchTemplateVersionsResult;
 @class AWSEC2DeleteLocalGatewayRouteRequest;
 @class AWSEC2DeleteLocalGatewayRouteResult;
+@class AWSEC2DeleteLocalGatewayRouteTableRequest;
+@class AWSEC2DeleteLocalGatewayRouteTableResult;
+@class AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest;
+@class AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult;
 @class AWSEC2DeleteLocalGatewayRouteTableVpcAssociationRequest;
 @class AWSEC2DeleteLocalGatewayRouteTableVpcAssociationResult;
 @class AWSEC2DeleteManagedPrefixListRequest;
@@ -3958,6 +3987,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2ModifyIpamScopeResult;
 @class AWSEC2ModifyLaunchTemplateRequest;
 @class AWSEC2ModifyLaunchTemplateResult;
+@class AWSEC2ModifyLocalGatewayRouteRequest;
+@class AWSEC2ModifyLocalGatewayRouteResult;
 @class AWSEC2ModifyManagedPrefixListRequest;
 @class AWSEC2ModifyManagedPrefixListResult;
 @class AWSEC2ModifyNetworkInterfaceAttributeRequest;
@@ -4861,6 +4892,34 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>Describes a principal.</p>
+ */
+@interface AWSEC2AddedPrincipal : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the principal.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable principal;
+
+/**
+ <p>The type of principal.</p>
+ */
+@property (nonatomic, assign) AWSEC2PrincipalType principalType;
+
+/**
+ <p>The ID of the service.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable serviceId;
+
+/**
+ <p>The ID of the service permission.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable servicePermissionId;
+
+@end
+
+/**
  <p>Describes an additional detail for a path analysis.</p>
  */
 @interface AWSEC2AdditionalDetail : AWSModel
@@ -5248,6 +5307,21 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The type of principal.</p>
  */
 @property (nonatomic, assign) AWSEC2PrincipalType principalType;
+
+/**
+ <p>The ID of the service.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable serviceId;
+
+/**
+ <p>The ID of the service permission.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable servicePermissionId;
+
+/**
+ <p>The tags.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
 
 @end
 
@@ -8553,6 +8627,29 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p> Information about a customer-owned IP address range. </p>
+ */
+@interface AWSEC2CoipCidr : AWSModel
+
+
+/**
+ <p> An address range in a customer-owned IP address space. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable cidr;
+
+/**
+ <p> The ID of the address pool. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable coipPoolId;
+
+/**
+ <p> The ID of the local gateway route table. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable localGatewayRouteTableId;
+
+@end
+
+/**
  <p>Describes a customer-owned address pool.</p>
  */
 @interface AWSEC2CoipPool : AWSModel
@@ -9415,6 +9512,78 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The current state of the route.</p>
  */
 @property (nonatomic, strong) AWSEC2ClientVpnRouteStatus * _Nullable status;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateCoipCidrRequest : AWSRequest
+
+
+/**
+ <p> A customer-owned IP address range to create. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable cidr;
+
+/**
+ <p> The ID of the address pool. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable coipPoolId;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateCoipCidrResult : AWSModel
+
+
+/**
+ <p> Information about a range of customer-owned IP addresses. </p>
+ */
+@property (nonatomic, strong) AWSEC2CoipCidr * _Nullable coipCidr;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateCoipPoolRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p> The ID of the local gateway route table. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable localGatewayRouteTableId;
+
+/**
+ <p> The tags to assign to the CoIP address pool. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateCoipPoolResult : AWSModel
+
+
+/**
+ <p>Describes a customer-owned address pool.</p>
+ */
+@property (nonatomic, strong) AWSEC2CoipPool * _Nullable coipPool;
 
 @end
 
@@ -10491,6 +10660,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @property (nonatomic, strong) NSString * _Nullable localGatewayVirtualInterfaceGroupId;
 
+/**
+ <p>The ID of the network interface.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkInterfaceId;
+
 @end
 
 /**
@@ -10503,6 +10677,88 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the route.</p>
  */
 @property (nonatomic, strong) AWSEC2LocalGatewayRoute * _Nullable route;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateLocalGatewayRouteTableRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p> The ID of the local gateway. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable localGatewayId;
+
+/**
+ <p> The mode of the local gateway route table. </p>
+ */
+@property (nonatomic, assign) AWSEC2LocalGatewayRouteTableMode mode;
+
+/**
+ <p> The tags assigned to the local gateway route table. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateLocalGatewayRouteTableResult : AWSModel
+
+
+/**
+ <p>Describes a local gateway route table.</p>
+ */
+@property (nonatomic, strong) AWSEC2LocalGatewayRouteTable * _Nullable localGatewayRouteTable;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p> The ID of the local gateway route table. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable localGatewayRouteTableId;
+
+/**
+ <p> The ID of the local gateway route table virtual interface group association. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable localGatewayVirtualInterfaceGroupId;
+
+/**
+ <p> The tags assigned to the local gateway route table virtual interface group association. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult : AWSModel
+
+
+/**
+ <p>Describes an association between a local gateway route table and a virtual interface group.</p>
+ */
+@property (nonatomic, strong) AWSEC2LocalGatewayRouteTableVirtualInterfaceGroupAssociation * _Nullable localGatewayRouteTableVirtualInterfaceGroupAssociation;
 
 @end
 
@@ -13320,6 +13576,73 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ 
+ */
+@interface AWSEC2DeleteCoipCidrRequest : AWSRequest
+
+
+/**
+ <p> A customer-owned IP address range that you want to delete. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable cidr;
+
+/**
+ <p> The ID of the customer-owned address pool. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable coipPoolId;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteCoipCidrResult : AWSModel
+
+
+/**
+ <p> Information about a range of customer-owned IP addresses. </p>
+ */
+@property (nonatomic, strong) AWSEC2CoipCidr * _Nullable coipCidr;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteCoipPoolRequest : AWSRequest
+
+
+/**
+ <p>The ID of the CoIP pool that you want to delete. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable coipPoolId;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteCoipPoolResult : AWSModel
+
+
+/**
+ <p>Describes a customer-owned address pool.</p>
+ */
+@property (nonatomic, strong) AWSEC2CoipPool * _Nullable coipPool;
+
+@end
+
+/**
  <p>Contains the parameters for DeleteCustomerGateway.</p>
  Required parameters: [CustomerGatewayId]
  */
@@ -13890,6 +14213,68 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the route.</p>
  */
 @property (nonatomic, strong) AWSEC2LocalGatewayRoute * _Nullable route;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteLocalGatewayRouteTableRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p> The ID of the local gateway route table. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable localGatewayRouteTableId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteLocalGatewayRouteTableResult : AWSModel
+
+
+/**
+ <p>Describes a local gateway route table.</p>
+ */
+@property (nonatomic, strong) AWSEC2LocalGatewayRouteTable * _Nullable localGatewayRouteTable;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p> The ID of the local gateway route table virtual interface group association. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable localGatewayRouteTableVirtualInterfaceGroupAssociationId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult : AWSModel
+
+
+/**
+ <p>Describes an association between a local gateway route table and a virtual interface group.</p>
+ */
+@property (nonatomic, strong) AWSEC2LocalGatewayRouteTableVirtualInterfaceGroupAssociation * _Nullable localGatewayRouteTableVirtualInterfaceGroupAssociation;
 
 @end
 
@@ -33692,6 +34077,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
+ <p>The ID of the customer-owned address pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable coipPoolId;
+
+/**
  <p>The CIDR block used for destination matches.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable destinationCidrBlock;
@@ -33712,6 +34102,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable localGatewayVirtualInterfaceGroupId;
 
 /**
+ <p>The ID of the network interface.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkInterfaceId;
+
+/**
  <p>The ID of the Amazon Web Services account that owns the local gateway route.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ownerId;
@@ -33720,6 +34115,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The state of the route.</p>
  */
 @property (nonatomic, assign) AWSEC2LocalGatewayRouteState state;
+
+/**
+ <p>The ID of the subnet.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable subnetId;
 
 /**
  <p>The route type.</p>
@@ -33750,6 +34150,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable localGatewayRouteTableId;
 
 /**
+ <p>The mode of the local gateway route table.</p>
+ */
+@property (nonatomic, assign) AWSEC2LocalGatewayRouteTableMode mode;
+
+/**
  <p>The Amazon Resource Name (ARN) of the Outpost.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable outpostArn;
@@ -33763,6 +34168,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The state of the local gateway route table.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable state;
+
+/**
+ <p>Describes a state change.</p>
+ */
+@property (nonatomic, strong) AWSEC2StateReason * _Nullable stateReason;
 
 /**
  <p>The tags assigned to the local gateway route table.</p>
@@ -35385,6 +35795,52 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2ModifyLocalGatewayRouteRequest : AWSRequest
+
+
+/**
+ <p>The CIDR block used for destination matches. The value that you provide must match the CIDR of an existing route in the table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationCidrBlock;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the local gateway route table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable localGatewayRouteTableId;
+
+/**
+ <p> The ID of the virtual interface group. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable localGatewayVirtualInterfaceGroupId;
+
+/**
+ <p>The ID of the network interface.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkInterfaceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyLocalGatewayRouteResult : AWSModel
+
+
+/**
+ <p>Describes a route for a local gateway route table.</p>
+ */
+@property (nonatomic, strong) AWSEC2LocalGatewayRoute * _Nullable route;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2ModifyManagedPrefixListRequest : AWSRequest
 
 
@@ -36572,6 +37028,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @interface AWSEC2ModifyVpcEndpointServicePermissionsResult : AWSModel
 
+
+/**
+ <p>Information about the added principals.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2AddedPrincipal *> * _Nullable addedPrincipals;
 
 /**
  <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
@@ -43877,7 +44338,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2DnsNameState privateDnsNameVerificationState;
 
 /**
- <p>The private DNS names assigned to the VPC endpoint service. </p>
+ <p>The private DNS names assigned to the VPC endpoint service.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2PrivateDnsDetails *> * _Nullable privateDnsNames;
 
@@ -49084,6 +49545,16 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the service to which the endpoint is connected.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable serviceId;
+
+/**
+ <p>The tags.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+/**
+ <p>The ID of the VPC endpoint connection.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vpcEndpointConnectionId;
 
 /**
  <p>The ID of the VPC endpoint.</p>

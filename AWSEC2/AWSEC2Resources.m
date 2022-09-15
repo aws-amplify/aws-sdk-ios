@@ -596,6 +596,26 @@
       \"output\":{\"shape\":\"CreateClientVpnRouteResult\"},\
       \"documentation\":\"<p>Adds a route to a network to a Client VPN endpoint. Each Client VPN endpoint has a route table that describes the available destination network routes. Each route in the route table specifies the path for traï¬c to speciï¬c resources or networks.</p>\"\
     },\
+    \"CreateCoipCidr\":{\
+      \"name\":\"CreateCoipCidr\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"CreateCoipCidrRequest\"},\
+      \"output\":{\"shape\":\"CreateCoipCidrResult\"},\
+      \"documentation\":\"<p> Creates a range of customer-owned IP addresses. </p>\"\
+    },\
+    \"CreateCoipPool\":{\
+      \"name\":\"CreateCoipPool\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"CreateCoipPoolRequest\"},\
+      \"output\":{\"shape\":\"CreateCoipPoolResult\"},\
+      \"documentation\":\"<p> Creates a pool of customer-owned IP (CoIP) addresses. </p>\"\
+    },\
     \"CreateCustomerGateway\":{\
       \"name\":\"CreateCustomerGateway\",\
       \"http\":{\
@@ -784,7 +804,27 @@
       },\
       \"input\":{\"shape\":\"CreateLocalGatewayRouteRequest\"},\
       \"output\":{\"shape\":\"CreateLocalGatewayRouteResult\"},\
-      \"documentation\":\"<p>Creates a static route for the specified local gateway route table.</p>\"\
+      \"documentation\":\"<p>Creates a static route for the specified local gateway route table. You must specify one of the following targets: </p> <ul> <li> <p> <code>LocalGatewayVirtualInterfaceGroupId</code> </p> </li> <li> <p> <code>NetworkInterfaceId</code> </p> </li> </ul>\"\
+    },\
+    \"CreateLocalGatewayRouteTable\":{\
+      \"name\":\"CreateLocalGatewayRouteTable\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"CreateLocalGatewayRouteTableRequest\"},\
+      \"output\":{\"shape\":\"CreateLocalGatewayRouteTableResult\"},\
+      \"documentation\":\"<p> Creates a local gateway route table. </p>\"\
+    },\
+    \"CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation\":{\
+      \"name\":\"CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest\"},\
+      \"output\":{\"shape\":\"CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult\"},\
+      \"documentation\":\"<p> Creates a local gateway route table virtual interface group association. </p>\"\
     },\
     \"CreateLocalGatewayRouteTableVpcAssociation\":{\
       \"name\":\"CreateLocalGatewayRouteTableVpcAssociation\",\
@@ -1293,6 +1333,26 @@
       \"output\":{\"shape\":\"DeleteClientVpnRouteResult\"},\
       \"documentation\":\"<p>Deletes a route from a Client VPN endpoint. You can only delete routes that you manually added using the <b>CreateClientVpnRoute</b> action. You cannot delete routes that were automatically added when associating a subnet. To remove routes that have been automatically added, disassociate the target subnet from the Client VPN endpoint.</p>\"\
     },\
+    \"DeleteCoipCidr\":{\
+      \"name\":\"DeleteCoipCidr\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DeleteCoipCidrRequest\"},\
+      \"output\":{\"shape\":\"DeleteCoipCidrResult\"},\
+      \"documentation\":\"<p> Deletes a range of customer-owned IP addresses. </p>\"\
+    },\
+    \"DeleteCoipPool\":{\
+      \"name\":\"DeleteCoipPool\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DeleteCoipPoolRequest\"},\
+      \"output\":{\"shape\":\"DeleteCoipPoolResult\"},\
+      \"documentation\":\"<p>Deletes a pool of customer-owned IP (CoIP) addresses. </p>\"\
+    },\
     \"DeleteCustomerGateway\":{\
       \"name\":\"DeleteCustomerGateway\",\
       \"http\":{\
@@ -1438,6 +1498,26 @@
       \"input\":{\"shape\":\"DeleteLocalGatewayRouteRequest\"},\
       \"output\":{\"shape\":\"DeleteLocalGatewayRouteResult\"},\
       \"documentation\":\"<p>Deletes the specified route from the specified local gateway route table.</p>\"\
+    },\
+    \"DeleteLocalGatewayRouteTable\":{\
+      \"name\":\"DeleteLocalGatewayRouteTable\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DeleteLocalGatewayRouteTableRequest\"},\
+      \"output\":{\"shape\":\"DeleteLocalGatewayRouteTableResult\"},\
+      \"documentation\":\"<p> Deletes a local gateway route table. </p>\"\
+    },\
+    \"DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation\":{\
+      \"name\":\"DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest\"},\
+      \"output\":{\"shape\":\"DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult\"},\
+      \"documentation\":\"<p> Deletes a local gateway route table virtual interface group association. </p>\"\
     },\
     \"DeleteLocalGatewayRouteTableVpcAssociation\":{\
       \"name\":\"DeleteLocalGatewayRouteTableVpcAssociation\",\
@@ -4420,6 +4500,16 @@
       \"output\":{\"shape\":\"ModifyLaunchTemplateResult\"},\
       \"documentation\":\"<p>Modifies a launch template. You can specify which version of the launch template to set as the default version. When launching an instance, the default version applies when a launch template version is not specified.</p>\"\
     },\
+    \"ModifyLocalGatewayRoute\":{\
+      \"name\":\"ModifyLocalGatewayRoute\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"ModifyLocalGatewayRouteRequest\"},\
+      \"output\":{\"shape\":\"ModifyLocalGatewayRouteResult\"},\
+      \"documentation\":\"<p>Modifies the specified local gateway route.</p>\"\
+    },\
     \"ModifyManagedPrefixList\":{\
       \"name\":\"ModifyManagedPrefixList\",\
       \"http\":{\
@@ -5401,7 +5491,9 @@
         \"t4\",\
         \"m60\",\
         \"radeon-pro-v520\",\
-        \"vu9p\"\
+        \"vu9p\",\
+        \"inferentia\",\
+        \"k520\"\
       ]\
     },\
     \"AcceleratorNameSet\":{\
@@ -5844,6 +5936,39 @@
       },\
       \"documentation\":\"<p>An entry for a prefix list.</p>\"\
     },\
+    \"AddedPrincipal\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"PrincipalType\":{\
+          \"shape\":\"PrincipalType\",\
+          \"documentation\":\"<p>The type of principal.</p>\",\
+          \"locationName\":\"principalType\"\
+        },\
+        \"Principal\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the principal.</p>\",\
+          \"locationName\":\"principal\"\
+        },\
+        \"ServicePermissionId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the service permission.</p>\",\
+          \"locationName\":\"servicePermissionId\"\
+        },\
+        \"ServiceId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the service.</p>\",\
+          \"locationName\":\"serviceId\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes a principal.</p>\"\
+    },\
+    \"AddedPrincipalSet\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"AddedPrincipal\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"AdditionalDetail\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -6269,6 +6394,21 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) of the principal.</p>\",\
           \"locationName\":\"principal\"\
+        },\
+        \"ServicePermissionId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the service permission.</p>\",\
+          \"locationName\":\"servicePermissionId\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>The tags.</p>\",\
+          \"locationName\":\"tagSet\"\
+        },\
+        \"ServiceId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the service.</p>\",\
+          \"locationName\":\"serviceId\"\
         }\
       },\
       \"documentation\":\"<p>Describes a principal.</p>\"\
@@ -9899,6 +10039,27 @@
         \"locationName\":\"item\"\
       }\
     },\
+    \"CoipCidr\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Cidr\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p> An address range in a customer-owned IP address space. </p>\",\
+          \"locationName\":\"cidr\"\
+        },\
+        \"CoipPoolId\":{\
+          \"shape\":\"Ipv4PoolCoipId\",\
+          \"documentation\":\"<p> The ID of the address pool. </p>\",\
+          \"locationName\":\"coipPoolId\"\
+        },\
+        \"LocalGatewayRouteTableId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p> The ID of the local gateway route table. </p>\",\
+          \"locationName\":\"localGatewayRouteTableId\"\
+        }\
+      },\
+      \"documentation\":\"<p> Information about a customer-owned IP address range. </p>\"\
+    },\
     \"CoipPool\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -10766,6 +10927,65 @@
           \"shape\":\"ClientVpnRouteStatus\",\
           \"documentation\":\"<p>The current state of the route.</p>\",\
           \"locationName\":\"status\"\
+        }\
+      }\
+    },\
+    \"CreateCoipCidrRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Cidr\",\
+        \"CoipPoolId\"\
+      ],\
+      \"members\":{\
+        \"Cidr\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p> A customer-owned IP address range to create. </p>\"\
+        },\
+        \"CoipPoolId\":{\
+          \"shape\":\"Ipv4PoolCoipId\",\
+          \"documentation\":\"<p> The ID of the address pool. </p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateCoipCidrResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"CoipCidr\":{\
+          \"shape\":\"CoipCidr\",\
+          \"documentation\":\"<p> Information about a range of customer-owned IP addresses. </p>\",\
+          \"locationName\":\"coipCidr\"\
+        }\
+      }\
+    },\
+    \"CreateCoipPoolRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"LocalGatewayRouteTableId\"],\
+      \"members\":{\
+        \"LocalGatewayRouteTableId\":{\
+          \"shape\":\"LocalGatewayRoutetableId\",\
+          \"documentation\":\"<p> The ID of the local gateway route table. </p>\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p> The tags to assign to the CoIP address pool. </p>\",\
+          \"locationName\":\"TagSpecification\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateCoipPoolResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"CoipPool\":{\
+          \"shape\":\"CoipPool\",\
+          \"locationName\":\"coipPool\"\
         }\
       }\
     },\
@@ -11683,8 +11903,7 @@
       \"type\":\"structure\",\
       \"required\":[\
         \"DestinationCidrBlock\",\
-        \"LocalGatewayRouteTableId\",\
-        \"LocalGatewayVirtualInterfaceGroupId\"\
+        \"LocalGatewayRouteTableId\"\
       ],\
       \"members\":{\
         \"DestinationCidrBlock\":{\
@@ -11702,6 +11921,10 @@
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"NetworkInterfaceId\":{\
+          \"shape\":\"NetworkInterfaceId\",\
+          \"documentation\":\"<p>The ID of the network interface.</p>\"\
         }\
       }\
     },\
@@ -11712,6 +11935,73 @@
           \"shape\":\"LocalGatewayRoute\",\
           \"documentation\":\"<p>Information about the route.</p>\",\
           \"locationName\":\"route\"\
+        }\
+      }\
+    },\
+    \"CreateLocalGatewayRouteTableRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"LocalGatewayId\"],\
+      \"members\":{\
+        \"LocalGatewayId\":{\
+          \"shape\":\"LocalGatewayId\",\
+          \"documentation\":\"<p> The ID of the local gateway. </p>\"\
+        },\
+        \"Mode\":{\
+          \"shape\":\"LocalGatewayRouteTableMode\",\
+          \"documentation\":\"<p> The mode of the local gateway route table. </p>\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p> The tags assigned to the local gateway route table. </p>\",\
+          \"locationName\":\"TagSpecification\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateLocalGatewayRouteTableResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"LocalGatewayRouteTable\":{\
+          \"shape\":\"LocalGatewayRouteTable\",\
+          \"locationName\":\"localGatewayRouteTable\"\
+        }\
+      }\
+    },\
+    \"CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"LocalGatewayRouteTableId\",\
+        \"LocalGatewayVirtualInterfaceGroupId\"\
+      ],\
+      \"members\":{\
+        \"LocalGatewayRouteTableId\":{\
+          \"shape\":\"LocalGatewayRoutetableId\",\
+          \"documentation\":\"<p> The ID of the local gateway route table. </p>\"\
+        },\
+        \"LocalGatewayVirtualInterfaceGroupId\":{\
+          \"shape\":\"LocalGatewayVirtualInterfaceGroupId\",\
+          \"documentation\":\"<p> The ID of the local gateway route table virtual interface group association. </p>\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p> The tags assigned to the local gateway route table virtual interface group association. </p>\",\
+          \"locationName\":\"TagSpecification\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"LocalGatewayRouteTableVirtualInterfaceGroupAssociation\":{\
+          \"shape\":\"LocalGatewayRouteTableVirtualInterfaceGroupAssociation\",\
+          \"locationName\":\"localGatewayRouteTableVirtualInterfaceGroupAssociation\"\
         }\
       }\
     },\
@@ -14234,6 +14524,60 @@
         }\
       }\
     },\
+    \"DeleteCoipCidrRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Cidr\",\
+        \"CoipPoolId\"\
+      ],\
+      \"members\":{\
+        \"Cidr\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p> A customer-owned IP address range that you want to delete. </p>\"\
+        },\
+        \"CoipPoolId\":{\
+          \"shape\":\"Ipv4PoolCoipId\",\
+          \"documentation\":\"<p> The ID of the customer-owned address pool. </p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"DeleteCoipCidrResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"CoipCidr\":{\
+          \"shape\":\"CoipCidr\",\
+          \"documentation\":\"<p> Information about a range of customer-owned IP addresses. </p>\",\
+          \"locationName\":\"coipCidr\"\
+        }\
+      }\
+    },\
+    \"DeleteCoipPoolRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"CoipPoolId\"],\
+      \"members\":{\
+        \"CoipPoolId\":{\
+          \"shape\":\"Ipv4PoolCoipId\",\
+          \"documentation\":\"<p>The ID of the CoIP pool that you want to delete. </p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"DeleteCoipPoolResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"CoipPool\":{\
+          \"shape\":\"CoipPool\",\
+          \"locationName\":\"coipPool\"\
+        }\
+      }\
+    },\
     \"DeleteCustomerGatewayRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"CustomerGatewayId\"],\
@@ -14743,6 +15087,52 @@
           \"shape\":\"LocalGatewayRoute\",\
           \"documentation\":\"<p>Information about the route.</p>\",\
           \"locationName\":\"route\"\
+        }\
+      }\
+    },\
+    \"DeleteLocalGatewayRouteTableRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"LocalGatewayRouteTableId\"],\
+      \"members\":{\
+        \"LocalGatewayRouteTableId\":{\
+          \"shape\":\"LocalGatewayRoutetableId\",\
+          \"documentation\":\"<p> The ID of the local gateway route table. </p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"DeleteLocalGatewayRouteTableResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"LocalGatewayRouteTable\":{\
+          \"shape\":\"LocalGatewayRouteTable\",\
+          \"locationName\":\"localGatewayRouteTable\"\
+        }\
+      }\
+    },\
+    \"DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"LocalGatewayRouteTableVirtualInterfaceGroupAssociationId\"],\
+      \"members\":{\
+        \"LocalGatewayRouteTableVirtualInterfaceGroupAssociationId\":{\
+          \"shape\":\"LocalGatewayRouteTableVirtualInterfaceGroupAssociationId\",\
+          \"documentation\":\"<p> The ID of the local gateway route table virtual interface group association. </p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"LocalGatewayRouteTableVirtualInterfaceGroupAssociation\":{\
+          \"shape\":\"LocalGatewayRouteTableVirtualInterfaceGroupAssociation\",\
+          \"locationName\":\"localGatewayRouteTableVirtualInterfaceGroupAssociation\"\
         }\
       }\
     },\
@@ -34947,6 +35337,21 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The ID of the Amazon Web Services account that owns the local gateway route.</p>\",\
           \"locationName\":\"ownerId\"\
+        },\
+        \"SubnetId\":{\
+          \"shape\":\"SubnetId\",\
+          \"documentation\":\"<p>The ID of the subnet.</p>\",\
+          \"locationName\":\"subnetId\"\
+        },\
+        \"CoipPoolId\":{\
+          \"shape\":\"CoipPoolId\",\
+          \"documentation\":\"<p>The ID of the customer-owned address pool.</p>\",\
+          \"locationName\":\"coipPoolId\"\
+        },\
+        \"NetworkInterfaceId\":{\
+          \"shape\":\"NetworkInterfaceId\",\
+          \"documentation\":\"<p>The ID of the network interface.</p>\",\
+          \"locationName\":\"networkInterfaceId\"\
         }\
       },\
       \"documentation\":\"<p>Describes a route for a local gateway route table.</p>\"\
@@ -35005,6 +35410,15 @@
           \"shape\":\"TagList\",\
           \"documentation\":\"<p>The tags assigned to the local gateway route table.</p>\",\
           \"locationName\":\"tagSet\"\
+        },\
+        \"Mode\":{\
+          \"shape\":\"LocalGatewayRouteTableMode\",\
+          \"documentation\":\"<p>The mode of the local gateway route table.</p>\",\
+          \"locationName\":\"mode\"\
+        },\
+        \"StateReason\":{\
+          \"shape\":\"StateReason\",\
+          \"locationName\":\"stateReason\"\
         }\
       },\
       \"documentation\":\"<p>Describes a local gateway route table.</p>\"\
@@ -35015,6 +35429,13 @@
         \"shape\":\"LocalGatewayRoutetableId\",\
         \"locationName\":\"item\"\
       }\
+    },\
+    \"LocalGatewayRouteTableMode\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"direct-vpc-routing\",\
+        \"coip\"\
+      ]\
     },\
     \"LocalGatewayRouteTableSet\":{\
       \"type\":\"list\",\
@@ -36554,6 +36975,44 @@
         }\
       }\
     },\
+    \"ModifyLocalGatewayRouteRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"DestinationCidrBlock\",\
+        \"LocalGatewayRouteTableId\"\
+      ],\
+      \"members\":{\
+        \"DestinationCidrBlock\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The CIDR block used for destination matches. The value that you provide must match the CIDR of an existing route in the table.</p>\"\
+        },\
+        \"LocalGatewayRouteTableId\":{\
+          \"shape\":\"LocalGatewayRoutetableId\",\
+          \"documentation\":\"<p>The ID of the local gateway route table.</p>\"\
+        },\
+        \"LocalGatewayVirtualInterfaceGroupId\":{\
+          \"shape\":\"LocalGatewayVirtualInterfaceGroupId\",\
+          \"documentation\":\"<p> The ID of the virtual interface group. </p>\"\
+        },\
+        \"NetworkInterfaceId\":{\
+          \"shape\":\"NetworkInterfaceId\",\
+          \"documentation\":\"<p>The ID of the network interface.</p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"ModifyLocalGatewayRouteResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Route\":{\
+          \"shape\":\"LocalGatewayRoute\",\
+          \"locationName\":\"route\"\
+        }\
+      }\
+    },\
     \"ModifyManagedPrefixListRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"PrefixListId\"],\
@@ -37540,6 +37999,11 @@
     \"ModifyVpcEndpointServicePermissionsResult\":{\
       \"type\":\"structure\",\
       \"members\":{\
+        \"AddedPrincipals\":{\
+          \"shape\":\"AddedPrincipalSet\",\
+          \"documentation\":\"<p>Information about the added principals.</p>\",\
+          \"locationName\":\"addedPrincipalSet\"\
+        },\
         \"ReturnValue\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>\",\
@@ -43215,6 +43679,7 @@
         \"client-vpn-endpoint\",\
         \"customer-gateway\",\
         \"carrier-gateway\",\
+        \"coip-pool\",\
         \"dedicated-host\",\
         \"dhcp-options\",\
         \"egress-only-internet-gateway\",\
@@ -43276,7 +43741,9 @@
         \"volume\",\
         \"vpc\",\
         \"vpc-endpoint\",\
+        \"vpc-endpoint-connection\",\
         \"vpc-endpoint-service\",\
+        \"vpc-endpoint-service-permission\",\
         \"vpc-peering-connection\",\
         \"vpn-connection\",\
         \"vpn-gateway\",\
@@ -45482,7 +45949,7 @@
         },\
         \"PrivateDnsNames\":{\
           \"shape\":\"PrivateDnsDetailsSet\",\
-          \"documentation\":\"<p>The private DNS names assigned to the VPC endpoint service. </p>\",\
+          \"documentation\":\"<p>The private DNS names assigned to the VPC endpoint service.</p>\",\
           \"locationName\":\"privateDnsNameSet\"\
         },\
         \"VpcEndpointPolicySupported\":{\
@@ -51662,6 +52129,16 @@
           \"shape\":\"IpAddressType\",\
           \"documentation\":\"<p>The IP address type for the endpoint.</p>\",\
           \"locationName\":\"ipAddressType\"\
+        },\
+        \"VpcEndpointConnectionId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the VPC endpoint connection.</p>\",\
+          \"locationName\":\"vpcEndpointConnectionId\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>The tags.</p>\",\
+          \"locationName\":\"tagSet\"\
         }\
       },\
       \"documentation\":\"<p>Describes a VPC endpoint connection to a service.</p>\"\
