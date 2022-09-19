@@ -596,6 +596,26 @@
       \"output\":{\"shape\":\"CreateClientVpnRouteResult\"},\
       \"documentation\":\"<p>Adds a route to a network to a Client VPN endpoint. Each Client VPN endpoint has a route table that describes the available destination network routes. Each route in the route table specifies the path for traï¬c to speciï¬c resources or networks.</p>\"\
     },\
+    \"CreateCoipCidr\":{\
+      \"name\":\"CreateCoipCidr\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"CreateCoipCidrRequest\"},\
+      \"output\":{\"shape\":\"CreateCoipCidrResult\"},\
+      \"documentation\":\"<p> Creates a range of customer-owned IP addresses. </p>\"\
+    },\
+    \"CreateCoipPool\":{\
+      \"name\":\"CreateCoipPool\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"CreateCoipPoolRequest\"},\
+      \"output\":{\"shape\":\"CreateCoipPoolResult\"},\
+      \"documentation\":\"<p> Creates a pool of customer-owned IP (CoIP) addresses. </p>\"\
+    },\
     \"CreateCustomerGateway\":{\
       \"name\":\"CreateCustomerGateway\",\
       \"http\":{\
@@ -784,7 +804,27 @@
       },\
       \"input\":{\"shape\":\"CreateLocalGatewayRouteRequest\"},\
       \"output\":{\"shape\":\"CreateLocalGatewayRouteResult\"},\
-      \"documentation\":\"<p>Creates a static route for the specified local gateway route table.</p>\"\
+      \"documentation\":\"<p>Creates a static route for the specified local gateway route table. You must specify one of the following targets: </p> <ul> <li> <p> <code>LocalGatewayVirtualInterfaceGroupId</code> </p> </li> <li> <p> <code>NetworkInterfaceId</code> </p> </li> </ul>\"\
+    },\
+    \"CreateLocalGatewayRouteTable\":{\
+      \"name\":\"CreateLocalGatewayRouteTable\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"CreateLocalGatewayRouteTableRequest\"},\
+      \"output\":{\"shape\":\"CreateLocalGatewayRouteTableResult\"},\
+      \"documentation\":\"<p> Creates a local gateway route table. </p>\"\
+    },\
+    \"CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation\":{\
+      \"name\":\"CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest\"},\
+      \"output\":{\"shape\":\"CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult\"},\
+      \"documentation\":\"<p> Creates a local gateway route table virtual interface group association. </p>\"\
     },\
     \"CreateLocalGatewayRouteTableVpcAssociation\":{\
       \"name\":\"CreateLocalGatewayRouteTableVpcAssociation\",\
@@ -1293,6 +1333,26 @@
       \"output\":{\"shape\":\"DeleteClientVpnRouteResult\"},\
       \"documentation\":\"<p>Deletes a route from a Client VPN endpoint. You can only delete routes that you manually added using the <b>CreateClientVpnRoute</b> action. You cannot delete routes that were automatically added when associating a subnet. To remove routes that have been automatically added, disassociate the target subnet from the Client VPN endpoint.</p>\"\
     },\
+    \"DeleteCoipCidr\":{\
+      \"name\":\"DeleteCoipCidr\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DeleteCoipCidrRequest\"},\
+      \"output\":{\"shape\":\"DeleteCoipCidrResult\"},\
+      \"documentation\":\"<p> Deletes a range of customer-owned IP addresses. </p>\"\
+    },\
+    \"DeleteCoipPool\":{\
+      \"name\":\"DeleteCoipPool\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DeleteCoipPoolRequest\"},\
+      \"output\":{\"shape\":\"DeleteCoipPoolResult\"},\
+      \"documentation\":\"<p>Deletes a pool of customer-owned IP (CoIP) addresses. </p>\"\
+    },\
     \"DeleteCustomerGateway\":{\
       \"name\":\"DeleteCustomerGateway\",\
       \"http\":{\
@@ -1438,6 +1498,26 @@
       \"input\":{\"shape\":\"DeleteLocalGatewayRouteRequest\"},\
       \"output\":{\"shape\":\"DeleteLocalGatewayRouteResult\"},\
       \"documentation\":\"<p>Deletes the specified route from the specified local gateway route table.</p>\"\
+    },\
+    \"DeleteLocalGatewayRouteTable\":{\
+      \"name\":\"DeleteLocalGatewayRouteTable\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DeleteLocalGatewayRouteTableRequest\"},\
+      \"output\":{\"shape\":\"DeleteLocalGatewayRouteTableResult\"},\
+      \"documentation\":\"<p> Deletes a local gateway route table. </p>\"\
+    },\
+    \"DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation\":{\
+      \"name\":\"DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest\"},\
+      \"output\":{\"shape\":\"DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult\"},\
+      \"documentation\":\"<p> Deletes a local gateway route table virtual interface group association. </p>\"\
     },\
     \"DeleteLocalGatewayRouteTableVpcAssociation\":{\
       \"name\":\"DeleteLocalGatewayRouteTableVpcAssociation\",\
@@ -2450,7 +2530,7 @@
       },\
       \"input\":{\"shape\":\"DescribeInstancesRequest\"},\
       \"output\":{\"shape\":\"DescribeInstancesResult\"},\
-      \"documentation\":\"<p>Describes the specified instances or all instances.</p> <p>If you specify instance IDs, the output includes information for only the specified instances. If you specify filters, the output includes information for only those instances that meet the filter criteria. If you do not specify instance IDs or filters, the output includes information for all instances, which can affect performance. We recommend that you use pagination to ensure that the operation returns quickly and successfully.</p> <p>If you specify an instance ID that is not valid, an error is returned. If you specify an instance that you do not own, it is not included in the output.</p> <p>Recently terminated instances might appear in the returned results. This interval is usually less than one hour.</p> <p>If you describe instances in the rare case where an Availability Zone is experiencing a service disruption and you specify instance IDs that are in the affected zone, or do not specify any instance IDs at all, the call fails. If you describe instances and specify only instance IDs that are in an unaffected zone, the call works normally.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Describes the specified instances or all instances.</p> <p>If you specify instance IDs, the output includes information for only the specified instances. If you specify filters, the output includes information for only those instances that meet the filter criteria. If you do not specify instance IDs or filters, the output includes information for all instances, which can affect performance. We recommend that you use pagination to ensure that the operation returns quickly and successfully.</p> <p>If you specify an instance ID that is not valid, an error is returned. If you specify an instance that you do not own, it is not included in the output.</p> <p>Recently terminated instances might appear in the returned results. This interval is usually less than one hour.</p> <p>If you describe instances in the rare case where an Availability Zone is experiencing a service disruption and you specify instance IDs that are in the affected zone, or do not specify any instance IDs at all, the call fails. If you describe instances and specify only instance IDs that are in an unaffected zone, the call works normally.</p>\"\
     },\
     \"DescribeInternetGateways\":{\
       \"name\":\"DescribeInternetGateways\",\
@@ -2770,7 +2850,7 @@
       },\
       \"input\":{\"shape\":\"DescribeReservedInstancesRequest\"},\
       \"output\":{\"shape\":\"DescribeReservedInstancesResult\"},\
-      \"documentation\":\"<p>Describes one or more of the Reserved Instances that you purchased.</p> <p>For more information about Reserved Instances, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html\\\">Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Describes one or more of the Reserved Instances that you purchased.</p> <p>For more information about Reserved Instances, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html\\\">Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
     },\
     \"DescribeReservedInstancesListings\":{\
       \"name\":\"DescribeReservedInstancesListings\",\
@@ -2790,7 +2870,7 @@
       },\
       \"input\":{\"shape\":\"DescribeReservedInstancesModificationsRequest\"},\
       \"output\":{\"shape\":\"DescribeReservedInstancesModificationsResult\"},\
-      \"documentation\":\"<p>Describes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html\\\">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Describes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html\\\">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
     },\
     \"DescribeReservedInstancesOfferings\":{\
       \"name\":\"DescribeReservedInstancesOfferings\",\
@@ -2800,7 +2880,7 @@
       },\
       \"input\":{\"shape\":\"DescribeReservedInstancesOfferingsRequest\"},\
       \"output\":{\"shape\":\"DescribeReservedInstancesOfferingsResult\"},\
-      \"documentation\":\"<p>Describes Reserved Instance offerings that are available for purchase. With Reserved Instances, you purchase the right to launch instances for a period of time. During that time period, you do not receive insufficient capacity errors, and you pay a lower usage rate than the rate charged for On-Demand instances for the actual time used.</p> <p>If you have listed your own Reserved Instances for sale in the Reserved Instance Marketplace, they will be excluded from these results. This is to ensure that you do not purchase your own Reserved Instances.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\\\">Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Describes Reserved Instance offerings that are available for purchase. With Reserved Instances, you purchase the right to launch instances for a period of time. During that time period, you do not receive insufficient capacity errors, and you pay a lower usage rate than the rate charged for On-Demand instances for the actual time used.</p> <p>If you have listed your own Reserved Instances for sale in the Reserved Instance Marketplace, they will be excluded from these results. This is to ensure that you do not purchase your own Reserved Instances.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\\\">Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
     },\
     \"DescribeRouteTables\":{\
       \"name\":\"DescribeRouteTables\",\
@@ -2820,7 +2900,7 @@
       },\
       \"input\":{\"shape\":\"DescribeScheduledInstanceAvailabilityRequest\"},\
       \"output\":{\"shape\":\"DescribeScheduledInstanceAvailabilityResult\"},\
-      \"documentation\":\"<p>Finds available schedules that meet the specified criteria.</p> <p>You can search for an available schedule no more than 3 months in advance. You must meet the minimum required duration of 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.</p> <p>After you find a schedule that meets your needs, call <a>PurchaseScheduledInstances</a> to purchase Scheduled Instances with that schedule.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Finds available schedules that meet the specified criteria.</p> <p>You can search for an available schedule no more than 3 months in advance. You must meet the minimum required duration of 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.</p> <p>After you find a schedule that meets your needs, call <a>PurchaseScheduledInstances</a> to purchase Scheduled Instances with that schedule.</p>\"\
     },\
     \"DescribeScheduledInstances\":{\
       \"name\":\"DescribeScheduledInstances\",\
@@ -2830,7 +2910,7 @@
       },\
       \"input\":{\"shape\":\"DescribeScheduledInstancesRequest\"},\
       \"output\":{\"shape\":\"DescribeScheduledInstancesResult\"},\
-      \"documentation\":\"<p>Describes the specified Scheduled Instances or all your Scheduled Instances.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Describes the specified Scheduled Instances or all your Scheduled Instances.</p>\"\
     },\
     \"DescribeSecurityGroupReferences\":{\
       \"name\":\"DescribeSecurityGroupReferences\",\
@@ -4420,6 +4500,16 @@
       \"output\":{\"shape\":\"ModifyLaunchTemplateResult\"},\
       \"documentation\":\"<p>Modifies a launch template. You can specify which version of the launch template to set as the default version. When launching an instance, the default version applies when a launch template version is not specified.</p>\"\
     },\
+    \"ModifyLocalGatewayRoute\":{\
+      \"name\":\"ModifyLocalGatewayRoute\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"ModifyLocalGatewayRouteRequest\"},\
+      \"output\":{\"shape\":\"ModifyLocalGatewayRouteResult\"},\
+      \"documentation\":\"<p>Modifies the specified local gateway route.</p>\"\
+    },\
     \"ModifyManagedPrefixList\":{\
       \"name\":\"ModifyManagedPrefixList\",\
       \"http\":{\
@@ -4457,7 +4547,7 @@
       },\
       \"input\":{\"shape\":\"ModifyReservedInstancesRequest\"},\
       \"output\":{\"shape\":\"ModifyReservedInstancesResult\"},\
-      \"documentation\":\"<p>Modifies the Availability Zone, instance count, instance type, or network platform (EC2-Classic or EC2-VPC) of your Reserved Instances. The Reserved Instances to be modified must be identical, except for Availability Zone, network platform, and instance type.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html\\\">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Modifies the configuration of your Reserved Instances, such as the Availability Zone, instance count, or instance type. The Reserved Instances to be modified must be identical, except for Availability Zone, network platform, and instance type.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html\\\">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p> <note> <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
     },\
     \"ModifySecurityGroupRules\":{\
       \"name\":\"ModifySecurityGroupRules\",\
@@ -4783,7 +4873,7 @@
       },\
       \"input\":{\"shape\":\"PurchaseReservedInstancesOfferingRequest\"},\
       \"output\":{\"shape\":\"PurchaseReservedInstancesOfferingResult\"},\
-      \"documentation\":\"<p>Purchases a Reserved Instance for use with your account. With Reserved Instances, you pay a lower hourly rate compared to On-Demand instance pricing.</p> <p>Use <a>DescribeReservedInstancesOfferings</a> to get a list of Reserved Instance offerings that match your specifications. After you've purchased a Reserved Instance, you can check for your new Reserved Instance with <a>DescribeReservedInstances</a>.</p> <p>To queue a purchase for a future date and time, specify a purchase time. If you do not specify a purchase time, the default is the current time.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html\\\">Reserved Instances</a> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\\\">Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Purchases a Reserved Instance for use with your account. With Reserved Instances, you pay a lower hourly rate compared to On-Demand instance pricing.</p> <p>Use <a>DescribeReservedInstancesOfferings</a> to get a list of Reserved Instance offerings that match your specifications. After you've purchased a Reserved Instance, you can check for your new Reserved Instance with <a>DescribeReservedInstances</a>.</p> <p>To queue a purchase for a future date and time, specify a purchase time. If you do not specify a purchase time, the default is the current time.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html\\\">Reserved Instances</a> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\\\">Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p> <note> <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
     },\
     \"PurchaseScheduledInstances\":{\
       \"name\":\"PurchaseScheduledInstances\",\
@@ -4793,7 +4883,7 @@
       },\
       \"input\":{\"shape\":\"PurchaseScheduledInstancesRequest\"},\
       \"output\":{\"shape\":\"PurchaseScheduledInstancesResult\"},\
-      \"documentation\":\"<p>Purchases the Scheduled Instances with the specified schedule.</p> <p>Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term. Before you can purchase a Scheduled Instance, you must call <a>DescribeScheduledInstanceAvailability</a> to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance, you must call <a>RunScheduledInstances</a> during each scheduled time period.</p> <p>After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.</p>\"\
+      \"documentation\":\"<note> <p>You can no longer purchase Scheduled Instances.</p> </note> <p>Purchases the Scheduled Instances with the specified schedule.</p> <p>Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term. Before you can purchase a Scheduled Instance, you must call <a>DescribeScheduledInstanceAvailability</a> to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance, you must call <a>RunScheduledInstances</a> during each scheduled time period.</p> <p>After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.</p>\"\
     },\
     \"RebootInstances\":{\
       \"name\":\"RebootInstances\",\
@@ -5008,7 +5098,7 @@
       },\
       \"input\":{\"shape\":\"RequestSpotInstancesRequest\"},\
       \"output\":{\"shape\":\"RequestSpotInstancesResult\"},\
-      \"documentation\":\"<p>Creates a Spot Instance request.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html\\\">Spot Instance requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <important> <p>We strongly discourage using the RequestSpotInstances API because it is a legacy API with no planned investment. For options for requesting Spot Instances, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use\\\">Which is the best Spot request method to use?</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </important> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </note>\"\
+      \"documentation\":\"<p>Creates a Spot Instance request.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html\\\">Spot Instance requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <important> <p>We strongly discourage using the RequestSpotInstances API because it is a legacy API with no planned investment. For options for requesting Spot Instances, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use\\\">Which is the best Spot request method to use?</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </important> <note> <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </note>\"\
     },\
     \"ResetAddressAttribute\":{\
       \"name\":\"ResetAddressAttribute\",\
@@ -5164,7 +5254,7 @@
       },\
       \"input\":{\"shape\":\"RunInstancesRequest\"},\
       \"output\":{\"shape\":\"Reservation\"},\
-      \"documentation\":\"<p>Launches the specified number of instances using an AMI for which you have permissions.</p> <p>You can specify a number of options, or leave the default options. The following rules apply:</p> <ul> <li> <p>[EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from your default VPC for you. If you don't have a default VPC, you must specify a subnet ID in the request.</p> </li> <li> <p>[EC2-Classic] If don't specify an Availability Zone, we choose one for you.</p> </li> <li> <p>Some instance types must be launched into a VPC. If you do not have a default VPC, or if you do not specify a subnet ID, the request fails. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types\\\">Instance types available only in a VPC</a>.</p> </li> <li> <p>[EC2-VPC] All instances have a network interface with a primary private IPv4 address. If you don't specify this address, we choose one from the IPv4 range of your subnet.</p> </li> <li> <p>Not all instance types support IPv6 addresses. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\\\">Instance types</a>.</p> </li> <li> <p>If you don't specify a security group ID, we use the default security group. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html\\\">Security groups</a>.</p> </li> <li> <p>If any of the AMIs have a product code attached for which the user has not subscribed, the request fails.</p> </li> </ul> <p>You can create a <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\\\">launch template</a>, which is a resource that contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify the launch template instead of specifying the launch parameters.</p> <p>To ensure faster instance launches, break up large requests into smaller batches. For example, create five separate launch requests for 100 instances each instead of one launch request for 500 instances.</p> <p>An instance is ready for you to use when it's in the <code>running</code> state. You can check the state of your instance using <a>DescribeInstances</a>. You can tag instances and EBS volumes during launch, after launch, or both. For more information, see <a>CreateTags</a> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\\\">Tagging your Amazon EC2 resources</a>.</p> <p>Linux instances have access to the public key of the key pair at boot. You can use this key to provide secure access to the instance. Amazon EC2 public images use this feature to provide secure access without passwords. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\\\">Key pairs</a>.</p> <p>For troubleshooting, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html\\\">What to do if an instance immediately terminates</a>, and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html\\\">Troubleshooting connecting to your instance</a>.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Launches the specified number of instances using an AMI for which you have permissions.</p> <p>You can specify a number of options, or leave the default options. The following rules apply:</p> <ul> <li> <p>[EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from your default VPC for you. If you don't have a default VPC, you must specify a subnet ID in the request.</p> </li> <li> <p>[EC2-Classic] If don't specify an Availability Zone, we choose one for you.</p> </li> <li> <p>Some instance types must be launched into a VPC. If you do not have a default VPC, or if you do not specify a subnet ID, the request fails. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types\\\">Instance types available only in a VPC</a>.</p> </li> <li> <p>[EC2-VPC] All instances have a network interface with a primary private IPv4 address. If you don't specify this address, we choose one from the IPv4 range of your subnet.</p> </li> <li> <p>Not all instance types support IPv6 addresses. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\\\">Instance types</a>.</p> </li> <li> <p>If you don't specify a security group ID, we use the default security group. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html\\\">Security groups</a>.</p> </li> <li> <p>If any of the AMIs have a product code attached for which the user has not subscribed, the request fails.</p> </li> </ul> <p>You can create a <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\\\">launch template</a>, which is a resource that contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify the launch template instead of specifying the launch parameters.</p> <p>To ensure faster instance launches, break up large requests into smaller batches. For example, create five separate launch requests for 100 instances each instead of one launch request for 500 instances.</p> <p>An instance is ready for you to use when it's in the <code>running</code> state. You can check the state of your instance using <a>DescribeInstances</a>. You can tag instances and EBS volumes during launch, after launch, or both. For more information, see <a>CreateTags</a> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\\\">Tagging your Amazon EC2 resources</a>.</p> <p>Linux instances have access to the public key of the key pair at boot. You can use this key to provide secure access to the instance. Amazon EC2 public images use this feature to provide secure access without passwords. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\\\">Key pairs</a>.</p> <p>For troubleshooting, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html\\\">What to do if an instance immediately terminates</a>, and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html\\\">Troubleshooting connecting to your instance</a>.</p> <note> <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p> </note>\"\
     },\
     \"RunScheduledInstances\":{\
       \"name\":\"RunScheduledInstances\",\
@@ -5401,7 +5491,9 @@
         \"t4\",\
         \"m60\",\
         \"radeon-pro-v520\",\
-        \"vu9p\"\
+        \"vu9p\",\
+        \"inferentia\",\
+        \"k520\"\
       ]\
     },\
     \"AcceleratorNameSet\":{\
@@ -5844,6 +5936,39 @@
       },\
       \"documentation\":\"<p>An entry for a prefix list.</p>\"\
     },\
+    \"AddedPrincipal\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"PrincipalType\":{\
+          \"shape\":\"PrincipalType\",\
+          \"documentation\":\"<p>The type of principal.</p>\",\
+          \"locationName\":\"principalType\"\
+        },\
+        \"Principal\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the principal.</p>\",\
+          \"locationName\":\"principal\"\
+        },\
+        \"ServicePermissionId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the service permission.</p>\",\
+          \"locationName\":\"servicePermissionId\"\
+        },\
+        \"ServiceId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the service.</p>\",\
+          \"locationName\":\"serviceId\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes a principal.</p>\"\
+    },\
+    \"AddedPrincipalSet\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"AddedPrincipal\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"AdditionalDetail\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -6257,6 +6382,10 @@
         \"capacityOptimizedPrioritized\"\
       ]\
     },\
+    \"AllocationType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\"used\"]\
+    },\
     \"AllowedPrincipal\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -6269,6 +6398,21 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) of the principal.</p>\",\
           \"locationName\":\"principal\"\
+        },\
+        \"ServicePermissionId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the service permission.</p>\",\
+          \"locationName\":\"servicePermissionId\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>The tags.</p>\",\
+          \"locationName\":\"tagSet\"\
+        },\
+        \"ServiceId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the service.</p>\",\
+          \"locationName\":\"serviceId\"\
         }\
       },\
       \"documentation\":\"<p>Describes a principal.</p>\"\
@@ -8651,6 +8795,29 @@
         \"locationName\":\"item\"\
       }\
     },\
+    \"CapacityAllocation\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"AllocationType\":{\
+          \"shape\":\"AllocationType\",\
+          \"documentation\":\"<p>The usage type. <code>used</code> indicates that the instance capacity is in use by instances that are running in the Capacity Reservation.</p>\",\
+          \"locationName\":\"allocationType\"\
+        },\
+        \"Count\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The amount of instance capacity associated with the usage. For example a value of <code>4</code> indicates that instance capacity for 4 instances is currently in use.</p>\",\
+          \"locationName\":\"count\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about instance capacity usage for a Capacity Reservation.</p>\"\
+    },\
+    \"CapacityAllocations\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"CapacityAllocation\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"CapacityReservation\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -8763,6 +8930,11 @@
           \"shape\":\"PlacementGroupArn\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) of the cluster placement group in which the Capacity Reservation was created. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html\\\"> Capacity Reservations for cluster placement groups</a> in the <i>Amazon EC2 User Guide</i>.</p>\",\
           \"locationName\":\"placementGroupArn\"\
+        },\
+        \"CapacityAllocations\":{\
+          \"shape\":\"CapacityAllocations\",\
+          \"documentation\":\"<p>Information about instance capacity usage.</p>\",\
+          \"locationName\":\"capacityAllocationSet\"\
         }\
       },\
       \"documentation\":\"<p>Describes a Capacity Reservation.</p>\"\
@@ -9899,6 +10071,27 @@
         \"locationName\":\"item\"\
       }\
     },\
+    \"CoipCidr\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Cidr\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p> An address range in a customer-owned IP address space. </p>\",\
+          \"locationName\":\"cidr\"\
+        },\
+        \"CoipPoolId\":{\
+          \"shape\":\"Ipv4PoolCoipId\",\
+          \"documentation\":\"<p> The ID of the address pool. </p>\",\
+          \"locationName\":\"coipPoolId\"\
+        },\
+        \"LocalGatewayRouteTableId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p> The ID of the local gateway route table. </p>\",\
+          \"locationName\":\"localGatewayRouteTableId\"\
+        }\
+      },\
+      \"documentation\":\"<p> Information about a customer-owned IP address range. </p>\"\
+    },\
     \"CoipPool\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -10766,6 +10959,65 @@
           \"shape\":\"ClientVpnRouteStatus\",\
           \"documentation\":\"<p>The current state of the route.</p>\",\
           \"locationName\":\"status\"\
+        }\
+      }\
+    },\
+    \"CreateCoipCidrRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Cidr\",\
+        \"CoipPoolId\"\
+      ],\
+      \"members\":{\
+        \"Cidr\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p> A customer-owned IP address range to create. </p>\"\
+        },\
+        \"CoipPoolId\":{\
+          \"shape\":\"Ipv4PoolCoipId\",\
+          \"documentation\":\"<p> The ID of the address pool. </p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateCoipCidrResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"CoipCidr\":{\
+          \"shape\":\"CoipCidr\",\
+          \"documentation\":\"<p> Information about a range of customer-owned IP addresses. </p>\",\
+          \"locationName\":\"coipCidr\"\
+        }\
+      }\
+    },\
+    \"CreateCoipPoolRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"LocalGatewayRouteTableId\"],\
+      \"members\":{\
+        \"LocalGatewayRouteTableId\":{\
+          \"shape\":\"LocalGatewayRoutetableId\",\
+          \"documentation\":\"<p> The ID of the local gateway route table. </p>\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p> The tags to assign to the CoIP address pool. </p>\",\
+          \"locationName\":\"TagSpecification\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateCoipPoolResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"CoipPool\":{\
+          \"shape\":\"CoipPool\",\
+          \"locationName\":\"coipPool\"\
         }\
       }\
     },\
@@ -11683,8 +11935,7 @@
       \"type\":\"structure\",\
       \"required\":[\
         \"DestinationCidrBlock\",\
-        \"LocalGatewayRouteTableId\",\
-        \"LocalGatewayVirtualInterfaceGroupId\"\
+        \"LocalGatewayRouteTableId\"\
       ],\
       \"members\":{\
         \"DestinationCidrBlock\":{\
@@ -11702,6 +11953,10 @@
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"NetworkInterfaceId\":{\
+          \"shape\":\"NetworkInterfaceId\",\
+          \"documentation\":\"<p>The ID of the network interface.</p>\"\
         }\
       }\
     },\
@@ -11712,6 +11967,73 @@
           \"shape\":\"LocalGatewayRoute\",\
           \"documentation\":\"<p>Information about the route.</p>\",\
           \"locationName\":\"route\"\
+        }\
+      }\
+    },\
+    \"CreateLocalGatewayRouteTableRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"LocalGatewayId\"],\
+      \"members\":{\
+        \"LocalGatewayId\":{\
+          \"shape\":\"LocalGatewayId\",\
+          \"documentation\":\"<p> The ID of the local gateway. </p>\"\
+        },\
+        \"Mode\":{\
+          \"shape\":\"LocalGatewayRouteTableMode\",\
+          \"documentation\":\"<p> The mode of the local gateway route table. </p>\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p> The tags assigned to the local gateway route table. </p>\",\
+          \"locationName\":\"TagSpecification\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateLocalGatewayRouteTableResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"LocalGatewayRouteTable\":{\
+          \"shape\":\"LocalGatewayRouteTable\",\
+          \"locationName\":\"localGatewayRouteTable\"\
+        }\
+      }\
+    },\
+    \"CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"LocalGatewayRouteTableId\",\
+        \"LocalGatewayVirtualInterfaceGroupId\"\
+      ],\
+      \"members\":{\
+        \"LocalGatewayRouteTableId\":{\
+          \"shape\":\"LocalGatewayRoutetableId\",\
+          \"documentation\":\"<p> The ID of the local gateway route table. </p>\"\
+        },\
+        \"LocalGatewayVirtualInterfaceGroupId\":{\
+          \"shape\":\"LocalGatewayVirtualInterfaceGroupId\",\
+          \"documentation\":\"<p> The ID of the local gateway route table virtual interface group association. </p>\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p> The tags assigned to the local gateway route table virtual interface group association. </p>\",\
+          \"locationName\":\"TagSpecification\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"LocalGatewayRouteTableVirtualInterfaceGroupAssociation\":{\
+          \"shape\":\"LocalGatewayRouteTableVirtualInterfaceGroupAssociation\",\
+          \"locationName\":\"localGatewayRouteTableVirtualInterfaceGroupAssociation\"\
         }\
       }\
     },\
@@ -14234,6 +14556,60 @@
         }\
       }\
     },\
+    \"DeleteCoipCidrRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Cidr\",\
+        \"CoipPoolId\"\
+      ],\
+      \"members\":{\
+        \"Cidr\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p> A customer-owned IP address range that you want to delete. </p>\"\
+        },\
+        \"CoipPoolId\":{\
+          \"shape\":\"Ipv4PoolCoipId\",\
+          \"documentation\":\"<p> The ID of the customer-owned address pool. </p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"DeleteCoipCidrResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"CoipCidr\":{\
+          \"shape\":\"CoipCidr\",\
+          \"documentation\":\"<p> Information about a range of customer-owned IP addresses. </p>\",\
+          \"locationName\":\"coipCidr\"\
+        }\
+      }\
+    },\
+    \"DeleteCoipPoolRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"CoipPoolId\"],\
+      \"members\":{\
+        \"CoipPoolId\":{\
+          \"shape\":\"Ipv4PoolCoipId\",\
+          \"documentation\":\"<p>The ID of the CoIP pool that you want to delete. </p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"DeleteCoipPoolResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"CoipPool\":{\
+          \"shape\":\"CoipPool\",\
+          \"locationName\":\"coipPool\"\
+        }\
+      }\
+    },\
     \"DeleteCustomerGatewayRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"CustomerGatewayId\"],\
@@ -14743,6 +15119,52 @@
           \"shape\":\"LocalGatewayRoute\",\
           \"documentation\":\"<p>Information about the route.</p>\",\
           \"locationName\":\"route\"\
+        }\
+      }\
+    },\
+    \"DeleteLocalGatewayRouteTableRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"LocalGatewayRouteTableId\"],\
+      \"members\":{\
+        \"LocalGatewayRouteTableId\":{\
+          \"shape\":\"LocalGatewayRoutetableId\",\
+          \"documentation\":\"<p> The ID of the local gateway route table. </p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"DeleteLocalGatewayRouteTableResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"LocalGatewayRouteTable\":{\
+          \"shape\":\"LocalGatewayRouteTable\",\
+          \"locationName\":\"localGatewayRouteTable\"\
+        }\
+      }\
+    },\
+    \"DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"LocalGatewayRouteTableVirtualInterfaceGroupAssociationId\"],\
+      \"members\":{\
+        \"LocalGatewayRouteTableVirtualInterfaceGroupAssociationId\":{\
+          \"shape\":\"LocalGatewayRouteTableVirtualInterfaceGroupAssociationId\",\
+          \"documentation\":\"<p> The ID of the local gateway route table virtual interface group association. </p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"LocalGatewayRouteTableVirtualInterfaceGroupAssociation\":{\
+          \"shape\":\"LocalGatewayRouteTableVirtualInterfaceGroupAssociation\",\
+          \"locationName\":\"localGatewayRouteTableVirtualInterfaceGroupAssociation\"\
         }\
       }\
     },\
@@ -25436,7 +25858,7 @@
       \"members\":{\
         \"InstanceType\":{\
           \"shape\":\"InstanceType\",\
-          \"documentation\":\"<p>The instance type.</p> <note> <p>If you specify <code>InstanceTypes</code>, you can't specify <code>InstanceRequirements</code>.</p> </note>\",\
+          \"documentation\":\"<p>The instance type.</p> <note> <p>If you specify <code>InstanceType</code>, you can't specify <code>InstanceRequirements</code>.</p> </note>\",\
           \"locationName\":\"instanceType\"\
         },\
         \"MaxPrice\":{\
@@ -25471,7 +25893,7 @@
         },\
         \"InstanceRequirements\":{\
           \"shape\":\"InstanceRequirements\",\
-          \"documentation\":\"<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.</p> <note> <p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceTypes</code>.</p> </note>\",\
+          \"documentation\":\"<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.</p> <note> <p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceType</code>.</p> </note>\",\
           \"locationName\":\"instanceRequirements\"\
         }\
       },\
@@ -25496,7 +25918,7 @@
       \"members\":{\
         \"InstanceType\":{\
           \"shape\":\"InstanceType\",\
-          \"documentation\":\"<p>The instance type.</p> <note> <p>If you specify <code>InstanceTypes</code>, you can't specify <code>InstanceRequirements</code>.</p> </note>\"\
+          \"documentation\":\"<p>The instance type.</p> <note> <p>If you specify <code>InstanceType</code>, you can't specify <code>InstanceRequirements</code>.</p> </note>\"\
         },\
         \"MaxPrice\":{\
           \"shape\":\"String\",\
@@ -25524,7 +25946,7 @@
         },\
         \"InstanceRequirements\":{\
           \"shape\":\"InstanceRequirementsRequest\",\
-          \"documentation\":\"<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.</p> <note> <p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceTypes</code>.</p> </note>\"\
+          \"documentation\":\"<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.</p> <note> <p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceType</code>.</p> </note>\"\
         }\
       },\
       \"documentation\":\"<p>Describes overrides for a launch template.</p>\"\
@@ -30340,7 +30762,7 @@
       \"members\":{\
         \"HttpTokens\":{\
           \"shape\":\"HttpTokensState\",\
-          \"documentation\":\"<p>The state of token usage for your instance metadata requests.</p> <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid signed token, the version 2.0 role credentials are returned.</p> <p>If the state is <code>required</code>, you must send a signed token header with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns the version 2.0 credentials; the version 1.0 credentials are not available.</p> <p>Default: <code>optional</code> </p>\"\
+          \"documentation\":\"<p>The state of token usage for your instance metadata requests.</p> <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata with or without a session token on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid session token, the version 2.0 role credentials are returned.</p> <p>If the state is <code>required</code>, you must send a session token with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns the version 2.0 credentials; the version 1.0 credentials are not available.</p> <p>Default: <code>optional</code> </p>\"\
         },\
         \"HttpPutResponseHopLimit\":{\
           \"shape\":\"Integer\",\
@@ -30371,7 +30793,7 @@
         },\
         \"HttpTokens\":{\
           \"shape\":\"HttpTokensState\",\
-          \"documentation\":\"<p>The state of token usage for your instance metadata requests.</p> <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid signed token, the version 2.0 role credentials are returned.</p> <p>If the state is <code>required</code>, you must send a signed token header with any instance metadata retrieval requests. In this state, retrieving the IAM role credential always returns the version 2.0 credentials; the version 1.0 credentials are not available.</p> <p>Default: <code>optional</code> </p>\",\
+          \"documentation\":\"<p>The state of token usage for your instance metadata requests.</p> <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata with or without a session token on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid session token, the version 2.0 role credentials are returned.</p> <p>If the state is <code>required</code>, you must send a session token with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns the version 2.0 credentials; the version 1.0 credentials are not available.</p> <p>Default: <code>optional</code> </p>\",\
           \"locationName\":\"httpTokens\"\
         },\
         \"HttpPutResponseHopLimit\":{\
@@ -30774,7 +31196,7 @@
         },\
         \"ExcludedInstanceTypes\":{\
           \"shape\":\"ExcludedInstanceTypeSet\",\
-          \"documentation\":\"<p>The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (<code>*</code>), to exclude an instance type, size, or generation. The following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>, <code>r*</code>, <code>*3*</code>.</p> <p>For example, if you specify <code>c5*</code>,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify <code>m5a.*</code>, Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.</p> <p>Default: No excluded instance types</p>\",\
+          \"documentation\":\"<p>The instance types to exclude.</p> <p>You can use strings with one or more wild cards, represented by an asterisk (<code>*</code>), to exclude an instance type, size, or generation. The following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>, <code>r*</code>, <code>*3*</code>.</p> <p>For example, if you specify <code>c5*</code>,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify <code>m5a.*</code>, Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.</p> <p>Default: No excluded instance types</p>\",\
           \"locationName\":\"excludedInstanceTypeSet\"\
         },\
         \"InstanceGenerations\":{\
@@ -30849,7 +31271,7 @@
         },\
         \"AcceleratorNames\":{\
           \"shape\":\"AcceleratorNameSet\",\
-          \"documentation\":\"<p>The accelerators that must be on the instance type.</p> <ul> <li> <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p> </li> <li> <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p> </li> <li> <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p> </li> <li> <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p> </li> <li> <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p> </li> <li> <p>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</p> </li> <li> <p>For instance types with Xilinx VU9P FPGAs, specify <code>vu9p</code>.</p> </li> </ul> <p>Default: Any accelerator</p>\",\
+          \"documentation\":\"<p>The accelerators that must be on the instance type.</p> <ul> <li> <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p> </li> <li> <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p> </li> <li> <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p> </li> <li> <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p> </li> <li> <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p> </li> <li> <p>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</p> </li> <li> <p>For instance types with Xilinx VU9P FPGAs, specify <code>vu9p</code>.</p> </li> <li> <p>For instance types with Amazon Web Services Inferentia GPUs, specify <code>inferentia</code>.</p> </li> <li> <p>For instance types with NVIDIA GRID K520 GPUs, specify <code>k520</code>.</p> </li> </ul> <p>Default: Any accelerator</p>\",\
           \"locationName\":\"acceleratorNameSet\"\
         },\
         \"AcceleratorTotalMemoryMiB\":{\
@@ -30858,7 +31280,7 @@
           \"locationName\":\"acceleratorTotalMemoryMiB\"\
         }\
       },\
-      \"documentation\":\"<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.</p> <p>When you specify multiple parameters, you get instance types that satisfy all of the specified parameters. If you specify multiple values for a parameter, you get instance types that satisfy any of the specified values.</p> <note> <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other parameters are optional. Any unspecified optional parameter is set to its default.</p> </note> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html\\\">Attribute-based instance type selection for EC2 Fleet</a>, <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html\\\">Attribute-based instance type selection for Spot Fleet</a>, and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html\\\">Spot placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
+      \"documentation\":\"<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.</p> <p>When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.</p> <note> <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes are optional. Any unspecified optional attribute is set to its default.</p> </note> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html\\\">Attribute-based instance type selection for EC2 Fleet</a>, <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html\\\">Attribute-based instance type selection for Spot Fleet</a>, and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html\\\">Spot placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
     },\
     \"InstanceRequirementsRequest\":{\
       \"type\":\"structure\",\
@@ -30886,7 +31308,7 @@
         },\
         \"ExcludedInstanceTypes\":{\
           \"shape\":\"ExcludedInstanceTypeSet\",\
-          \"documentation\":\"<p>The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (<code>*</code>), to exclude an instance family, type, size, or generation. The following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>, <code>r*</code>, <code>*3*</code>.</p> <p>For example, if you specify <code>c5*</code>,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify <code>m5a.*</code>, Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.</p> <p>Default: No excluded instance types</p>\",\
+          \"documentation\":\"<p>The instance types to exclude.</p> <p>You can use strings with one or more wild cards, represented by an asterisk (<code>*</code>), to exclude an instance family, type, size, or generation. The following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>, <code>r*</code>, <code>*3*</code>.</p> <p>For example, if you specify <code>c5*</code>,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify <code>m5a.*</code>, Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.</p> <p>Default: No excluded instance types</p>\",\
           \"locationName\":\"ExcludedInstanceType\"\
         },\
         \"InstanceGenerations\":{\
@@ -30951,7 +31373,7 @@
         },\
         \"AcceleratorNames\":{\
           \"shape\":\"AcceleratorNameSet\",\
-          \"documentation\":\"<p>The accelerators that must be on the instance type.</p> <ul> <li> <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p> </li> <li> <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p> </li> <li> <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p> </li> <li> <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p> </li> <li> <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p> </li> <li> <p>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</p> </li> <li> <p>For instance types with Xilinx VU9P FPGAs, specify <code> vu9p</code>.</p> </li> </ul> <p>Default: Any accelerator</p>\",\
+          \"documentation\":\"<p>The accelerators that must be on the instance type.</p> <ul> <li> <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p> </li> <li> <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p> </li> <li> <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p> </li> <li> <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p> </li> <li> <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p> </li> <li> <p>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</p> </li> <li> <p>For instance types with Xilinx VU9P FPGAs, specify <code> vu9p</code>.</p> </li> <li> <p>For instance types with Amazon Web Services Inferentia GPUs, specify <code>inferentia</code>.</p> </li> <li> <p>For instance types with NVIDIA GRID K520 GPUs, specify <code>k520</code>.</p> </li> </ul> <p>Default: Any accelerator</p>\",\
           \"locationName\":\"AcceleratorName\"\
         },\
         \"AcceleratorTotalMemoryMiB\":{\
@@ -30959,7 +31381,7 @@
           \"documentation\":\"<p>The minimum and maximum amount of total accelerator memory, in MiB.</p> <p>Default: No minimum or maximum limits</p>\"\
         }\
       },\
-      \"documentation\":\"<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.</p> <p>When you specify multiple parameters, you get instance types that satisfy all of the specified parameters. If you specify multiple values for a parameter, you get instance types that satisfy any of the specified values.</p> <note> <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other parameters are optional. Any unspecified optional parameter is set to its default.</p> </note> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html\\\">Attribute-based instance type selection for EC2 Fleet</a>, <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html\\\">Attribute-based instance type selection for Spot Fleet</a>, and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html\\\">Spot placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
+      \"documentation\":\"<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.</p> <p>When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.</p> <note> <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes are optional. Any unspecified optional attribute is set to its default.</p> </note> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html\\\">Attribute-based instance type selection for EC2 Fleet</a>, <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html\\\">Attribute-based instance type selection for Spot Fleet</a>, and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html\\\">Spot placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
     },\
     \"InstanceRequirementsWithMetadataRequest\":{\
       \"type\":\"structure\",\
@@ -33445,7 +33867,7 @@
           \"locationName\":\"monitoring\"\
         }\
       },\
-      \"documentation\":\"<p>Describes the launch specification for an instance.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </note>\"\
+      \"documentation\":\"<p>Describes the launch specification for an instance.</p>\"\
     },\
     \"LaunchSpecsList\":{\
       \"type\":\"list\",\
@@ -34318,7 +34740,7 @@
         },\
         \"InstanceRequirements\":{\
           \"shape\":\"InstanceRequirements\",\
-          \"documentation\":\"<p>The instance requirements. When you specify instance requirements, Amazon EC2 will identify instance types with the provided requirements, and then use your On-Demand and Spot allocation strategies to launch instances from these instance types, in the same way as when you specify a list of instance types.</p> <note> <p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceTypes</code>.</p> </note>\",\
+          \"documentation\":\"<p>The instance requirements. When you specify instance requirements, Amazon EC2 will identify instance types with the provided requirements, and then use your On-Demand and Spot allocation strategies to launch instances from these instance types, in the same way as when you specify a list of instance types.</p> <note> <p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceType</code>.</p> </note>\",\
           \"locationName\":\"instanceRequirements\"\
         }\
       },\
@@ -34947,6 +35369,21 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The ID of the Amazon Web Services account that owns the local gateway route.</p>\",\
           \"locationName\":\"ownerId\"\
+        },\
+        \"SubnetId\":{\
+          \"shape\":\"SubnetId\",\
+          \"documentation\":\"<p>The ID of the subnet.</p>\",\
+          \"locationName\":\"subnetId\"\
+        },\
+        \"CoipPoolId\":{\
+          \"shape\":\"CoipPoolId\",\
+          \"documentation\":\"<p>The ID of the customer-owned address pool.</p>\",\
+          \"locationName\":\"coipPoolId\"\
+        },\
+        \"NetworkInterfaceId\":{\
+          \"shape\":\"NetworkInterfaceId\",\
+          \"documentation\":\"<p>The ID of the network interface.</p>\",\
+          \"locationName\":\"networkInterfaceId\"\
         }\
       },\
       \"documentation\":\"<p>Describes a route for a local gateway route table.</p>\"\
@@ -35005,6 +35442,15 @@
           \"shape\":\"TagList\",\
           \"documentation\":\"<p>The tags assigned to the local gateway route table.</p>\",\
           \"locationName\":\"tagSet\"\
+        },\
+        \"Mode\":{\
+          \"shape\":\"LocalGatewayRouteTableMode\",\
+          \"documentation\":\"<p>The mode of the local gateway route table.</p>\",\
+          \"locationName\":\"mode\"\
+        },\
+        \"StateReason\":{\
+          \"shape\":\"StateReason\",\
+          \"locationName\":\"stateReason\"\
         }\
       },\
       \"documentation\":\"<p>Describes a local gateway route table.</p>\"\
@@ -35015,6 +35461,13 @@
         \"shape\":\"LocalGatewayRoutetableId\",\
         \"locationName\":\"item\"\
       }\
+    },\
+    \"LocalGatewayRouteTableMode\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"direct-vpc-routing\",\
+        \"coip\"\
+      ]\
     },\
     \"LocalGatewayRouteTableSet\":{\
       \"type\":\"list\",\
@@ -36258,7 +36711,7 @@
         },\
         \"HttpTokens\":{\
           \"shape\":\"HttpTokensState\",\
-          \"documentation\":\"<p>The state of token usage for your instance metadata requests. If the parameter is not specified in the request, the default state is <code>optional</code>.</p> <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid signed token, the version 2.0 role credentials are returned.</p> <p>If the state is <code>required</code>, you must send a signed token header with any instance metadata retrieval requests. In this state, retrieving the IAM role credential always returns the version 2.0 credentials; the version 1.0 credentials are not available.</p>\"\
+          \"documentation\":\"<p>The state of token usage for your instance metadata requests. If the parameter is not specified in the request, the default state is <code>optional</code>.</p> <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata with or without a session token on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid session token, the version 2.0 role credentials are returned.</p> <p>If the state is <code>required</code>, you must send a session token with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns the version 2.0 credentials; the version 1.0 credentials are not available.</p>\"\
         },\
         \"HttpPutResponseHopLimit\":{\
           \"shape\":\"Integer\",\
@@ -36551,6 +37004,44 @@
           \"shape\":\"LaunchTemplate\",\
           \"documentation\":\"<p>Information about the launch template.</p>\",\
           \"locationName\":\"launchTemplate\"\
+        }\
+      }\
+    },\
+    \"ModifyLocalGatewayRouteRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"DestinationCidrBlock\",\
+        \"LocalGatewayRouteTableId\"\
+      ],\
+      \"members\":{\
+        \"DestinationCidrBlock\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The CIDR block used for destination matches. The value that you provide must match the CIDR of an existing route in the table.</p>\"\
+        },\
+        \"LocalGatewayRouteTableId\":{\
+          \"shape\":\"LocalGatewayRoutetableId\",\
+          \"documentation\":\"<p>The ID of the local gateway route table.</p>\"\
+        },\
+        \"LocalGatewayVirtualInterfaceGroupId\":{\
+          \"shape\":\"LocalGatewayVirtualInterfaceGroupId\",\
+          \"documentation\":\"<p> The ID of the virtual interface group. </p>\"\
+        },\
+        \"NetworkInterfaceId\":{\
+          \"shape\":\"NetworkInterfaceId\",\
+          \"documentation\":\"<p>The ID of the network interface.</p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"ModifyLocalGatewayRouteResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Route\":{\
+          \"shape\":\"LocalGatewayRoute\",\
+          \"locationName\":\"route\"\
         }\
       }\
     },\
@@ -37540,6 +38031,11 @@
     \"ModifyVpcEndpointServicePermissionsResult\":{\
       \"type\":\"structure\",\
       \"members\":{\
+        \"AddedPrincipals\":{\
+          \"shape\":\"AddedPrincipalSet\",\
+          \"documentation\":\"<p>Information about the added principals.</p>\",\
+          \"locationName\":\"addedPrincipalSet\"\
+        },\
         \"ReturnValue\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>\",\
@@ -42181,7 +42677,7 @@
         },\
         \"InstanceRequirements\":{\
           \"shape\":\"InstanceRequirementsRequest\",\
-          \"documentation\":\"<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.</p> <p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceTypes</code>.</p>\"\
+          \"documentation\":\"<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.</p> <p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceType</code>.</p>\"\
         },\
         \"PrivateDnsNameOptions\":{\
           \"shape\":\"LaunchTemplatePrivateDnsNameOptionsRequest\",\
@@ -42436,7 +42932,7 @@
           \"locationName\":\"reservationId\"\
         }\
       },\
-      \"documentation\":\"<p>Describes a launch request for one or more instances, and includes owner, requester, and security group information that applies to all instances in the launch request.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Describes a launch request for one or more instances, and includes owner, requester, and security group information that applies to all instances in the launch request.</p>\"\
     },\
     \"ReservationFleetInstanceSpecification\":{\
       \"type\":\"structure\",\
@@ -42696,7 +43192,7 @@
           \"locationName\":\"scope\"\
         }\
       },\
-      \"documentation\":\"<p>Describes the configuration settings for the modified Reserved Instances.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Describes the configuration settings for the modified Reserved Instances.</p>\"\
     },\
     \"ReservedInstancesConfigurationList\":{\
       \"type\":\"list\",\
@@ -43215,6 +43711,7 @@
         \"client-vpn-endpoint\",\
         \"customer-gateway\",\
         \"carrier-gateway\",\
+        \"coip-pool\",\
         \"dedicated-host\",\
         \"dhcp-options\",\
         \"egress-only-internet-gateway\",\
@@ -43276,7 +43773,9 @@
         \"volume\",\
         \"vpc\",\
         \"vpc-endpoint\",\
+        \"vpc-endpoint-connection\",\
         \"vpc-endpoint-service\",\
+        \"vpc-endpoint-service-permission\",\
         \"vpc-peering-connection\",\
         \"vpn-connection\",\
         \"vpn-gateway\",\
@@ -44501,7 +45000,7 @@
           \"locationName\":\"totalScheduledInstanceHours\"\
         }\
       },\
-      \"documentation\":\"<p>Describes a Scheduled Instance.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Describes a Scheduled Instance.</p>\"\
     },\
     \"ScheduledInstanceAvailability\":{\
       \"type\":\"structure\",\
@@ -44572,7 +45071,7 @@
           \"locationName\":\"totalScheduledInstanceHours\"\
         }\
       },\
-      \"documentation\":\"<p>Describes a schedule that is available for your Scheduled Instances.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Describes a schedule that is available for your Scheduled Instances.</p>\"\
     },\
     \"ScheduledInstanceAvailabilitySet\":{\
       \"type\":\"list\",\
@@ -45482,7 +45981,7 @@
         },\
         \"PrivateDnsNames\":{\
           \"shape\":\"PrivateDnsDetailsSet\",\
-          \"documentation\":\"<p>The private DNS names assigned to the VPC endpoint service. </p>\",\
+          \"documentation\":\"<p>The private DNS names assigned to the VPC endpoint service.</p>\",\
           \"locationName\":\"privateDnsNameSet\"\
         },\
         \"VpcEndpointPolicySupported\":{\
@@ -46197,11 +46696,11 @@
         },\
         \"InstanceRequirements\":{\
           \"shape\":\"InstanceRequirements\",\
-          \"documentation\":\"<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.</p> <note> <p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceTypes</code>.</p> </note>\",\
+          \"documentation\":\"<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.</p> <note> <p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceType</code>.</p> </note>\",\
           \"locationName\":\"instanceRequirements\"\
         }\
       },\
-      \"documentation\":\"<p>Describes the launch specification for one or more Spot Instances. If you include On-Demand capacity in your fleet request or want to specify an EFA network device, you can't use <code>SpotFleetLaunchSpecification</code>; you must use <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html\\\">LaunchTemplateConfig</a>.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </note>\"\
+      \"documentation\":\"<p>Describes the launch specification for one or more Spot Instances. If you include On-Demand capacity in your fleet request or want to specify an EFA network device, you can't use <code>SpotFleetLaunchSpecification</code>; you must use <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html\\\">LaunchTemplateConfig</a>.</p>\"\
     },\
     \"SpotFleetMonitoring\":{\
       \"type\":\"structure\",\
@@ -46259,7 +46758,7 @@
       \"members\":{\
         \"AllocationStrategy\":{\
           \"shape\":\"AllocationStrategy\",\
-          \"documentation\":\"<p>Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the Spot Fleet request.</p> <p>If the allocation strategy is <code>lowestPrice</code>, Spot Fleet launches instances from the Spot Instance pools with the lowest price. This is the default allocation strategy.</p> <p>If the allocation strategy is <code>diversified</code>, Spot Fleet launches instances from all the Spot Instance pools that you specify.</p> <p>If the allocation strategy is <code>capacityOptimized</code> (recommended), Spot Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching. To give certain instance types a higher chance of launching first, use <code>capacityOptimizedPrioritized</code>. Set a priority for each instance type by using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements the priorities on a best-effort basis, but optimizes for capacity first. <code>capacityOptimizedPrioritized</code> is supported only if your Spot Fleet uses a launch template. Note that if the <code>OnDemandAllocationStrategy</code> is set to <code>prioritized</code>, the same priority is applied when fulfilling On-Demand capacity.</p>\",\
+          \"documentation\":\"<p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the Spot Fleet launch configuration. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html\\\">Allocation strategies for Spot Instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p> <code>lowestPrice</code> - Spot Fleet launches instances from the lowest-price Spot Instance pool that has available capacity. If the cheapest pool doesn't have available capacity, the Spot Instances come from the next cheapest pool that has available capacity. If a pool runs out of capacity before fulfilling your desired capacity, Spot Fleet will continue to fulfill your request by drawing from the next cheapest pool. To ensure that your desired capacity is met, you might receive Spot Instances from several pools.</p> <p> <code>diversified</code> - Spot Fleet launches instances from all of the Spot Instance pools that you specify.</p> <p> <code>capacityOptimized</code> (recommended) - Spot Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching. To give certain instance types a higher chance of launching first, use <code>capacityOptimizedPrioritized</code>. Set a priority for each instance type by using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements the priorities on a best-effort basis, but optimizes for capacity first. <code>capacityOptimizedPrioritized</code> is supported only if your Spot Fleet uses a launch template. Note that if the <code>OnDemandAllocationStrategy</code> is set to <code>prioritized</code>, the same priority is applied when fulfilling On-Demand capacity.</p> <p>Default: <code>lowestPrice</code> </p>\",\
           \"locationName\":\"allocationStrategy\"\
         },\
         \"OnDemandAllocationStrategy\":{\
@@ -46384,7 +46883,7 @@
         },\
         \"TagSpecifications\":{\
           \"shape\":\"TagSpecificationList\",\
-          \"documentation\":\"<p>The key-value pair for tagging the Spot Fleet request on creation. The value for <code>ResourceType</code> must be <code>spot-fleet-request</code>, otherwise the Spot Fleet request fails. To tag instances at launch, specify the tags in the <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template\\\">launch template</a> (valid only if you use <code>LaunchTemplateConfigs</code>) or in the <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html\\\"> <code>SpotFleetTagSpecification</code> </a> (valid only if you use <code>LaunchSpecifications</code>). For information about tagging after launch, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources\\\">Tagging Your Resources</a>.</p>\",\
+          \"documentation\":\"<p>The key-value pair for tagging the Spot Fleet request on creation. The value for <code>ResourceType</code> must be <code>spot-fleet-request</code>, otherwise the Spot Fleet request fails. To tag instances at launch, specify the tags in the <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template\\\">launch template</a> (valid only if you use <code>LaunchTemplateConfigs</code>) or in the <code> <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html\\\">SpotFleetTagSpecification</a> </code> (valid only if you use <code>LaunchSpecifications</code>). For information about tagging after launch, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources\\\">Tagging Your Resources</a>.</p>\",\
           \"locationName\":\"TagSpecification\"\
         }\
       },\
@@ -46410,7 +46909,7 @@
       \"members\":{\
         \"ResourceType\":{\
           \"shape\":\"ResourceType\",\
-          \"documentation\":\"<p>The type of resource. Currently, the only resource type that is supported is <code>instance</code>. To tag the Spot Fleet request on creation, use the <code>TagSpecifications</code> parameter in <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html\\\"> <code>SpotFleetRequestConfigData</code> </a>.</p>\",\
+          \"documentation\":\"<p>The type of resource. Currently, the only resource type that is supported is <code>instance</code>. To tag the Spot Fleet request on creation, use the <code>TagSpecifications</code> parameter in <code> <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html\\\">SpotFleetRequestConfigData</a> </code>.</p>\",\
           \"locationName\":\"resourceType\"\
         },\
         \"Tags\":{\
@@ -46648,7 +47147,7 @@
       \"members\":{\
         \"AllocationStrategy\":{\
           \"shape\":\"SpotAllocationStrategy\",\
-          \"documentation\":\"<p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the EC2 Fleet.</p> <p> <code>lowest-price</code> - EC2 Fleet launches instances from the Spot Instance pools with the lowest price.</p> <p> <code>diversified</code> - EC2 Fleet launches instances from all of the Spot Instance pools that you specify.</p> <p> <code>capacity-optimized</code> (recommended) - EC2 Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching. To give certain instance types a higher chance of launching first, use <code>capacity-optimized-prioritized</code>. Set a priority for each instance type by using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements the priorities on a best-effort basis, but optimizes for capacity first. <code>capacity-optimized-prioritized</code> is supported only if your fleet uses a launch template. Note that if the On-Demand <code>AllocationStrategy</code> is set to <code>prioritized</code>, the same priority is applied when fulfilling On-Demand capacity.</p> <p>Default: <code>lowest-price</code> </p>\",\
+          \"documentation\":\"<p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the EC2 Fleet launch configuration. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html\\\">Allocation strategies for Spot Instances</a> in the <i>Amazon EC2 User Guide</i>.</p> <p> <code>lowest-price</code> - EC2 Fleet launches instances from the lowest-price Spot Instance pool that has available capacity. If the cheapest pool doesn't have available capacity, the Spot Instances come from the next cheapest pool that has available capacity. If a pool runs out of capacity before fulfilling your desired capacity, EC2 Fleet will continue to fulfill your request by drawing from the next cheapest pool. To ensure that your desired capacity is met, you might receive Spot Instances from several pools.</p> <p> <code>diversified</code> - EC2 Fleet launches instances from all of the Spot Instance pools that you specify.</p> <p> <code>capacity-optimized</code> (recommended) - EC2 Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching. To give certain instance types a higher chance of launching first, use <code>capacity-optimized-prioritized</code>. Set a priority for each instance type by using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements the priorities on a best-effort basis, but optimizes for capacity first. <code>capacity-optimized-prioritized</code> is supported only if your fleet uses a launch template. Note that if the On-Demand <code>AllocationStrategy</code> is set to <code>prioritized</code>, the same priority is applied when fulfilling On-Demand capacity.</p> <p>Default: <code>lowest-price</code> </p>\",\
           \"locationName\":\"allocationStrategy\"\
         },\
         \"MaintenanceStrategies\":{\
@@ -46694,7 +47193,7 @@
       \"members\":{\
         \"AllocationStrategy\":{\
           \"shape\":\"SpotAllocationStrategy\",\
-          \"documentation\":\"<p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the EC2 Fleet.</p> <p> <code>lowest-price</code> - EC2 Fleet launches instances from the Spot Instance pools with the lowest price.</p> <p> <code>diversified</code> - EC2 Fleet launches instances from all of the Spot Instance pools that you specify.</p> <p> <code>capacity-optimized</code> (recommended) - EC2 Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching. To give certain instance types a higher chance of launching first, use <code>capacity-optimized-prioritized</code>. Set a priority for each instance type by using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements the priorities on a best-effort basis, but optimizes for capacity first. <code>capacity-optimized-prioritized</code> is supported only if your fleet uses a launch template. Note that if the On-Demand <code>AllocationStrategy</code> is set to <code>prioritized</code>, the same priority is applied when fulfilling On-Demand capacity.</p> <p>Default: <code>lowest-price</code> </p>\"\
+          \"documentation\":\"<p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the EC2 Fleet launch configuration. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html\\\">Allocation strategies for Spot Instances</a> in the <i>Amazon EC2 User Guide</i>.</p> <p> <code>lowest-price</code> - EC2 Fleet launches instances from the lowest-price Spot Instance pool that has available capacity. If the cheapest pool doesn't have available capacity, the Spot Instances come from the next cheapest pool that has available capacity. If a pool runs out of capacity before fulfilling your desired capacity, EC2 Fleet will continue to fulfill your request by drawing from the next cheapest pool. To ensure that your desired capacity is met, you might receive Spot Instances from several pools.</p> <p> <code>diversified</code> - EC2 Fleet launches instances from all of the Spot Instance pools that you specify.</p> <p> <code>capacity-optimized</code> (recommended) - EC2 Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching. To give certain instance types a higher chance of launching first, use <code>capacity-optimized-prioritized</code>. Set a priority for each instance type by using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements the priorities on a best-effort basis, but optimizes for capacity first. <code>capacity-optimized-prioritized</code> is supported only if your fleet uses a launch template. Note that if the On-Demand <code>AllocationStrategy</code> is set to <code>prioritized</code>, the same priority is applied when fulfilling On-Demand capacity.</p> <p>Default: <code>lowest-price</code> </p>\"\
         },\
         \"MaintenanceStrategies\":{\
           \"shape\":\"FleetSpotMaintenanceStrategiesRequest\",\
@@ -51662,6 +52161,16 @@
           \"shape\":\"IpAddressType\",\
           \"documentation\":\"<p>The IP address type for the endpoint.</p>\",\
           \"locationName\":\"ipAddressType\"\
+        },\
+        \"VpcEndpointConnectionId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the VPC endpoint connection.</p>\",\
+          \"locationName\":\"vpcEndpointConnectionId\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>The tags.</p>\",\
+          \"locationName\":\"tagSet\"\
         }\
       },\
       \"documentation\":\"<p>Describes a VPC endpoint connection to a service.</p>\"\
