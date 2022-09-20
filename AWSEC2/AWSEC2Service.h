@@ -1488,6 +1488,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createClientVpnRoute:(AWSEC2CreateClientVpnRouteRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateClientVpnRouteResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p> Creates a range of customer-owned IP addresses. </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateCoipCidr service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateCoipCidrResult`.
+ 
+ @see AWSEC2CreateCoipCidrRequest
+ @see AWSEC2CreateCoipCidrResult
+ */
+- (AWSTask<AWSEC2CreateCoipCidrResult *> *)createCoipCidr:(AWSEC2CreateCoipCidrRequest *)request;
+
+/**
+ <p> Creates a range of customer-owned IP addresses. </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateCoipCidr service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateCoipCidrRequest
+ @see AWSEC2CreateCoipCidrResult
+ */
+- (void)createCoipCidr:(AWSEC2CreateCoipCidrRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateCoipCidrResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p> Creates a pool of customer-owned IP (CoIP) addresses. </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateCoipPool service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateCoipPoolResult`.
+ 
+ @see AWSEC2CreateCoipPoolRequest
+ @see AWSEC2CreateCoipPoolResult
+ */
+- (AWSTask<AWSEC2CreateCoipPoolResult *> *)createCoipPool:(AWSEC2CreateCoipPoolRequest *)request;
+
+/**
+ <p> Creates a pool of customer-owned IP (CoIP) addresses. </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateCoipPool service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateCoipPoolRequest
+ @see AWSEC2CreateCoipPoolResult
+ */
+- (void)createCoipPool:(AWSEC2CreateCoipPoolRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateCoipPoolResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Provides information to Amazon Web Services about your customer gateway device. The customer gateway device is the appliance at your end of the VPN connection. You must provide the IP address of the customer gateway device’s external interface. The IP address must be static and can be behind a device performing network address translation (NAT).</p><p>For devices that use Border Gateway Protocol (BGP), you can also provide the device's BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your network. If you don't have an ASN already, you can use a private ASN. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/cgw-options.html">Customer gateway options for your Site-to-Site VPN connection</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p><p>To create more than one customer gateway with the same VPN type, IP address, and BGP ASN, specify a unique device name for each customer gateway. An identical request returns information about the existing customer gateway; it doesn't create a new customer gateway.</p>
  
  @param request A container for the necessary parameters to execute the CreateCustomerGateway service method.
@@ -1938,7 +1988,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createLaunchTemplateVersion:(AWSEC2CreateLaunchTemplateVersionRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateLaunchTemplateVersionResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a static route for the specified local gateway route table.</p>
+ <p>Creates a static route for the specified local gateway route table. You must specify one of the following targets: </p><ul><li><p><code>LocalGatewayVirtualInterfaceGroupId</code></p></li><li><p><code>NetworkInterfaceId</code></p></li></ul>
  
  @param request A container for the necessary parameters to execute the CreateLocalGatewayRoute service method.
 
@@ -1950,7 +2000,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateLocalGatewayRouteResult *> *)createLocalGatewayRoute:(AWSEC2CreateLocalGatewayRouteRequest *)request;
 
 /**
- <p>Creates a static route for the specified local gateway route table.</p>
+ <p>Creates a static route for the specified local gateway route table. You must specify one of the following targets: </p><ul><li><p><code>LocalGatewayVirtualInterfaceGroupId</code></p></li><li><p><code>NetworkInterfaceId</code></p></li></ul>
  
  @param request A container for the necessary parameters to execute the CreateLocalGatewayRoute service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1961,6 +2011,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2CreateLocalGatewayRouteResult
  */
 - (void)createLocalGatewayRoute:(AWSEC2CreateLocalGatewayRouteRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateLocalGatewayRouteResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p> Creates a local gateway route table. </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateLocalGatewayRouteTable service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateLocalGatewayRouteTableResult`.
+ 
+ @see AWSEC2CreateLocalGatewayRouteTableRequest
+ @see AWSEC2CreateLocalGatewayRouteTableResult
+ */
+- (AWSTask<AWSEC2CreateLocalGatewayRouteTableResult *> *)createLocalGatewayRouteTable:(AWSEC2CreateLocalGatewayRouteTableRequest *)request;
+
+/**
+ <p> Creates a local gateway route table. </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateLocalGatewayRouteTable service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateLocalGatewayRouteTableRequest
+ @see AWSEC2CreateLocalGatewayRouteTableResult
+ */
+- (void)createLocalGatewayRouteTable:(AWSEC2CreateLocalGatewayRouteTableRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateLocalGatewayRouteTableResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p> Creates a local gateway route table virtual interface group association. </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult`.
+ 
+ @see AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest
+ @see AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult
+ */
+- (AWSTask<AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult *> *)createLocalGatewayRouteTableVirtualInterfaceGroupAssociation:(AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest *)request;
+
+/**
+ <p> Creates a local gateway route table virtual interface group association. </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest
+ @see AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult
+ */
+- (void)createLocalGatewayRouteTableVirtualInterfaceGroupAssociation:(AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Associates the specified VPC with the specified local gateway route table.</p>
@@ -3229,6 +3329,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deleteClientVpnRoute:(AWSEC2DeleteClientVpnRouteRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteClientVpnRouteResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p> Deletes a range of customer-owned IP addresses. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteCoipCidr service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteCoipCidrResult`.
+ 
+ @see AWSEC2DeleteCoipCidrRequest
+ @see AWSEC2DeleteCoipCidrResult
+ */
+- (AWSTask<AWSEC2DeleteCoipCidrResult *> *)deleteCoipCidr:(AWSEC2DeleteCoipCidrRequest *)request;
+
+/**
+ <p> Deletes a range of customer-owned IP addresses. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteCoipCidr service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteCoipCidrRequest
+ @see AWSEC2DeleteCoipCidrResult
+ */
+- (void)deleteCoipCidr:(AWSEC2DeleteCoipCidrRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteCoipCidrResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes a pool of customer-owned IP (CoIP) addresses. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteCoipPool service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteCoipPoolResult`.
+ 
+ @see AWSEC2DeleteCoipPoolRequest
+ @see AWSEC2DeleteCoipPoolResult
+ */
+- (AWSTask<AWSEC2DeleteCoipPoolResult *> *)deleteCoipPool:(AWSEC2DeleteCoipPoolRequest *)request;
+
+/**
+ <p>Deletes a pool of customer-owned IP (CoIP) addresses. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteCoipPool service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteCoipPoolRequest
+ @see AWSEC2DeleteCoipPoolResult
+ */
+- (void)deleteCoipPool:(AWSEC2DeleteCoipPoolRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteCoipPoolResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Deletes the specified customer gateway. You must delete the VPN connection before you can delete the customer gateway.</p>
  
  @param request A container for the necessary parameters to execute the DeleteCustomerGateway service method.
@@ -3590,6 +3740,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2DeleteLocalGatewayRouteResult
  */
 - (void)deleteLocalGatewayRoute:(AWSEC2DeleteLocalGatewayRouteRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteLocalGatewayRouteResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p> Deletes a local gateway route table. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteLocalGatewayRouteTable service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteLocalGatewayRouteTableResult`.
+ 
+ @see AWSEC2DeleteLocalGatewayRouteTableRequest
+ @see AWSEC2DeleteLocalGatewayRouteTableResult
+ */
+- (AWSTask<AWSEC2DeleteLocalGatewayRouteTableResult *> *)deleteLocalGatewayRouteTable:(AWSEC2DeleteLocalGatewayRouteTableRequest *)request;
+
+/**
+ <p> Deletes a local gateway route table. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteLocalGatewayRouteTable service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteLocalGatewayRouteTableRequest
+ @see AWSEC2DeleteLocalGatewayRouteTableResult
+ */
+- (void)deleteLocalGatewayRouteTable:(AWSEC2DeleteLocalGatewayRouteTableRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteLocalGatewayRouteTableResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p> Deletes a local gateway route table virtual interface group association. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult`.
+ 
+ @see AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest
+ @see AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult
+ */
+- (AWSTask<AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult *> *)deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation:(AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest *)request;
+
+/**
+ <p> Deletes a local gateway route table virtual interface group association. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest
+ @see AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult
+ */
+- (void)deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation:(AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deletes the specified association between a VPC and local gateway route table.</p>
@@ -6091,7 +6291,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeInstanceTypes:(AWSEC2DescribeInstanceTypesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeInstanceTypesResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes the specified instances or all instances.</p><p>If you specify instance IDs, the output includes information for only the specified instances. If you specify filters, the output includes information for only those instances that meet the filter criteria. If you do not specify instance IDs or filters, the output includes information for all instances, which can affect performance. We recommend that you use pagination to ensure that the operation returns quickly and successfully.</p><p>If you specify an instance ID that is not valid, an error is returned. If you specify an instance that you do not own, it is not included in the output.</p><p>Recently terminated instances might appear in the returned results. This interval is usually less than one hour.</p><p>If you describe instances in the rare case where an Availability Zone is experiencing a service disruption and you specify instance IDs that are in the affected zone, or do not specify any instance IDs at all, the call fails. If you describe instances and specify only instance IDs that are in an unaffected zone, the call works normally.</p><note><p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p></note>
+ <p>Describes the specified instances or all instances.</p><p>If you specify instance IDs, the output includes information for only the specified instances. If you specify filters, the output includes information for only those instances that meet the filter criteria. If you do not specify instance IDs or filters, the output includes information for all instances, which can affect performance. We recommend that you use pagination to ensure that the operation returns quickly and successfully.</p><p>If you specify an instance ID that is not valid, an error is returned. If you specify an instance that you do not own, it is not included in the output.</p><p>Recently terminated instances might appear in the returned results. This interval is usually less than one hour.</p><p>If you describe instances in the rare case where an Availability Zone is experiencing a service disruption and you specify instance IDs that are in the affected zone, or do not specify any instance IDs at all, the call fails. If you describe instances and specify only instance IDs that are in an unaffected zone, the call works normally.</p>
  
  @param request A container for the necessary parameters to execute the DescribeInstances service method.
 
@@ -6103,7 +6303,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeInstancesResult *> *)describeInstances:(AWSEC2DescribeInstancesRequest *)request;
 
 /**
- <p>Describes the specified instances or all instances.</p><p>If you specify instance IDs, the output includes information for only the specified instances. If you specify filters, the output includes information for only those instances that meet the filter criteria. If you do not specify instance IDs or filters, the output includes information for all instances, which can affect performance. We recommend that you use pagination to ensure that the operation returns quickly and successfully.</p><p>If you specify an instance ID that is not valid, an error is returned. If you specify an instance that you do not own, it is not included in the output.</p><p>Recently terminated instances might appear in the returned results. This interval is usually less than one hour.</p><p>If you describe instances in the rare case where an Availability Zone is experiencing a service disruption and you specify instance IDs that are in the affected zone, or do not specify any instance IDs at all, the call fails. If you describe instances and specify only instance IDs that are in an unaffected zone, the call works normally.</p><note><p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p></note>
+ <p>Describes the specified instances or all instances.</p><p>If you specify instance IDs, the output includes information for only the specified instances. If you specify filters, the output includes information for only those instances that meet the filter criteria. If you do not specify instance IDs or filters, the output includes information for all instances, which can affect performance. We recommend that you use pagination to ensure that the operation returns quickly and successfully.</p><p>If you specify an instance ID that is not valid, an error is returned. If you specify an instance that you do not own, it is not included in the output.</p><p>Recently terminated instances might appear in the returned results. This interval is usually less than one hour.</p><p>If you describe instances in the rare case where an Availability Zone is experiencing a service disruption and you specify instance IDs that are in the affected zone, or do not specify any instance IDs at all, the call fails. If you describe instances and specify only instance IDs that are in an unaffected zone, the call works normally.</p>
  
  @param request A container for the necessary parameters to execute the DescribeInstances service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -6891,7 +7091,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeReplaceRootVolumeTasks:(AWSEC2DescribeReplaceRootVolumeTasksRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeReplaceRootVolumeTasksResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes one or more of the Reserved Instances that you purchased.</p><p>For more information about Reserved Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p><note><p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></note>
+ <p>Describes one or more of the Reserved Instances that you purchased.</p><p>For more information about Reserved Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeReservedInstances service method.
 
@@ -6903,7 +7103,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeReservedInstancesResult *> *)describeReservedInstances:(AWSEC2DescribeReservedInstancesRequest *)request;
 
 /**
- <p>Describes one or more of the Reserved Instances that you purchased.</p><p>For more information about Reserved Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p><note><p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></note>
+ <p>Describes one or more of the Reserved Instances that you purchased.</p><p>For more information about Reserved Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeReservedInstances service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -6941,7 +7141,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeReservedInstancesListings:(AWSEC2DescribeReservedInstancesListingsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeReservedInstancesListingsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p><note><p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></note>
+ <p>Describes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeReservedInstancesModifications service method.
 
@@ -6953,7 +7153,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeReservedInstancesModificationsResult *> *)describeReservedInstancesModifications:(AWSEC2DescribeReservedInstancesModificationsRequest *)request;
 
 /**
- <p>Describes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p><note><p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></note>
+ <p>Describes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeReservedInstancesModifications service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -6966,7 +7166,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeReservedInstancesModifications:(AWSEC2DescribeReservedInstancesModificationsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeReservedInstancesModificationsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes Reserved Instance offerings that are available for purchase. With Reserved Instances, you purchase the right to launch instances for a period of time. During that time period, you do not receive insufficient capacity errors, and you pay a lower usage rate than the rate charged for On-Demand instances for the actual time used.</p><p>If you have listed your own Reserved Instances for sale in the Reserved Instance Marketplace, they will be excluded from these results. This is to ensure that you do not purchase your own Reserved Instances.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p><note><p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></note>
+ <p>Describes Reserved Instance offerings that are available for purchase. With Reserved Instances, you purchase the right to launch instances for a period of time. During that time period, you do not receive insufficient capacity errors, and you pay a lower usage rate than the rate charged for On-Demand instances for the actual time used.</p><p>If you have listed your own Reserved Instances for sale in the Reserved Instance Marketplace, they will be excluded from these results. This is to ensure that you do not purchase your own Reserved Instances.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeReservedInstancesOfferings service method.
 
@@ -6978,7 +7178,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeReservedInstancesOfferingsResult *> *)describeReservedInstancesOfferings:(AWSEC2DescribeReservedInstancesOfferingsRequest *)request;
 
 /**
- <p>Describes Reserved Instance offerings that are available for purchase. With Reserved Instances, you purchase the right to launch instances for a period of time. During that time period, you do not receive insufficient capacity errors, and you pay a lower usage rate than the rate charged for On-Demand instances for the actual time used.</p><p>If you have listed your own Reserved Instances for sale in the Reserved Instance Marketplace, they will be excluded from these results. This is to ensure that you do not purchase your own Reserved Instances.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p><note><p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></note>
+ <p>Describes Reserved Instance offerings that are available for purchase. With Reserved Instances, you purchase the right to launch instances for a period of time. During that time period, you do not receive insufficient capacity errors, and you pay a lower usage rate than the rate charged for On-Demand instances for the actual time used.</p><p>If you have listed your own Reserved Instances for sale in the Reserved Instance Marketplace, they will be excluded from these results. This is to ensure that you do not purchase your own Reserved Instances.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeReservedInstancesOfferings service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -7016,7 +7216,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeRouteTables:(AWSEC2DescribeRouteTablesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeRouteTablesResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Finds available schedules that meet the specified criteria.</p><p>You can search for an available schedule no more than 3 months in advance. You must meet the minimum required duration of 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.</p><p>After you find a schedule that meets your needs, call <a>PurchaseScheduledInstances</a> to purchase Scheduled Instances with that schedule.</p><note><p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></note>
+ <p>Finds available schedules that meet the specified criteria.</p><p>You can search for an available schedule no more than 3 months in advance. You must meet the minimum required duration of 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.</p><p>After you find a schedule that meets your needs, call <a>PurchaseScheduledInstances</a> to purchase Scheduled Instances with that schedule.</p>
  
  @param request A container for the necessary parameters to execute the DescribeScheduledInstanceAvailability service method.
 
@@ -7028,7 +7228,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeScheduledInstanceAvailabilityResult *> *)describeScheduledInstanceAvailability:(AWSEC2DescribeScheduledInstanceAvailabilityRequest *)request;
 
 /**
- <p>Finds available schedules that meet the specified criteria.</p><p>You can search for an available schedule no more than 3 months in advance. You must meet the minimum required duration of 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.</p><p>After you find a schedule that meets your needs, call <a>PurchaseScheduledInstances</a> to purchase Scheduled Instances with that schedule.</p><note><p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></note>
+ <p>Finds available schedules that meet the specified criteria.</p><p>You can search for an available schedule no more than 3 months in advance. You must meet the minimum required duration of 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.</p><p>After you find a schedule that meets your needs, call <a>PurchaseScheduledInstances</a> to purchase Scheduled Instances with that schedule.</p>
  
  @param request A container for the necessary parameters to execute the DescribeScheduledInstanceAvailability service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -7041,7 +7241,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeScheduledInstanceAvailability:(AWSEC2DescribeScheduledInstanceAvailabilityRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeScheduledInstanceAvailabilityResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes the specified Scheduled Instances or all your Scheduled Instances.</p><note><p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></note>
+ <p>Describes the specified Scheduled Instances or all your Scheduled Instances.</p>
  
  @param request A container for the necessary parameters to execute the DescribeScheduledInstances service method.
 
@@ -7053,7 +7253,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeScheduledInstancesResult *> *)describeScheduledInstances:(AWSEC2DescribeScheduledInstancesRequest *)request;
 
 /**
- <p>Describes the specified Scheduled Instances or all your Scheduled Instances.</p><note><p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></note>
+ <p>Describes the specified Scheduled Instances or all your Scheduled Instances.</p>
  
  @param request A container for the necessary parameters to execute the DescribeScheduledInstances service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -11030,6 +11230,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)modifyLaunchTemplate:(AWSEC2ModifyLaunchTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyLaunchTemplateResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Modifies the specified local gateway route.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyLocalGatewayRoute service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyLocalGatewayRouteResult`.
+ 
+ @see AWSEC2ModifyLocalGatewayRouteRequest
+ @see AWSEC2ModifyLocalGatewayRouteResult
+ */
+- (AWSTask<AWSEC2ModifyLocalGatewayRouteResult *> *)modifyLocalGatewayRoute:(AWSEC2ModifyLocalGatewayRouteRequest *)request;
+
+/**
+ <p>Modifies the specified local gateway route.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyLocalGatewayRoute service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyLocalGatewayRouteRequest
+ @see AWSEC2ModifyLocalGatewayRouteResult
+ */
+- (void)modifyLocalGatewayRoute:(AWSEC2ModifyLocalGatewayRouteRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyLocalGatewayRouteResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Modifies the specified managed prefix list.</p><p>Adding or removing entries in a prefix list creates a new version of the prefix list. Changing the name of the prefix list does not affect the version.</p><p>If you specify a current version number that does not match the true current version number, the request fails.</p>
  
  @param request A container for the necessary parameters to execute the ModifyManagedPrefixList service method.
@@ -11102,7 +11327,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)modifyPrivateDnsNameOptions:(AWSEC2ModifyPrivateDnsNameOptionsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyPrivateDnsNameOptionsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Modifies the Availability Zone, instance count, instance type, or network platform (EC2-Classic or EC2-VPC) of your Reserved Instances. The Reserved Instances to be modified must be identical, except for Availability Zone, network platform, and instance type.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p><note><p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></note>
+ <p>Modifies the configuration of your Reserved Instances, such as the Availability Zone, instance count, or instance type. The Reserved Instances to be modified must be identical, except for Availability Zone, network platform, and instance type.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p><note><p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></note>
  
  @param request A container for the necessary parameters to execute the ModifyReservedInstances service method.
 
@@ -11114,7 +11339,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2ModifyReservedInstancesResult *> *)modifyReservedInstances:(AWSEC2ModifyReservedInstancesRequest *)request;
 
 /**
- <p>Modifies the Availability Zone, instance count, instance type, or network platform (EC2-Classic or EC2-VPC) of your Reserved Instances. The Reserved Instances to be modified must be identical, except for Availability Zone, network platform, and instance type.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p><note><p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></note>
+ <p>Modifies the configuration of your Reserved Instances, such as the Availability Zone, instance count, or instance type. The Reserved Instances to be modified must be identical, except for Availability Zone, network platform, and instance type.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p><note><p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></note>
  
  @param request A container for the necessary parameters to execute the ModifyReservedInstances service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -11915,7 +12140,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)purchaseHostReservation:(AWSEC2PurchaseHostReservationRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2PurchaseHostReservationResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Purchases a Reserved Instance for use with your account. With Reserved Instances, you pay a lower hourly rate compared to On-Demand instance pricing.</p><p>Use <a>DescribeReservedInstancesOfferings</a> to get a list of Reserved Instance offerings that match your specifications. After you've purchased a Reserved Instance, you can check for your new Reserved Instance with <a>DescribeReservedInstances</a>.</p><p>To queue a purchase for a future date and time, specify a purchase time. If you do not specify a purchase time, the default is the current time.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved Instances</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Purchases a Reserved Instance for use with your account. With Reserved Instances, you pay a lower hourly rate compared to On-Demand instance pricing.</p><p>Use <a>DescribeReservedInstancesOfferings</a> to get a list of Reserved Instance offerings that match your specifications. After you've purchased a Reserved Instance, you can check for your new Reserved Instance with <a>DescribeReservedInstances</a>.</p><p>To queue a purchase for a future date and time, specify a purchase time. If you do not specify a purchase time, the default is the current time.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved Instances</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p><note><p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></note>
  
  @param request A container for the necessary parameters to execute the PurchaseReservedInstancesOffering service method.
 
@@ -11927,7 +12152,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2PurchaseReservedInstancesOfferingResult *> *)purchaseReservedInstancesOffering:(AWSEC2PurchaseReservedInstancesOfferingRequest *)request;
 
 /**
- <p>Purchases a Reserved Instance for use with your account. With Reserved Instances, you pay a lower hourly rate compared to On-Demand instance pricing.</p><p>Use <a>DescribeReservedInstancesOfferings</a> to get a list of Reserved Instance offerings that match your specifications. After you've purchased a Reserved Instance, you can check for your new Reserved Instance with <a>DescribeReservedInstances</a>.</p><p>To queue a purchase for a future date and time, specify a purchase time. If you do not specify a purchase time, the default is the current time.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved Instances</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ <p>Purchases a Reserved Instance for use with your account. With Reserved Instances, you pay a lower hourly rate compared to On-Demand instance pricing.</p><p>Use <a>DescribeReservedInstancesOfferings</a> to get a list of Reserved Instance offerings that match your specifications. After you've purchased a Reserved Instance, you can check for your new Reserved Instance with <a>DescribeReservedInstances</a>.</p><p>To queue a purchase for a future date and time, specify a purchase time. If you do not specify a purchase time, the default is the current time.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved Instances</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p><note><p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></note>
  
  @param request A container for the necessary parameters to execute the PurchaseReservedInstancesOffering service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -11940,7 +12165,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)purchaseReservedInstancesOffering:(AWSEC2PurchaseReservedInstancesOfferingRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2PurchaseReservedInstancesOfferingResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Purchases the Scheduled Instances with the specified schedule.</p><p>Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term. Before you can purchase a Scheduled Instance, you must call <a>DescribeScheduledInstanceAvailability</a> to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance, you must call <a>RunScheduledInstances</a> during each scheduled time period.</p><p>After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.</p>
+ <note><p>You can no longer purchase Scheduled Instances.</p></note><p>Purchases the Scheduled Instances with the specified schedule.</p><p>Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term. Before you can purchase a Scheduled Instance, you must call <a>DescribeScheduledInstanceAvailability</a> to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance, you must call <a>RunScheduledInstances</a> during each scheduled time period.</p><p>After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.</p>
  
  @param request A container for the necessary parameters to execute the PurchaseScheduledInstances service method.
 
@@ -11952,7 +12177,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2PurchaseScheduledInstancesResult *> *)purchaseScheduledInstances:(AWSEC2PurchaseScheduledInstancesRequest *)request;
 
 /**
- <p>Purchases the Scheduled Instances with the specified schedule.</p><p>Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term. Before you can purchase a Scheduled Instance, you must call <a>DescribeScheduledInstanceAvailability</a> to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance, you must call <a>RunScheduledInstances</a> during each scheduled time period.</p><p>After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.</p>
+ <note><p>You can no longer purchase Scheduled Instances.</p></note><p>Purchases the Scheduled Instances with the specified schedule.</p><p>Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term. Before you can purchase a Scheduled Instance, you must call <a>DescribeScheduledInstanceAvailability</a> to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance, you must call <a>RunScheduledInstances</a> during each scheduled time period.</p><p>After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.</p>
  
  @param request A container for the necessary parameters to execute the PurchaseScheduledInstances service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -12475,7 +12700,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)requestSpotFleet:(AWSEC2RequestSpotFleetRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2RequestSpotFleetResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a Spot Instance request.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot Instance requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p><important><p>We strongly discourage using the RequestSpotInstances API because it is a legacy API with no planned investment. For options for requesting Spot Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use">Which is the best Spot request method to use?</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p></important><note><p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p></note>
+ <p>Creates a Spot Instance request.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot Instance requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p><important><p>We strongly discourage using the RequestSpotInstances API because it is a legacy API with no planned investment. For options for requesting Spot Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use">Which is the best Spot request method to use?</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p></important><note><p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p></note>
  
  @param request A container for the necessary parameters to execute the RequestSpotInstances service method.
 
@@ -12487,7 +12712,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2RequestSpotInstancesResult *> *)requestSpotInstances:(AWSEC2RequestSpotInstancesRequest *)request;
 
 /**
- <p>Creates a Spot Instance request.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot Instance requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p><important><p>We strongly discourage using the RequestSpotInstances API because it is a legacy API with no planned investment. For options for requesting Spot Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use">Which is the best Spot request method to use?</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p></important><note><p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p></note>
+ <p>Creates a Spot Instance request.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot Instance requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p><important><p>We strongly discourage using the RequestSpotInstances API because it is a legacy API with no planned investment. For options for requesting Spot Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use">Which is the best Spot request method to use?</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p></important><note><p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p></note>
  
  @param request A container for the necessary parameters to execute the RequestSpotInstances service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -12863,7 +13088,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)revokeSecurityGroupIngress:(AWSEC2RevokeSecurityGroupIngressRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2RevokeSecurityGroupIngressResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Launches the specified number of instances using an AMI for which you have permissions.</p><p>You can specify a number of options, or leave the default options. The following rules apply:</p><ul><li><p>[EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from your default VPC for you. If you don't have a default VPC, you must specify a subnet ID in the request.</p></li><li><p>[EC2-Classic] If don't specify an Availability Zone, we choose one for you.</p></li><li><p>Some instance types must be launched into a VPC. If you do not have a default VPC, or if you do not specify a subnet ID, the request fails. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types">Instance types available only in a VPC</a>.</p></li><li><p>[EC2-VPC] All instances have a network interface with a primary private IPv4 address. If you don't specify this address, we choose one from the IPv4 range of your subnet.</p></li><li><p>Not all instance types support IPv6 addresses. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a>.</p></li><li><p>If you don't specify a security group ID, we use the default security group. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Security groups</a>.</p></li><li><p>If any of the AMIs have a product code attached for which the user has not subscribed, the request fails.</p></li></ul><p>You can create a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch template</a>, which is a resource that contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify the launch template instead of specifying the launch parameters.</p><p>To ensure faster instance launches, break up large requests into smaller batches. For example, create five separate launch requests for 100 instances each instead of one launch request for 500 instances.</p><p>An instance is ready for you to use when it's in the <code>running</code> state. You can check the state of your instance using <a>DescribeInstances</a>. You can tag instances and EBS volumes during launch, after launch, or both. For more information, see <a>CreateTags</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging your Amazon EC2 resources</a>.</p><p>Linux instances have access to the public key of the key pair at boot. You can use this key to provide secure access to the instance. Amazon EC2 public images use this feature to provide secure access without passwords. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key pairs</a>.</p><p>For troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html">What to do if an instance immediately terminates</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html">Troubleshooting connecting to your instance</a>.</p><note><p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p></note>
+ <p>Launches the specified number of instances using an AMI for which you have permissions.</p><p>You can specify a number of options, or leave the default options. The following rules apply:</p><ul><li><p>[EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from your default VPC for you. If you don't have a default VPC, you must specify a subnet ID in the request.</p></li><li><p>[EC2-Classic] If don't specify an Availability Zone, we choose one for you.</p></li><li><p>Some instance types must be launched into a VPC. If you do not have a default VPC, or if you do not specify a subnet ID, the request fails. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types">Instance types available only in a VPC</a>.</p></li><li><p>[EC2-VPC] All instances have a network interface with a primary private IPv4 address. If you don't specify this address, we choose one from the IPv4 range of your subnet.</p></li><li><p>Not all instance types support IPv6 addresses. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a>.</p></li><li><p>If you don't specify a security group ID, we use the default security group. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Security groups</a>.</p></li><li><p>If any of the AMIs have a product code attached for which the user has not subscribed, the request fails.</p></li></ul><p>You can create a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch template</a>, which is a resource that contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify the launch template instead of specifying the launch parameters.</p><p>To ensure faster instance launches, break up large requests into smaller batches. For example, create five separate launch requests for 100 instances each instead of one launch request for 500 instances.</p><p>An instance is ready for you to use when it's in the <code>running</code> state. You can check the state of your instance using <a>DescribeInstances</a>. You can tag instances and EBS volumes during launch, after launch, or both. For more information, see <a>CreateTags</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging your Amazon EC2 resources</a>.</p><p>Linux instances have access to the public key of the key pair at boot. You can use this key to provide secure access to the instance. Amazon EC2 public images use this feature to provide secure access without passwords. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key pairs</a>.</p><p>For troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html">What to do if an instance immediately terminates</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html">Troubleshooting connecting to your instance</a>.</p><note><p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p></note>
  
  @param request A container for the necessary parameters to execute the RunInstances service method.
 
@@ -12875,7 +13100,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2Reservation *> *)runInstances:(AWSEC2RunInstancesRequest *)request;
 
 /**
- <p>Launches the specified number of instances using an AMI for which you have permissions.</p><p>You can specify a number of options, or leave the default options. The following rules apply:</p><ul><li><p>[EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from your default VPC for you. If you don't have a default VPC, you must specify a subnet ID in the request.</p></li><li><p>[EC2-Classic] If don't specify an Availability Zone, we choose one for you.</p></li><li><p>Some instance types must be launched into a VPC. If you do not have a default VPC, or if you do not specify a subnet ID, the request fails. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types">Instance types available only in a VPC</a>.</p></li><li><p>[EC2-VPC] All instances have a network interface with a primary private IPv4 address. If you don't specify this address, we choose one from the IPv4 range of your subnet.</p></li><li><p>Not all instance types support IPv6 addresses. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a>.</p></li><li><p>If you don't specify a security group ID, we use the default security group. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Security groups</a>.</p></li><li><p>If any of the AMIs have a product code attached for which the user has not subscribed, the request fails.</p></li></ul><p>You can create a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch template</a>, which is a resource that contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify the launch template instead of specifying the launch parameters.</p><p>To ensure faster instance launches, break up large requests into smaller batches. For example, create five separate launch requests for 100 instances each instead of one launch request for 500 instances.</p><p>An instance is ready for you to use when it's in the <code>running</code> state. You can check the state of your instance using <a>DescribeInstances</a>. You can tag instances and EBS volumes during launch, after launch, or both. For more information, see <a>CreateTags</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging your Amazon EC2 resources</a>.</p><p>Linux instances have access to the public key of the key pair at boot. You can use this key to provide secure access to the instance. Amazon EC2 public images use this feature to provide secure access without passwords. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key pairs</a>.</p><p>For troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html">What to do if an instance immediately terminates</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html">Troubleshooting connecting to your instance</a>.</p><note><p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p></note>
+ <p>Launches the specified number of instances using an AMI for which you have permissions.</p><p>You can specify a number of options, or leave the default options. The following rules apply:</p><ul><li><p>[EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from your default VPC for you. If you don't have a default VPC, you must specify a subnet ID in the request.</p></li><li><p>[EC2-Classic] If don't specify an Availability Zone, we choose one for you.</p></li><li><p>Some instance types must be launched into a VPC. If you do not have a default VPC, or if you do not specify a subnet ID, the request fails. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types">Instance types available only in a VPC</a>.</p></li><li><p>[EC2-VPC] All instances have a network interface with a primary private IPv4 address. If you don't specify this address, we choose one from the IPv4 range of your subnet.</p></li><li><p>Not all instance types support IPv6 addresses. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a>.</p></li><li><p>If you don't specify a security group ID, we use the default security group. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Security groups</a>.</p></li><li><p>If any of the AMIs have a product code attached for which the user has not subscribed, the request fails.</p></li></ul><p>You can create a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch template</a>, which is a resource that contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify the launch template instead of specifying the launch parameters.</p><p>To ensure faster instance launches, break up large requests into smaller batches. For example, create five separate launch requests for 100 instances each instead of one launch request for 500 instances.</p><p>An instance is ready for you to use when it's in the <code>running</code> state. You can check the state of your instance using <a>DescribeInstances</a>. You can tag instances and EBS volumes during launch, after launch, or both. For more information, see <a>CreateTags</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging your Amazon EC2 resources</a>.</p><p>Linux instances have access to the public key of the key pair at boot. You can use this key to provide secure access to the instance. Amazon EC2 public images use this feature to provide secure access without passwords. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key pairs</a>.</p><p>For troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html">What to do if an instance immediately terminates</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html">Troubleshooting connecting to your instance</a>.</p><note><p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p></note>
  
  @param request A container for the necessary parameters to execute the RunInstances service method.
  @param completionHandler The completion handler to call when the load request is complete.
