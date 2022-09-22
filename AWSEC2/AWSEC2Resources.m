@@ -148,7 +148,7 @@
       },\
       \"input\":{\"shape\":\"AllocateAddressRequest\"},\
       \"output\":{\"shape\":\"AllocateAddressResult\"},\
-      \"documentation\":\"<p>Allocates an Elastic IP address to your Amazon Web Services account. After you allocate the Elastic IP address you can associate it with an instance or network interface. After you release an Elastic IP address, it is released to the IP address pool and can be allocated to a different Amazon Web Services account.</p> <p>You can allocate an Elastic IP address from an address pool owned by Amazon Web Services or from an address pool created from a public IPv4 address range that you have brought to Amazon Web Services for use with your Amazon Web Services resources using bring your own IP addresses (BYOIP). For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html\\\">Bring Your Own IP Addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>[EC2-VPC] If you release an Elastic IP address, you might be able to recover it. You cannot recover an Elastic IP address that you released after it is allocated to another Amazon Web Services account. You cannot recover an Elastic IP address for EC2-Classic. To attempt to recover an Elastic IP address that you released, specify it in this operation.</p> <p>An Elastic IP address is for use either in the EC2-Classic platform or in a VPC. By default, you can allocate 5 Elastic IP addresses for EC2-Classic per Region and 5 Elastic IP addresses for EC2-VPC per Region.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\\\">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>You can allocate a carrier IP address which is a public IP address from a telecommunication carrier, to a network interface which resides in a subnet in a Wavelength Zone (for example an EC2 instance). </p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Allocates an Elastic IP address to your Amazon Web Services account. After you allocate the Elastic IP address you can associate it with an instance or network interface. After you release an Elastic IP address, it is released to the IP address pool and can be allocated to a different Amazon Web Services account.</p> <p>You can allocate an Elastic IP address from an address pool owned by Amazon Web Services or from an address pool created from a public IPv4 address range that you have brought to Amazon Web Services for use with your Amazon Web Services resources using bring your own IP addresses (BYOIP). For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html\\\">Bring Your Own IP Addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>[EC2-VPC] If you release an Elastic IP address, you might be able to recover it. You cannot recover an Elastic IP address that you released after it is allocated to another Amazon Web Services account. You cannot recover an Elastic IP address for EC2-Classic. To attempt to recover an Elastic IP address that you released, specify it in this operation.</p> <p>An Elastic IP address is for use either in the EC2-Classic platform or in a VPC. By default, you can allocate 5 Elastic IP addresses for EC2-Classic per Region and 5 Elastic IP addresses for EC2-VPC per Region.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\\\">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>You can allocate a carrier IP address which is a public IP address from a telecommunication carrier, to a network interface which resides in a subnet in a Wavelength Zone (for example an EC2 instance). </p> <note> <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
     },\
     \"AllocateHosts\":{\
       \"name\":\"AllocateHosts\",\
@@ -208,7 +208,7 @@
       },\
       \"input\":{\"shape\":\"AssociateAddressRequest\"},\
       \"output\":{\"shape\":\"AssociateAddressResult\"},\
-      \"documentation\":\"<p>Associates an Elastic IP address, or carrier IP address (for instances that are in subnets in Wavelength Zones) with an instance or a network interface. Before you can use an Elastic IP address, you must allocate it to your account.</p> <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\\\">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>[EC2-Classic, VPC in an EC2-VPC-only account] If the Elastic IP address is already associated with a different instance, it is disassociated from that instance and associated with the specified instance. If you associate an Elastic IP address with an instance that has an existing Elastic IP address, the existing address is disassociated from the instance, but remains allocated to your account.</p> <p>[VPC in an EC2-Classic account] If you don't specify a private IP address, the Elastic IP address is associated with the primary IP address. If the Elastic IP address is already associated with a different instance or a network interface, you get an error unless you allow reassociation. You cannot associate an Elastic IP address with an instance or network interface that has an existing Elastic IP address.</p> <p>[Subnets in Wavelength Zones] You can associate an IP address from the telecommunication carrier to the instance or network interface. </p> <p>You cannot associate an Elastic IP address with an interface in a different network border group.</p> <important> <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error, and you may be charged for each time the Elastic IP address is remapped to the same instance. For more information, see the <i>Elastic IP Addresses</i> section of <a href=\\\"http://aws.amazon.com/ec2/pricing/\\\">Amazon EC2 Pricing</a>.</p> </important> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Associates an Elastic IP address, or carrier IP address (for instances that are in subnets in Wavelength Zones) with an instance or a network interface. Before you can use an Elastic IP address, you must allocate it to your account.</p> <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\\\">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>[EC2-Classic, VPC in an EC2-VPC-only account] If the Elastic IP address is already associated with a different instance, it is disassociated from that instance and associated with the specified instance. If you associate an Elastic IP address with an instance that has an existing Elastic IP address, the existing address is disassociated from the instance, but remains allocated to your account.</p> <p>[VPC in an EC2-Classic account] If you don't specify a private IP address, the Elastic IP address is associated with the primary IP address. If the Elastic IP address is already associated with a different instance or a network interface, you get an error unless you allow reassociation. You cannot associate an Elastic IP address with an instance or network interface that has an existing Elastic IP address.</p> <p>[Subnets in Wavelength Zones] You can associate an IP address from the telecommunication carrier to the instance or network interface. </p> <p>You cannot associate an Elastic IP address with an interface in a different network border group.</p> <important> <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error, and you may be charged for each time the Elastic IP address is remapped to the same instance. For more information, see the <i>Elastic IP Addresses</i> section of <a href=\\\"http://aws.amazon.com/ec2/pricing/\\\">Amazon EC2 Pricing</a>.</p> </important> <note> <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
     },\
     \"AssociateClientVpnTargetNetwork\":{\
       \"name\":\"AssociateClientVpnTargetNetwork\",\
@@ -237,7 +237,7 @@
       },\
       \"input\":{\"shape\":\"AssociateEnclaveCertificateIamRoleRequest\"},\
       \"output\":{\"shape\":\"AssociateEnclaveCertificateIamRoleResult\"},\
-      \"documentation\":\"<p>Associates an Identity and Access Management (IAM) role with an Certificate Manager (ACM) certificate. This enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave. For more information, see <a href=\\\"https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html\\\">Certificate Manager for Nitro Enclaves</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p> <p>When the IAM role is associated with the ACM certificate, the certificate, certificate chain, and encrypted private key are placed in an Amazon S3 bucket that only the associated IAM role can access. The private key of the certificate is encrypted with an Amazon Web Services managed key that has an attached attestation-based key policy.</p> <p>To enable the IAM role to access the Amazon S3 object, you must grant it permission to call <code>s3:GetObject</code> on the Amazon S3 bucket returned by the command. To enable the IAM role to access the KMS key, you must grant it permission to call <code>kms:Decrypt</code> on the KMS key returned by the command. For more information, see <a href=\\\"https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html#add-policy\\\"> Grant the role permission to access the certificate and encryption key</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Associates an Identity and Access Management (IAM) role with an Certificate Manager (ACM) certificate. This enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave. For more information, see <a href=\\\"https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html\\\">Certificate Manager for Nitro Enclaves</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p> <p>When the IAM role is associated with the ACM certificate, the certificate, certificate chain, and encrypted private key are placed in an Amazon S3 location that only the associated IAM role can access. The private key of the certificate is encrypted with an Amazon Web Services managed key that has an attached attestation-based key policy.</p> <p>To enable the IAM role to access the Amazon S3 object, you must grant it permission to call <code>s3:GetObject</code> on the Amazon S3 bucket returned by the command. To enable the IAM role to access the KMS key, you must grant it permission to call <code>kms:Decrypt</code> on the KMS key returned by the command. For more information, see <a href=\\\"https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html#add-policy\\\"> Grant the role permission to access the certificate and encryption key</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p>\"\
     },\
     \"AssociateIamInstanceProfile\":{\
       \"name\":\"AssociateIamInstanceProfile\",\
@@ -406,7 +406,7 @@
       },\
       \"input\":{\"shape\":\"AuthorizeSecurityGroupIngressRequest\"},\
       \"output\":{\"shape\":\"AuthorizeSecurityGroupIngressResult\"},\
-      \"documentation\":\"<p>Adds the specified inbound (ingress) rules to a security group.</p> <p>An inbound rule permits instances to receive traffic from the specified IPv4 or IPv6 CIDR address range, or from the instances that are associated with the specified destination security groups. When specifying an inbound rule for your security group in a VPC, the <code>IpPermissions</code> must include a source for the traffic.</p> <p>You specify a protocol for each rule (for example, TCP). For TCP and UDP, you must also specify the destination port or port range. For ICMP/ICMPv6, you must also specify the ICMP/ICMPv6 type and code. You can use -1 to mean all types or all codes.</p> <p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p> <p>For more information about VPC security group quotas, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html\\\">Amazon VPC quotas</a>.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Adds the specified inbound (ingress) rules to a security group.</p> <p>An inbound rule permits instances to receive traffic from the specified IPv4 or IPv6 CIDR address range, or from the instances that are associated with the specified destination security groups. When specifying an inbound rule for your security group in a VPC, the <code>IpPermissions</code> must include a source for the traffic.</p> <p>You specify a protocol for each rule (for example, TCP). For TCP and UDP, you must also specify the destination port or port range. For ICMP/ICMPv6, you must also specify the ICMP/ICMPv6 type and code. You can use -1 to mean all types or all codes.</p> <p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p> <p>For more information about VPC security group quotas, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html\\\">Amazon VPC quotas</a>.</p> <note> <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
     },\
     \"BundleInstance\":{\
       \"name\":\"BundleInstance\",\
@@ -596,6 +596,26 @@
       \"output\":{\"shape\":\"CreateClientVpnRouteResult\"},\
       \"documentation\":\"<p>Adds a route to a network to a Client VPN endpoint. Each Client VPN endpoint has a route table that describes the available destination network routes. Each route in the route table specifies the path for traï¬c to speciï¬c resources or networks.</p>\"\
     },\
+    \"CreateCoipCidr\":{\
+      \"name\":\"CreateCoipCidr\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"CreateCoipCidrRequest\"},\
+      \"output\":{\"shape\":\"CreateCoipCidrResult\"},\
+      \"documentation\":\"<p> Creates a range of customer-owned IP addresses. </p>\"\
+    },\
+    \"CreateCoipPool\":{\
+      \"name\":\"CreateCoipPool\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"CreateCoipPoolRequest\"},\
+      \"output\":{\"shape\":\"CreateCoipPoolResult\"},\
+      \"documentation\":\"<p> Creates a pool of customer-owned IP (CoIP) addresses. </p>\"\
+    },\
     \"CreateCustomerGateway\":{\
       \"name\":\"CreateCustomerGateway\",\
       \"http\":{\
@@ -784,7 +804,27 @@
       },\
       \"input\":{\"shape\":\"CreateLocalGatewayRouteRequest\"},\
       \"output\":{\"shape\":\"CreateLocalGatewayRouteResult\"},\
-      \"documentation\":\"<p>Creates a static route for the specified local gateway route table.</p>\"\
+      \"documentation\":\"<p>Creates a static route for the specified local gateway route table. You must specify one of the following targets: </p> <ul> <li> <p> <code>LocalGatewayVirtualInterfaceGroupId</code> </p> </li> <li> <p> <code>NetworkInterfaceId</code> </p> </li> </ul>\"\
+    },\
+    \"CreateLocalGatewayRouteTable\":{\
+      \"name\":\"CreateLocalGatewayRouteTable\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"CreateLocalGatewayRouteTableRequest\"},\
+      \"output\":{\"shape\":\"CreateLocalGatewayRouteTableResult\"},\
+      \"documentation\":\"<p> Creates a local gateway route table. </p>\"\
+    },\
+    \"CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation\":{\
+      \"name\":\"CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest\"},\
+      \"output\":{\"shape\":\"CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult\"},\
+      \"documentation\":\"<p> Creates a local gateway route table virtual interface group association. </p>\"\
     },\
     \"CreateLocalGatewayRouteTableVpcAssociation\":{\
       \"name\":\"CreateLocalGatewayRouteTableVpcAssociation\",\
@@ -863,7 +903,7 @@
       },\
       \"input\":{\"shape\":\"CreateNetworkInterfaceRequest\"},\
       \"output\":{\"shape\":\"CreateNetworkInterfaceResult\"},\
-      \"documentation\":\"<p>Creates a network interface in the specified subnet.</p> <p>For more information about network interfaces, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html\\\">Elastic Network Interfaces</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Creates a network interface in the specified subnet.</p> <p>The number of IP addresses you can assign to a network interface varies by instance type. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI\\\">IP Addresses Per ENI Per Instance Type</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p> <p>For more information about network interfaces, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html\\\">Elastic network interfaces</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
     },\
     \"CreateNetworkInterfacePermission\":{\
       \"name\":\"CreateNetworkInterfacePermission\",\
@@ -953,7 +993,7 @@
       },\
       \"input\":{\"shape\":\"CreateSecurityGroupRequest\"},\
       \"output\":{\"shape\":\"CreateSecurityGroupResult\"},\
-      \"documentation\":\"<p>Creates a security group.</p> <p>A security group acts as a virtual firewall for your instance to control inbound and outbound traffic. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html\\\">Amazon EC2 security groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i> and <a href=\\\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html\\\">Security groups for your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p> <p>When you create a security group, you specify a friendly name of your choice. You can have a security group for use in EC2-Classic with the same name as a security group for use in a VPC. However, you can't have two security groups for use in EC2-Classic with the same name or two security groups for use in a VPC with the same name.</p> <p>You have a default security group for use in EC2-Classic and a default security group for use in your VPC. If you don't specify a security group when you launch an instance, the instance is launched into the appropriate default security group. A default security group includes a default rule that grants instances unrestricted network access to each other.</p> <p>You can add or remove rules from your security groups using <a>AuthorizeSecurityGroupIngress</a>, <a>AuthorizeSecurityGroupEgress</a>, <a>RevokeSecurityGroupIngress</a>, and <a>RevokeSecurityGroupEgress</a>.</p> <p>For more information about VPC security group limits, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html\\\">Amazon VPC Limits</a>.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Creates a security group.</p> <p>A security group acts as a virtual firewall for your instance to control inbound and outbound traffic. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html\\\">Amazon EC2 security groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i> and <a href=\\\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html\\\">Security groups for your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p> <p>When you create a security group, you specify a friendly name of your choice. You can have a security group for use in EC2-Classic with the same name as a security group for use in a VPC. However, you can't have two security groups for use in EC2-Classic with the same name or two security groups for use in a VPC with the same name.</p> <p>You have a default security group for use in EC2-Classic and a default security group for use in your VPC. If you don't specify a security group when you launch an instance, the instance is launched into the appropriate default security group. A default security group includes a default rule that grants instances unrestricted network access to each other.</p> <p>You can add or remove rules from your security groups using <a>AuthorizeSecurityGroupIngress</a>, <a>AuthorizeSecurityGroupEgress</a>, <a>RevokeSecurityGroupIngress</a>, and <a>RevokeSecurityGroupEgress</a>.</p> <p>For more information about VPC security group limits, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html\\\">Amazon VPC Limits</a>.</p> <note> <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
     },\
     \"CreateSnapshot\":{\
       \"name\":\"CreateSnapshot\",\
@@ -973,7 +1013,7 @@
       },\
       \"input\":{\"shape\":\"CreateSnapshotsRequest\"},\
       \"output\":{\"shape\":\"CreateSnapshotsResult\"},\
-      \"documentation\":\"<p>Creates crash-consistent snapshots of multiple EBS volumes and stores the data in S3. Volumes are chosen by specifying an instance. Any attached volumes will produce one snapshot each that is crash-consistent across the instance. Boot volumes can be excluded by changing the parameters. </p> <p>You can create multi-volume snapshots of instances in a Region and instances on an Outpost. If you create snapshots from an instance in a Region, the snapshots must be stored in the same Region as the instance. If you create snapshots from an instance on an Outpost, the snapshots can be stored on the same Outpost as the instance, or in the Region for that Outpost.</p>\"\
+      \"documentation\":\"<p>Creates crash-consistent snapshots of multiple EBS volumes and stores the data in S3. Volumes are chosen by specifying an instance. Any attached volumes will produce one snapshot each that is crash-consistent across the instance.</p> <p>You can include all of the volumes currently attached to the instance, or you can exclude the root volume or specific data (non-root) volumes from the multi-volume snapshot set.</p> <p>You can create multi-volume snapshots of instances in a Region and instances on an Outpost. If you create snapshots from an instance in a Region, the snapshots must be stored in the same Region as the instance. If you create snapshots from an instance on an Outpost, the snapshots can be stored on the same Outpost as the instance, or in the Region for that Outpost.</p>\"\
     },\
     \"CreateSpotDatafeedSubscription\":{\
       \"name\":\"CreateSpotDatafeedSubscription\",\
@@ -1293,6 +1333,26 @@
       \"output\":{\"shape\":\"DeleteClientVpnRouteResult\"},\
       \"documentation\":\"<p>Deletes a route from a Client VPN endpoint. You can only delete routes that you manually added using the <b>CreateClientVpnRoute</b> action. You cannot delete routes that were automatically added when associating a subnet. To remove routes that have been automatically added, disassociate the target subnet from the Client VPN endpoint.</p>\"\
     },\
+    \"DeleteCoipCidr\":{\
+      \"name\":\"DeleteCoipCidr\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DeleteCoipCidrRequest\"},\
+      \"output\":{\"shape\":\"DeleteCoipCidrResult\"},\
+      \"documentation\":\"<p> Deletes a range of customer-owned IP addresses. </p>\"\
+    },\
+    \"DeleteCoipPool\":{\
+      \"name\":\"DeleteCoipPool\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DeleteCoipPoolRequest\"},\
+      \"output\":{\"shape\":\"DeleteCoipPoolResult\"},\
+      \"documentation\":\"<p>Deletes a pool of customer-owned IP (CoIP) addresses. </p>\"\
+    },\
     \"DeleteCustomerGateway\":{\
       \"name\":\"DeleteCustomerGateway\",\
       \"http\":{\
@@ -1438,6 +1498,26 @@
       \"input\":{\"shape\":\"DeleteLocalGatewayRouteRequest\"},\
       \"output\":{\"shape\":\"DeleteLocalGatewayRouteResult\"},\
       \"documentation\":\"<p>Deletes the specified route from the specified local gateway route table.</p>\"\
+    },\
+    \"DeleteLocalGatewayRouteTable\":{\
+      \"name\":\"DeleteLocalGatewayRouteTable\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DeleteLocalGatewayRouteTableRequest\"},\
+      \"output\":{\"shape\":\"DeleteLocalGatewayRouteTableResult\"},\
+      \"documentation\":\"<p> Deletes a local gateway route table. </p>\"\
+    },\
+    \"DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation\":{\
+      \"name\":\"DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest\"},\
+      \"output\":{\"shape\":\"DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult\"},\
+      \"documentation\":\"<p> Deletes a local gateway route table virtual interface group association. </p>\"\
     },\
     \"DeleteLocalGatewayRouteTableVpcAssociation\":{\
       \"name\":\"DeleteLocalGatewayRouteTableVpcAssociation\",\
@@ -1600,7 +1680,7 @@
         \"requestUri\":\"/\"\
       },\
       \"input\":{\"shape\":\"DeleteSecurityGroupRequest\"},\
-      \"documentation\":\"<p>Deletes a security group.</p> <p>If you attempt to delete a security group that is associated with an instance, or is referenced by another security group, the operation fails with <code>InvalidGroup.InUse</code> in EC2-Classic or <code>DependencyViolation</code> in EC2-VPC.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Deletes a security group.</p> <p>If you attempt to delete a security group that is associated with an instance, or is referenced by another security group, the operation fails with <code>InvalidGroup.InUse</code> in EC2-Classic or <code>DependencyViolation</code> in EC2-VPC.</p> <note> <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
     },\
     \"DeleteSnapshot\":{\
       \"name\":\"DeleteSnapshot\",\
@@ -1970,7 +2050,7 @@
       },\
       \"input\":{\"shape\":\"DescribeAddressesRequest\"},\
       \"output\":{\"shape\":\"DescribeAddressesResult\"},\
-      \"documentation\":\"<p>Describes the specified Elastic IP addresses or all of your Elastic IP addresses.</p> <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\\\">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Describes the specified Elastic IP addresses or all of your Elastic IP addresses.</p> <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\\\">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <note> <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
     },\
     \"DescribeAddressesAttribute\":{\
       \"name\":\"DescribeAddressesAttribute\",\
@@ -2450,7 +2530,7 @@
       },\
       \"input\":{\"shape\":\"DescribeInstancesRequest\"},\
       \"output\":{\"shape\":\"DescribeInstancesResult\"},\
-      \"documentation\":\"<p>Describes the specified instances or all instances.</p> <p>If you specify instance IDs, the output includes information for only the specified instances. If you specify filters, the output includes information for only those instances that meet the filter criteria. If you do not specify instance IDs or filters, the output includes information for all instances, which can affect performance. We recommend that you use pagination to ensure that the operation returns quickly and successfully.</p> <p>If you specify an instance ID that is not valid, an error is returned. If you specify an instance that you do not own, it is not included in the output.</p> <p>Recently terminated instances might appear in the returned results. This interval is usually less than one hour.</p> <p>If you describe instances in the rare case where an Availability Zone is experiencing a service disruption and you specify instance IDs that are in the affected zone, or do not specify any instance IDs at all, the call fails. If you describe instances and specify only instance IDs that are in an unaffected zone, the call works normally.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Describes the specified instances or all instances.</p> <p>If you specify instance IDs, the output includes information for only the specified instances. If you specify filters, the output includes information for only those instances that meet the filter criteria. If you do not specify instance IDs or filters, the output includes information for all instances, which can affect performance. We recommend that you use pagination to ensure that the operation returns quickly and successfully.</p> <p>If you specify an instance ID that is not valid, an error is returned. If you specify an instance that you do not own, it is not included in the output.</p> <p>Recently terminated instances might appear in the returned results. This interval is usually less than one hour.</p> <p>If you describe instances in the rare case where an Availability Zone is experiencing a service disruption and you specify instance IDs that are in the affected zone, or do not specify any instance IDs at all, the call fails. If you describe instances and specify only instance IDs that are in an unaffected zone, the call works normally.</p>\"\
     },\
     \"DescribeInternetGateways\":{\
       \"name\":\"DescribeInternetGateways\",\
@@ -2770,7 +2850,7 @@
       },\
       \"input\":{\"shape\":\"DescribeReservedInstancesRequest\"},\
       \"output\":{\"shape\":\"DescribeReservedInstancesResult\"},\
-      \"documentation\":\"<p>Describes one or more of the Reserved Instances that you purchased.</p> <p>For more information about Reserved Instances, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html\\\">Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Describes one or more of the Reserved Instances that you purchased.</p> <p>For more information about Reserved Instances, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html\\\">Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
     },\
     \"DescribeReservedInstancesListings\":{\
       \"name\":\"DescribeReservedInstancesListings\",\
@@ -2790,7 +2870,7 @@
       },\
       \"input\":{\"shape\":\"DescribeReservedInstancesModificationsRequest\"},\
       \"output\":{\"shape\":\"DescribeReservedInstancesModificationsResult\"},\
-      \"documentation\":\"<p>Describes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html\\\">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Describes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html\\\">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
     },\
     \"DescribeReservedInstancesOfferings\":{\
       \"name\":\"DescribeReservedInstancesOfferings\",\
@@ -2800,7 +2880,7 @@
       },\
       \"input\":{\"shape\":\"DescribeReservedInstancesOfferingsRequest\"},\
       \"output\":{\"shape\":\"DescribeReservedInstancesOfferingsResult\"},\
-      \"documentation\":\"<p>Describes Reserved Instance offerings that are available for purchase. With Reserved Instances, you purchase the right to launch instances for a period of time. During that time period, you do not receive insufficient capacity errors, and you pay a lower usage rate than the rate charged for On-Demand instances for the actual time used.</p> <p>If you have listed your own Reserved Instances for sale in the Reserved Instance Marketplace, they will be excluded from these results. This is to ensure that you do not purchase your own Reserved Instances.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\\\">Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Describes Reserved Instance offerings that are available for purchase. With Reserved Instances, you purchase the right to launch instances for a period of time. During that time period, you do not receive insufficient capacity errors, and you pay a lower usage rate than the rate charged for On-Demand instances for the actual time used.</p> <p>If you have listed your own Reserved Instances for sale in the Reserved Instance Marketplace, they will be excluded from these results. This is to ensure that you do not purchase your own Reserved Instances.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\\\">Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
     },\
     \"DescribeRouteTables\":{\
       \"name\":\"DescribeRouteTables\",\
@@ -2820,7 +2900,7 @@
       },\
       \"input\":{\"shape\":\"DescribeScheduledInstanceAvailabilityRequest\"},\
       \"output\":{\"shape\":\"DescribeScheduledInstanceAvailabilityResult\"},\
-      \"documentation\":\"<p>Finds available schedules that meet the specified criteria.</p> <p>You can search for an available schedule no more than 3 months in advance. You must meet the minimum required duration of 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.</p> <p>After you find a schedule that meets your needs, call <a>PurchaseScheduledInstances</a> to purchase Scheduled Instances with that schedule.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Finds available schedules that meet the specified criteria.</p> <p>You can search for an available schedule no more than 3 months in advance. You must meet the minimum required duration of 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.</p> <p>After you find a schedule that meets your needs, call <a>PurchaseScheduledInstances</a> to purchase Scheduled Instances with that schedule.</p>\"\
     },\
     \"DescribeScheduledInstances\":{\
       \"name\":\"DescribeScheduledInstances\",\
@@ -2830,7 +2910,7 @@
       },\
       \"input\":{\"shape\":\"DescribeScheduledInstancesRequest\"},\
       \"output\":{\"shape\":\"DescribeScheduledInstancesResult\"},\
-      \"documentation\":\"<p>Describes the specified Scheduled Instances or all your Scheduled Instances.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Describes the specified Scheduled Instances or all your Scheduled Instances.</p>\"\
     },\
     \"DescribeSecurityGroupReferences\":{\
       \"name\":\"DescribeSecurityGroupReferences\",\
@@ -2860,7 +2940,7 @@
       },\
       \"input\":{\"shape\":\"DescribeSecurityGroupsRequest\"},\
       \"output\":{\"shape\":\"DescribeSecurityGroupsResult\"},\
-      \"documentation\":\"<p>Describes the specified security groups or all of your security groups.</p> <p>A security group is for use with instances either in the EC2-Classic platform or in a specific VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html\\\">Amazon EC2 security groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i> and <a href=\\\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html\\\">Security groups for your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Describes the specified security groups or all of your security groups.</p> <p>A security group is for use with instances either in the EC2-Classic platform or in a specific VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html\\\">Amazon EC2 security groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i> and <a href=\\\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html\\\">Security groups for your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p> <note> <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
     },\
     \"DescribeSnapshotAttribute\":{\
       \"name\":\"DescribeSnapshotAttribute\",\
@@ -3455,7 +3535,7 @@
         \"requestUri\":\"/\"\
       },\
       \"input\":{\"shape\":\"DisassociateAddressRequest\"},\
-      \"documentation\":\"<p>Disassociates an Elastic IP address from the instance or network interface it's associated with.</p> <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\\\">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note> <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p>\"\
+      \"documentation\":\"<p>Disassociates an Elastic IP address from the instance or network interface it's associated with.</p> <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\\\">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <note> <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note> <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p>\"\
     },\
     \"DisassociateClientVpnTargetNetwork\":{\
       \"name\":\"DisassociateClientVpnTargetNetwork\",\
@@ -4102,7 +4182,7 @@
       },\
       \"input\":{\"shape\":\"ImportImageRequest\"},\
       \"output\":{\"shape\":\"ImportImageResult\"},\
-      \"documentation\":\"<p>Import single or multi-volume disk images or EBS snapshots into an Amazon Machine Image (AMI).</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html\\\">Importing a VM as an image using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Import single or multi-volume disk images or EBS snapshots into an Amazon Machine Image (AMI).</p> <important> <p>Amazon Web Services VM Import/Export strongly recommends specifying a value for either the <code>--license-type</code> or <code>--usage-operation</code> parameter when you create a new VM Import task. This ensures your operating system is licensed appropriately and your billing is optimized.</p> </important> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html\\\">Importing a VM as an image using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.</p>\"\
     },\
     \"ImportInstance\":{\
       \"name\":\"ImportInstance\",\
@@ -4420,6 +4500,16 @@
       \"output\":{\"shape\":\"ModifyLaunchTemplateResult\"},\
       \"documentation\":\"<p>Modifies a launch template. You can specify which version of the launch template to set as the default version. When launching an instance, the default version applies when a launch template version is not specified.</p>\"\
     },\
+    \"ModifyLocalGatewayRoute\":{\
+      \"name\":\"ModifyLocalGatewayRoute\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"ModifyLocalGatewayRouteRequest\"},\
+      \"output\":{\"shape\":\"ModifyLocalGatewayRouteResult\"},\
+      \"documentation\":\"<p>Modifies the specified local gateway route.</p>\"\
+    },\
     \"ModifyManagedPrefixList\":{\
       \"name\":\"ModifyManagedPrefixList\",\
       \"http\":{\
@@ -4457,7 +4547,7 @@
       },\
       \"input\":{\"shape\":\"ModifyReservedInstancesRequest\"},\
       \"output\":{\"shape\":\"ModifyReservedInstancesResult\"},\
-      \"documentation\":\"<p>Modifies the Availability Zone, instance count, instance type, or network platform (EC2-Classic or EC2-VPC) of your Reserved Instances. The Reserved Instances to be modified must be identical, except for Availability Zone, network platform, and instance type.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html\\\">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Modifies the configuration of your Reserved Instances, such as the Availability Zone, instance count, or instance type. The Reserved Instances to be modified must be identical, except for Availability Zone, network platform, and instance type.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html\\\">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p> <note> <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
     },\
     \"ModifySecurityGroupRules\":{\
       \"name\":\"ModifySecurityGroupRules\",\
@@ -4723,7 +4813,7 @@
       },\
       \"input\":{\"shape\":\"MoveAddressToVpcRequest\"},\
       \"output\":{\"shape\":\"MoveAddressToVpcResult\"},\
-      \"documentation\":\"<p>Moves an Elastic IP address from the EC2-Classic platform to the EC2-VPC platform. The Elastic IP address must be allocated to your account for more than 24 hours, and it must not be associated with an instance. After the Elastic IP address is moved, it is no longer available for use in the EC2-Classic platform, unless you move it back using the <a>RestoreAddressToClassic</a> request. You cannot move an Elastic IP address that was originally allocated for use in the EC2-VPC platform to the EC2-Classic platform.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Moves an Elastic IP address from the EC2-Classic platform to the EC2-VPC platform. The Elastic IP address must be allocated to your account for more than 24 hours, and it must not be associated with an instance. After the Elastic IP address is moved, it is no longer available for use in the EC2-Classic platform, unless you move it back using the <a>RestoreAddressToClassic</a> request. You cannot move an Elastic IP address that was originally allocated for use in the EC2-VPC platform to the EC2-Classic platform.</p> <note> <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
     },\
     \"MoveByoipCidrToIpam\":{\
       \"name\":\"MoveByoipCidrToIpam\",\
@@ -4783,7 +4873,7 @@
       },\
       \"input\":{\"shape\":\"PurchaseReservedInstancesOfferingRequest\"},\
       \"output\":{\"shape\":\"PurchaseReservedInstancesOfferingResult\"},\
-      \"documentation\":\"<p>Purchases a Reserved Instance for use with your account. With Reserved Instances, you pay a lower hourly rate compared to On-Demand instance pricing.</p> <p>Use <a>DescribeReservedInstancesOfferings</a> to get a list of Reserved Instance offerings that match your specifications. After you've purchased a Reserved Instance, you can check for your new Reserved Instance with <a>DescribeReservedInstances</a>.</p> <p>To queue a purchase for a future date and time, specify a purchase time. If you do not specify a purchase time, the default is the current time.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html\\\">Reserved Instances</a> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\\\">Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Purchases a Reserved Instance for use with your account. With Reserved Instances, you pay a lower hourly rate compared to On-Demand instance pricing.</p> <p>Use <a>DescribeReservedInstancesOfferings</a> to get a list of Reserved Instance offerings that match your specifications. After you've purchased a Reserved Instance, you can check for your new Reserved Instance with <a>DescribeReservedInstances</a>.</p> <p>To queue a purchase for a future date and time, specify a purchase time. If you do not specify a purchase time, the default is the current time.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html\\\">Reserved Instances</a> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\\\">Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p> <note> <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
     },\
     \"PurchaseScheduledInstances\":{\
       \"name\":\"PurchaseScheduledInstances\",\
@@ -4793,7 +4883,7 @@
       },\
       \"input\":{\"shape\":\"PurchaseScheduledInstancesRequest\"},\
       \"output\":{\"shape\":\"PurchaseScheduledInstancesResult\"},\
-      \"documentation\":\"<p>Purchases the Scheduled Instances with the specified schedule.</p> <p>Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term. Before you can purchase a Scheduled Instance, you must call <a>DescribeScheduledInstanceAvailability</a> to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance, you must call <a>RunScheduledInstances</a> during each scheduled time period.</p> <p>After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.</p>\"\
+      \"documentation\":\"<note> <p>You can no longer purchase Scheduled Instances.</p> </note> <p>Purchases the Scheduled Instances with the specified schedule.</p> <p>Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term. Before you can purchase a Scheduled Instance, you must call <a>DescribeScheduledInstanceAvailability</a> to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance, you must call <a>RunScheduledInstances</a> during each scheduled time period.</p> <p>After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.</p>\"\
     },\
     \"RebootInstances\":{\
       \"name\":\"RebootInstances\",\
@@ -4901,7 +4991,7 @@
         \"requestUri\":\"/\"\
       },\
       \"input\":{\"shape\":\"ReleaseAddressRequest\"},\
-      \"documentation\":\"<p>Releases the specified Elastic IP address.</p> <p>[EC2-Classic, default VPC] Releasing an Elastic IP address automatically disassociates it from any instance that it's associated with. To disassociate an Elastic IP address without releasing it, use <a>DisassociateAddress</a>.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note> <p>[Nondefault VPC] You must use <a>DisassociateAddress</a> to disassociate the Elastic IP address before you can release it. Otherwise, Amazon EC2 returns an error (<code>InvalidIPAddress.InUse</code>).</p> <p>After releasing an Elastic IP address, it is released to the IP address pool. Be sure to update your DNS records and any servers or devices that communicate with the address. If you attempt to release an Elastic IP address that you already released, you'll get an <code>AuthFailure</code> error if the address is already allocated to another Amazon Web Services account.</p> <p>[EC2-VPC] After you release an Elastic IP address for use in a VPC, you might be able to recover it. For more information, see <a>AllocateAddress</a>.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\\\">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Releases the specified Elastic IP address.</p> <p>[EC2-Classic, default VPC] Releasing an Elastic IP address automatically disassociates it from any instance that it's associated with. To disassociate an Elastic IP address without releasing it, use <a>DisassociateAddress</a>.</p> <note> <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note> <p>[Nondefault VPC] You must use <a>DisassociateAddress</a> to disassociate the Elastic IP address before you can release it. Otherwise, Amazon EC2 returns an error (<code>InvalidIPAddress.InUse</code>).</p> <p>After releasing an Elastic IP address, it is released to the IP address pool. Be sure to update your DNS records and any servers or devices that communicate with the address. If you attempt to release an Elastic IP address that you already released, you'll get an <code>AuthFailure</code> error if the address is already allocated to another Amazon Web Services account.</p> <p>[EC2-VPC] After you release an Elastic IP address for use in a VPC, you might be able to recover it. For more information, see <a>AllocateAddress</a>.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\\\">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
     },\
     \"ReleaseHosts\":{\
       \"name\":\"ReleaseHosts\",\
@@ -5008,7 +5098,7 @@
       },\
       \"input\":{\"shape\":\"RequestSpotInstancesRequest\"},\
       \"output\":{\"shape\":\"RequestSpotInstancesResult\"},\
-      \"documentation\":\"<p>Creates a Spot Instance request.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html\\\">Spot Instance requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <important> <p>We strongly discourage using the RequestSpotInstances API because it is a legacy API with no planned investment. For options for requesting Spot Instances, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use\\\">Which is the best Spot request method to use?</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </important> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </note>\"\
+      \"documentation\":\"<p>Creates a Spot Instance request.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html\\\">Spot Instance requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <important> <p>We strongly discourage using the RequestSpotInstances API because it is a legacy API with no planned investment. For options for requesting Spot Instances, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use\\\">Which is the best Spot request method to use?</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </important> <note> <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </note>\"\
     },\
     \"ResetAddressAttribute\":{\
       \"name\":\"ResetAddressAttribute\",\
@@ -5084,7 +5174,7 @@
       },\
       \"input\":{\"shape\":\"RestoreAddressToClassicRequest\"},\
       \"output\":{\"shape\":\"RestoreAddressToClassicResult\"},\
-      \"documentation\":\"<p>Restores an Elastic IP address that was previously moved to the EC2-VPC platform back to the EC2-Classic platform. You cannot move an Elastic IP address that was originally allocated for use in EC2-VPC. The Elastic IP address must not be associated with an instance or network interface.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Restores an Elastic IP address that was previously moved to the EC2-VPC platform back to the EC2-Classic platform. You cannot move an Elastic IP address that was originally allocated for use in EC2-VPC. The Elastic IP address must not be associated with an instance or network interface.</p> <note> <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
     },\
     \"RestoreImageFromRecycleBin\":{\
       \"name\":\"RestoreImageFromRecycleBin\",\
@@ -5154,7 +5244,7 @@
       },\
       \"input\":{\"shape\":\"RevokeSecurityGroupIngressRequest\"},\
       \"output\":{\"shape\":\"RevokeSecurityGroupIngressResult\"},\
-      \"documentation\":\"<p>Removes the specified inbound (ingress) rules from a security group.</p> <p>You can specify rules using either rule IDs or security group rule properties. If you use rule properties, the values that you specify (for example, ports) must match the existing rule's values exactly. Each rule has a protocol, from and to ports, and source (CIDR range, security group, or prefix list). For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not need to specify the description to revoke the rule.</p> <p>[EC2-Classic, default VPC] If the values you specify do not match the existing rule's values, no error is returned, and the output describes the security group rules that were not revoked.</p> <p>Amazon Web Services recommends that you describe the security group to verify that the rules were removed.</p> <p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Removes the specified inbound (ingress) rules from a security group.</p> <p>You can specify rules using either rule IDs or security group rule properties. If you use rule properties, the values that you specify (for example, ports) must match the existing rule's values exactly. Each rule has a protocol, from and to ports, and source (CIDR range, security group, or prefix list). For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not need to specify the description to revoke the rule.</p> <p>[EC2-Classic, default VPC] If the values you specify do not match the existing rule's values, no error is returned, and the output describes the security group rules that were not revoked.</p> <p>Amazon Web Services recommends that you describe the security group to verify that the rules were removed.</p> <p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p> <note> <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
     },\
     \"RunInstances\":{\
       \"name\":\"RunInstances\",\
@@ -5164,7 +5254,7 @@
       },\
       \"input\":{\"shape\":\"RunInstancesRequest\"},\
       \"output\":{\"shape\":\"Reservation\"},\
-      \"documentation\":\"<p>Launches the specified number of instances using an AMI for which you have permissions.</p> <p>You can specify a number of options, or leave the default options. The following rules apply:</p> <ul> <li> <p>[EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from your default VPC for you. If you don't have a default VPC, you must specify a subnet ID in the request.</p> </li> <li> <p>[EC2-Classic] If don't specify an Availability Zone, we choose one for you.</p> </li> <li> <p>Some instance types must be launched into a VPC. If you do not have a default VPC, or if you do not specify a subnet ID, the request fails. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types\\\">Instance types available only in a VPC</a>.</p> </li> <li> <p>[EC2-VPC] All instances have a network interface with a primary private IPv4 address. If you don't specify this address, we choose one from the IPv4 range of your subnet.</p> </li> <li> <p>Not all instance types support IPv6 addresses. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\\\">Instance types</a>.</p> </li> <li> <p>If you don't specify a security group ID, we use the default security group. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html\\\">Security groups</a>.</p> </li> <li> <p>If any of the AMIs have a product code attached for which the user has not subscribed, the request fails.</p> </li> </ul> <p>You can create a <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\\\">launch template</a>, which is a resource that contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify the launch template instead of specifying the launch parameters.</p> <p>To ensure faster instance launches, break up large requests into smaller batches. For example, create five separate launch requests for 100 instances each instead of one launch request for 500 instances.</p> <p>An instance is ready for you to use when it's in the <code>running</code> state. You can check the state of your instance using <a>DescribeInstances</a>. You can tag instances and EBS volumes during launch, after launch, or both. For more information, see <a>CreateTags</a> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\\\">Tagging your Amazon EC2 resources</a>.</p> <p>Linux instances have access to the public key of the key pair at boot. You can use this key to provide secure access to the instance. Amazon EC2 public images use this feature to provide secure access without passwords. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\\\">Key pairs</a>.</p> <p>For troubleshooting, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html\\\">What to do if an instance immediately terminates</a>, and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html\\\">Troubleshooting connecting to your instance</a>.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Launches the specified number of instances using an AMI for which you have permissions.</p> <p>You can specify a number of options, or leave the default options. The following rules apply:</p> <ul> <li> <p>[EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from your default VPC for you. If you don't have a default VPC, you must specify a subnet ID in the request.</p> </li> <li> <p>[EC2-Classic] If don't specify an Availability Zone, we choose one for you.</p> </li> <li> <p>Some instance types must be launched into a VPC. If you do not have a default VPC, or if you do not specify a subnet ID, the request fails. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types\\\">Instance types available only in a VPC</a>.</p> </li> <li> <p>[EC2-VPC] All instances have a network interface with a primary private IPv4 address. If you don't specify this address, we choose one from the IPv4 range of your subnet.</p> </li> <li> <p>Not all instance types support IPv6 addresses. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\\\">Instance types</a>.</p> </li> <li> <p>If you don't specify a security group ID, we use the default security group. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html\\\">Security groups</a>.</p> </li> <li> <p>If any of the AMIs have a product code attached for which the user has not subscribed, the request fails.</p> </li> </ul> <p>You can create a <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\\\">launch template</a>, which is a resource that contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify the launch template instead of specifying the launch parameters.</p> <p>To ensure faster instance launches, break up large requests into smaller batches. For example, create five separate launch requests for 100 instances each instead of one launch request for 500 instances.</p> <p>An instance is ready for you to use when it's in the <code>running</code> state. You can check the state of your instance using <a>DescribeInstances</a>. You can tag instances and EBS volumes during launch, after launch, or both. For more information, see <a>CreateTags</a> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\\\">Tagging your Amazon EC2 resources</a>.</p> <p>Linux instances have access to the public key of the key pair at boot. You can use this key to provide secure access to the instance. Amazon EC2 public images use this feature to provide secure access without passwords. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\\\">Key pairs</a>.</p> <p>For troubleshooting, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html\\\">What to do if an instance immediately terminates</a>, and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html\\\">Troubleshooting connecting to your instance</a>.</p> <note> <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p> </note>\"\
     },\
     \"RunScheduledInstances\":{\
       \"name\":\"RunScheduledInstances\",\
@@ -5401,7 +5491,9 @@
         \"t4\",\
         \"m60\",\
         \"radeon-pro-v520\",\
-        \"vu9p\"\
+        \"vu9p\",\
+        \"inferentia\",\
+        \"k520\"\
       ]\
     },\
     \"AcceleratorNameSet\":{\
@@ -5844,6 +5936,39 @@
       },\
       \"documentation\":\"<p>An entry for a prefix list.</p>\"\
     },\
+    \"AddedPrincipal\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"PrincipalType\":{\
+          \"shape\":\"PrincipalType\",\
+          \"documentation\":\"<p>The type of principal.</p>\",\
+          \"locationName\":\"principalType\"\
+        },\
+        \"Principal\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the principal.</p>\",\
+          \"locationName\":\"principal\"\
+        },\
+        \"ServicePermissionId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the service permission.</p>\",\
+          \"locationName\":\"servicePermissionId\"\
+        },\
+        \"ServiceId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the service.</p>\",\
+          \"locationName\":\"serviceId\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes a principal.</p>\"\
+    },\
+    \"AddedPrincipalSet\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"AddedPrincipal\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"AdditionalDetail\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -6207,7 +6332,7 @@
         },\
         \"DisallowedCidrs\":{\
           \"shape\":\"IpamPoolAllocationDisallowedCidrs\",\
-          \"documentation\":\"<p>Exclude a particular CIDR range from being returned by the pool.</p>\",\
+          \"documentation\":\"<p>Exclude a particular CIDR range from being returned by the pool. Disallowed CIDRs are only allowed if using netmask length for allocation.</p>\",\
           \"locationName\":\"DisallowedCidr\"\
         }\
       }\
@@ -6257,6 +6382,10 @@
         \"capacityOptimizedPrioritized\"\
       ]\
     },\
+    \"AllocationType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\"used\"]\
+    },\
     \"AllowedPrincipal\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -6269,6 +6398,21 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) of the principal.</p>\",\
           \"locationName\":\"principal\"\
+        },\
+        \"ServicePermissionId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the service permission.</p>\",\
+          \"locationName\":\"servicePermissionId\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>The tags.</p>\",\
+          \"locationName\":\"tagSet\"\
+        },\
+        \"ServiceId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the service.</p>\",\
+          \"locationName\":\"serviceId\"\
         }\
       },\
       \"documentation\":\"<p>Describes a principal.</p>\"\
@@ -6499,6 +6643,11 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The ID of a VPC peering connection.</p>\",\
           \"locationName\":\"vpcPeeringConnectionId\"\
+        },\
+        \"State\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The state. The following are the possible values:</p> <ul> <li> <p>active</p> </li> <li> <p>blackhole</p> </li> </ul>\",\
+          \"locationName\":\"state\"\
         }\
       },\
       \"documentation\":\"<p>Describes a route table route.</p>\"\
@@ -6643,7 +6792,7 @@
         },\
         \"Ipv6Addresses\":{\
           \"shape\":\"Ipv6AddressList\",\
-          \"documentation\":\"<p>One or more specific IPv6 addresses to be assigned to the network interface. You can't use this option if you're specifying a number of IPv6 addresses.</p>\",\
+          \"documentation\":\"<p>The IPv6 addresses to be assigned to the network interface. You can't use this option if you're specifying a number of IPv6 addresses.</p>\",\
           \"locationName\":\"ipv6Addresses\"\
         },\
         \"Ipv6PrefixCount\":{\
@@ -6698,7 +6847,7 @@
         },\
         \"PrivateIpAddresses\":{\
           \"shape\":\"PrivateIpAddressStringList\",\
-          \"documentation\":\"<p>One or more IP addresses to be assigned as a secondary private IP address to the network interface. You can't specify this parameter when also specifying a number of secondary IP addresses.</p> <p>If you don't specify an IP address, Amazon EC2 automatically selects an IP address within the subnet range.</p>\",\
+          \"documentation\":\"<p>The IP addresses to be assigned as a secondary private IP address to the network interface. You can't specify this parameter when also specifying a number of secondary IP addresses.</p> <p>If you don't specify an IP address, Amazon EC2 automatically selects an IP address within the subnet range.</p>\",\
           \"locationName\":\"privateIpAddress\"\
         },\
         \"SecondaryPrivateIpAddressCount\":{\
@@ -7759,7 +7908,7 @@
         },\
         \"GroupName\":{\
           \"shape\":\"SecurityGroupName\",\
-          \"documentation\":\"<p>[EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.</p>\"\
+          \"documentation\":\"<p>[EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.</p>\"\
         },\
         \"IpPermissions\":{\
           \"shape\":\"IpPermissionList\",\
@@ -8651,6 +8800,29 @@
         \"locationName\":\"item\"\
       }\
     },\
+    \"CapacityAllocation\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"AllocationType\":{\
+          \"shape\":\"AllocationType\",\
+          \"documentation\":\"<p>The usage type. <code>used</code> indicates that the instance capacity is in use by instances that are running in the Capacity Reservation.</p>\",\
+          \"locationName\":\"allocationType\"\
+        },\
+        \"Count\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The amount of instance capacity associated with the usage. For example a value of <code>4</code> indicates that instance capacity for 4 instances is currently in use.</p>\",\
+          \"locationName\":\"count\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about instance capacity usage for a Capacity Reservation.</p>\"\
+    },\
+    \"CapacityAllocations\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"CapacityAllocation\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"CapacityReservation\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -8763,6 +8935,11 @@
           \"shape\":\"PlacementGroupArn\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) of the cluster placement group in which the Capacity Reservation was created. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html\\\"> Capacity Reservations for cluster placement groups</a> in the <i>Amazon EC2 User Guide</i>.</p>\",\
           \"locationName\":\"placementGroupArn\"\
+        },\
+        \"CapacityAllocations\":{\
+          \"shape\":\"CapacityAllocations\",\
+          \"documentation\":\"<p>Information about instance capacity usage.</p>\",\
+          \"locationName\":\"capacityAllocationSet\"\
         }\
       },\
       \"documentation\":\"<p>Describes a Capacity Reservation.</p>\"\
@@ -9899,6 +10076,27 @@
         \"locationName\":\"item\"\
       }\
     },\
+    \"CoipCidr\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Cidr\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p> An address range in a customer-owned IP address space. </p>\",\
+          \"locationName\":\"cidr\"\
+        },\
+        \"CoipPoolId\":{\
+          \"shape\":\"Ipv4PoolCoipId\",\
+          \"documentation\":\"<p> The ID of the address pool. </p>\",\
+          \"locationName\":\"coipPoolId\"\
+        },\
+        \"LocalGatewayRouteTableId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p> The ID of the local gateway route table. </p>\",\
+          \"locationName\":\"localGatewayRouteTableId\"\
+        }\
+      },\
+      \"documentation\":\"<p> Information about a customer-owned IP address range. </p>\"\
+    },\
     \"CoipPool\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -9949,6 +10147,14 @@
         \"shape\":\"CoipPool\",\
         \"locationName\":\"item\"\
       }\
+    },\
+    \"ComponentAccount\":{\
+      \"type\":\"string\",\
+      \"pattern\":\"\\\\d{12}\"\
+    },\
+    \"ComponentRegion\":{\
+      \"type\":\"string\",\
+      \"pattern\":\"[a-z]{2}-[a-z]+-[1-9]+\"\
     },\
     \"ConfirmProductInstanceRequest\":{\
       \"type\":\"structure\",\
@@ -10766,6 +10972,65 @@
           \"shape\":\"ClientVpnRouteStatus\",\
           \"documentation\":\"<p>The current state of the route.</p>\",\
           \"locationName\":\"status\"\
+        }\
+      }\
+    },\
+    \"CreateCoipCidrRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Cidr\",\
+        \"CoipPoolId\"\
+      ],\
+      \"members\":{\
+        \"Cidr\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p> A customer-owned IP address range to create. </p>\"\
+        },\
+        \"CoipPoolId\":{\
+          \"shape\":\"Ipv4PoolCoipId\",\
+          \"documentation\":\"<p> The ID of the address pool. </p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateCoipCidrResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"CoipCidr\":{\
+          \"shape\":\"CoipCidr\",\
+          \"documentation\":\"<p> Information about a range of customer-owned IP addresses. </p>\",\
+          \"locationName\":\"coipCidr\"\
+        }\
+      }\
+    },\
+    \"CreateCoipPoolRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"LocalGatewayRouteTableId\"],\
+      \"members\":{\
+        \"LocalGatewayRouteTableId\":{\
+          \"shape\":\"LocalGatewayRoutetableId\",\
+          \"documentation\":\"<p> The ID of the local gateway route table. </p>\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p> The tags to assign to the CoIP address pool. </p>\",\
+          \"locationName\":\"TagSpecification\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateCoipPoolResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"CoipPool\":{\
+          \"shape\":\"CoipPool\",\
+          \"locationName\":\"coipPool\"\
         }\
       }\
     },\
@@ -11683,8 +11948,7 @@
       \"type\":\"structure\",\
       \"required\":[\
         \"DestinationCidrBlock\",\
-        \"LocalGatewayRouteTableId\",\
-        \"LocalGatewayVirtualInterfaceGroupId\"\
+        \"LocalGatewayRouteTableId\"\
       ],\
       \"members\":{\
         \"DestinationCidrBlock\":{\
@@ -11702,6 +11966,10 @@
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"NetworkInterfaceId\":{\
+          \"shape\":\"NetworkInterfaceId\",\
+          \"documentation\":\"<p>The ID of the network interface.</p>\"\
         }\
       }\
     },\
@@ -11712,6 +11980,73 @@
           \"shape\":\"LocalGatewayRoute\",\
           \"documentation\":\"<p>Information about the route.</p>\",\
           \"locationName\":\"route\"\
+        }\
+      }\
+    },\
+    \"CreateLocalGatewayRouteTableRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"LocalGatewayId\"],\
+      \"members\":{\
+        \"LocalGatewayId\":{\
+          \"shape\":\"LocalGatewayId\",\
+          \"documentation\":\"<p> The ID of the local gateway. </p>\"\
+        },\
+        \"Mode\":{\
+          \"shape\":\"LocalGatewayRouteTableMode\",\
+          \"documentation\":\"<p> The mode of the local gateway route table. </p>\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p> The tags assigned to the local gateway route table. </p>\",\
+          \"locationName\":\"TagSpecification\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateLocalGatewayRouteTableResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"LocalGatewayRouteTable\":{\
+          \"shape\":\"LocalGatewayRouteTable\",\
+          \"locationName\":\"localGatewayRouteTable\"\
+        }\
+      }\
+    },\
+    \"CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"LocalGatewayRouteTableId\",\
+        \"LocalGatewayVirtualInterfaceGroupId\"\
+      ],\
+      \"members\":{\
+        \"LocalGatewayRouteTableId\":{\
+          \"shape\":\"LocalGatewayRoutetableId\",\
+          \"documentation\":\"<p> The ID of the local gateway route table. </p>\"\
+        },\
+        \"LocalGatewayVirtualInterfaceGroupId\":{\
+          \"shape\":\"LocalGatewayVirtualInterfaceGroupId\",\
+          \"documentation\":\"<p> The ID of the local gateway route table virtual interface group association. </p>\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p> The tags assigned to the local gateway route table virtual interface group association. </p>\",\
+          \"locationName\":\"TagSpecification\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"LocalGatewayRouteTableVirtualInterfaceGroupAssociation\":{\
+          \"shape\":\"LocalGatewayRouteTableVirtualInterfaceGroupAssociation\",\
+          \"locationName\":\"localGatewayRouteTableVirtualInterfaceGroupAssociation\"\
         }\
       }\
     },\
@@ -12108,12 +12443,12 @@
         },\
         \"Ipv6AddressCount\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses. If your subnet has the <code>AssignIpv6AddressOnCreation</code> attribute set to <code>true</code>, you can specify <code>0</code> to override this setting.</p>\",\
+          \"documentation\":\"<p>The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range.</p> <p>You can't specify a count of IPv6 addresses using this parameter if you've specified one of the following: specific IPv6 addresses, specific IPv6 prefixes, or a count of IPv6 prefixes.</p> <p>If your subnet has the <code>AssignIpv6AddressOnCreation</code> attribute set, you can override that setting by specifying 0 as the IPv6 address count.</p>\",\
           \"locationName\":\"ipv6AddressCount\"\
         },\
         \"Ipv6Addresses\":{\
           \"shape\":\"InstanceIpv6AddressList\",\
-          \"documentation\":\"<p>One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.</p>\",\
+          \"documentation\":\"<p>The IPv6 addresses from the IPv6 CIDR block range of your subnet.</p> <p>You can't specify IPv6 addresses using this parameter if you've specified one of the following: a count of IPv6 addresses, specific IPv6 prefixes, or a count of IPv6 prefixes.</p>\",\
           \"locationName\":\"ipv6Addresses\"\
         },\
         \"PrivateIpAddress\":{\
@@ -12123,31 +12458,31 @@
         },\
         \"PrivateIpAddresses\":{\
           \"shape\":\"PrivateIpAddressSpecificationList\",\
-          \"documentation\":\"<p>One or more private IPv4 addresses.</p>\",\
+          \"documentation\":\"<p>The private IPv4 addresses.</p> <p>You can't specify private IPv4 addresses if you've specified one of the following: a count of private IPv4 addresses, specific IPv4 prefixes, or a count of IPv4 prefixes.</p>\",\
           \"locationName\":\"privateIpAddresses\"\
         },\
         \"SecondaryPrivateIpAddressCount\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using <code>privateIpAddresses</code>.</p> <p>The number of IP addresses you can assign to a network interface varies by instance type. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI\\\">IP Addresses Per ENI Per Instance Type</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>\",\
+          \"documentation\":\"<p>The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using <code>privateIpAddresses</code>.</p> <p>You can't specify a count of private IPv4 addresses if you've specified one of the following: specific private IPv4 addresses, specific IPv4 prefixes, or a count of IPv4 prefixes.</p>\",\
           \"locationName\":\"secondaryPrivateIpAddressCount\"\
         },\
         \"Ipv4Prefixes\":{\
           \"shape\":\"Ipv4PrefixList\",\
-          \"documentation\":\"<p>One or more IPv4 prefixes assigned to the network interface. You cannot use this option if you use the <code>Ipv4PrefixCount</code> option.</p>\",\
+          \"documentation\":\"<p>The IPv4 prefixes assigned to the network interface.</p> <p>You can't specify IPv4 prefixes if you've specified one of the following: a count of IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4 addresses.</p>\",\
           \"locationName\":\"Ipv4Prefix\"\
         },\
         \"Ipv4PrefixCount\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The number of IPv4 prefixes that Amazon Web Services automatically assigns to the network interface. You cannot use this option if you use the <code>Ipv4 Prefixes</code> option.</p>\"\
+          \"documentation\":\"<p>The number of IPv4 prefixes that Amazon Web Services automatically assigns to the network interface.</p> <p>You can't specify a count of IPv4 prefixes if you've specified one of the following: specific IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4 addresses.</p>\"\
         },\
         \"Ipv6Prefixes\":{\
           \"shape\":\"Ipv6PrefixList\",\
-          \"documentation\":\"<p>One or more IPv6 prefixes assigned to the network interface. You cannot use this option if you use the <code>Ipv6PrefixCount</code> option.</p>\",\
+          \"documentation\":\"<p>The IPv6 prefixes assigned to the network interface.</p> <p>You can't specify IPv6 prefixes if you've specified one of the following: a count of IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.</p>\",\
           \"locationName\":\"Ipv6Prefix\"\
         },\
         \"Ipv6PrefixCount\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The number of IPv6 prefixes that Amazon Web Services automatically assigns to the network interface. You cannot use this option if you use the <code>Ipv6Prefixes</code> option.</p>\"\
+          \"documentation\":\"<p>The number of IPv6 prefixes that Amazon Web Services automatically assigns to the network interface.</p> <p>You can't specify a count of IPv6 prefixes if you've specified one of the following: specific IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.</p>\"\
         },\
         \"InterfaceType\":{\
           \"shape\":\"NetworkInterfaceCreationType\",\
@@ -12168,8 +12503,7 @@
           \"documentation\":\"<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\\\">Ensuring Idempotency</a>.</p>\",\
           \"idempotencyToken\":true\
         }\
-      },\
-      \"documentation\":\"<p>Contains the parameters for CreateNetworkInterface.</p>\"\
+      }\
     },\
     \"CreateNetworkInterfaceResult\":{\
       \"type\":\"structure\",\
@@ -12184,8 +12518,7 @@
           \"documentation\":\"<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>\",\
           \"locationName\":\"clientToken\"\
         }\
-      },\
-      \"documentation\":\"<p>Contains the output of CreateNetworkInterface.</p>\"\
+      }\
     },\
     \"CreatePlacementGroupRequest\":{\
       \"type\":\"structure\",\
@@ -14234,6 +14567,60 @@
         }\
       }\
     },\
+    \"DeleteCoipCidrRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Cidr\",\
+        \"CoipPoolId\"\
+      ],\
+      \"members\":{\
+        \"Cidr\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p> A customer-owned IP address range that you want to delete. </p>\"\
+        },\
+        \"CoipPoolId\":{\
+          \"shape\":\"Ipv4PoolCoipId\",\
+          \"documentation\":\"<p> The ID of the customer-owned address pool. </p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"DeleteCoipCidrResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"CoipCidr\":{\
+          \"shape\":\"CoipCidr\",\
+          \"documentation\":\"<p> Information about a range of customer-owned IP addresses. </p>\",\
+          \"locationName\":\"coipCidr\"\
+        }\
+      }\
+    },\
+    \"DeleteCoipPoolRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"CoipPoolId\"],\
+      \"members\":{\
+        \"CoipPoolId\":{\
+          \"shape\":\"Ipv4PoolCoipId\",\
+          \"documentation\":\"<p>The ID of the CoIP pool that you want to delete. </p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"DeleteCoipPoolResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"CoipPool\":{\
+          \"shape\":\"CoipPool\",\
+          \"locationName\":\"coipPool\"\
+        }\
+      }\
+    },\
     \"DeleteCustomerGatewayRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"CustomerGatewayId\"],\
@@ -14746,6 +15133,52 @@
         }\
       }\
     },\
+    \"DeleteLocalGatewayRouteTableRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"LocalGatewayRouteTableId\"],\
+      \"members\":{\
+        \"LocalGatewayRouteTableId\":{\
+          \"shape\":\"LocalGatewayRoutetableId\",\
+          \"documentation\":\"<p> The ID of the local gateway route table. </p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"DeleteLocalGatewayRouteTableResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"LocalGatewayRouteTable\":{\
+          \"shape\":\"LocalGatewayRouteTable\",\
+          \"locationName\":\"localGatewayRouteTable\"\
+        }\
+      }\
+    },\
+    \"DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"LocalGatewayRouteTableVirtualInterfaceGroupAssociationId\"],\
+      \"members\":{\
+        \"LocalGatewayRouteTableVirtualInterfaceGroupAssociationId\":{\
+          \"shape\":\"LocalGatewayRouteTableVirtualInterfaceGroupAssociationId\",\
+          \"documentation\":\"<p> The ID of the local gateway route table virtual interface group association. </p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"LocalGatewayRouteTableVirtualInterfaceGroupAssociation\":{\
+          \"shape\":\"LocalGatewayRouteTableVirtualInterfaceGroupAssociation\",\
+          \"locationName\":\"localGatewayRouteTableVirtualInterfaceGroupAssociation\"\
+        }\
+      }\
+    },\
     \"DeleteLocalGatewayRouteTableVpcAssociationRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"LocalGatewayRouteTableVpcAssociationId\"],\
@@ -15165,7 +15598,7 @@
         },\
         \"GroupName\":{\
           \"shape\":\"SecurityGroupName\",\
-          \"documentation\":\"<p>[EC2-Classic, default VPC] The name of the security group. You can specify either the security group name or the security group ID.</p>\"\
+          \"documentation\":\"<p>[EC2-Classic, default VPC] The name of the security group. You can specify either the security group name or the security group ID. For security groups in a nondefault VPC, you must specify the security group ID.</p>\"\
         },\
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
@@ -17833,7 +18266,7 @@
         },\
         \"IncludeDeprecated\":{\
           \"shape\":\"Boolean\",\
-          \"documentation\":\"<p>If <code>true</code>, all deprecated AMIs are included in the response. If <code>false</code>, no deprecated AMIs are included in the response. If no value is specified, the default value is <code>false</code>.</p> <note> <p>If you are the AMI owner, all deprecated AMIs appear in the response regardless of the value (<code>true</code> or <code>false</code>) that you set for this parameter.</p> </note>\"\
+          \"documentation\":\"<p>Specifies whether to include deprecated AMIs.</p> <p>Default: No deprecated AMIs are included in the response.</p> <note> <p>If you are the AMI owner, all deprecated AMIs appear in the response regardless of what you specify for this parameter.</p> </note>\"\
         },\
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
@@ -19164,7 +19597,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>The filters. The following are the possible values:</p> <ul> <li> <p>PathFound - A Boolean value that indicates whether a feasible path is found.</p> </li> <li> <p>Status - The status of the analysis (running | succeeded | failed).</p> </li> </ul>\",\
+          \"documentation\":\"<p>The filters. The following are the possible values:</p> <ul> <li> <p>path-found - A Boolean value that indicates whether a feasible path is found.</p> </li> <li> <p>status - The status of the analysis (running | succeeded | failed).</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"MaxResults\":{\
@@ -19206,7 +19639,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>The filters. The following are the possible values:</p> <ul> <li> <p>Destination - The ID of the resource.</p> </li> <li> <p>DestinationPort - The destination port.</p> </li> <li> <p>Name - The path name.</p> </li> <li> <p>Protocol - The protocol.</p> </li> <li> <p>Source - The ID of the resource.</p> </li> </ul>\",\
+          \"documentation\":\"<p>The filters. The following are the possible values:</p> <ul> <li> <p>destination - The ID of the resource.</p> </li> <li> <p>destination-port - The destination port.</p> </li> <li> <p>protocol - The protocol.</p> </li> <li> <p>source - The ID of the resource.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"MaxResults\":{\
@@ -19301,7 +19734,7 @@
       \"members\":{\
         \"NetworkInterfacePermissionIds\":{\
           \"shape\":\"NetworkInterfacePermissionIdList\",\
-          \"documentation\":\"<p>One or more network interface permission IDs.</p>\",\
+          \"documentation\":\"<p>The network interface permission IDs.</p>\",\
           \"locationName\":\"NetworkInterfacePermissionId\"\
         },\
         \"Filters\":{\
@@ -19356,7 +19789,7 @@
         },\
         \"NetworkInterfaceIds\":{\
           \"shape\":\"NetworkInterfaceIdList\",\
-          \"documentation\":\"<p>One or more network interface IDs.</p> <p>Default: Describes all your network interfaces.</p>\",\
+          \"documentation\":\"<p>The network interface IDs.</p> <p>Default: Describes all your network interfaces.</p>\",\
           \"locationName\":\"NetworkInterfaceId\"\
         },\
         \"NextToken\":{\
@@ -20650,7 +21083,7 @@
       \"members\":{\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>availability-zone</code> - The Availability Zone for the subnet. You can also use <code>availabilityZone</code> as the filter name.</p> </li> <li> <p> <code>availability-zone-id</code> - The ID of the Availability Zone for the subnet. You can also use <code>availabilityZoneId</code> as the filter name.</p> </li> <li> <p> <code>available-ip-address-count</code> - The number of IPv4 addresses in the subnet that are available.</p> </li> <li> <p> <code>cidr-block</code> - The IPv4 CIDR block of the subnet. The CIDR block you specify must exactly match the subnet's CIDR block for information to be returned for the subnet. You can also use <code>cidr</code> or <code>cidrBlock</code> as the filter names.</p> </li> <li> <p> <code>default-for-az</code> - Indicates whether this is the default subnet for the Availability Zone (<code>true</code> | <code>false</code>). You can also use <code>defaultForAz</code> as the filter name.</p> </li> <li> <p> <code>ipv6-cidr-block-association.ipv6-cidr-block</code> - An IPv6 CIDR block associated with the subnet.</p> </li> <li> <p> <code>ipv6-cidr-block-association.association-id</code> - An association ID for an IPv6 CIDR block associated with the subnet.</p> </li> <li> <p> <code>ipv6-cidr-block-association.state</code> - The state of an IPv6 CIDR block associated with the subnet.</p> </li> <li> <p> <code>ipv6-native</code> - Indicates whether this is an IPv6 only subnet (<code>true</code> | <code>false</code>).</p> </li> <li> <p> <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p> </li> <li> <p> <code>owner-id</code> - The ID of the Amazon Web Services account that owns the subnet.</p> </li> <li> <p> <code>state</code> - The state of the subnet (<code>pending</code> | <code>available</code>).</p> </li> <li> <p> <code>subnet-arn</code> - The Amazon Resource Name (ARN) of the subnet.</p> </li> <li> <p> <code>subnet-id</code> - The ID of the subnet.</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC for the subnet.</p> </li> </ul>\",\
+          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>availability-zone</code> - The Availability Zone for the subnet. You can also use <code>availabilityZone</code> as the filter name.</p> </li> <li> <p> <code>availability-zone-id</code> - The ID of the Availability Zone for the subnet. You can also use <code>availabilityZoneId</code> as the filter name.</p> </li> <li> <p> <code>available-ip-address-count</code> - The number of IPv4 addresses in the subnet that are available.</p> </li> <li> <p> <code>cidr-block</code> - The IPv4 CIDR block of the subnet. The CIDR block you specify must exactly match the subnet's CIDR block for information to be returned for the subnet. You can also use <code>cidr</code> or <code>cidrBlock</code> as the filter names.</p> </li> <li> <p> <code>customer-owned-ipv4-pool</code> - The customer-owned IPv4 address pool associated with the subnet.</p> </li> <li> <p> <code>default-for-az</code> - Indicates whether this is the default subnet for the Availability Zone (<code>true</code> | <code>false</code>). You can also use <code>defaultForAz</code> as the filter name.</p> </li> <li> <p> <code>enable-dns64</code> - Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations.</p> </li> <li> <p> <code>enable-lni-at-device-index</code> - Indicates the device position for local network interfaces in this subnet. For example, <code>1</code> indicates local network interfaces in this subnet are the secondary network interface (eth1). </p> </li> <li> <p> <code>ipv6-cidr-block-association.ipv6-cidr-block</code> - An IPv6 CIDR block associated with the subnet.</p> </li> <li> <p> <code>ipv6-cidr-block-association.association-id</code> - An association ID for an IPv6 CIDR block associated with the subnet.</p> </li> <li> <p> <code>ipv6-cidr-block-association.state</code> - The state of an IPv6 CIDR block associated with the subnet.</p> </li> <li> <p> <code>ipv6-native</code> - Indicates whether this is an IPv6 only subnet (<code>true</code> | <code>false</code>).</p> </li> <li> <p> <code>map-customer-owned-ip-on-launch</code> - Indicates whether a network interface created in this subnet (including a network interface created by <a>RunInstances</a>) receives a customer-owned IPv4 address.</p> </li> <li> <p> <code>map-public-ip-on-launch</code> - Indicates whether instances launched in this subnet receive a public IPv4 address.</p> </li> <li> <p> <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p> </li> <li> <p> <code>owner-id</code> - The ID of the Amazon Web Services account that owns the subnet.</p> </li> <li> <p> <code>private-dns-name-options-on-launch.hostname-type</code> - The type of hostname to assign to instances in the subnet at launch. For IPv4-only and dual-stack (IPv4 and IPv6) subnets, an instance DNS name can be based on the instance IPv4 address (ip-name) or the instance ID (resource-name). For IPv6 only subnets, an instance DNS name must be based on the instance ID (resource-name).</p> </li> <li> <p> <code>private-dns-name-options-on-launch.enable-resource-name-dns-a-record</code> - Indicates whether to respond to DNS queries for instance hostnames with DNS A records.</p> </li> <li> <p> <code>private-dns-name-options-on-launch.enable-resource-name-dns-aaaa-record</code> - Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</p> </li> <li> <p> <code>state</code> - The state of the subnet (<code>pending</code> | <code>available</code>).</p> </li> <li> <p> <code>subnet-arn</code> - The Amazon Resource Name (ARN) of the subnet.</p> </li> <li> <p> <code>subnet-id</code> - The ID of the subnet.</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC for the subnet.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"SubnetIds\":{\
@@ -23309,7 +23742,8 @@
         },\
         \"KmsKeyId\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>Identifier (key ID, key alias, ID ARN, or alias ARN) for a customer managed CMK under which the EBS volume is encrypted.</p> <p>This parameter is only supported on <code>BlockDeviceMapping</code> objects called by <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html\\\">RunInstances</a>, <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html\\\">RequestSpotFleet</a>, and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html\\\">RequestSpotInstances</a>.</p>\"\
+          \"documentation\":\"<p>Identifier (key ID, key alias, ID ARN, or alias ARN) for a customer managed CMK under which the EBS volume is encrypted.</p> <p>This parameter is only supported on <code>BlockDeviceMapping</code> objects called by <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html\\\">RunInstances</a>, <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html\\\">RequestSpotFleet</a>, and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html\\\">RequestSpotInstances</a>.</p>\",\
+          \"locationName\":\"kmsKeyId\"\
         },\
         \"Throughput\":{\
           \"shape\":\"Integer\",\
@@ -24549,6 +24983,16 @@
           \"shape\":\"AnalysisComponent\",\
           \"documentation\":\"<p>The transit gateway attachment.</p>\",\
           \"locationName\":\"transitGatewayAttachment\"\
+        },\
+        \"ComponentAccount\":{\
+          \"shape\":\"ComponentAccount\",\
+          \"documentation\":\"<p>The Amazon Web Services account for the component.</p>\",\
+          \"locationName\":\"componentAccount\"\
+        },\
+        \"ComponentRegion\":{\
+          \"shape\":\"ComponentRegion\",\
+          \"documentation\":\"<p>The Region for the component.</p>\",\
+          \"locationName\":\"componentRegion\"\
         }\
       },\
       \"documentation\":\"<p>Describes an explanation code for an unreachable path. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html\\\">Reachability Analyzer explanation codes</a>.</p>\"\
@@ -25436,7 +25880,7 @@
       \"members\":{\
         \"InstanceType\":{\
           \"shape\":\"InstanceType\",\
-          \"documentation\":\"<p>The instance type.</p> <note> <p>If you specify <code>InstanceTypes</code>, you can't specify <code>InstanceRequirements</code>.</p> </note>\",\
+          \"documentation\":\"<p>The instance type.</p> <note> <p>If you specify <code>InstanceType</code>, you can't specify <code>InstanceRequirements</code>.</p> </note>\",\
           \"locationName\":\"instanceType\"\
         },\
         \"MaxPrice\":{\
@@ -25471,7 +25915,7 @@
         },\
         \"InstanceRequirements\":{\
           \"shape\":\"InstanceRequirements\",\
-          \"documentation\":\"<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.</p> <note> <p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceTypes</code>.</p> </note>\",\
+          \"documentation\":\"<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.</p> <note> <p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceType</code>.</p> </note>\",\
           \"locationName\":\"instanceRequirements\"\
         }\
       },\
@@ -25496,7 +25940,7 @@
       \"members\":{\
         \"InstanceType\":{\
           \"shape\":\"InstanceType\",\
-          \"documentation\":\"<p>The instance type.</p> <note> <p>If you specify <code>InstanceTypes</code>, you can't specify <code>InstanceRequirements</code>.</p> </note>\"\
+          \"documentation\":\"<p>The instance type.</p> <note> <p>If you specify <code>InstanceType</code>, you can't specify <code>InstanceRequirements</code>.</p> </note>\"\
         },\
         \"MaxPrice\":{\
           \"shape\":\"String\",\
@@ -25524,7 +25968,7 @@
         },\
         \"InstanceRequirements\":{\
           \"shape\":\"InstanceRequirementsRequest\",\
-          \"documentation\":\"<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.</p> <note> <p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceTypes</code>.</p> </note>\"\
+          \"documentation\":\"<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.</p> <note> <p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceType</code>.</p> </note>\"\
         }\
       },\
       \"documentation\":\"<p>Describes overrides for a launch template.</p>\"\
@@ -28668,7 +29112,7 @@
         },\
         \"LicenseType\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The license type to be used for the Amazon Machine Image (AMI) after importing.</p> <p>By default, we detect the source-system operating system (OS) and apply the appropriate license. Specify <code>AWS</code> to replace the source-system license with an Amazon Web Services license, if appropriate. Specify <code>BYOL</code> to retain the source-system license, if appropriate.</p> <p>To use <code>BYOL</code>, you must have existing licenses with rights to use these licenses in a third party cloud, such as Amazon Web Services. For more information, see <a href=\\\"https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image\\\">Prerequisites</a> in the VM Import/Export User Guide.</p>\"\
+          \"documentation\":\"<p>The license type to be used for the Amazon Machine Image (AMI) after importing.</p> <p>Specify <code>AWS</code> to replace the source-system license with an Amazon Web Services license or <code>BYOL</code> to retain the source-system license. Leaving this parameter undefined is the same as choosing <code>AWS</code> when importing a Windows Server operating system, and the same as choosing <code>BYOL</code> when importing a Windows client operating system (such as Windows 10) or a Linux operating system.</p> <p>To use <code>BYOL</code>, you must have existing licenses with rights to use these licenses in a third party cloud, such as Amazon Web Services. For more information, see <a href=\\\"https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image\\\">Prerequisites</a> in the VM Import/Export User Guide.</p>\"\
         },\
         \"Platform\":{\
           \"shape\":\"String\",\
@@ -30340,7 +30784,7 @@
       \"members\":{\
         \"HttpTokens\":{\
           \"shape\":\"HttpTokensState\",\
-          \"documentation\":\"<p>The state of token usage for your instance metadata requests.</p> <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid signed token, the version 2.0 role credentials are returned.</p> <p>If the state is <code>required</code>, you must send a signed token header with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns the version 2.0 credentials; the version 1.0 credentials are not available.</p> <p>Default: <code>optional</code> </p>\"\
+          \"documentation\":\"<p>The state of token usage for your instance metadata requests.</p> <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata with or without a session token on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid session token, the version 2.0 role credentials are returned.</p> <p>If the state is <code>required</code>, you must send a session token with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns the version 2.0 credentials; the version 1.0 credentials are not available.</p> <p>Default: <code>optional</code> </p>\"\
         },\
         \"HttpPutResponseHopLimit\":{\
           \"shape\":\"Integer\",\
@@ -30371,7 +30815,7 @@
         },\
         \"HttpTokens\":{\
           \"shape\":\"HttpTokensState\",\
-          \"documentation\":\"<p>The state of token usage for your instance metadata requests.</p> <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid signed token, the version 2.0 role credentials are returned.</p> <p>If the state is <code>required</code>, you must send a signed token header with any instance metadata retrieval requests. In this state, retrieving the IAM role credential always returns the version 2.0 credentials; the version 1.0 credentials are not available.</p> <p>Default: <code>optional</code> </p>\",\
+          \"documentation\":\"<p>The state of token usage for your instance metadata requests.</p> <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata with or without a session token on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid session token, the version 2.0 role credentials are returned.</p> <p>If the state is <code>required</code>, you must send a session token with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns the version 2.0 credentials; the version 1.0 credentials are not available.</p> <p>Default: <code>optional</code> </p>\",\
           \"locationName\":\"httpTokens\"\
         },\
         \"HttpPutResponseHopLimit\":{\
@@ -30461,12 +30905,12 @@
         },\
         \"Groups\":{\
           \"shape\":\"GroupIdentifierList\",\
-          \"documentation\":\"<p>One or more security groups.</p>\",\
+          \"documentation\":\"<p>The security groups.</p>\",\
           \"locationName\":\"groupSet\"\
         },\
         \"Ipv6Addresses\":{\
           \"shape\":\"InstanceIpv6AddressList\",\
-          \"documentation\":\"<p>One or more IPv6 addresses associated with the network interface.</p>\",\
+          \"documentation\":\"<p>The IPv6 addresses associated with the network interface.</p>\",\
           \"locationName\":\"ipv6AddressesSet\"\
         },\
         \"MacAddress\":{\
@@ -30496,7 +30940,7 @@
         },\
         \"PrivateIpAddresses\":{\
           \"shape\":\"InstancePrivateIpAddressList\",\
-          \"documentation\":\"<p>One or more private IPv4 addresses associated with the network interface.</p>\",\
+          \"documentation\":\"<p>The private IPv4 addresses associated with the network interface.</p>\",\
           \"locationName\":\"privateIpAddressesSet\"\
         },\
         \"SourceDestCheck\":{\
@@ -30646,7 +31090,7 @@
         },\
         \"Ipv6Addresses\":{\
           \"shape\":\"InstanceIpv6AddressList\",\
-          \"documentation\":\"<p>One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.</p>\",\
+          \"documentation\":\"<p>The IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.</p>\",\
           \"locationName\":\"ipv6AddressesSet\",\
           \"queryName\":\"Ipv6Addresses\"\
         },\
@@ -30662,7 +31106,7 @@
         },\
         \"PrivateIpAddresses\":{\
           \"shape\":\"PrivateIpAddressSpecificationList\",\
-          \"documentation\":\"<p>One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html\\\">RunInstances</a> request.</p>\",\
+          \"documentation\":\"<p>The private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html\\\">RunInstances</a> request.</p>\",\
           \"locationName\":\"privateIpAddressesSet\",\
           \"queryName\":\"PrivateIpAddresses\"\
         },\
@@ -30690,7 +31134,7 @@
         },\
         \"Ipv4Prefixes\":{\
           \"shape\":\"Ipv4PrefixList\",\
-          \"documentation\":\"<p>One or more IPv4 delegated prefixes to be assigned to the network interface. You cannot use this option if you use the <code>Ipv4PrefixCount</code> option.</p>\",\
+          \"documentation\":\"<p>The IPv4 delegated prefixes to be assigned to the network interface. You cannot use this option if you use the <code>Ipv4PrefixCount</code> option.</p>\",\
           \"locationName\":\"Ipv4Prefix\"\
         },\
         \"Ipv4PrefixCount\":{\
@@ -30699,7 +31143,7 @@
         },\
         \"Ipv6Prefixes\":{\
           \"shape\":\"Ipv6PrefixList\",\
-          \"documentation\":\"<p>One or more IPv6 delegated prefixes to be assigned to the network interface. You cannot use this option if you use the <code>Ipv6PrefixCount</code> option.</p>\",\
+          \"documentation\":\"<p>The IPv6 delegated prefixes to be assigned to the network interface. You cannot use this option if you use the <code>Ipv6PrefixCount</code> option.</p>\",\
           \"locationName\":\"Ipv6Prefix\"\
         },\
         \"Ipv6PrefixCount\":{\
@@ -30774,7 +31218,7 @@
         },\
         \"ExcludedInstanceTypes\":{\
           \"shape\":\"ExcludedInstanceTypeSet\",\
-          \"documentation\":\"<p>The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (<code>*</code>), to exclude an instance type, size, or generation. The following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>, <code>r*</code>, <code>*3*</code>.</p> <p>For example, if you specify <code>c5*</code>,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify <code>m5a.*</code>, Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.</p> <p>Default: No excluded instance types</p>\",\
+          \"documentation\":\"<p>The instance types to exclude.</p> <p>You can use strings with one or more wild cards, represented by an asterisk (<code>*</code>), to exclude an instance type, size, or generation. The following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>, <code>r*</code>, <code>*3*</code>.</p> <p>For example, if you specify <code>c5*</code>,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify <code>m5a.*</code>, Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.</p> <p>Default: No excluded instance types</p>\",\
           \"locationName\":\"excludedInstanceTypeSet\"\
         },\
         \"InstanceGenerations\":{\
@@ -30849,7 +31293,7 @@
         },\
         \"AcceleratorNames\":{\
           \"shape\":\"AcceleratorNameSet\",\
-          \"documentation\":\"<p>The accelerators that must be on the instance type.</p> <ul> <li> <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p> </li> <li> <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p> </li> <li> <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p> </li> <li> <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p> </li> <li> <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p> </li> <li> <p>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</p> </li> <li> <p>For instance types with Xilinx VU9P FPGAs, specify <code>vu9p</code>.</p> </li> </ul> <p>Default: Any accelerator</p>\",\
+          \"documentation\":\"<p>The accelerators that must be on the instance type.</p> <ul> <li> <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p> </li> <li> <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p> </li> <li> <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p> </li> <li> <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p> </li> <li> <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p> </li> <li> <p>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</p> </li> <li> <p>For instance types with Xilinx VU9P FPGAs, specify <code>vu9p</code>.</p> </li> <li> <p>For instance types with Amazon Web Services Inferentia chips, specify <code>inferentia</code>.</p> </li> <li> <p>For instance types with NVIDIA GRID K520 GPUs, specify <code>k520</code>.</p> </li> </ul> <p>Default: Any accelerator</p>\",\
           \"locationName\":\"acceleratorNameSet\"\
         },\
         \"AcceleratorTotalMemoryMiB\":{\
@@ -30858,7 +31302,7 @@
           \"locationName\":\"acceleratorTotalMemoryMiB\"\
         }\
       },\
-      \"documentation\":\"<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.</p> <p>When you specify multiple parameters, you get instance types that satisfy all of the specified parameters. If you specify multiple values for a parameter, you get instance types that satisfy any of the specified values.</p> <note> <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other parameters are optional. Any unspecified optional parameter is set to its default.</p> </note> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html\\\">Attribute-based instance type selection for EC2 Fleet</a>, <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html\\\">Attribute-based instance type selection for Spot Fleet</a>, and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html\\\">Spot placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
+      \"documentation\":\"<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.</p> <p>When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.</p> <note> <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes are optional. Any unspecified optional attribute is set to its default.</p> </note> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html\\\">Attribute-based instance type selection for EC2 Fleet</a>, <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html\\\">Attribute-based instance type selection for Spot Fleet</a>, and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html\\\">Spot placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
     },\
     \"InstanceRequirementsRequest\":{\
       \"type\":\"structure\",\
@@ -30886,7 +31330,7 @@
         },\
         \"ExcludedInstanceTypes\":{\
           \"shape\":\"ExcludedInstanceTypeSet\",\
-          \"documentation\":\"<p>The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (<code>*</code>), to exclude an instance family, type, size, or generation. The following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>, <code>r*</code>, <code>*3*</code>.</p> <p>For example, if you specify <code>c5*</code>,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify <code>m5a.*</code>, Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.</p> <p>Default: No excluded instance types</p>\",\
+          \"documentation\":\"<p>The instance types to exclude.</p> <p>You can use strings with one or more wild cards, represented by an asterisk (<code>*</code>), to exclude an instance family, type, size, or generation. The following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>, <code>r*</code>, <code>*3*</code>.</p> <p>For example, if you specify <code>c5*</code>,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify <code>m5a.*</code>, Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.</p> <p>Default: No excluded instance types</p>\",\
           \"locationName\":\"ExcludedInstanceType\"\
         },\
         \"InstanceGenerations\":{\
@@ -30951,7 +31395,7 @@
         },\
         \"AcceleratorNames\":{\
           \"shape\":\"AcceleratorNameSet\",\
-          \"documentation\":\"<p>The accelerators that must be on the instance type.</p> <ul> <li> <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p> </li> <li> <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p> </li> <li> <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p> </li> <li> <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p> </li> <li> <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p> </li> <li> <p>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</p> </li> <li> <p>For instance types with Xilinx VU9P FPGAs, specify <code> vu9p</code>.</p> </li> </ul> <p>Default: Any accelerator</p>\",\
+          \"documentation\":\"<p>The accelerators that must be on the instance type.</p> <ul> <li> <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p> </li> <li> <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p> </li> <li> <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p> </li> <li> <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p> </li> <li> <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p> </li> <li> <p>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</p> </li> <li> <p>For instance types with Xilinx VU9P FPGAs, specify <code> vu9p</code>.</p> </li> <li> <p>For instance types with Amazon Web Services Inferentia chips, specify <code>inferentia</code>.</p> </li> <li> <p>For instance types with NVIDIA GRID K520 GPUs, specify <code>k520</code>.</p> </li> </ul> <p>Default: Any accelerator</p>\",\
           \"locationName\":\"AcceleratorName\"\
         },\
         \"AcceleratorTotalMemoryMiB\":{\
@@ -30959,7 +31403,7 @@
           \"documentation\":\"<p>The minimum and maximum amount of total accelerator memory, in MiB.</p> <p>Default: No minimum or maximum limits</p>\"\
         }\
       },\
-      \"documentation\":\"<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.</p> <p>When you specify multiple parameters, you get instance types that satisfy all of the specified parameters. If you specify multiple values for a parameter, you get instance types that satisfy any of the specified values.</p> <note> <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other parameters are optional. Any unspecified optional parameter is set to its default.</p> </note> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html\\\">Attribute-based instance type selection for EC2 Fleet</a>, <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html\\\">Attribute-based instance type selection for Spot Fleet</a>, and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html\\\">Spot placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
+      \"documentation\":\"<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.</p> <p>When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.</p> <note> <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes are optional. Any unspecified optional attribute is set to its default.</p> </note> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html\\\">Attribute-based instance type selection for EC2 Fleet</a>, <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html\\\">Attribute-based instance type selection for Spot Fleet</a>, and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html\\\">Spot placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>\"\
     },\
     \"InstanceRequirementsWithMetadataRequest\":{\
       \"type\":\"structure\",\
@@ -30994,6 +31438,7 @@
         },\
         \"ExcludeDataVolumeIds\":{\
           \"shape\":\"VolumeIdStringList\",\
+          \"documentation\":\"<p>The IDs of the data (non-root) volumes to exclude from the multi-volume snapshot set. If you specify the ID of the root volume, the request fails. To exclude the root volume, use <b>ExcludeBootVolume</b>.</p> <p>You can specify up to 40 volume IDs per request.</p>\",\
           \"locationName\":\"ExcludeDataVolumeId\"\
         }\
       },\
@@ -33001,7 +33446,7 @@
       \"members\":{\
         \"Ipv4Prefix\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>One or more IPv4 delegated prefixes assigned to the network interface.</p>\",\
+          \"documentation\":\"<p>The IPv4 delegated prefixes assigned to the network interface.</p>\",\
           \"locationName\":\"ipv4Prefix\"\
         }\
       },\
@@ -33150,7 +33595,7 @@
       \"members\":{\
         \"Ipv6Prefix\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>One or more IPv6 delegated prefixes assigned to the network interface.</p>\",\
+          \"documentation\":\"<p>The IPv6 delegated prefixes assigned to the network interface.</p>\",\
           \"locationName\":\"ipv6Prefix\"\
         }\
       },\
@@ -33445,7 +33890,7 @@
           \"locationName\":\"monitoring\"\
         }\
       },\
-      \"documentation\":\"<p>Describes the launch specification for an instance.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </note>\"\
+      \"documentation\":\"<p>Describes the launch specification for an instance.</p>\"\
     },\
     \"LaunchSpecsList\":{\
       \"type\":\"list\",\
@@ -34318,7 +34763,7 @@
         },\
         \"InstanceRequirements\":{\
           \"shape\":\"InstanceRequirements\",\
-          \"documentation\":\"<p>The instance requirements. When you specify instance requirements, Amazon EC2 will identify instance types with the provided requirements, and then use your On-Demand and Spot allocation strategies to launch instances from these instance types, in the same way as when you specify a list of instance types.</p> <note> <p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceTypes</code>.</p> </note>\",\
+          \"documentation\":\"<p>The instance requirements. When you specify instance requirements, Amazon EC2 will identify instance types with the provided requirements, and then use your On-Demand and Spot allocation strategies to launch instances from these instance types, in the same way as when you specify a list of instance types.</p> <note> <p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceType</code>.</p> </note>\",\
           \"locationName\":\"instanceRequirements\"\
         }\
       },\
@@ -34947,6 +35392,21 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The ID of the Amazon Web Services account that owns the local gateway route.</p>\",\
           \"locationName\":\"ownerId\"\
+        },\
+        \"SubnetId\":{\
+          \"shape\":\"SubnetId\",\
+          \"documentation\":\"<p>The ID of the subnet.</p>\",\
+          \"locationName\":\"subnetId\"\
+        },\
+        \"CoipPoolId\":{\
+          \"shape\":\"CoipPoolId\",\
+          \"documentation\":\"<p>The ID of the customer-owned address pool.</p>\",\
+          \"locationName\":\"coipPoolId\"\
+        },\
+        \"NetworkInterfaceId\":{\
+          \"shape\":\"NetworkInterfaceId\",\
+          \"documentation\":\"<p>The ID of the network interface.</p>\",\
+          \"locationName\":\"networkInterfaceId\"\
         }\
       },\
       \"documentation\":\"<p>Describes a route for a local gateway route table.</p>\"\
@@ -35005,6 +35465,15 @@
           \"shape\":\"TagList\",\
           \"documentation\":\"<p>The tags assigned to the local gateway route table.</p>\",\
           \"locationName\":\"tagSet\"\
+        },\
+        \"Mode\":{\
+          \"shape\":\"LocalGatewayRouteTableMode\",\
+          \"documentation\":\"<p>The mode of the local gateway route table.</p>\",\
+          \"locationName\":\"mode\"\
+        },\
+        \"StateReason\":{\
+          \"shape\":\"StateReason\",\
+          \"locationName\":\"stateReason\"\
         }\
       },\
       \"documentation\":\"<p>Describes a local gateway route table.</p>\"\
@@ -35015,6 +35484,13 @@
         \"shape\":\"LocalGatewayRoutetableId\",\
         \"locationName\":\"item\"\
       }\
+    },\
+    \"LocalGatewayRouteTableMode\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"direct-vpc-routing\",\
+        \"coip\"\
+      ]\
     },\
     \"LocalGatewayRouteTableSet\":{\
       \"type\":\"list\",\
@@ -35999,7 +36475,7 @@
         },\
         \"Attribute\":{\
           \"shape\":\"InstanceAttributeName\",\
-          \"documentation\":\"<p>The name of the attribute.</p>\",\
+          \"documentation\":\"<p>The name of the attribute to modify.</p> <important> <p>You can modify the following attributes only: <code>disableApiTermination</code> | <code>instanceType</code> | <code>kernel</code> | <code>ramdisk</code> | <code>instanceInitiatedShutdownBehavior</code> | <code>blockDeviceMapping</code> | <code>userData</code> | <code>sourceDestCheck</code> | <code>groupSet</code> | <code>ebsOptimized</code> | <code>sriovNetSupport</code> | <code>enaSupport</code> | <code>nvmeSupport</code> | <code>disableApiStop</code> | <code>enclaveOptions</code> </p> </important>\",\
           \"locationName\":\"attribute\"\
         },\
         \"BlockDeviceMappings\":{\
@@ -36258,7 +36734,7 @@
         },\
         \"HttpTokens\":{\
           \"shape\":\"HttpTokensState\",\
-          \"documentation\":\"<p>The state of token usage for your instance metadata requests. If the parameter is not specified in the request, the default state is <code>optional</code>.</p> <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid signed token, the version 2.0 role credentials are returned.</p> <p>If the state is <code>required</code>, you must send a signed token header with any instance metadata retrieval requests. In this state, retrieving the IAM role credential always returns the version 2.0 credentials; the version 1.0 credentials are not available.</p>\"\
+          \"documentation\":\"<p>The state of token usage for your instance metadata requests. If the parameter is not specified in the request, the default state is <code>optional</code>.</p> <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata with or without a session token on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid session token, the version 2.0 role credentials are returned.</p> <p>If the state is <code>required</code>, you must send a session token with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns the version 2.0 credentials; the version 1.0 credentials are not available.</p>\"\
         },\
         \"HttpPutResponseHopLimit\":{\
           \"shape\":\"Integer\",\
@@ -36551,6 +37027,44 @@
           \"shape\":\"LaunchTemplate\",\
           \"documentation\":\"<p>Information about the launch template.</p>\",\
           \"locationName\":\"launchTemplate\"\
+        }\
+      }\
+    },\
+    \"ModifyLocalGatewayRouteRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"DestinationCidrBlock\",\
+        \"LocalGatewayRouteTableId\"\
+      ],\
+      \"members\":{\
+        \"DestinationCidrBlock\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The CIDR block used for destination matches. The value that you provide must match the CIDR of an existing route in the table.</p>\"\
+        },\
+        \"LocalGatewayRouteTableId\":{\
+          \"shape\":\"LocalGatewayRoutetableId\",\
+          \"documentation\":\"<p>The ID of the local gateway route table.</p>\"\
+        },\
+        \"LocalGatewayVirtualInterfaceGroupId\":{\
+          \"shape\":\"LocalGatewayVirtualInterfaceGroupId\",\
+          \"documentation\":\"<p> The ID of the virtual interface group. </p>\"\
+        },\
+        \"NetworkInterfaceId\":{\
+          \"shape\":\"NetworkInterfaceId\",\
+          \"documentation\":\"<p>The ID of the network interface.</p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"ModifyLocalGatewayRouteResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Route\":{\
+          \"shape\":\"LocalGatewayRoute\",\
+          \"locationName\":\"route\"\
         }\
       }\
     },\
@@ -37100,7 +37614,7 @@
         },\
         \"AmazonSideAsn\":{\
           \"shape\":\"Long\",\
-          \"documentation\":\"<p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs.</p>\"\
+          \"documentation\":\"<p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs.</p> <p>The modify ASN operation is not allowed on a transit gateway with active BGP sessions. You must first delete all transit gateway attachments that have BGP configured prior to modifying the ASN on the transit gateway.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The transit gateway options.</p>\"\
@@ -37540,6 +38054,11 @@
     \"ModifyVpcEndpointServicePermissionsResult\":{\
       \"type\":\"structure\",\
       \"members\":{\
+        \"AddedPrincipals\":{\
+          \"shape\":\"AddedPrincipalSet\",\
+          \"documentation\":\"<p>Information about the added principals.</p>\",\
+          \"locationName\":\"addedPrincipalSet\"\
+        },\
         \"ReturnValue\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>\",\
@@ -37976,7 +38495,7 @@
           \"locationName\":\"publicIp\"\
         }\
       },\
-      \"documentation\":\"<p>Describes the status of a moving Elastic IP address.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Describes the status of a moving Elastic IP address.</p> <note> <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
     },\
     \"MovingAddressStatusSet\":{\
       \"type\":\"list\",\
@@ -39447,6 +39966,16 @@
           \"shape\":\"TransitGatewayRouteTableRoute\",\
           \"documentation\":\"<p>The route in a transit gateway route table.</p>\",\
           \"locationName\":\"transitGatewayRouteTableRoute\"\
+        },\
+        \"Explanations\":{\
+          \"shape\":\"ExplanationList\",\
+          \"documentation\":\"<p>The explanation codes.</p>\",\
+          \"locationName\":\"explanationSet\"\
+        },\
+        \"ElasticLoadBalancerListener\":{\
+          \"shape\":\"AnalysisComponent\",\
+          \"documentation\":\"<p>The load balancer listener.</p>\",\
+          \"locationName\":\"elasticLoadBalancerListener\"\
         }\
       },\
       \"documentation\":\"<p>Describes a path component.</p>\"\
@@ -40415,7 +40944,7 @@
         },\
         \"PrivateIpAddress\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The private IPv4 addresses.</p>\",\
+          \"documentation\":\"<p>The private IPv4 address.</p>\",\
           \"locationName\":\"privateIpAddress\"\
         }\
       },\
@@ -42091,7 +42620,7 @@
         },\
         \"InstanceType\":{\
           \"shape\":\"InstanceType\",\
-          \"documentation\":\"<p>The instance type. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\\\">Instance types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>If you specify <code>InstanceTypes</code>, you can't specify <code>InstanceRequirements</code>.</p>\"\
+          \"documentation\":\"<p>The instance type. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\\\">Instance types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>If you specify <code>InstanceType</code>, you can't specify <code>InstanceRequirements</code>.</p>\"\
         },\
         \"KeyName\":{\
           \"shape\":\"KeyPairName\",\
@@ -42181,7 +42710,7 @@
         },\
         \"InstanceRequirements\":{\
           \"shape\":\"InstanceRequirementsRequest\",\
-          \"documentation\":\"<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.</p> <p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceTypes</code>.</p>\"\
+          \"documentation\":\"<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.</p> <p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceType</code>.</p>\"\
         },\
         \"PrivateDnsNameOptions\":{\
           \"shape\":\"LaunchTemplatePrivateDnsNameOptionsRequest\",\
@@ -42436,7 +42965,7 @@
           \"locationName\":\"reservationId\"\
         }\
       },\
-      \"documentation\":\"<p>Describes a launch request for one or more instances, and includes owner, requester, and security group information that applies to all instances in the launch request.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Describes a launch request for one or more instances, and includes owner, requester, and security group information that applies to all instances in the launch request.</p>\"\
     },\
     \"ReservationFleetInstanceSpecification\":{\
       \"type\":\"structure\",\
@@ -42696,7 +43225,7 @@
           \"locationName\":\"scope\"\
         }\
       },\
-      \"documentation\":\"<p>Describes the configuration settings for the modified Reserved Instances.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Describes the configuration settings for the modified Reserved Instances.</p>\"\
     },\
     \"ReservedInstancesConfigurationList\":{\
       \"type\":\"list\",\
@@ -43215,6 +43744,7 @@
         \"client-vpn-endpoint\",\
         \"customer-gateway\",\
         \"carrier-gateway\",\
+        \"coip-pool\",\
         \"dedicated-host\",\
         \"dhcp-options\",\
         \"egress-only-internet-gateway\",\
@@ -43276,7 +43806,9 @@
         \"volume\",\
         \"vpc\",\
         \"vpc-endpoint\",\
+        \"vpc-endpoint-connection\",\
         \"vpc-endpoint-service\",\
+        \"vpc-endpoint-service-permission\",\
         \"vpc-peering-connection\",\
         \"vpn-connection\",\
         \"vpn-gateway\",\
@@ -43822,7 +44354,7 @@
         },\
         \"GroupName\":{\
           \"shape\":\"SecurityGroupName\",\
-          \"documentation\":\"<p>[EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.</p>\"\
+          \"documentation\":\"<p>[EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.</p>\"\
         },\
         \"IpPermissions\":{\
           \"shape\":\"IpPermissionList\",\
@@ -44501,7 +45033,7 @@
           \"locationName\":\"totalScheduledInstanceHours\"\
         }\
       },\
-      \"documentation\":\"<p>Describes a Scheduled Instance.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Describes a Scheduled Instance.</p>\"\
     },\
     \"ScheduledInstanceAvailability\":{\
       \"type\":\"structure\",\
@@ -44572,7 +45104,7 @@
           \"locationName\":\"totalScheduledInstanceHours\"\
         }\
       },\
-      \"documentation\":\"<p>Describes a schedule that is available for your Scheduled Instances.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Describes a schedule that is available for your Scheduled Instances.</p>\"\
     },\
     \"ScheduledInstanceAvailabilitySet\":{\
       \"type\":\"list\",\
@@ -45482,7 +46014,7 @@
         },\
         \"PrivateDnsNames\":{\
           \"shape\":\"PrivateDnsDetailsSet\",\
-          \"documentation\":\"<p>The private DNS names assigned to the VPC endpoint service. </p>\",\
+          \"documentation\":\"<p>The private DNS names assigned to the VPC endpoint service.</p>\",\
           \"locationName\":\"privateDnsNameSet\"\
         },\
         \"VpcEndpointPolicySupported\":{\
@@ -46197,11 +46729,11 @@
         },\
         \"InstanceRequirements\":{\
           \"shape\":\"InstanceRequirements\",\
-          \"documentation\":\"<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.</p> <note> <p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceTypes</code>.</p> </note>\",\
+          \"documentation\":\"<p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.</p> <note> <p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceType</code>.</p> </note>\",\
           \"locationName\":\"instanceRequirements\"\
         }\
       },\
-      \"documentation\":\"<p>Describes the launch specification for one or more Spot Instances. If you include On-Demand capacity in your fleet request or want to specify an EFA network device, you can't use <code>SpotFleetLaunchSpecification</code>; you must use <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html\\\">LaunchTemplateConfig</a>.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> </note>\"\
+      \"documentation\":\"<p>Describes the launch specification for one or more Spot Instances. If you include On-Demand capacity in your fleet request or want to specify an EFA network device, you can't use <code>SpotFleetLaunchSpecification</code>; you must use <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html\\\">LaunchTemplateConfig</a>.</p>\"\
     },\
     \"SpotFleetMonitoring\":{\
       \"type\":\"structure\",\
@@ -46259,7 +46791,7 @@
       \"members\":{\
         \"AllocationStrategy\":{\
           \"shape\":\"AllocationStrategy\",\
-          \"documentation\":\"<p>Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the Spot Fleet request.</p> <p>If the allocation strategy is <code>lowestPrice</code>, Spot Fleet launches instances from the Spot Instance pools with the lowest price. This is the default allocation strategy.</p> <p>If the allocation strategy is <code>diversified</code>, Spot Fleet launches instances from all the Spot Instance pools that you specify.</p> <p>If the allocation strategy is <code>capacityOptimized</code> (recommended), Spot Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching. To give certain instance types a higher chance of launching first, use <code>capacityOptimizedPrioritized</code>. Set a priority for each instance type by using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements the priorities on a best-effort basis, but optimizes for capacity first. <code>capacityOptimizedPrioritized</code> is supported only if your Spot Fleet uses a launch template. Note that if the <code>OnDemandAllocationStrategy</code> is set to <code>prioritized</code>, the same priority is applied when fulfilling On-Demand capacity.</p>\",\
+          \"documentation\":\"<p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the Spot Fleet launch configuration. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html\\\">Allocation strategies for Spot Instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p> <p> <code>lowestPrice</code> - Spot Fleet launches instances from the lowest-price Spot Instance pool that has available capacity. If the cheapest pool doesn't have available capacity, the Spot Instances come from the next cheapest pool that has available capacity. If a pool runs out of capacity before fulfilling your desired capacity, Spot Fleet will continue to fulfill your request by drawing from the next cheapest pool. To ensure that your desired capacity is met, you might receive Spot Instances from several pools.</p> <p> <code>diversified</code> - Spot Fleet launches instances from all of the Spot Instance pools that you specify.</p> <p> <code>capacityOptimized</code> (recommended) - Spot Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching. To give certain instance types a higher chance of launching first, use <code>capacityOptimizedPrioritized</code>. Set a priority for each instance type by using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements the priorities on a best-effort basis, but optimizes for capacity first. <code>capacityOptimizedPrioritized</code> is supported only if your Spot Fleet uses a launch template. Note that if the <code>OnDemandAllocationStrategy</code> is set to <code>prioritized</code>, the same priority is applied when fulfilling On-Demand capacity.</p> <p>Default: <code>lowestPrice</code> </p>\",\
           \"locationName\":\"allocationStrategy\"\
         },\
         \"OnDemandAllocationStrategy\":{\
@@ -46384,7 +46916,7 @@
         },\
         \"TagSpecifications\":{\
           \"shape\":\"TagSpecificationList\",\
-          \"documentation\":\"<p>The key-value pair for tagging the Spot Fleet request on creation. The value for <code>ResourceType</code> must be <code>spot-fleet-request</code>, otherwise the Spot Fleet request fails. To tag instances at launch, specify the tags in the <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template\\\">launch template</a> (valid only if you use <code>LaunchTemplateConfigs</code>) or in the <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html\\\"> <code>SpotFleetTagSpecification</code> </a> (valid only if you use <code>LaunchSpecifications</code>). For information about tagging after launch, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources\\\">Tagging Your Resources</a>.</p>\",\
+          \"documentation\":\"<p>The key-value pair for tagging the Spot Fleet request on creation. The value for <code>ResourceType</code> must be <code>spot-fleet-request</code>, otherwise the Spot Fleet request fails. To tag instances at launch, specify the tags in the <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template\\\">launch template</a> (valid only if you use <code>LaunchTemplateConfigs</code>) or in the <code> <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html\\\">SpotFleetTagSpecification</a> </code> (valid only if you use <code>LaunchSpecifications</code>). For information about tagging after launch, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources\\\">Tagging Your Resources</a>.</p>\",\
           \"locationName\":\"TagSpecification\"\
         }\
       },\
@@ -46410,7 +46942,7 @@
       \"members\":{\
         \"ResourceType\":{\
           \"shape\":\"ResourceType\",\
-          \"documentation\":\"<p>The type of resource. Currently, the only resource type that is supported is <code>instance</code>. To tag the Spot Fleet request on creation, use the <code>TagSpecifications</code> parameter in <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html\\\"> <code>SpotFleetRequestConfigData</code> </a>.</p>\",\
+          \"documentation\":\"<p>The type of resource. Currently, the only resource type that is supported is <code>instance</code>. To tag the Spot Fleet request on creation, use the <code>TagSpecifications</code> parameter in <code> <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html\\\">SpotFleetRequestConfigData</a> </code>.</p>\",\
           \"locationName\":\"resourceType\"\
         },\
         \"Tags\":{\
@@ -46648,7 +47180,7 @@
       \"members\":{\
         \"AllocationStrategy\":{\
           \"shape\":\"SpotAllocationStrategy\",\
-          \"documentation\":\"<p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the EC2 Fleet.</p> <p> <code>lowest-price</code> - EC2 Fleet launches instances from the Spot Instance pools with the lowest price.</p> <p> <code>diversified</code> - EC2 Fleet launches instances from all of the Spot Instance pools that you specify.</p> <p> <code>capacity-optimized</code> (recommended) - EC2 Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching. To give certain instance types a higher chance of launching first, use <code>capacity-optimized-prioritized</code>. Set a priority for each instance type by using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements the priorities on a best-effort basis, but optimizes for capacity first. <code>capacity-optimized-prioritized</code> is supported only if your fleet uses a launch template. Note that if the On-Demand <code>AllocationStrategy</code> is set to <code>prioritized</code>, the same priority is applied when fulfilling On-Demand capacity.</p> <p>Default: <code>lowest-price</code> </p>\",\
+          \"documentation\":\"<p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the EC2 Fleet launch configuration. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html\\\">Allocation strategies for Spot Instances</a> in the <i>Amazon EC2 User Guide</i>.</p> <p> <code>lowest-price</code> - EC2 Fleet launches instances from the lowest-price Spot Instance pool that has available capacity. If the cheapest pool doesn't have available capacity, the Spot Instances come from the next cheapest pool that has available capacity. If a pool runs out of capacity before fulfilling your desired capacity, EC2 Fleet will continue to fulfill your request by drawing from the next cheapest pool. To ensure that your desired capacity is met, you might receive Spot Instances from several pools.</p> <p> <code>diversified</code> - EC2 Fleet launches instances from all of the Spot Instance pools that you specify.</p> <p> <code>capacity-optimized</code> (recommended) - EC2 Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching. To give certain instance types a higher chance of launching first, use <code>capacity-optimized-prioritized</code>. Set a priority for each instance type by using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements the priorities on a best-effort basis, but optimizes for capacity first. <code>capacity-optimized-prioritized</code> is supported only if your fleet uses a launch template. Note that if the On-Demand <code>AllocationStrategy</code> is set to <code>prioritized</code>, the same priority is applied when fulfilling On-Demand capacity.</p> <p>Default: <code>lowest-price</code> </p>\",\
           \"locationName\":\"allocationStrategy\"\
         },\
         \"MaintenanceStrategies\":{\
@@ -46694,7 +47226,7 @@
       \"members\":{\
         \"AllocationStrategy\":{\
           \"shape\":\"SpotAllocationStrategy\",\
-          \"documentation\":\"<p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the EC2 Fleet.</p> <p> <code>lowest-price</code> - EC2 Fleet launches instances from the Spot Instance pools with the lowest price.</p> <p> <code>diversified</code> - EC2 Fleet launches instances from all of the Spot Instance pools that you specify.</p> <p> <code>capacity-optimized</code> (recommended) - EC2 Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching. To give certain instance types a higher chance of launching first, use <code>capacity-optimized-prioritized</code>. Set a priority for each instance type by using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements the priorities on a best-effort basis, but optimizes for capacity first. <code>capacity-optimized-prioritized</code> is supported only if your fleet uses a launch template. Note that if the On-Demand <code>AllocationStrategy</code> is set to <code>prioritized</code>, the same priority is applied when fulfilling On-Demand capacity.</p> <p>Default: <code>lowest-price</code> </p>\"\
+          \"documentation\":\"<p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the EC2 Fleet launch configuration. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html\\\">Allocation strategies for Spot Instances</a> in the <i>Amazon EC2 User Guide</i>.</p> <p> <code>lowest-price</code> - EC2 Fleet launches instances from the lowest-price Spot Instance pool that has available capacity. If the cheapest pool doesn't have available capacity, the Spot Instances come from the next cheapest pool that has available capacity. If a pool runs out of capacity before fulfilling your desired capacity, EC2 Fleet will continue to fulfill your request by drawing from the next cheapest pool. To ensure that your desired capacity is met, you might receive Spot Instances from several pools.</p> <p> <code>diversified</code> - EC2 Fleet launches instances from all of the Spot Instance pools that you specify.</p> <p> <code>capacity-optimized</code> (recommended) - EC2 Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching. To give certain instance types a higher chance of launching first, use <code>capacity-optimized-prioritized</code>. Set a priority for each instance type by using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements the priorities on a best-effort basis, but optimizes for capacity first. <code>capacity-optimized-prioritized</code> is supported only if your fleet uses a launch template. Note that if the On-Demand <code>AllocationStrategy</code> is set to <code>prioritized</code>, the same priority is applied when fulfilling On-Demand capacity.</p> <p>Default: <code>lowest-price</code> </p>\"\
         },\
         \"MaintenanceStrategies\":{\
           \"shape\":\"FleetSpotMaintenanceStrategiesRequest\",\
@@ -50285,7 +50817,7 @@
         },\
         \"Ipv6Prefixes\":{\
           \"shape\":\"IpPrefixList\",\
-          \"documentation\":\"<p>One or more IPv6 prefixes to unassign from the network interface.</p>\",\
+          \"documentation\":\"<p>The IPv6 prefixes to unassign from the network interface.</p>\",\
           \"locationName\":\"Ipv6Prefix\"\
         },\
         \"NetworkInterfaceId\":{\
@@ -50515,7 +51047,7 @@
         },\
         \"GroupName\":{\
           \"shape\":\"SecurityGroupName\",\
-          \"documentation\":\"<p>[EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.</p>\"\
+          \"documentation\":\"<p>[EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.</p>\"\
         },\
         \"IpPermissions\":{\
           \"shape\":\"IpPermissionList\",\
@@ -50640,7 +51172,7 @@
           \"locationName\":\"vpcPeeringConnectionId\"\
         }\
       },\
-      \"documentation\":\"<p>Describes a security group and Amazon Web Services account ID pair.</p> <note> <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
+      \"documentation\":\"<p>Describes a security group and Amazon Web Services account ID pair.</p> <note> <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\\\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </note>\"\
     },\
     \"UserIdGroupPairList\":{\
       \"type\":\"list\",\
@@ -51662,6 +52194,16 @@
           \"shape\":\"IpAddressType\",\
           \"documentation\":\"<p>The IP address type for the endpoint.</p>\",\
           \"locationName\":\"ipAddressType\"\
+        },\
+        \"VpcEndpointConnectionId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the VPC endpoint connection.</p>\",\
+          \"locationName\":\"vpcEndpointConnectionId\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>The tags.</p>\",\
+          \"locationName\":\"tagSet\"\
         }\
       },\
       \"documentation\":\"<p>Describes a VPC endpoint connection to a service.</p>\"\
