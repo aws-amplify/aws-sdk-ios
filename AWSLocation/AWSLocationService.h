@@ -975,6 +975,31 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (void)getMapTile:(AWSLocationGetMapTileRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationGetMapTileResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Finds a place by its unique ID. A <code>PlaceId</code> is returned by other search operations.</p><note><p>A PlaceId is valid only if all of the following are the same in the original search request and the call to <code>GetPlace</code>.</p><ul><li><p>Customer AWS account</p></li><li><p>AWS Region</p></li><li><p>Data provider specified in the place index resource</p></li></ul></note>
+ 
+ @param request A container for the necessary parameters to execute the GetPlace service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLocationGetPlaceResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorResourceNotFound`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorThrottling`.
+ 
+ @see AWSLocationGetPlaceRequest
+ @see AWSLocationGetPlaceResponse
+ */
+- (AWSTask<AWSLocationGetPlaceResponse *> *)getPlace:(AWSLocationGetPlaceRequest *)request;
+
+/**
+ <p>Finds a place by its unique ID. A <code>PlaceId</code> is returned by other search operations.</p><note><p>A PlaceId is valid only if all of the following are the same in the original search request and the call to <code>GetPlace</code>.</p><ul><li><p>Customer AWS account</p></li><li><p>AWS Region</p></li><li><p>Data provider specified in the place index resource</p></li></ul></note>
+ 
+ @param request A container for the necessary parameters to execute the GetPlace service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorResourceNotFound`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorThrottling`.
+ 
+ @see AWSLocationGetPlaceRequest
+ @see AWSLocationGetPlaceResponse
+ */
+- (void)getPlace:(AWSLocationGetPlaceRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationGetPlaceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>A batch request to retrieve all device positions.</p>
  
  @param request A container for the necessary parameters to execute the ListDevicePositions service method.
