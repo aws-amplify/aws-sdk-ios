@@ -35,6 +35,7 @@ typedef NS_ENUM(NSInteger, AWSTranslateErrorType) {
     AWSTranslateErrorServiceUnavailable,
     AWSTranslateErrorTextSizeLimitExceeded,
     AWSTranslateErrorTooManyRequests,
+    AWSTranslateErrorTooManyTags,
     AWSTranslateErrorUnsupportedDisplayLanguageCode,
     AWSTranslateErrorUnsupportedLanguagePair,
 };
@@ -136,6 +137,8 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @class AWSTranslateListLanguagesResponse;
 @class AWSTranslateListParallelDataRequest;
 @class AWSTranslateListParallelDataResponse;
+@class AWSTranslateListTagsForResourceRequest;
+@class AWSTranslateListTagsForResourceResponse;
 @class AWSTranslateListTerminologiesRequest;
 @class AWSTranslateListTerminologiesResponse;
 @class AWSTranslateListTextTranslationJobsRequest;
@@ -148,6 +151,9 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @class AWSTranslateStartTextTranslationJobResponse;
 @class AWSTranslateStopTextTranslationJobRequest;
 @class AWSTranslateStopTextTranslationJobResponse;
+@class AWSTranslateTag;
+@class AWSTranslateTagResourceRequest;
+@class AWSTranslateTagResourceResponse;
 @class AWSTranslateTerm;
 @class AWSTranslateTerminologyData;
 @class AWSTranslateTerminologyDataLocation;
@@ -157,6 +163,8 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @class AWSTranslateTranslateTextRequest;
 @class AWSTranslateTranslateTextResponse;
 @class AWSTranslateTranslationSettings;
+@class AWSTranslateUntagResourceRequest;
+@class AWSTranslateUntagResourceResponse;
 @class AWSTranslateUpdateParallelDataRequest;
 @class AWSTranslateUpdateParallelDataResponse;
 
@@ -208,6 +216,11 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
  <p>Specifies the format and S3 location of the parallel data input file.</p>
  */
 @property (nonatomic, strong) AWSTranslateParallelDataConfig * _Nullable parallelDataConfig;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<AWSTranslateTag *> * _Nullable tags;
 
 @end
 
@@ -427,6 +440,11 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
+ 
+ */
+@property (nonatomic, strong) NSArray<AWSTranslateTag *> * _Nullable tags;
+
+/**
  <p>The terminology data for the custom terminology being imported.</p>
  */
 @property (nonatomic, strong) AWSTranslateTerminologyData * _Nullable terminologyData;
@@ -591,6 +609,32 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
  <p>The properties of the parallel data resources returned by this request.</p>
  */
 @property (nonatomic, strong) NSArray<AWSTranslateParallelDataProperties *> * _Nullable parallelDataPropertiesList;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTranslateListTagsForResourceRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTranslateListTagsForResourceResponse : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<AWSTranslateTag *> * _Nullable tags;
 
 @end
 
@@ -929,6 +973,50 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
 @end
 
 /**
+ 
+ */
+@interface AWSTranslateTag : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable key;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable value;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTranslateTagResourceRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<AWSTranslateTag *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTranslateTagResourceResponse : AWSModel
+
+
+@end
+
+/**
  <p>The term being translated by the custom terminology.</p>
  */
 @interface AWSTranslateTerm : AWSModel
@@ -1259,6 +1347,32 @@ typedef NS_ENUM(NSInteger, AWSTranslateTerminologyDataFormat) {
  <p>Enable the profanity setting if you want Amazon Translate to mask profane words and phrases in your translation output.</p><p>To mask profane words and phrases, Amazon Translate replaces them with the grawlix string “?$#@$“. This 5-character sequence is used for each profane word or phrase, regardless of the length or number of words.</p><p>Amazon Translate doesn't detect profanity in all of its supported languages. For languages that support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is.html">Supported Languages and Language Codes in the Amazon Translate Developer Guide</a>.</p>
  */
 @property (nonatomic, assign) AWSTranslateProfanity profanity;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTranslateUntagResourceRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable tagKeys;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTranslateUntagResourceResponse : AWSModel
+
 
 @end
 

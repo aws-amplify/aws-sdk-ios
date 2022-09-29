@@ -50,6 +50,7 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
              @"encryptionKey" : @"EncryptionKey",
              @"name" : @"Name",
              @"parallelDataConfig" : @"ParallelDataConfig",
+             @"tags" : @"Tags",
              };
 }
 
@@ -59,6 +60,10 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 
 + (NSValueTransformer *)parallelDataConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranslateParallelDataConfig class]];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTranslateTag class]];
 }
 
 @end
@@ -384,6 +389,7 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
              @"encryptionKey" : @"EncryptionKey",
              @"mergeStrategy" : @"MergeStrategy",
              @"name" : @"Name",
+             @"tags" : @"Tags",
              @"terminologyData" : @"TerminologyData",
              };
 }
@@ -406,6 +412,10 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTranslateTag class]];
 }
 
 + (NSValueTransformer *)terminologyDataJSONTransformer {
@@ -671,6 +681,38 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
 
 + (NSValueTransformer *)parallelDataPropertiesListJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTranslateParallelDataProperties class]];
+}
+
+@end
+
+@implementation AWSTranslateListTagsForResourceRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"ResourceArn",
+             };
+}
+
+@end
+
+@implementation AWSTranslateListTagsForResourceResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTranslateTag class]];
 }
 
 @end
@@ -1124,6 +1166,48 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSTranslateTag
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"key" : @"Key",
+             @"value" : @"Value",
+             };
+}
+
+@end
+
+@implementation AWSTranslateTagResourceRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"ResourceArn",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTranslateTag class]];
+}
+
+@end
+
+@implementation AWSTranslateTagResourceResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
 }
 
 @end
@@ -1596,6 +1680,29 @@ NSString *const AWSTranslateErrorDomain = @"com.amazonaws.AWSTranslateErrorDomai
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSTranslateUntagResourceRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"ResourceArn",
+             @"tagKeys" : @"TagKeys",
+             };
+}
+
+@end
+
+@implementation AWSTranslateUntagResourceResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
 }
 
 @end
