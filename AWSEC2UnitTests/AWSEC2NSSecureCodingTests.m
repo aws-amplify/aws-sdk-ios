@@ -43,6 +43,7 @@
 - (void) test_AWSEC2ActiveInstance API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AddIpamOperatingRegion API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AddPrefixListEntry API_AVAILABLE(ios(11));
+- (void) test_AWSEC2AddedPrincipal API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AdditionalDetail API_AVAILABLE(ios(11));
 - (void) test_AWSEC2Address API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AddressAttribute API_AVAILABLE(ios(11));
@@ -149,6 +150,7 @@
 - (void) test_AWSEC2CancelSpotInstanceRequestsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CancelSpotInstanceRequestsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CancelledSpotInstanceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2CapacityAllocation API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CapacityReservation API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CapacityReservationFleet API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CapacityReservationFleetCancellationState API_AVAILABLE(ios(11));
@@ -187,6 +189,7 @@
 - (void) test_AWSEC2CloudWatchLogOptions API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CloudWatchLogOptionsSpecification API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CoipAddressUsage API_AVAILABLE(ios(11));
+- (void) test_AWSEC2CoipCidr API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CoipPool API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ConfirmProductInstanceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ConfirmProductInstanceResult API_AVAILABLE(ios(11));
@@ -212,6 +215,10 @@
 - (void) test_AWSEC2CreateClientVpnEndpointResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateClientVpnRouteRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateClientVpnRouteResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2CreateCoipCidrRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2CreateCoipCidrResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2CreateCoipPoolRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2CreateCoipPoolResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateCustomerGatewayRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateCustomerGatewayResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateDefaultSubnetRequest API_AVAILABLE(ios(11));
@@ -251,6 +258,10 @@
 - (void) test_AWSEC2CreateLaunchTemplateVersionResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateLocalGatewayRouteRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateLocalGatewayRouteResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2CreateLocalGatewayRouteTableRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2CreateLocalGatewayRouteTableResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateLocalGatewayRouteTableVpcAssociationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateLocalGatewayRouteTableVpcAssociationResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateManagedPrefixListRequest API_AVAILABLE(ios(11));
@@ -357,6 +368,10 @@
 - (void) test_AWSEC2DeleteClientVpnEndpointResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteClientVpnRouteRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteClientVpnRouteResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DeleteCoipCidrRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DeleteCoipCidrResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DeleteCoipPoolRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DeleteCoipPoolResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteCustomerGatewayRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteDhcpOptionsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteEgressOnlyInternetGatewayRequest API_AVAILABLE(ios(11));
@@ -388,6 +403,10 @@
 - (void) test_AWSEC2DeleteLaunchTemplateVersionsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteLocalGatewayRouteRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteLocalGatewayRouteResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DeleteLocalGatewayRouteTableRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DeleteLocalGatewayRouteTableResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteLocalGatewayRouteTableVpcAssociationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteLocalGatewayRouteTableVpcAssociationResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteManagedPrefixListRequest API_AVAILABLE(ios(11));
@@ -1214,6 +1233,8 @@
 - (void) test_AWSEC2ModifyIpamScopeResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ModifyLaunchTemplateRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ModifyLaunchTemplateResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2ModifyLocalGatewayRouteRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2ModifyLocalGatewayRouteResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ModifyManagedPrefixListRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ModifyManagedPrefixListResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ModifyNetworkInterfaceAttributeRequest API_AVAILABLE(ios(11));
@@ -1772,6 +1793,10 @@
     [self validateSecureCodingForClass:[AWSEC2AddPrefixListEntry class]];
 }
 
+- (void) test_AWSEC2AddedPrincipal {
+    [self validateSecureCodingForClass:[AWSEC2AddedPrincipal class]];
+}
+
 - (void) test_AWSEC2AdditionalDetail {
     [self validateSecureCodingForClass:[AWSEC2AdditionalDetail class]];
 }
@@ -2196,6 +2221,10 @@
     [self validateSecureCodingForClass:[AWSEC2CancelledSpotInstanceRequest class]];
 }
 
+- (void) test_AWSEC2CapacityAllocation {
+    [self validateSecureCodingForClass:[AWSEC2CapacityAllocation class]];
+}
+
 - (void) test_AWSEC2CapacityReservation {
     [self validateSecureCodingForClass:[AWSEC2CapacityReservation class]];
 }
@@ -2348,6 +2377,10 @@
     [self validateSecureCodingForClass:[AWSEC2CoipAddressUsage class]];
 }
 
+- (void) test_AWSEC2CoipCidr {
+    [self validateSecureCodingForClass:[AWSEC2CoipCidr class]];
+}
+
 - (void) test_AWSEC2CoipPool {
     [self validateSecureCodingForClass:[AWSEC2CoipPool class]];
 }
@@ -2446,6 +2479,22 @@
 
 - (void) test_AWSEC2CreateClientVpnRouteResult {
     [self validateSecureCodingForClass:[AWSEC2CreateClientVpnRouteResult class]];
+}
+
+- (void) test_AWSEC2CreateCoipCidrRequest {
+    [self validateSecureCodingForClass:[AWSEC2CreateCoipCidrRequest class]];
+}
+
+- (void) test_AWSEC2CreateCoipCidrResult {
+    [self validateSecureCodingForClass:[AWSEC2CreateCoipCidrResult class]];
+}
+
+- (void) test_AWSEC2CreateCoipPoolRequest {
+    [self validateSecureCodingForClass:[AWSEC2CreateCoipPoolRequest class]];
+}
+
+- (void) test_AWSEC2CreateCoipPoolResult {
+    [self validateSecureCodingForClass:[AWSEC2CreateCoipPoolResult class]];
 }
 
 - (void) test_AWSEC2CreateCustomerGatewayRequest {
@@ -2602,6 +2651,22 @@
 
 - (void) test_AWSEC2CreateLocalGatewayRouteResult {
     [self validateSecureCodingForClass:[AWSEC2CreateLocalGatewayRouteResult class]];
+}
+
+- (void) test_AWSEC2CreateLocalGatewayRouteTableRequest {
+    [self validateSecureCodingForClass:[AWSEC2CreateLocalGatewayRouteTableRequest class]];
+}
+
+- (void) test_AWSEC2CreateLocalGatewayRouteTableResult {
+    [self validateSecureCodingForClass:[AWSEC2CreateLocalGatewayRouteTableResult class]];
+}
+
+- (void) test_AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest {
+    [self validateSecureCodingForClass:[AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest class]];
+}
+
+- (void) test_AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult {
+    [self validateSecureCodingForClass:[AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult class]];
 }
 
 - (void) test_AWSEC2CreateLocalGatewayRouteTableVpcAssociationRequest {
@@ -3028,6 +3093,22 @@
     [self validateSecureCodingForClass:[AWSEC2DeleteClientVpnRouteResult class]];
 }
 
+- (void) test_AWSEC2DeleteCoipCidrRequest {
+    [self validateSecureCodingForClass:[AWSEC2DeleteCoipCidrRequest class]];
+}
+
+- (void) test_AWSEC2DeleteCoipCidrResult {
+    [self validateSecureCodingForClass:[AWSEC2DeleteCoipCidrResult class]];
+}
+
+- (void) test_AWSEC2DeleteCoipPoolRequest {
+    [self validateSecureCodingForClass:[AWSEC2DeleteCoipPoolRequest class]];
+}
+
+- (void) test_AWSEC2DeleteCoipPoolResult {
+    [self validateSecureCodingForClass:[AWSEC2DeleteCoipPoolResult class]];
+}
+
 - (void) test_AWSEC2DeleteCustomerGatewayRequest {
     [self validateSecureCodingForClass:[AWSEC2DeleteCustomerGatewayRequest class]];
 }
@@ -3150,6 +3231,22 @@
 
 - (void) test_AWSEC2DeleteLocalGatewayRouteResult {
     [self validateSecureCodingForClass:[AWSEC2DeleteLocalGatewayRouteResult class]];
+}
+
+- (void) test_AWSEC2DeleteLocalGatewayRouteTableRequest {
+    [self validateSecureCodingForClass:[AWSEC2DeleteLocalGatewayRouteTableRequest class]];
+}
+
+- (void) test_AWSEC2DeleteLocalGatewayRouteTableResult {
+    [self validateSecureCodingForClass:[AWSEC2DeleteLocalGatewayRouteTableResult class]];
+}
+
+- (void) test_AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest {
+    [self validateSecureCodingForClass:[AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest class]];
+}
+
+- (void) test_AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult {
+    [self validateSecureCodingForClass:[AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult class]];
 }
 
 - (void) test_AWSEC2DeleteLocalGatewayRouteTableVpcAssociationRequest {
@@ -6454,6 +6551,14 @@
 
 - (void) test_AWSEC2ModifyLaunchTemplateResult {
     [self validateSecureCodingForClass:[AWSEC2ModifyLaunchTemplateResult class]];
+}
+
+- (void) test_AWSEC2ModifyLocalGatewayRouteRequest {
+    [self validateSecureCodingForClass:[AWSEC2ModifyLocalGatewayRouteRequest class]];
+}
+
+- (void) test_AWSEC2ModifyLocalGatewayRouteResult {
+    [self validateSecureCodingForClass:[AWSEC2ModifyLocalGatewayRouteResult class]];
 }
 
 - (void) test_AWSEC2ModifyManagedPrefixListRequest {
