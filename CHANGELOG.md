@@ -7,6 +7,9 @@
 - **AWSAuthUI**
   - Fixed `AWSAuthUIViewController` not being able to display its contents on landscape orientation (See [PR #4338](https://github.com/aws-amplify/aws-sdk-ios/pull/4338))
 
+- **AWSPinpoint**
+  - Update Pinpoint Event max attributes limit and attribute value limit (See [PR #4348](https://github.com/aws-amplify/aws-sdk-ios/pull/4348))
+
 ## 2.28.0
 
 ### Bug Fixes
