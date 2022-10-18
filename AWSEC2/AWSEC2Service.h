@@ -1938,7 +1938,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createLaunchTemplateVersion:(AWSEC2CreateLaunchTemplateVersionRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateLaunchTemplateVersionResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a static route for the specified local gateway route table. You must specify one of the following targets: </p><ul><li><p><code>LocalGatewayVirtualInterfaceGroupId</code></p></li><li><p><code>NetworkInterfaceId</code></p></li></ul>
+ <p>Creates a static route for the specified local gateway route table.</p>
  
  @param request A container for the necessary parameters to execute the CreateLocalGatewayRoute service method.
 
@@ -1950,7 +1950,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateLocalGatewayRouteResult *> *)createLocalGatewayRoute:(AWSEC2CreateLocalGatewayRouteRequest *)request;
 
 /**
- <p>Creates a static route for the specified local gateway route table. You must specify one of the following targets: </p><ul><li><p><code>LocalGatewayVirtualInterfaceGroupId</code></p></li><li><p><code>NetworkInterfaceId</code></p></li></ul>
+ <p>Creates a static route for the specified local gateway route table.</p>
  
  @param request A container for the necessary parameters to execute the CreateLocalGatewayRoute service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -11028,31 +11028,6 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2ModifyLaunchTemplateResult
  */
 - (void)modifyLaunchTemplate:(AWSEC2ModifyLaunchTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyLaunchTemplateResult * _Nullable response, NSError * _Nullable error))completionHandler;
-
-/**
- <p>Modifies the specified local gateway route.</p>
- 
- @param request A container for the necessary parameters to execute the ModifyLocalGatewayRoute service method.
-
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyLocalGatewayRouteResult`.
- 
- @see AWSEC2ModifyLocalGatewayRouteRequest
- @see AWSEC2ModifyLocalGatewayRouteResult
- */
-- (AWSTask<AWSEC2ModifyLocalGatewayRouteResult *> *)modifyLocalGatewayRoute:(AWSEC2ModifyLocalGatewayRouteRequest *)request;
-
-/**
- <p>Modifies the specified local gateway route.</p>
- 
- @param request A container for the necessary parameters to execute the ModifyLocalGatewayRoute service method.
- @param completionHandler The completion handler to call when the load request is complete.
-                          `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
- 
- @see AWSEC2ModifyLocalGatewayRouteRequest
- @see AWSEC2ModifyLocalGatewayRouteResult
- */
-- (void)modifyLocalGatewayRoute:(AWSEC2ModifyLocalGatewayRouteRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyLocalGatewayRouteResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Modifies the specified managed prefix list.</p><p>Adding or removing entries in a prefix list creates a new version of the prefix list. Changing the name of the prefix list does not affect the version.</p><p>If you specify a current version number that does not match the true current version number, the request fails.</p>
