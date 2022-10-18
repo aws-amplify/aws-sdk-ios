@@ -10328,29 +10328,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask<AWSEC2ModifyLocalGatewayRouteResult *> *)modifyLocalGatewayRoute:(AWSEC2ModifyLocalGatewayRouteRequest *)request {
-    return [self invokeRequest:request
-                    HTTPMethod:AWSHTTPMethodPOST
-                     URLString:@""
-                  targetPrefix:@""
-                 operationName:@"ModifyLocalGatewayRoute"
-                   outputClass:[AWSEC2ModifyLocalGatewayRouteResult class]];
-}
-
-- (void)modifyLocalGatewayRoute:(AWSEC2ModifyLocalGatewayRouteRequest *)request
-     completionHandler:(void (^)(AWSEC2ModifyLocalGatewayRouteResult *response, NSError *error))completionHandler {
-    [[self modifyLocalGatewayRoute:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ModifyLocalGatewayRouteResult *> * _Nonnull task) {
-        AWSEC2ModifyLocalGatewayRouteResult *result = task.result;
-        NSError *error = task.error;
-
-        if (completionHandler) {
-            completionHandler(result, error);
-        }
-
-        return nil;
-    }];
-}
-
 - (AWSTask<AWSEC2ModifyManagedPrefixListResult *> *)modifyManagedPrefixList:(AWSEC2ModifyManagedPrefixListRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST

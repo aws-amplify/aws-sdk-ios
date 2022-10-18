@@ -784,7 +784,7 @@
       },\
       \"input\":{\"shape\":\"CreateLocalGatewayRouteRequest\"},\
       \"output\":{\"shape\":\"CreateLocalGatewayRouteResult\"},\
-      \"documentation\":\"<p>Creates a static route for the specified local gateway route table. You must specify one of the following targets: </p> <ul> <li> <p> <code>LocalGatewayVirtualInterfaceGroupId</code> </p> </li> <li> <p> <code>NetworkInterfaceId</code> </p> </li> </ul>\"\
+      \"documentation\":\"<p>Creates a static route for the specified local gateway route table.</p>\"\
     },\
     \"CreateLocalGatewayRouteTableVpcAssociation\":{\
       \"name\":\"CreateLocalGatewayRouteTableVpcAssociation\",\
@@ -4420,16 +4420,6 @@
       \"output\":{\"shape\":\"ModifyLaunchTemplateResult\"},\
       \"documentation\":\"<p>Modifies a launch template. You can specify which version of the launch template to set as the default version. When launching an instance, the default version applies when a launch template version is not specified.</p>\"\
     },\
-    \"ModifyLocalGatewayRoute\":{\
-      \"name\":\"ModifyLocalGatewayRoute\",\
-      \"http\":{\
-        \"method\":\"POST\",\
-        \"requestUri\":\"/\"\
-      },\
-      \"input\":{\"shape\":\"ModifyLocalGatewayRouteRequest\"},\
-      \"output\":{\"shape\":\"ModifyLocalGatewayRouteResult\"},\
-      \"documentation\":\"<p>Modifies the specified local gateway route.</p>\"\
-    },\
     \"ModifyManagedPrefixList\":{\
       \"name\":\"ModifyManagedPrefixList\",\
       \"http\":{\
@@ -5411,9 +5401,7 @@
         \"t4\",\
         \"m60\",\
         \"radeon-pro-v520\",\
-        \"vu9p\",\
-        \"inferentia\",\
-        \"k520\"\
+        \"vu9p\"\
       ]\
     },\
     \"AcceleratorNameSet\":{\
@@ -11695,7 +11683,8 @@
       \"type\":\"structure\",\
       \"required\":[\
         \"DestinationCidrBlock\",\
-        \"LocalGatewayRouteTableId\"\
+        \"LocalGatewayRouteTableId\",\
+        \"LocalGatewayVirtualInterfaceGroupId\"\
       ],\
       \"members\":{\
         \"DestinationCidrBlock\":{\
@@ -11713,10 +11702,6 @@
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
-        },\
-        \"NetworkInterfaceId\":{\
-          \"shape\":\"NetworkInterfaceId\",\
-          \"documentation\":\"<p>The ID of the network interface.</p>\"\
         }\
       }\
     },\
@@ -34962,21 +34947,6 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The ID of the Amazon Web Services account that owns the local gateway route.</p>\",\
           \"locationName\":\"ownerId\"\
-        },\
-        \"SubnetId\":{\
-          \"shape\":\"SubnetId\",\
-          \"documentation\":\"<p>The ID of the subnet.</p>\",\
-          \"locationName\":\"subnetId\"\
-        },\
-        \"CoipPoolId\":{\
-          \"shape\":\"CoipPoolId\",\
-          \"documentation\":\"<p>The ID of the customer-owned address pool.</p>\",\
-          \"locationName\":\"coipPoolId\"\
-        },\
-        \"NetworkInterfaceId\":{\
-          \"shape\":\"NetworkInterfaceId\",\
-          \"documentation\":\"<p>The ID of the network interface.</p>\",\
-          \"locationName\":\"networkInterfaceId\"\
         }\
       },\
       \"documentation\":\"<p>Describes a route for a local gateway route table.</p>\"\
@@ -35035,11 +35005,6 @@
           \"shape\":\"TagList\",\
           \"documentation\":\"<p>The tags assigned to the local gateway route table.</p>\",\
           \"locationName\":\"tagSet\"\
-        },\
-        \"Mode\":{\
-          \"shape\":\"LocalGatewayRouteTableMode\",\
-          \"documentation\":\"<p>The mode of the local gateway route table.</p>\",\
-          \"locationName\":\"mode\"\
         }\
       },\
       \"documentation\":\"<p>Describes a local gateway route table.</p>\"\
@@ -35050,13 +35015,6 @@
         \"shape\":\"LocalGatewayRoutetableId\",\
         \"locationName\":\"item\"\
       }\
-    },\
-    \"LocalGatewayRouteTableMode\":{\
-      \"type\":\"string\",\
-      \"enum\":[\
-        \"direct-vpc-routing\",\
-        \"coip\"\
-      ]\
     },\
     \"LocalGatewayRouteTableSet\":{\
       \"type\":\"list\",\
@@ -36593,41 +36551,6 @@
           \"shape\":\"LaunchTemplate\",\
           \"documentation\":\"<p>Information about the launch template.</p>\",\
           \"locationName\":\"launchTemplate\"\
-        }\
-      }\
-    },\
-    \"ModifyLocalGatewayRouteRequest\":{\
-      \"type\":\"structure\",\
-      \"required\":[\
-        \"DestinationCidrBlock\",\
-        \"LocalGatewayRouteTableId\",\
-        \"NetworkInterfaceId\"\
-      ],\
-      \"members\":{\
-        \"DestinationCidrBlock\":{\
-          \"shape\":\"String\",\
-          \"documentation\":\"<p>The CIDR block used for destination matches. The value that you provide must match the CIDR of an existing route in the table.</p>\"\
-        },\
-        \"LocalGatewayRouteTableId\":{\
-          \"shape\":\"LocalGatewayRoutetableId\",\
-          \"documentation\":\"<p>The ID of the local gateway route table.</p>\"\
-        },\
-        \"NetworkInterfaceId\":{\
-          \"shape\":\"NetworkInterfaceId\",\
-          \"documentation\":\"<p>The ID of the network interface.</p>\"\
-        },\
-        \"DryRun\":{\
-          \"shape\":\"Boolean\",\
-          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
-        }\
-      }\
-    },\
-    \"ModifyLocalGatewayRouteResult\":{\
-      \"type\":\"structure\",\
-      \"members\":{\
-        \"Route\":{\
-          \"shape\":\"LocalGatewayRoute\",\
-          \"locationName\":\"route\"\
         }\
       }\
     },\
