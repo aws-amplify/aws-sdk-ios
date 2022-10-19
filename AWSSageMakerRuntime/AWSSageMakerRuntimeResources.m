@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -116,6 +116,12 @@
       \"max\":1024,\
       \"pattern\":\"\\\\p{ASCII}*\",\
       \"sensitive\":true\
+    },\
+    \"EnableExplanationsHeader\":{\
+      \"type\":\"string\",\
+      \"max\":64,\
+      \"min\":1,\
+      \"pattern\":\".*\"\
     },\
     \"EndpointName\":{\
       \"type\":\"string\",\
@@ -285,6 +291,12 @@
           \"documentation\":\"<p>If you provide a value, it is added to the captured data when you enable data capture on the endpoint. For information about data capture, see <a href=\\\"https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html\\\">Capture Data</a>.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"X-Amzn-SageMaker-Inference-Id\"\
+        },\
+        \"EnableExplanations\":{\
+          \"shape\":\"EnableExplanationsHeader\",\
+          \"documentation\":\"<p>An optional JMESPath expression used to override the <code>EnableExplanations</code> parameter of the <code>ClarifyExplainerConfig</code> API. See the <a href=\\\"https://docs.aws.amazon.com/clarify-online-explainability-create-endpoint.html#clarify-online-exaplainability-create-endpoint-enable\\\">EnableExplanations</a> section in the developer guide for more information. </p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"X-Amzn-SageMaker-Enable-Explanations\"\
         }\
       },\
       \"payload\":\"Body\"\
@@ -295,7 +307,7 @@
       \"members\":{\
         \"Body\":{\
           \"shape\":\"BodyBlob\",\
-          \"documentation\":\"<p>Includes the inference provided by the model.</p> <p>For information about the format of the response body, see <a href=\\\"https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html\\\">Common Data Formats-Inference</a>.</p>\"\
+          \"documentation\":\"<p>Includes the inference provided by the model. </p> <p>For information about the format of the response body, see <a href=\\\"https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html\\\">Common Data Formats-Inference</a>.</p> <p>If the explainer is activated, the body includes the explanations provided by the model. For more information, see the <b>Response section</b> under <a href=\\\"https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-invoke-endpoint.html#clarify-online-explainability-response\\\">Invoke the Endpoint</a> in the Developer Guide.</p>\"\
         },\
         \"ContentType\":{\
           \"shape\":\"Header\",\
