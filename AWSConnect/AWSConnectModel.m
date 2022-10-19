@@ -4151,6 +4151,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"WISDOM_KNOWLEDGE_BASE"] == NSOrderedSame) {
             return @(AWSConnectIntegrationTypeWisdomKnowledgeBase);
         }
+        if ([value caseInsensitiveCompare:@"CASES_DOMAIN"] == NSOrderedSame) {
+            return @(AWSConnectIntegrationTypeCasesDomain);
+        }
         return @(AWSConnectIntegrationTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -4164,6 +4167,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"WISDOM_ASSISTANT";
             case AWSConnectIntegrationTypeWisdomKnowledgeBase:
                 return @"WISDOM_KNOWLEDGE_BASE";
+            case AWSConnectIntegrationTypeCasesDomain:
+                return @"CASES_DOMAIN";
             default:
                 return nil;
         }
@@ -7536,6 +7541,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"WISDOM_KNOWLEDGE_BASE"] == NSOrderedSame) {
             return @(AWSConnectIntegrationTypeWisdomKnowledgeBase);
         }
+        if ([value caseInsensitiveCompare:@"CASES_DOMAIN"] == NSOrderedSame) {
+            return @(AWSConnectIntegrationTypeCasesDomain);
+        }
         return @(AWSConnectIntegrationTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -7549,6 +7557,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"WISDOM_ASSISTANT";
             case AWSConnectIntegrationTypeWisdomKnowledgeBase:
                 return @"WISDOM_KNOWLEDGE_BASE";
+            case AWSConnectIntegrationTypeCasesDomain:
+                return @"CASES_DOMAIN";
             default:
                 return nil;
         }
@@ -8319,6 +8329,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"WISDOM_KNOWLEDGE_BASE"] == NSOrderedSame) {
             return @(AWSConnectIntegrationTypeWisdomKnowledgeBase);
         }
+        if ([value caseInsensitiveCompare:@"CASES_DOMAIN"] == NSOrderedSame) {
+            return @(AWSConnectIntegrationTypeCasesDomain);
+        }
         return @(AWSConnectIntegrationTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -8332,6 +8345,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"WISDOM_ASSISTANT";
             case AWSConnectIntegrationTypeWisdomKnowledgeBase:
                 return @"WISDOM_KNOWLEDGE_BASE";
+            case AWSConnectIntegrationTypeCasesDomain:
+                return @"CASES_DOMAIN";
             default:
                 return nil;
         }
