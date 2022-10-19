@@ -6,15 +6,23 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 
 - Model updates for the following services
 ---AWSSageMakerRuntime
+---AWSEC2
+---AWSConnect
+---AWSElasticLoadBalancingv2
+
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
 
--Features for next release
+### Bug Fixes
+
+- **AWSAuthUI**
+  - Fixed `AWSAuthUIViewController` not being able to display its contents on landscape orientation (See [PR #4338](https://github.com/aws-amplify/aws-sdk-ios/pull/4338))
+
+- **AWSPinpoint**
+  - Update Pinpoint Event max attributes limit and attribute value limit (See [PR #4348](https://github.com/aws-amplify/aws-sdk-ios/pull/4348))
 
 ## 2.28.0
-
--Features for next release
 
 ### Bug Fixes
 
