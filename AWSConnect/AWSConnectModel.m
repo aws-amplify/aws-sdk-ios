@@ -4436,6 +4436,39 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectCreateTrafficDistributionGroupRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"clientToken" : @"ClientToken",
+             @"detail" : @"Description",
+             @"instanceId" : @"InstanceId",
+             @"name" : @"Name",
+             @"tags" : @"Tags",
+             };
+}
+
+@end
+
+@implementation AWSConnectCreateTrafficDistributionGroupResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"Arn",
+             @"identifier" : @"Id",
+             };
+}
+
+@end
+
 @implementation AWSConnectCreateUseCaseRequest
 
 + (BOOL)supportsSecureCoding {
@@ -5224,6 +5257,28 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectDeleteTrafficDistributionGroupRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"trafficDistributionGroupId" : @"TrafficDistributionGroupId",
+             };
+}
+
+@end
+
+@implementation AWSConnectDeleteTrafficDistributionGroupResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
 @implementation AWSConnectDeleteUseCaseRequest
 
 + (BOOL)supportsSecureCoding {
@@ -5862,6 +5917,38 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectDescribeTrafficDistributionGroupRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"trafficDistributionGroupId" : @"TrafficDistributionGroupId",
+             };
+}
+
+@end
+
+@implementation AWSConnectDescribeTrafficDistributionGroupResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"trafficDistributionGroup" : @"TrafficDistributionGroup",
+             };
+}
+
++ (NSValueTransformer *)trafficDistributionGroupJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectTrafficDistributionGroup class]];
+}
+
+@end
+
 @implementation AWSConnectDescribeUserHierarchyGroupRequest
 
 + (BOOL)supportsSecureCoding {
@@ -6236,6 +6323,21 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectDistribution
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"percentage" : @"Percentage",
+             @"region" : @"Region",
+             };
+}
+
+@end
+
 @implementation AWSConnectEmailReference
 
 + (BOOL)supportsSecureCoding {
@@ -6604,6 +6706,40 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSConnectGetTrafficDistributionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identifier" : @"Id",
+             };
+}
+
+@end
+
+@implementation AWSConnectGetTrafficDistributionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"Arn",
+             @"identifier" : @"Id",
+             @"telephonyConfig" : @"TelephonyConfig",
+             };
+}
+
++ (NSValueTransformer *)telephonyConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectTelephonyConfig class]];
 }
 
 @end
@@ -10153,6 +10289,41 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectListTrafficDistributionGroupsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
+@end
+
+@implementation AWSConnectListTrafficDistributionGroupsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"trafficDistributionGroupSummaryList" : @"TrafficDistributionGroupSummaryList",
+             };
+}
+
++ (NSValueTransformer *)trafficDistributionGroupSummaryListJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectTrafficDistributionGroupSummary class]];
+}
+
+@end
+
 @implementation AWSConnectListUseCasesRequest
 
 + (BOOL)supportsSecureCoding {
@@ -12195,6 +12366,38 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 	return @{
              @"clientToken" : @"ClientToken",
              @"phoneNumberId" : @"PhoneNumberId",
+             };
+}
+
+@end
+
+@implementation AWSConnectReplicateInstanceRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"clientToken" : @"ClientToken",
+             @"instanceId" : @"InstanceId",
+             @"replicaAlias" : @"ReplicaAlias",
+             @"replicaRegion" : @"ReplicaRegion",
+             };
+}
+
+@end
+
+@implementation AWSConnectReplicateInstanceResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"Arn",
+             @"identifier" : @"Id",
              };
 }
 
@@ -14855,6 +15058,24 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectTelephonyConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"distributions" : @"Distributions",
+             };
+}
+
++ (NSValueTransformer *)distributionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectDistribution class]];
+}
+
+@end
+
 @implementation AWSConnectThreshold
 
 + (BOOL)supportsSecureCoding {
@@ -14878,6 +15099,126 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         switch ([value integerValue]) {
             case AWSConnectComparisonLT:
                 return @"LT";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSConnectTrafficDistributionGroup
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"Arn",
+             @"detail" : @"Description",
+             @"identifier" : @"Id",
+             @"instanceArn" : @"InstanceArn",
+             @"name" : @"Name",
+             @"status" : @"Status",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CREATION_IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSConnectTrafficDistributionGroupStatusCreationInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
+            return @(AWSConnectTrafficDistributionGroupStatusActive);
+        }
+        if ([value caseInsensitiveCompare:@"CREATION_FAILED"] == NSOrderedSame) {
+            return @(AWSConnectTrafficDistributionGroupStatusCreationFailed);
+        }
+        if ([value caseInsensitiveCompare:@"PENDING_DELETION"] == NSOrderedSame) {
+            return @(AWSConnectTrafficDistributionGroupStatusPendingDeletion);
+        }
+        if ([value caseInsensitiveCompare:@"DELETION_FAILED"] == NSOrderedSame) {
+            return @(AWSConnectTrafficDistributionGroupStatusDeletionFailed);
+        }
+        if ([value caseInsensitiveCompare:@"UPDATE_IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSConnectTrafficDistributionGroupStatusUpdateInProgress);
+        }
+        return @(AWSConnectTrafficDistributionGroupStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectTrafficDistributionGroupStatusCreationInProgress:
+                return @"CREATION_IN_PROGRESS";
+            case AWSConnectTrafficDistributionGroupStatusActive:
+                return @"ACTIVE";
+            case AWSConnectTrafficDistributionGroupStatusCreationFailed:
+                return @"CREATION_FAILED";
+            case AWSConnectTrafficDistributionGroupStatusPendingDeletion:
+                return @"PENDING_DELETION";
+            case AWSConnectTrafficDistributionGroupStatusDeletionFailed:
+                return @"DELETION_FAILED";
+            case AWSConnectTrafficDistributionGroupStatusUpdateInProgress:
+                return @"UPDATE_IN_PROGRESS";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSConnectTrafficDistributionGroupSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"Arn",
+             @"identifier" : @"Id",
+             @"instanceArn" : @"InstanceArn",
+             @"name" : @"Name",
+             @"status" : @"Status",
+             };
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CREATION_IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSConnectTrafficDistributionGroupStatusCreationInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
+            return @(AWSConnectTrafficDistributionGroupStatusActive);
+        }
+        if ([value caseInsensitiveCompare:@"CREATION_FAILED"] == NSOrderedSame) {
+            return @(AWSConnectTrafficDistributionGroupStatusCreationFailed);
+        }
+        if ([value caseInsensitiveCompare:@"PENDING_DELETION"] == NSOrderedSame) {
+            return @(AWSConnectTrafficDistributionGroupStatusPendingDeletion);
+        }
+        if ([value caseInsensitiveCompare:@"DELETION_FAILED"] == NSOrderedSame) {
+            return @(AWSConnectTrafficDistributionGroupStatusDeletionFailed);
+        }
+        if ([value caseInsensitiveCompare:@"UPDATE_IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSConnectTrafficDistributionGroupStatusUpdateInProgress);
+        }
+        return @(AWSConnectTrafficDistributionGroupStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectTrafficDistributionGroupStatusCreationInProgress:
+                return @"CREATION_IN_PROGRESS";
+            case AWSConnectTrafficDistributionGroupStatusActive:
+                return @"ACTIVE";
+            case AWSConnectTrafficDistributionGroupStatusCreationFailed:
+                return @"CREATION_FAILED";
+            case AWSConnectTrafficDistributionGroupStatusPendingDeletion:
+                return @"PENDING_DELETION";
+            case AWSConnectTrafficDistributionGroupStatusDeletionFailed:
+                return @"DELETION_FAILED";
+            case AWSConnectTrafficDistributionGroupStatusUpdateInProgress:
+                return @"UPDATE_IN_PROGRESS";
             default:
                 return nil;
         }
@@ -15764,6 +16105,33 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectUpdateTrafficDistributionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identifier" : @"Id",
+             @"telephonyConfig" : @"TelephonyConfig",
+             };
+}
+
++ (NSValueTransformer *)telephonyConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectTelephonyConfig class]];
+}
+
+@end
+
+@implementation AWSConnectUpdateTrafficDistributionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
 @implementation AWSConnectUpdateUserHierarchyGroupNameRequest
 
 + (BOOL)supportsSecureCoding {
@@ -16041,6 +16409,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"email" : @"Email",
              @"firstName" : @"FirstName",
              @"lastName" : @"LastName",
+             @"mobile" : @"Mobile",
+             @"secondaryEmail" : @"SecondaryEmail",
              };
 }
 
