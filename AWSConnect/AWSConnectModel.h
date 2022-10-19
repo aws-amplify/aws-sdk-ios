@@ -243,6 +243,7 @@ typedef NS_ENUM(NSInteger, AWSConnectIntegrationType) {
     AWSConnectIntegrationTypePinpointApp,
     AWSConnectIntegrationTypeWisdomAssistant,
     AWSConnectIntegrationTypeWisdomKnowledgeBase,
+    AWSConnectIntegrationTypeCasesDomain,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectLexVersion) {
