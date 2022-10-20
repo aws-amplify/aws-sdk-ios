@@ -31,7 +31,6 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
 @property (nonatomic, readwrite) AWSPinpointSession *session;
 @property (nonatomic, readwrite) NSMutableDictionary *attributes;
 @property (nonatomic, readwrite) NSMutableDictionary *metrics;
-@property (atomic, readonly) int currentNumOfAttributesAndMetrics;
 
 @end
 
@@ -67,10 +66,6 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
         _metrics = metrics;
     }
     return self;
-}
-
-- (int) currentNumOfAttributesAndMetrics {
-    return (int)self.attributes.count + (int)self.metrics.count;
 }
 
 - (NSMutableDictionary*) attributes {
@@ -115,12 +110,12 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
     if(!theKey) return;
     
     @synchronized(self.attributes) {
-        if(self.currentNumOfAttributesAndMetrics < MAX_NUM_OF_METRICS_AND_ATTRIBUTES) {
+        if(self.attributes.count <= MAX_NUM_OF_METRICS_AND_ATTRIBUTES) {
             NSString* trimmedKey = [AWSPinpointEvent trimKey:theKey forType:@"attribute"];
             NSString* trimmedValued = [AWSPinpointEvent trimValue:theValue];
             [self.attributes setValue:trimmedValued forKey:trimmedKey];
         } else {
-            AWSDDLogWarn(@"Max number of attributes/metrics reached, dropping attribute with key: %@", theKey);
+            AWSDDLogWarn(@"Max number of attributes reached, dropping attribute with key: %@", theKey);
         }
     }
 }
@@ -160,11 +155,11 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
     }
     
     @synchronized(self.metrics) {
-        if(self.currentNumOfAttributesAndMetrics < MAX_NUM_OF_METRICS_AND_ATTRIBUTES) {
+        if(self.metrics.count <= MAX_NUM_OF_METRICS_AND_ATTRIBUTES) {
             NSString* trimmedKey = [AWSPinpointEvent trimKey:theKey forType:@"attribute"];
             [self.metrics setValue:theValue forKey:trimmedKey];
         } else {
-            AWSDDLogWarn(@"Max number of attributes/metrics reached, dropping metric with key: %@", theKey);
+            AWSDDLogWarn(@"Max number of metrics reached, dropping metric with key: %@", theKey);
         }
     }
 }
