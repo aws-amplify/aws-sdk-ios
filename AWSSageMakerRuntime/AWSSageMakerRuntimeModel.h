@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -124,6 +124,11 @@ typedef NS_ENUM(NSInteger, AWSSageMakerRuntimeErrorType) {
 @property (nonatomic, strong) NSString * _Nullable customAttributes;
 
 /**
+ <p>An optional JMESPath expression used to override the <code>EnableExplanations</code> parameter of the <code>ClarifyExplainerConfig</code> API. See the <a href="https://docs.aws.amazon.com/clarify-online-explainability-create-endpoint.html#clarify-online-exaplainability-create-endpoint-enable">EnableExplanations</a> section in the developer guide for more information. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable enableExplanations;
+
+/**
  <p>The name of the endpoint that you specified when you created the endpoint using the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html">CreateEndpoint</a> API. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable endpointName;
@@ -157,7 +162,7 @@ typedef NS_ENUM(NSInteger, AWSSageMakerRuntimeErrorType) {
 
 
 /**
- <p>Includes the inference provided by the model.</p><p>For information about the format of the response body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common Data Formats-Inference</a>.</p>
+ <p>Includes the inference provided by the model. </p><p>For information about the format of the response body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common Data Formats-Inference</a>.</p><p>If the explainer is activated, the body includes the explanations provided by the model. For more information, see the <b>Response section</b> under <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-invoke-endpoint.html#clarify-online-explainability-response">Invoke the Endpoint</a> in the Developer Guide.</p>
  */
 @property (nonatomic, strong) NSData * _Nullable body;
 

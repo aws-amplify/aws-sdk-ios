@@ -1486,6 +1486,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2CreateCoipCidrResult *> *)createCoipCidr:(AWSEC2CreateCoipCidrRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"CreateCoipCidr"
+                   outputClass:[AWSEC2CreateCoipCidrResult class]];
+}
+
+- (void)createCoipCidr:(AWSEC2CreateCoipCidrRequest *)request
+     completionHandler:(void (^)(AWSEC2CreateCoipCidrResult *response, NSError *error))completionHandler {
+    [[self createCoipCidr:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CreateCoipCidrResult *> * _Nonnull task) {
+        AWSEC2CreateCoipCidrResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2CreateCoipPoolResult *> *)createCoipPool:(AWSEC2CreateCoipPoolRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"CreateCoipPool"
+                   outputClass:[AWSEC2CreateCoipPoolResult class]];
+}
+
+- (void)createCoipPool:(AWSEC2CreateCoipPoolRequest *)request
+     completionHandler:(void (^)(AWSEC2CreateCoipPoolResult *response, NSError *error))completionHandler {
+    [[self createCoipPool:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CreateCoipPoolResult *> * _Nonnull task) {
+        AWSEC2CreateCoipPoolResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2CreateCustomerGatewayResult *> *)createCustomerGateway:(AWSEC2CreateCustomerGatewayRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1913,6 +1959,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2CreateLocalGatewayRouteResult *response, NSError *error))completionHandler {
     [[self createLocalGatewayRoute:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CreateLocalGatewayRouteResult *> * _Nonnull task) {
         AWSEC2CreateLocalGatewayRouteResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2CreateLocalGatewayRouteTableResult *> *)createLocalGatewayRouteTable:(AWSEC2CreateLocalGatewayRouteTableRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"CreateLocalGatewayRouteTable"
+                   outputClass:[AWSEC2CreateLocalGatewayRouteTableResult class]];
+}
+
+- (void)createLocalGatewayRouteTable:(AWSEC2CreateLocalGatewayRouteTableRequest *)request
+     completionHandler:(void (^)(AWSEC2CreateLocalGatewayRouteTableResult *response, NSError *error))completionHandler {
+    [[self createLocalGatewayRouteTable:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CreateLocalGatewayRouteTableResult *> * _Nonnull task) {
+        AWSEC2CreateLocalGatewayRouteTableResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult *> *)createLocalGatewayRouteTableVirtualInterfaceGroupAssociation:(AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation"
+                   outputClass:[AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult class]];
+}
+
+- (void)createLocalGatewayRouteTableVirtualInterfaceGroupAssociation:(AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest *)request
+     completionHandler:(void (^)(AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult *response, NSError *error))completionHandler {
+    [[self createLocalGatewayRouteTableVirtualInterfaceGroupAssociation:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult *> * _Nonnull task) {
+        AWSEC2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -3093,6 +3185,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2DeleteCoipCidrResult *> *)deleteCoipCidr:(AWSEC2DeleteCoipCidrRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DeleteCoipCidr"
+                   outputClass:[AWSEC2DeleteCoipCidrResult class]];
+}
+
+- (void)deleteCoipCidr:(AWSEC2DeleteCoipCidrRequest *)request
+     completionHandler:(void (^)(AWSEC2DeleteCoipCidrResult *response, NSError *error))completionHandler {
+    [[self deleteCoipCidr:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DeleteCoipCidrResult *> * _Nonnull task) {
+        AWSEC2DeleteCoipCidrResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DeleteCoipPoolResult *> *)deleteCoipPool:(AWSEC2DeleteCoipPoolRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DeleteCoipPool"
+                   outputClass:[AWSEC2DeleteCoipPoolResult class]];
+}
+
+- (void)deleteCoipPool:(AWSEC2DeleteCoipPoolRequest *)request
+     completionHandler:(void (^)(AWSEC2DeleteCoipPoolResult *response, NSError *error))completionHandler {
+    [[self deleteCoipPool:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DeleteCoipPoolResult *> * _Nonnull task) {
+        AWSEC2DeleteCoipPoolResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)deleteCustomerGateway:(AWSEC2DeleteCustomerGatewayRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -3424,6 +3562,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2DeleteLocalGatewayRouteResult *response, NSError *error))completionHandler {
     [[self deleteLocalGatewayRoute:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DeleteLocalGatewayRouteResult *> * _Nonnull task) {
         AWSEC2DeleteLocalGatewayRouteResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DeleteLocalGatewayRouteTableResult *> *)deleteLocalGatewayRouteTable:(AWSEC2DeleteLocalGatewayRouteTableRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DeleteLocalGatewayRouteTable"
+                   outputClass:[AWSEC2DeleteLocalGatewayRouteTableResult class]];
+}
+
+- (void)deleteLocalGatewayRouteTable:(AWSEC2DeleteLocalGatewayRouteTableRequest *)request
+     completionHandler:(void (^)(AWSEC2DeleteLocalGatewayRouteTableResult *response, NSError *error))completionHandler {
+    [[self deleteLocalGatewayRouteTable:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DeleteLocalGatewayRouteTableResult *> * _Nonnull task) {
+        AWSEC2DeleteLocalGatewayRouteTableResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult *> *)deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation:(AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation"
+                   outputClass:[AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult class]];
+}
+
+- (void)deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation:(AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest *)request
+     completionHandler:(void (^)(AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult *response, NSError *error))completionHandler {
+    [[self deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult *> * _Nonnull task) {
+        AWSEC2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -10318,6 +10502,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2ModifyLaunchTemplateResult *response, NSError *error))completionHandler {
     [[self modifyLaunchTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ModifyLaunchTemplateResult *> * _Nonnull task) {
         AWSEC2ModifyLaunchTemplateResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2ModifyLocalGatewayRouteResult *> *)modifyLocalGatewayRoute:(AWSEC2ModifyLocalGatewayRouteRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ModifyLocalGatewayRoute"
+                   outputClass:[AWSEC2ModifyLocalGatewayRouteResult class]];
+}
+
+- (void)modifyLocalGatewayRoute:(AWSEC2ModifyLocalGatewayRouteRequest *)request
+     completionHandler:(void (^)(AWSEC2ModifyLocalGatewayRouteResult *response, NSError *error))completionHandler {
+    [[self modifyLocalGatewayRoute:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ModifyLocalGatewayRouteResult *> * _Nonnull task) {
+        AWSEC2ModifyLocalGatewayRouteResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
