@@ -993,7 +993,7 @@ typedef NS_ENUM(NSInteger, AWSChimeSDKMessagingSortOrder) {
 @property (nonatomic, strong) NSString * _Nullable channelArn;
 
 /**
- <p>The time at which the last message in a channel was sent.</p>
+ <p>The time at which the last persistent message in a channel was sent.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable lastMessageTimestamp;
 
