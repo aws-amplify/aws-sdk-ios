@@ -40,6 +40,7 @@ typedef NS_ENUM(NSInteger, AWSConnectErrorType) {
     AWSConnectErrorResourceConflict,
     AWSConnectErrorResourceInUse,
     AWSConnectErrorResourceNotFound,
+    AWSConnectErrorResourceNotReady,
     AWSConnectErrorServiceQuotaExceeded,
     AWSConnectErrorThrottling,
     AWSConnectErrorUserNotFound,
@@ -243,6 +244,7 @@ typedef NS_ENUM(NSInteger, AWSConnectIntegrationType) {
     AWSConnectIntegrationTypePinpointApp,
     AWSConnectIntegrationTypeWisdomAssistant,
     AWSConnectIntegrationTypeWisdomKnowledgeBase,
+    AWSConnectIntegrationTypeCasesDomain,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectLexVersion) {
@@ -622,6 +624,16 @@ typedef NS_ENUM(NSInteger, AWSConnectTaskTemplateStatus) {
     AWSConnectTaskTemplateStatusInactive,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectTrafficDistributionGroupStatus) {
+    AWSConnectTrafficDistributionGroupStatusUnknown,
+    AWSConnectTrafficDistributionGroupStatusCreationInProgress,
+    AWSConnectTrafficDistributionGroupStatusActive,
+    AWSConnectTrafficDistributionGroupStatusCreationFailed,
+    AWSConnectTrafficDistributionGroupStatusPendingDeletion,
+    AWSConnectTrafficDistributionGroupStatusDeletionFailed,
+    AWSConnectTrafficDistributionGroupStatusUpdateInProgress,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectTrafficType) {
     AWSConnectTrafficTypeUnknown,
     AWSConnectTrafficTypeGeneral,
@@ -737,6 +749,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectCreateSecurityProfileResponse;
 @class AWSConnectCreateTaskTemplateRequest;
 @class AWSConnectCreateTaskTemplateResponse;
+@class AWSConnectCreateTrafficDistributionGroupRequest;
+@class AWSConnectCreateTrafficDistributionGroupResponse;
 @class AWSConnectCreateUseCaseRequest;
 @class AWSConnectCreateUseCaseResponse;
 @class AWSConnectCreateUserHierarchyGroupRequest;
@@ -761,6 +775,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDeleteSecurityProfileRequest;
 @class AWSConnectDeleteTaskTemplateRequest;
 @class AWSConnectDeleteTaskTemplateResponse;
+@class AWSConnectDeleteTrafficDistributionGroupRequest;
+@class AWSConnectDeleteTrafficDistributionGroupResponse;
 @class AWSConnectDeleteUseCaseRequest;
 @class AWSConnectDeleteUserHierarchyGroupRequest;
 @class AWSConnectDeleteUserRequest;
@@ -792,6 +808,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDescribeRoutingProfileResponse;
 @class AWSConnectDescribeSecurityProfileRequest;
 @class AWSConnectDescribeSecurityProfileResponse;
+@class AWSConnectDescribeTrafficDistributionGroupRequest;
+@class AWSConnectDescribeTrafficDistributionGroupResponse;
 @class AWSConnectDescribeUserHierarchyGroupRequest;
 @class AWSConnectDescribeUserHierarchyGroupResponse;
 @class AWSConnectDescribeUserHierarchyStructureRequest;
@@ -810,6 +828,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDisassociateQueueQuickConnectsRequest;
 @class AWSConnectDisassociateRoutingProfileQueuesRequest;
 @class AWSConnectDisassociateSecurityKeyRequest;
+@class AWSConnectDistribution;
 @class AWSConnectEmailReference;
 @class AWSConnectEncryptionConfig;
 @class AWSConnectFilters;
@@ -825,6 +844,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectGetMetricDataResponse;
 @class AWSConnectGetTaskTemplateRequest;
 @class AWSConnectGetTaskTemplateResponse;
+@class AWSConnectGetTrafficDistributionRequest;
+@class AWSConnectGetTrafficDistributionResponse;
 @class AWSConnectHierarchyGroup;
 @class AWSConnectHierarchyGroupCondition;
 @class AWSConnectHierarchyGroupSummary;
@@ -909,6 +930,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectListTagsForResourceResponse;
 @class AWSConnectListTaskTemplatesRequest;
 @class AWSConnectListTaskTemplatesResponse;
+@class AWSConnectListTrafficDistributionGroupsRequest;
+@class AWSConnectListTrafficDistributionGroupsResponse;
 @class AWSConnectListUseCasesRequest;
 @class AWSConnectListUseCasesResponse;
 @class AWSConnectListUserHierarchyGroupsRequest;
@@ -941,6 +964,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectReference;
 @class AWSConnectReferenceSummary;
 @class AWSConnectReleasePhoneNumberRequest;
+@class AWSConnectReplicateInstanceRequest;
+@class AWSConnectReplicateInstanceResponse;
 @class AWSConnectRequiredFieldInfo;
 @class AWSConnectResumeContactRecordingRequest;
 @class AWSConnectResumeContactRecordingResponse;
@@ -999,7 +1024,10 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectTaskTemplateField;
 @class AWSConnectTaskTemplateFieldIdentifier;
 @class AWSConnectTaskTemplateMetadata;
+@class AWSConnectTelephonyConfig;
 @class AWSConnectThreshold;
+@class AWSConnectTrafficDistributionGroup;
+@class AWSConnectTrafficDistributionGroupSummary;
 @class AWSConnectTransferContactRequest;
 @class AWSConnectTransferContactResponse;
 @class AWSConnectUntagResourceRequest;
@@ -1036,6 +1064,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectUpdateSecurityProfileRequest;
 @class AWSConnectUpdateTaskTemplateRequest;
 @class AWSConnectUpdateTaskTemplateResponse;
+@class AWSConnectUpdateTrafficDistributionRequest;
+@class AWSConnectUpdateTrafficDistributionResponse;
 @class AWSConnectUpdateUserHierarchyGroupNameRequest;
 @class AWSConnectUpdateUserHierarchyRequest;
 @class AWSConnectUpdateUserHierarchyStructureRequest;
@@ -1582,7 +1612,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -1602,7 +1632,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
 /**
- <p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.</p>
+ <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone numbers are claimed to.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable targetArn;
 
@@ -1627,7 +1657,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
- <p>Information about a phone number that has been claimed to your Amazon Connect instance.</p>
+ <p>Information about a phone number that has been claimed to your Amazon Connect instance or traffic distribution group.</p>
  */
 @interface AWSConnectClaimedPhoneNumberSummary : AWSModel
 
@@ -1658,7 +1688,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable phoneNumberId;
 
 /**
- <p>The status of the phone number.</p>
+ <p>The status of the phone number.</p><ul><li><p><code>CLAIMED</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html">ClaimedPhoneNumber</a> or <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation succeeded.</p></li><li><p><code>IN_PROGRESS</code> means a <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html">ClaimedPhoneNumber</a> or <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation is still in progress and has not yet completed. You can call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> at a later time to verify if the previous operation has completed.</p></li><li><p><code>FAILED</code> indicates that the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html">ClaimedPhoneNumber</a> or <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation has failed. It will include a message indicating the failure reason. A common reason for a failure may be that the <code>TargetArn</code> value you are claiming or updating a phone number to has reached its limit of total claimed numbers. If you received a <code>FAILED</code> status from a <code>ClaimPhoneNumber</code> API call, you have one day to retry claiming the phone number before the number is released back to the inventory for other customers to claim.</p></li></ul><note><p>You will not be billed for the phone number during the 1-day period if number claiming fails. </p></note>
  */
 @property (nonatomic, strong) AWSConnectPhoneNumberStatus * _Nullable phoneNumberStatus;
 
@@ -1673,7 +1703,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
 /**
- <p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.</p>
+ <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone numbers are claimed to.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable targetArn;
 
@@ -2013,7 +2043,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -2527,7 +2557,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -2586,6 +2616,57 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 /**
  <p>The identifier of the task template resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectCreateTrafficDistributionGroupRequest : AWSRequest
+
+
+/**
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>A description for the traffic distribution group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier of the Amazon Connect instance that has been replicated. You can find the <code>instanceId</code> in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The name for the traffic distribution group. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectCreateTrafficDistributionGroupResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the traffic distribution group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
+ <p>The identifier of the traffic distribution group. This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created. The ARN must be provided if the call is from the replicated Region.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
@@ -2766,7 +2847,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If a create request is received more than once with same client token, subsequent requests return the previous response without creating a vocabulary again.</p>
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>. If a create request is received more than once with same client token, subsequent requests return the previous response without creating a vocabulary again.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -3100,6 +3181,27 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  
  */
 @interface AWSConnectDeleteTaskTemplateResponse : AWSModel
+
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDeleteTrafficDistributionGroupRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the traffic distribution group. This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created. The ARN must be provided if the call is from the replicated Region.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficDistributionGroupId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDeleteTrafficDistributionGroupResponse : AWSModel
 
 
 @end
@@ -3472,7 +3574,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>Information about a phone number that's been claimed to your Amazon Connect instance.</p>
+ <p>Information about a phone number that's been claimed to your Amazon Connect instance or traffic distribution group.</p>
  */
 @property (nonatomic, strong) AWSConnectClaimedPhoneNumberSummary * _Nullable claimedPhoneNumberSummary;
 
@@ -3599,6 +3701,32 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The security profile.</p>
  */
 @property (nonatomic, strong) AWSConnectSecurityProfile * _Nullable securityProfile;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDescribeTrafficDistributionGroupRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the traffic distribution group. This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created. The ARN must be provided if the call is from the replicated Region.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficDistributionGroupId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDescribeTrafficDistributionGroupResponse : AWSModel
+
+
+/**
+ <p>Information about the traffic distribution group.</p>
+ */
+@property (nonatomic, strong) AWSConnectTrafficDistributionGroup * _Nullable trafficDistributionGroup;
 
 @end
 
@@ -3838,7 +3966,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The Region in which the Amazon Lex bot has been created.</p>
+ <p>The Amazon Web Services Region in which the Amazon Lex bot has been created.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable lexRegion;
 
@@ -3923,6 +4051,25 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ <p>Information about a traffic distribution.</p>
+ Required parameters: [Region, Percentage]
+ */
+@interface AWSConnectDistribution : AWSModel
+
+
+/**
+ <p>The percentage of the traffic that is distributed, in increments of 10.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable percentage;
+
+/**
+ <p>The Amazon Web Services Region where the traffic is distributed.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable region;
 
 @end
 
@@ -4304,6 +4451,42 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectGetTrafficDistributionRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the traffic distribution group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectGetTrafficDistributionResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the traffic distribution group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
+ <p>The identifier of the traffic distribution group. This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created. The ARN must be provided if the call is from the replicated Region.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The distribution of traffic between the instance and its replicas.</p>
+ */
+@property (nonatomic, strong) AWSConnectTelephonyConfig * _Nullable telephonyConfig;
 
 @end
 
@@ -5029,7 +5212,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The Region that the Amazon Lex bot was created in.</p>
+ <p>The Amazon Web Services Region where the Amazon Lex bot was created.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable lexRegion;
 
@@ -5193,7 +5376,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The names and Regions of the Amazon Lex or Amazon Lex V2 bots associated with the specified instance.</p>
+ <p>The names and Amazon Web Services Regions of the Amazon Lex or Amazon Lex V2 bots associated with the specified instance.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectLexBotConfig *> * _Nullable lexBots;
 
@@ -5669,7 +5852,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The names and Regions of the Amazon Lex bots associated with the specified instance.</p>
+ <p>The names and Amazon Web Services Regions of the Amazon Lex bots associated with the specified instance.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectLexBot *> * _Nullable lexBots;
 
@@ -5732,7 +5915,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
- <p>Information about phone numbers that have been claimed to your Amazon Connect instance.</p>
+ <p>Information about phone numbers that have been claimed to your Amazon Connect instance or traffic distribution group.</p>
  */
 @interface AWSConnectListPhoneNumbersSummary : AWSModel
 
@@ -5763,7 +5946,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectPhoneNumberType phoneNumberType;
 
 /**
- <p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.</p>
+ <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone numbers are claimed to.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable targetArn;
 
@@ -5801,7 +5984,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable phoneNumberTypes;
 
 /**
- <p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to. If <code>TargetArn</code> input is not provided, this API lists numbers claimed to all the Amazon Connect instances belonging to your account.</p>
+ <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone numbers are claimed to. If <code>TargetArn</code> input is not provided, this API lists numbers claimed to all the Amazon Connect instances belonging to your account in the same Amazon Web Services Region as the request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable targetArn;
 
@@ -5814,7 +5997,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>Information about phone numbers that have been claimed to your Amazon Connect instances.</p>
+ <p>Information about phone numbers that have been claimed to your Amazon Connect instances or traffic distribution groups.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectListPhoneNumbersSummary *> * _Nullable listPhoneNumbersSummaryList;
 
@@ -6297,6 +6480,47 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ 
+ */
+@interface AWSConnectListTrafficDistributionGroupsRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListTrafficDistributionGroupsResponse : AWSModel
+
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>A list of traffic distribution groups.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectTrafficDistributionGroupSummary *> * _Nullable trafficDistributionGroupSummaryList;
+
+@end
+
+/**
  <p>Provides summary information about the use cases for the specified integration association.</p>
  Required parameters: [InstanceId, IntegrationAssociationId]
  */
@@ -6514,7 +6738,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
- <p>The status of the phone number.</p>
+ <p>The status of the phone number.</p><ul><li><p><code>CLAIMED</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html">ClaimedPhoneNumber</a> or <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation succeeded.</p></li><li><p><code>IN_PROGRESS</code> means a <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html">ClaimedPhoneNumber</a> or <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation is still in progress and has not yet completed. You can call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> at a later time to verify if the previous operation has completed.</p></li><li><p><code>FAILED</code> indicates that the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimedPhoneNumber.html">ClaimedPhoneNumber</a> or <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation has failed. It will include a message indicating the failure reason. A common reason for a failure may be that the <code>TargetArn</code> value you are claiming or updating a phone number to has reached its limit of total claimed numbers. If you received a <code>FAILED</code> status from a <code>ClaimPhoneNumber</code> API call, you have one day to retry claiming the phone number before the number is released back to the inventory for other customers to claim.</p></li></ul>
  */
 @interface AWSConnectPhoneNumberStatus : AWSModel
 
@@ -6720,7 +6944,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSDate * _Nullable enqueueTimestamp;
 
 /**
- <p>The identifier of the agent who accepted the contact.</p>
+ <p>The unique identifier for the queue.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
@@ -6785,7 +7009,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectSearchableQueueType queueTypeCondition;
 
 /**
- <p>A leaf node condition which can be used to specify a string condition, for example, <code>username = 'abc'</code>. </p>
+ <p>A leaf node condition which can be used to specify a string condition. </p><note><p>The currently supported value for <code>FieldName</code>: <code>name</code></p></note>
  */
 @property (nonatomic, strong) AWSConnectStringCondition * _Nullable stringCondition;
 
@@ -6948,7 +7172,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The type of the reference.</p>
+ <p>The type of the reference. <code>DATE</code> must be of type Epoch timestamp. </p>
  */
 @property (nonatomic, assign) AWSConnectReferenceType types;
 
@@ -7004,7 +7228,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -7012,6 +7236,52 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>A unique identifier for the phone number.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable phoneNumberId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectReplicateInstanceRequest : AWSRequest
+
+
+/**
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The alias for the replicated instance. The <code>ReplicaAlias</code> must be unique.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable replicaAlias;
+
+/**
+ <p>The Amazon Web Services Region where to replicate the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable replicaRegion;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectReplicateInstanceResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the replicated instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
+ <p>The identifier of the replicated instance. You can find the <code>instanceId</code> in the ARN of the instance. The replicated instance has the same identifier as the instance it was replicated from.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
 
 @end
 
@@ -7234,7 +7504,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSArray<AWSConnectRoutingProfileSearchCriteria *> * _Nullable orConditions;
 
 /**
- <p>A leaf node condition which can be used to specify a string condition, for example, <code>username = 'abc'</code>. </p>
+ <p>A leaf node condition which can be used to specify a string condition. </p><note><p>The currently supported value for <code>FieldName</code>: <code>name</code></p></note>
  */
 @property (nonatomic, strong) AWSConnectStringCondition * _Nullable stringCondition;
 
@@ -7332,7 +7602,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectPhoneNumberType phoneNumberType;
 
 /**
- <p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.</p>
+ <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone numbers are claimed to.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable targetArn;
 
@@ -7345,7 +7615,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>A list of available phone numbers that you can claim for your Amazon Connect instance.</p>
+ <p>A list of available phone numbers that you can claim to your Amazon Connect instance or traffic distribution group.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectAvailableNumberSummary *> * _Nullable availableNumbersList;
 
@@ -7490,7 +7760,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The search criteria to be used to return security profiles.</p>
+ <p>The search criteria to be used to return security profiles. </p><note><p>The currently supported value for <code>FieldName</code>: <code>name</code></p></note>
  */
 @property (nonatomic, strong) AWSConnectSecurityProfileSearchCriteria * _Nullable searchCriteria;
 
@@ -7714,7 +7984,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSArray<AWSConnectSecurityProfileSearchCriteria *> * _Nullable orConditions;
 
 /**
- <p>A leaf node condition which can be used to specify a string condition, for example, <code>username = 'abc'</code>. </p>
+ <p>A leaf node condition which can be used to specify a string condition. </p><note><p>The currently supported value for <code>FieldName</code>: <code>name</code></p></note>
  */
 @property (nonatomic, strong) AWSConnectStringCondition * _Nullable stringCondition;
 
@@ -7811,7 +8081,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSNumber * _Nullable chatDurationInMinutes;
 
 /**
- <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -7913,7 +8183,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) AWSConnectChatStreamingConfiguration * _Nullable chatStreamingConfiguration;
 
 /**
- <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -7964,7 +8234,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable campaignId;
 
 /**
- <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. The token is valid for 7 days after creation. If a contact is already started, the contact ID is returned. </p>
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>. The token is valid for 7 days after creation. If a contact is already started, the contact ID is returned. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -8025,7 +8295,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
 /**
- <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -8178,7 +8448,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
- <p>A leaf node condition which can be used to specify a string condition, for example, <code>username = 'abc'</code>. </p>
+ <p>A leaf node condition which can be used to specify a string condition. </p><note><p>The currently supported value for <code>FieldName</code>: <code>name</code></p></note>
  */
 @interface AWSConnectStringCondition : AWSModel
 
@@ -8425,6 +8695,20 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>The distribution of traffic between the instance and its replicas.</p>
+ Required parameters: [Distributions]
+ */
+@interface AWSConnectTelephonyConfig : AWSModel
+
+
+/**
+ <p>Information about traffic distributions.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectDistribution *> * _Nullable distributions;
+
+@end
+
+/**
  <p>Contains information about the threshold for service level metrics.</p>
  */
 @interface AWSConnectThreshold : AWSModel
@@ -8443,13 +8727,89 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>Information about a traffic distribution group.</p>
+ */
+@interface AWSConnectTrafficDistributionGroup : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the traffic distribution group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
+ <p>The description of the traffic distribution group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier of the traffic distribution group. This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created. The ARN must be provided if the call is from the replicated Region.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The Amazon Resource Name (ARN).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceArn;
+
+/**
+ <p>The name of the traffic distribution group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The status of the traffic distribution group.</p><ul><li><p><code>CREATION_IN_PROGRESS</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">CreateTrafficDistributionGroup</a> operation is still in progress and has not yet completed.</p></li><li><p><code>ACTIVE</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">CreateTrafficDistributionGroup</a> operation has succeeded.</p></li><li><p><code>CREATION_FAILED</code> indicates that the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">CreateTrafficDistributionGroup</a> operation has failed.</p></li><li><p><code>PENDING_DELETION</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html">DeleteTrafficDistributionGroup</a> operation is still in progress and has not yet completed.</p></li><li><p><code>DELETION_FAILED</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html">DeleteTrafficDistributionGroup</a> operation has failed.</p></li><li><p><code>UPDATE_IN_PROGRESS</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateTrafficDistributionGroup.html">UpdateTrafficDistributionGroup</a> operation is still in progress and has not yet completed.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSConnectTrafficDistributionGroupStatus status;
+
+/**
+ <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ <p>Information about traffic distribution groups.</p>
+ */
+@interface AWSConnectTrafficDistributionGroupSummary : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the traffic distribution group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
+ <p>The identifier of the traffic distribution group. This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created. The ARN must be provided if the call is from the replicated Region.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the traffic distribution group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceArn;
+
+/**
+ <p>The name of the traffic distribution group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The status of the traffic distribution group. </p><ul><li><p><code>CREATION_IN_PROGRESS</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">CreateTrafficDistributionGroup</a> operation is still in progress and has not yet completed.</p></li><li><p><code>ACTIVE</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">CreateTrafficDistributionGroup</a> operation has succeeded.</p></li><li><p><code>CREATION_FAILED</code> indicates that the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html">CreateTrafficDistributionGroup</a> operation has failed.</p></li><li><p><code>PENDING_DELETION</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html">DeleteTrafficDistributionGroup</a> operation is still in progress and has not yet completed.</p></li><li><p><code>DELETION_FAILED</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html">DeleteTrafficDistributionGroup</a> operation has failed.</p></li><li><p><code>UPDATE_IN_PROGRESS</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateTrafficDistributionGroup.html">UpdateTrafficDistributionGroup</a> operation is still in progress and has not yet completed.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSConnectTrafficDistributionGroupStatus status;
+
+@end
+
+/**
  
  */
 @interface AWSConnectTransferContactRequest : AWSRequest
 
 
 /**
- <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -8914,7 +9274,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -8924,7 +9284,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable phoneNumberId;
 
 /**
- <p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.</p>
+ <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone numbers are claimed to.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable targetArn;
 
@@ -9368,6 +9728,32 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectUpdateTrafficDistributionRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the traffic distribution group. This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created. The ARN must be provided if the call is from the replicated Region.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The distribution of traffic between the instance and its replica(s).</p>
+ */
+@property (nonatomic, strong) AWSConnectTelephonyConfig * _Nullable telephonyConfig;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateTrafficDistributionResponse : AWSModel
+
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectUpdateUserHierarchyGroupNameRequest : AWSRequest
 
 
@@ -9563,7 +9949,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
- <p>Contains information about a user account for a Amazon Connect instance.</p>
+ <p>Contains information about a user account for an Amazon Connect instance.</p>
  */
 @interface AWSConnectUser : AWSModel
 
@@ -9647,7 +10033,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) AWSConnectHierarchyPathReference * _Nullable hierarchyPath;
 
 /**
- <p>A map of maximum slots by channel. The key is a channel name. The value is an integer: the maximum number of slots. This is calculated from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_MediaConcurrency.html">MediaConcurrency</a> of the RoutingProfile assigned to the agent. </p>
+ <p>A map of maximum slots by channel. The key is a channel name. The value is an integer: the maximum number of slots. This is calculated from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_MediaConcurrency.html">MediaConcurrency</a> of the <code>RoutingProfile</code> assigned to the agent. </p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSNumber *> * _Nullable maxSlotsByChannel;
 
@@ -9662,7 +10048,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) AWSConnectAgentStatusReference * _Nullable status;
 
 /**
- <p>Information about the user for the data that is returned. It contains resourceId and ARN of the user. </p>
+ <p>Information about the user for the data that is returned. It contains the <code>resourceId</code> and ARN of the user. </p>
  */
 @property (nonatomic, strong) AWSConnectUserReference * _Nullable user;
 
@@ -9707,6 +10093,16 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  */
 @property (nonatomic, strong) NSString * _Nullable lastName;
 
+/**
+ <p>The user's mobile number.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable mobile;
+
+/**
+ <p>The user's secondary email address. If you provide a secondary email, the user receives email notifications - other than password reset notifications - to this email address instead of to their primary email address.</p><p>Pattern: <code>(?=^.{0,265}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable secondaryEmail;
+
 @end
 
 /**
@@ -9735,7 +10131,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The After Call Work (ACW) timeout setting, in seconds.</p>
+ <p>The After Call Work (ACW) timeout setting, in seconds.</p><note><p>When returned by a <code>SearchUsers</code> call, <code>AfterContactWorkTimeLimit</code> is returned in milliseconds. </p></note>
  */
 @property (nonatomic, strong) NSNumber * _Nullable afterContactWorkTimeLimit;
 
