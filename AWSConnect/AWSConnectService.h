@@ -313,7 +313,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)associateLexBot:(AWSConnectAssociateLexBotRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Associates a flow with a phone number claimed to your Amazon Connect instance.</p>
+ <p>Associates a flow with a phone number claimed to your Amazon Connect instance.</p><important><p>If the number is claimed to a traffic distribution group, and you are calling this API using an instance in the Amazon Web Services Region where the traffic distribution group was created, you can use either a full phone number ARN or UUID value for the <code>PhoneNumberId</code> URI request parameter. However, if the number is claimed to a traffic distribution group and you are calling this API using an instance in the alternate Amazon Web Services Region associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided in this scenario, you will receive a <code>ResourceNotFoundException</code>.</p></important>
  
  @param request A container for the necessary parameters to execute the AssociatePhoneNumberContactFlow service method.
 
@@ -324,7 +324,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask *)associatePhoneNumberContactFlow:(AWSConnectAssociatePhoneNumberContactFlowRequest *)request;
 
 /**
- <p>Associates a flow with a phone number claimed to your Amazon Connect instance.</p>
+ <p>Associates a flow with a phone number claimed to your Amazon Connect instance.</p><important><p>If the number is claimed to a traffic distribution group, and you are calling this API using an instance in the Amazon Web Services Region where the traffic distribution group was created, you can use either a full phone number ARN or UUID value for the <code>PhoneNumberId</code> URI request parameter. However, if the number is claimed to a traffic distribution group and you are calling this API using an instance in the alternate Amazon Web Services Region associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided in this scenario, you will receive a <code>ResourceNotFoundException</code>.</p></important>
  
  @param request A container for the necessary parameters to execute the AssociatePhoneNumberContactFlow service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -404,7 +404,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)associateSecurityKey:(AWSConnectAssociateSecurityKeyRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectAssociateSecurityKeyResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Claims an available phone number to your Amazon Connect instance.</p>
+ <p>Claims an available phone number to your Amazon Connect instance or traffic distribution group. You can call this API only in the same Amazon Web Services Region where the Amazon Connect instance or traffic distribution group was created.</p><important><p>You can call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a> operation.</p></important>
  
  @param request A container for the necessary parameters to execute the ClaimPhoneNumber service method.
 
@@ -416,7 +416,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectClaimPhoneNumberResponse *> *)claimPhoneNumber:(AWSConnectClaimPhoneNumberRequest *)request;
 
 /**
- <p>Claims an available phone number to your Amazon Connect instance.</p>
+ <p>Claims an available phone number to your Amazon Connect instance or traffic distribution group. You can call this API only in the same Amazon Web Services Region where the Amazon Connect instance or traffic distribution group was created.</p><important><p>You can call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a> operation.</p></important>
  
  @param request A container for the necessary parameters to execute the ClaimPhoneNumber service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -579,7 +579,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)createIntegrationAssociation:(AWSConnectCreateIntegrationAssociationRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateIntegrationAssociationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Creates a new queue for the specified Amazon Connect instance.</p>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Creates a new queue for the specified Amazon Connect instance.</p><important><p>If the number being used in the input is claimed to a traffic distribution group, and you are calling this API using an instance in the Amazon Web Services Region where the traffic distribution group was created, you can use either a full phone number ARN or UUID value for the <code>OutboundCallerIdNumberId</code> value of the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_OutboundCallerConfig">OutboundCallerConfig</a> request body parameter. However, if the number is claimed to a traffic distribution group and you are calling this API using an instance in the alternate Amazon Web Services Region associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided in this scenario, you will receive a <code>ResourceNotFoundException</code>.</p></important>
  
  @param request A container for the necessary parameters to execute the CreateQueue service method.
 
@@ -591,7 +591,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectCreateQueueResponse *> *)createQueue:(AWSConnectCreateQueueRequest *)request;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Creates a new queue for the specified Amazon Connect instance.</p>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Creates a new queue for the specified Amazon Connect instance.</p><important><p>If the number being used in the input is claimed to a traffic distribution group, and you are calling this API using an instance in the Amazon Web Services Region where the traffic distribution group was created, you can use either a full phone number ARN or UUID value for the <code>OutboundCallerIdNumberId</code> value of the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_OutboundCallerConfig">OutboundCallerConfig</a> request body parameter. However, if the number is claimed to a traffic distribution group and you are calling this API using an instance in the alternate Amazon Web Services Region associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided in this scenario, you will receive a <code>ResourceNotFoundException</code>.</p></important>
  
  @param request A container for the necessary parameters to execute the CreateQueue service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -702,6 +702,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectCreateTaskTemplateResponse
  */
 - (void)createTaskTemplate:(AWSConnectCreateTaskTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateTaskTemplateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Creates a traffic distribution group given an Amazon Connect instance that has been replicated. </p><p>For more information about creating traffic distribution groups, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-traffic-distribution-groups.html">Set up traffic distribution groups</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateTrafficDistributionGroup service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectCreateTrafficDistributionGroupResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorAccessDenied`, `AWSConnectErrorServiceQuotaExceeded`, `AWSConnectErrorThrottling`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceConflict`, `AWSConnectErrorResourceNotReady`.
+ 
+ @see AWSConnectCreateTrafficDistributionGroupRequest
+ @see AWSConnectCreateTrafficDistributionGroupResponse
+ */
+- (AWSTask<AWSConnectCreateTrafficDistributionGroupResponse *> *)createTrafficDistributionGroup:(AWSConnectCreateTrafficDistributionGroupRequest *)request;
+
+/**
+ <p>Creates a traffic distribution group given an Amazon Connect instance that has been replicated. </p><p>For more information about creating traffic distribution groups, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-traffic-distribution-groups.html">Set up traffic distribution groups</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateTrafficDistributionGroup service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorAccessDenied`, `AWSConnectErrorServiceQuotaExceeded`, `AWSConnectErrorThrottling`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceConflict`, `AWSConnectErrorResourceNotReady`.
+ 
+ @see AWSConnectCreateTrafficDistributionGroupRequest
+ @see AWSConnectCreateTrafficDistributionGroupResponse
+ */
+- (void)createTrafficDistributionGroup:(AWSConnectCreateTrafficDistributionGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateTrafficDistributionGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Creates a use case for an integration association.</p>
@@ -984,6 +1009,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectDeleteTaskTemplateResponse
  */
 - (void)deleteTaskTemplate:(AWSConnectDeleteTaskTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDeleteTaskTemplateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes a traffic distribution group. This API can be called only in the Region where the traffic distribution group is created.</p><p>For more information about deleting traffic distribution groups, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-traffic-distribution-groups.html">Delete traffic distribution groups</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTrafficDistributionGroup service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectDeleteTrafficDistributionGroupResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorAccessDenied`, `AWSConnectErrorResourceInUse`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectDeleteTrafficDistributionGroupRequest
+ @see AWSConnectDeleteTrafficDistributionGroupResponse
+ */
+- (AWSTask<AWSConnectDeleteTrafficDistributionGroupResponse *> *)deleteTrafficDistributionGroup:(AWSConnectDeleteTrafficDistributionGroupRequest *)request;
+
+/**
+ <p>Deletes a traffic distribution group. This API can be called only in the Region where the traffic distribution group is created.</p><p>For more information about deleting traffic distribution groups, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-traffic-distribution-groups.html">Delete traffic distribution groups</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTrafficDistributionGroup service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorAccessDenied`, `AWSConnectErrorResourceInUse`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectDeleteTrafficDistributionGroupRequest
+ @see AWSConnectDeleteTrafficDistributionGroupResponse
+ */
+- (void)deleteTrafficDistributionGroup:(AWSConnectDeleteTrafficDistributionGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDeleteTrafficDistributionGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deletes a use case from an integration association.</p>
@@ -1277,7 +1327,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)describeInstanceStorageConfig:(AWSConnectDescribeInstanceStorageConfigRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDescribeInstanceStorageConfigResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets details and status of a phone number that’s claimed to your Amazon Connect instance</p>
+ <p>Gets details and status of a phone number that’s claimed to your Amazon Connect instance or traffic distribution group.</p><important><p>If the number is claimed to a traffic distribution group, and you are calling in the Amazon Web Services Region where the traffic distribution group was created, you can use either a phone number ARN or UUID value for the <code>PhoneNumberId</code> URI request parameter. However, if the number is claimed to a traffic distribution group and you are calling this API in the alternate Amazon Web Services Region associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided in this scenario, you will receive a <code>ResourceNotFoundException</code>.</p></important>
  
  @param request A container for the necessary parameters to execute the DescribePhoneNumber service method.
 
@@ -1289,7 +1339,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectDescribePhoneNumberResponse *> *)describePhoneNumber:(AWSConnectDescribePhoneNumberRequest *)request;
 
 /**
- <p>Gets details and status of a phone number that’s claimed to your Amazon Connect instance</p>
+ <p>Gets details and status of a phone number that’s claimed to your Amazon Connect instance or traffic distribution group.</p><important><p>If the number is claimed to a traffic distribution group, and you are calling in the Amazon Web Services Region where the traffic distribution group was created, you can use either a phone number ARN or UUID value for the <code>PhoneNumberId</code> URI request parameter. However, if the number is claimed to a traffic distribution group and you are calling this API in the alternate Amazon Web Services Region associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided in this scenario, you will receive a <code>ResourceNotFoundException</code>.</p></important>
  
  @param request A container for the necessary parameters to execute the DescribePhoneNumber service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1400,6 +1450,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectDescribeSecurityProfileResponse
  */
 - (void)describeSecurityProfile:(AWSConnectDescribeSecurityProfileRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDescribeSecurityProfileResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Gets details and status of a traffic distribution group.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTrafficDistributionGroup service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectDescribeTrafficDistributionGroupResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorAccessDenied`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectDescribeTrafficDistributionGroupRequest
+ @see AWSConnectDescribeTrafficDistributionGroupResponse
+ */
+- (AWSTask<AWSConnectDescribeTrafficDistributionGroupResponse *> *)describeTrafficDistributionGroup:(AWSConnectDescribeTrafficDistributionGroupRequest *)request;
+
+/**
+ <p>Gets details and status of a traffic distribution group.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTrafficDistributionGroup service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorAccessDenied`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectDescribeTrafficDistributionGroupRequest
+ @see AWSConnectDescribeTrafficDistributionGroupResponse
+ */
+- (void)describeTrafficDistributionGroup:(AWSConnectDescribeTrafficDistributionGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDescribeTrafficDistributionGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Describes the specified user account. You can find the instance ID in the console (it’s the final part of the ARN). The console does not display the user IDs. Instead, list the users and note the IDs provided in the output.</p>
@@ -1612,7 +1687,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)disassociateLexBot:(AWSConnectDisassociateLexBotRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Removes the flow association from a phone number claimed to your Amazon Connect instance, if a flow association exists.</p>
+ <p>Removes the flow association from a phone number claimed to your Amazon Connect instance.</p><important><p>If the number is claimed to a traffic distribution group, and you are calling this API using an instance in the Amazon Web Services Region where the traffic distribution group was created, you can use either a full phone number ARN or UUID value for the <code>PhoneNumberId</code> URI request parameter. However, if the number is claimed to a traffic distribution group and you are calling this API using an instance in the alternate Amazon Web Services Region associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided in this scenario, you will receive a <code>ResourceNotFoundException</code>.</p></important>
  
  @param request A container for the necessary parameters to execute the DisassociatePhoneNumberContactFlow service method.
 
@@ -1623,7 +1698,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask *)disassociatePhoneNumberContactFlow:(AWSConnectDisassociatePhoneNumberContactFlowRequest *)request;
 
 /**
- <p>Removes the flow association from a phone number claimed to your Amazon Connect instance, if a flow association exists.</p>
+ <p>Removes the flow association from a phone number claimed to your Amazon Connect instance.</p><important><p>If the number is claimed to a traffic distribution group, and you are calling this API using an instance in the Amazon Web Services Region where the traffic distribution group was created, you can use either a full phone number ARN or UUID value for the <code>PhoneNumberId</code> URI request parameter. However, if the number is claimed to a traffic distribution group and you are calling this API using an instance in the alternate Amazon Web Services Region associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided in this scenario, you will receive a <code>ResourceNotFoundException</code>.</p></important>
  
  @param request A container for the necessary parameters to execute the DisassociatePhoneNumberContactFlow service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1848,6 +1923,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectGetTaskTemplateResponse
  */
 - (void)getTaskTemplate:(AWSConnectGetTaskTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectGetTaskTemplateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Retrieves the current traffic distribution for a given traffic distribution group.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetTrafficDistribution service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectGetTrafficDistributionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorAccessDenied`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectGetTrafficDistributionRequest
+ @see AWSConnectGetTrafficDistributionResponse
+ */
+- (AWSTask<AWSConnectGetTrafficDistributionResponse *> *)getTrafficDistribution:(AWSConnectGetTrafficDistributionRequest *)request;
+
+/**
+ <p>Retrieves the current traffic distribution for a given traffic distribution group.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetTrafficDistribution service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorAccessDenied`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectGetTrafficDistributionRequest
+ @see AWSConnectGetTrafficDistributionResponse
+ */
+- (void)getTrafficDistribution:(AWSConnectGetTrafficDistributionRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectGetTrafficDistributionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Lists agent statuses.</p>
@@ -2200,7 +2300,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listLexBots:(AWSConnectListLexBotsRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListLexBotsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Provides information about the phone numbers for the specified Amazon Connect instance. </p><p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your Contact Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ <p>Provides information about the phone numbers for the specified Amazon Connect instance. </p><p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your Contact Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p><important><p>The phone number <code>Arn</code> value that is returned from each of the items in the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbers.html#connect-ListPhoneNumbers-response-PhoneNumberSummaryList">PhoneNumberSummaryList</a> cannot be used to tag phone number resources. It will fail with a <code>ResourceNotFoundException</code>. Instead, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html">ListPhoneNumbersV2</a> API. It returns the new phone number ARN that can be used to tag phone number resources.</p></important>
  
  @param request A container for the necessary parameters to execute the ListPhoneNumbers service method.
 
@@ -2212,7 +2312,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectListPhoneNumbersResponse *> *)listPhoneNumbers:(AWSConnectListPhoneNumbersRequest *)request;
 
 /**
- <p>Provides information about the phone numbers for the specified Amazon Connect instance. </p><p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your Contact Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ <p>Provides information about the phone numbers for the specified Amazon Connect instance. </p><p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your Contact Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p><important><p>The phone number <code>Arn</code> value that is returned from each of the items in the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbers.html#connect-ListPhoneNumbers-response-PhoneNumberSummaryList">PhoneNumberSummaryList</a> cannot be used to tag phone number resources. It will fail with a <code>ResourceNotFoundException</code>. Instead, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html">ListPhoneNumbersV2</a> API. It returns the new phone number ARN that can be used to tag phone number resources.</p></important>
  
  @param request A container for the necessary parameters to execute the ListPhoneNumbers service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2225,7 +2325,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listPhoneNumbers:(AWSConnectListPhoneNumbersRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListPhoneNumbersResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists phone numbers claimed to your Amazon Connect instance. </p><p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your Contact Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ <p>Lists phone numbers claimed to your Amazon Connect instance or traffic distribution group. If the provided <code>TargetArn</code> is a traffic distribution group, you can call this API in both Amazon Web Services Regions associated with traffic distribution group.</p><p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your Contact Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ListPhoneNumbersV2 service method.
 
@@ -2237,7 +2337,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectListPhoneNumbersV2Response *> *)listPhoneNumbersV2:(AWSConnectListPhoneNumbersV2Request *)request;
 
 /**
- <p>Lists phone numbers claimed to your Amazon Connect instance. </p><p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your Contact Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ <p>Lists phone numbers claimed to your Amazon Connect instance or traffic distribution group. If the provided <code>TargetArn</code> is a traffic distribution group, you can call this API in both Amazon Web Services Regions associated with traffic distribution group.</p><p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your Contact Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ListPhoneNumbersV2 service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2525,6 +2625,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listTaskTemplates:(AWSConnectListTaskTemplatesRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListTaskTemplatesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Lists traffic distribution groups.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListTrafficDistributionGroups service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectListTrafficDistributionGroupsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorAccessDenied`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectListTrafficDistributionGroupsRequest
+ @see AWSConnectListTrafficDistributionGroupsResponse
+ */
+- (AWSTask<AWSConnectListTrafficDistributionGroupsResponse *> *)listTrafficDistributionGroups:(AWSConnectListTrafficDistributionGroupsRequest *)request;
+
+/**
+ <p>Lists traffic distribution groups.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListTrafficDistributionGroups service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorAccessDenied`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectListTrafficDistributionGroupsRequest
+ @see AWSConnectListTrafficDistributionGroupsResponse
+ */
+- (void)listTrafficDistributionGroups:(AWSConnectListTrafficDistributionGroupsRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListTrafficDistributionGroupsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Lists the use cases for the integration association. </p>
  
  @param request A container for the necessary parameters to execute the ListUseCases service method.
@@ -2625,7 +2750,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)putUserStatus:(AWSConnectPutUserStatusRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectPutUserStatusResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Releases a phone number previously claimed to an Amazon Connect instance.</p>
+ <p>Releases a phone number previously claimed to an Amazon Connect instance or traffic distribution group. You can call this API only in the Amazon Web Services Region where the number was claimed.</p><important><p>To release phone numbers from a traffic distribution group, use the <code>ReleasePhoneNumber</code> API, not the Amazon Connect console.</p><p>After releasing a phone number, the phone number enters into a cooldown period of 30 days. It cannot be searched for or claimed again until the period has ended. If you accidentally release a phone number, contact Amazon Web Services Support.</p></important>
  
  @param request A container for the necessary parameters to execute the ReleasePhoneNumber service method.
 
@@ -2636,7 +2761,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask *)releasePhoneNumber:(AWSConnectReleasePhoneNumberRequest *)request;
 
 /**
- <p>Releases a phone number previously claimed to an Amazon Connect instance.</p>
+ <p>Releases a phone number previously claimed to an Amazon Connect instance or traffic distribution group. You can call this API only in the Amazon Web Services Region where the number was claimed.</p><important><p>To release phone numbers from a traffic distribution group, use the <code>ReleasePhoneNumber</code> API, not the Amazon Connect console.</p><p>After releasing a phone number, the phone number enters into a cooldown period of 30 days. It cannot be searched for or claimed again until the period has ended. If you accidentally release a phone number, contact Amazon Web Services Support.</p></important>
  
  @param request A container for the necessary parameters to execute the ReleasePhoneNumber service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2645,6 +2770,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectReleasePhoneNumberRequest
  */
 - (void)releasePhoneNumber:(AWSConnectReleasePhoneNumberRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Replicates an Amazon Connect instance in the specified Amazon Web Services Region.</p><p>For more information about replicating an Amazon Connect instance, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-replica-connect-instance.html">Create a replica of your existing Amazon Connect instance</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ReplicateInstance service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectReplicateInstanceResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorAccessDenied`, `AWSConnectErrorServiceQuotaExceeded`, `AWSConnectErrorThrottling`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceNotReady`, `AWSConnectErrorResourceConflict`.
+ 
+ @see AWSConnectReplicateInstanceRequest
+ @see AWSConnectReplicateInstanceResponse
+ */
+- (AWSTask<AWSConnectReplicateInstanceResponse *> *)replicateInstance:(AWSConnectReplicateInstanceRequest *)request;
+
+/**
+ <p>Replicates an Amazon Connect instance in the specified Amazon Web Services Region.</p><p>For more information about replicating an Amazon Connect instance, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-replica-connect-instance.html">Create a replica of your existing Amazon Connect instance</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ReplicateInstance service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorAccessDenied`, `AWSConnectErrorServiceQuotaExceeded`, `AWSConnectErrorThrottling`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceNotReady`, `AWSConnectErrorResourceConflict`.
+ 
+ @see AWSConnectReplicateInstanceRequest
+ @see AWSConnectReplicateInstanceResponse
+ */
+- (void)replicateInstance:(AWSConnectReplicateInstanceRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectReplicateInstanceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>When a contact is being recorded, and the recording has been suspended using SuspendContactRecording, this API resumes recording the call.</p><p>Only voice recordings are supported at this time.</p>
@@ -2672,7 +2822,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)resumeContactRecording:(AWSConnectResumeContactRecordingRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectResumeContactRecordingResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Searches for available phone numbers that you can claim to your Amazon Connect instance.</p>
+ <p>Searches for available phone numbers that you can claim to your Amazon Connect instance or traffic distribution group. If the provided <code>TargetArn</code> is a traffic distribution group, you can call this API in both Amazon Web Services Regions associated with the traffic distribution group.</p>
  
  @param request A container for the necessary parameters to execute the SearchAvailablePhoneNumbers service method.
 
@@ -2684,7 +2834,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectSearchAvailablePhoneNumbersResponse *> *)searchAvailablePhoneNumbers:(AWSConnectSearchAvailablePhoneNumbersRequest *)request;
 
 /**
- <p>Searches for available phone numbers that you can claim to your Amazon Connect instance.</p>
+ <p>Searches for available phone numbers that you can claim to your Amazon Connect instance or traffic distribution group. If the provided <code>TargetArn</code> is a traffic distribution group, you can call this API in both Amazon Web Services Regions associated with the traffic distribution group.</p>
  
  @param request A container for the necessary parameters to execute the SearchAvailablePhoneNumbers service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2772,7 +2922,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)searchSecurityProfiles:(AWSConnectSearchSecurityProfilesRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectSearchSecurityProfilesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Searches users in an Amazon Connect instance, with optional filtering.</p>
+ <p>Searches users in an Amazon Connect instance, with optional filtering.</p><note><p><code>AfterContactWorkTimeLimit</code> is returned in milliseconds. </p></note>
  
  @param request A container for the necessary parameters to execute the SearchUsers service method.
 
@@ -2784,7 +2934,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectSearchUsersResponse *> *)searchUsers:(AWSConnectSearchUsersRequest *)request;
 
 /**
- <p>Searches users in an Amazon Connect instance, with optional filtering.</p>
+ <p>Searches users in an Amazon Connect instance, with optional filtering.</p><note><p><code>AfterContactWorkTimeLimit</code> is returned in milliseconds. </p></note>
  
  @param request A container for the necessary parameters to execute the SearchUsers service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3395,7 +3545,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)updateInstanceStorageConfig:(AWSConnectUpdateInstanceStorageConfigRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates your claimed phone number from its current Amazon Connect instance to another Amazon Connect instance in the same Region.</p>
+ <p>Updates your claimed phone number from its current Amazon Connect instance or traffic distribution group to another Amazon Connect instance or traffic distribution group in the same Amazon Web Services Region.</p><important><p>You can call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation.</p></important>
  
  @param request A container for the necessary parameters to execute the UpdatePhoneNumber service method.
 
@@ -3407,7 +3557,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectUpdatePhoneNumberResponse *> *)updatePhoneNumber:(AWSConnectUpdatePhoneNumberRequest *)request;
 
 /**
- <p>Updates your claimed phone number from its current Amazon Connect instance to another Amazon Connect instance in the same Region.</p>
+ <p>Updates your claimed phone number from its current Amazon Connect instance or traffic distribution group to another Amazon Connect instance or traffic distribution group in the same Amazon Web Services Region.</p><important><p>You can call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation.</p></important>
  
  @param request A container for the necessary parameters to execute the UpdatePhoneNumber service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3486,7 +3636,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)updateQueueName:(AWSConnectUpdateQueueNameRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates the outbound caller ID name, number, and outbound whisper flow for a specified queue.</p>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates the outbound caller ID name, number, and outbound whisper flow for a specified queue.</p><important><p>If the number being used in the input is claimed to a traffic distribution group, and you are calling this API using an instance in the Amazon Web Services Region where the traffic distribution group was created, you can use either a full phone number ARN or UUID value for the <code>OutboundCallerIdNumberId</code> value of the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_OutboundCallerConfig">OutboundCallerConfig</a> request body parameter. However, if the number is claimed to a traffic distribution group and you are calling this API using an instance in the alternate Amazon Web Services Region associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided in this scenario, you will receive a <code>ResourceNotFoundException</code>.</p></important>
  
  @param request A container for the necessary parameters to execute the UpdateQueueOutboundCallerConfig service method.
 
@@ -3497,7 +3647,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask *)updateQueueOutboundCallerConfig:(AWSConnectUpdateQueueOutboundCallerConfigRequest *)request;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates the outbound caller ID name, number, and outbound whisper flow for a specified queue.</p>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates the outbound caller ID name, number, and outbound whisper flow for a specified queue.</p><important><p>If the number being used in the input is claimed to a traffic distribution group, and you are calling this API using an instance in the Amazon Web Services Region where the traffic distribution group was created, you can use either a full phone number ARN or UUID value for the <code>OutboundCallerIdNumberId</code> value of the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_OutboundCallerConfig">OutboundCallerConfig</a> request body parameter. However, if the number is claimed to a traffic distribution group and you are calling this API using an instance in the alternate Amazon Web Services Region associated with the traffic distribution group, you must provide a full phone number ARN. If a UUID is provided in this scenario, you will receive a <code>ResourceNotFoundException</code>.</p></important>
  
  @param request A container for the necessary parameters to execute the UpdateQueueOutboundCallerConfig service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3707,6 +3857,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectUpdateTaskTemplateResponse
  */
 - (void)updateTaskTemplate:(AWSConnectUpdateTaskTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectUpdateTaskTemplateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Updates the traffic distribution for a given traffic distribution group. For more information about updating a traffic distribution group see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html">Update telephony traffic distribution across Amazon Web Services Regions </a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateTrafficDistribution service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectUpdateTrafficDistributionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorAccessDenied`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorResourceConflict`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectUpdateTrafficDistributionRequest
+ @see AWSConnectUpdateTrafficDistributionResponse
+ */
+- (AWSTask<AWSConnectUpdateTrafficDistributionResponse *> *)updateTrafficDistribution:(AWSConnectUpdateTrafficDistributionRequest *)request;
+
+/**
+ <p>Updates the traffic distribution for a given traffic distribution group. For more information about updating a traffic distribution group see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html">Update telephony traffic distribution across Amazon Web Services Regions </a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateTrafficDistribution service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorAccessDenied`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorResourceConflict`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectUpdateTrafficDistributionRequest
+ @see AWSConnectUpdateTrafficDistributionResponse
+ */
+- (void)updateTrafficDistribution:(AWSConnectUpdateTrafficDistributionRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectUpdateTrafficDistributionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Assigns the specified hierarchy group to the specified user.</p>
