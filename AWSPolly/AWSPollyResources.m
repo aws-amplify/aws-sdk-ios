@@ -476,7 +476,8 @@
         \"en-NZ\",\
         \"en-ZA\",\
         \"ca-ES\",\
-        \"de-AT\"\
+        \"de-AT\",\
+        \"yue-CN\"\
       ]\
     },\
     \"LanguageCodeList\":{\
@@ -1140,7 +1141,8 @@
         \"Daniel\",\
         \"Liam\",\
         \"Pedro\",\
-        \"Kajal\"\
+        \"Kajal\",\
+        \"Hiujin\"\
       ]\
     },\
     \"VoiceList\":{\

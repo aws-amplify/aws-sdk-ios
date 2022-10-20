@@ -19,9 +19,9 @@
 #import "AWSPinpointDateUtils.h"
 #import "AWSPinpointSessionClient.h"
 
-static int const MAX_NUM_OF_METRICS_AND_ATTRIBUTES = 50;
+static int const MAX_NUM_OF_METRICS_AND_ATTRIBUTES = 40;
 static int const MAX_EVENT_TYPE_ATTRIBUTE_METRIC_KEY_LENGTH = 50;
-static int const MAX_EVENT_ATTRIBUTE_VALUE_LENGTH = 1000;
+static int const MAX_EVENT_ATTRIBUTE_VALUE_LENGTH = 200;
 
 NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventErrorDomain";
 

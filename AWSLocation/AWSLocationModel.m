@@ -2189,6 +2189,40 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 @end
 
+@implementation AWSLocationGetPlaceRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"indexName" : @"IndexName",
+             @"language" : @"Language",
+             @"placeId" : @"PlaceId",
+             };
+}
+
+@end
+
+@implementation AWSLocationGetPlaceResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"place" : @"Place",
+             };
+}
+
++ (NSValueTransformer *)placeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLocationPlace class]];
+}
+
+@end
+
 @implementation AWSLocationLeg
 
 + (BOOL)supportsSecureCoding {
@@ -2936,6 +2970,8 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
              @"street" : @"Street",
              @"subRegion" : @"SubRegion",
              @"timeZone" : @"TimeZone",
+             @"unitNumber" : @"UnitNumber",
+             @"unitType" : @"UnitType",
              };
 }
 
@@ -3115,6 +3151,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 	return @{
              @"distance" : @"Distance",
              @"place" : @"Place",
+             @"placeId" : @"PlaceId",
              };
 }
 
@@ -3132,6 +3169,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"placeId" : @"PlaceId",
              @"text" : @"Text",
              };
 }
@@ -3148,6 +3186,7 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
 	return @{
              @"distance" : @"Distance",
              @"place" : @"Place",
+             @"placeId" : @"PlaceId",
              @"relevance" : @"Relevance",
              };
 }

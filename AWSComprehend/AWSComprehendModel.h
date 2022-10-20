@@ -247,6 +247,27 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
     AWSComprehendSyntaxLanguageCodePt,
 };
 
+typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
+    AWSComprehendTargetedSentimentEntityTypeUnknown,
+    AWSComprehendTargetedSentimentEntityTypePerson,
+    AWSComprehendTargetedSentimentEntityTypeLocation,
+    AWSComprehendTargetedSentimentEntityTypeOrganization,
+    AWSComprehendTargetedSentimentEntityTypeFacility,
+    AWSComprehendTargetedSentimentEntityTypeBrand,
+    AWSComprehendTargetedSentimentEntityTypeCommercialItem,
+    AWSComprehendTargetedSentimentEntityTypeMovie,
+    AWSComprehendTargetedSentimentEntityTypeMusic,
+    AWSComprehendTargetedSentimentEntityTypeBook,
+    AWSComprehendTargetedSentimentEntityTypeSoftware,
+    AWSComprehendTargetedSentimentEntityTypeGame,
+    AWSComprehendTargetedSentimentEntityTypePersonalTitle,
+    AWSComprehendTargetedSentimentEntityTypeEvent,
+    AWSComprehendTargetedSentimentEntityTypeDate,
+    AWSComprehendTargetedSentimentEntityTypeQuantity,
+    AWSComprehendTargetedSentimentEntityTypeAttribute,
+    AWSComprehendTargetedSentimentEntityTypeOther,
+};
+
 @class AWSComprehendAugmentedManifestsListItem;
 @class AWSComprehendBatchDetectDominantLanguageItemResult;
 @class AWSComprehendBatchDetectDominantLanguageRequest;
@@ -263,6 +284,9 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendBatchDetectSyntaxItemResult;
 @class AWSComprehendBatchDetectSyntaxRequest;
 @class AWSComprehendBatchDetectSyntaxResponse;
+@class AWSComprehendBatchDetectTargetedSentimentItemResult;
+@class AWSComprehendBatchDetectTargetedSentimentRequest;
+@class AWSComprehendBatchDetectTargetedSentimentResponse;
 @class AWSComprehendBatchItemError;
 @class AWSComprehendClassifierEvaluationMetrics;
 @class AWSComprehendClassifierMetadata;
@@ -322,6 +346,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendDetectSentimentResponse;
 @class AWSComprehendDetectSyntaxRequest;
 @class AWSComprehendDetectSyntaxResponse;
+@class AWSComprehendDetectTargetedSentimentRequest;
+@class AWSComprehendDetectTargetedSentimentResponse;
 @class AWSComprehendDocumentClass;
 @class AWSComprehendDocumentClassificationJobFilter;
 @class AWSComprehendDocumentClassificationJobProperties;
@@ -391,6 +417,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendListTargetedSentimentDetectionJobsResponse;
 @class AWSComprehendListTopicsDetectionJobsRequest;
 @class AWSComprehendListTopicsDetectionJobsResponse;
+@class AWSComprehendMentionSentiment;
 @class AWSComprehendOutputDataConfig;
 @class AWSComprehendPartOfSpeechTag;
 @class AWSComprehendPiiEntitiesDetectionJobFilter;
@@ -445,6 +472,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendTagResourceResponse;
 @class AWSComprehendTargetedSentimentDetectionJobFilter;
 @class AWSComprehendTargetedSentimentDetectionJobProperties;
+@class AWSComprehendTargetedSentimentEntity;
+@class AWSComprehendTargetedSentimentMention;
 @class AWSComprehendTopicsDetectionJobFilter;
 @class AWSComprehendTopicsDetectionJobProperties;
 @class AWSComprehendUntagResourceRequest;
@@ -517,7 +546,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 
 /**
- <p>A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document should contain at least 20 characters and must contain fewer than 5,000 bytes of UTF-8 encoded characters.</p>
+ <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25 documents. Each document should contain at least 20 characters. The maximum size of each document is 5 KB.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable textList;
 
@@ -571,7 +600,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
 /**
- <p>A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer than 5,000 bytes of UTF-8 encoded characters.</p>
+ <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25 documents. The maximum size of each document is 5 KB.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable textList;
 
@@ -625,7 +654,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
 /**
- <p>A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer than 5,000 bytes of UTF-8 encoded characters.</p>
+ <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25 documents. The maximum size of each document is 5 KB.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable textList;
 
@@ -684,7 +713,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
 /**
- <p>A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>
+ <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25 documents. The maximum size of each document is 5 KB. </p><note><p>Amazon Comprehend performs real-time sentiment analysis on the first 500 characters of the input text and ignores any additional text in the input.</p></note>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable textList;
 
@@ -738,7 +767,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, assign) AWSComprehendSyntaxLanguageCode languageCode;
 
 /**
- <p>A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>
+ <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25 documents. The maximum size for each document is 5 KB.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable textList;
 
@@ -759,6 +788,60 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>A list of objects containing the results of the operation. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If all of the documents contain an error, the <code>ResultList</code> is empty.</p>
  */
 @property (nonatomic, strong) NSArray<AWSComprehendBatchDetectSyntaxItemResult *> * _Nullable resultList;
+
+@end
+
+/**
+ <p>Analysis results for one of the documents in the batch.</p>
+ */
+@interface AWSComprehendBatchDetectTargetedSentimentItemResult : AWSModel
+
+
+/**
+ <p>An array of targeted sentiment entities.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendTargetedSentimentEntity *> * _Nullable entities;
+
+/**
+ <p>The zero-based index of this result in the input list.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable index;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendBatchDetectTargetedSentimentRequest : AWSRequest
+
+
+/**
+ <p>The language of the input documents. Currently, English is the only supported language.</p>
+ */
+@property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
+
+/**
+ <p>A list containing the UTF-8 encoded text of the input documents. The list can contain a maximum of 25 documents. The maximum size of each document is 5 KB.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable textList;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendBatchDetectTargetedSentimentResponse : AWSModel
+
+
+/**
+ <p>List of errors that the operation can return.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendBatchItemError *> * _Nullable errorList;
+
+/**
+ <p>A list of objects containing the results of the operation. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If all of the documents contain an error, the <code>ResultList</code> is empty.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendBatchDetectTargetedSentimentItemResult *> * _Nullable resultList;
 
 @end
 
@@ -909,7 +992,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
 /**
- <p>Creates a new document classification request to analyze a single document in real-time, returning personally identifiable information (PII) entity labels.</p>
+ <p>A UTF-8 text string. The maximum string size is 100 KB.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable text;
 
@@ -1590,7 +1673,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 
 /**
- <p>A UTF-8 text string. Each string should contain at least 20 characters and must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>
+ <p>A UTF-8 text string. The string must contain at least 20 characters. The maximum string size is 100 KB.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable text;
 
@@ -1626,7 +1709,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
 /**
- <p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>
+ <p>A UTF-8 text string. The maximum string size is 100 KB.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable text;
 
@@ -1639,7 +1722,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 
 /**
- <p>A collection of entities identified in the input text. For each entity, the response provides the entity text, entity type, where the entity text begins and ends, and the level of confidence that Amazon Comprehend has in the detection. </p><p>If your request uses a custom entity recognition model, Amazon Comprehend detects the entities that the model is trained to recognize. Otherwise, it detects the default entity types. For a list of default entity types, see <a>how-entities</a>.</p>
+ <p>A collection of entities identified in the input text. For each entity, the response provides the entity text, entity type, where the entity text begins and ends, and the level of confidence that Amazon Comprehend has in the detection. </p><p>If your request uses a custom entity recognition model, Amazon Comprehend detects the entities that the model is trained to recognize. Otherwise, it detects the default entity types. For a list of default entity types, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html">Entities</a> in the Comprehend Developer Guide. </p>
  */
 @property (nonatomic, strong) NSArray<AWSComprehendEntity *> * _Nullable entities;
 
@@ -1657,7 +1740,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
 /**
- <p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>
+ <p>A UTF-8 text string. The string must contain less than 100 KB of UTF-8 encoded characters.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable text;
 
@@ -1688,7 +1771,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
 /**
- <p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>
+ <p>A UTF-8 text string. The maximum string size is 100 KB.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable text;
 
@@ -1719,7 +1802,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
 /**
- <p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>
+ <p>A UTF-8 text string. The maximum string size is 5 KB.</p><note><p>Amazon Comprehend performs real-time sentiment analysis on the first 500 characters of the input text and ignores any additional text in the input.</p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable text;
 
@@ -1755,7 +1838,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, assign) AWSComprehendSyntaxLanguageCode languageCode;
 
 /**
- <p>A UTF-8 string. Each string must contain fewer that 5,000 bytes of UTF encoded characters.</p>
+ <p>A UTF-8 string. The maximum string size is 5 KB.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable text;
 
@@ -1768,9 +1851,40 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 
 /**
- <p>A collection of syntax tokens describing the text. For each token, the response provides the text, the token type, where the text begins and ends, and the level of confidence that Amazon Comprehend has that the token is correct. For a list of token types, see <a>how-syntax</a>.</p>
+ <p>A collection of syntax tokens describing the text. For each token, the response provides the text, the token type, where the text begins and ends, and the level of confidence that Amazon Comprehend has that the token is correct. For a list of token types, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html">Syntax</a> in the Comprehend Developer Guide. </p>
  */
 @property (nonatomic, strong) NSArray<AWSComprehendSyntaxToken *> * _Nullable syntaxTokens;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendDetectTargetedSentimentRequest : AWSRequest
+
+
+/**
+ <p>The language of the input documents. Currently, English is the only supported language.</p>
+ */
+@property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
+
+/**
+ <p>A UTF-8 text string. The maximum string length is 5 KB.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable text;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendDetectTargetedSentimentResponse : AWSModel
+
+
+/**
+ <p>Targeted sentiment analysis for each of the entities identified in the input text.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendTargetedSentimentEntity *> * _Nullable entities;
 
 @end
 
@@ -1922,7 +2036,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @end
 
 /**
- <p>The input properties for training a document classifier. </p><p>For more information on how the input file is formatted, see <a>prep-classifier-data</a>. </p>
+ <p>The input properties for training a document classifier. </p><p>For more information on how the input file is formatted, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/prep-classifier-data.html">Preparing training data</a> in the Comprehend Developer Guide. </p>
  */
 @interface AWSComprehendDocumentClassifierInputDataConfig : AWSModel
 
@@ -1948,7 +2062,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) NSString * _Nullable s3Uri;
 
 /**
- <p>The Amazon S3 URI for the input data. The Amazon S3 bucket must be in the same AWS Region as the API endpoint that you are calling. The URI can point to a single input file or it can provide the prefix for a collection of input files. </p>
+ <p>This specifies the Amazon S3 location where the test annotations for an entity recognizer are located. The URI must be in the same AWS Region as the API endpoint that you are calling. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable testS3Uri;
 
@@ -2463,12 +2577,12 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 
 /**
- <p>A character offset in the input text that shows where the entity begins (the first character is at position 0). The offset returns the position of each UTF-8 code point in the string. A <i>code point</i> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.</p>
+ <p>The zero-based offset from the beginning of the source text to the first character in the entity.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable beginOffset;
 
 /**
- <p>A character offset in the input text that shows where the entity ends. The offset returns the position of each UTF-8 code point in the string. A <i>code point</i> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point. </p>
+ <p>The zero-based offset from the beginning of the source text to the last character in the entity.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable endOffset;
 
@@ -2520,7 +2634,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) NSString * _Nullable s3Uri;
 
 /**
- <p>This specifies the Amazon S3 location where the test annotations for an entity recognizer are located. The URI must be in the same AWS Region as the API endpoint that you are calling.</p>
+ <p> Specifies the Amazon S3 location where the test annotations for an entity recognizer are located. The URI must be in the same region as the API endpoint that you are calling.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable testS3Uri;
 
@@ -3041,12 +3155,12 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 
 /**
- <p>A character offset in the input text that shows where the key phrase begins (the first character is at position 0). The offset returns the position of each UTF-8 code point in the string. A <i>code point</i> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.</p>
+ <p>The zero-based offset from the beginning of the source text to the first character in the key phrase.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable beginOffset;
 
 /**
- <p>A character offset in the input text where the key phrase ends. The offset returns the position of each UTF-8 code point in the string. A <code>code point</code> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.</p>
+ <p>The zero-based offset from the beginning of the source text to the last character in the key phrase.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable endOffset;
 
@@ -3759,6 +3873,24 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @end
 
 /**
+ <p>Contains the sentiment and sentiment score for one mention of an entity.</p><p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+ */
+@interface AWSComprehendMentionSentiment : AWSModel
+
+
+/**
+ <p>The sentiment of the mention. </p>
+ */
+@property (nonatomic, assign) AWSComprehendSentimentType sentiment;
+
+/**
+ <p>Describes the level of confidence that Amazon Comprehend has in the accuracy of its detection of sentiments.</p>
+ */
+@property (nonatomic, strong) AWSComprehendSentimentScore * _Nullable sentimentScore;
+
+@end
+
+/**
  <p>Provides configuration parameters for the output of inference jobs.</p><p/>
  Required parameters: [S3Uri]
  */
@@ -3778,7 +3910,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @end
 
 /**
- <p>Identifies the part of speech represented by the token and gives the confidence that Amazon Comprehend has that the part of speech was correctly identified. For more information about the parts of speech that Amazon Comprehend can identify, see <a>how-syntax</a>.</p>
+ <p>Identifies the part of speech represented by the token and gives the confidence that Amazon Comprehend has that the part of speech was correctly identified. For more information about the parts of speech that Amazon Comprehend can identify, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html">Syntax</a> in the Comprehend Developer Guide. </p>
  */
 @interface AWSComprehendPartOfSpeechTag : AWSModel
 
@@ -3903,12 +4035,12 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 
 /**
- <p>A character offset in the input text that shows where the PII entity begins (the first character is at position 0). The offset returns the position of each UTF-8 code point in the string. A <i>code point</i> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.</p>
+ <p>The zero-based offset from the beginning of the source text to the first character in the entity.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable beginOffset;
 
 /**
- <p>A character offset in the input text that shows where the PII entity ends. The offset returns the position of each UTF-8 code point in the string. A <i>code point</i> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.</p>
+ <p>The zero-based offset from the beginning of the source text to the last character in the entity.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable endOffset;
 
@@ -4685,7 +4817,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) NSString * _Nullable jobName;
 
 /**
- <p>The language of the input documents. Currently, English is the only valid language.</p>
+ <p>The language of the input documents. Currently, English is the only supported language.</p>
  */
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
@@ -5086,7 +5218,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) NSNumber * _Nullable endOffset;
 
 /**
- <p>Provides the part of speech label and the confidence level that Amazon Comprehend has that the part of speech was correctly identified. For more information, see <a>how-syntax</a>.</p>
+ <p>Provides the part of speech label and the confidence level that Amazon Comprehend has that the part of speech was correctly identified. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html">Syntax</a> in the Comprehend Developer Guide. </p>
  */
 @property (nonatomic, strong) AWSComprehendPartOfSpeechTag * _Nullable partOfSpeech;
 
@@ -5245,6 +5377,67 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p> Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
  */
 @property (nonatomic, strong) AWSComprehendVpcConfig * _Nullable vpcConfig;
+
+@end
+
+/**
+ <p>Information about one of the entities found by targeted sentiment analysis.</p><p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+ */
+@interface AWSComprehendTargetedSentimentEntity : AWSModel
+
+
+/**
+ <p>One or more index into the Mentions array that provides the best name for the entity group.</p>
+ */
+@property (nonatomic, strong) NSArray<NSNumber *> * _Nullable descriptiveMentionIndex;
+
+/**
+ <p>An array of mentions of the entity in the document. The array represents a co-reference group. See <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html#how-targeted-sentiment-values"> Co-reference group</a> for an example. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendTargetedSentimentMention *> * _Nullable mentions;
+
+@end
+
+/**
+ <p>Information about one mention of an entity. The mention information includes the location of the mention in the text and the sentiment of the mention.</p><p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+ */
+@interface AWSComprehendTargetedSentimentMention : AWSModel
+
+
+/**
+ <p>The offset into the document text where the mention begins.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable beginOffset;
+
+/**
+ <p>The offset into the document text where the mention ends.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable endOffset;
+
+/**
+ <p>The confidence that all the entities mentioned in the group relate to the same entity.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable groupScore;
+
+/**
+ <p>Contains the sentiment and sentiment score for the mention.</p>
+ */
+@property (nonatomic, strong) AWSComprehendMentionSentiment * _Nullable mentionSentiment;
+
+/**
+ <p>Model confidence that the entity is relevant. Value range is zero to one, where one is highest confidence.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable score;
+
+/**
+ <p>The text in the document that identifies the entity.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable text;
+
+/**
+ <p>The type of the entity. Amazon Comprehend supports a variety of <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html#how-targeted-sentiment-entities">entity types</a>.</p>
+ */
+@property (nonatomic, assign) AWSComprehendTargetedSentimentEntityType types;
 
 @end
 
