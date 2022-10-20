@@ -200,7 +200,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)batchDetectDominantLanguage:(AWSComprehendBatchDetectDominantLanguageRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendBatchDetectDominantLanguageResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Inspects the text of a batch of documents for named entities and returns information about them. For more information about named entities, see <a>how-entities</a></p>
+ <p>Inspects the text of a batch of documents for named entities and returns information about them. For more information about named entities, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html">Entities</a> in the Comprehend Developer Guide. </p>
  
  @param request A container for the necessary parameters to execute the BatchDetectEntities service method.
 
@@ -212,7 +212,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (AWSTask<AWSComprehendBatchDetectEntitiesResponse *> *)batchDetectEntities:(AWSComprehendBatchDetectEntitiesRequest *)request;
 
 /**
- <p>Inspects the text of a batch of documents for named entities and returns information about them. For more information about named entities, see <a>how-entities</a></p>
+ <p>Inspects the text of a batch of documents for named entities and returns information about them. For more information about named entities, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html">Entities</a> in the Comprehend Developer Guide. </p>
  
  @param request A container for the necessary parameters to execute the BatchDetectEntities service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -275,7 +275,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)batchDetectSentiment:(AWSComprehendBatchDetectSentimentRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendBatchDetectSentimentResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Inspects the text of a batch of documents for the syntax and part of speech of the words in the document and returns information about them. For more information, see <a>how-syntax</a>.</p>
+ <p>Inspects the text of a batch of documents for the syntax and part of speech of the words in the document and returns information about them. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html">Syntax</a> in the Comprehend Developer Guide. </p>
  
  @param request A container for the necessary parameters to execute the BatchDetectSyntax service method.
 
@@ -287,7 +287,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (AWSTask<AWSComprehendBatchDetectSyntaxResponse *> *)batchDetectSyntax:(AWSComprehendBatchDetectSyntaxRequest *)request;
 
 /**
- <p>Inspects the text of a batch of documents for the syntax and part of speech of the words in the document and returns information about them. For more information, see <a>how-syntax</a>.</p>
+ <p>Inspects the text of a batch of documents for the syntax and part of speech of the words in the document and returns information about them. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html">Syntax</a> in the Comprehend Developer Guide. </p>
  
  @param request A container for the necessary parameters to execute the BatchDetectSyntax service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -298,6 +298,31 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  @see AWSComprehendBatchDetectSyntaxResponse
  */
 - (void)batchDetectSyntax:(AWSComprehendBatchDetectSyntaxRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendBatchDetectSyntaxResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Inspects a batch of documents and returns a sentiment analysis for each entity identified in the documents.</p><p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the BatchDetectTargetedSentiment service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendBatchDetectTargetedSentimentResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTextSizeLimitExceeded`, `AWSComprehendErrorUnsupportedLanguage`, `AWSComprehendErrorBatchSizeLimitExceeded`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendBatchDetectTargetedSentimentRequest
+ @see AWSComprehendBatchDetectTargetedSentimentResponse
+ */
+- (AWSTask<AWSComprehendBatchDetectTargetedSentimentResponse *> *)batchDetectTargetedSentiment:(AWSComprehendBatchDetectTargetedSentimentRequest *)request;
+
+/**
+ <p>Inspects a batch of documents and returns a sentiment analysis for each entity identified in the documents.</p><p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the BatchDetectTargetedSentiment service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTextSizeLimitExceeded`, `AWSComprehendErrorUnsupportedLanguage`, `AWSComprehendErrorBatchSizeLimitExceeded`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendBatchDetectTargetedSentimentRequest
+ @see AWSComprehendBatchDetectTargetedSentimentResponse
+ */
+- (void)batchDetectTargetedSentiment:(AWSComprehendBatchDetectTargetedSentimentRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendBatchDetectTargetedSentimentResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Creates a new document classification request to analyze a single document in real-time, using a previously created and trained custom model and an endpoint.</p>
@@ -350,7 +375,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)containsPiiEntities:(AWSComprehendContainsPiiEntitiesRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendContainsPiiEntitiesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a new document classifier that you can use to categorize documents. To create a classifier, you provide a set of training documents that labeled with the categories that you want to use. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. For more information, see <a>how-document-classification</a>.</p>
+ <p>Creates a new document classifier that you can use to categorize documents. To create a classifier, you provide a set of training documents that labeled with the categories that you want to use. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html">Document Classification</a> in the Comprehend Developer Guide. </p>
  
  @param request A container for the necessary parameters to execute the CreateDocumentClassifier service method.
 
@@ -362,7 +387,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (AWSTask<AWSComprehendCreateDocumentClassifierResponse *> *)createDocumentClassifier:(AWSComprehendCreateDocumentClassifierRequest *)request;
 
 /**
- <p>Creates a new document classifier that you can use to categorize documents. To create a classifier, you provide a set of training documents that labeled with the categories that you want to use. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. For more information, see <a>how-document-classification</a>.</p>
+ <p>Creates a new document classifier that you can use to categorize documents. To create a classifier, you provide a set of training documents that labeled with the categories that you want to use. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html">Document Classification</a> in the Comprehend Developer Guide. </p>
  
  @param request A container for the necessary parameters to execute the CreateDocumentClassifier service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -875,7 +900,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)detectDominantLanguage:(AWSComprehendDetectDominantLanguageRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendDetectDominantLanguageResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Inspects text for named entities, and returns information about them. For more information, about named entities, see <a>how-entities</a>. </p>
+ <p>Inspects text for named entities, and returns information about them. For more information, about named entities, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html">Entities</a> in the Comprehend Developer Guide.</p>
  
  @param request A container for the necessary parameters to execute the DetectEntities service method.
 
@@ -887,7 +912,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (AWSTask<AWSComprehendDetectEntitiesResponse *> *)detectEntities:(AWSComprehendDetectEntitiesRequest *)request;
 
 /**
- <p>Inspects text for named entities, and returns information about them. For more information, about named entities, see <a>how-entities</a>. </p>
+ <p>Inspects text for named entities, and returns information about them. For more information, about named entities, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html">Entities</a> in the Comprehend Developer Guide.</p>
  
  @param request A container for the necessary parameters to execute the DetectEntities service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -975,7 +1000,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)detectSentiment:(AWSComprehendDetectSentimentRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendDetectSentimentResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Inspects text for syntax and the part of speech of words in the document. For more information, <a>how-syntax</a>.</p>
+ <p>Inspects text for syntax and the part of speech of words in the document. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html">Syntax</a> in the Comprehend Developer Guide. </p>
  
  @param request A container for the necessary parameters to execute the DetectSyntax service method.
 
@@ -987,7 +1012,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (AWSTask<AWSComprehendDetectSyntaxResponse *> *)detectSyntax:(AWSComprehendDetectSyntaxRequest *)request;
 
 /**
- <p>Inspects text for syntax and the part of speech of words in the document. For more information, <a>how-syntax</a>.</p>
+ <p>Inspects text for syntax and the part of speech of words in the document. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html">Syntax</a> in the Comprehend Developer Guide. </p>
  
  @param request A container for the necessary parameters to execute the DetectSyntax service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -998,6 +1023,31 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  @see AWSComprehendDetectSyntaxResponse
  */
 - (void)detectSyntax:(AWSComprehendDetectSyntaxRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendDetectSyntaxResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Inspects the input text and returns a sentiment analysis for each entity identified in the text.</p><p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DetectTargetedSentiment service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendDetectTargetedSentimentResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTextSizeLimitExceeded`, `AWSComprehendErrorUnsupportedLanguage`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendDetectTargetedSentimentRequest
+ @see AWSComprehendDetectTargetedSentimentResponse
+ */
+- (AWSTask<AWSComprehendDetectTargetedSentimentResponse *> *)detectTargetedSentiment:(AWSComprehendDetectTargetedSentimentRequest *)request;
+
+/**
+ <p>Inspects the input text and returns a sentiment analysis for each entity identified in the text.</p><p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DetectTargetedSentiment service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTextSizeLimitExceeded`, `AWSComprehendErrorUnsupportedLanguage`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendDetectTargetedSentimentRequest
+ @see AWSComprehendDetectTargetedSentimentResponse
+ */
+- (void)detectTargetedSentiment:(AWSComprehendDetectTargetedSentimentRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendDetectTargetedSentimentResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Creates a new custom model that replicates a source custom model that you import. The source model can be in your AWS account or another one.</p><p>If the source model is in another AWS account, then it must have a resource-based policy that authorizes you to import it.</p><p>The source model must be in the same AWS region that you're using when you import. You can't import a model that's in a different region.</p>
