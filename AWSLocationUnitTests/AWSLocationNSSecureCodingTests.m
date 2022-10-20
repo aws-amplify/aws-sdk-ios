@@ -101,6 +101,8 @@
 - (void) test_AWSLocationGetMapStyleDescriptorResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationGetMapTileRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationGetMapTileResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLocationGetPlaceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLocationGetPlaceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationLeg API_AVAILABLE(ios(11));
 - (void) test_AWSLocationLegGeometry API_AVAILABLE(ios(11));
 - (void) test_AWSLocationListDevicePositionsRequest API_AVAILABLE(ios(11));
@@ -498,6 +500,14 @@
 
 - (void) test_AWSLocationGetMapTileResponse {
     [self validateSecureCodingForClass:[AWSLocationGetMapTileResponse class]];
+}
+
+- (void) test_AWSLocationGetPlaceRequest {
+    [self validateSecureCodingForClass:[AWSLocationGetPlaceRequest class]];
+}
+
+- (void) test_AWSLocationGetPlaceResponse {
+    [self validateSecureCodingForClass:[AWSLocationGetPlaceResponse class]];
 }
 
 - (void) test_AWSLocationLeg {

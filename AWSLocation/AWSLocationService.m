@@ -1018,6 +1018,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSLocationGetPlaceResponse *> *)getPlace:(AWSLocationGetPlaceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/places/v0/indexes/{IndexName}/places/{PlaceId}"
+                  targetPrefix:@""
+                 operationName:@"GetPlace"
+                   outputClass:[AWSLocationGetPlaceResponse class]];
+}
+
+- (void)getPlace:(AWSLocationGetPlaceRequest *)request
+     completionHandler:(void (^)(AWSLocationGetPlaceResponse *response, NSError *error))completionHandler {
+    [[self getPlace:request] continueWithBlock:^id _Nullable(AWSTask<AWSLocationGetPlaceResponse *> * _Nonnull task) {
+        AWSLocationGetPlaceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSLocationListDevicePositionsResponse *> *)listDevicePositions:(AWSLocationListDevicePositionsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST

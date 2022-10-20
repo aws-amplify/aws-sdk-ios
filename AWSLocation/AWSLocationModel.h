@@ -188,6 +188,8 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @class AWSLocationGetMapStyleDescriptorResponse;
 @class AWSLocationGetMapTileRequest;
 @class AWSLocationGetMapTileResponse;
+@class AWSLocationGetPlaceRequest;
+@class AWSLocationGetPlaceResponse;
 @class AWSLocationLeg;
 @class AWSLocationLegGeometry;
 @class AWSLocationListDevicePositionsRequest;
@@ -2030,7 +2032,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 
 
 /**
- <p>The name of the sprite ﬁle. Use the following ﬁle names for the sprite sheet:</p><ul><li><p><code>sprites.png</code></p></li><li><p><code>sprites@2x.png</code> for high pixel density displays</p></li></ul><p>For the JSON document contain image offsets. Use the following ﬁle names:</p><ul><li><p><code>sprites.json</code></p></li><li><p><code>sprites@2x.json</code> for high pixel density displays</p></li></ul>
+ <p>The name of the sprite ﬁle. Use the following ﬁle names for the sprite sheet:</p><ul><li><p><code>sprites.png</code></p></li><li><p><code>sprites@2x.png</code> for high pixel density displays</p></li></ul><p>For the JSON document containing image offsets. Use the following ﬁle names:</p><ul><li><p><code>sprites.json</code></p></li><li><p><code>sprites@2x.json</code> for high pixel density displays</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable fileName;
 
@@ -2133,6 +2135,42 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
  <p>The map tile's content type. For example, <code>application/vnd.mapbox-vector-tile</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable contentType;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLocationGetPlaceRequest : AWSRequest
+
+
+/**
+ <p>The name of the place index resource that you want to use for the search.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example, <code>en</code> for English.</p><p>This setting affects the languages used in the results, but not the results themselves. If no language is specified, or not supported for a particular result, the partner automatically chooses a language for the result.</p><p>For an example, we'll use the Greek language. You search for a location around Athens, Greece, with the <code>language</code> parameter set to <code>en</code>. The <code>city</code> in the results will most likely be returned as <code>Athens</code>.</p><p>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then the <code>city</code> in the results will more likely be returned as <code>Αθήνα</code>.</p><p>If the data provider does not have a value for Greek, the result will be in a language that the provider does support.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable language;
+
+/**
+ <p>The identifier of the place to find.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable placeId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLocationGetPlaceResponse : AWSModel
+
+
+/**
+ <p>Details about the result, such as its address and position.</p>
+ */
+@property (nonatomic, strong) AWSLocationPlace * _Nullable place;
 
 @end
 
@@ -2861,6 +2899,16 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
  */
 @property (nonatomic, strong) AWSLocationTimeZone * _Nullable timeZone;
 
+/**
+ <p>For addresses with multiple units, the unit identifier. Can include numbers and letters, for example <code>3B</code> or <code>Unit 123</code>.</p><note><p>Returned only for a place index that uses Esri as a data provider. Is not returned for <code>SearchPlaceIndexForPosition</code>.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable unitNumber;
+
+/**
+ <p>For addresses with a <code>UnitNumber</code>, the type of unit. For example, <code>Apartment</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable unitType;
+
 @end
 
 /**
@@ -2995,6 +3043,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
  */
 @property (nonatomic, strong) AWSLocationPlace * _Nullable place;
 
+/**
+ <p>The unique identifier of the place. You can use this with the <code>GetPlace</code> operation to find the place again later.</p><note><p>For <code>SearchPlaceIndexForPosition</code> operations, the <code>PlaceId</code> is returned only by place indexes that use HERE as a data provider.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable placeId;
+
 @end
 
 /**
@@ -3003,6 +3056,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
  */
 @interface AWSLocationSearchForSuggestionsResult : AWSModel
 
+
+/**
+ <p>The unique identifier of the place. You can use this with the <code>GetPlace</code> operation to find the place again later.</p><note><p>For <code>SearchPlaceIndexForSuggestions</code> operations, the <code>PlaceId</code> is returned by place indexes that use HERE or Esri as data providers.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable placeId;
 
 /**
  <p>The text of the place suggestion, typically formatted as an address string.</p>
@@ -3027,6 +3085,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
  <p>Details about the search result, such as its address and position.</p>
  */
 @property (nonatomic, strong) AWSLocationPlace * _Nullable place;
+
+/**
+ <p>The unique identifier of the place. You can use this with the <code>GetPlace</code> operation to find the place again later.</p><note><p>For <code>SearchPlaceIndexForText</code> operations, the <code>PlaceId</code> is returned only by place indexes that use HERE as a data provider.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable placeId;
 
 /**
  <p>The relative confidence in the match for a result among the results returned. For example, if more fields for an address match (including house number, street, city, country/region, and postal code), the relevance score is closer to 1.</p><p>Returned only when the partner selected is Esri.</p>
