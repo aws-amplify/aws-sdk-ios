@@ -2121,6 +2121,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"adminCreateUserConfig" : @"AdminCreateUserConfig",
              @"aliasAttributes" : @"AliasAttributes",
              @"autoVerifiedAttributes" : @"AutoVerifiedAttributes",
+             @"deletionProtection" : @"DeletionProtection",
              @"deviceConfiguration" : @"DeviceConfiguration",
              @"emailConfiguration" : @"EmailConfiguration",
              @"emailVerificationMessage" : @"EmailVerificationMessage",
@@ -2148,6 +2149,27 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSValueTransformer *)adminCreateUserConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderAdminCreateUserConfigType class]];
+}
+
++ (NSValueTransformer *)deletionProtectionJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderDeletionProtectionTypeActive);
+        }
+        if ([value caseInsensitiveCompare:@"INACTIVE"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderDeletionProtectionTypeInactive);
+        }
+        return @(AWSCognitoIdentityProviderDeletionProtectionTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSCognitoIdentityProviderDeletionProtectionTypeActive:
+                return @"ACTIVE";
+            case AWSCognitoIdentityProviderDeletionProtectionTypeInactive:
+                return @"INACTIVE";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)deviceConfigurationJSONTransformer {
@@ -5742,6 +5764,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"accountRecoverySetting" : @"AccountRecoverySetting",
              @"adminCreateUserConfig" : @"AdminCreateUserConfig",
              @"autoVerifiedAttributes" : @"AutoVerifiedAttributes",
+             @"deletionProtection" : @"DeletionProtection",
              @"deviceConfiguration" : @"DeviceConfiguration",
              @"emailConfiguration" : @"EmailConfiguration",
              @"emailVerificationMessage" : @"EmailVerificationMessage",
@@ -5766,6 +5789,27 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSValueTransformer *)adminCreateUserConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderAdminCreateUserConfigType class]];
+}
+
++ (NSValueTransformer *)deletionProtectionJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderDeletionProtectionTypeActive);
+        }
+        if ([value caseInsensitiveCompare:@"INACTIVE"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderDeletionProtectionTypeInactive);
+        }
+        return @(AWSCognitoIdentityProviderDeletionProtectionTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSCognitoIdentityProviderDeletionProtectionTypeActive:
+                return @"ACTIVE";
+            case AWSCognitoIdentityProviderDeletionProtectionTypeInactive:
+                return @"INACTIVE";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)deviceConfigurationJSONTransformer {
@@ -6198,6 +6242,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"autoVerifiedAttributes" : @"AutoVerifiedAttributes",
              @"creationDate" : @"CreationDate",
              @"customDomain" : @"CustomDomain",
+             @"deletionProtection" : @"DeletionProtection",
              @"deviceConfiguration" : @"DeviceConfiguration",
              @"domain" : @"Domain",
              @"emailConfiguration" : @"EmailConfiguration",
@@ -6239,6 +6284,27 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)deletionProtectionJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderDeletionProtectionTypeActive);
+        }
+        if ([value caseInsensitiveCompare:@"INACTIVE"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderDeletionProtectionTypeInactive);
+        }
+        return @(AWSCognitoIdentityProviderDeletionProtectionTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSCognitoIdentityProviderDeletionProtectionTypeActive:
+                return @"ACTIVE";
+            case AWSCognitoIdentityProviderDeletionProtectionTypeInactive:
+                return @"INACTIVE";
+            default:
+                return nil;
+        }
     }];
 }
 

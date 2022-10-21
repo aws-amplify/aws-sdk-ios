@@ -344,7 +344,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)adminDisableProviderForUser:(AWSCognitoIdentityProviderAdminDisableProviderForUserRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderAdminDisableProviderForUserResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Disables the specified user.</p><p>Calling this action requires developer credentials.</p>
+ <p>Deactivates a user and revokes all access tokens for the user. A deactivated user can't sign in, but still appears in the responses to <code>GetUser</code> and <code>ListUsers</code> API requests.</p><p>You must make this API request with Amazon Web Services credentials that have <code>cognito-idp:AdminDisableUser</code> permissions.</p>
  
  @param request A container for the necessary parameters to execute the AdminDisableUser service method.
 
@@ -356,7 +356,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderAdminDisableUserResponse *> *)adminDisableUser:(AWSCognitoIdentityProviderAdminDisableUserRequest *)request;
 
 /**
- <p>Disables the specified user.</p><p>Calling this action requires developer credentials.</p>
+ <p>Deactivates a user and revokes all access tokens for the user. A deactivated user can't sign in, but still appears in the responses to <code>GetUser</code> and <code>ListUsers</code> API requests.</p><p>You must make this API request with Amazon Web Services credentials that have <code>cognito-idp:AdminDisableUser</code> permissions.</p>
  
  @param request A container for the necessary parameters to execute the AdminDisableUser service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1164,7 +1164,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
  
  @param request A container for the necessary parameters to execute the DeleteIdentityProvider service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorInvalidParameter`, `AWSCognitoIdentityProviderErrorUnsupportedIdentityProvider`, `AWSCognitoIdentityProviderErrorResourceNotFound`, `AWSCognitoIdentityProviderErrorNotAuthorized`, `AWSCognitoIdentityProviderErrorTooManyRequests`, `AWSCognitoIdentityProviderErrorInternalError`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorInvalidParameter`, `AWSCognitoIdentityProviderErrorUnsupportedIdentityProvider`, `AWSCognitoIdentityProviderErrorConcurrentModification`, `AWSCognitoIdentityProviderErrorResourceNotFound`, `AWSCognitoIdentityProviderErrorNotAuthorized`, `AWSCognitoIdentityProviderErrorTooManyRequests`, `AWSCognitoIdentityProviderErrorInternalError`.
  
  @see AWSCognitoIdentityProviderDeleteIdentityProviderRequest
  */
@@ -1175,7 +1175,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
  
  @param request A container for the necessary parameters to execute the DeleteIdentityProvider service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorInvalidParameter`, `AWSCognitoIdentityProviderErrorUnsupportedIdentityProvider`, `AWSCognitoIdentityProviderErrorResourceNotFound`, `AWSCognitoIdentityProviderErrorNotAuthorized`, `AWSCognitoIdentityProviderErrorTooManyRequests`, `AWSCognitoIdentityProviderErrorInternalError`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorInvalidParameter`, `AWSCognitoIdentityProviderErrorUnsupportedIdentityProvider`, `AWSCognitoIdentityProviderErrorConcurrentModification`, `AWSCognitoIdentityProviderErrorResourceNotFound`, `AWSCognitoIdentityProviderErrorNotAuthorized`, `AWSCognitoIdentityProviderErrorTooManyRequests`, `AWSCognitoIdentityProviderErrorInternalError`.
  
  @see AWSCognitoIdentityProviderDeleteIdentityProviderRequest
  */
@@ -1277,7 +1277,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
  
  @param request A container for the necessary parameters to execute the DeleteUserPoolClient service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorResourceNotFound`, `AWSCognitoIdentityProviderErrorInvalidParameter`, `AWSCognitoIdentityProviderErrorTooManyRequests`, `AWSCognitoIdentityProviderErrorNotAuthorized`, `AWSCognitoIdentityProviderErrorInternalError`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorResourceNotFound`, `AWSCognitoIdentityProviderErrorInvalidParameter`, `AWSCognitoIdentityProviderErrorTooManyRequests`, `AWSCognitoIdentityProviderErrorNotAuthorized`, `AWSCognitoIdentityProviderErrorConcurrentModification`, `AWSCognitoIdentityProviderErrorInternalError`.
  
  @see AWSCognitoIdentityProviderDeleteUserPoolClientRequest
  */
@@ -1288,7 +1288,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
  
  @param request A container for the necessary parameters to execute the DeleteUserPoolClient service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorResourceNotFound`, `AWSCognitoIdentityProviderErrorInvalidParameter`, `AWSCognitoIdentityProviderErrorTooManyRequests`, `AWSCognitoIdentityProviderErrorNotAuthorized`, `AWSCognitoIdentityProviderErrorInternalError`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorResourceNotFound`, `AWSCognitoIdentityProviderErrorInvalidParameter`, `AWSCognitoIdentityProviderErrorTooManyRequests`, `AWSCognitoIdentityProviderErrorNotAuthorized`, `AWSCognitoIdentityProviderErrorConcurrentModification`, `AWSCognitoIdentityProviderErrorInternalError`.
  
  @see AWSCognitoIdentityProviderDeleteUserPoolClientRequest
  */
@@ -1642,7 +1642,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)getIdentityProviderByIdentifier:(AWSCognitoIdentityProviderGetIdentityProviderByIdentifierRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>This method takes a user pool ID, and returns the signing certificate.</p>
+ <p>This method takes a user pool ID, and returns the signing certificate. The issued certificate is valid for 10 years from the date of issue.</p><p>Amazon Cognito issues and assigns a new signing certificate annually. This process returns a new value in the response to <code>GetSigningCertificate</code>, but doesn't invalidate the original certificate.</p>
  
  @param request A container for the necessary parameters to execute the GetSigningCertificate service method.
 
@@ -1654,7 +1654,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderGetSigningCertificateResponse *> *)getSigningCertificate:(AWSCognitoIdentityProviderGetSigningCertificateRequest *)request;
 
 /**
- <p>This method takes a user pool ID, and returns the signing certificate.</p>
+ <p>This method takes a user pool ID, and returns the signing certificate. The issued certificate is valid for 10 years from the date of issue.</p><p>Amazon Cognito issues and assigns a new signing certificate annually. This process returns a new value in the response to <code>GetSigningCertificate</code>, but doesn't invalidate the original certificate.</p>
  
  @param request A container for the necessary parameters to execute the GetSigningCertificate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1767,7 +1767,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)getUserPoolMfaConfig:(AWSCognitoIdentityProviderGetUserPoolMfaConfigRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Signs out users from all devices. It also invalidates all refresh tokens that Amazon Cognito has issued to a user. The user's current access and ID tokens remain valid until their expiry. By default, access and ID tokens expire one hour after Amazon Cognito issues them. A user can still use a hosted UI cookie to retrieve new tokens for the duration of the cookie validity period of 1 hour.</p>
+ <p>Signs out users from all devices. It also invalidates all refresh tokens that Amazon Cognito has issued to a user. A user can still use a hosted UI cookie to retrieve new tokens for the duration of the 1-hour cookie validity period.</p>
  
  @param request A container for the necessary parameters to execute the GlobalSignOut service method.
 
@@ -1779,7 +1779,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderGlobalSignOutResponse *> *)globalSignOut:(AWSCognitoIdentityProviderGlobalSignOutRequest *)request;
 
 /**
- <p>Signs out users from all devices. It also invalidates all refresh tokens that Amazon Cognito has issued to a user. The user's current access and ID tokens remain valid until their expiry. By default, access and ID tokens expire one hour after Amazon Cognito issues them. A user can still use a hosted UI cookie to retrieve new tokens for the duration of the cookie validity period of 1 hour.</p>
+ <p>Signs out users from all devices. It also invalidates all refresh tokens that Amazon Cognito has issued to a user. A user can still use a hosted UI cookie to retrieve new tokens for the duration of the 1-hour cookie validity period.</p>
  
  @param request A container for the necessary parameters to execute the GlobalSignOut service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2117,7 +2117,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)respondToAuthChallenge:(AWSCognitoIdentityProviderRespondToAuthChallengeRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderRespondToAuthChallengeResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Revokes all of the access tokens generated by the specified refresh token. After the token is revoked, you can't use the revoked token to access Amazon Cognito authenticated APIs.</p>
+ <p>Revokes all of the access tokens generated by, and at the same time as, the specified refresh token. After a token is revoked, you can't use the revoked token to access Amazon Cognito user APIs, or to authorize access to your resource server.</p>
  
  @param request A container for the necessary parameters to execute the RevokeToken service method.
 
@@ -2129,7 +2129,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderRevokeTokenResponse *> *)revokeToken:(AWSCognitoIdentityProviderRevokeTokenRequest *)request;
 
 /**
- <p>Revokes all of the access tokens generated by the specified refresh token. After the token is revoked, you can't use the revoked token to access Amazon Cognito authenticated APIs.</p>
+ <p>Revokes all of the access tokens generated by, and at the same time as, the specified refresh token. After a token is revoked, you can't use the revoked token to access Amazon Cognito user APIs, or to authorize access to your resource server.</p>
  
  @param request A container for the necessary parameters to execute the RevokeToken service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2471,7 +2471,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
  
  @param request A container for the necessary parameters to execute the UpdateIdentityProvider service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityProviderUpdateIdentityProviderResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorInvalidParameter`, `AWSCognitoIdentityProviderErrorUnsupportedIdentityProvider`, `AWSCognitoIdentityProviderErrorResourceNotFound`, `AWSCognitoIdentityProviderErrorNotAuthorized`, `AWSCognitoIdentityProviderErrorTooManyRequests`, `AWSCognitoIdentityProviderErrorInternalError`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityProviderUpdateIdentityProviderResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorInvalidParameter`, `AWSCognitoIdentityProviderErrorUnsupportedIdentityProvider`, `AWSCognitoIdentityProviderErrorResourceNotFound`, `AWSCognitoIdentityProviderErrorConcurrentModification`, `AWSCognitoIdentityProviderErrorNotAuthorized`, `AWSCognitoIdentityProviderErrorTooManyRequests`, `AWSCognitoIdentityProviderErrorInternalError`.
  
  @see AWSCognitoIdentityProviderUpdateIdentityProviderRequest
  @see AWSCognitoIdentityProviderUpdateIdentityProviderResponse
@@ -2484,7 +2484,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
  @param request A container for the necessary parameters to execute the UpdateIdentityProvider service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorInvalidParameter`, `AWSCognitoIdentityProviderErrorUnsupportedIdentityProvider`, `AWSCognitoIdentityProviderErrorResourceNotFound`, `AWSCognitoIdentityProviderErrorNotAuthorized`, `AWSCognitoIdentityProviderErrorTooManyRequests`, `AWSCognitoIdentityProviderErrorInternalError`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorInvalidParameter`, `AWSCognitoIdentityProviderErrorUnsupportedIdentityProvider`, `AWSCognitoIdentityProviderErrorResourceNotFound`, `AWSCognitoIdentityProviderErrorConcurrentModification`, `AWSCognitoIdentityProviderErrorNotAuthorized`, `AWSCognitoIdentityProviderErrorTooManyRequests`, `AWSCognitoIdentityProviderErrorInternalError`.
  
  @see AWSCognitoIdentityProviderUpdateIdentityProviderRequest
  @see AWSCognitoIdentityProviderUpdateIdentityProviderResponse
