@@ -293,10 +293,8 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 @property (nonatomic, strong) AWSCognitoIdentity *cognitoIdentity;
 @property (nonatomic, strong) AWSUICKeyChainStore *keychain;
 @property (nonatomic, strong) AWSExecutor *refreshExecutor;
-@property (nonatomic, strong) dispatch_semaphore_t semaphore;
 @property (atomic, assign) BOOL useEnhancedFlow;
 @property (nonatomic, strong) AWSCredentials *internalCredentials;
-@property (atomic, assign, getter=isRefreshingCredentials) BOOL refreshingCredentials;
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> *cachedLogins;
 // This is a temporary solution to bypass the requirement of protocol check for `AWSIdentityProviderManager`.
 @property (nonatomic, strong) NSString *customRoleArnOverride;
@@ -404,8 +402,6 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                 authRoleArn:(NSString *)authRoleArn
   identityPoolConfiguration:(AWSServiceConfiguration *)configuration {
     _refreshExecutor = [AWSExecutor executorWithOperationQueue:[NSOperationQueue new]];
-    _refreshingCredentials = NO;
-    _semaphore = dispatch_semaphore_create(0);
 
     _identityProvider = identityProvider;
     _unAuthRoleArn = unauthRoleArn;
@@ -660,16 +656,7 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                 && credentials.isValid) {
                 return [AWSTask taskWithResult:credentials];
             }
-            
-            if (self.isRefreshingCredentials) {
-                // Waits up to 60 seconds for the Google SDK to refresh a token.
-                if (dispatch_semaphore_wait(self.semaphore, dispatch_time(DISPATCH_TIME_NOW, 60 * NSEC_PER_SEC)) != 0) {
-                    NSError *error = [NSError errorWithDomain:AWSCognitoCredentialsProviderErrorDomain
-                                                         code:AWSCognitoCredentialsProviderCredentialsRefreshTimeout
-                                                     userInfo:nil];
-                    return [AWSTask taskWithError:error];
-                }
-            }
+
             
             if (cancellationTokenSource.isCancellationRequested) {
                 return [AWSTask cancelledTask];
@@ -680,8 +667,7 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                 && credentials.isValid) {
                 return [AWSTask taskWithResult:credentials];
             }
-            
-            self.refreshingCredentials = YES;
+
             self.cachedLogins = logins;
             
             if (self.useEnhancedFlow) {
@@ -707,9 +693,6 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
         if (task.error) {
             AWSDDLogError(@"Unable to refresh. Error is [%@]", task.error);
         }
-        
-        self.refreshingCredentials = NO;
-        dispatch_semaphore_signal(self.semaphore);
         
         return task;
     }];
