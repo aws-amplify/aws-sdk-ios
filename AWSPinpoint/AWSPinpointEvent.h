@@ -15,6 +15,15 @@
 
 #import <Foundation/Foundation.h>
 
+/// The maximum number of attributes that can be added to an event.
+extern const NSInteger AWSPinpointEventMaxNumberOfAttributes;
+/// The maximum number of metrics that can be added to an event.
+extern const NSInteger AWSPinpointEventMaxNumberOfMetrics;
+/// The maximum length that an attribute or metric key can have.
+extern const NSInteger AWSPinpointEventMaxAttributeAndMetricKeyLength;
+/// The maximum length that an attribute value can have.
+extern const NSInteger AWSPinpointEventMaxAttributeValueLength;
+
 typedef uint64_t UTCTimeMillis;
 
 @class AWSPinpointContext, AWSPinpointSession;

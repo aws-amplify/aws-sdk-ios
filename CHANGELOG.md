@@ -18,7 +18,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 
 - **AWSPinpoint** (See [PR #4348](https://github.com/aws-amplify/aws-sdk-ios/pull/4348) and [PR #4357](https://github.com/aws-amplify/aws-sdk-ios/pull/4357))
   - Updated events max attributes/metrics limit and attribute value limit to align with what the Pinpoint service expects.
-  - Events that failed to submit due to connectivity errors are now retryable indefinitely, i.e. their retryCount won't be increased. 
+  - Events that failed to submit due to connectivity errors are now considered to be retryable indefinitely, i.e. their retry counter won't be increased. 
   - Removed warnings with `NSKeyedUnarchiver`.
 
 ### Misc. Updates
