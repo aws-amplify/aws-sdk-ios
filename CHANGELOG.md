@@ -1,12 +1,3 @@
-
----AWSCognitoIdentityProvider
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -36,6 +27,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
  - AWSEC2
  - AWSConnect
  - AWSElasticLoadBalancingv2
+ - AWSCognitoIdentityProvider
 
 ## 2.28.0
 
