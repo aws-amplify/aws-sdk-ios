@@ -1,31 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSCognitoIdentityProvider
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSDynamoDB
----AWSComprehend
----AWSLocation
----AWSPolly
----AWSEC2
----AWSTranslate
----AWSConnect
----AWSChimeSDKMessaging
----AWSSageMakerRuntime
----AWSEC2
----AWSConnect
----AWSElasticLoadBalancingv2
-
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -35,8 +7,27 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 - **AWSAuthUI**
   - Fixed `AWSAuthUIViewController` not being able to display its contents on landscape orientation (See [PR #4338](https://github.com/aws-amplify/aws-sdk-ios/pull/4338))
 
-- **AWSPinpoint**
-  - Update Pinpoint Event max attributes limit and attribute value limit (See [PR #4348](https://github.com/aws-amplify/aws-sdk-ios/pull/4348))
+- **AWSPinpoint** (See [PR #4348](https://github.com/aws-amplify/aws-sdk-ios/pull/4348) and [PR #4357](https://github.com/aws-amplify/aws-sdk-ios/pull/4357))
+  - Updated events max attributes/metrics limit and attribute value limit to align with what the Pinpoint service expects.
+  - Events that failed to submit due to connectivity errors are now considered to be retryable indefinitely, i.e. their retry counter won't be increased. 
+  - Removed warnings with `NSKeyedUnarchiver`.
+
+### Misc. Updates
+
+- Model updates for the following services
+ - AWSDynamoDB
+ - AWSComprehend
+ - AWSLocation
+ - AWSPolly
+ - AWSEC2
+ - AWSTranslate
+ - AWSConnect
+ - AWSChimeSDKMessaging
+ - AWSSageMakerRuntime
+ - AWSEC2
+ - AWSConnect
+ - AWSElasticLoadBalancingv2
+ - AWSCognitoIdentityProvider
 
 ## 2.28.0
 

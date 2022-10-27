@@ -87,6 +87,8 @@
 
     if (@available(iOS 11, *)) {
         NSSet *allowableClasses = [[NSSet alloc] initWithObjects:[NSMutableString class],
+                                   [NSNumber class],
+                                   [NSString class],
                                    [NSDictionary class],
                                    nil];
         NSDictionary *immutableDict = [AWSNSCodingUtilities versionSafeUnarchivedObjectOfClasses:allowableClasses
