@@ -11415,9 +11415,19 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
 /**
+ <p>Indicates whether to automatically delete the original root volume after the root volume replacement task completes. To delete the original root volume, specify <code>true</code>. If you choose to keep the original root volume after the replacement task completes, you must manually delete it when you no longer need it.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable deleteReplacedRootVolume;
+
+/**
  <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the AMI to use to restore the root volume. The specified AMI must have the same product code, billing information, architecture type, and virtualization type as that of the instance.</p><p>If you want to restore the replacement volume from a specific snapshot, or if you want to restore it to its launch state, omit this parameter.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable imageId;
 
 /**
  <p>The ID of the instance for which to replace the root volume.</p>
@@ -11425,7 +11435,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The ID of the snapshot from which to restore the replacement root volume. If you want to restore the volume to the initial launch state, omit this parameter.</p>
+ <p>The ID of the snapshot from which to restore the replacement root volume. The specified snapshot must be a snapshot that you previously created from the original root volume.</p><p>If you want to restore the replacement root volume to the initial launch state, or if you want to restore the replacement root volume from an AMI, omit this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable snapshotId;
 
@@ -40891,6 +40901,16 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable completeTime;
 
 /**
+ <p>Indicates whether the original root volume is to be deleted after the root volume replacement task completes.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable deleteReplacedRootVolume;
+
+/**
+ <p>The ID of the AMI used to create the replacement root volume.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable imageId;
+
+/**
  <p>The ID of the instance for which the root volume replacement task was created.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
@@ -40899,6 +40919,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the root volume replacement task.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable replaceRootVolumeTaskId;
+
+/**
+ <p>The ID of the snapshot used to create the replacement root volume.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable snapshotId;
 
 /**
  <p>The time the task was started.</p>
