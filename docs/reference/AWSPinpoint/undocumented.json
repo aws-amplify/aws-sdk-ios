@@ -37,7 +37,7 @@
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointEvent.h",
-      "line": 18,
+      "line": 27,
       "symbol": "UTCTimeMillis",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
