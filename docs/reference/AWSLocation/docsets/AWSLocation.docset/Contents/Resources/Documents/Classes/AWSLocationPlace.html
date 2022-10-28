@@ -17,7 +17,7 @@
     <a title="AWSLocationPlace Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLocation 2.28.0 Docs</a> (89% documented)</p>
+        <p><a href="../index.html">AWSLocation 2.28.1 Docs</a> (89% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLocation.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -288,6 +288,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLocationGetMapTileResponse.html">AWSLocationGetMapTileResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationGetPlaceRequest.html">AWSLocationGetPlaceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationGetPlaceResponse.html">AWSLocationGetPlaceResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLocationLeg.html">AWSLocationLeg</a>
@@ -938,7 +944,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The time zone in which the <code>Place</code> is located. Returned only when using Here as the selected partner.</p>
+                        <p>The time zone in which the <code>Place</code> is located. Returned only when using HERE as the selected partner.</p>
 
                       </div>
                       <div class="declaration">
@@ -957,12 +963,76 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocationPlace(py)unitNumber"></a>
+                    <a name="//apple_ref/objc/Property/unitNumber" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationPlace(py)unitNumber">unitNumber</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>For addresses with multiple units, the unit identifier. Can include numbers and letters, for example <code>3B</code> or <code>Unit 123</code>.</p><note><p>Returned only for a place index that uses Esri as a data provider. Is not returned for <code>SearchPlaceIndexForPosition</code>.</p></note></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">unitNumber</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">unitNumber</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocationPlace(py)unitType"></a>
+                    <a name="//apple_ref/objc/Property/unitType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationPlace(py)unitType">unitType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>For addresses with a <code>UnitNumber</code>, the type of unit. For example, <code>Apartment</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">unitType</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">unitType</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-09-09)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-10-28)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
