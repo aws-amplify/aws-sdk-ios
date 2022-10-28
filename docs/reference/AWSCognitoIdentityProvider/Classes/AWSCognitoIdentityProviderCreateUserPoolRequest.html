@@ -17,7 +17,7 @@
     <a title="AWSCognitoIdentityProviderCreateUserPoolRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCognitoIdentityProvider 2.28.0 Docs</a> (77% documented)</p>
+        <p><a href="../index.html">AWSCognitoIdentityProvider 2.28.1 Docs</a> (77% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoIdentityProvider.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -999,6 +999,9 @@
                 <a href="../Enums/AWSCognitoIdentityProviderDefaultEmailOptionType.html">AWSCognitoIdentityProviderDefaultEmailOptionType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderDeletionProtectionType.html">AWSCognitoIdentityProviderDeletionProtectionType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSCognitoIdentityProviderDeliveryMediumType.html">AWSCognitoIdentityProviderDeliveryMediumType</a>
               </li>
               <li class="nav-group-task">
@@ -1255,6 +1258,38 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">autoVerifiedAttributes</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCognitoIdentityProviderCreateUserPoolRequest(py)deletionProtection"></a>
+                    <a name="//apple_ref/objc/Property/deletionProtection" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoIdentityProviderCreateUserPoolRequest(py)deletionProtection">deletionProtection</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>When active, <code>DeletionProtection</code> prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature.</p><p>When you try to delete a protected user pool in a <code>DeleteUserPool</code> API request, Amazon Cognito returns an <code>InvalidParameterException</code> error. To delete a protected user pool, send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an <code>UpdateUserPool</code> API request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSCognitoIdentityProviderDeletionProtectionType.html">AWSCognitoIdentityProviderDeletionProtectionType</a></span> <span class="n">deletionProtection</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">deletionProtection</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSCognitoIdentityProviderDeletionProtectionType.html">AWSCognitoIdentityProviderDeletionProtectionType</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -1842,7 +1877,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-09-09)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-10-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

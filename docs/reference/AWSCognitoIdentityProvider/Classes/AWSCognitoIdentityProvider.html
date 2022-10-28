@@ -17,7 +17,7 @@
     <a title="AWSCognitoIdentityProvider Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCognitoIdentityProvider 2.28.0 Docs</a> (77% documented)</p>
+        <p><a href="../index.html">AWSCognitoIdentityProvider 2.28.1 Docs</a> (77% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoIdentityProvider.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -997,6 +997,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSCognitoIdentityProviderDefaultEmailOptionType.html">AWSCognitoIdentityProviderDefaultEmailOptionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderDeletionProtectionType.html">AWSCognitoIdentityProviderDeletionProtectionType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSCognitoIdentityProviderDeliveryMediumType.html">AWSCognitoIdentityProviderDeliveryMediumType</a>
@@ -2497,7 +2500,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Disables the specified user.</p><p>Calling this action requires developer credentials.</p>
+                        <p>Deactivates a user and revokes all access tokens for the user. A deactivated user can&rsquo;t sign in, but still appears in the responses to <code>GetUser</code> and <code>ListUsers</code> API requests.</p><p>You must make this API request with Amazon Web Services credentials that have <code>cognito-idp:AdminDisableUser</code> permissions.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderAdminDisableUserRequest</p>
@@ -2562,7 +2565,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Disables the specified user.</p><p>Calling this action requires developer credentials.</p>
+                        <p>Deactivates a user and revokes all access tokens for the user. A deactivated user can&rsquo;t sign in, but still appears in the responses to <code>GetUser</code> and <code>ListUsers</code> API requests.</p><p>You must make this API request with Amazon Web Services credentials that have <code>cognito-idp:AdminDisableUser</code> permissions.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderAdminDisableUserRequest</p>
@@ -7309,7 +7312,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSCognitoIdentityProviderErrorDomain">AWSCognitoIdentityProviderErrorDomain</a></code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorUnsupportedIdentityProvider</code>, <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>.</p>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSCognitoIdentityProviderErrorDomain">AWSCognitoIdentityProviderErrorDomain</a></code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorUnsupportedIdentityProvider</code>, <code>AWSCognitoIdentityProviderErrorConcurrentModification</code>, <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -7377,7 +7380,7 @@
                               <td>
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
-                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSCognitoIdentityProviderErrorDomain">AWSCognitoIdentityProviderErrorDomain</a></code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorUnsupportedIdentityProvider</code>, <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>.</p>
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSCognitoIdentityProviderErrorDomain">AWSCognitoIdentityProviderErrorDomain</a></code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorUnsupportedIdentityProvider</code>, <code>AWSCognitoIdentityProviderErrorConcurrentModification</code>, <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -7986,7 +7989,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSCognitoIdentityProviderErrorDomain">AWSCognitoIdentityProviderErrorDomain</a></code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>.</p>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSCognitoIdentityProviderErrorDomain">AWSCognitoIdentityProviderErrorDomain</a></code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorConcurrentModification</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -8054,7 +8057,7 @@
                               <td>
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
-                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSCognitoIdentityProviderErrorDomain">AWSCognitoIdentityProviderErrorDomain</a></code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>.</p>
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSCognitoIdentityProviderErrorDomain">AWSCognitoIdentityProviderErrorDomain</a></code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorConcurrentModification</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -10099,7 +10102,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This method takes a user pool ID, and returns the signing certificate.</p>
+                        <p>This method takes a user pool ID, and returns the signing certificate. The issued certificate is valid for 10 years from the date of issue.</p><p>Amazon Cognito issues and assigns a new signing certificate annually. This process returns a new value in the response to <code>GetSigningCertificate</code>, but doesn&rsquo;t invalidate the original certificate.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderGetSigningCertificateRequest</p>
@@ -10164,7 +10167,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This method takes a user pool ID, and returns the signing certificate.</p>
+                        <p>This method takes a user pool ID, and returns the signing certificate. The issued certificate is valid for 10 years from the date of issue.</p><p>Amazon Cognito issues and assigns a new signing certificate annually. This process returns a new value in the response to <code>GetSigningCertificate</code>, but doesn&rsquo;t invalidate the original certificate.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderGetSigningCertificateRequest</p>
@@ -10826,7 +10829,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Signs out users from all devices. It also invalidates all refresh tokens that Amazon Cognito has issued to a user. The user&rsquo;s current access and ID tokens remain valid until their expiry. By default, access and ID tokens expire one hour after Amazon Cognito issues them. A user can still use a hosted UI cookie to retrieve new tokens for the duration of the cookie validity period of 1 hour.</p>
+                        <p>Signs out users from all devices. It also invalidates all refresh tokens that Amazon Cognito has issued to a user. A user can still use a hosted UI cookie to retrieve new tokens for the duration of the 1-hour cookie validity period.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderGlobalSignOutRequest</p>
@@ -10891,7 +10894,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Signs out users from all devices. It also invalidates all refresh tokens that Amazon Cognito has issued to a user. The user&rsquo;s current access and ID tokens remain valid until their expiry. By default, access and ID tokens expire one hour after Amazon Cognito issues them. A user can still use a hosted UI cookie to retrieve new tokens for the duration of the cookie validity period of 1 hour.</p>
+                        <p>Signs out users from all devices. It also invalidates all refresh tokens that Amazon Cognito has issued to a user. A user can still use a hosted UI cookie to retrieve new tokens for the duration of the 1-hour cookie validity period.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderGlobalSignOutRequest</p>
@@ -12849,7 +12852,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Revokes all of the access tokens generated by the specified refresh token. After the token is revoked, you can&rsquo;t use the revoked token to access Amazon Cognito authenticated APIs.</p>
+                        <p>Revokes all of the access tokens generated by, and at the same time as, the specified refresh token. After a token is revoked, you can&rsquo;t use the revoked token to access Amazon Cognito user APIs, or to authorize access to your resource server.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderRevokeTokenRequest</p>
@@ -12914,7 +12917,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Revokes all of the access tokens generated by the specified refresh token. After the token is revoked, you can&rsquo;t use the revoked token to access Amazon Cognito authenticated APIs.</p>
+                        <p>Revokes all of the access tokens generated by, and at the same time as, the specified refresh token. After a token is revoked, you can&rsquo;t use the revoked token to access Amazon Cognito user APIs, or to authorize access to your resource server.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderRevokeTokenRequest</p>
@@ -14921,7 +14924,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSCognitoIdentityProviderUpdateIdentityProviderResponse.html">AWSCognitoIdentityProviderUpdateIdentityProviderResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSCognitoIdentityProviderErrorDomain">AWSCognitoIdentityProviderErrorDomain</a></code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorUnsupportedIdentityProvider</code>, <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>.</p>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSCognitoIdentityProviderUpdateIdentityProviderResponse.html">AWSCognitoIdentityProviderUpdateIdentityProviderResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSCognitoIdentityProviderErrorDomain">AWSCognitoIdentityProviderErrorDomain</a></code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorUnsupportedIdentityProvider</code>, <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorConcurrentModification</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -14997,7 +15000,7 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSCognitoIdentityProviderErrorDomain">AWSCognitoIdentityProviderErrorDomain</a></code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorUnsupportedIdentityProvider</code>, <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>.</p>
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSCognitoIdentityProviderErrorDomain">AWSCognitoIdentityProviderErrorDomain</a></code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorUnsupportedIdentityProvider</code>, <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorConcurrentModification</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -16030,7 +16033,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-09-09)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-10-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
