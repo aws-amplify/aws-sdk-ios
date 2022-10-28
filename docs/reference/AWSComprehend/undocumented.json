@@ -1457,6 +1457,146 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 250,
+      "symbol": "AWSComprehendTargetedSentimentEntityType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 250,
+      "symbol": "AWSComprehendTargetedSentimentEntityType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 251,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 252,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypePerson",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 253,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeLocation",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 254,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeOrganization",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 255,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeFacility",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 256,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeBrand",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 257,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeCommercialItem",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 258,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeMovie",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 259,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeMusic",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 260,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeBook",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 261,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeSoftware",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 262,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeGame",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 263,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypePersonalTitle",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 264,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeEvent",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 265,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeDate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 266,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeQuantity",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 267,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeAttribute",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 268,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeOther",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendResources.h",
       "line": 18,
       "symbol": "AWSComprehendResources",
