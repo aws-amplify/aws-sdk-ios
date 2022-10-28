@@ -17,7 +17,7 @@
     <a title="AWSTranslate Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTranslate 2.28.0 Docs</a> (72% documented)</p>
+        <p><a href="../index.html">AWSTranslate 2.28.1 Docs</a> (74% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTranslate.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -110,6 +110,12 @@
                 <a href="../Classes/AWSTranslateListParallelDataResponse.html">AWSTranslateListParallelDataResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateListTagsForResourceRequest.html">AWSTranslateListTagsForResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateListTagsForResourceResponse.html">AWSTranslateListTagsForResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSTranslateListTerminologiesRequest.html">AWSTranslateListTerminologiesRequest</a>
               </li>
               <li class="nav-group-task">
@@ -149,6 +155,15 @@
                 <a href="../Classes/AWSTranslateStopTextTranslationJobResponse.html">AWSTranslateStopTextTranslationJobResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateTag.html">AWSTranslateTag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateTagResourceRequest.html">AWSTranslateTagResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSTranslateTagResourceResponse">AWSTranslateTagResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSTranslateTerm.html">AWSTranslateTerm</a>
               </li>
               <li class="nav-group-task">
@@ -174,6 +189,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranslateTranslationSettings.html">AWSTranslateTranslationSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateUntagResourceRequest.html">AWSTranslateUntagResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSTranslateUntagResourceResponse">AWSTranslateUntagResourceResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranslateUpdateParallelDataRequest.html">AWSTranslateUpdateParallelDataRequest</a>
@@ -677,7 +698,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSTranslateCreateParallelDataResponse.html">AWSTranslateCreateParallelDataResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorInvalidParameterValue</code>, <code>AWSTranslateErrorInvalidRequest</code>, <code>AWSTranslateErrorLimitExceeded</code>, <code>AWSTranslateErrorTooManyRequests</code>, <code>AWSTranslateErrorConflict</code>, <code>AWSTranslateErrorInternalServer</code>.</p>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSTranslateCreateParallelDataResponse.html">AWSTranslateCreateParallelDataResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorInvalidParameterValue</code>, <code>AWSTranslateErrorInvalidRequest</code>, <code>AWSTranslateErrorLimitExceeded</code>, <code>AWSTranslateErrorTooManyRequests</code>, <code>AWSTranslateErrorTooManyTags</code>, <code>AWSTranslateErrorConflict</code>, <code>AWSTranslateErrorConcurrentModification</code>, <code>AWSTranslateErrorInternalServer</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -750,7 +771,7 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorInvalidParameterValue</code>, <code>AWSTranslateErrorInvalidRequest</code>, <code>AWSTranslateErrorLimitExceeded</code>, <code>AWSTranslateErrorTooManyRequests</code>, <code>AWSTranslateErrorConflict</code>, <code>AWSTranslateErrorInternalServer</code>.</p>
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorInvalidParameterValue</code>, <code>AWSTranslateErrorInvalidRequest</code>, <code>AWSTranslateErrorLimitExceeded</code>, <code>AWSTranslateErrorTooManyRequests</code>, <code>AWSTranslateErrorTooManyTags</code>, <code>AWSTranslateErrorConflict</code>, <code>AWSTranslateErrorConcurrentModification</code>, <code>AWSTranslateErrorInternalServer</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1520,7 +1541,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSTranslateImportTerminologyResponse.html">AWSTranslateImportTerminologyResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorInvalidParameterValue</code>, <code>AWSTranslateErrorLimitExceeded</code>, <code>AWSTranslateErrorTooManyRequests</code>, <code>AWSTranslateErrorInternalServer</code>.</p>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSTranslateImportTerminologyResponse.html">AWSTranslateImportTerminologyResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorInvalidParameterValue</code>, <code>AWSTranslateErrorLimitExceeded</code>, <code>AWSTranslateErrorTooManyRequests</code>, <code>AWSTranslateErrorTooManyTags</code>, <code>AWSTranslateErrorConcurrentModification</code>, <code>AWSTranslateErrorInternalServer</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -1593,7 +1614,7 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorInvalidParameterValue</code>, <code>AWSTranslateErrorLimitExceeded</code>, <code>AWSTranslateErrorTooManyRequests</code>, <code>AWSTranslateErrorInternalServer</code>.</p>
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorInvalidParameterValue</code>, <code>AWSTranslateErrorLimitExceeded</code>, <code>AWSTranslateErrorTooManyRequests</code>, <code>AWSTranslateErrorTooManyTags</code>, <code>AWSTranslateErrorConcurrentModification</code>, <code>AWSTranslateErrorInternalServer</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1876,6 +1897,150 @@
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorInvalidParameterValue</code>, <code>AWSTranslateErrorTooManyRequests</code>, <code>AWSTranslateErrorInternalServer</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslate(im)listTagsForResource:"></a>
+                    <a name="//apple_ref/objc/Method/-listTagsForResource:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslate(im)listTagsForResource:">-listTagsForResource:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>ListTagsForResource</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateListTagsForResourceRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateListTagsForResourceResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">listTagsForResource</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSTranslateListTagsForResourceRequest.html">AWSTranslateListTagsForResourceRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTags</span><span class="p">(</span><span class="n">forResource</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranslateListTagsForResourceRequest.html">AWSTranslateListTagsForResourceRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListTagsForResource service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSTranslateListTagsForResourceResponse.html">AWSTranslateListTagsForResourceResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorInvalidParameterValue</code>, <code>AWSTranslateErrorResourceNotFound</code>, <code>AWSTranslateErrorInternalServer</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslate(im)listTagsForResource:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-listTagsForResource:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslate(im)listTagsForResource:completionHandler:">-listTagsForResource:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>ListTagsForResource</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateListTagsForResourceRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateListTagsForResourceResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="nf">listTagsForResource</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSTranslateListTagsForResourceRequest.html">AWSTranslateListTagsForResourceRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+      <span class="nf">completionHandler</span><span class="p">:</span>
+          <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSTranslateListTagsForResourceResponse.html">AWSTranslateListTagsForResourceResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                             <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listTags</span><span class="p">(</span><span class="n">forResource</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranslateListTagsForResourceRequest.html">AWSTranslateListTagsForResourceRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSTranslateListTagsForResourceResponse.html">AWSTranslateListTagsForResourceResponse</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListTagsForResource service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorInvalidParameterValue</code>, <code>AWSTranslateErrorResourceNotFound</code>, <code>AWSTranslateErrorInternalServer</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -2462,6 +2627,147 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSTranslate(im)tagResource:"></a>
+                    <a name="//apple_ref/objc/Method/-tagResource:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslate(im)tagResource:">-tagResource:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>TagResource</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateTagResourceRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateTagResourceResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">tagResource</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSTranslateTagResourceRequest.html">AWSTranslateTagResourceRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">tagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranslateTagResourceRequest.html">AWSTranslateTagResourceRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the TagResource service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSTranslateTagResourceResponse">AWSTranslateTagResourceResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorInvalidParameterValue</code>, <code>AWSTranslateErrorConcurrentModification</code>, <code>AWSTranslateErrorResourceNotFound</code>, <code>AWSTranslateErrorTooManyTags</code>, <code>AWSTranslateErrorInternalServer</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslate(im)tagResource:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-tagResource:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslate(im)tagResource:completionHandler:">-tagResource:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>TagResource</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateTagResourceRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateTagResourceResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">tagResource</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSTranslateTagResourceRequest.html">AWSTranslateTagResourceRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+    <span class="nf">completionHandler</span><span class="p">:</span>
+        <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes.html#/c:objc(cs)AWSTranslateTagResourceResponse">AWSTranslateTagResourceResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                           <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">tagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranslateTagResourceRequest.html">AWSTranslateTagResourceRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSTranslateTagResourceResponse">AWSTranslateTagResourceResponse</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the TagResource service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorInvalidParameterValue</code>, <code>AWSTranslateErrorConcurrentModification</code>, <code>AWSTranslateErrorResourceNotFound</code>, <code>AWSTranslateErrorTooManyTags</code>, <code>AWSTranslateErrorInternalServer</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSTranslate(im)translateText:"></a>
                     <a name="//apple_ref/objc/Method/-translateText:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSTranslate(im)translateText:">-translateText:<wbr></a>
@@ -2591,6 +2897,147 @@
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorInvalidRequest</code>, <code>AWSTranslateErrorTextSizeLimitExceeded</code>, <code>AWSTranslateErrorTooManyRequests</code>, <code>AWSTranslateErrorUnsupportedLanguagePair</code>, <code>AWSTranslateErrorDetectedLanguageLowConfidence</code>, <code>AWSTranslateErrorResourceNotFound</code>, <code>AWSTranslateErrorInternalServer</code>, <code>AWSTranslateErrorServiceUnavailable</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslate(im)untagResource:"></a>
+                    <a name="//apple_ref/objc/Method/-untagResource:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslate(im)untagResource:">-untagResource:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>UntagResource</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateUntagResourceRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateUntagResourceResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">untagResource</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSTranslateUntagResourceRequest.html">AWSTranslateUntagResourceRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">untagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranslateUntagResourceRequest.html">AWSTranslateUntagResourceRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the UntagResource service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSTranslateUntagResourceResponse">AWSTranslateUntagResourceResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorInvalidParameterValue</code>, <code>AWSTranslateErrorConcurrentModification</code>, <code>AWSTranslateErrorResourceNotFound</code>, <code>AWSTranslateErrorInternalServer</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslate(im)untagResource:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-untagResource:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslate(im)untagResource:completionHandler:">-untagResource:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>UntagResource</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateUntagResourceRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateUntagResourceResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">untagResource</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSTranslateUntagResourceRequest.html">AWSTranslateUntagResourceRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+    <span class="nf">completionHandler</span><span class="p">:</span>
+        <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes.html#/c:objc(cs)AWSTranslateUntagResourceResponse">AWSTranslateUntagResourceResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                           <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">untagResource</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranslateUntagResourceRequest.html">AWSTranslateUntagResourceRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSTranslateUntagResourceResponse">AWSTranslateUntagResourceResponse</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the UntagResource service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorInvalidParameterValue</code>, <code>AWSTranslateErrorConcurrentModification</code>, <code>AWSTranslateErrorResourceNotFound</code>, <code>AWSTranslateErrorInternalServer</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -2748,7 +3195,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-09-09)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-10-28)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
