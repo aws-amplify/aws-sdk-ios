@@ -23,6 +23,8 @@
 - (void) test_AWSEC2AcceleratorCountRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AcceleratorTotalMemoryMiB API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AcceleratorTotalMemoryMiBRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2AcceptAddressTransferRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2AcceptAddressTransferResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AcceptReservedInstancesExchangeQuoteRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AcceptReservedInstancesExchangeQuoteResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AcceptTransitGatewayMulticastDomainAssociationsRequest API_AVAILABLE(ios(11));
@@ -47,6 +49,7 @@
 - (void) test_AWSEC2AdditionalDetail API_AVAILABLE(ios(11));
 - (void) test_AWSEC2Address API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AddressAttribute API_AVAILABLE(ios(11));
+- (void) test_AWSEC2AddressTransfer API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AdvertiseByoipCidrRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AdvertiseByoipCidrResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AllocateAddressRequest API_AVAILABLE(ios(11));
@@ -500,6 +503,8 @@
 - (void) test_AWSEC2DeregisterTransitGatewayMulticastGroupSourcesResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeAccountAttributesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeAccountAttributesResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DescribeAddressTransfersRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DescribeAddressTransfersResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeAddressesAttributeRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeAddressesAttributeResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeAddressesRequest API_AVAILABLE(ios(11));
@@ -782,6 +787,8 @@
 - (void) test_AWSEC2DhcpOptions API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DirectoryServiceAuthentication API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DirectoryServiceAuthenticationRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DisableAddressTransferRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DisableAddressTransferResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableEbsEncryptionByDefaultRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableEbsEncryptionByDefaultResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableFastLaunchRequest API_AVAILABLE(ios(11));
@@ -850,6 +857,8 @@
 - (void) test_AWSEC2ElasticGpus API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ElasticInferenceAccelerator API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ElasticInferenceAcceleratorAssociation API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EnableAddressTransferRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EnableAddressTransferResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableEbsEncryptionByDefaultRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableEbsEncryptionByDefaultResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableFastLaunchRequest API_AVAILABLE(ios(11));
@@ -1713,6 +1722,14 @@
     [self validateSecureCodingForClass:[AWSEC2AcceleratorTotalMemoryMiBRequest class]];
 }
 
+- (void) test_AWSEC2AcceptAddressTransferRequest {
+    [self validateSecureCodingForClass:[AWSEC2AcceptAddressTransferRequest class]];
+}
+
+- (void) test_AWSEC2AcceptAddressTransferResult {
+    [self validateSecureCodingForClass:[AWSEC2AcceptAddressTransferResult class]];
+}
+
 - (void) test_AWSEC2AcceptReservedInstancesExchangeQuoteRequest {
     [self validateSecureCodingForClass:[AWSEC2AcceptReservedInstancesExchangeQuoteRequest class]];
 }
@@ -1807,6 +1824,10 @@
 
 - (void) test_AWSEC2AddressAttribute {
     [self validateSecureCodingForClass:[AWSEC2AddressAttribute class]];
+}
+
+- (void) test_AWSEC2AddressTransfer {
+    [self validateSecureCodingForClass:[AWSEC2AddressTransfer class]];
 }
 
 - (void) test_AWSEC2AdvertiseByoipCidrRequest {
@@ -3621,6 +3642,14 @@
     [self validateSecureCodingForClass:[AWSEC2DescribeAccountAttributesResult class]];
 }
 
+- (void) test_AWSEC2DescribeAddressTransfersRequest {
+    [self validateSecureCodingForClass:[AWSEC2DescribeAddressTransfersRequest class]];
+}
+
+- (void) test_AWSEC2DescribeAddressTransfersResult {
+    [self validateSecureCodingForClass:[AWSEC2DescribeAddressTransfersResult class]];
+}
+
 - (void) test_AWSEC2DescribeAddressesAttributeRequest {
     [self validateSecureCodingForClass:[AWSEC2DescribeAddressesAttributeRequest class]];
 }
@@ -4749,6 +4778,14 @@
     [self validateSecureCodingForClass:[AWSEC2DirectoryServiceAuthenticationRequest class]];
 }
 
+- (void) test_AWSEC2DisableAddressTransferRequest {
+    [self validateSecureCodingForClass:[AWSEC2DisableAddressTransferRequest class]];
+}
+
+- (void) test_AWSEC2DisableAddressTransferResult {
+    [self validateSecureCodingForClass:[AWSEC2DisableAddressTransferResult class]];
+}
+
 - (void) test_AWSEC2DisableEbsEncryptionByDefaultRequest {
     [self validateSecureCodingForClass:[AWSEC2DisableEbsEncryptionByDefaultRequest class]];
 }
@@ -5019,6 +5056,14 @@
 
 - (void) test_AWSEC2ElasticInferenceAcceleratorAssociation {
     [self validateSecureCodingForClass:[AWSEC2ElasticInferenceAcceleratorAssociation class]];
+}
+
+- (void) test_AWSEC2EnableAddressTransferRequest {
+    [self validateSecureCodingForClass:[AWSEC2EnableAddressTransferRequest class]];
+}
+
+- (void) test_AWSEC2EnableAddressTransferResult {
+    [self validateSecureCodingForClass:[AWSEC2EnableAddressTransferResult class]];
 }
 
 - (void) test_AWSEC2EnableEbsEncryptionByDefaultRequest {
