@@ -54,7 +54,7 @@ typedef NS_ENUM(NSInteger, AWSIdentityManagerAuthState) {
  The handler method for managing the session reload for the Sign-In Provider.
  The completionHandler will bubble back errors to the developers.
  */
-- (void)reloadSession;
+- (void)reloadSignedInSession;
 
 @end
 

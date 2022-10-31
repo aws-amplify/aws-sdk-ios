@@ -99,7 +99,7 @@ cognitoIdentityUserPoolAppClientSecret:(NSString *)cognitoIdentityUserPoolAppCli
     return [pool.currentUser isSignedIn];
 }
 
-- (void)reloadSession {
+- (void)reloadSignedInSession {
     if ([self isLoggedIn]) {
         [self completeLogin];
     }

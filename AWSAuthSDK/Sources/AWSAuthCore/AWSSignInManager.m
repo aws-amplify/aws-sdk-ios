@@ -132,7 +132,7 @@ static AWSIdentityManager *identityManager;
         }
     }
     
-    [self.potentialSignInProvider reloadSession];
+    [self.potentialSignInProvider reloadSignedInSession];
     
     if (self.potentialSignInProvider == nil) {
         [self completeLogin];

@@ -114,7 +114,7 @@ static NSString* const AWSInfoFacebookSignInIdentifier = @"FacebookSignIn";
     return NO;
 }
 
-- (void)reloadSession {
+- (void)reloadSignedInSession {
     Class fbSDKAccessToken = NSClassFromString(@"FBSDKAccessToken");
     if (fbSDKAccessToken) {
         if([fbSDKAccessToken currentAccessToken]) {

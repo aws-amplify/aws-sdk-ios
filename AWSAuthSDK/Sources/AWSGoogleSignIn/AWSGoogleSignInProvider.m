@@ -179,7 +179,7 @@ static NSString *const AWSInfoGoogleClientId = @"ClientId-iOS";
     return [self.signInClient hasPreviousSignIn];
 }
 
-- (void)reloadSession {
+- (void)reloadSignedInSession {
     if ([self isLoggedIn]) {
         [self signInSilently];
     }

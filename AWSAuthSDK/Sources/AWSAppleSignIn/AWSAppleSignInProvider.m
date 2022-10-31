@@ -84,7 +84,7 @@ static NSString *const AWSInfoAppleIdentifier = @"AppleSignIn";
     // There is no apple api to logout
 }
 
-- (void)reloadSession {
+- (void)reloadSignedInSession {
     [self appleLogin];
 }
 
