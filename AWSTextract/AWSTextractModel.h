@@ -123,9 +123,11 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 @class AWSTextractDocument;
 @class AWSTextractDocumentLocation;
 @class AWSTextractDocumentMetadata;
+@class AWSTextractExpenseCurrency;
 @class AWSTextractExpenseDetection;
 @class AWSTextractExpenseDocument;
 @class AWSTextractExpenseField;
+@class AWSTextractExpenseGroupProperty;
 @class AWSTextractExpenseType;
 @class AWSTextractGeometry;
 @class AWSTextractGetDocumentAnalysisRequest;
@@ -311,7 +313,7 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 
 
 /**
- <p>The type of text item that's recognized. In operations for text detection, the following types are returned:</p><ul><li><p><i>PAGE</i> - Contains a list of the LINE <code>Block</code> objects that are detected on a document page.</p></li><li><p><i>WORD</i> - A word detected on a document page. A word is one or more ISO basic Latin script characters that aren't separated by spaces.</p></li><li><p><i>LINE</i> - A string of tab-delimited, contiguous words that are detected on a document page.</p></li></ul><p>In text analysis operations, the following types are returned:</p><ul><li><p><i>PAGE</i> - Contains a list of child <code>Block</code> objects that are detected on a document page.</p></li><li><p><i>KEY_VALUE_SET</i> - Stores the KEY and VALUE <code>Block</code> objects for linked text that's detected on a document page. Use the <code>EntityType</code> field to determine if a KEY_VALUE_SET object is a KEY <code>Block</code> object or a VALUE <code>Block</code> object. </p></li><li><p><i>WORD</i> - A word that's detected on a document page. A word is one or more ISO basic Latin script characters that aren't separated by spaces.</p></li><li><p><i>LINE</i> - A string of tab-delimited, contiguous words that are detected on a document page.</p></li><li><p><i>TABLE</i> - A table that's detected on a document page. A table is grid-based information with two or more rows or columns, with a cell span of one row and one column each. </p></li><li><p><i>CELL</i> - A cell within a detected table. The cell is the parent of the block that contains the text in the cell.</p></li><li><p><i>SELECTION_ELEMENT</i> - A selection element such as an option button (radio button) or a check box that's detected on a document page. Use the value of <code>SelectionStatus</code> to determine the status of the selection element.</p></li><li><p><i>QUERY</i> - A question asked during the call of AnalyzeDocument. Contains an alias and an ID that attachs it to its answer.</p></li><li><p><i>QUERY_RESULT</i> - A response to a question asked during the call of analyze document. Comes with an alias and ID for ease of locating in a response. Also contains location and confidence score.</p></li></ul>
+ <p>The type of text item that's recognized. In operations for text detection, the following types are returned:</p><ul><li><p><i>PAGE</i> - Contains a list of the LINE <code>Block</code> objects that are detected on a document page.</p></li><li><p><i>WORD</i> - A word detected on a document page. A word is one or more ISO basic Latin script characters that aren't separated by spaces.</p></li><li><p><i>LINE</i> - A string of tab-delimited, contiguous words that are detected on a document page.</p></li></ul><p>In text analysis operations, the following types are returned:</p><ul><li><p><i>PAGE</i> - Contains a list of child <code>Block</code> objects that are detected on a document page.</p></li><li><p><i>KEY_VALUE_SET</i> - Stores the KEY and VALUE <code>Block</code> objects for linked text that's detected on a document page. Use the <code>EntityType</code> field to determine if a KEY_VALUE_SET object is a KEY <code>Block</code> object or a VALUE <code>Block</code> object. </p></li><li><p><i>WORD</i> - A word that's detected on a document page. A word is one or more ISO basic Latin script characters that aren't separated by spaces.</p></li><li><p><i>LINE</i> - A string of tab-delimited, contiguous words that are detected on a document page.</p></li><li><p><i>TABLE</i> - A table that's detected on a document page. A table is grid-based information with two or more rows or columns, with a cell span of one row and one column each. </p></li><li><p><i>CELL</i> - A cell within a detected table. The cell is the parent of the block that contains the text in the cell.</p></li><li><p><i>SELECTION_ELEMENT</i> - A selection element such as an option button (radio button) or a check box that's detected on a document page. Use the value of <code>SelectionStatus</code> to determine the status of the selection element.</p></li><li><p><i>QUERY</i> - A question asked during the call of AnalyzeDocument. Contains an alias and an ID that attaches it to its answer.</p></li><li><p><i>QUERY_RESULT</i> - A response to a question asked during the call of analyze document. Comes with an alias and ID for ease of locating in a response. Also contains location and confidence score.</p></li></ul>
  */
 @property (nonatomic, assign) AWSTextractBlockType blockType;
 
@@ -346,7 +348,7 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
- <p>The page on which a block was detected. <code>Page</code> is returned by asynchronous operations. Page values greater than 1 are only returned for multipage documents that are in PDF or TIFF format. A scanned image (JPEG/PNG), even if it contains multiple document pages, is considered to be a single-page document. The value of <code>Page</code> is always 1. Synchronous operations don't return <code>Page</code> because every input document is considered to be a single-page document.</p>
+ <p>The page on which a block was detected. <code>Page</code> is returned by synchronous and asynchronous operations. Page values greater than 1 are only returned for multipage documents that are in PDF or TIFF format. A scanned image (JPEG/PNG) provided to an asynchronous operation, even if it contains multiple document pages, is considered a single-page document. This means that for scanned images the value of <code>Page</code> is always 1. Synchronous operations operations will also return a <code>Page</code> value of 1 because every input document is considered to be a single-page document.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable page;
 
@@ -496,6 +498,24 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 @end
 
 /**
+ <p>Returns the kind of currency detected.</p>
+ */
+@interface AWSTextractExpenseCurrency : AWSModel
+
+
+/**
+ <p>Currency code for detected currency. the current supported codes are:</p><ul><li><p>USD</p></li><li><p>EUR</p></li><li><p>GBP</p></li><li><p>CAD</p></li><li><p>INR</p></li><li><p>JPY</p></li><li><p>CHF</p></li><li><p>AUD</p></li><li><p>CNY</p></li><li><p>BZR</p></li><li><p>SEK</p></li><li><p>HKD</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable code;
+
+/**
+ <p>Percentage confideence in the detected currency.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable confidence;
+
+@end
+
+/**
  <p>An object used to store information about the Value or Label detected by Amazon Textract.</p>
  */
 @interface AWSTextractExpenseDetection : AWSModel
@@ -525,6 +545,11 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 
 
 /**
+ <p>This is a block object, the same as reported when DetectDocumentText is run on a document. It provides word level recognition of text.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractBlock *> * _Nullable blocks;
+
+/**
  <p>Denotes which invoice or receipt in the document the information is coming from. First document will be 1, the second 2, and so on.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable expenseIndex;
@@ -548,6 +573,16 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 
 
 /**
+ <p>Shows the kind of currency, both the code and confidence associated with any monatary value detected.</p>
+ */
+@property (nonatomic, strong) AWSTextractExpenseCurrency * _Nullable currency;
+
+/**
+ <p>Shows which group a response object belongs to, such as whether an address line belongs to the vendor's address or the recipent's address.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractExpenseGroupProperty *> * _Nullable groupProperties;
+
+/**
  <p>The explicitly stated label of a detected element.</p>
  */
 @property (nonatomic, strong) AWSTextractExpenseDetection * _Nullable labelDetection;
@@ -566,6 +601,24 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
  <p>The value of a detected element. Present in explicit and implicit elements.</p>
  */
 @property (nonatomic, strong) AWSTextractExpenseDetection * _Nullable valueDetection;
+
+@end
+
+/**
+ <p>Shows the group that a certain key belongs to. This helps differentiate between names and addresses for different organizations, that can be hard to determine via JSON response.</p>
+ */
+@interface AWSTextractExpenseGroupProperty : AWSModel
+
+
+/**
+ <p>Provides a group Id number, which will be the same for each in the group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>Informs you on whether the expense group is a name or an address.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable types;
 
 @end
 
@@ -870,6 +923,11 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 
 
 /**
+ <p>Individual word recognition, as returned by document detection.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractBlock *> * _Nullable blocks;
+
+/**
  <p>Denotes the placement of a document in the IdentityDocument list. The first document is marked 1, the second 2 and so on.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable documentIndex;
@@ -1031,7 +1089,7 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 @property (nonatomic, strong) NSString * _Nullable alias;
 
 /**
- <p>List of pages associated with the query. The following is a list of rules for using this parameter.</p><ul><li><p>If a page is not specified, it is set to <code>["1"]</code> by default.</p></li><li><p>The following characters are allowed in the parameter's string: <code>0 1 2 3 4 5 6 7 8 9 - *</code>. No whitespace is allowed.</p></li><li><p>When using <code>*</code> to indicate all pages, it must be the only element in the string.</p></li><li><p>You can use page intervals, such as <code>[“1-3”, “1-1”, “4-*”]</code>. Where <code>*</code> indicates last page of document.</p></li><li><p>Specified pages must be greater than 0 and less than or equal to the number of pages in the document.</p></li></ul>
+ <p>Pages is a parameter that the user inputs to specify which pages to apply a query to. The following is a list of rules for using this parameter.</p><ul><li><p>If a page is not specified, it is set to <code>["1"]</code> by default.</p></li><li><p>The following characters are allowed in the parameter's string: <code>0 1 2 3 4 5 6 7 8 9 - *</code>. No whitespace is allowed.</p></li><li><p>When using * to indicate all pages, it must be the only element in the list.</p></li><li><p>You can use page intervals, such as <code>[“1-3”, “1-1”, “4-*”]</code>. Where <code>*</code> indicates last page of document.</p></li><li><p>Specified pages must be greater than 0 and less than or equal to the number of pages in the document.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable pages;
 
