@@ -828,6 +828,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDisassociateQueueQuickConnectsRequest;
 @class AWSConnectDisassociateRoutingProfileQueuesRequest;
 @class AWSConnectDisassociateSecurityKeyRequest;
+@class AWSConnectDismissUserContactRequest;
+@class AWSConnectDismissUserContactResponse;
 @class AWSConnectDistribution;
 @class AWSConnectEmailReference;
 @class AWSConnectEncryptionConfig;
@@ -4051,6 +4053,37 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDismissUserContactRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier of the user account.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDismissUserContactResponse : AWSModel
+
 
 @end
 

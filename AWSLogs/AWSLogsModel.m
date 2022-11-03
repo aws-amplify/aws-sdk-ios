@@ -1066,6 +1066,34 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @end
 
+@implementation AWSLogsListTagsForResourceRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"resourceArn",
+             };
+}
+
+@end
+
+@implementation AWSLogsListTagsForResourceResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"tags" : @"tags",
+             };
+}
+
+@end
+
 @implementation AWSLogsListTagsLogGroupRequest
 
 + (BOOL)supportsSecureCoding {
@@ -1395,6 +1423,7 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 	return @{
              @"destinationName" : @"destinationName",
              @"roleArn" : @"roleArn",
+             @"tags" : @"tags",
              @"targetArn" : @"targetArn",
              };
 }
@@ -1910,6 +1939,21 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @end
 
+@implementation AWSLogsTagResourceRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"resourceArn",
+             @"tags" : @"tags",
+             };
+}
+
+@end
+
 @implementation AWSLogsTestMetricFilterRequest
 
 + (BOOL)supportsSecureCoding {
@@ -1953,6 +1997,21 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 	return @{
              @"logGroupName" : @"logGroupName",
              @"tags" : @"tags",
+             };
+}
+
+@end
+
+@implementation AWSLogsUntagResourceRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"resourceArn",
+             @"tagKeys" : @"tagKeys",
              };
 }
 

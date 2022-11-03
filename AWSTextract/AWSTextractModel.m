@@ -437,6 +437,21 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 @end
 
+@implementation AWSTextractExpenseCurrency
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"code" : @"Code",
+             @"confidence" : @"Confidence",
+             };
+}
+
+@end
+
 @implementation AWSTextractExpenseDetection
 
 + (BOOL)supportsSecureCoding {
@@ -465,10 +480,15 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"blocks" : @"Blocks",
              @"expenseIndex" : @"ExpenseIndex",
              @"lineItemGroups" : @"LineItemGroups",
              @"summaryFields" : @"SummaryFields",
              };
+}
+
++ (NSValueTransformer *)blocksJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTextractBlock class]];
 }
 
 + (NSValueTransformer *)lineItemGroupsJSONTransformer {
@@ -489,11 +509,21 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"currency" : @"Currency",
+             @"groupProperties" : @"GroupProperties",
              @"labelDetection" : @"LabelDetection",
              @"pageNumber" : @"PageNumber",
              @"types" : @"Type",
              @"valueDetection" : @"ValueDetection",
              };
+}
+
++ (NSValueTransformer *)currencyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractExpenseCurrency class]];
+}
+
++ (NSValueTransformer *)groupPropertiesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTextractExpenseGroupProperty class]];
 }
 
 + (NSValueTransformer *)labelDetectionJSONTransformer {
@@ -506,6 +536,21 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 + (NSValueTransformer *)valueDetectionJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractExpenseDetection class]];
+}
+
+@end
+
+@implementation AWSTextractExpenseGroupProperty
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identifier" : @"Id",
+             @"types" : @"Types",
+             };
 }
 
 @end
@@ -843,9 +888,14 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"blocks" : @"Blocks",
              @"documentIndex" : @"DocumentIndex",
              @"identityDocumentFields" : @"IdentityDocumentFields",
              };
+}
+
++ (NSValueTransformer *)blocksJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTextractBlock class]];
 }
 
 + (NSValueTransformer *)identityDocumentFieldsJSONTransformer {
