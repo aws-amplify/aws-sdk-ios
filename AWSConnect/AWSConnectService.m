@@ -1812,6 +1812,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectDismissUserContactResponse *> *)dismissUserContact:(AWSConnectDismissUserContactRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/users/{InstanceId}/{UserId}/contact"
+                  targetPrefix:@""
+                 operationName:@"DismissUserContact"
+                   outputClass:[AWSConnectDismissUserContactResponse class]];
+}
+
+- (void)dismissUserContact:(AWSConnectDismissUserContactRequest *)request
+     completionHandler:(void (^)(AWSConnectDismissUserContactResponse *response, NSError *error))completionHandler {
+    [[self dismissUserContact:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDismissUserContactResponse *> * _Nonnull task) {
+        AWSConnectDismissUserContactResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectGetContactAttributesResponse *> *)getContactAttributes:(AWSConnectGetContactAttributesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
