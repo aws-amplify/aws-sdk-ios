@@ -33,6 +33,7 @@ typedef NS_ENUM(NSInteger, AWSLogsErrorType) {
     AWSLogsErrorResourceAlreadyExists,
     AWSLogsErrorResourceNotFound,
     AWSLogsErrorServiceUnavailable,
+    AWSLogsErrorTooManyTags,
     AWSLogsErrorUnrecognizedClient,
 };
 
@@ -149,6 +150,8 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @class AWSLogsGetQueryResultsRequest;
 @class AWSLogsGetQueryResultsResponse;
 @class AWSLogsInputLogEvent;
+@class AWSLogsListTagsForResourceRequest;
+@class AWSLogsListTagsForResourceResponse;
 @class AWSLogsListTagsLogGroupRequest;
 @class AWSLogsListTagsLogGroupResponse;
 @class AWSLogsLogGroup;
@@ -185,9 +188,11 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @class AWSLogsStopQueryResponse;
 @class AWSLogsSubscriptionFilter;
 @class AWSLogsTagLogGroupRequest;
+@class AWSLogsTagResourceRequest;
 @class AWSLogsTestMetricFilterRequest;
 @class AWSLogsTestMetricFilterResponse;
 @class AWSLogsUntagLogGroupRequest;
+@class AWSLogsUntagResourceRequest;
 
 /**
  
@@ -1288,6 +1293,32 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 /**
  
  */
+@interface AWSLogsListTagsForResourceRequest : AWSRequest
+
+
+/**
+ <p>The ARN of the resource that you want to view tags for.</p><p>The ARN format of a log group is <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:log-group:<i>log-group-name</i></code></p><p>The ARN format of a destination is <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:destination:<i>destination-name</i></code></p><p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch Logs resources and operations</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsListTagsForResourceResponse : AWSModel
+
+
+/**
+ <p>The list of tags associated with the requested resource.&gt;</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
 @interface AWSLogsListTagsLogGroupRequest : AWSRequest
 
 
@@ -1343,7 +1374,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @property (nonatomic, strong) NSNumber * _Nullable metricFilterCount;
 
 /**
- <p>The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, 2192, 2557, 2922, 3288, and 3653.</p><p>To set a log group to never have log events expire, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html">DeleteRetentionPolicy</a>. </p>
+ <p>The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.</p><p>To set a log group to never have log events expire, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html">DeleteRetentionPolicy</a>. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable retentionInDays;
 
@@ -1578,6 +1609,11 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @property (nonatomic, strong) NSString * _Nullable roleArn;
 
 /**
+ <p>An optional list of key-value pairs to associate with the resource.</p><p>For more information about tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a></p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+/**
  <p>The ARN of an Amazon Kinesis stream to which to deliver matching log events.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable targetArn;
@@ -1755,7 +1791,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
 
 /**
- <p>The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, 2192, 2557, 2922, 3288, and 3653.</p><p>To set a log group to never have log events expire, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html">DeleteRetentionPolicy</a>. </p>
+ <p>The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.</p><p>To set a log group to never have log events expire, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html">DeleteRetentionPolicy</a>. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable retentionInDays;
 
@@ -2147,6 +2183,24 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 /**
  
  */
+@interface AWSLogsTagResourceRequest : AWSRequest
+
+
+/**
+ <p>The ARN of the resource that you're adding tags to.</p><p>The ARN format of a log group is <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:log-group:<i>log-group-name</i></code></p><p>The ARN format of a destination is <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:destination:<i>destination-name</i></code></p><p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch Logs resources and operations</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+/**
+ <p>The list of key-value pairs to associate with the resource.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
 @interface AWSLogsTestMetricFilterRequest : AWSRequest
 
 
@@ -2190,6 +2244,24 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
  <p>The tag keys. The corresponding tags are removed from the log group.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsUntagResourceRequest : AWSRequest
+
+
+/**
+ <p>The ARN of the CloudWatch Logs resource that you're removing tags from.</p><p>The ARN format of a log group is <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:log-group:<i>log-group-name</i></code></p><p>The ARN format of a destination is <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:destination:<i>destination-name</i></code></p><p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch Logs resources and operations</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+/**
+ <p>The list of tag keys to remove from the resource.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable tagKeys;
 
 @end
 
