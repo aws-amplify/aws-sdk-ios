@@ -271,6 +271,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 #pragma mark - Service method
 
+- (AWSTask<AWSEC2AcceptAddressTransferResult *> *)acceptAddressTransfer:(AWSEC2AcceptAddressTransferRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"AcceptAddressTransfer"
+                   outputClass:[AWSEC2AcceptAddressTransferResult class]];
+}
+
+- (void)acceptAddressTransfer:(AWSEC2AcceptAddressTransferRequest *)request
+     completionHandler:(void (^)(AWSEC2AcceptAddressTransferResult *response, NSError *error))completionHandler {
+    [[self acceptAddressTransfer:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2AcceptAddressTransferResult *> * _Nonnull task) {
+        AWSEC2AcceptAddressTransferResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2AcceptReservedInstancesExchangeQuoteResult *> *)acceptReservedInstancesExchangeQuote:(AWSEC2AcceptReservedInstancesExchangeQuoteRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -4843,6 +4866,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2DescribeAddressTransfersResult *> *)describeAddressTransfers:(AWSEC2DescribeAddressTransfersRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeAddressTransfers"
+                   outputClass:[AWSEC2DescribeAddressTransfersResult class]];
+}
+
+- (void)describeAddressTransfers:(AWSEC2DescribeAddressTransfersRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribeAddressTransfersResult *response, NSError *error))completionHandler {
+    [[self describeAddressTransfers:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeAddressTransfersResult *> * _Nonnull task) {
+        AWSEC2DescribeAddressTransfersResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2DescribeAddressesResult *> *)describeAddresses:(AWSEC2DescribeAddressesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -8037,6 +8083,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2DisableAddressTransferResult *> *)disableAddressTransfer:(AWSEC2DisableAddressTransferRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DisableAddressTransfer"
+                   outputClass:[AWSEC2DisableAddressTransferResult class]];
+}
+
+- (void)disableAddressTransfer:(AWSEC2DisableAddressTransferRequest *)request
+     completionHandler:(void (^)(AWSEC2DisableAddressTransferResult *response, NSError *error))completionHandler {
+    [[self disableAddressTransfer:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DisableAddressTransferResult *> * _Nonnull task) {
+        AWSEC2DisableAddressTransferResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2DisableEbsEncryptionByDefaultResult *> *)disableEbsEncryptionByDefault:(AWSEC2DisableEbsEncryptionByDefaultRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -8530,6 +8599,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2DisassociateVpcCidrBlockResult *response, NSError *error))completionHandler {
     [[self disassociateVpcCidrBlock:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DisassociateVpcCidrBlockResult *> * _Nonnull task) {
         AWSEC2DisassociateVpcCidrBlockResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2EnableAddressTransferResult *> *)enableAddressTransfer:(AWSEC2EnableAddressTransferRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"EnableAddressTransfer"
+                   outputClass:[AWSEC2EnableAddressTransferResult class]];
+}
+
+- (void)enableAddressTransfer:(AWSEC2EnableAddressTransferRequest *)request
+     completionHandler:(void (^)(AWSEC2EnableAddressTransferResult *response, NSError *error))completionHandler {
+    [[self enableAddressTransfer:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2EnableAddressTransferResult *> * _Nonnull task) {
+        AWSEC2EnableAddressTransferResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

@@ -175,6 +175,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 + (void)removeEC2ForKey:(NSString *)key;
 
 /**
+ <p>Accepts an Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#using-instance-addressing-eips-transfer-accept">Accept a transferred Elastic IP address</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the AcceptAddressTransfer service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2AcceptAddressTransferResult`.
+ 
+ @see AWSEC2AcceptAddressTransferRequest
+ @see AWSEC2AcceptAddressTransferResult
+ */
+- (AWSTask<AWSEC2AcceptAddressTransferResult *> *)acceptAddressTransfer:(AWSEC2AcceptAddressTransferRequest *)request;
+
+/**
+ <p>Accepts an Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#using-instance-addressing-eips-transfer-accept">Accept a transferred Elastic IP address</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the AcceptAddressTransfer service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2AcceptAddressTransferRequest
+ @see AWSEC2AcceptAddressTransferResult
+ */
+- (void)acceptAddressTransfer:(AWSEC2AcceptAddressTransferRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AcceptAddressTransferResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Accepts the Convertible Reserved Instance exchange quote described in the <a>GetReservedInstancesExchangeQuote</a> call.</p>
  
  @param request A container for the necessary parameters to execute the AcceptReservedInstancesExchangeQuote service method.
@@ -5091,6 +5116,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeAccountAttributes:(AWSEC2DescribeAccountAttributesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeAccountAttributesResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Describes an Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeAddressTransfers service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeAddressTransfersResult`.
+ 
+ @see AWSEC2DescribeAddressTransfersRequest
+ @see AWSEC2DescribeAddressTransfersResult
+ */
+- (AWSTask<AWSEC2DescribeAddressTransfersResult *> *)describeAddressTransfers:(AWSEC2DescribeAddressTransfersRequest *)request;
+
+/**
+ <p>Describes an Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeAddressTransfers service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeAddressTransfersRequest
+ @see AWSEC2DescribeAddressTransfersResult
+ */
+- (void)describeAddressTransfers:(AWSEC2DescribeAddressTransfersRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeAddressTransfersResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Describes the specified Elastic IP addresses or all of your Elastic IP addresses.</p><p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><note><p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></note>
  
  @param request A container for the necessary parameters to execute the DescribeAddresses service method.
@@ -8557,6 +8607,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)detachVpnGateway:(AWSEC2DetachVpnGatewayRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Disables Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisableAddressTransfer service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DisableAddressTransferResult`.
+ 
+ @see AWSEC2DisableAddressTransferRequest
+ @see AWSEC2DisableAddressTransferResult
+ */
+- (AWSTask<AWSEC2DisableAddressTransferResult *> *)disableAddressTransfer:(AWSEC2DisableAddressTransferRequest *)request;
+
+/**
+ <p>Disables Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisableAddressTransfer service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DisableAddressTransferRequest
+ @see AWSEC2DisableAddressTransferResult
+ */
+- (void)disableAddressTransfer:(AWSEC2DisableAddressTransferRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisableAddressTransferResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Disables EBS encryption by default for your account in the current Region.</p><p>After you disable encryption by default, you can still create encrypted volumes by enabling encryption when you create each volume.</p><p>Disabling encryption by default does not change the encryption status of your existing volumes.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DisableEbsEncryptionByDefault service method.
@@ -9096,6 +9171,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2DisassociateVpcCidrBlockResult
  */
 - (void)disassociateVpcCidrBlock:(AWSEC2DisassociateVpcCidrBlockRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisassociateVpcCidrBlockResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Enables Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the EnableAddressTransfer service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2EnableAddressTransferResult`.
+ 
+ @see AWSEC2EnableAddressTransferRequest
+ @see AWSEC2EnableAddressTransferResult
+ */
+- (AWSTask<AWSEC2EnableAddressTransferResult *> *)enableAddressTransfer:(AWSEC2EnableAddressTransferRequest *)request;
+
+/**
+ <p>Enables Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the EnableAddressTransfer service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2EnableAddressTransferRequest
+ @see AWSEC2EnableAddressTransferResult
+ */
+- (void)enableAddressTransfer:(AWSEC2EnableAddressTransferRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2EnableAddressTransferResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Enables EBS encryption by default for your account in the current Region.</p><p>After you enable encryption by default, the EBS volumes that you create are always encrypted, either using the default KMS key or the KMS key that you specified when you created each volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>You can specify the default KMS key for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a> or <a>ResetEbsDefaultKmsKeyId</a>.</p><p>Enabling encryption by default has no effect on the encryption status of your existing volumes.</p><p>After you enable encryption by default, you can no longer launch instances using instance types that do not support encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported instance types</a>.</p>

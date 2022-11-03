@@ -78,6 +78,13 @@ typedef NS_ENUM(NSInteger, AWSEC2AddressFamily) {
     AWSEC2AddressFamilyIpv6,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2AddressTransferStatus) {
+    AWSEC2AddressTransferStatusUnknown,
+    AWSEC2AddressTransferStatusPending,
+    AWSEC2AddressTransferStatusDisabled,
+    AWSEC2AddressTransferStatusAccepted,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2Affinity) {
     AWSEC2AffinityUnknown,
     AWSEC2AffinityDefault,
@@ -2791,6 +2798,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2AcceleratorCountRequest;
 @class AWSEC2AcceleratorTotalMemoryMiB;
 @class AWSEC2AcceleratorTotalMemoryMiBRequest;
+@class AWSEC2AcceptAddressTransferRequest;
+@class AWSEC2AcceptAddressTransferResult;
 @class AWSEC2AcceptReservedInstancesExchangeQuoteRequest;
 @class AWSEC2AcceptReservedInstancesExchangeQuoteResult;
 @class AWSEC2AcceptTransitGatewayMulticastDomainAssociationsRequest;
@@ -2815,6 +2824,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2AdditionalDetail;
 @class AWSEC2Address;
 @class AWSEC2AddressAttribute;
+@class AWSEC2AddressTransfer;
 @class AWSEC2AdvertiseByoipCidrRequest;
 @class AWSEC2AdvertiseByoipCidrResult;
 @class AWSEC2AllocateAddressRequest;
@@ -3268,6 +3278,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DeregisterTransitGatewayMulticastGroupSourcesResult;
 @class AWSEC2DescribeAccountAttributesRequest;
 @class AWSEC2DescribeAccountAttributesResult;
+@class AWSEC2DescribeAddressTransfersRequest;
+@class AWSEC2DescribeAddressTransfersResult;
 @class AWSEC2DescribeAddressesAttributeRequest;
 @class AWSEC2DescribeAddressesAttributeResult;
 @class AWSEC2DescribeAddressesRequest;
@@ -3550,6 +3562,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DhcpOptions;
 @class AWSEC2DirectoryServiceAuthentication;
 @class AWSEC2DirectoryServiceAuthenticationRequest;
+@class AWSEC2DisableAddressTransferRequest;
+@class AWSEC2DisableAddressTransferResult;
 @class AWSEC2DisableEbsEncryptionByDefaultRequest;
 @class AWSEC2DisableEbsEncryptionByDefaultResult;
 @class AWSEC2DisableFastLaunchRequest;
@@ -3618,6 +3632,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2ElasticGpus;
 @class AWSEC2ElasticInferenceAccelerator;
 @class AWSEC2ElasticInferenceAcceleratorAssociation;
+@class AWSEC2EnableAddressTransferRequest;
+@class AWSEC2EnableAddressTransferResult;
 @class AWSEC2EnableEbsEncryptionByDefaultRequest;
 @class AWSEC2EnableEbsEncryptionByDefaultResult;
 @class AWSEC2EnableFastLaunchRequest;
@@ -4534,6 +4550,42 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ 
+ */
+@interface AWSEC2AcceptAddressTransferRequest : AWSRequest
+
+
+/**
+ <p>The Elastic IP address you are accepting for transfer.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable address;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2AcceptAddressTransferResult : AWSModel
+
+
+/**
+ <p>An Elastic IP address transfer.</p>
+ */
+@property (nonatomic, strong) AWSEC2AddressTransfer * _Nullable addressTransfer;
+
+@end
+
+/**
  <p>Contains the parameters for accepting the quote.</p>
  Required parameters: [ReservedInstanceIds]
  */
@@ -5054,6 +5106,44 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The public IP address.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable publicIp;
+
+@end
+
+/**
+ <p>Details on the Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ */
+@interface AWSEC2AddressTransfer : AWSModel
+
+
+/**
+ <p>The Elastic IP address transfer status.</p>
+ */
+@property (nonatomic, assign) AWSEC2AddressTransferStatus addressTransferStatus;
+
+/**
+ <p>The allocation ID of an Elastic IP address.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable allocationId;
+
+/**
+ <p>The Elastic IP address being transferred.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable publicIp;
+
+/**
+ <p>The ID of the account that you want to transfer the Elastic IP address to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transferAccountId;
+
+/**
+ <p>The timestamp when the Elastic IP address transfer was accepted.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable transferOfferAcceptedTimestamp;
+
+/**
+ <p>The timestamp when the Elastic IP address transfer expired. When the source account starts the transfer, the transfer account has seven hours to allocate the Elastic IP address to complete the transfer, or the Elastic IP address will return to its original owner.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable transferOfferExpirationTimestamp;
 
 @end
 
@@ -15913,6 +16003,52 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2DescribeAddressTransfersRequest : AWSRequest
+
+
+/**
+ <p>The allocation IDs of Elastic IP addresses.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable allocationIds;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The maximum number of address transfers to return in one page of results.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeAddressTransfersResult : AWSModel
+
+
+/**
+ <p>The Elastic IP address transfer.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2AddressTransfer *> * _Nullable addressTransfers;
+
+/**
+ <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2DescribeAddressesAttributeRequest : AWSRequest
 
 
@@ -22946,6 +23082,37 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2DisableAddressTransferRequest : AWSRequest
+
+
+/**
+ <p>The allocation ID of an Elastic IP address.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable allocationId;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DisableAddressTransferResult : AWSModel
+
+
+/**
+ <p>An Elastic IP address transfer.</p>
+ */
+@property (nonatomic, strong) AWSEC2AddressTransfer * _Nullable addressTransfer;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2DisableEbsEncryptionByDefaultRequest : AWSRequest
 
 
@@ -24348,6 +24515,42 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p> The time at which the elastic inference accelerator is associated with an instance. </p>
  */
 @property (nonatomic, strong) NSDate * _Nullable elasticInferenceAcceleratorAssociationTime;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2EnableAddressTransferRequest : AWSRequest
+
+
+/**
+ <p>The allocation ID of an Elastic IP address.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable allocationId;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the account that you want to transfer the Elastic IP address to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transferAccountId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2EnableAddressTransferResult : AWSModel
+
+
+/**
+ <p>An Elastic IP address transfer.</p>
+ */
+@property (nonatomic, strong) AWSEC2AddressTransfer * _Nullable addressTransfer;
 
 @end
 
@@ -27258,7 +27461,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable resourceOwner;
 
 /**
- <p>A tag on an IPAM resource.</p>
+ <p>The resource tag.</p>
  */
 @property (nonatomic, strong) AWSEC2RequestIpamResourceTag * _Nullable resourceTag;
 
@@ -35777,7 +35980,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The CIDR for an IPAM resource.</p>
+ <p>The CIDR of the resource.</p>
  */
 @property (nonatomic, strong) AWSEC2IpamResourceCidr * _Nullable ipamResourceCidr;
 
@@ -37606,7 +37809,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Information about an address range that is provisioned for use with your Amazon Web Services resources through bring your own IP addresses (BYOIP).</p>
+ <p>The BYOIP CIDR.</p>
  */
 @property (nonatomic, strong) AWSEC2ByoipCidr * _Nullable byoipCidr;
 
@@ -39777,7 +39980,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Describes an address range of an IPv4 address pool.</p>
+ <p>Information about the address range of the public IPv4 pool.</p>
  */
 @property (nonatomic, strong) AWSEC2PublicIpv4PoolRange * _Nullable poolAddressRange;
 

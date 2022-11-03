@@ -69,6 +69,8 @@
 - (void) test_AWSLogsGetQueryResultsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsGetQueryResultsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsInputLogEvent API_AVAILABLE(ios(11));
+- (void) test_AWSLogsListTagsForResourceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsListTagsForResourceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsListTagsLogGroupRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsListTagsLogGroupResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsLogGroup API_AVAILABLE(ios(11));
@@ -105,9 +107,11 @@
 - (void) test_AWSLogsStopQueryResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsSubscriptionFilter API_AVAILABLE(ios(11));
 - (void) test_AWSLogsTagLogGroupRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsTagResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsTestMetricFilterRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsTestMetricFilterResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsUntagLogGroupRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsUntagResourceRequest API_AVAILABLE(ios(11));
 
 @end
 
@@ -313,6 +317,14 @@
     [self validateSecureCodingForClass:[AWSLogsInputLogEvent class]];
 }
 
+- (void) test_AWSLogsListTagsForResourceRequest {
+    [self validateSecureCodingForClass:[AWSLogsListTagsForResourceRequest class]];
+}
+
+- (void) test_AWSLogsListTagsForResourceResponse {
+    [self validateSecureCodingForClass:[AWSLogsListTagsForResourceResponse class]];
+}
+
 - (void) test_AWSLogsListTagsLogGroupRequest {
     [self validateSecureCodingForClass:[AWSLogsListTagsLogGroupRequest class]];
 }
@@ -457,6 +469,10 @@
     [self validateSecureCodingForClass:[AWSLogsTagLogGroupRequest class]];
 }
 
+- (void) test_AWSLogsTagResourceRequest {
+    [self validateSecureCodingForClass:[AWSLogsTagResourceRequest class]];
+}
+
 - (void) test_AWSLogsTestMetricFilterRequest {
     [self validateSecureCodingForClass:[AWSLogsTestMetricFilterRequest class]];
 }
@@ -467,6 +483,10 @@
 
 - (void) test_AWSLogsUntagLogGroupRequest {
     [self validateSecureCodingForClass:[AWSLogsUntagLogGroupRequest class]];
+}
+
+- (void) test_AWSLogsUntagResourceRequest {
+    [self validateSecureCodingForClass:[AWSLogsUntagResourceRequest class]];
 }
 
 @end
