@@ -504,7 +504,7 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 
 
 /**
- <p>Currency code for detected currency.</p>
+ <p>Currency code for detected currency. the current supported codes are:</p><ul><li><p>USD</p></li><li><p>EUR</p></li><li><p>GBP</p></li><li><p>CAD</p></li><li><p>INR</p></li><li><p>JPY</p></li><li><p>CHF</p></li><li><p>AUD</p></li><li><p>CNY</p></li><li><p>BZR</p></li><li><p>SEK</p></li><li><p>HKD</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable code;
 
@@ -605,7 +605,7 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 @end
 
 /**
- <p>Shows the group that a certain key belongs to. This helps differentiate responses like addresses that can appear similar in response JSON.</p>
+ <p>Shows the group that a certain key belongs to. This helps differentiate between names and addresses for different organizations, that can be hard to determine via JSON response.</p>
  */
 @interface AWSTextractExpenseGroupProperty : AWSModel
 
@@ -616,7 +616,7 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
- <p>Informs you on the kind of label associated with the group</p>
+ <p>Informs you on whether the expense group is a name or an address.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable types;
 
@@ -921,6 +921,11 @@ typedef NS_ENUM(NSInteger, AWSTextractValueType) {
  */
 @interface AWSTextractIdentityDocument : AWSModel
 
+
+/**
+ <p>Individual word recognition, as returned by document detection.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractBlock *> * _Nullable blocks;
 
 /**
  <p>Denotes the placement of a document in the IdentityDocument list. The first document is marked 1, the second 2 and so on.</p>

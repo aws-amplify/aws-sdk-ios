@@ -888,9 +888,14 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"blocks" : @"Blocks",
              @"documentIndex" : @"DocumentIndex",
              @"identityDocumentFields" : @"IdentityDocumentFields",
              };
+}
+
++ (NSValueTransformer *)blocksJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTextractBlock class]];
 }
 
 + (NSValueTransformer *)identityDocumentFieldsJSONTransformer {
