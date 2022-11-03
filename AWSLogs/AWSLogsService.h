@@ -219,7 +219,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (void)cancelExportTask:(AWSLogsCancelExportTaskRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates an export task, which allows you to efficiently export data from a log group to an Amazon S3 bucket. When you perform a <code>CreateExportTask</code> operation, you must use credentials that have permission to write to the S3 bucket that you specify as the destination.</p><important><p>Exporting log data to Amazon S3 buckets that are encrypted by KMS is not supported. Exporting log data to Amazon S3 buckets that have S3 Object Lock enabled with a retention period is not supported.</p><p>Exporting to S3 buckets that are encrypted with AES-256 is supported. </p></important><p>This is an asynchronous call. If all the required information is provided, this operation initiates an export task and responds with the ID of the task. After the task has started, you can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeExportTasks.html">DescribeExportTasks</a> to get the status of the export task. Each account can only have one active (<code>RUNNING</code> or <code>PENDING</code>) export task at a time. To cancel an export task, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CancelExportTask.html">CancelExportTask</a>.</p><p>You can export logs from multiple log groups or multiple time ranges to the same S3 bucket. To separate out log data for each export task, you can specify a prefix to be used as the Amazon S3 key prefix for all exported objects.</p><note><p>Time-based sorting on chunks of log data inside an exported file is not guaranteed. You can sort the exported log fild data by using Linux utilities.</p></note>
+ <p>Creates an export task, which allows you to efficiently export data from a log group to an Amazon S3 bucket. When you perform a <code>CreateExportTask</code> operation, you must use credentials that have permission to write to the S3 bucket that you specify as the destination.</p><p>This is an asynchronous call. If all the required information is provided, this operation initiates an export task and responds with the ID of the task. After the task has started, you can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeExportTasks.html">DescribeExportTasks</a> to get the status of the export task. Each account can only have one active (<code>RUNNING</code> or <code>PENDING</code>) export task at a time. To cancel an export task, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CancelExportTask.html">CancelExportTask</a>.</p><p>You can export logs from multiple log groups or multiple time ranges to the same S3 bucket. To separate out log data for each export task, you can specify a prefix to be used as the Amazon S3 key prefix for all exported objects.</p><p>Exporting to S3 buckets that are encrypted with AES-256 is supported. Exporting to S3 buckets encrypted with SSE-KMS is not supported. </p>
  
  @param request A container for the necessary parameters to execute the CreateExportTask service method.
 
@@ -231,7 +231,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (AWSTask<AWSLogsCreateExportTaskResponse *> *)createExportTask:(AWSLogsCreateExportTaskRequest *)request;
 
 /**
- <p>Creates an export task, which allows you to efficiently export data from a log group to an Amazon S3 bucket. When you perform a <code>CreateExportTask</code> operation, you must use credentials that have permission to write to the S3 bucket that you specify as the destination.</p><important><p>Exporting log data to Amazon S3 buckets that are encrypted by KMS is not supported. Exporting log data to Amazon S3 buckets that have S3 Object Lock enabled with a retention period is not supported.</p><p>Exporting to S3 buckets that are encrypted with AES-256 is supported. </p></important><p>This is an asynchronous call. If all the required information is provided, this operation initiates an export task and responds with the ID of the task. After the task has started, you can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeExportTasks.html">DescribeExportTasks</a> to get the status of the export task. Each account can only have one active (<code>RUNNING</code> or <code>PENDING</code>) export task at a time. To cancel an export task, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CancelExportTask.html">CancelExportTask</a>.</p><p>You can export logs from multiple log groups or multiple time ranges to the same S3 bucket. To separate out log data for each export task, you can specify a prefix to be used as the Amazon S3 key prefix for all exported objects.</p><note><p>Time-based sorting on chunks of log data inside an exported file is not guaranteed. You can sort the exported log fild data by using Linux utilities.</p></note>
+ <p>Creates an export task, which allows you to efficiently export data from a log group to an Amazon S3 bucket. When you perform a <code>CreateExportTask</code> operation, you must use credentials that have permission to write to the S3 bucket that you specify as the destination.</p><p>This is an asynchronous call. If all the required information is provided, this operation initiates an export task and responds with the ID of the task. After the task has started, you can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeExportTasks.html">DescribeExportTasks</a> to get the status of the export task. Each account can only have one active (<code>RUNNING</code> or <code>PENDING</code>) export task at a time. To cancel an export task, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CancelExportTask.html">CancelExportTask</a>.</p><p>You can export logs from multiple log groups or multiple time ranges to the same S3 bucket. To separate out log data for each export task, you can specify a prefix to be used as the Amazon S3 key prefix for all exported objects.</p><p>Exporting to S3 buckets that are encrypted with AES-256 is supported. Exporting to S3 buckets encrypted with SSE-KMS is not supported. </p>
  
  @param request A container for the necessary parameters to execute the CreateExportTask service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -839,7 +839,32 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (void)getQueryResults:(AWSLogsGetQueryResultsRequest *)request completionHandler:(void (^ _Nullable)(AWSLogsGetQueryResultsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the tags for the specified log group.</p>
+ <p>Displays the tags associated with a CloudWatch Logs resource. Currently, log groups and destinations support tagging.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListTagsForResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLogsListTagsForResourceResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorResourceNotFound`, `AWSLogsErrorServiceUnavailable`.
+ 
+ @see AWSLogsListTagsForResourceRequest
+ @see AWSLogsListTagsForResourceResponse
+ */
+- (AWSTask<AWSLogsListTagsForResourceResponse *> *)listTagsForResource:(AWSLogsListTagsForResourceRequest *)request;
+
+/**
+ <p>Displays the tags associated with a CloudWatch Logs resource. Currently, log groups and destinations support tagging.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListTagsForResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorResourceNotFound`, `AWSLogsErrorServiceUnavailable`.
+ 
+ @see AWSLogsListTagsForResourceRequest
+ @see AWSLogsListTagsForResourceResponse
+ */
+- (void)listTagsForResource:(AWSLogsListTagsForResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSLogsListTagsForResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <important><p>The ListTagsLogGroup operation is on the path to deprecation. We recommend that you use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a> instead.</p></important><p>Lists the tags for the specified log group.</p>
  
  @param request A container for the necessary parameters to execute the ListTagsLogGroup service method.
 
@@ -851,7 +876,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (AWSTask<AWSLogsListTagsLogGroupResponse *> *)listTagsLogGroup:(AWSLogsListTagsLogGroupRequest *)request;
 
 /**
- <p>Lists the tags for the specified log group.</p>
+ <important><p>The ListTagsLogGroup operation is on the path to deprecation. We recommend that you use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a> instead.</p></important><p>Lists the tags for the specified log group.</p>
  
  @param request A container for the necessary parameters to execute the ListTagsLogGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1102,7 +1127,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (void)stopQuery:(AWSLogsStopQueryRequest *)request completionHandler:(void (^ _Nullable)(AWSLogsStopQueryResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Adds or updates the specified tags for the specified log group.</p><p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html">ListTagsLogGroup</a>. To remove tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagLogGroup.html">UntagLogGroup</a>.</p><p>For more information about tags, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#log-group-tagging">Tag Log Groups in Amazon CloudWatch Logs</a> in the <i>Amazon CloudWatch Logs User Guide</i>.</p><p>CloudWatch Logs doesn’t support IAM policies that prevent users from assigning specified tags to log groups using the <code>aws:Resource/<i>key-name</i></code> or <code>aws:TagKeys</code> condition keys. For more information about using tags to control access, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources using tags</a>.</p>
+ <important><p>The TagLogGroup operation is on the path to deprecation. We recommend that you use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html">TagResource</a> instead.</p></important><p>Adds or updates the specified tags for the specified log group.</p><p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a>. To remove tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagResource.html">UntagResource</a>.</p><p>For more information about tags, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#log-group-tagging">Tag Log Groups in Amazon CloudWatch Logs</a> in the <i>Amazon CloudWatch Logs User Guide</i>.</p><p>CloudWatch Logs doesn’t support IAM policies that prevent users from assigning specified tags to log groups using the <code>aws:Resource/<i>key-name</i></code> or <code>aws:TagKeys</code> condition keys. For more information about using tags to control access, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources using tags</a>.</p>
  
  @param request A container for the necessary parameters to execute the TagLogGroup service method.
 
@@ -1113,7 +1138,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (AWSTask *)tagLogGroup:(AWSLogsTagLogGroupRequest *)request;
 
 /**
- <p>Adds or updates the specified tags for the specified log group.</p><p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html">ListTagsLogGroup</a>. To remove tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagLogGroup.html">UntagLogGroup</a>.</p><p>For more information about tags, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#log-group-tagging">Tag Log Groups in Amazon CloudWatch Logs</a> in the <i>Amazon CloudWatch Logs User Guide</i>.</p><p>CloudWatch Logs doesn’t support IAM policies that prevent users from assigning specified tags to log groups using the <code>aws:Resource/<i>key-name</i></code> or <code>aws:TagKeys</code> condition keys. For more information about using tags to control access, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources using tags</a>.</p>
+ <important><p>The TagLogGroup operation is on the path to deprecation. We recommend that you use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html">TagResource</a> instead.</p></important><p>Adds or updates the specified tags for the specified log group.</p><p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a>. To remove tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagResource.html">UntagResource</a>.</p><p>For more information about tags, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#log-group-tagging">Tag Log Groups in Amazon CloudWatch Logs</a> in the <i>Amazon CloudWatch Logs User Guide</i>.</p><p>CloudWatch Logs doesn’t support IAM policies that prevent users from assigning specified tags to log groups using the <code>aws:Resource/<i>key-name</i></code> or <code>aws:TagKeys</code> condition keys. For more information about using tags to control access, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources using tags</a>.</p>
  
  @param request A container for the necessary parameters to execute the TagLogGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1122,6 +1147,28 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
  @see AWSLogsTagLogGroupRequest
  */
 - (void)tagLogGroup:(AWSLogsTagLogGroupRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Assigns one or more tags (key-value pairs) to the specified CloudWatch Logs resource. Currently, the only CloudWatch Logs resources that can be tagged are log groups and destinations. </p><p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.</p><p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p><p>You can use the <code>TagResource</code> action with a resource that already has tags. If you specify a new tag key for the alarm, this tag is appended to the list of tags associated with the alarm. If you specify a tag key that is already associated with the alarm, the new tag value that you specify replaces the previous value for that tag.</p><p>You can associate as many as 50 tags with a CloudWatch Logs resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the TagResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorResourceNotFound`, `AWSLogsErrorServiceUnavailable`, `AWSLogsErrorTooManyTags`.
+ 
+ @see AWSLogsTagResourceRequest
+ */
+- (AWSTask *)tagResource:(AWSLogsTagResourceRequest *)request;
+
+/**
+ <p>Assigns one or more tags (key-value pairs) to the specified CloudWatch Logs resource. Currently, the only CloudWatch Logs resources that can be tagged are log groups and destinations. </p><p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.</p><p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p><p>You can use the <code>TagResource</code> action with a resource that already has tags. If you specify a new tag key for the alarm, this tag is appended to the list of tags associated with the alarm. If you specify a tag key that is already associated with the alarm, the new tag value that you specify replaces the previous value for that tag.</p><p>You can associate as many as 50 tags with a CloudWatch Logs resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the TagResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorResourceNotFound`, `AWSLogsErrorServiceUnavailable`, `AWSLogsErrorTooManyTags`.
+ 
+ @see AWSLogsTagResourceRequest
+ */
+- (void)tagResource:(AWSLogsTagResourceRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
  <p>Tests the filter pattern of a metric filter against a sample of log event messages. You can use this operation to validate the correctness of a metric filter pattern.</p>
@@ -1149,7 +1196,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (void)testMetricFilter:(AWSLogsTestMetricFilterRequest *)request completionHandler:(void (^ _Nullable)(AWSLogsTestMetricFilterResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Removes the specified tags from the specified log group.</p><p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html">ListTagsLogGroup</a>. To add tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagLogGroup.html">TagLogGroup</a>.</p><p>CloudWatch Logs doesn’t support IAM policies that prevent users from assigning specified tags to log groups using the <code>aws:Resource/<i>key-name</i></code> or <code>aws:TagKeys</code> condition keys. </p>
+ <important><p>The UntagLogGroup operation is on the path to deprecation. We recommend that you use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagResource.html">UntagResource</a> instead.</p></important><p>Removes the specified tags from the specified log group.</p><p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a>. To add tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html">TagResource</a>.</p><p>CloudWatch Logs doesn’t support IAM policies that prevent users from assigning specified tags to log groups using the <code>aws:Resource/<i>key-name</i></code> or <code>aws:TagKeys</code> condition keys. </p>
  
  @param request A container for the necessary parameters to execute the UntagLogGroup service method.
 
@@ -1160,7 +1207,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (AWSTask *)untagLogGroup:(AWSLogsUntagLogGroupRequest *)request;
 
 /**
- <p>Removes the specified tags from the specified log group.</p><p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html">ListTagsLogGroup</a>. To add tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagLogGroup.html">TagLogGroup</a>.</p><p>CloudWatch Logs doesn’t support IAM policies that prevent users from assigning specified tags to log groups using the <code>aws:Resource/<i>key-name</i></code> or <code>aws:TagKeys</code> condition keys. </p>
+ <important><p>The UntagLogGroup operation is on the path to deprecation. We recommend that you use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagResource.html">UntagResource</a> instead.</p></important><p>Removes the specified tags from the specified log group.</p><p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a>. To add tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html">TagResource</a>.</p><p>CloudWatch Logs doesn’t support IAM policies that prevent users from assigning specified tags to log groups using the <code>aws:Resource/<i>key-name</i></code> or <code>aws:TagKeys</code> condition keys. </p>
  
  @param request A container for the necessary parameters to execute the UntagLogGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1169,6 +1216,28 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
  @see AWSLogsUntagLogGroupRequest
  */
 - (void)untagLogGroup:(AWSLogsUntagLogGroupRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Removes one or more tags from the specified resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the UntagResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorResourceNotFound`, `AWSLogsErrorServiceUnavailable`.
+ 
+ @see AWSLogsUntagResourceRequest
+ */
+- (AWSTask *)untagResource:(AWSLogsUntagResourceRequest *)request;
+
+/**
+ <p>Removes one or more tags from the specified resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the UntagResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorResourceNotFound`, `AWSLogsErrorServiceUnavailable`.
+ 
+ @see AWSLogsUntagResourceRequest
+ */
+- (void)untagResource:(AWSLogsUntagResourceRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 @end
 

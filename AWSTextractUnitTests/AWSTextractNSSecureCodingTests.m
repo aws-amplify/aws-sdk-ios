@@ -33,9 +33,11 @@
 - (void) test_AWSTextractDocument API_AVAILABLE(ios(11));
 - (void) test_AWSTextractDocumentLocation API_AVAILABLE(ios(11));
 - (void) test_AWSTextractDocumentMetadata API_AVAILABLE(ios(11));
+- (void) test_AWSTextractExpenseCurrency API_AVAILABLE(ios(11));
 - (void) test_AWSTextractExpenseDetection API_AVAILABLE(ios(11));
 - (void) test_AWSTextractExpenseDocument API_AVAILABLE(ios(11));
 - (void) test_AWSTextractExpenseField API_AVAILABLE(ios(11));
+- (void) test_AWSTextractExpenseGroupProperty API_AVAILABLE(ios(11));
 - (void) test_AWSTextractExpenseType API_AVAILABLE(ios(11));
 - (void) test_AWSTextractGeometry API_AVAILABLE(ios(11));
 - (void) test_AWSTextractGetDocumentAnalysisRequest API_AVAILABLE(ios(11));
@@ -127,6 +129,10 @@
     [self validateSecureCodingForClass:[AWSTextractDocumentMetadata class]];
 }
 
+- (void) test_AWSTextractExpenseCurrency {
+    [self validateSecureCodingForClass:[AWSTextractExpenseCurrency class]];
+}
+
 - (void) test_AWSTextractExpenseDetection {
     [self validateSecureCodingForClass:[AWSTextractExpenseDetection class]];
 }
@@ -137,6 +143,10 @@
 
 - (void) test_AWSTextractExpenseField {
     [self validateSecureCodingForClass:[AWSTextractExpenseField class]];
+}
+
+- (void) test_AWSTextractExpenseGroupProperty {
+    [self validateSecureCodingForClass:[AWSTextractExpenseGroupProperty class]];
 }
 
 - (void) test_AWSTextractExpenseType {

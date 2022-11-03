@@ -475,6 +475,8 @@
 - (void) test_AWSIoTListV2LoggingLevelsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListViolationEventsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListViolationEventsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSIoTLocationAction API_AVAILABLE(ios(11));
+- (void) test_AWSIoTLocationTimestamp API_AVAILABLE(ios(11));
 - (void) test_AWSIoTLogTarget API_AVAILABLE(ios(11));
 - (void) test_AWSIoTLogTargetConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSIoTLoggingOptionsPayload API_AVAILABLE(ios(11));
@@ -2487,6 +2489,14 @@
 
 - (void) test_AWSIoTListViolationEventsResponse {
     [self validateSecureCodingForClass:[AWSIoTListViolationEventsResponse class]];
+}
+
+- (void) test_AWSIoTLocationAction {
+    [self validateSecureCodingForClass:[AWSIoTLocationAction class]];
+}
+
+- (void) test_AWSIoTLocationTimestamp {
+    [self validateSecureCodingForClass:[AWSIoTLocationTimestamp class]];
 }
 
 - (void) test_AWSIoTLogTarget {

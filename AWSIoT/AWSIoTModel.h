@@ -1037,6 +1037,8 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTListV2LoggingLevelsResponse;
 @class AWSIoTListViolationEventsRequest;
 @class AWSIoTListViolationEventsResponse;
+@class AWSIoTLocationAction;
+@class AWSIoTLocationTimestamp;
 @class AWSIoTLogTarget;
 @class AWSIoTLogTargetConfiguration;
 @class AWSIoTLoggingOptionsPayload;
@@ -1360,6 +1362,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>Invoke a Lambda function.</p>
  */
 @property (nonatomic, strong) AWSIoTLambdaAction * _Nullable lambda;
+
+/**
+ <p>The Amazon Location Service rule action sends device location updates from an MQTT message to an Amazon Location tracker resource.</p>
+ */
+@property (nonatomic, strong) AWSIoTLocationAction * _Nullable location;
 
 /**
  <p>Write data to an Amazon OpenSearch Service domain.</p>
@@ -4217,7 +4224,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 /**
- <p>Creates a pre-provisioning hook template.</p>
+ <p>Creates a pre-provisioning hook template. Only supports template of type <code>FLEET_PROVISIONING</code>. For more information about provisioning template types, see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_CreateProvisioningTemplate.html#iot-CreateProvisioningTemplate-request-type">type</a>.</p>
  */
 @property (nonatomic, strong) AWSIoTProvisioningHook * _Nullable preProvisioningHook;
 
@@ -7700,7 +7707,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p> The maximum number of results to return at one time. The default is 25. </p>
+ <p> The maximum number of results to return at one time. The default is 10. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -11598,6 +11605,64 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @end
 
 /**
+ <p>The Amazon Location rule action sends device location updates from an MQTT message to an Amazon Location tracker resource.</p>
+ Required parameters: [roleArn, trackerName, deviceId, latitude, longitude]
+ */
+@interface AWSIoTLocationAction : AWSModel
+
+
+/**
+ <p>The unique ID of the device providing the location data.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable deviceId;
+
+/**
+ <p>A string that evaluates to a double value that represents the latitude of the device's location.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable latitude;
+
+/**
+ <p>A string that evaluates to a double value that represents the longitude of the device's location.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable longitude;
+
+/**
+ <p>The IAM role that grants permission to write to the Amazon Location resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable roleArn;
+
+/**
+ <p>The time that the location data was sampled. The default value is the time the MQTT message was processed.</p>
+ */
+@property (nonatomic, strong) AWSIoTLocationTimestamp * _Nullable timestamp;
+
+/**
+ <p>The name of the tracker resource in Amazon Location in which the location is updated.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trackerName;
+
+@end
+
+/**
+ <p>Describes how to interpret an application-defined timestamp value from an MQTT message payload and the precision of that value.</p>
+ Required parameters: [value]
+ */
+@interface AWSIoTLocationTimestamp : AWSModel
+
+
+/**
+ <p>The precision of the timestamp value that results from the expression described in <code>value</code>.</p><p>Valid values: <code>SECONDS</code> | <code>MILLISECONDS</code> | <code>MICROSECONDS</code> | <code>NANOSECONDS</code>. The default is <code>MILLISECONDS</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable unit;
+
+/**
+ <p>An expression that returns a long epoch time value.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable value;
+
+@end
+
+/**
  <p>A log target.</p>
  Required parameters: [targetType]
  */
@@ -12324,7 +12389,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSNumber * _Nullable isDefaultVersion;
 
 /**
- <p>The ID of the fleet privisioning template version.</p>
+ <p>The ID of the fleet provisioning template version.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable versionId;
 
@@ -15442,7 +15507,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 /**
- <p>Updates the pre-provisioning hook template.</p>
+ <p>Updates the pre-provisioning hook template. Only supports template of type <code>FLEET_PROVISIONING</code>. For more information about provisioning template types, see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_CreateProvisioningTemplate.html#iot-CreateProvisioningTemplate-request-type">type</a>.</p>
  */
 @property (nonatomic, strong) AWSIoTProvisioningHook * _Nullable preProvisioningHook;
 

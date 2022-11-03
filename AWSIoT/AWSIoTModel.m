@@ -137,6 +137,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"kafka" : @"kafka",
              @"kinesis" : @"kinesis",
              @"lambda" : @"lambda",
+             @"location" : @"location",
              @"openSearch" : @"openSearch",
              @"republish" : @"republish",
              @"s3" : @"s3",
@@ -202,6 +203,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSValueTransformer *)lambdaJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTLambdaAction class]];
+}
+
++ (NSValueTransformer *)locationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTLocationAction class]];
 }
 
 + (NSValueTransformer *)openSearchJSONTransformer {
@@ -11513,6 +11518,44 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSValueTransformer *)violationEventsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTViolationEvent class]];
+}
+
+@end
+
+@implementation AWSIoTLocationAction
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"deviceId" : @"deviceId",
+             @"latitude" : @"latitude",
+             @"longitude" : @"longitude",
+             @"roleArn" : @"roleArn",
+             @"timestamp" : @"timestamp",
+             @"trackerName" : @"trackerName",
+             };
+}
+
++ (NSValueTransformer *)timestampJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTLocationTimestamp class]];
+}
+
+@end
+
+@implementation AWSIoTLocationTimestamp
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"unit" : @"unit",
+             @"value" : @"value",
+             };
 }
 
 @end
