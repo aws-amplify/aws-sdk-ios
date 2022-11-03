@@ -2,7 +2,14 @@
 
 ## Unreleased
 
--Features for next release
+### Misc. Updates
+
+- Model updates for the following services
+ - AWSIoT
+ - AWSConnect
+ - AWSTextract
+ - AWSEC2
+ - AWSCloudWatchLogs
 
 ## 2.28.1
 
