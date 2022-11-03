@@ -154,6 +154,8 @@
 - (void) test_AWSConnectDisassociateQueueQuickConnectsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDisassociateRoutingProfileQueuesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDisassociateSecurityKeyRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDismissUserContactRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDismissUserContactResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDistribution API_AVAILABLE(ios(11));
 - (void) test_AWSConnectEmailReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectEncryptionConfig API_AVAILABLE(ios(11));
@@ -959,6 +961,14 @@
 
 - (void) test_AWSConnectDisassociateSecurityKeyRequest {
     [self validateSecureCodingForClass:[AWSConnectDisassociateSecurityKeyRequest class]];
+}
+
+- (void) test_AWSConnectDismissUserContactRequest {
+    [self validateSecureCodingForClass:[AWSConnectDismissUserContactRequest class]];
+}
+
+- (void) test_AWSConnectDismissUserContactResponse {
+    [self validateSecureCodingForClass:[AWSConnectDismissUserContactResponse class]];
 }
 
 - (void) test_AWSConnectDistribution {
