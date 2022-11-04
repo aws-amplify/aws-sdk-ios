@@ -141,6 +141,8 @@
 - (void) test_AWSEC2CancelCapacityReservationResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CancelConversionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CancelExportTaskRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2CancelImageLaunchPermissionRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2CancelImageLaunchPermissionResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CancelImportTaskRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CancelImportTaskResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CancelReservedInstancesListingRequest API_AVAILABLE(ios(11));
@@ -2192,6 +2194,14 @@
 
 - (void) test_AWSEC2CancelExportTaskRequest {
     [self validateSecureCodingForClass:[AWSEC2CancelExportTaskRequest class]];
+}
+
+- (void) test_AWSEC2CancelImageLaunchPermissionRequest {
+    [self validateSecureCodingForClass:[AWSEC2CancelImageLaunchPermissionRequest class]];
+}
+
+- (void) test_AWSEC2CancelImageLaunchPermissionResult {
+    [self validateSecureCodingForClass:[AWSEC2CancelImageLaunchPermissionResult class]];
 }
 
 - (void) test_AWSEC2CancelImportTaskRequest {
