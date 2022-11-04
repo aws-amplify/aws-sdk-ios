@@ -111,7 +111,10 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
     // Returns cached credentials when all of the following conditions are true:
     // 1. The cached credentials are not nil.
     // 2. The credentials do not expire within 10 minutes.
-    return ([self.expiration compare:[NSDate dateWithTimeIntervalSinceNow:10 * 60]] == NSOrderedDescending);
+    return (self.accessKey != nil &&
+            self.secretKey != nil &&
+            self.sessionKey != nil &&
+            [self.expiration compare:[NSDate dateWithTimeIntervalSinceNow:10 * 60]] == NSOrderedDescending);
 }
 
 @end
