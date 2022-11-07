@@ -1210,6 +1210,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2CancelImageLaunchPermissionResult *> *)cancelImageLaunchPermission:(AWSEC2CancelImageLaunchPermissionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"CancelImageLaunchPermission"
+                   outputClass:[AWSEC2CancelImageLaunchPermissionResult class]];
+}
+
+- (void)cancelImageLaunchPermission:(AWSEC2CancelImageLaunchPermissionRequest *)request
+     completionHandler:(void (^)(AWSEC2CancelImageLaunchPermissionResult *response, NSError *error))completionHandler {
+    [[self cancelImageLaunchPermission:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CancelImageLaunchPermissionResult *> * _Nonnull task) {
+        AWSEC2CancelImageLaunchPermissionResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2CancelImportTaskResult *> *)cancelImportTask:(AWSEC2CancelImportTaskRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST

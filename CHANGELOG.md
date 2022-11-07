@@ -11,6 +11,11 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 
 ## Unreleased
 
+### Bug Fixes
+
+- **AWSCore/AWSCredentialsProvider**
+    - Fixed an issue where `getAWSCredentials` thinks it has valid credentials despite them being potentially invalidated through a concurrent call to `invalidateCachedTemporaryCredentials`. (See [PR #4379](https://github.com/aws-amplify/aws-sdk-ios/pull/4379))
+
 ### Misc. Updates
 
 - Model updates for the following services
