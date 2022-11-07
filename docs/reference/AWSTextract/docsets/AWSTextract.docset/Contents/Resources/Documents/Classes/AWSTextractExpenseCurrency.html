@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSTextractQueriesConfig Class Reference</title>
+    <title>AWSTextractExpenseCurrency Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSTextractQueriesConfig" class="dashAnchor"></a>
-    <a title="AWSTextractQueriesConfig Class Reference"></a>
+    <a name="//apple_ref/objc/Class/AWSTextractExpenseCurrency" class="dashAnchor"></a>
+    <a title="AWSTextractExpenseCurrency Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSTextract 2.28.2 Docs</a> (72% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSTextract Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        AWSTextractQueriesConfig Class Reference
+        AWSTextractExpenseCurrency Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -252,21 +252,20 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSTextractQueriesConfig</h1>
+            <h1>AWSTextractExpenseCurrency</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTextractQueriesConfig</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTextractExpenseCurrency</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTextractQueriesConfig</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTextractExpenseCurrency</span></code></pre>
 
                 </div>
               </div>
-            <p><p/>
-Required parameters: [Queries]</p>
+            <p>Returns the kind of currency detected.</p>
 
           </section>
           <section class="section task-group-section">
@@ -275,9 +274,9 @@ Required parameters: [Queries]</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSTextractQueriesConfig(py)queries"></a>
-                    <a name="//apple_ref/objc/Property/queries" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTextractQueriesConfig(py)queries">queries</a>
+                    <a name="/c:objc(cs)AWSTextractExpenseCurrency(py)code"></a>
+                    <a name="//apple_ref/objc/Property/code" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractExpenseCurrency(py)code">code</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -285,19 +284,51 @@ Required parameters: [Queries]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p/></p>
+                        <p><p>Currency code for detected currency. the current supported codes are:</p><ul><li><p>USD</p></li><li><p>EUR</p></li><li><p>GBP</p></li><li><p>CAD</p></li><li><p>INR</p></li><li><p>JPY</p></li><li><p>CHF</p></li><li><p>AUD</p></li><li><p>CNY</p></li><li><p>BZR</p></li><li><p>SEK</p></li><li><p>HKD</p></li></ul></p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/AWSTextractQuery.html">AWSTextractQuery</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">queries</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">code</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">queries</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/AWSTextractQuery.html">AWSTextractQuery</a></span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">code</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTextractExpenseCurrency(py)confidence"></a>
+                    <a name="//apple_ref/objc/Property/confidence" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractExpenseCurrency(py)confidence">confidence</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Percentage confideence in the detected currency.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">confidence</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">confidence</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
