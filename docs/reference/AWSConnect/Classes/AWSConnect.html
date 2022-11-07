@@ -17,7 +17,7 @@
     <a title="AWSConnect Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSConnect 2.28.1 Docs</a> (75% documented)</p>
+        <p><a href="../index.html">AWSConnect 2.28.2 Docs</a> (75% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSConnect.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -447,6 +447,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectDisassociateSecurityKeyRequest.html">AWSConnectDisassociateSecurityKeyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDismissUserContactRequest.html">AWSConnectDismissUserContactRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectDismissUserContactResponse">AWSConnectDismissUserContactResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectDistribution.html">AWSConnectDistribution</a>
@@ -11088,6 +11094,148 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorInternalService</code>, <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorThrottling</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnect(im)dismissUserContact:"></a>
+                    <a name="//apple_ref/objc/Method/-dismissUserContact:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnect(im)dismissUserContact:">-dismissUserContact:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Dismisses contacts from an agent’s CCP and returns the agent to an available state, which allows the agent to receive a new routed contact. Contacts can only be dismissed if they are in a <code>MISSED</code>, <code>ERROR</code>, <code>ENDED</code>, or <code>REJECTED</code> state in the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">Agent Event Stream</a>.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectDismissUserContactRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectDismissUserContactResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">dismissUserContact</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectDismissUserContactRequest.html">AWSConnectDismissUserContactRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">dismissUserContact</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDismissUserContactRequest.html">AWSConnectDismissUserContactRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DismissUserContact service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSConnectDismissUserContactResponse">AWSConnectDismissUserContactResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorAccessDenied</code>, <code>AWSConnectErrorInternalService</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnect(im)dismissUserContact:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-dismissUserContact:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnect(im)dismissUserContact:completionHandler:">-dismissUserContact:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Dismisses contacts from an agent’s CCP and returns the agent to an available state, which allows the agent to receive a new routed contact. Contacts can only be dismissed if they are in a <code>MISSED</code>, <code>ERROR</code>, <code>ENDED</code>, or <code>REJECTED</code> state in the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">Agent Event Stream</a>.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectDismissUserContactRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectDismissUserContactResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">dismissUserContact</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectDismissUserContactRequest.html">AWSConnectDismissUserContactRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+         <span class="nf">completionHandler</span><span class="p">:</span>
+             <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes.html#/c:objc(cs)AWSConnectDismissUserContactResponse">AWSConnectDismissUserContactResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                                <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">dismissUserContact</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDismissUserContactRequest.html">AWSConnectDismissUserContactRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectDismissUserContactResponse">AWSConnectDismissUserContactResponse</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DismissUserContact service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorAccessDenied</code>, <code>AWSConnectErrorInternalService</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -23158,7 +23306,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Updates the traffic distribution for a given traffic distribution group. For more information about updating a traffic distribution group see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html">Update telephony traffic distribution across Amazon Web Services Regions </a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+                        <p>Updates the traffic distribution for a given traffic distribution group. </p><p>For more information about updating a traffic distribution group, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html">Update telephony traffic distribution across Amazon Web Services Regions </a> in the <i>Amazon Connect Administrator Guide</i>. </p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectUpdateTrafficDistributionRequest</p>
@@ -23223,7 +23371,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Updates the traffic distribution for a given traffic distribution group. For more information about updating a traffic distribution group see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html">Update telephony traffic distribution across Amazon Web Services Regions </a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+                        <p>Updates the traffic distribution for a given traffic distribution group. </p><p>For more information about updating a traffic distribution group, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html">Update telephony traffic distribution across Amazon Web Services Regions </a> in the <i>Amazon Connect Administrator Guide</i>. </p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectUpdateTrafficDistributionRequest</p>
@@ -24225,7 +24373,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-10-27)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-11-07)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
