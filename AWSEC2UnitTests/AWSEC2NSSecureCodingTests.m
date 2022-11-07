@@ -1315,6 +1315,8 @@
 - (void) test_AWSEC2NetworkAcl API_AVAILABLE(ios(11));
 - (void) test_AWSEC2NetworkAclAssociation API_AVAILABLE(ios(11));
 - (void) test_AWSEC2NetworkAclEntry API_AVAILABLE(ios(11));
+- (void) test_AWSEC2NetworkBandwidthGbps API_AVAILABLE(ios(11));
+- (void) test_AWSEC2NetworkBandwidthGbpsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2NetworkCardInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2NetworkInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2NetworkInsightsAccessScope API_AVAILABLE(ios(11));
@@ -6890,6 +6892,14 @@
 
 - (void) test_AWSEC2NetworkAclEntry {
     [self validateSecureCodingForClass:[AWSEC2NetworkAclEntry class]];
+}
+
+- (void) test_AWSEC2NetworkBandwidthGbps {
+    [self validateSecureCodingForClass:[AWSEC2NetworkBandwidthGbps class]];
+}
+
+- (void) test_AWSEC2NetworkBandwidthGbpsRequest {
+    [self validateSecureCodingForClass:[AWSEC2NetworkBandwidthGbpsRequest class]];
 }
 
 - (void) test_AWSEC2NetworkCardInfo {
