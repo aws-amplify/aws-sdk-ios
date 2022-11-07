@@ -2916,6 +2916,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2CancelCapacityReservationResult;
 @class AWSEC2CancelConversionRequest;
 @class AWSEC2CancelExportTaskRequest;
+@class AWSEC2CancelImageLaunchPermissionRequest;
+@class AWSEC2CancelImageLaunchPermissionResult;
 @class AWSEC2CancelImportTaskRequest;
 @class AWSEC2CancelImportTaskResult;
 @class AWSEC2CancelReservedInstancesListingRequest;
@@ -7433,6 +7435,37 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the export task. This is the ID returned by <code>CreateInstanceExportTask</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable exportTaskId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CancelImageLaunchPermissionRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the AMI that was shared with your Amazon Web Services account.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable imageId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CancelImageLaunchPermissionResult : AWSModel
+
+
+/**
+ <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable returned;
 
 @end
 
@@ -24836,7 +24869,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The date and time to deprecate the AMI, in UTC, in the following format: <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z. If you specify a value for seconds, Amazon EC2 rounds the seconds to the nearest minute.</p><p>You can’t specify a date in the past. The upper limit for <code>DeprecateAt</code> is 10 years from now.</p>
+ <p>The date and time to deprecate the AMI, in UTC, in the following format: <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z. If you specify a value for seconds, Amazon EC2 rounds the seconds to the nearest minute.</p><p>You can’t specify a date in the past. The upper limit for <code>DeprecateAt</code> is 10 years from now, except for public AMIs, where the upper limit is 2 years from the creation date.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable deprecateAt;
 
