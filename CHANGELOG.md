@@ -11,6 +11,13 @@
 ## 2.28.3
 
 ### New features
+
+- **AWSCore**
+  - Support for `eu-south-2` - Europe (Spain) (see [AWS Regional Services List](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for a list of services supported in the region)
+
+## 2.28.3
+
+### New features
 - **AWSCore**
   - Support for `eu-central-2` - Europe (Zurich) (see [AWS Regional Services List](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for a list of services supported in the region)
 
