@@ -6570,6 +6570,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"credentials" : @"Credentials",
+             @"signInUrl" : @"SignInUrl",
+             @"userArn" : @"UserArn",
+             @"userId" : @"UserId",
              };
 }
 

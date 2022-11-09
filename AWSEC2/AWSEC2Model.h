@@ -139,6 +139,7 @@ typedef NS_ENUM(NSInteger, AWSEC2ArchitectureType) {
     AWSEC2ArchitectureTypeX86_64,
     AWSEC2ArchitectureTypeArm64,
     AWSEC2ArchitectureTypeX8664Mac,
+    AWSEC2ArchitectureTypeArm64Mac,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2ArchitectureValues) {
@@ -147,6 +148,7 @@ typedef NS_ENUM(NSInteger, AWSEC2ArchitectureValues) {
     AWSEC2ArchitectureValuesX86_64,
     AWSEC2ArchitectureValuesArm64,
     AWSEC2ArchitectureValuesX8664Mac,
+    AWSEC2ArchitectureValuesArm64Mac,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2AssociatedNetworkType) {
@@ -1533,6 +1535,10 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeR6A_metal,
     AWSEC2InstanceTypeP4De_24xlarge,
     AWSEC2InstanceTypeU_3tb1_56xlarge,
+    AWSEC2InstanceTypeU_18tb1_112xlarge,
+    AWSEC2InstanceTypeU_24tb1_112xlarge,
+    AWSEC2InstanceTypeTRN1_2xlarge,
+    AWSEC2InstanceTypeTRN1_32xlarge,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2InstanceTypeHypervisor) {
