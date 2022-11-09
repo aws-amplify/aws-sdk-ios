@@ -1,17 +1,13 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSEC2
----AWSPolly
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
 
--Features for next release
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSAutoScaling
+  - AWSEC2
+  - AWSPolly
 
 ## 2.28.2
 
