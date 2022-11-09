@@ -134,6 +134,7 @@
 - (void) test_AWSAutoScalingMetricGranularityType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingMetricStat API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingMixedInstancesPolicy API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingNetworkBandwidthGbpsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingNetworkInterfaceCountRequest API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingNotificationConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingPoliciesType API_AVAILABLE(ios(11));
@@ -644,6 +645,10 @@
 
 - (void) test_AWSAutoScalingMixedInstancesPolicy {
     [self validateSecureCodingForClass:[AWSAutoScalingMixedInstancesPolicy class]];
+}
+
+- (void) test_AWSAutoScalingNetworkBandwidthGbpsRequest {
+    [self validateSecureCodingForClass:[AWSAutoScalingNetworkBandwidthGbpsRequest class]];
 }
 
 - (void) test_AWSAutoScalingNetworkInterfaceCountRequest {

@@ -350,6 +350,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @class AWSAutoScalingMetricGranularityType;
 @class AWSAutoScalingMetricStat;
 @class AWSAutoScalingMixedInstancesPolicy;
+@class AWSAutoScalingNetworkBandwidthGbpsRequest;
 @class AWSAutoScalingNetworkInterfaceCountRequest;
 @class AWSAutoScalingNotificationConfiguration;
 @class AWSAutoScalingPoliciesType;
@@ -1224,7 +1225,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable minSize;
 
 /**
- <p>An embedded object that specifies a mixed instances policy.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>The mixed instances policy. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSAutoScalingMixedInstancesPolicy * _Nullable mixedInstancesPolicy;
 
@@ -1282,12 +1283,12 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSArray<AWSAutoScalingBlockDeviceMapping *> * _Nullable blockDeviceMappings;
 
 /**
- <p><i>EC2-Classic retires on August 15, 2022. This property is not supported after that date.</i></p><p>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+ <p>Available for backward compatibility.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable classicLinkVPCId;
 
 /**
- <p><i>EC2-Classic retires on August 15, 2022. This property is not supported after that date.</i></p><p>The IDs of one or more security groups for the specified ClassicLink-enabled VPC.</p><p>If you specify the <code>ClassicLinkVPCId</code> property, you must specify <code>ClassicLinkVPCSecurityGroups</code>.</p>
+ <p>Available for backward compatibility.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable classicLinkVPCSecurityGroups;
 
@@ -2058,7 +2059,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) AWSAutoScalingLaunchTemplateSpecification * _Nullable launchTemplate;
 
 /**
- <p>Describes a mixed instances policy. A mixed instances policy contains the instance types that Amazon EC2 Auto Scaling can launch and other information that Amazon EC2 Auto Scaling can use to launch instances and help optimize your costs. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Use this structure to launch multiple instance types and On-Demand Instances and Spot Instances within a single Auto Scaling group.</p><p>A mixed instances policy contains information that Amazon EC2 Auto Scaling can use to launch instances and help optimize your costs. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSAutoScalingMixedInstancesPolicy * _Nullable mixedInstancesPolicy;
 
@@ -2655,14 +2656,14 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @end
 
 /**
- <p>When you specify multiple parameters, you get instance types that satisfy all of the specified parameters. If you specify multiple values for a parameter, you get instance types that satisfy any of the specified values.</p><p>Represents requirements for the types of instances that can be launched. You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>, but all other parameters are optional. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html">Creating an Auto Scaling group using attribute-based instance type selection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>The attributes for the instance types for a mixed instances policy. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.</p><p>When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.</p><p>To limit the list of instance types from which Amazon EC2 Auto Scaling can identify matching instance types, you can use one of the following parameters, but not both in the same request:</p><ul><li><p><code>AllowedInstanceTypes</code> - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.</p></li><li><p><code>ExcludedInstanceTypes</code> - The instance types to exclude from the list, even if they match your specified attributes.</p></li></ul><note><p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes are optional. Any unspecified optional attribute is set to its default.</p></note><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html">Creating an Auto Scaling group using attribute-based instance type selection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For help determining which instance types match your attributes before you apply them to your Auto Scaling group, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-get-instance-types-from-instance-requirements">Preview instance types with specified attributes</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
  Required parameters: [VCpuCount, MemoryMiB]
  */
 @interface AWSAutoScalingInstanceRequirements : AWSModel
 
 
 /**
- <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips) for an instance type.</p><p>To exclude accelerator-enabled instance types, set <code>Max</code> to <code>0</code>.</p><p>Default: No minimum or maximum</p>
+ <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips) for an instance type.</p><p>To exclude accelerator-enabled instance types, set <code>Max</code> to <code>0</code>.</p><p>Default: No minimum or maximum limits</p>
  */
 @property (nonatomic, strong) AWSAutoScalingAcceleratorCountRequest * _Nullable acceleratorCount;
 
@@ -2677,7 +2678,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable acceleratorNames;
 
 /**
- <p>The minimum and maximum total memory size for the accelerators on an instance type, in MiB.</p><p>Default: No minimum or maximum</p>
+ <p>The minimum and maximum total memory size for the accelerators on an instance type, in MiB.</p><p>Default: No minimum or maximum limits</p>
  */
 @property (nonatomic, strong) AWSAutoScalingAcceleratorTotalMemoryMiBRequest * _Nullable acceleratorTotalMemoryMiB;
 
@@ -2687,12 +2688,17 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable acceleratorTypes;
 
 /**
+ <p>The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.</p><p>You can use strings with one or more wild cards, represented by an asterisk (<code>*</code>), to allow an instance type, size, or generation. The following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>, <code>r*</code>, <code>*3*</code>.</p><p>For example, if you specify <code>c5*</code>, Amazon EC2 Auto Scaling will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify <code>m5a.*</code>, Amazon EC2 Auto Scaling will allow all the M5a instance types, but not the M5n instance types.</p><note><p>If you specify <code>AllowedInstanceTypes</code>, you can't specify <code>ExcludedInstanceTypes</code>.</p></note><p>Default: All instance types</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable allowedInstanceTypes;
+
+/**
  <p>Indicates whether bare metal instance types are included, excluded, or required.</p><p>Default: <code>excluded</code></p>
  */
 @property (nonatomic, assign) AWSAutoScalingBareMetal bareMetal;
 
 /**
- <p>The minimum and maximum baseline bandwidth performance for an instance type, in Mbps. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon EBS–optimized instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p><p>Default: No minimum or maximum</p>
+ <p>The minimum and maximum baseline bandwidth performance for an instance type, in Mbps. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon EBS–optimized instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p><p>Default: No minimum or maximum limits</p>
  */
 @property (nonatomic, strong) AWSAutoScalingBaselineEbsBandwidthMbpsRequest * _Nullable baselineEbsBandwidthMbps;
 
@@ -2707,7 +2713,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable cpuManufacturers;
 
 /**
- <p>Lists which instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (<code>*</code>). The following are examples: <code>c5*</code>, <code>m5a.*</code>, <code>r*</code>, <code>*3*</code>. </p><p>For example, if you specify <code>c5*</code>, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify <code>m5a.*</code>, you are excluding all the M5a instance types, but not the M5n instance types.</p><p>Default: No excluded instance types</p>
+ <p>The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (<code>*</code>), to exclude an instance family, type, size, or generation. The following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>, <code>r*</code>, <code>*3*</code>. </p><p>For example, if you specify <code>c5*</code>, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify <code>m5a.*</code>, Amazon EC2 Auto Scaling will exclude all the M5a instance types, but not the M5n instance types.</p><note><p>If you specify <code>ExcludedInstanceTypes</code>, you can't specify <code>AllowedInstanceTypes</code>.</p></note><p>Default: No excluded instance types</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable excludedInstanceTypes;
 
@@ -2727,7 +2733,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable localStorageTypes;
 
 /**
- <p>The minimum and maximum amount of memory per vCPU for an instance type, in GiB.</p><p>Default: No minimum or maximum</p>
+ <p>The minimum and maximum amount of memory per vCPU for an instance type, in GiB.</p><p>Default: No minimum or maximum limits</p>
  */
 @property (nonatomic, strong) AWSAutoScalingMemoryGiBPerVCpuRequest * _Nullable memoryGiBPerVCpu;
 
@@ -2737,7 +2743,12 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) AWSAutoScalingMemoryMiBRequest * _Nullable memoryMiB;
 
 /**
- <p>The minimum and maximum number of network interfaces for an instance type.</p><p>Default: No minimum or maximum</p>
+ <p>The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).</p><p>Default: No minimum or maximum limits</p>
+ */
+@property (nonatomic, strong) AWSAutoScalingNetworkBandwidthGbpsRequest * _Nullable networkBandwidthGbps;
+
+/**
+ <p>The minimum and maximum number of network interfaces for an instance type.</p><p>Default: No minimum or maximum limits</p>
  */
 @property (nonatomic, strong) AWSAutoScalingNetworkInterfaceCountRequest * _Nullable networkInterfaceCount;
 
@@ -2757,7 +2768,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable spotMaxPricePercentageOverLowestPrice;
 
 /**
- <p>The minimum and maximum total local storage size for an instance type, in GB.</p><p>Default: No minimum or maximum</p>
+ <p>The minimum and maximum total local storage size for an instance type, in GB.</p><p>Default: No minimum or maximum limits</p>
  */
 @property (nonatomic, strong) AWSAutoScalingTotalLocalStorageGBRequest * _Nullable totalLocalStorageGB;
 
@@ -2782,7 +2793,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @end
 
 /**
- <p>Describes an instances distribution for an Auto Scaling group.</p>
+ <p>Use this structure to specify the distribution of On-Demand Instances and Spot Instances and the allocation strategies used to fulfill On-Demand and Spot capacities for a mixed instances policy.</p>
  */
 @interface AWSAutoScalingInstancesDistribution : AWSModel
 
@@ -2813,7 +2824,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable spotInstancePools;
 
 /**
- <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. If you keep the value at its default (unspecified), Amazon EC2 Auto Scaling uses the On-Demand price as the maximum Spot price. To remove a value that you previously set, include the property but specify an empty string ("") for the value.</p><important><p>If your maximum price is lower than the Spot price for the instance types that you selected, your Spot Instances are not launched.</p></important><p>Valid Range: Minimum value of 0.001</p>
+ <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. If your maximum price is lower than the Spot price for the instance types that you selected, your Spot Instances are not launched. We do not recommend specifying a maximum price because it can lead to increased interruptions. When Spot Instances launch, you pay the current Spot price. To remove a maximum price that you previously set, include the property but specify an empty string ("") for the value.</p><important><p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify one.</p></important><p>Valid Range: Minimum value of 0.001</p>
  */
 @property (nonatomic, strong) NSString * _Nullable spotMaxPrice;
 
@@ -2837,12 +2848,12 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSArray<AWSAutoScalingBlockDeviceMapping *> * _Nullable blockDeviceMappings;
 
 /**
- <p><i>EC2-Classic retires on August 15, 2022. This property is not supported after that date.</i></p><p>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.</p>
+ <p>Available for backward compatibility.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable classicLinkVPCId;
 
 /**
- <p><i>EC2-Classic retires on August 15, 2022. This property is not supported after that date.</i></p><p>The IDs of one or more security groups for the VPC specified in <code>ClassicLinkVPCId</code>.</p>
+ <p>Available for backward compatibility.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable classicLinkVPCSecurityGroups;
 
@@ -2983,46 +2994,46 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @end
 
 /**
- <p>Describes a launch template and overrides. You specify these properties as part of a mixed instances policy. </p>
+ <p>Use this structure to specify the launch templates and instance types (overrides) for a mixed instances policy.</p>
  */
 @interface AWSAutoScalingLaunchTemplate : AWSModel
 
 
 /**
- <p>The launch template to use.</p>
+ <p>The launch template.</p>
  */
 @property (nonatomic, strong) AWSAutoScalingLaunchTemplateSpecification * _Nullable launchTemplateSpecification;
 
 /**
- <p>Any properties that you specify override the same properties in the launch template. If not provided, Amazon EC2 Auto Scaling uses the instance type or instance type requirements specified in the launch template when it launches an instance.</p><p>The overrides can include either one or more instance types or a set of instance requirements, but not both.</p>
+ <p>Any properties that you specify override the same properties in the launch template.</p>
  */
 @property (nonatomic, strong) NSArray<AWSAutoScalingLaunchTemplateOverrides *> * _Nullable overrides;
 
 @end
 
 /**
- <p>Describes an override for a launch template. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-configuring-overrides.html">Configuring overrides</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
+ <p>Use this structure to let Amazon EC2 Auto Scaling do the following when the Auto Scaling group has a mixed instances policy:</p><ul><li><p>Override the instance type that is specified in the launch template.</p></li><li><p>Use multiple instance types.</p></li></ul><p>Specify the instance types that you want, or define your instance requirements instead and let Amazon EC2 Auto Scaling provision the available instance types that meet your requirements. This can provide Amazon EC2 Auto Scaling with a larger selection of instance types to choose from when fulfilling Spot and On-Demand capacities. You can view which instance types are matched before you apply the instance requirements to your Auto Scaling group.</p><p>After you define your instance requirements, you don't have to keep updating these settings to get new EC2 instance types automatically. Amazon EC2 Auto Scaling uses the instance requirements of the Auto Scaling group to determine whether a new EC2 instance type can be used.</p>
  */
 @interface AWSAutoScalingLaunchTemplateOverrides : AWSModel
 
 
 /**
- <p>The instance requirements. When you specify instance requirements, Amazon EC2 Auto Scaling finds instance types that satisfy your requirements, and then uses your On-Demand and Spot allocation strategies to launch instances from these instance types, in the same way as when you specify a list of specific instance types. </p>
+ <p>The instance requirements. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.</p><p>You can specify up to four separate sets of instance requirements per Auto Scaling group. This is useful for provisioning instances from different Amazon Machine Images (AMIs) in the same Auto Scaling group. To do this, create the AMIs and create a new launch template for each AMI. Then, create a compatible set of instance requirements for each launch template. </p><note><p>If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceType</code>.</p></note>
  */
 @property (nonatomic, strong) AWSAutoScalingInstanceRequirements * _Nullable instanceRequirements;
 
 /**
- <p>The instance type, such as <code>m3.xlarge</code>. You must use an instance type that is supported in your requested Region and Availability Zones. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>The instance type, such as <code>m3.xlarge</code>. You must specify an instance type that is supported in your requested Region and Availability Zones. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>You can specify up to 40 instance types per Auto Scaling group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceType;
 
 /**
- <p>Provides a launch template for the specified instance type or instance requirements. For example, some instance types might require a launch template with a different AMI. If not provided, Amazon EC2 Auto Scaling uses the launch template that's defined for your mixed instances policy. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-launch-template-overrides.html">Specifying a different launch template for an instance type</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
+ <p>Provides a launch template for the specified instance type or set of instance requirements. For example, some instance types might require a launch template with a different AMI. If not provided, Amazon EC2 Auto Scaling uses the launch template that's specified in the <code>LaunchTemplate</code> definition. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-launch-template-overrides.html">Specifying a different launch template for an instance type</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p><p>You can specify up to 20 launch templates per Auto Scaling group. The launch templates specified in the overrides and in the <code>LaunchTemplate</code> definition count towards this limit.</p>
  */
 @property (nonatomic, strong) AWSAutoScalingLaunchTemplateSpecification * _Nullable launchTemplateSpecification;
 
 /**
- <p>The number of capacity units provided by the instance type specified in <code>InstanceType</code> in terms of virtual CPUs, memory, storage, throughput, or other relative performance characteristic. When a Spot or On-Demand Instance is launched, the capacity units count toward the desired capacity. Amazon EC2 Auto Scaling launches instances until the desired capacity is totally fulfilled, even if this results in an overage. For example, if there are two units remaining to fulfill capacity, and Amazon EC2 Auto Scaling can only launch an instance with a <code>WeightedCapacity</code> of five units, the instance is launched, and the desired capacity is exceeded by three units. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-instance-weighting.html">Configuring instance weighting for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. Value must be in the range of 1–999.</p>
+ <p>If you provide a list of instance types to use, you can specify the number of capacity units provided by each instance type in terms of virtual CPUs, memory, storage, throughput, or other relative performance characteristic. When a Spot or On-Demand Instance is launched, the capacity units count toward the desired capacity. Amazon EC2 Auto Scaling launches instances until the desired capacity is totally fulfilled, even if this results in an overage. For example, if there are two units remaining to fulfill capacity, and Amazon EC2 Auto Scaling can only launch an instance with a <code>WeightedCapacity</code> of five units, the instance is launched, and the desired capacity is exceeded by three units. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-instance-weighting.html">Configuring instance weighting for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. Value must be in the range of 1–999.</p><p>If you specify a value for <code>WeightedCapacity</code> for one instance type, you must specify a value for <code>WeightedCapacity</code> for all of them.</p><important><p>Every Auto Scaling group has three size parameters (<code>DesiredCapacity</code>, <code>MaxSize</code>, and <code>MinSize</code>). Usually, you set these sizes based on a specific number of instances. However, if you configure a mixed instances policy that defines weights for the instance types, you must specify these sizes with the same units that you use for weighting instances. </p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable weightedCapacity;
 
@@ -3373,7 +3384,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @end
 
 /**
- <p>Describes a mixed instances policy. A mixed instances policy contains the instance types that Amazon EC2 Auto Scaling can launch and other information that Amazon EC2 Auto Scaling can use to launch instances and help optimize your costs. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Use this structure to launch multiple instance types and On-Demand Instances and Spot Instances within a single Auto Scaling group.</p><p>A mixed instances policy contains information that Amazon EC2 Auto Scaling can use to launch instances and help optimize your costs. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
 @interface AWSAutoScalingMixedInstancesPolicy : AWSModel
 
@@ -3387,6 +3398,24 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
  <p>One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill On-Demand and Spot capacities.</p>
  */
 @property (nonatomic, strong) AWSAutoScalingLaunchTemplate * _Nullable launchTemplate;
+
+@end
+
+/**
+ <p>Specifies the minimum and maximum for the <code>NetworkBandwidthGbps</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p><note><p>Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth">Available instance bandwidth</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p></note>
+ */
+@interface AWSAutoScalingNetworkBandwidthGbpsRequest : AWSModel
+
+
+/**
+ <p>The maximum amount of network bandwidth, in gigabits per second (Gbps).</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable max;
+
+/**
+ <p>The minimum amount of network bandwidth, in gigabits per second (Gbps).</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable min;
 
 @end
 
@@ -4643,7 +4672,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable minSize;
 
 /**
- <p>An embedded object that specifies a mixed instances policy. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>The mixed instances policy. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSAutoScalingMixedInstancesPolicy * _Nullable mixedInstancesPolicy;
 
