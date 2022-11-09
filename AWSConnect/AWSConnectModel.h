@@ -1614,7 +1614,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p><p>Pattern: <code>^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$</code></p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -4322,6 +4322,21 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The credentials to use for federation.</p>
  */
 @property (nonatomic, strong) AWSConnectCredentials * _Nullable credentials;
+
+/**
+ <p>The URL to sign into the user's instance. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable signInUrl;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the user.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userArn;
+
+/**
+ <p>The identifier for the user.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userId;
 
 @end
 
@@ -7284,7 +7299,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
 /**
- <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance. You can provide the <code>InstanceId</code>, or the entire ARN.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
