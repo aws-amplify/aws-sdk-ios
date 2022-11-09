@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### New features
+- **AWSCore**
+  - Support for `eu-central-2` - Europe (Zurich) (see [AWS Regional Services List](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for a list of services supported in the region)
+
 ### Misc. Updates
 
 - Model updates for the following services
