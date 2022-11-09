@@ -6,6 +6,7 @@
 
 - Model updates for the following services
   - AWSAutoScaling
+  - AWSConnect
   - AWSEC2
   - AWSPolly
 
