@@ -1142,7 +1142,11 @@
         \"Liam\",\
         \"Pedro\",\
         \"Kajal\",\
-        \"Hiujin\"\
+        \"Hiujin\",\
+        \"Laura\",\
+        \"Elin\",\
+        \"Ida\",\
+        \"Suvi\"\
       ]\
     },\
     \"VoiceList\":{\
