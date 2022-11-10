@@ -17,7 +17,7 @@
     <a title="AWSEC2InstanceRequirementsRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSEC2 2.28.2 Docs</a> (78% documented)</p>
+        <p><a href="../index.html">AWSEC2 2.28.3 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -3917,6 +3917,12 @@
                 <a href="../Classes/AWSEC2NetworkAclEntry.html">AWSEC2NetworkAclEntry</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSEC2NetworkBandwidthGbps.html">AWSEC2NetworkBandwidthGbps</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2NetworkBandwidthGbpsRequest.html">AWSEC2NetworkBandwidthGbpsRequest</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSEC2NetworkCardInfo.html">AWSEC2NetworkCardInfo</a>
               </li>
               <li class="nav-group-task">
@@ -6001,7 +6007,7 @@
 
                 </div>
               </div>
-            <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.</p><p>When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.</p><note><p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes are optional. Any unspecified optional attribute is set to its default.</p></note><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
+            <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.</p><p>When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.</p><p>To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:</p><ul><li><p><code>AllowedInstanceTypes</code> - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.</p></li><li><p><code>ExcludedInstanceTypes</code> - The instance types to exclude from the list, even if they match your specified attributes.</p></li></ul><note><p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes are optional. Any unspecified optional attribute is set to its default.</p></note><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
 <p>Required parameters: [VCpuCount, MemoryMiB]</p>
 
@@ -6172,6 +6178,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSEC2InstanceRequirementsRequest(py)allowedInstanceTypes"></a>
+                    <a name="//apple_ref/objc/Property/allowedInstanceTypes" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSEC2InstanceRequirementsRequest(py)allowedInstanceTypes">allowedInstanceTypes</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.</p><p>You can use strings with one or more wild cards, represented by an asterisk (<code>*</code>), to allow an instance type, size, or generation. The following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>, <code>r*</code>, <code>*3*</code>.</p><p>For example, if you specify <code>c5*</code>,Amazon EC2 will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify <code>m5a.*</code>, Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.</p><note><p>If you specify <code>AllowedInstanceTypes</code>, you can&rsquo;t specify <code>ExcludedInstanceTypes</code>.</p></note><p>Default: All instance types</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">allowedInstanceTypes</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">allowedInstanceTypes</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSEC2InstanceRequirementsRequest(py)bareMetal"></a>
                     <a name="//apple_ref/objc/Property/bareMetal" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSEC2InstanceRequirementsRequest(py)bareMetal">bareMetal</a>
@@ -6310,7 +6348,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The instance types to exclude.</p><p>You can use strings with one or more wild cards, represented by an asterisk (<code>*</code>), to exclude an instance family, type, size, or generation. The following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>, <code>r*</code>, <code>*3*</code>.</p><p>For example, if you specify <code>c5*</code>,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify <code>m5a.*</code>, Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.</p><p>Default: No excluded instance types</p>
+                        <p>The instance types to exclude.</p><p>You can use strings with one or more wild cards, represented by an asterisk (<code>*</code>), to exclude an instance family, type, size, or generation. The following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>, <code>r*</code>, <code>*3*</code>.</p><p>For example, if you specify <code>c5*</code>,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify <code>m5a.*</code>, Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.</p><note><p>If you specify <code>ExcludedInstanceTypes</code>, you can&rsquo;t specify <code>AllowedInstanceTypes</code>.</p></note><p>Default: No excluded instance types</p>
 
                       </div>
                       <div class="declaration">
@@ -6483,6 +6521,38 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">memoryMiB</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSEC2MemoryMiBRequest.html">AWSEC2MemoryMiBRequest</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSEC2InstanceRequirementsRequest(py)networkBandwidthGbps"></a>
+                    <a name="//apple_ref/objc/Property/networkBandwidthGbps" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSEC2InstanceRequirementsRequest(py)networkBandwidthGbps">networkBandwidthGbps</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).</p><p>Default: No minimum or maximum limits</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSEC2NetworkBandwidthGbpsRequest.html">AWSEC2NetworkBandwidthGbpsRequest</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">networkBandwidthGbps</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">networkBandwidthGbps</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSEC2NetworkBandwidthGbpsRequest.html">AWSEC2NetworkBandwidthGbpsRequest</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -6686,7 +6756,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-11-07)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-11-10)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
