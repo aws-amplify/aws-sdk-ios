@@ -1233,6 +1233,34 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/distiller/project/AWSPolly/AWSPollyModel.h",
+      "line": 204,
+      "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdLaura",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPolly/AWSPollyModel.h",
+      "line": 205,
+      "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdElin",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPolly/AWSPollyModel.h",
+      "line": 206,
+      "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdIda",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPolly/AWSPollyModel.h",
+      "line": 207,
+      "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdSuvi",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/distiller/project/AWSPolly/AWSPollyResources.h",
       "line": 18,
       "symbol": "AWSPollyResources",
