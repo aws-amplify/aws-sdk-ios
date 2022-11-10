@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSAutoScalingProcessesType Class Reference</title>
+    <title>AWSAutoScalingNetworkBandwidthGbpsRequest Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSAutoScalingProcessesType" class="dashAnchor"></a>
-    <a title="AWSAutoScalingProcessesType Class Reference"></a>
+    <a name="//apple_ref/objc/Class/AWSAutoScalingNetworkBandwidthGbpsRequest" class="dashAnchor"></a>
+    <a title="AWSAutoScalingNetworkBandwidthGbpsRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSAutoScaling 2.28.3 Docs</a> (82% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSAutoScaling Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        AWSAutoScalingProcessesType Class Reference
+        AWSAutoScalingNetworkBandwidthGbpsRequest Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -639,20 +639,21 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSAutoScalingProcessesType</h1>
+            <h1>AWSAutoScalingNetworkBandwidthGbpsRequest</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSAutoScalingProcessesType</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSAutoScalingNetworkBandwidthGbpsRequest</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSAutoScalingProcessesType</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSAutoScalingNetworkBandwidthGbpsRequest</span></code></pre>
 
                 </div>
               </div>
-            
+            <p><p>Specifies the minimum and maximum for the <code>NetworkBandwidthGbps</code> object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p><note><p>Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth">Available instance bandwidth</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p></note></p>
+
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -660,9 +661,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSAutoScalingProcessesType(py)processes"></a>
-                    <a name="//apple_ref/objc/Property/processes" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSAutoScalingProcessesType(py)processes">processes</a>
+                    <a name="/c:objc(cs)AWSAutoScalingNetworkBandwidthGbpsRequest(py)max"></a>
+                    <a name="//apple_ref/objc/Property/max" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSAutoScalingNetworkBandwidthGbpsRequest(py)max">max</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -670,19 +671,51 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The names of the process types.</p>
+                        <p>The maximum amount of network bandwidth, in gigabits per second (Gbps).</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/AWSAutoScalingProcessType.html">AWSAutoScalingProcessType</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">processes</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">max</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">processes</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/AWSAutoScalingProcessType.html">AWSAutoScalingProcessType</a></span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">max</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSAutoScalingNetworkBandwidthGbpsRequest(py)min"></a>
+                    <a name="//apple_ref/objc/Property/min" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSAutoScalingNetworkBandwidthGbpsRequest(py)min">min</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The minimum amount of network bandwidth, in gigabits per second (Gbps).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">min</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">min</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
