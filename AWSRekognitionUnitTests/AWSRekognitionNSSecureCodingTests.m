@@ -85,8 +85,14 @@
 - (void) test_AWSRekognitionDetectCustomLabelsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionDetectFacesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionDetectFacesResponse API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionDetectLabelsImageBackground API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionDetectLabelsImageForeground API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionDetectLabelsImageProperties API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionDetectLabelsImagePropertiesSettings API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionDetectLabelsImageQuality API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionDetectLabelsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionDetectLabelsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionDetectLabelsSettings API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionDetectModerationLabelsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionDetectModerationLabelsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionDetectProtectiveEquipmentRequest API_AVAILABLE(ios(11));
@@ -98,6 +104,7 @@
 - (void) test_AWSRekognitionDistributeDataset API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionDistributeDatasetEntriesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionDistributeDatasetEntriesResponse API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionDominantColor API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionEmotion API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionEquipmentDetection API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionEvaluationResult API_AVAILABLE(ios(11));
@@ -110,6 +117,7 @@
 - (void) test_AWSRekognitionFaceRecord API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionFaceSearchSettings API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionGender API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionGeneralLabelsSettings API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionGeometry API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionGetCelebrityInfoRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionGetCelebrityInfoResponse API_AVAILABLE(ios(11));
@@ -143,6 +151,8 @@
 - (void) test_AWSRekognitionKinesisVideoStreamStartSelector API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionKnownGender API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionLabel API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionLabelAlias API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionLabelCategory API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionLabelDetection API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionLandmark API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionListCollectionsRequest API_AVAILABLE(ios(11));
@@ -519,12 +529,36 @@
     [self validateSecureCodingForClass:[AWSRekognitionDetectFacesResponse class]];
 }
 
+- (void) test_AWSRekognitionDetectLabelsImageBackground {
+    [self validateSecureCodingForClass:[AWSRekognitionDetectLabelsImageBackground class]];
+}
+
+- (void) test_AWSRekognitionDetectLabelsImageForeground {
+    [self validateSecureCodingForClass:[AWSRekognitionDetectLabelsImageForeground class]];
+}
+
+- (void) test_AWSRekognitionDetectLabelsImageProperties {
+    [self validateSecureCodingForClass:[AWSRekognitionDetectLabelsImageProperties class]];
+}
+
+- (void) test_AWSRekognitionDetectLabelsImagePropertiesSettings {
+    [self validateSecureCodingForClass:[AWSRekognitionDetectLabelsImagePropertiesSettings class]];
+}
+
+- (void) test_AWSRekognitionDetectLabelsImageQuality {
+    [self validateSecureCodingForClass:[AWSRekognitionDetectLabelsImageQuality class]];
+}
+
 - (void) test_AWSRekognitionDetectLabelsRequest {
     [self validateSecureCodingForClass:[AWSRekognitionDetectLabelsRequest class]];
 }
 
 - (void) test_AWSRekognitionDetectLabelsResponse {
     [self validateSecureCodingForClass:[AWSRekognitionDetectLabelsResponse class]];
+}
+
+- (void) test_AWSRekognitionDetectLabelsSettings {
+    [self validateSecureCodingForClass:[AWSRekognitionDetectLabelsSettings class]];
 }
 
 - (void) test_AWSRekognitionDetectModerationLabelsRequest {
@@ -569,6 +603,10 @@
 
 - (void) test_AWSRekognitionDistributeDatasetEntriesResponse {
     [self validateSecureCodingForClass:[AWSRekognitionDistributeDatasetEntriesResponse class]];
+}
+
+- (void) test_AWSRekognitionDominantColor {
+    [self validateSecureCodingForClass:[AWSRekognitionDominantColor class]];
 }
 
 - (void) test_AWSRekognitionEmotion {
@@ -617,6 +655,10 @@
 
 - (void) test_AWSRekognitionGender {
     [self validateSecureCodingForClass:[AWSRekognitionGender class]];
+}
+
+- (void) test_AWSRekognitionGeneralLabelsSettings {
+    [self validateSecureCodingForClass:[AWSRekognitionGeneralLabelsSettings class]];
 }
 
 - (void) test_AWSRekognitionGeometry {
@@ -749,6 +791,14 @@
 
 - (void) test_AWSRekognitionLabel {
     [self validateSecureCodingForClass:[AWSRekognitionLabel class]];
+}
+
+- (void) test_AWSRekognitionLabelAlias {
+    [self validateSecureCodingForClass:[AWSRekognitionLabelAlias class]];
+}
+
+- (void) test_AWSRekognitionLabelCategory {
+    [self validateSecureCodingForClass:[AWSRekognitionLabelCategory class]];
 }
 
 - (void) test_AWSRekognitionLabelDetection {
