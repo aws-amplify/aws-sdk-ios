@@ -8166,6 +8166,22 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTIssuerCertificateIdentifier
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"issuerCertificateSerialNumber" : @"issuerCertificateSerialNumber",
+             @"issuerCertificateSubject" : @"issuerCertificateSubject",
+             @"issuerId" : @"issuerId",
+             };
+}
+
+@end
+
 @implementation AWSIoTJob
 
 + (BOOL)supportsSecureCoding {
@@ -10614,6 +10630,41 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTListRelatedResourcesForAuditFindingRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"findingId" : @"findingId",
+             @"maxResults" : @"maxResults",
+             @"nextToken" : @"nextToken",
+             };
+}
+
+@end
+
+@implementation AWSIoTListRelatedResourcesForAuditFindingResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"nextToken",
+             @"relatedResources" : @"relatedResources",
+             };
+}
+
++ (NSValueTransformer *)relatedResourcesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTRelatedResource class]];
+}
+
+@end
+
 @implementation AWSIoTListRoleAliasesRequest
 
 + (BOOL)supportsSecureCoding {
@@ -12024,6 +12075,9 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
         if ([value caseInsensitiveCompare:@"IAM_ROLE"] == NSOrderedSame) {
             return @(AWSIoTResourceTypeIamRole);
         }
+        if ([value caseInsensitiveCompare:@"ISSUER_CERTIFICATE"] == NSOrderedSame) {
+            return @(AWSIoTResourceTypeIssuerCertificate);
+        }
         return @(AWSIoTResourceTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -12043,6 +12097,8 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
                 return @"ROLE_ALIAS";
             case AWSIoTResourceTypeIamRole:
                 return @"IAM_ROLE";
+            case AWSIoTResourceTypeIssuerCertificate:
+                return @"ISSUER_CERTIFICATE";
             default:
                 return nil;
         }
@@ -12881,6 +12937,9 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
         if ([value caseInsensitiveCompare:@"IAM_ROLE"] == NSOrderedSame) {
             return @(AWSIoTResourceTypeIamRole);
         }
+        if ([value caseInsensitiveCompare:@"ISSUER_CERTIFICATE"] == NSOrderedSame) {
+            return @(AWSIoTResourceTypeIssuerCertificate);
+        }
         return @(AWSIoTResourceTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -12900,6 +12959,8 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
                 return @"ROLE_ALIAS";
             case AWSIoTResourceTypeIamRole:
                 return @"IAM_ROLE";
+            case AWSIoTResourceTypeIssuerCertificate:
+                return @"ISSUER_CERTIFICATE";
             default:
                 return nil;
         }
@@ -13035,11 +13096,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"caCertificateId" : @"caCertificateId",
              @"clientId" : @"clientId",
              @"cognitoIdentityPoolId" : @"cognitoIdentityPoolId",
+             @"deviceCertificateArn" : @"deviceCertificateArn",
              @"deviceCertificateId" : @"deviceCertificateId",
              @"iamRoleArn" : @"iamRoleArn",
+             @"issuerCertificateIdentifier" : @"issuerCertificateIdentifier",
              @"policyVersionIdentifier" : @"policyVersionIdentifier",
              @"roleAliasArn" : @"roleAliasArn",
              };
+}
+
++ (NSValueTransformer *)issuerCertificateIdentifierJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTIssuerCertificateIdentifier class]];
 }
 
 + (NSValueTransformer *)policyVersionIdentifierJSONTransformer {

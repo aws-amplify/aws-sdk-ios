@@ -496,6 +496,7 @@ typedef NS_ENUM(NSInteger, AWSIoTResourceType) {
     AWSIoTResourceTypeAccountSettings,
     AWSIoTResourceTypeRoleAlias,
     AWSIoTResourceTypeIamRole,
+    AWSIoTResourceTypeIssuerCertificate,
 };
 
 typedef NS_ENUM(NSInteger, AWSIoTRetryableFailureType) {
@@ -910,6 +911,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTIotAnalyticsAction;
 @class AWSIoTIotEventsAction;
 @class AWSIoTIotSiteWiseAction;
+@class AWSIoTIssuerCertificateIdentifier;
 @class AWSIoTJob;
 @class AWSIoTJobExecution;
 @class AWSIoTJobExecutionStatusDetails;
@@ -995,6 +997,8 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTListProvisioningTemplateVersionsResponse;
 @class AWSIoTListProvisioningTemplatesRequest;
 @class AWSIoTListProvisioningTemplatesResponse;
+@class AWSIoTListRelatedResourcesForAuditFindingRequest;
+@class AWSIoTListRelatedResourcesForAuditFindingResponse;
 @class AWSIoTListRoleAliasesRequest;
 @class AWSIoTListRoleAliasesResponse;
 @class AWSIoTListScheduledAuditsRequest;
@@ -8534,6 +8538,29 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @end
 
 /**
+ <p>The certificate issuer indentifier.</p>
+ */
+@interface AWSIoTIssuerCertificateIdentifier : AWSModel
+
+
+/**
+ <p>The issuer certificate serial number.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable issuerCertificateSerialNumber;
+
+/**
+ <p>The subject of the issuer certificate.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable issuerCertificateSubject;
+
+/**
+ <p>The issuer ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable issuerId;
+
+@end
+
+/**
  <p>The <code>Job</code> object contains details about a job.</p>
  */
 @interface AWSIoTJob : AWSModel
@@ -10669,6 +10696,47 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>A list of provisioning templates</p>
  */
 @property (nonatomic, strong) NSArray<AWSIoTProvisioningTemplateSummary *> * _Nullable templates;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTListRelatedResourcesForAuditFindingRequest : AWSRequest
+
+
+/**
+ <p>The finding Id.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable findingId;
+
+/**
+ <p>The maximum number of results to return at one time.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTListRelatedResourcesForAuditFindingResponse : AWSModel
+
+
+/**
+ <p>A token that can be used to retrieve the next set of results, or <code>null</code> for the first API call.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The related resources.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSIoTRelatedResource *> * _Nullable relatedResources;
 
 @end
 
@@ -12908,6 +12976,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable cognitoIdentityPoolId;
 
 /**
+ <p>The ARN of the identified device certificate.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable deviceCertificateArn;
+
+/**
  <p>The ID of the certificate attached to the resource.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable deviceCertificateId;
@@ -12916,6 +12989,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The ARN of the IAM role that has overly permissive actions.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable iamRoleArn;
+
+/**
+ <p>The issuer certificate identifier.</p>
+ */
+@property (nonatomic, strong) AWSIoTIssuerCertificateIdentifier * _Nullable issuerCertificateIdentifier;
 
 /**
  <p>The version of the policy associated with the resource.</p>

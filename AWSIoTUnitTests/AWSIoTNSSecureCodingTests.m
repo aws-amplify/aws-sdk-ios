@@ -348,6 +348,7 @@
 - (void) test_AWSIoTIotAnalyticsAction API_AVAILABLE(ios(11));
 - (void) test_AWSIoTIotEventsAction API_AVAILABLE(ios(11));
 - (void) test_AWSIoTIotSiteWiseAction API_AVAILABLE(ios(11));
+- (void) test_AWSIoTIssuerCertificateIdentifier API_AVAILABLE(ios(11));
 - (void) test_AWSIoTJob API_AVAILABLE(ios(11));
 - (void) test_AWSIoTJobExecution API_AVAILABLE(ios(11));
 - (void) test_AWSIoTJobExecutionStatusDetails API_AVAILABLE(ios(11));
@@ -433,6 +434,8 @@
 - (void) test_AWSIoTListProvisioningTemplateVersionsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListProvisioningTemplatesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListProvisioningTemplatesResponse API_AVAILABLE(ios(11));
+- (void) test_AWSIoTListRelatedResourcesForAuditFindingRequest API_AVAILABLE(ios(11));
+- (void) test_AWSIoTListRelatedResourcesForAuditFindingResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListRoleAliasesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListRoleAliasesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListScheduledAuditsRequest API_AVAILABLE(ios(11));
@@ -1983,6 +1986,10 @@
     [self validateSecureCodingForClass:[AWSIoTIotSiteWiseAction class]];
 }
 
+- (void) test_AWSIoTIssuerCertificateIdentifier {
+    [self validateSecureCodingForClass:[AWSIoTIssuerCertificateIdentifier class]];
+}
+
 - (void) test_AWSIoTJob {
     [self validateSecureCodingForClass:[AWSIoTJob class]];
 }
@@ -2321,6 +2328,14 @@
 
 - (void) test_AWSIoTListProvisioningTemplatesResponse {
     [self validateSecureCodingForClass:[AWSIoTListProvisioningTemplatesResponse class]];
+}
+
+- (void) test_AWSIoTListRelatedResourcesForAuditFindingRequest {
+    [self validateSecureCodingForClass:[AWSIoTListRelatedResourcesForAuditFindingRequest class]];
+}
+
+- (void) test_AWSIoTListRelatedResourcesForAuditFindingResponse {
+    [self validateSecureCodingForClass:[AWSIoTListRelatedResourcesForAuditFindingResponse class]];
 }
 
 - (void) test_AWSIoTListRoleAliasesRequest {
