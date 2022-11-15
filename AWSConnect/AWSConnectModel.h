@@ -217,6 +217,7 @@ typedef NS_ENUM(NSInteger, AWSConnectInstanceAttributeType) {
     AWSConnectInstanceAttributeTypeEarlyMedia,
     AWSConnectInstanceAttributeTypeMultiPartyConference,
     AWSConnectInstanceAttributeTypeHighVolumeOutbound,
+    AWSConnectInstanceAttributeTypeEnhancedContactMonitoring,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectInstanceStatus) {
