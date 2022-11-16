@@ -606,6 +606,12 @@ static NSTimeInterval _clockskew = 0.0;
         return AWSRegionEUSouth1;
     }
 
+    if ([self isEqualToString:@"AWSRegionEUSouth2"]
+        || [self isEqualToString:@"EUSouth2"]
+        || [self isEqualToString:@"eu-south-2"]) {
+        return AWSRegionEUSouth2;
+    }
+
     return AWSRegionUnknown;
 }
 
