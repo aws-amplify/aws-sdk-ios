@@ -10,7 +10,7 @@
 - Model updates for the following services
   - AWSEC2
   - AWSAutoScaling
-  
+
 ## 2.28.3
 
 ### New features
