@@ -217,6 +217,7 @@ typedef NS_ENUM(NSInteger, AWSConnectInstanceAttributeType) {
     AWSConnectInstanceAttributeTypeEarlyMedia,
     AWSConnectInstanceAttributeTypeMultiPartyConference,
     AWSConnectInstanceAttributeTypeHighVolumeOutbound,
+    AWSConnectInstanceAttributeTypeEnhancedContactMonitoring,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectInstanceStatus) {
@@ -251,6 +252,12 @@ typedef NS_ENUM(NSInteger, AWSConnectLexVersion) {
     AWSConnectLexVersionUnknown,
     AWSConnectLexVersionV1,
     AWSConnectLexVersionV2,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectMonitorCapability) {
+    AWSConnectMonitorCapabilityUnknown,
+    AWSConnectMonitorCapabilitySilentMonitor,
+    AWSConnectMonitorCapabilityBarge,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectPhoneNumberCountryCode) {
@@ -941,6 +948,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectListUsersRequest;
 @class AWSConnectListUsersResponse;
 @class AWSConnectMediaConcurrency;
+@class AWSConnectMonitorContactRequest;
+@class AWSConnectMonitorContactResponse;
 @class AWSConnectNumberReference;
 @class AWSConnectOutboundCallerConfig;
 @class AWSConnectParticipantDetails;
@@ -4209,7 +4218,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) AWSConnectFilters * _Nullable filters;
 
 /**
- <p>The grouping applied to the metrics returned. For example, when grouped by <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all queues. If you group by <code>CHANNEL</code>, you should include a Channels filter. VOICE, CHAT, and TASK channels are supported.</p><p>If no <code>Grouping</code> is included in the request, a summary of metrics is returned.</p>
+ <p>The grouping applied to the metrics returned. For example, when grouped by <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all queues. </p><ul><li><p>If you group by <code>CHANNEL</code>, you should include a Channels filter. VOICE, CHAT, and TASK channels are supported.</p></li><li><p>If you group by <code>ROUTING_PROFILE</code>, you must include either a queue or routing profile filter.</p></li><li><p>If no <code>Grouping</code> is included in the request, a summary of metrics is returned.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable groupings;
 
@@ -6717,6 +6726,57 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ 
+ */
+@interface AWSConnectMonitorContactRequest : AWSRequest
+
+
+/**
+ <p>Specify which monitoring actions the user is allowed to take. For example, whether the user is allowed to escalate from silent monitoring to barge.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable allowedMonitorCapabilities;
+
+/**
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>The identifier of the contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier of the user account.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectMonitorContactResponse : AWSModel
+
+
+/**
+ <p>The ARN of the contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactArn;
+
+/**
+ <p>The identifier of the contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+@end
+
+/**
  <p>Information about a reference when the <code>referenceType</code> is <code>NUMBER</code>. Otherwise, null.</p>
  */
 @interface AWSConnectNumberReference : AWSModel
@@ -7036,7 +7096,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
- <p>The search criteria to be used to return queues.</p>
+ <p>The search criteria to be used to return queues.</p><note><p>The <code>name</code> and <code>description</code> fields support "contains" queries with a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths outside of this range will throw invalid results. </p></note>
  */
 @interface AWSConnectQueueSearchCriteria : AWSModel
 
@@ -7536,7 +7596,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
- <p>The search criteria to be used to return routing profiles.</p>
+ <p>The search criteria to be used to return routing profiles.</p><note><p>The <code>name</code> and <code>description</code> fields support "contains" queries with a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths outside of this range will throw invalid results. </p></note>
  */
 @interface AWSConnectRoutingProfileSearchCriteria : AWSModel
 
@@ -7696,7 +7756,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The search criteria to be used to return queues.</p>
+ <p>The search criteria to be used to return queues.</p><note><p>The <code>name</code> and <code>description</code> fields support "contains" queries with a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths outside of this range will throw invalid results. </p></note>
  */
 @property (nonatomic, strong) AWSConnectQueueSearchCriteria * _Nullable searchCriteria;
 
@@ -7752,7 +7812,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The search criteria to be used to return routing profiles.</p>
+ <p>The search criteria to be used to return routing profiles.</p><note><p>The <code>name</code> and <code>description</code> fields support "contains" queries with a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths outside of this range will throw invalid results. </p></note>
  */
 @property (nonatomic, strong) AWSConnectRoutingProfileSearchCriteria * _Nullable searchCriteria;
 
@@ -7808,7 +7868,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The search criteria to be used to return security profiles. </p><note><p>The currently supported value for <code>FieldName</code>: <code>name</code></p></note>
+ <p>The search criteria to be used to return security profiles. </p><note><p>The <code>name</code> field support "contains" queries with a minimum of 2 characters and maximum of 25 characters. Any queries with character lengths outside of this range will throw invalid results.</p></note><note><p>The currently supported value for <code>FieldName</code>: <code>name</code></p></note>
  */
 @property (nonatomic, strong) AWSConnectSecurityProfileSearchCriteria * _Nullable searchCriteria;
 
@@ -7864,7 +7924,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The search criteria to be used to return users.</p><note><p>The <code>Username</code>, <code>Firstname</code>, and <code>Lastname</code> fields support "contains" queries with a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths outside of this range result in empty results. </p></note>
+ <p>The search criteria to be used to return users.</p><note><p>The <code>name</code> and <code>description</code> fields support "contains" queries with a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths outside of this range will throw invalid results. </p></note>
  */
 @property (nonatomic, strong) AWSConnectUserSearchCriteria * _Nullable searchCriteria;
 
@@ -8016,7 +8076,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
- <p>The search criteria to be used to return security profiles.</p>
+ <p>The search criteria to be used to return security profiles.</p><note><p>The <code>name</code> field support "contains" queries with a minimum of 2 characters and maximum of 25 characters. Any queries with character lengths outside of this range will throw invalid results.</p></note>
  */
 @interface AWSConnectSecurityProfileSearchCriteria : AWSModel
 
@@ -10238,7 +10298,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
- <p>The search criteria to be used to return users.</p><note><p>The <code>Username</code>, <code>Firstname</code>, and <code>Lastname</code> fields support "contains" queries with a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths outside of this range result in empty results. </p></note>
+ <p>The search criteria to be used to return users.</p><note><p>The <code>name</code> and <code>description</code> fields support "contains" queries with a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths outside of this range will throw invalid results. </p></note>
  */
 @interface AWSConnectUserSearchCriteria : AWSModel
 

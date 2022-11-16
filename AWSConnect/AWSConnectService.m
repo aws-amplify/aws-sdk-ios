@@ -2709,6 +2709,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectMonitorContactResponse *> *)monitorContact:(AWSConnectMonitorContactRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/contact/monitor"
+                  targetPrefix:@""
+                 operationName:@"MonitorContact"
+                   outputClass:[AWSConnectMonitorContactResponse class]];
+}
+
+- (void)monitorContact:(AWSConnectMonitorContactRequest *)request
+     completionHandler:(void (^)(AWSConnectMonitorContactResponse *response, NSError *error))completionHandler {
+    [[self monitorContact:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectMonitorContactResponse *> * _Nonnull task) {
+        AWSConnectMonitorContactResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectPutUserStatusResponse *> *)putUserStatus:(AWSConnectPutUserStatusRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT

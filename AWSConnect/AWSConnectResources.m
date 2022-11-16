@@ -1885,6 +1885,25 @@
       ],\
       \"documentation\":\"<p>Provides summary information about the users for the specified Amazon Connect instance.</p>\"\
     },\
+    \"MonitorContact\":{\
+      \"name\":\"MonitorContact\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/contact/monitor\"\
+      },\
+      \"input\":{\"shape\":\"MonitorContactRequest\"},\
+      \"output\":{\"shape\":\"MonitorContactResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"IdempotencyException\"},\
+        {\"shape\":\"AccessDeniedException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ServiceQuotaExceededException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Initiates silent monitoring of a contact. The Contact Control Panel (CCP) of the user specified by <i>userId</i> will be set to silent monitoring mode on the contact.</p>\"\
+    },\
     \"PutUserStatus\":{\
       \"name\":\"PutUserStatus\",\
       \"http\":{\
@@ -3030,6 +3049,11 @@
       \"max\":100,\
       \"min\":1\
     },\
+    \"AllowedMonitorCapabilities\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"MonitorCapability\"},\
+      \"max\":2\
+    },\
     \"AnswerMachineDetectionConfig\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -3865,7 +3889,7 @@
           \"documentation\":\"<p>The message.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>The contact with the specified ID is not active or does not exist.</p>\",\
+      \"documentation\":\"<p>The contact with the specified ID is not active or does not exist. Applies to Voice calls only, not to Chat, Task, or Voice Callback.</p>\",\
       \"error\":{\"httpStatusCode\":410},\
       \"exception\":true\
     },\
@@ -6135,7 +6159,7 @@
         },\
         \"Groupings\":{\
           \"shape\":\"Groupings\",\
-          \"documentation\":\"<p>The grouping applied to the metrics returned. For example, when grouped by <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all queues. If you group by <code>CHANNEL</code>, you should include a Channels filter. VOICE, CHAT, and TASK channels are supported.</p> <p>If no <code>Grouping</code> is included in the request, a summary of metrics is returned.</p>\"\
+          \"documentation\":\"<p>The grouping applied to the metrics returned. For example, when grouped by <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all queues. </p> <ul> <li> <p>If you group by <code>CHANNEL</code>, you should include a Channels filter. VOICE, CHAT, and TASK channels are supported.</p> </li> <li> <p>If you group by <code>ROUTING_PROFILE</code>, you must include either a queue or routing profile filter.</p> </li> <li> <p>If no <code>Grouping</code> is included in the request, a summary of metrics is returned.</p> </li> </ul>\"\
         },\
         \"CurrentMetrics\":{\
           \"shape\":\"CurrentMetrics\",\
@@ -6957,7 +6981,8 @@
         \"USE_CUSTOM_TTS_VOICES\",\
         \"EARLY_MEDIA\",\
         \"MULTI_PARTY_CONFERENCE\",\
-        \"HIGH_VOLUME_OUTBOUND\"\
+        \"HIGH_VOLUME_OUTBOUND\",\
+        \"ENHANCED_CONTACT_MONITORING\"\
       ]\
     },\
     \"InstanceAttributeValue\":{\
@@ -8711,6 +8736,57 @@
       \"max\":59,\
       \"min\":0\
     },\
+    \"MonitorCapability\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"SILENT_MONITOR\",\
+        \"BARGE\"\
+      ]\
+    },\
+    \"MonitorContactRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"ContactId\",\
+        \"UserId\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\"\
+        },\
+        \"ContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact.</p>\"\
+        },\
+        \"UserId\":{\
+          \"shape\":\"AgentResourceId\",\
+          \"documentation\":\"<p>The identifier of the user account.</p>\"\
+        },\
+        \"AllowedMonitorCapabilities\":{\
+          \"shape\":\"AllowedMonitorCapabilities\",\
+          \"documentation\":\"<p>Specify which monitoring actions the user is allowed to take. For example, whether the user is allowed to escalate from silent monitoring to barge.</p>\"\
+        },\
+        \"ClientToken\":{\
+          \"shape\":\"ClientToken\",\
+          \"documentation\":\"<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\\\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\\\">Making retries safe with idempotent APIs</a>.</p>\",\
+          \"idempotencyToken\":true\
+        }\
+      }\
+    },\
+    \"MonitorContactResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact.</p>\"\
+        },\
+        \"ContactArn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The ARN of the contact.</p>\"\
+        }\
+      }\
+    },\
     \"Name\":{\
       \"type\":\"string\",\
       \"max\":512,\
@@ -9444,7 +9520,7 @@
           \"documentation\":\"<p>The type of queue.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>The search criteria to be used to return queues.</p>\"\
+      \"documentation\":\"<p>The search criteria to be used to return queues.</p> <note> <p>The <code>name</code> and <code>description</code> fields support \\\"contains\\\" queries with a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths outside of this range will throw invalid results. </p> </note>\"\
     },\
     \"QueueSearchFilter\":{\
       \"type\":\"structure\",\
@@ -10065,7 +10141,7 @@
         },\
         \"StringCondition\":{\"shape\":\"StringCondition\"}\
       },\
-      \"documentation\":\"<p>The search criteria to be used to return routing profiles.</p>\"\
+      \"documentation\":\"<p>The search criteria to be used to return routing profiles.</p> <note> <p>The <code>name</code> and <code>description</code> fields support \\\"contains\\\" queries with a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths outside of this range will throw invalid results. </p> </note>\"\
     },\
     \"RoutingProfileSearchFilter\":{\
       \"type\":\"structure\",\
@@ -10189,7 +10265,7 @@
         },\
         \"SearchCriteria\":{\
           \"shape\":\"QueueSearchCriteria\",\
-          \"documentation\":\"<p>The search criteria to be used to return queues.</p>\"\
+          \"documentation\":\"<p>The search criteria to be used to return queues.</p> <note> <p>The <code>name</code> and <code>description</code> fields support \\\"contains\\\" queries with a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths outside of this range will throw invalid results. </p> </note>\"\
         }\
       }\
     },\
@@ -10233,7 +10309,7 @@
         },\
         \"SearchCriteria\":{\
           \"shape\":\"RoutingProfileSearchCriteria\",\
-          \"documentation\":\"<p>The search criteria to be used to return routing profiles.</p>\"\
+          \"documentation\":\"<p>The search criteria to be used to return routing profiles.</p> <note> <p>The <code>name</code> and <code>description</code> fields support \\\"contains\\\" queries with a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths outside of this range will throw invalid results. </p> </note>\"\
         }\
       }\
     },\
@@ -10273,7 +10349,7 @@
         },\
         \"SearchCriteria\":{\
           \"shape\":\"SecurityProfileSearchCriteria\",\
-          \"documentation\":\"<p>The search criteria to be used to return security profiles. </p> <note> <p>The currently supported value for <code>FieldName</code>: <code>name</code> </p> </note>\"\
+          \"documentation\":\"<p>The search criteria to be used to return security profiles. </p> <note> <p>The <code>name</code> field support \\\"contains\\\" queries with a minimum of 2 characters and maximum of 25 characters. Any queries with character lengths outside of this range will throw invalid results.</p> </note> <note> <p>The currently supported value for <code>FieldName</code>: <code>name</code> </p> </note>\"\
         },\
         \"SearchFilter\":{\
           \"shape\":\"SecurityProfilesSearchFilter\",\
@@ -10473,7 +10549,7 @@
         },\
         \"StringCondition\":{\"shape\":\"StringCondition\"}\
       },\
-      \"documentation\":\"<p>The search criteria to be used to return security profiles.</p>\"\
+      \"documentation\":\"<p>The search criteria to be used to return security profiles.</p> <note> <p>The <code>name</code> field support \\\"contains\\\" queries with a minimum of 2 characters and maximum of 25 characters. Any queries with character lengths outside of this range will throw invalid results.</p> </note>\"\
     },\
     \"SecurityProfileSearchSummary\":{\
       \"type\":\"structure\",\
@@ -12799,7 +12875,7 @@
           \"documentation\":\"<p>A leaf node condition which can be used to specify a hierarchy group condition.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>The search criteria to be used to return users.</p> <note> <p>The <code>Username</code>, <code>Firstname</code>, and <code>Lastname</code> fields support \\\"contains\\\" queries with a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths outside of this range result in empty results. </p> </note>\"\
+      \"documentation\":\"<p>The search criteria to be used to return users.</p> <note> <p>The <code>name</code> and <code>description</code> fields support \\\"contains\\\" queries with a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths outside of this range will throw invalid results. </p> </note>\"\
     },\
     \"UserSearchFilter\":{\
       \"type\":\"structure\",\

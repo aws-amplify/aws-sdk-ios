@@ -806,6 +806,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"HIGH_VOLUME_OUTBOUND"] == NSOrderedSame) {
             return @(AWSConnectInstanceAttributeTypeHighVolumeOutbound);
         }
+        if ([value caseInsensitiveCompare:@"ENHANCED_CONTACT_MONITORING"] == NSOrderedSame) {
+            return @(AWSConnectInstanceAttributeTypeEnhancedContactMonitoring);
+        }
         return @(AWSConnectInstanceAttributeTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -827,6 +830,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"MULTI_PARTY_CONFERENCE";
             case AWSConnectInstanceAttributeTypeHighVolumeOutbound:
                 return @"HIGH_VOLUME_OUTBOUND";
+            case AWSConnectInstanceAttributeTypeEnhancedContactMonitoring:
+                return @"ENHANCED_CONTACT_MONITORING";
             default:
                 return nil;
         }
@@ -5594,6 +5599,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"HIGH_VOLUME_OUTBOUND"] == NSOrderedSame) {
             return @(AWSConnectInstanceAttributeTypeHighVolumeOutbound);
         }
+        if ([value caseInsensitiveCompare:@"ENHANCED_CONTACT_MONITORING"] == NSOrderedSame) {
+            return @(AWSConnectInstanceAttributeTypeEnhancedContactMonitoring);
+        }
         return @(AWSConnectInstanceAttributeTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -5615,6 +5623,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"MULTI_PARTY_CONFERENCE";
             case AWSConnectInstanceAttributeTypeHighVolumeOutbound:
                 return @"HIGH_VOLUME_OUTBOUND";
+            case AWSConnectInstanceAttributeTypeEnhancedContactMonitoring:
+                return @"ENHANCED_CONTACT_MONITORING";
             default:
                 return nil;
         }
@@ -10494,6 +10504,39 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSConnectMonitorContactRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"allowedMonitorCapabilities" : @"AllowedMonitorCapabilities",
+             @"clientToken" : @"ClientToken",
+             @"contactId" : @"ContactId",
+             @"instanceId" : @"InstanceId",
+             @"userId" : @"UserId",
+             };
+}
+
+@end
+
+@implementation AWSConnectMonitorContactResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"contactArn" : @"ContactArn",
+             @"contactId" : @"ContactId",
+             };
 }
 
 @end
@@ -15643,6 +15686,9 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"HIGH_VOLUME_OUTBOUND"] == NSOrderedSame) {
             return @(AWSConnectInstanceAttributeTypeHighVolumeOutbound);
         }
+        if ([value caseInsensitiveCompare:@"ENHANCED_CONTACT_MONITORING"] == NSOrderedSame) {
+            return @(AWSConnectInstanceAttributeTypeEnhancedContactMonitoring);
+        }
         return @(AWSConnectInstanceAttributeTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -15664,6 +15710,8 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"MULTI_PARTY_CONFERENCE";
             case AWSConnectInstanceAttributeTypeHighVolumeOutbound:
                 return @"HIGH_VOLUME_OUTBOUND";
+            case AWSConnectInstanceAttributeTypeEnhancedContactMonitoring:
+                return @"ENHANCED_CONTACT_MONITORING";
             default:
                 return nil;
         }
