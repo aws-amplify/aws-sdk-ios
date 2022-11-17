@@ -622,6 +622,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"provided.al2"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeProvidedAl2);
         }
+        if ([value caseInsensitiveCompare:@"nodejs18.x"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs18X);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -679,6 +682,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"provided";
             case AWSLambdaRuntimeProvidedAl2:
                 return @"provided.al2";
+            case AWSLambdaRuntimeNodejs18X:
+                return @"nodejs18.x";
             default:
                 return nil;
         }
@@ -1478,6 +1483,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"provided.al2"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeProvidedAl2);
         }
+        if ([value caseInsensitiveCompare:@"nodejs18.x"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs18X);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1535,6 +1543,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"provided";
             case AWSLambdaRuntimeProvidedAl2:
                 return @"provided.al2";
+            case AWSLambdaRuntimeNodejs18X:
+                return @"nodejs18.x";
             default:
                 return nil;
         }
@@ -2827,6 +2837,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"provided.al2"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeProvidedAl2);
         }
+        if ([value caseInsensitiveCompare:@"nodejs18.x"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs18X);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2884,6 +2897,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"provided";
             case AWSLambdaRuntimeProvidedAl2:
                 return @"provided.al2";
+            case AWSLambdaRuntimeNodejs18X:
+                return @"nodejs18.x";
             default:
                 return nil;
         }
@@ -3030,6 +3045,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"provided.al2"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeProvidedAl2);
         }
+        if ([value caseInsensitiveCompare:@"nodejs18.x"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs18X);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3087,6 +3105,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"provided";
             case AWSLambdaRuntimeProvidedAl2:
                 return @"provided.al2";
+            case AWSLambdaRuntimeNodejs18X:
+                return @"nodejs18.x";
             default:
                 return nil;
         }
@@ -3967,6 +3987,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"provided.al2"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeProvidedAl2);
         }
+        if ([value caseInsensitiveCompare:@"nodejs18.x"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs18X);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -4024,6 +4047,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"provided";
             case AWSLambdaRuntimeProvidedAl2:
                 return @"provided.al2";
+            case AWSLambdaRuntimeNodejs18X:
+                return @"nodejs18.x";
             default:
                 return nil;
         }
