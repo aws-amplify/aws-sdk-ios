@@ -1,3 +1,16 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSTextract
+---AWSEC2
+---AWSLambda
+---AWSSTS
+---AWSElasticLoadBalancingv2
+---AWSPolly
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
