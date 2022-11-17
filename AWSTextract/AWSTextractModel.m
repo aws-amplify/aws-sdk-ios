@@ -240,6 +240,9 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
         if ([value caseInsensitiveCompare:@"QUERY_RESULT"] == NSOrderedSame) {
             return @(AWSTextractBlockTypeQueryResult);
         }
+        if ([value caseInsensitiveCompare:@"SIGNATURE"] == NSOrderedSame) {
+            return @(AWSTextractBlockTypeSignature);
+        }
         return @(AWSTextractBlockTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -265,6 +268,8 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
                 return @"QUERY";
             case AWSTextractBlockTypeQueryResult:
                 return @"QUERY_RESULT";
+            case AWSTextractBlockTypeSignature:
+                return @"SIGNATURE";
             default:
                 return nil;
         }
