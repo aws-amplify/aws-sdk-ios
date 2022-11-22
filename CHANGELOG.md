@@ -4,6 +4,10 @@
 
 -Features for next release
 
+## 2.28.5
+
+-Features for next release
+
 - **AWSCore**
   - Support for `ap-south-2` - Asia Pacific (Hyderabad) (see [AWS Regional Services List](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for a list of services supported in the region)
 
