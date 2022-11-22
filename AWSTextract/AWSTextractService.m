@@ -25,7 +25,7 @@
 #import "AWSTextractResources.h"
 
 static NSString *const AWSInfoTextract = @"Textract";
-NSString *const AWSTextractSDKVersion = @"2.28.4";
+NSString *const AWSTextractSDKVersion = @"2.28.5";
 
 
 @interface AWSTextractResponseSerializer : AWSJSONResponseSerializer
