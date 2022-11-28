@@ -1,3 +1,15 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSIoT
+---AWSCloudWatchLogs
+---AWSTranscribe
+---AWSTextract
+---AWSIoTDataPlane
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
