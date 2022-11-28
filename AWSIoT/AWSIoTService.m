@@ -4105,6 +4105,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTListRelatedResourcesForAuditFindingResponse *> *)listRelatedResourcesForAuditFinding:(AWSIoTListRelatedResourcesForAuditFindingRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/audit/relatedResources"
+                  targetPrefix:@""
+                 operationName:@"ListRelatedResourcesForAuditFinding"
+                   outputClass:[AWSIoTListRelatedResourcesForAuditFindingResponse class]];
+}
+
+- (void)listRelatedResourcesForAuditFinding:(AWSIoTListRelatedResourcesForAuditFindingRequest *)request
+     completionHandler:(void (^)(AWSIoTListRelatedResourcesForAuditFindingResponse *response, NSError *error))completionHandler {
+    [[self listRelatedResourcesForAuditFinding:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListRelatedResourcesForAuditFindingResponse *> * _Nonnull task) {
+        AWSIoTListRelatedResourcesForAuditFindingResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTListRoleAliasesResponse *> *)listRoleAliases:(AWSIoTListRoleAliasesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
