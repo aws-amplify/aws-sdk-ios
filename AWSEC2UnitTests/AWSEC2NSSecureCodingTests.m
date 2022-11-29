@@ -111,6 +111,8 @@
 - (void) test_AWSEC2AttachVolumeRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AttachVpnGatewayRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AttachVpnGatewayResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2AttachmentEnaSrdSpecification API_AVAILABLE(ios(11));
+- (void) test_AWSEC2AttachmentEnaSrdUdpSpecification API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AttributeBooleanValue API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AttributeValue API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AuthorizationRule API_AVAILABLE(ios(11));
@@ -367,6 +369,8 @@
 - (void) test_AWSEC2CreditSpecification API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreditSpecificationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CustomerGateway API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DataQuery API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DataResponse API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteCarrierGatewayRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteCarrierGatewayResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteClientVpnEndpointRequest API_AVAILABLE(ios(11));
@@ -515,6 +519,8 @@
 - (void) test_AWSEC2DescribeAggregateIdFormatResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeAvailabilityZonesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeAvailabilityZonesResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeBundleTasksRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeBundleTasksResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeByoipCidrsRequest API_AVAILABLE(ios(11));
@@ -791,6 +797,8 @@
 - (void) test_AWSEC2DirectoryServiceAuthenticationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableAddressTransferRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableAddressTransferResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableEbsEncryptionByDefaultRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableEbsEncryptionByDefaultResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisableFastLaunchRequest API_AVAILABLE(ios(11));
@@ -859,8 +867,12 @@
 - (void) test_AWSEC2ElasticGpus API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ElasticInferenceAccelerator API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ElasticInferenceAcceleratorAssociation API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EnaSrdSpecification API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EnaSrdUdpSpecification API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableAddressTransferRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableAddressTransferResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableEbsEncryptionByDefaultRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableEbsEncryptionByDefaultResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableFastLaunchRequest API_AVAILABLE(ios(11));
@@ -875,6 +887,8 @@
 - (void) test_AWSEC2EnableImageDeprecationResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableIpamOrganizationAdminAccountRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableIpamOrganizationAdminAccountResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EnableReachabilityAnalyzerOrganizationSharingRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EnableReachabilityAnalyzerOrganizationSharingResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableSerialConsoleAccessRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableSerialConsoleAccessResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableTransitGatewayRouteTablePropagationRequest API_AVAILABLE(ios(11));
@@ -935,6 +949,8 @@
 - (void) test_AWSEC2GetAssociatedEnclaveCertificateIamRolesResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetAssociatedIpv6PoolCidrsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetAssociatedIpv6PoolCidrsResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetAwsNetworkPerformanceDataRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetAwsNetworkPerformanceDataResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetCapacityReservationUsageRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetCapacityReservationUsageResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetCoipPoolUsageRequest API_AVAILABLE(ios(11));
@@ -1196,6 +1212,7 @@
 - (void) test_AWSEC2MemoryInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2MemoryMiB API_AVAILABLE(ios(11));
 - (void) test_AWSEC2MemoryMiBRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2MetricPoint API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ModifyAddressAttributeRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ModifyAddressAttributeResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ModifyAvailabilityZoneGroupRequest API_AVAILABLE(ios(11));
@@ -1578,6 +1595,7 @@
 - (void) test_AWSEC2SubnetCidrBlockState API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SubnetCidrReservation API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SubnetIpv6CidrBlockAssociation API_AVAILABLE(ios(11));
+- (void) test_AWSEC2Subscription API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SuccessfulInstanceCreditSpecificationItem API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SuccessfulQueuedPurchaseDeletion API_AVAILABLE(ios(11));
 - (void) test_AWSEC2Tag API_AVAILABLE(ios(11));
@@ -2076,6 +2094,14 @@
 
 - (void) test_AWSEC2AttachVpnGatewayResult {
     [self validateSecureCodingForClass:[AWSEC2AttachVpnGatewayResult class]];
+}
+
+- (void) test_AWSEC2AttachmentEnaSrdSpecification {
+    [self validateSecureCodingForClass:[AWSEC2AttachmentEnaSrdSpecification class]];
+}
+
+- (void) test_AWSEC2AttachmentEnaSrdUdpSpecification {
+    [self validateSecureCodingForClass:[AWSEC2AttachmentEnaSrdUdpSpecification class]];
 }
 
 - (void) test_AWSEC2AttributeBooleanValue {
@@ -3102,6 +3128,14 @@
     [self validateSecureCodingForClass:[AWSEC2CustomerGateway class]];
 }
 
+- (void) test_AWSEC2DataQuery {
+    [self validateSecureCodingForClass:[AWSEC2DataQuery class]];
+}
+
+- (void) test_AWSEC2DataResponse {
+    [self validateSecureCodingForClass:[AWSEC2DataResponse class]];
+}
+
 - (void) test_AWSEC2DeleteCarrierGatewayRequest {
     [self validateSecureCodingForClass:[AWSEC2DeleteCarrierGatewayRequest class]];
 }
@@ -3692,6 +3726,14 @@
 
 - (void) test_AWSEC2DescribeAvailabilityZonesResult {
     [self validateSecureCodingForClass:[AWSEC2DescribeAvailabilityZonesResult class]];
+}
+
+- (void) test_AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsRequest {
+    [self validateSecureCodingForClass:[AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsRequest class]];
+}
+
+- (void) test_AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsResult {
+    [self validateSecureCodingForClass:[AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsResult class]];
 }
 
 - (void) test_AWSEC2DescribeBundleTasksRequest {
@@ -4798,6 +4840,14 @@
     [self validateSecureCodingForClass:[AWSEC2DisableAddressTransferResult class]];
 }
 
+- (void) test_AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionRequest {
+    [self validateSecureCodingForClass:[AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionRequest class]];
+}
+
+- (void) test_AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionResult {
+    [self validateSecureCodingForClass:[AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionResult class]];
+}
+
 - (void) test_AWSEC2DisableEbsEncryptionByDefaultRequest {
     [self validateSecureCodingForClass:[AWSEC2DisableEbsEncryptionByDefaultRequest class]];
 }
@@ -5070,12 +5120,28 @@
     [self validateSecureCodingForClass:[AWSEC2ElasticInferenceAcceleratorAssociation class]];
 }
 
+- (void) test_AWSEC2EnaSrdSpecification {
+    [self validateSecureCodingForClass:[AWSEC2EnaSrdSpecification class]];
+}
+
+- (void) test_AWSEC2EnaSrdUdpSpecification {
+    [self validateSecureCodingForClass:[AWSEC2EnaSrdUdpSpecification class]];
+}
+
 - (void) test_AWSEC2EnableAddressTransferRequest {
     [self validateSecureCodingForClass:[AWSEC2EnableAddressTransferRequest class]];
 }
 
 - (void) test_AWSEC2EnableAddressTransferResult {
     [self validateSecureCodingForClass:[AWSEC2EnableAddressTransferResult class]];
+}
+
+- (void) test_AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionRequest {
+    [self validateSecureCodingForClass:[AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionRequest class]];
+}
+
+- (void) test_AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionResult {
+    [self validateSecureCodingForClass:[AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionResult class]];
 }
 
 - (void) test_AWSEC2EnableEbsEncryptionByDefaultRequest {
@@ -5132,6 +5198,14 @@
 
 - (void) test_AWSEC2EnableIpamOrganizationAdminAccountResult {
     [self validateSecureCodingForClass:[AWSEC2EnableIpamOrganizationAdminAccountResult class]];
+}
+
+- (void) test_AWSEC2EnableReachabilityAnalyzerOrganizationSharingRequest {
+    [self validateSecureCodingForClass:[AWSEC2EnableReachabilityAnalyzerOrganizationSharingRequest class]];
+}
+
+- (void) test_AWSEC2EnableReachabilityAnalyzerOrganizationSharingResult {
+    [self validateSecureCodingForClass:[AWSEC2EnableReachabilityAnalyzerOrganizationSharingResult class]];
 }
 
 - (void) test_AWSEC2EnableSerialConsoleAccessRequest {
@@ -5372,6 +5446,14 @@
 
 - (void) test_AWSEC2GetAssociatedIpv6PoolCidrsResult {
     [self validateSecureCodingForClass:[AWSEC2GetAssociatedIpv6PoolCidrsResult class]];
+}
+
+- (void) test_AWSEC2GetAwsNetworkPerformanceDataRequest {
+    [self validateSecureCodingForClass:[AWSEC2GetAwsNetworkPerformanceDataRequest class]];
+}
+
+- (void) test_AWSEC2GetAwsNetworkPerformanceDataResult {
+    [self validateSecureCodingForClass:[AWSEC2GetAwsNetworkPerformanceDataResult class]];
 }
 
 - (void) test_AWSEC2GetCapacityReservationUsageRequest {
@@ -6416,6 +6498,10 @@
 
 - (void) test_AWSEC2MemoryMiBRequest {
     [self validateSecureCodingForClass:[AWSEC2MemoryMiBRequest class]];
+}
+
+- (void) test_AWSEC2MetricPoint {
+    [self validateSecureCodingForClass:[AWSEC2MetricPoint class]];
 }
 
 - (void) test_AWSEC2ModifyAddressAttributeRequest {
@@ -7944,6 +8030,10 @@
 
 - (void) test_AWSEC2SubnetIpv6CidrBlockAssociation {
     [self validateSecureCodingForClass:[AWSEC2SubnetIpv6CidrBlockAssociation class]];
+}
+
+- (void) test_AWSEC2Subscription {
+    [self validateSecureCodingForClass:[AWSEC2Subscription class]];
 }
 
 - (void) test_AWSEC2SuccessfulInstanceCreditSpecificationItem {

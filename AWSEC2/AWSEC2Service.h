@@ -1188,7 +1188,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)cancelExportTask:(AWSEC2CancelExportTaskRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Removes your Amazon Web Services account from the launch permissions for the specified AMI. For more information, see <a href="https://docs.aws.amazon.com/">Cancel sharing an AMI with your Amazon Web Services account</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Removes your Amazon Web Services account from the launch permissions for the specified AMI. For more information, see <a href="https://docs.aws.amazon.com/">Cancel having an AMI shared with your Amazon Web Services account</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CancelImageLaunchPermission service method.
 
@@ -1200,7 +1200,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CancelImageLaunchPermissionResult *> *)cancelImageLaunchPermission:(AWSEC2CancelImageLaunchPermissionRequest *)request;
 
 /**
- <p>Removes your Amazon Web Services account from the launch permissions for the specified AMI. For more information, see <a href="https://docs.aws.amazon.com/">Cancel sharing an AMI with your Amazon Web Services account</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Removes your Amazon Web Services account from the launch permissions for the specified AMI. For more information, see <a href="https://docs.aws.amazon.com/">Cancel having an AMI shared with your Amazon Web Services account</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CancelImageLaunchPermission service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1363,7 +1363,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)replicateFpgaImage:(AWSEC2ReplicateFpgaImageRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ReplicateFpgaImageResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Initiates the copy of an AMI. You can copy an AMI from one Region to another, or from a Region to an Outpost. You can't copy an AMI from an Outpost to a Region, from one Outpost to another, or within the same Outpost. To copy an AMI to another partition, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.</p><p>To copy an AMI from one Region to another, specify the source Region using the <b>SourceRegion</b> parameter, and specify the destination Region using its endpoint. Copies of encrypted backing snapshots for the AMI are encrypted. Copies of unencrypted backing snapshots remain unencrypted, unless you set <code>Encrypted</code> during the copy operation. You cannot create an unencrypted copy of an encrypted backing snapshot.</p><p>To copy an AMI from a Region to an Outpost, specify the source Region using the <b>SourceRegion</b> parameter, and specify the ARN of the destination Outpost using <b>DestinationOutpostArn</b>. Backing snapshots copied to an Outpost are encrypted by default using the default encryption key for the Region, or a different key that you specify in the request using <b>KmsKeyId</b>. Outposts do not support unencrypted snapshots. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami"> Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>For more information about the prerequisites and limits when copying an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copying an AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Initiates the copy of an AMI. You can copy an AMI from one Region to another, or from a Region to an Outpost. You can't copy an AMI from an Outpost to a Region, from one Outpost to another, or within the same Outpost. To copy an AMI to another partition, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.</p><p>To copy an AMI from one Region to another, specify the source Region using the <b>SourceRegion</b> parameter, and specify the destination Region using its endpoint. Copies of encrypted backing snapshots for the AMI are encrypted. Copies of unencrypted backing snapshots remain unencrypted, unless you set <code>Encrypted</code> during the copy operation. You cannot create an unencrypted copy of an encrypted backing snapshot.</p><p>To copy an AMI from a Region to an Outpost, specify the source Region using the <b>SourceRegion</b> parameter, and specify the ARN of the destination Outpost using <b>DestinationOutpostArn</b>. Backing snapshots copied to an Outpost are encrypted by default using the default encryption key for the Region, or a different key that you specify in the request using <b>KmsKeyId</b>. Outposts do not support unencrypted snapshots. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami"> Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>For more information about the prerequisites and limits when copying an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copy an AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CopyImage service method.
 
@@ -1375,7 +1375,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2ReplicateImageResult *> *)replicateImage:(AWSEC2ReplicateImageRequest *)request;
 
 /**
- <p>Initiates the copy of an AMI. You can copy an AMI from one Region to another, or from a Region to an Outpost. You can't copy an AMI from an Outpost to a Region, from one Outpost to another, or within the same Outpost. To copy an AMI to another partition, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.</p><p>To copy an AMI from one Region to another, specify the source Region using the <b>SourceRegion</b> parameter, and specify the destination Region using its endpoint. Copies of encrypted backing snapshots for the AMI are encrypted. Copies of unencrypted backing snapshots remain unencrypted, unless you set <code>Encrypted</code> during the copy operation. You cannot create an unencrypted copy of an encrypted backing snapshot.</p><p>To copy an AMI from a Region to an Outpost, specify the source Region using the <b>SourceRegion</b> parameter, and specify the ARN of the destination Outpost using <b>DestinationOutpostArn</b>. Backing snapshots copied to an Outpost are encrypted by default using the default encryption key for the Region, or a different key that you specify in the request using <b>KmsKeyId</b>. Outposts do not support unencrypted snapshots. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami"> Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>For more information about the prerequisites and limits when copying an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copying an AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Initiates the copy of an AMI. You can copy an AMI from one Region to another, or from a Region to an Outpost. You can't copy an AMI from an Outpost to a Region, from one Outpost to another, or within the same Outpost. To copy an AMI to another partition, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.</p><p>To copy an AMI from one Region to another, specify the source Region using the <b>SourceRegion</b> parameter, and specify the destination Region using its endpoint. Copies of encrypted backing snapshots for the AMI are encrypted. Copies of unencrypted backing snapshots remain unencrypted, unless you set <code>Encrypted</code> during the copy operation. You cannot create an unencrypted copy of an encrypted backing snapshot.</p><p>To copy an AMI from a Region to an Outpost, specify the source Region using the <b>SourceRegion</b> parameter, and specify the ARN of the destination Outpost using <b>DestinationOutpostArn</b>. Backing snapshots copied to an Outpost are encrypted by default using the default encryption key for the Region, or a different key that you specify in the request using <b>KmsKeyId</b>. Outposts do not support unencrypted snapshots. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami"> Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>For more information about the prerequisites and limits when copying an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copy an AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CopyImage service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1788,7 +1788,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createFpgaImage:(AWSEC2CreateFpgaImageRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateFpgaImageResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is either running or stopped.</p><p>By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it can take snapshots of the attached volumes while data is at rest, in order to ensure a consistent state. You can set the <code>NoReboot</code> parameter to <code>true</code> in the API request, or use the <code>--no-reboot</code> option in the CLI to prevent Amazon EC2 from shutting down and rebooting the instance.</p><important><p>If you choose to bypass the shutdown and reboot process by setting the <code>NoReboot</code> parameter to <code>true</code> in the API request, or by using the <code>--no-reboot</code> option in the CLI, we can't guarantee the file system integrity of the created image.</p></important><p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the new AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI, the instance automatically launches with those additional volumes.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating Amazon EBS-Backed Linux AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is either running or stopped.</p><p>By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it can take snapshots of the attached volumes while data is at rest, in order to ensure a consistent state. You can set the <code>NoReboot</code> parameter to <code>true</code> in the API request, or use the <code>--no-reboot</code> option in the CLI to prevent Amazon EC2 from shutting down and rebooting the instance.</p><important><p>If you choose to bypass the shutdown and reboot process by setting the <code>NoReboot</code> parameter to <code>true</code> in the API request, or by using the <code>--no-reboot</code> option in the CLI, we can't guarantee the file system integrity of the created image.</p></important><p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the new AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI, the instance automatically launches with those additional volumes.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Create an Amazon EBS-backed Linux AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateImage service method.
 
@@ -1800,7 +1800,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateImageResult *> *)createImage:(AWSEC2CreateImageRequest *)request;
 
 /**
- <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is either running or stopped.</p><p>By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it can take snapshots of the attached volumes while data is at rest, in order to ensure a consistent state. You can set the <code>NoReboot</code> parameter to <code>true</code> in the API request, or use the <code>--no-reboot</code> option in the CLI to prevent Amazon EC2 from shutting down and rebooting the instance.</p><important><p>If you choose to bypass the shutdown and reboot process by setting the <code>NoReboot</code> parameter to <code>true</code> in the API request, or by using the <code>--no-reboot</code> option in the CLI, we can't guarantee the file system integrity of the created image.</p></important><p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the new AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI, the instance automatically launches with those additional volumes.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating Amazon EBS-Backed Linux AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is either running or stopped.</p><p>By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it can take snapshots of the attached volumes while data is at rest, in order to ensure a consistent state. You can set the <code>NoReboot</code> parameter to <code>true</code> in the API request, or use the <code>--no-reboot</code> option in the CLI to prevent Amazon EC2 from shutting down and rebooting the instance.</p><important><p>If you choose to bypass the shutdown and reboot process by setting the <code>NoReboot</code> parameter to <code>true</code> in the API request, or by using the <code>--no-reboot</code> option in the CLI, we can't guarantee the file system integrity of the created image.</p></important><p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the new AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI, the instance automatically launches with those additional volumes.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Create an Amazon EBS-backed Linux AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateImage service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2385,7 +2385,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createPublicIpv4Pool:(AWSEC2CreatePublicIpv4PoolRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreatePublicIpv4PoolResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Replaces the EBS-backed root volume for a <code>running</code> instance with a new volume that is restored to the original root volume's launch state, that is restored to a specific snapshot taken from the original root volume, or that is restored from an AMI that has the same key characteristics as that of the instance.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Replaces the EBS-backed root volume for a <code>running</code> instance with a new volume that is restored to the original root volume's launch state, that is restored to a specific snapshot taken from the original root volume, or that is restored from an AMI that has the same key characteristics as that of the instance.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateReplaceRootVolumeTask service method.
 
@@ -2397,7 +2397,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateReplaceRootVolumeTaskResult *> *)createReplaceRootVolumeTask:(AWSEC2CreateReplaceRootVolumeTaskRequest *)request;
 
 /**
- <p>Replaces the EBS-backed root volume for a <code>running</code> instance with a new volume that is restored to the original root volume's launch state, that is restored to a specific snapshot taken from the original root volume, or that is restored from an AMI that has the same key characteristics as that of the instance.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Replaces the EBS-backed root volume for a <code>running</code> instance with a new volume that is restored to the original root volume's launch state, that is restored to a specific snapshot taken from the original root volume, or that is restored from an AMI that has the same key characteristics as that of the instance.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateReplaceRootVolumeTask service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5019,7 +5019,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deprovisionPublicIpv4PoolCidr:(AWSEC2DeprovisionPublicIpv4PoolCidrRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeprovisionPublicIpv4PoolCidrResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to launch new instances.</p><p>If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is retained in the Recycle Bin for the specified retention period. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in the Amazon Elastic Compute Cloud User Guide.</p><p>When you deregister an AMI, it doesn't affect any instances that you've already launched from the AMI. You'll continue to incur usage costs for those instances until you terminate them.</p><p>When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was created for the root volume of the instance during the AMI creation process. When you deregister an instance store-backed AMI, it doesn't affect the files that you uploaded to Amazon S3 when you created the AMI.</p>
+ <p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to launch new instances.</p><p>If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is retained in the Recycle Bin for the specified retention period. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>When you deregister an AMI, it doesn't affect any instances that you've already launched from the AMI. You'll continue to incur usage costs for those instances until you terminate them.</p><p>When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was created for the root volume of the instance during the AMI creation process. When you deregister an instance store-backed AMI, it doesn't affect the files that you uploaded to Amazon S3 when you created the AMI.</p>
  
  @param request A container for the necessary parameters to execute the DeregisterImage service method.
 
@@ -5030,7 +5030,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask *)deregisterImage:(AWSEC2DeregisterImageRequest *)request;
 
 /**
- <p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to launch new instances.</p><p>If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is retained in the Recycle Bin for the specified retention period. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in the Amazon Elastic Compute Cloud User Guide.</p><p>When you deregister an AMI, it doesn't affect any instances that you've already launched from the AMI. You'll continue to incur usage costs for those instances until you terminate them.</p><p>When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was created for the root volume of the instance during the AMI creation process. When you deregister an instance store-backed AMI, it doesn't affect the files that you uploaded to Amazon S3 when you created the AMI.</p>
+ <p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to launch new instances.</p><p>If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is retained in the Recycle Bin for the specified retention period. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>When you deregister an AMI, it doesn't affect any instances that you've already launched from the AMI. You'll continue to incur usage costs for those instances until you terminate them.</p><p>When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was created for the root volume of the instance during the AMI creation process. When you deregister an instance store-backed AMI, it doesn't affect the files that you uploaded to Amazon S3 when you created the AMI.</p>
  
  @param request A container for the necessary parameters to execute the DeregisterImage service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5264,6 +5264,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2DescribeAvailabilityZonesResult
  */
 - (void)describeAvailabilityZones:(AWSEC2DescribeAvailabilityZonesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeAvailabilityZonesResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes the curent Infrastructure Performance metric subscriptions.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeAwsNetworkPerformanceMetricSubscriptions service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsResult`.
+ 
+ @see AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsRequest
+ @see AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsResult
+ */
+- (AWSTask<AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsResult *> *)describeAwsNetworkPerformanceMetricSubscriptions:(AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsRequest *)request;
+
+/**
+ <p>Describes the curent Infrastructure Performance metric subscriptions.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeAwsNetworkPerformanceMetricSubscriptions service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsRequest
+ @see AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsResult
+ */
+- (void)describeAwsNetworkPerformanceMetricSubscriptions:(AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Describes the specified bundle tasks or all of your bundle tasks.</p><note><p>Completed bundle tasks are listed for only a limited time. If your bundle task is no longer in the list, you can still register an AMI from it. Just use <code>RegisterImage</code> with the Amazon S3 bucket name and image manifest name you provided to the bundle task.</p></note>
@@ -7141,7 +7166,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeRegions:(AWSEC2DescribeRegionsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeRegionsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes a root volume replacement task. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Describes a root volume replacement task. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeReplaceRootVolumeTasks service method.
 
@@ -7153,7 +7178,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeReplaceRootVolumeTasksResult *> *)describeReplaceRootVolumeTasks:(AWSEC2DescribeReplaceRootVolumeTasksRequest *)request;
 
 /**
- <p>Describes a root volume replacement task. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Describes a root volume replacement task. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeReplaceRootVolumeTasks service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -8657,6 +8682,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)disableAddressTransfer:(AWSEC2DisableAddressTransferRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisableAddressTransferResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Disables Infrastructure Performance metric subscriptions.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisableAwsNetworkPerformanceMetricSubscription service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionResult`.
+ 
+ @see AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionRequest
+ @see AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionResult
+ */
+- (AWSTask<AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionResult *> *)disableAwsNetworkPerformanceMetricSubscription:(AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionRequest *)request;
+
+/**
+ <p>Disables Infrastructure Performance metric subscriptions.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisableAwsNetworkPerformanceMetricSubscription service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionRequest
+ @see AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionResult
+ */
+- (void)disableAwsNetworkPerformanceMetricSubscription:(AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Disables EBS encryption by default for your account in the current Region.</p><p>After you disable encryption by default, you can still create encrypted volumes by enabling encryption when you create each volume.</p><p>Disabling encryption by default does not change the encryption status of your existing volumes.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DisableEbsEncryptionByDefault service method.
@@ -9223,6 +9273,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)enableAddressTransfer:(AWSEC2EnableAddressTransferRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2EnableAddressTransferResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Enables Infrastructure Performance subscriptions.</p>
+ 
+ @param request A container for the necessary parameters to execute the EnableAwsNetworkPerformanceMetricSubscription service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionResult`.
+ 
+ @see AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionRequest
+ @see AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionResult
+ */
+- (AWSTask<AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionResult *> *)enableAwsNetworkPerformanceMetricSubscription:(AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionRequest *)request;
+
+/**
+ <p>Enables Infrastructure Performance subscriptions.</p>
+ 
+ @param request A container for the necessary parameters to execute the EnableAwsNetworkPerformanceMetricSubscription service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionRequest
+ @see AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionResult
+ */
+- (void)enableAwsNetworkPerformanceMetricSubscription:(AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Enables EBS encryption by default for your account in the current Region.</p><p>After you enable encryption by default, the EBS volumes that you create are always encrypted, either using the default KMS key or the KMS key that you specified when you created each volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>You can specify the default KMS key for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a> or <a>ResetEbsDefaultKmsKeyId</a>.</p><p>Enabling encryption by default has no effect on the encryption status of your existing volumes.</p><p>After you enable encryption by default, you can no longer launch instances using instance types that do not support encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported instance types</a>.</p>
  
  @param request A container for the necessary parameters to execute the EnableEbsEncryptionByDefault service method.
@@ -9346,6 +9421,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2EnableIpamOrganizationAdminAccountResult
  */
 - (void)enableIpamOrganizationAdminAccount:(AWSEC2EnableIpamOrganizationAdminAccountRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2EnableIpamOrganizationAdminAccountResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ EnableReachabilityAnalyzerOrganizationSharing
+ 
+ @param request A container for the necessary parameters to execute the EnableReachabilityAnalyzerOrganizationSharing service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2EnableReachabilityAnalyzerOrganizationSharingResult`.
+ 
+ @see AWSEC2EnableReachabilityAnalyzerOrganizationSharingRequest
+ @see AWSEC2EnableReachabilityAnalyzerOrganizationSharingResult
+ */
+- (AWSTask<AWSEC2EnableReachabilityAnalyzerOrganizationSharingResult *> *)enableReachabilityAnalyzerOrganizationSharing:(AWSEC2EnableReachabilityAnalyzerOrganizationSharingRequest *)request;
+
+/**
+ EnableReachabilityAnalyzerOrganizationSharing
+ 
+ @param request A container for the necessary parameters to execute the EnableReachabilityAnalyzerOrganizationSharing service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2EnableReachabilityAnalyzerOrganizationSharingRequest
+ @see AWSEC2EnableReachabilityAnalyzerOrganizationSharingResult
+ */
+- (void)enableReachabilityAnalyzerOrganizationSharing:(AWSEC2EnableReachabilityAnalyzerOrganizationSharingRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2EnableReachabilityAnalyzerOrganizationSharingResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Enables access to the EC2 serial console of all instances for your account. By default, access to the EC2 serial console is disabled for your account. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access">Manage account access to the EC2 serial console</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -9640,6 +9740,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2GetAssociatedIpv6PoolCidrsResult
  */
 - (void)getAssociatedIpv6PoolCidrs:(AWSEC2GetAssociatedIpv6PoolCidrsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetAssociatedIpv6PoolCidrsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Gets network performance data.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetAwsNetworkPerformanceData service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetAwsNetworkPerformanceDataResult`.
+ 
+ @see AWSEC2GetAwsNetworkPerformanceDataRequest
+ @see AWSEC2GetAwsNetworkPerformanceDataResult
+ */
+- (AWSTask<AWSEC2GetAwsNetworkPerformanceDataResult *> *)getAwsNetworkPerformanceData:(AWSEC2GetAwsNetworkPerformanceDataRequest *)request;
+
+/**
+ <p>Gets network performance data.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetAwsNetworkPerformanceData service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetAwsNetworkPerformanceDataRequest
+ @see AWSEC2GetAwsNetworkPerformanceDataResult
+ */
+- (void)getAwsNetworkPerformanceData:(AWSEC2GetAwsNetworkPerformanceDataRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetAwsNetworkPerformanceDataResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Gets usage information about a Capacity Reservation. If the Capacity Reservation is shared, it shows usage information for the Capacity Reservation owner and each Amazon Web Services account that is currently using the shared capacity. If the Capacity Reservation is not shared, it shows only the Capacity Reservation owner's usage.</p>
@@ -12337,7 +12462,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)rebootInstances:(AWSEC2RebootInstancesRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Registers an AMI. When you're creating an AMI, this is the final step you must complete before you can launch an instance from the AMI. For more information about creating AMIs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Creating your own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><note><p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI in a single request, so you don't have to register the AMI yourself. We recommend that you always use <a>CreateImage</a> unless you have a specific reason to use RegisterImage.</p></note><p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration. If you make changes to an image, deregister the previous image and register the new image.</p><p><b>Register a snapshot of a root device volume</b></p><p>You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. You specify the snapshot using a block device mapping. You can't set the encryption state of the volume using the block device mapping. If the snapshot is encrypted, or encryption by default is enabled, the root volume of an instance launched from the AMI is encrypted.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create a Linux AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use encryption with Amazon EBS-backed AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p><b>Amazon Web Services Marketplace product codes</b></p><p>If any snapshots have Amazon Web Services Marketplace product codes, they are copied to the new AMI.</p><p>Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES), use the Amazon EC2 billing product code associated with an AMI to verify the subscription status for package updates. To create a new AMI for operating systems that require a billing product code, instead of registering the AMI, do the following to preserve the billing product code association:</p><ol><li><p>Launch an instance from an existing AMI with that billing product code.</p></li><li><p>Customize the instance.</p></li><li><p>Create an AMI from the instance using <a>CreateImage</a>.</p></li></ol><p>If you purchase a Reserved Instance to apply to an On-Demand Instance that was launched from an AMI with a billing product code, make sure that the Reserved Instance has the matching billing product code. If you purchase a Reserved Instance without the matching billing product code, the Reserved Instance will not be applied to the On-Demand Instance. For information about how to obtain the platform details and billing information of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understanding AMI billing</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Registers an AMI. When you're creating an AMI, this is the final step you must complete before you can launch an instance from the AMI. For more information about creating AMIs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Create your own AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><note><p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI in a single request, so you don't have to register the AMI yourself. We recommend that you always use <a>CreateImage</a> unless you have a specific reason to use RegisterImage.</p></note><p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration. If you make changes to an image, deregister the previous image and register the new image.</p><p><b>Register a snapshot of a root device volume</b></p><p>You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. You specify the snapshot using a block device mapping. You can't set the encryption state of the volume using the block device mapping. If the snapshot is encrypted, or encryption by default is enabled, the root volume of an instance launched from the AMI is encrypted.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create a Linux AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use encryption with Amazon EBS-backed AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p><b>Amazon Web Services Marketplace product codes</b></p><p>If any snapshots have Amazon Web Services Marketplace product codes, they are copied to the new AMI.</p><p>Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES), use the Amazon EC2 billing product code associated with an AMI to verify the subscription status for package updates. To create a new AMI for operating systems that require a billing product code, instead of registering the AMI, do the following to preserve the billing product code association:</p><ol><li><p>Launch an instance from an existing AMI with that billing product code.</p></li><li><p>Customize the instance.</p></li><li><p>Create an AMI from the instance using <a>CreateImage</a>.</p></li></ol><p>If you purchase a Reserved Instance to apply to an On-Demand Instance that was launched from an AMI with a billing product code, make sure that the Reserved Instance has the matching billing product code. If you purchase a Reserved Instance without the matching billing product code, the Reserved Instance will not be applied to the On-Demand Instance. For information about how to obtain the platform details and billing information of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understand AMI billing information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the RegisterImage service method.
 
@@ -12349,7 +12474,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2RegisterImageResult *> *)registerImage:(AWSEC2RegisterImageRequest *)request;
 
 /**
- <p>Registers an AMI. When you're creating an AMI, this is the final step you must complete before you can launch an instance from the AMI. For more information about creating AMIs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Creating your own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><note><p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI in a single request, so you don't have to register the AMI yourself. We recommend that you always use <a>CreateImage</a> unless you have a specific reason to use RegisterImage.</p></note><p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration. If you make changes to an image, deregister the previous image and register the new image.</p><p><b>Register a snapshot of a root device volume</b></p><p>You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. You specify the snapshot using a block device mapping. You can't set the encryption state of the volume using the block device mapping. If the snapshot is encrypted, or encryption by default is enabled, the root volume of an instance launched from the AMI is encrypted.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create a Linux AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use encryption with Amazon EBS-backed AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p><b>Amazon Web Services Marketplace product codes</b></p><p>If any snapshots have Amazon Web Services Marketplace product codes, they are copied to the new AMI.</p><p>Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES), use the Amazon EC2 billing product code associated with an AMI to verify the subscription status for package updates. To create a new AMI for operating systems that require a billing product code, instead of registering the AMI, do the following to preserve the billing product code association:</p><ol><li><p>Launch an instance from an existing AMI with that billing product code.</p></li><li><p>Customize the instance.</p></li><li><p>Create an AMI from the instance using <a>CreateImage</a>.</p></li></ol><p>If you purchase a Reserved Instance to apply to an On-Demand Instance that was launched from an AMI with a billing product code, make sure that the Reserved Instance has the matching billing product code. If you purchase a Reserved Instance without the matching billing product code, the Reserved Instance will not be applied to the On-Demand Instance. For information about how to obtain the platform details and billing information of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understanding AMI billing</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Registers an AMI. When you're creating an AMI, this is the final step you must complete before you can launch an instance from the AMI. For more information about creating AMIs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Create your own AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><note><p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI in a single request, so you don't have to register the AMI yourself. We recommend that you always use <a>CreateImage</a> unless you have a specific reason to use RegisterImage.</p></note><p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration. If you make changes to an image, deregister the previous image and register the new image.</p><p><b>Register a snapshot of a root device volume</b></p><p>You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. You specify the snapshot using a block device mapping. You can't set the encryption state of the volume using the block device mapping. If the snapshot is encrypted, or encryption by default is enabled, the root volume of an instance launched from the AMI is encrypted.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create a Linux AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use encryption with Amazon EBS-backed AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p><b>Amazon Web Services Marketplace product codes</b></p><p>If any snapshots have Amazon Web Services Marketplace product codes, they are copied to the new AMI.</p><p>Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES), use the Amazon EC2 billing product code associated with an AMI to verify the subscription status for package updates. To create a new AMI for operating systems that require a billing product code, instead of registering the AMI, do the following to preserve the billing product code association:</p><ol><li><p>Launch an instance from an existing AMI with that billing product code.</p></li><li><p>Customize the instance.</p></li><li><p>Create an AMI from the instance using <a>CreateImage</a>.</p></li></ol><p>If you purchase a Reserved Instance to apply to an On-Demand Instance that was launched from an AMI with a billing product code, make sure that the Reserved Instance has the matching billing product code. If you purchase a Reserved Instance without the matching billing product code, the Reserved Instance will not be applied to the On-Demand Instance. For information about how to obtain the platform details and billing information of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understand AMI billing information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the RegisterImage service method.
  @param completionHandler The completion handler to call when the load request is complete.
