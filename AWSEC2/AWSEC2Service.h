@@ -919,6 +919,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)attachNetworkInterface:(AWSEC2AttachNetworkInterfaceRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AttachNetworkInterfaceResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>A trust provider is a third-party entity that creates, maintains, and manages identity information for users and devices. One or more trust providers can be attached to an Amazon Web Services Verified Access instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the AttachVerifiedAccessTrustProvider service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2AttachVerifiedAccessTrustProviderResult`.
+ 
+ @see AWSEC2AttachVerifiedAccessTrustProviderRequest
+ @see AWSEC2AttachVerifiedAccessTrustProviderResult
+ */
+- (AWSTask<AWSEC2AttachVerifiedAccessTrustProviderResult *> *)attachVerifiedAccessTrustProvider:(AWSEC2AttachVerifiedAccessTrustProviderRequest *)request;
+
+/**
+ <p>A trust provider is a third-party entity that creates, maintains, and manages identity information for users and devices. One or more trust providers can be attached to an Amazon Web Services Verified Access instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the AttachVerifiedAccessTrustProvider service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2AttachVerifiedAccessTrustProviderRequest
+ @see AWSEC2AttachVerifiedAccessTrustProviderResult
+ */
+- (void)attachVerifiedAccessTrustProvider:(AWSEC2AttachVerifiedAccessTrustProviderRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AttachVerifiedAccessTrustProviderResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Attaches an EBS volume to a running or stopped instance and exposes it to the instance with the specified device name.</p><p>Encrypted EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>After you attach an EBS volume, you must make it available. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html">Make an EBS volume available for use</a>.</p><p>If a volume has an Amazon Web Services Marketplace product code:</p><ul><li><p>The volume can be attached only to a stopped instance.</p></li><li><p>Amazon Web Services Marketplace product codes are copied from the volume to the instance.</p></li><li><p>You must be subscribed to the product.</p></li><li><p>The instance type and operating system of the instance must support the product. For example, you can't detach a volume from a Windows instance and attach it to a Linux instance.</p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html">Attach an Amazon EBS volume to an instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the AttachVolume service method.
@@ -3082,6 +3107,106 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createTransitGatewayVpcAttachment:(AWSEC2CreateTransitGatewayVpcAttachmentRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateTransitGatewayVpcAttachmentResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>An Amazon Web Services Verified Access endpoint is where you define your application along with an optional endpoint-level access policy.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateVerifiedAccessEndpoint service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateVerifiedAccessEndpointResult`.
+ 
+ @see AWSEC2CreateVerifiedAccessEndpointRequest
+ @see AWSEC2CreateVerifiedAccessEndpointResult
+ */
+- (AWSTask<AWSEC2CreateVerifiedAccessEndpointResult *> *)createVerifiedAccessEndpoint:(AWSEC2CreateVerifiedAccessEndpointRequest *)request;
+
+/**
+ <p>An Amazon Web Services Verified Access endpoint is where you define your application along with an optional endpoint-level access policy.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateVerifiedAccessEndpoint service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateVerifiedAccessEndpointRequest
+ @see AWSEC2CreateVerifiedAccessEndpointResult
+ */
+- (void)createVerifiedAccessEndpoint:(AWSEC2CreateVerifiedAccessEndpointRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateVerifiedAccessEndpointResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>An Amazon Web Services Verified Access group is a collection of Amazon Web Services Verified Access endpoints who's associated applications have similar security requirements. Each instance within an Amazon Web Services Verified Access group shares an Amazon Web Services Verified Access policy. For example, you can group all Amazon Web Services Verified Access instances associated with “sales” applications together and use one common Amazon Web Services Verified Access policy.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateVerifiedAccessGroup service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateVerifiedAccessGroupResult`.
+ 
+ @see AWSEC2CreateVerifiedAccessGroupRequest
+ @see AWSEC2CreateVerifiedAccessGroupResult
+ */
+- (AWSTask<AWSEC2CreateVerifiedAccessGroupResult *> *)createVerifiedAccessGroup:(AWSEC2CreateVerifiedAccessGroupRequest *)request;
+
+/**
+ <p>An Amazon Web Services Verified Access group is a collection of Amazon Web Services Verified Access endpoints who's associated applications have similar security requirements. Each instance within an Amazon Web Services Verified Access group shares an Amazon Web Services Verified Access policy. For example, you can group all Amazon Web Services Verified Access instances associated with “sales” applications together and use one common Amazon Web Services Verified Access policy.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateVerifiedAccessGroup service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateVerifiedAccessGroupRequest
+ @see AWSEC2CreateVerifiedAccessGroupResult
+ */
+- (void)createVerifiedAccessGroup:(AWSEC2CreateVerifiedAccessGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateVerifiedAccessGroupResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>An Amazon Web Services Verified Access instance is a regional entity that evaluates application requests and grants access only when your security requirements are met.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateVerifiedAccessInstance service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateVerifiedAccessInstanceResult`.
+ 
+ @see AWSEC2CreateVerifiedAccessInstanceRequest
+ @see AWSEC2CreateVerifiedAccessInstanceResult
+ */
+- (AWSTask<AWSEC2CreateVerifiedAccessInstanceResult *> *)createVerifiedAccessInstance:(AWSEC2CreateVerifiedAccessInstanceRequest *)request;
+
+/**
+ <p>An Amazon Web Services Verified Access instance is a regional entity that evaluates application requests and grants access only when your security requirements are met.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateVerifiedAccessInstance service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateVerifiedAccessInstanceRequest
+ @see AWSEC2CreateVerifiedAccessInstanceResult
+ */
+- (void)createVerifiedAccessInstance:(AWSEC2CreateVerifiedAccessInstanceRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateVerifiedAccessInstanceResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>A trust provider is a third-party entity that creates, maintains, and manages identity information for users and devices. When an application request is made, the identity information sent by the trust provider will be evaluated by Amazon Web Services Verified Access, before allowing or denying the application request.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateVerifiedAccessTrustProvider service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateVerifiedAccessTrustProviderResult`.
+ 
+ @see AWSEC2CreateVerifiedAccessTrustProviderRequest
+ @see AWSEC2CreateVerifiedAccessTrustProviderResult
+ */
+- (AWSTask<AWSEC2CreateVerifiedAccessTrustProviderResult *> *)createVerifiedAccessTrustProvider:(AWSEC2CreateVerifiedAccessTrustProviderRequest *)request;
+
+/**
+ <p>A trust provider is a third-party entity that creates, maintains, and manages identity information for users and devices. When an application request is made, the identity information sent by the trust provider will be evaluated by Amazon Web Services Verified Access, before allowing or denying the application request.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateVerifiedAccessTrustProvider service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateVerifiedAccessTrustProviderRequest
+ @see AWSEC2CreateVerifiedAccessTrustProviderResult
+ */
+- (void)createVerifiedAccessTrustProvider:(AWSEC2CreateVerifiedAccessTrustProviderRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateVerifiedAccessTrustProviderResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Creates an EBS volume that can be attached to an instance in the same Availability Zone.</p><p>You can create a new empty volume or restore a volume from an EBS snapshot. Any Amazon Web Services Marketplace product codes from the snapshot are propagated to the volume.</p><p>You can create encrypted volumes. Encrypted volumes must be attached to instances that support Amazon EBS encryption. Volumes that are created from encrypted snapshots are also automatically encrypted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>You can tag your volumes during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html">Create an Amazon EBS volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateVolume service method.
@@ -4732,6 +4857,106 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2DeleteTransitGatewayVpcAttachmentResult
  */
 - (void)deleteTransitGatewayVpcAttachment:(AWSEC2DeleteTransitGatewayVpcAttachmentRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteTransitGatewayVpcAttachmentResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Delete an Amazon Web Services Verified Access endpoint.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteVerifiedAccessEndpoint service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteVerifiedAccessEndpointResult`.
+ 
+ @see AWSEC2DeleteVerifiedAccessEndpointRequest
+ @see AWSEC2DeleteVerifiedAccessEndpointResult
+ */
+- (AWSTask<AWSEC2DeleteVerifiedAccessEndpointResult *> *)deleteVerifiedAccessEndpoint:(AWSEC2DeleteVerifiedAccessEndpointRequest *)request;
+
+/**
+ <p>Delete an Amazon Web Services Verified Access endpoint.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteVerifiedAccessEndpoint service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteVerifiedAccessEndpointRequest
+ @see AWSEC2DeleteVerifiedAccessEndpointResult
+ */
+- (void)deleteVerifiedAccessEndpoint:(AWSEC2DeleteVerifiedAccessEndpointRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteVerifiedAccessEndpointResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Delete an Amazon Web Services Verified Access group.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteVerifiedAccessGroup service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteVerifiedAccessGroupResult`.
+ 
+ @see AWSEC2DeleteVerifiedAccessGroupRequest
+ @see AWSEC2DeleteVerifiedAccessGroupResult
+ */
+- (AWSTask<AWSEC2DeleteVerifiedAccessGroupResult *> *)deleteVerifiedAccessGroup:(AWSEC2DeleteVerifiedAccessGroupRequest *)request;
+
+/**
+ <p>Delete an Amazon Web Services Verified Access group.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteVerifiedAccessGroup service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteVerifiedAccessGroupRequest
+ @see AWSEC2DeleteVerifiedAccessGroupResult
+ */
+- (void)deleteVerifiedAccessGroup:(AWSEC2DeleteVerifiedAccessGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteVerifiedAccessGroupResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Delete an Amazon Web Services Verified Access instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteVerifiedAccessInstance service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteVerifiedAccessInstanceResult`.
+ 
+ @see AWSEC2DeleteVerifiedAccessInstanceRequest
+ @see AWSEC2DeleteVerifiedAccessInstanceResult
+ */
+- (AWSTask<AWSEC2DeleteVerifiedAccessInstanceResult *> *)deleteVerifiedAccessInstance:(AWSEC2DeleteVerifiedAccessInstanceRequest *)request;
+
+/**
+ <p>Delete an Amazon Web Services Verified Access instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteVerifiedAccessInstance service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteVerifiedAccessInstanceRequest
+ @see AWSEC2DeleteVerifiedAccessInstanceResult
+ */
+- (void)deleteVerifiedAccessInstance:(AWSEC2DeleteVerifiedAccessInstanceRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteVerifiedAccessInstanceResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Delete an Amazon Web Services Verified Access trust provider.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteVerifiedAccessTrustProvider service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteVerifiedAccessTrustProviderResult`.
+ 
+ @see AWSEC2DeleteVerifiedAccessTrustProviderRequest
+ @see AWSEC2DeleteVerifiedAccessTrustProviderResult
+ */
+- (AWSTask<AWSEC2DeleteVerifiedAccessTrustProviderResult *> *)deleteVerifiedAccessTrustProvider:(AWSEC2DeleteVerifiedAccessTrustProviderRequest *)request;
+
+/**
+ <p>Delete an Amazon Web Services Verified Access trust provider.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteVerifiedAccessTrustProvider service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteVerifiedAccessTrustProviderRequest
+ @see AWSEC2DeleteVerifiedAccessTrustProviderResult
+ */
+- (void)deleteVerifiedAccessTrustProvider:(AWSEC2DeleteVerifiedAccessTrustProviderRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteVerifiedAccessTrustProviderResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deletes the specified EBS volume. The volume must be in the <code>available</code> state (not attached to an instance).</p><p>The volume can remain in the <code>deleting</code> state for several minutes.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html">Delete an Amazon EBS volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -8116,6 +8341,131 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeTrunkInterfaceAssociations:(AWSEC2DescribeTrunkInterfaceAssociationsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeTrunkInterfaceAssociationsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Describe Amazon Web Services Verified Access endpoints.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeVerifiedAccessEndpoints service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeVerifiedAccessEndpointsResult`.
+ 
+ @see AWSEC2DescribeVerifiedAccessEndpointsRequest
+ @see AWSEC2DescribeVerifiedAccessEndpointsResult
+ */
+- (AWSTask<AWSEC2DescribeVerifiedAccessEndpointsResult *> *)describeVerifiedAccessEndpoints:(AWSEC2DescribeVerifiedAccessEndpointsRequest *)request;
+
+/**
+ <p>Describe Amazon Web Services Verified Access endpoints.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeVerifiedAccessEndpoints service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeVerifiedAccessEndpointsRequest
+ @see AWSEC2DescribeVerifiedAccessEndpointsResult
+ */
+- (void)describeVerifiedAccessEndpoints:(AWSEC2DescribeVerifiedAccessEndpointsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeVerifiedAccessEndpointsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describe details of existing Verified Access groups.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeVerifiedAccessGroups service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeVerifiedAccessGroupsResult`.
+ 
+ @see AWSEC2DescribeVerifiedAccessGroupsRequest
+ @see AWSEC2DescribeVerifiedAccessGroupsResult
+ */
+- (AWSTask<AWSEC2DescribeVerifiedAccessGroupsResult *> *)describeVerifiedAccessGroups:(AWSEC2DescribeVerifiedAccessGroupsRequest *)request;
+
+/**
+ <p>Describe details of existing Verified Access groups.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeVerifiedAccessGroups service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeVerifiedAccessGroupsRequest
+ @see AWSEC2DescribeVerifiedAccessGroupsResult
+ */
+- (void)describeVerifiedAccessGroups:(AWSEC2DescribeVerifiedAccessGroupsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeVerifiedAccessGroupsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes the current logging configuration for the Amazon Web Services Verified Access instances.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeVerifiedAccessInstanceLoggingConfigurations service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeVerifiedAccessInstanceLoggingConfigurationsResult`.
+ 
+ @see AWSEC2DescribeVerifiedAccessInstanceLoggingConfigurationsRequest
+ @see AWSEC2DescribeVerifiedAccessInstanceLoggingConfigurationsResult
+ */
+- (AWSTask<AWSEC2DescribeVerifiedAccessInstanceLoggingConfigurationsResult *> *)describeVerifiedAccessInstanceLoggingConfigurations:(AWSEC2DescribeVerifiedAccessInstanceLoggingConfigurationsRequest *)request;
+
+/**
+ <p>Describes the current logging configuration for the Amazon Web Services Verified Access instances.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeVerifiedAccessInstanceLoggingConfigurations service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeVerifiedAccessInstanceLoggingConfigurationsRequest
+ @see AWSEC2DescribeVerifiedAccessInstanceLoggingConfigurationsResult
+ */
+- (void)describeVerifiedAccessInstanceLoggingConfigurations:(AWSEC2DescribeVerifiedAccessInstanceLoggingConfigurationsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeVerifiedAccessInstanceLoggingConfigurationsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describe Verified Access instances.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeVerifiedAccessInstances service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeVerifiedAccessInstancesResult`.
+ 
+ @see AWSEC2DescribeVerifiedAccessInstancesRequest
+ @see AWSEC2DescribeVerifiedAccessInstancesResult
+ */
+- (AWSTask<AWSEC2DescribeVerifiedAccessInstancesResult *> *)describeVerifiedAccessInstances:(AWSEC2DescribeVerifiedAccessInstancesRequest *)request;
+
+/**
+ <p>Describe Verified Access instances.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeVerifiedAccessInstances service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeVerifiedAccessInstancesRequest
+ @see AWSEC2DescribeVerifiedAccessInstancesResult
+ */
+- (void)describeVerifiedAccessInstances:(AWSEC2DescribeVerifiedAccessInstancesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeVerifiedAccessInstancesResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describe details of existing Verified Access trust providers.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeVerifiedAccessTrustProviders service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeVerifiedAccessTrustProvidersResult`.
+ 
+ @see AWSEC2DescribeVerifiedAccessTrustProvidersRequest
+ @see AWSEC2DescribeVerifiedAccessTrustProvidersResult
+ */
+- (AWSTask<AWSEC2DescribeVerifiedAccessTrustProvidersResult *> *)describeVerifiedAccessTrustProviders:(AWSEC2DescribeVerifiedAccessTrustProvidersRequest *)request;
+
+/**
+ <p>Describe details of existing Verified Access trust providers.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeVerifiedAccessTrustProviders service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeVerifiedAccessTrustProvidersRequest
+ @see AWSEC2DescribeVerifiedAccessTrustProvidersResult
+ */
+- (void)describeVerifiedAccessTrustProviders:(AWSEC2DescribeVerifiedAccessTrustProvidersRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeVerifiedAccessTrustProvidersResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Describes the specified attribute of the specified volume. You can specify only one attribute at a time.</p><p>For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon EBS volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeVolumeAttribute service method.
@@ -8608,6 +8958,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2DetachNetworkInterfaceRequest
  */
 - (void)detachNetworkInterface:(AWSEC2DetachNetworkInterfaceRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Detach a trust provider from an Amazon Web Services Verified Access instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the DetachVerifiedAccessTrustProvider service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DetachVerifiedAccessTrustProviderResult`.
+ 
+ @see AWSEC2DetachVerifiedAccessTrustProviderRequest
+ @see AWSEC2DetachVerifiedAccessTrustProviderResult
+ */
+- (AWSTask<AWSEC2DetachVerifiedAccessTrustProviderResult *> *)detachVerifiedAccessTrustProvider:(AWSEC2DetachVerifiedAccessTrustProviderRequest *)request;
+
+/**
+ <p>Detach a trust provider from an Amazon Web Services Verified Access instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the DetachVerifiedAccessTrustProvider service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DetachVerifiedAccessTrustProviderRequest
+ @see AWSEC2DetachVerifiedAccessTrustProviderResult
+ */
+- (void)detachVerifiedAccessTrustProvider:(AWSEC2DetachVerifiedAccessTrustProviderRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DetachVerifiedAccessTrustProviderResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Detaches an EBS volume from an instance. Make sure to unmount any file systems on the device within your operating system before detaching the volume. Failure to do so can result in the volume becoming stuck in the <code>busy</code> state while detaching. If this happens, detachment can be delayed indefinitely until you unmount the volume, force detachment, reboot the instance, or all three. If an EBS volume is the root device of an instance, it can't be detached while the instance is running. To detach the root volume, stop the instance first.</p><p>When a volume with an Amazon Web Services Marketplace product code is detached from an instance, the product code is no longer associated with the instance.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html">Detach an Amazon EBS volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -10592,6 +10967,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)getTransitGatewayRouteTablePropagations:(AWSEC2GetTransitGatewayRouteTablePropagationsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetTransitGatewayRouteTablePropagationsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Get the Verified Access policy associated with the endpoint.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetVerifiedAccessEndpointPolicy service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetVerifiedAccessEndpointPolicyResult`.
+ 
+ @see AWSEC2GetVerifiedAccessEndpointPolicyRequest
+ @see AWSEC2GetVerifiedAccessEndpointPolicyResult
+ */
+- (AWSTask<AWSEC2GetVerifiedAccessEndpointPolicyResult *> *)getVerifiedAccessEndpointPolicy:(AWSEC2GetVerifiedAccessEndpointPolicyRequest *)request;
+
+/**
+ <p>Get the Verified Access policy associated with the endpoint.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetVerifiedAccessEndpointPolicy service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetVerifiedAccessEndpointPolicyRequest
+ @see AWSEC2GetVerifiedAccessEndpointPolicyResult
+ */
+- (void)getVerifiedAccessEndpointPolicy:(AWSEC2GetVerifiedAccessEndpointPolicyRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetVerifiedAccessEndpointPolicyResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Shows the contents of the Verified Access policy associated with the group.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetVerifiedAccessGroupPolicy service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetVerifiedAccessGroupPolicyResult`.
+ 
+ @see AWSEC2GetVerifiedAccessGroupPolicyRequest
+ @see AWSEC2GetVerifiedAccessGroupPolicyResult
+ */
+- (AWSTask<AWSEC2GetVerifiedAccessGroupPolicyResult *> *)getVerifiedAccessGroupPolicy:(AWSEC2GetVerifiedAccessGroupPolicyRequest *)request;
+
+/**
+ <p>Shows the contents of the Verified Access policy associated with the group.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetVerifiedAccessGroupPolicy service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetVerifiedAccessGroupPolicyRequest
+ @see AWSEC2GetVerifiedAccessGroupPolicyResult
+ */
+- (void)getVerifiedAccessGroupPolicy:(AWSEC2GetVerifiedAccessGroupPolicyRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetVerifiedAccessGroupPolicyResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Download an Amazon Web Services-provided sample configuration file to be used with the customer gateway device specified for your Site-to-Site VPN connection.</p>
  
  @param request A container for the necessary parameters to execute the GetVpnConnectionDeviceSampleConfiguration service method.
@@ -11869,6 +12294,181 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2ModifyTransitGatewayVpcAttachmentResult
  */
 - (void)modifyTransitGatewayVpcAttachment:(AWSEC2ModifyTransitGatewayVpcAttachmentRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyTransitGatewayVpcAttachmentResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Modifies the configuration of an Amazon Web Services Verified Access endpoint.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessEndpoint service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyVerifiedAccessEndpointResult`.
+ 
+ @see AWSEC2ModifyVerifiedAccessEndpointRequest
+ @see AWSEC2ModifyVerifiedAccessEndpointResult
+ */
+- (AWSTask<AWSEC2ModifyVerifiedAccessEndpointResult *> *)modifyVerifiedAccessEndpoint:(AWSEC2ModifyVerifiedAccessEndpointRequest *)request;
+
+/**
+ <p>Modifies the configuration of an Amazon Web Services Verified Access endpoint.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessEndpoint service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyVerifiedAccessEndpointRequest
+ @see AWSEC2ModifyVerifiedAccessEndpointResult
+ */
+- (void)modifyVerifiedAccessEndpoint:(AWSEC2ModifyVerifiedAccessEndpointRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyVerifiedAccessEndpointResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Modifies the specified Verified Access endpoint policy.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessEndpointPolicy service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyVerifiedAccessEndpointPolicyResult`.
+ 
+ @see AWSEC2ModifyVerifiedAccessEndpointPolicyRequest
+ @see AWSEC2ModifyVerifiedAccessEndpointPolicyResult
+ */
+- (AWSTask<AWSEC2ModifyVerifiedAccessEndpointPolicyResult *> *)modifyVerifiedAccessEndpointPolicy:(AWSEC2ModifyVerifiedAccessEndpointPolicyRequest *)request;
+
+/**
+ <p>Modifies the specified Verified Access endpoint policy.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessEndpointPolicy service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyVerifiedAccessEndpointPolicyRequest
+ @see AWSEC2ModifyVerifiedAccessEndpointPolicyResult
+ */
+- (void)modifyVerifiedAccessEndpointPolicy:(AWSEC2ModifyVerifiedAccessEndpointPolicyRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyVerifiedAccessEndpointPolicyResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Modifies the specified Verified Access group configuration.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessGroup service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyVerifiedAccessGroupResult`.
+ 
+ @see AWSEC2ModifyVerifiedAccessGroupRequest
+ @see AWSEC2ModifyVerifiedAccessGroupResult
+ */
+- (AWSTask<AWSEC2ModifyVerifiedAccessGroupResult *> *)modifyVerifiedAccessGroup:(AWSEC2ModifyVerifiedAccessGroupRequest *)request;
+
+/**
+ <p>Modifies the specified Verified Access group configuration.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessGroup service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyVerifiedAccessGroupRequest
+ @see AWSEC2ModifyVerifiedAccessGroupResult
+ */
+- (void)modifyVerifiedAccessGroup:(AWSEC2ModifyVerifiedAccessGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyVerifiedAccessGroupResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Modifies the specified Verified Access group policy.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessGroupPolicy service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyVerifiedAccessGroupPolicyResult`.
+ 
+ @see AWSEC2ModifyVerifiedAccessGroupPolicyRequest
+ @see AWSEC2ModifyVerifiedAccessGroupPolicyResult
+ */
+- (AWSTask<AWSEC2ModifyVerifiedAccessGroupPolicyResult *> *)modifyVerifiedAccessGroupPolicy:(AWSEC2ModifyVerifiedAccessGroupPolicyRequest *)request;
+
+/**
+ <p>Modifies the specified Verified Access group policy.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessGroupPolicy service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyVerifiedAccessGroupPolicyRequest
+ @see AWSEC2ModifyVerifiedAccessGroupPolicyResult
+ */
+- (void)modifyVerifiedAccessGroupPolicy:(AWSEC2ModifyVerifiedAccessGroupPolicyRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyVerifiedAccessGroupPolicyResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Modifies the configuration of the specified Verified Access instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessInstance service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyVerifiedAccessInstanceResult`.
+ 
+ @see AWSEC2ModifyVerifiedAccessInstanceRequest
+ @see AWSEC2ModifyVerifiedAccessInstanceResult
+ */
+- (AWSTask<AWSEC2ModifyVerifiedAccessInstanceResult *> *)modifyVerifiedAccessInstance:(AWSEC2ModifyVerifiedAccessInstanceRequest *)request;
+
+/**
+ <p>Modifies the configuration of the specified Verified Access instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessInstance service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyVerifiedAccessInstanceRequest
+ @see AWSEC2ModifyVerifiedAccessInstanceResult
+ */
+- (void)modifyVerifiedAccessInstance:(AWSEC2ModifyVerifiedAccessInstanceRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyVerifiedAccessInstanceResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Modifies the logging configuration for the specified Amazon Web Services Verified Access instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessInstanceLoggingConfiguration service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyVerifiedAccessInstanceLoggingConfigurationResult`.
+ 
+ @see AWSEC2ModifyVerifiedAccessInstanceLoggingConfigurationRequest
+ @see AWSEC2ModifyVerifiedAccessInstanceLoggingConfigurationResult
+ */
+- (AWSTask<AWSEC2ModifyVerifiedAccessInstanceLoggingConfigurationResult *> *)modifyVerifiedAccessInstanceLoggingConfiguration:(AWSEC2ModifyVerifiedAccessInstanceLoggingConfigurationRequest *)request;
+
+/**
+ <p>Modifies the logging configuration for the specified Amazon Web Services Verified Access instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessInstanceLoggingConfiguration service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyVerifiedAccessInstanceLoggingConfigurationRequest
+ @see AWSEC2ModifyVerifiedAccessInstanceLoggingConfigurationResult
+ */
+- (void)modifyVerifiedAccessInstanceLoggingConfiguration:(AWSEC2ModifyVerifiedAccessInstanceLoggingConfigurationRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyVerifiedAccessInstanceLoggingConfigurationResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Modifies the configuration of the specified Amazon Web Services Verified Access trust provider.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessTrustProvider service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyVerifiedAccessTrustProviderResult`.
+ 
+ @see AWSEC2ModifyVerifiedAccessTrustProviderRequest
+ @see AWSEC2ModifyVerifiedAccessTrustProviderResult
+ */
+- (AWSTask<AWSEC2ModifyVerifiedAccessTrustProviderResult *> *)modifyVerifiedAccessTrustProvider:(AWSEC2ModifyVerifiedAccessTrustProviderRequest *)request;
+
+/**
+ <p>Modifies the configuration of the specified Amazon Web Services Verified Access trust provider.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessTrustProvider service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyVerifiedAccessTrustProviderRequest
+ @see AWSEC2ModifyVerifiedAccessTrustProviderResult
+ */
+- (void)modifyVerifiedAccessTrustProvider:(AWSEC2ModifyVerifiedAccessTrustProviderRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyVerifiedAccessTrustProviderResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>You can modify several parameters of an existing EBS volume, including volume size, volume type, and IOPS capacity. If your EBS volume is attached to a current-generation EC2 instance type, you might be able to apply these changes without stopping the instance or detaching the volume from it. For more information about modifying EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modify-volume.html">Amazon EBS Elastic Volumes</a> (Linux instances) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-modify-volume.html">Amazon EBS Elastic Volumes</a> (Windows instances).</p><p>When you complete a resize operation on your volume, you need to extend the volume's file-system size to take advantage of the new storage capacity. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#recognize-expanded-volume-linux">Extend a Linux file system</a> or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html#recognize-expanded-volume-windows">Extend a Windows file system</a>.</p><p> You can use CloudWatch Events to check the status of a modification to an EBS volume. For information about CloudWatch Events, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/">Amazon CloudWatch Events User Guide</a>. You can also track the status of a modification using <a>DescribeVolumesModifications</a>. For information about tracking status changes using either method, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-modifications.html">Monitor the progress of volume modifications</a>.</p><p>With previous-generation instance types, resizing an EBS volume might require detaching and reattaching the volume or stopping and restarting the instance.</p><p>After modifying a volume, you must wait at least six hours and ensure that the volume is in the <code>in-use</code> or <code>available</code> state before you can modify the same volume. This is sometimes referred to as a cooldown period.</p>
