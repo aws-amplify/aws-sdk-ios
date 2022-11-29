@@ -5004,6 +5004,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsResult *> *)describeAwsNetworkPerformanceMetricSubscriptions:(AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeAwsNetworkPerformanceMetricSubscriptions"
+                   outputClass:[AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsResult class]];
+}
+
+- (void)describeAwsNetworkPerformanceMetricSubscriptions:(AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsResult *response, NSError *error))completionHandler {
+    [[self describeAwsNetworkPerformanceMetricSubscriptions:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsResult *> * _Nonnull task) {
+        AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2DescribeBundleTasksResult *> *)describeBundleTasks:(AWSEC2DescribeBundleTasksRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -8129,6 +8152,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionResult *> *)disableAwsNetworkPerformanceMetricSubscription:(AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DisableAwsNetworkPerformanceMetricSubscription"
+                   outputClass:[AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionResult class]];
+}
+
+- (void)disableAwsNetworkPerformanceMetricSubscription:(AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionRequest *)request
+     completionHandler:(void (^)(AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionResult *response, NSError *error))completionHandler {
+    [[self disableAwsNetworkPerformanceMetricSubscription:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionResult *> * _Nonnull task) {
+        AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2DisableEbsEncryptionByDefaultResult *> *)disableEbsEncryptionByDefault:(AWSEC2DisableEbsEncryptionByDefaultRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -8655,6 +8701,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionResult *> *)enableAwsNetworkPerformanceMetricSubscription:(AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"EnableAwsNetworkPerformanceMetricSubscription"
+                   outputClass:[AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionResult class]];
+}
+
+- (void)enableAwsNetworkPerformanceMetricSubscription:(AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionRequest *)request
+     completionHandler:(void (^)(AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionResult *response, NSError *error))completionHandler {
+    [[self enableAwsNetworkPerformanceMetricSubscription:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionResult *> * _Nonnull task) {
+        AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2EnableEbsEncryptionByDefaultResult *> *)enableEbsEncryptionByDefault:(AWSEC2EnableEbsEncryptionByDefaultRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -8760,6 +8829,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2EnableIpamOrganizationAdminAccountResult *response, NSError *error))completionHandler {
     [[self enableIpamOrganizationAdminAccount:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2EnableIpamOrganizationAdminAccountResult *> * _Nonnull task) {
         AWSEC2EnableIpamOrganizationAdminAccountResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2EnableReachabilityAnalyzerOrganizationSharingResult *> *)enableReachabilityAnalyzerOrganizationSharing:(AWSEC2EnableReachabilityAnalyzerOrganizationSharingRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"EnableReachabilityAnalyzerOrganizationSharing"
+                   outputClass:[AWSEC2EnableReachabilityAnalyzerOrganizationSharingResult class]];
+}
+
+- (void)enableReachabilityAnalyzerOrganizationSharing:(AWSEC2EnableReachabilityAnalyzerOrganizationSharingRequest *)request
+     completionHandler:(void (^)(AWSEC2EnableReachabilityAnalyzerOrganizationSharingResult *response, NSError *error))completionHandler {
+    [[self enableReachabilityAnalyzerOrganizationSharing:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2EnableReachabilityAnalyzerOrganizationSharingResult *> * _Nonnull task) {
+        AWSEC2EnableReachabilityAnalyzerOrganizationSharingResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -9034,6 +9126,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2GetAssociatedIpv6PoolCidrsResult *response, NSError *error))completionHandler {
     [[self getAssociatedIpv6PoolCidrs:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetAssociatedIpv6PoolCidrsResult *> * _Nonnull task) {
         AWSEC2GetAssociatedIpv6PoolCidrsResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2GetAwsNetworkPerformanceDataResult *> *)getAwsNetworkPerformanceData:(AWSEC2GetAwsNetworkPerformanceDataRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetAwsNetworkPerformanceData"
+                   outputClass:[AWSEC2GetAwsNetworkPerformanceDataResult class]];
+}
+
+- (void)getAwsNetworkPerformanceData:(AWSEC2GetAwsNetworkPerformanceDataRequest *)request
+     completionHandler:(void (^)(AWSEC2GetAwsNetworkPerformanceDataResult *response, NSError *error))completionHandler {
+    [[self getAwsNetworkPerformanceData:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetAwsNetworkPerformanceDataResult *> * _Nonnull task) {
+        AWSEC2GetAwsNetworkPerformanceDataResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
