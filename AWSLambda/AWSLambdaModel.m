@@ -487,6 +487,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"publish" : @"Publish",
              @"role" : @"Role",
              @"runtime" : @"Runtime",
+             @"snapStart" : @"SnapStart",
              @"tags" : @"Tags",
              @"timeout" : @"Timeout",
              @"tracingConfig" : @"TracingConfig",
@@ -622,6 +623,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"provided.al2"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeProvidedAl2);
         }
+        if ([value caseInsensitiveCompare:@"nodejs18.x"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs18X);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -679,10 +683,16 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"provided";
             case AWSLambdaRuntimeProvidedAl2:
                 return @"provided.al2";
+            case AWSLambdaRuntimeNodejs18X:
+                return @"nodejs18.x";
             default:
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)snapStartJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaSnapStart class]];
 }
 
 + (NSValueTransformer *)tracingConfigJSONTransformer {
@@ -1253,6 +1263,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"runtime" : @"Runtime",
              @"signingJobArn" : @"SigningJobArn",
              @"signingProfileVersionArn" : @"SigningProfileVersionArn",
+             @"snapStart" : @"SnapStart",
              @"state" : @"State",
              @"stateReason" : @"StateReason",
              @"stateReasonCode" : @"StateReasonCode",
@@ -1341,6 +1352,39 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"InvalidImage"] == NSOrderedSame) {
             return @(AWSLambdaLastUpdateStatusReasonCodeInvalidImage);
         }
+        if ([value caseInsensitiveCompare:@"KMSKeyAccessDenied"] == NSOrderedSame) {
+            return @(AWSLambdaLastUpdateStatusReasonCodeKMSKeyAccessDenied);
+        }
+        if ([value caseInsensitiveCompare:@"KMSKeyNotFound"] == NSOrderedSame) {
+            return @(AWSLambdaLastUpdateStatusReasonCodeKMSKeyNotFound);
+        }
+        if ([value caseInsensitiveCompare:@"InvalidStateKMSKey"] == NSOrderedSame) {
+            return @(AWSLambdaLastUpdateStatusReasonCodeInvalidStateKMSKey);
+        }
+        if ([value caseInsensitiveCompare:@"DisabledKMSKey"] == NSOrderedSame) {
+            return @(AWSLambdaLastUpdateStatusReasonCodeDisabledKMSKey);
+        }
+        if ([value caseInsensitiveCompare:@"EFSIOError"] == NSOrderedSame) {
+            return @(AWSLambdaLastUpdateStatusReasonCodeEFSIOError);
+        }
+        if ([value caseInsensitiveCompare:@"EFSMountConnectivityError"] == NSOrderedSame) {
+            return @(AWSLambdaLastUpdateStatusReasonCodeEFSMountConnectivityError);
+        }
+        if ([value caseInsensitiveCompare:@"EFSMountFailure"] == NSOrderedSame) {
+            return @(AWSLambdaLastUpdateStatusReasonCodeEFSMountFailure);
+        }
+        if ([value caseInsensitiveCompare:@"EFSMountTimeout"] == NSOrderedSame) {
+            return @(AWSLambdaLastUpdateStatusReasonCodeEFSMountTimeout);
+        }
+        if ([value caseInsensitiveCompare:@"InvalidRuntime"] == NSOrderedSame) {
+            return @(AWSLambdaLastUpdateStatusReasonCodeInvalidRuntime);
+        }
+        if ([value caseInsensitiveCompare:@"InvalidZipFileException"] == NSOrderedSame) {
+            return @(AWSLambdaLastUpdateStatusReasonCodeInvalidZipFileException);
+        }
+        if ([value caseInsensitiveCompare:@"FunctionError"] == NSOrderedSame) {
+            return @(AWSLambdaLastUpdateStatusReasonCodeFunctionError);
+        }
         return @(AWSLambdaLastUpdateStatusReasonCodeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1364,6 +1408,28 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"ImageAccessDenied";
             case AWSLambdaLastUpdateStatusReasonCodeInvalidImage:
                 return @"InvalidImage";
+            case AWSLambdaLastUpdateStatusReasonCodeKMSKeyAccessDenied:
+                return @"KMSKeyAccessDenied";
+            case AWSLambdaLastUpdateStatusReasonCodeKMSKeyNotFound:
+                return @"KMSKeyNotFound";
+            case AWSLambdaLastUpdateStatusReasonCodeInvalidStateKMSKey:
+                return @"InvalidStateKMSKey";
+            case AWSLambdaLastUpdateStatusReasonCodeDisabledKMSKey:
+                return @"DisabledKMSKey";
+            case AWSLambdaLastUpdateStatusReasonCodeEFSIOError:
+                return @"EFSIOError";
+            case AWSLambdaLastUpdateStatusReasonCodeEFSMountConnectivityError:
+                return @"EFSMountConnectivityError";
+            case AWSLambdaLastUpdateStatusReasonCodeEFSMountFailure:
+                return @"EFSMountFailure";
+            case AWSLambdaLastUpdateStatusReasonCodeEFSMountTimeout:
+                return @"EFSMountTimeout";
+            case AWSLambdaLastUpdateStatusReasonCodeInvalidRuntime:
+                return @"InvalidRuntime";
+            case AWSLambdaLastUpdateStatusReasonCodeInvalidZipFileException:
+                return @"InvalidZipFileException";
+            case AWSLambdaLastUpdateStatusReasonCodeFunctionError:
+                return @"FunctionError";
             default:
                 return nil;
         }
@@ -1478,6 +1544,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"provided.al2"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeProvidedAl2);
         }
+        if ([value caseInsensitiveCompare:@"nodejs18.x"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs18X);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1535,10 +1604,16 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"provided";
             case AWSLambdaRuntimeProvidedAl2:
                 return @"provided.al2";
+            case AWSLambdaRuntimeNodejs18X:
+                return @"nodejs18.x";
             default:
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)snapStartJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaSnapStartResponse class]];
 }
 
 + (NSValueTransformer *)stateJSONTransformer {
@@ -1613,6 +1688,39 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"InvalidImage"] == NSOrderedSame) {
             return @(AWSLambdaStateReasonCodeInvalidImage);
         }
+        if ([value caseInsensitiveCompare:@"KMSKeyAccessDenied"] == NSOrderedSame) {
+            return @(AWSLambdaStateReasonCodeKMSKeyAccessDenied);
+        }
+        if ([value caseInsensitiveCompare:@"KMSKeyNotFound"] == NSOrderedSame) {
+            return @(AWSLambdaStateReasonCodeKMSKeyNotFound);
+        }
+        if ([value caseInsensitiveCompare:@"InvalidStateKMSKey"] == NSOrderedSame) {
+            return @(AWSLambdaStateReasonCodeInvalidStateKMSKey);
+        }
+        if ([value caseInsensitiveCompare:@"DisabledKMSKey"] == NSOrderedSame) {
+            return @(AWSLambdaStateReasonCodeDisabledKMSKey);
+        }
+        if ([value caseInsensitiveCompare:@"EFSIOError"] == NSOrderedSame) {
+            return @(AWSLambdaStateReasonCodeEFSIOError);
+        }
+        if ([value caseInsensitiveCompare:@"EFSMountConnectivityError"] == NSOrderedSame) {
+            return @(AWSLambdaStateReasonCodeEFSMountConnectivityError);
+        }
+        if ([value caseInsensitiveCompare:@"EFSMountFailure"] == NSOrderedSame) {
+            return @(AWSLambdaStateReasonCodeEFSMountFailure);
+        }
+        if ([value caseInsensitiveCompare:@"EFSMountTimeout"] == NSOrderedSame) {
+            return @(AWSLambdaStateReasonCodeEFSMountTimeout);
+        }
+        if ([value caseInsensitiveCompare:@"InvalidRuntime"] == NSOrderedSame) {
+            return @(AWSLambdaStateReasonCodeInvalidRuntime);
+        }
+        if ([value caseInsensitiveCompare:@"InvalidZipFileException"] == NSOrderedSame) {
+            return @(AWSLambdaStateReasonCodeInvalidZipFileException);
+        }
+        if ([value caseInsensitiveCompare:@"FunctionError"] == NSOrderedSame) {
+            return @(AWSLambdaStateReasonCodeFunctionError);
+        }
         return @(AWSLambdaStateReasonCodeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1642,6 +1750,28 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"ImageAccessDenied";
             case AWSLambdaStateReasonCodeInvalidImage:
                 return @"InvalidImage";
+            case AWSLambdaStateReasonCodeKMSKeyAccessDenied:
+                return @"KMSKeyAccessDenied";
+            case AWSLambdaStateReasonCodeKMSKeyNotFound:
+                return @"KMSKeyNotFound";
+            case AWSLambdaStateReasonCodeInvalidStateKMSKey:
+                return @"InvalidStateKMSKey";
+            case AWSLambdaStateReasonCodeDisabledKMSKey:
+                return @"DisabledKMSKey";
+            case AWSLambdaStateReasonCodeEFSIOError:
+                return @"EFSIOError";
+            case AWSLambdaStateReasonCodeEFSMountConnectivityError:
+                return @"EFSMountConnectivityError";
+            case AWSLambdaStateReasonCodeEFSMountFailure:
+                return @"EFSMountFailure";
+            case AWSLambdaStateReasonCodeEFSMountTimeout:
+                return @"EFSMountTimeout";
+            case AWSLambdaStateReasonCodeInvalidRuntime:
+                return @"InvalidRuntime";
+            case AWSLambdaStateReasonCodeInvalidZipFileException:
+                return @"InvalidZipFileException";
+            case AWSLambdaStateReasonCodeFunctionError:
+                return @"FunctionError";
             default:
                 return nil;
         }
@@ -2827,6 +2957,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"provided.al2"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeProvidedAl2);
         }
+        if ([value caseInsensitiveCompare:@"nodejs18.x"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs18X);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2884,6 +3017,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"provided";
             case AWSLambdaRuntimeProvidedAl2:
                 return @"provided.al2";
+            case AWSLambdaRuntimeNodejs18X:
+                return @"nodejs18.x";
             default:
                 return nil;
         }
@@ -3030,6 +3165,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"provided.al2"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeProvidedAl2);
         }
+        if ([value caseInsensitiveCompare:@"nodejs18.x"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs18X);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3087,6 +3225,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"provided";
             case AWSLambdaRuntimeProvidedAl2:
                 return @"provided.al2";
+            case AWSLambdaRuntimeNodejs18X:
+                return @"nodejs18.x";
             default:
                 return nil;
         }
@@ -3542,6 +3682,98 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 @end
 
+@implementation AWSLambdaSnapStart
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applyOn" : @"ApplyOn",
+             };
+}
+
++ (NSValueTransformer *)applyOnJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"PublishedVersions"] == NSOrderedSame) {
+            return @(AWSLambdaSnapStartApplyOnPublishedVersions);
+        }
+        if ([value caseInsensitiveCompare:@"None"] == NSOrderedSame) {
+            return @(AWSLambdaSnapStartApplyOnNone);
+        }
+        return @(AWSLambdaSnapStartApplyOnUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaSnapStartApplyOnPublishedVersions:
+                return @"PublishedVersions";
+            case AWSLambdaSnapStartApplyOnNone:
+                return @"None";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSLambdaSnapStartResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applyOn" : @"ApplyOn",
+             @"optimizationStatus" : @"OptimizationStatus",
+             };
+}
+
++ (NSValueTransformer *)applyOnJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"PublishedVersions"] == NSOrderedSame) {
+            return @(AWSLambdaSnapStartApplyOnPublishedVersions);
+        }
+        if ([value caseInsensitiveCompare:@"None"] == NSOrderedSame) {
+            return @(AWSLambdaSnapStartApplyOnNone);
+        }
+        return @(AWSLambdaSnapStartApplyOnUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaSnapStartApplyOnPublishedVersions:
+                return @"PublishedVersions";
+            case AWSLambdaSnapStartApplyOnNone:
+                return @"None";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)optimizationStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"On"] == NSOrderedSame) {
+            return @(AWSLambdaSnapStartOptimizationStatusOn);
+        }
+        if ([value caseInsensitiveCompare:@"Off"] == NSOrderedSame) {
+            return @(AWSLambdaSnapStartOptimizationStatusOff);
+        }
+        return @(AWSLambdaSnapStartOptimizationStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaSnapStartOptimizationStatusOn:
+                return @"On";
+            case AWSLambdaSnapStartOptimizationStatusOff:
+                return @"Off";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSLambdaSourceAccessConfiguration
 
 + (BOOL)supportsSecureCoding {
@@ -3858,6 +4090,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"revisionId" : @"RevisionId",
              @"role" : @"Role",
              @"runtime" : @"Runtime",
+             @"snapStart" : @"SnapStart",
              @"timeout" : @"Timeout",
              @"tracingConfig" : @"TracingConfig",
              @"vpcConfig" : @"VpcConfig",
@@ -3967,6 +4200,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"provided.al2"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeProvidedAl2);
         }
+        if ([value caseInsensitiveCompare:@"nodejs18.x"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs18X);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -4024,10 +4260,16 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"provided";
             case AWSLambdaRuntimeProvidedAl2:
                 return @"provided.al2";
+            case AWSLambdaRuntimeNodejs18X:
+                return @"nodejs18.x";
             default:
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)snapStartJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaSnapStart class]];
 }
 
 + (NSValueTransformer *)tracingConfigJSONTransformer {
