@@ -496,6 +496,12 @@ typedef NS_ENUM(NSInteger, AWSEC2DestinationFileFormat) {
     AWSEC2DestinationFileFormatParquet,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2DeviceTrustProviderType) {
+    AWSEC2DeviceTrustProviderTypeUnknown,
+    AWSEC2DeviceTrustProviderTypeJamf,
+    AWSEC2DeviceTrustProviderTypeCrowdstrike,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2DeviceType) {
     AWSEC2DeviceTypeUnknown,
     AWSEC2DeviceTypeEBS,
@@ -1540,6 +1546,7 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeU_24tb1_112xlarge,
     AWSEC2InstanceTypeTRN1_2xlarge,
     AWSEC2InstanceTypeTRN1_32xlarge,
+    AWSEC2InstanceTypeHPC6id_32xlarge,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2InstanceTypeHypervisor) {
@@ -2210,6 +2217,11 @@ typedef NS_ENUM(NSInteger, AWSEC2ResourceType) {
     AWSEC2ResourceTypeCapacityReservationFleet,
     AWSEC2ResourceTypeTrafficMirrorFilterRule,
     AWSEC2ResourceTypeVpcEndpointConnectionDeviceType,
+    AWSEC2ResourceTypeVerifiedAccessInstance,
+    AWSEC2ResourceTypeVerifiedAccessGroup,
+    AWSEC2ResourceTypeVerifiedAccessEndpoint,
+    AWSEC2ResourceTypeVerifiedAccessPolicy,
+    AWSEC2ResourceTypeVerifiedAccessTrustProvider,
     AWSEC2ResourceTypeVpnConnectionDeviceType,
 };
 
@@ -2642,6 +2654,12 @@ typedef NS_ENUM(NSInteger, AWSEC2TransportProtocol) {
     AWSEC2TransportProtocolUdp,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2TrustProviderType) {
+    AWSEC2TrustProviderTypeUnknown,
+    AWSEC2TrustProviderTypeUser,
+    AWSEC2TrustProviderTypeDevice,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2TunnelInsideIpVersion) {
     AWSEC2TunnelInsideIpVersionUnknown,
     AWSEC2TunnelInsideIpVersionIpv4,
@@ -2668,6 +2686,44 @@ typedef NS_ENUM(NSInteger, AWSEC2UsageClassType) {
     AWSEC2UsageClassTypeUnknown,
     AWSEC2UsageClassTypeSpot,
     AWSEC2UsageClassTypeOnDemand,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2UserTrustProviderType) {
+    AWSEC2UserTrustProviderTypeUnknown,
+    AWSEC2UserTrustProviderTypeIamIdentityCenter,
+    AWSEC2UserTrustProviderTypeOidc,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2VerifiedAccessEndpointAttachmentType) {
+    AWSEC2VerifiedAccessEndpointAttachmentTypeUnknown,
+    AWSEC2VerifiedAccessEndpointAttachmentTypeVPC,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2VerifiedAccessEndpointProtocol) {
+    AWSEC2VerifiedAccessEndpointProtocolUnknown,
+    AWSEC2VerifiedAccessEndpointProtocolHTTP,
+    AWSEC2VerifiedAccessEndpointProtocolHTTPS,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2VerifiedAccessEndpointStatusCode) {
+    AWSEC2VerifiedAccessEndpointStatusCodeUnknown,
+    AWSEC2VerifiedAccessEndpointStatusCodePending,
+    AWSEC2VerifiedAccessEndpointStatusCodeActive,
+    AWSEC2VerifiedAccessEndpointStatusCodeUpdating,
+    AWSEC2VerifiedAccessEndpointStatusCodeDeleting,
+    AWSEC2VerifiedAccessEndpointStatusCodeDeleted,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2VerifiedAccessEndpointType) {
+    AWSEC2VerifiedAccessEndpointTypeUnknown,
+    AWSEC2VerifiedAccessEndpointTypeLoadBalancer,
+    AWSEC2VerifiedAccessEndpointTypeNetworkInterface,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2VerifiedAccessLogDeliveryStatusCode) {
+    AWSEC2VerifiedAccessLogDeliveryStatusCodeUnknown,
+    AWSEC2VerifiedAccessLogDeliveryStatusCodeSuccess,
+    AWSEC2VerifiedAccessLogDeliveryStatusCodeFailed,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2VirtualizationType) {
@@ -2911,6 +2967,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2AttachInternetGatewayRequest;
 @class AWSEC2AttachNetworkInterfaceRequest;
 @class AWSEC2AttachNetworkInterfaceResult;
+@class AWSEC2AttachVerifiedAccessTrustProviderRequest;
+@class AWSEC2AttachVerifiedAccessTrustProviderResult;
 @class AWSEC2AttachVolumeRequest;
 @class AWSEC2AttachVpnGatewayRequest;
 @class AWSEC2AttachVpnGatewayResult;
@@ -3151,6 +3209,18 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2CreateTransitGatewayVpcAttachmentRequest;
 @class AWSEC2CreateTransitGatewayVpcAttachmentRequestOptions;
 @class AWSEC2CreateTransitGatewayVpcAttachmentResult;
+@class AWSEC2CreateVerifiedAccessEndpointEniOptions;
+@class AWSEC2CreateVerifiedAccessEndpointLoadBalancerOptions;
+@class AWSEC2CreateVerifiedAccessEndpointRequest;
+@class AWSEC2CreateVerifiedAccessEndpointResult;
+@class AWSEC2CreateVerifiedAccessGroupRequest;
+@class AWSEC2CreateVerifiedAccessGroupResult;
+@class AWSEC2CreateVerifiedAccessInstanceRequest;
+@class AWSEC2CreateVerifiedAccessInstanceResult;
+@class AWSEC2CreateVerifiedAccessTrustProviderDeviceOptions;
+@class AWSEC2CreateVerifiedAccessTrustProviderOidcOptions;
+@class AWSEC2CreateVerifiedAccessTrustProviderRequest;
+@class AWSEC2CreateVerifiedAccessTrustProviderResult;
 @class AWSEC2CreateVolumePermission;
 @class AWSEC2CreateVolumePermissionModifications;
 @class AWSEC2CreateVolumeRequest;
@@ -3283,6 +3353,14 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DeleteTransitGatewayRouteTableResult;
 @class AWSEC2DeleteTransitGatewayVpcAttachmentRequest;
 @class AWSEC2DeleteTransitGatewayVpcAttachmentResult;
+@class AWSEC2DeleteVerifiedAccessEndpointRequest;
+@class AWSEC2DeleteVerifiedAccessEndpointResult;
+@class AWSEC2DeleteVerifiedAccessGroupRequest;
+@class AWSEC2DeleteVerifiedAccessGroupResult;
+@class AWSEC2DeleteVerifiedAccessInstanceRequest;
+@class AWSEC2DeleteVerifiedAccessInstanceResult;
+@class AWSEC2DeleteVerifiedAccessTrustProviderRequest;
+@class AWSEC2DeleteVerifiedAccessTrustProviderResult;
 @class AWSEC2DeleteVolumeRequest;
 @class AWSEC2DeleteVpcEndpointConnectionNotificationsRequest;
 @class AWSEC2DeleteVpcEndpointConnectionNotificationsResult;
@@ -3552,6 +3630,16 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DescribeTransitGatewaysResult;
 @class AWSEC2DescribeTrunkInterfaceAssociationsRequest;
 @class AWSEC2DescribeTrunkInterfaceAssociationsResult;
+@class AWSEC2DescribeVerifiedAccessEndpointsRequest;
+@class AWSEC2DescribeVerifiedAccessEndpointsResult;
+@class AWSEC2DescribeVerifiedAccessGroupsRequest;
+@class AWSEC2DescribeVerifiedAccessGroupsResult;
+@class AWSEC2DescribeVerifiedAccessInstanceLoggingConfigurationsRequest;
+@class AWSEC2DescribeVerifiedAccessInstanceLoggingConfigurationsResult;
+@class AWSEC2DescribeVerifiedAccessInstancesRequest;
+@class AWSEC2DescribeVerifiedAccessInstancesResult;
+@class AWSEC2DescribeVerifiedAccessTrustProvidersRequest;
+@class AWSEC2DescribeVerifiedAccessTrustProvidersResult;
 @class AWSEC2DescribeVolumeAttributeRequest;
 @class AWSEC2DescribeVolumeAttributeResult;
 @class AWSEC2DescribeVolumeStatusRequest;
@@ -3592,8 +3680,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DetachClassicLinkVpcResult;
 @class AWSEC2DetachInternetGatewayRequest;
 @class AWSEC2DetachNetworkInterfaceRequest;
+@class AWSEC2DetachVerifiedAccessTrustProviderRequest;
+@class AWSEC2DetachVerifiedAccessTrustProviderResult;
 @class AWSEC2DetachVolumeRequest;
 @class AWSEC2DetachVpnGatewayRequest;
+@class AWSEC2DeviceOptions;
 @class AWSEC2DhcpConfiguration;
 @class AWSEC2DhcpOptions;
 @class AWSEC2DirectoryServiceAuthentication;
@@ -3820,6 +3911,10 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2GetTransitGatewayRouteTableAssociationsResult;
 @class AWSEC2GetTransitGatewayRouteTablePropagationsRequest;
 @class AWSEC2GetTransitGatewayRouteTablePropagationsResult;
+@class AWSEC2GetVerifiedAccessEndpointPolicyRequest;
+@class AWSEC2GetVerifiedAccessEndpointPolicyResult;
+@class AWSEC2GetVerifiedAccessGroupPolicyRequest;
+@class AWSEC2GetVerifiedAccessGroupPolicyResult;
 @class AWSEC2GetVpnConnectionDeviceSampleConfigurationRequest;
 @class AWSEC2GetVpnConnectionDeviceSampleConfigurationResult;
 @class AWSEC2GetVpnConnectionDeviceTypesRequest;
@@ -4095,6 +4190,23 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2ModifyTransitGatewayVpcAttachmentRequest;
 @class AWSEC2ModifyTransitGatewayVpcAttachmentRequestOptions;
 @class AWSEC2ModifyTransitGatewayVpcAttachmentResult;
+@class AWSEC2ModifyVerifiedAccessEndpointEniOptions;
+@class AWSEC2ModifyVerifiedAccessEndpointLoadBalancerOptions;
+@class AWSEC2ModifyVerifiedAccessEndpointPolicyRequest;
+@class AWSEC2ModifyVerifiedAccessEndpointPolicyResult;
+@class AWSEC2ModifyVerifiedAccessEndpointRequest;
+@class AWSEC2ModifyVerifiedAccessEndpointResult;
+@class AWSEC2ModifyVerifiedAccessGroupPolicyRequest;
+@class AWSEC2ModifyVerifiedAccessGroupPolicyResult;
+@class AWSEC2ModifyVerifiedAccessGroupRequest;
+@class AWSEC2ModifyVerifiedAccessGroupResult;
+@class AWSEC2ModifyVerifiedAccessInstanceLoggingConfigurationRequest;
+@class AWSEC2ModifyVerifiedAccessInstanceLoggingConfigurationResult;
+@class AWSEC2ModifyVerifiedAccessInstanceRequest;
+@class AWSEC2ModifyVerifiedAccessInstanceResult;
+@class AWSEC2ModifyVerifiedAccessTrustProviderOidcOptions;
+@class AWSEC2ModifyVerifiedAccessTrustProviderRequest;
+@class AWSEC2ModifyVerifiedAccessTrustProviderResult;
 @class AWSEC2ModifyVolumeAttributeRequest;
 @class AWSEC2ModifyVolumeRequest;
 @class AWSEC2ModifyVolumeResult;
@@ -4155,6 +4267,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2NetworkInterfacePermissionState;
 @class AWSEC2NetworkInterfacePrivateIpAddress;
 @class AWSEC2LatestDhcpConfiguration;
+@class AWSEC2OidcOptions;
 @class AWSEC2OnDemandOptions;
 @class AWSEC2OnDemandOptionsRequest;
 @class AWSEC2PacketHeaderStatement;
@@ -4492,6 +4605,24 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2VCpuInfo;
 @class AWSEC2ValidationError;
 @class AWSEC2ValidationWarning;
+@class AWSEC2VerifiedAccessEndpoint;
+@class AWSEC2VerifiedAccessEndpointEniOptions;
+@class AWSEC2VerifiedAccessEndpointLoadBalancerOptions;
+@class AWSEC2VerifiedAccessEndpointStatus;
+@class AWSEC2VerifiedAccessGroup;
+@class AWSEC2VerifiedAccessInstance;
+@class AWSEC2VerifiedAccessInstanceLoggingConfiguration;
+@class AWSEC2VerifiedAccessLogCloudWatchLogsDestination;
+@class AWSEC2VerifiedAccessLogCloudWatchLogsDestinationOptions;
+@class AWSEC2VerifiedAccessLogDeliveryStatus;
+@class AWSEC2VerifiedAccessLogKinesisDataFirehoseDestination;
+@class AWSEC2VerifiedAccessLogKinesisDataFirehoseDestinationOptions;
+@class AWSEC2VerifiedAccessLogOptions;
+@class AWSEC2VerifiedAccessLogS3Destination;
+@class AWSEC2VerifiedAccessLogS3DestinationOptions;
+@class AWSEC2VerifiedAccessLogs;
+@class AWSEC2VerifiedAccessTrustProvider;
+@class AWSEC2VerifiedAccessTrustProviderCondensed;
 @class AWSEC2VgwTelemetry;
 @class AWSEC2Volume;
 @class AWSEC2VolumeAttachment;
@@ -6691,6 +6822,52 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The index of the network card.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable networkCardIndex;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2AttachVerifiedAccessTrustProviderRequest : AWSRequest
+
+
+/**
+ <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessInstanceId;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessTrustProviderId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2AttachVerifiedAccessTrustProviderResult : AWSModel
+
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access instance.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessInstance * _Nullable verifiedAccessInstance;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessTrustProvider * _Nullable verifiedAccessTrustProvider;
 
 @end
 
@@ -13088,6 +13265,367 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>Options for a network interface-type endpoint.</p>
+ */
+@interface AWSEC2CreateVerifiedAccessEndpointEniOptions : AWSModel
+
+
+/**
+ <p>The ID of the network interface.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkInterfaceId;
+
+/**
+ <p>The IP port number.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable port;
+
+/**
+ <p>The IP protocol.</p>
+ */
+@property (nonatomic, assign) AWSEC2VerifiedAccessEndpointProtocol protocols;
+
+@end
+
+/**
+ <p>Describes a load balancer when creating an Amazon Web Services Verified Access endpoint using the <code>load-balancer</code> type.</p>
+ */
+@interface AWSEC2CreateVerifiedAccessEndpointLoadBalancerOptions : AWSModel
+
+
+/**
+ <p>The ARN of the load balancer.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable loadBalancerArn;
+
+/**
+ <p>The IP port number.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable port;
+
+/**
+ <p>The IP protocol.</p>
+ */
+@property (nonatomic, assign) AWSEC2VerifiedAccessEndpointProtocol protocols;
+
+/**
+ <p>The IDs of the subnets.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable subnetIds;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateVerifiedAccessEndpointRequest : AWSRequest
+
+
+/**
+ <p>The DNS name for users to reach your application.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationDomain;
+
+/**
+ <p>The Amazon Web Services network component Verified Access attaches to.</p>
+ */
+@property (nonatomic, assign) AWSEC2VerifiedAccessEndpointAttachmentType attachmentType;
+
+/**
+ <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>A description for the Amazon Web Services Verified Access endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The ARN of the public TLS/SSL certificate in Amazon Web Services Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable domainCertificateArn;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>A custom identifier that gets prepended to a DNS name that is generated for the endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable endpointDomainPrefix;
+
+/**
+ <p>The type of Amazon Web Services Verified Access endpoint to create.</p>
+ */
+@property (nonatomic, assign) AWSEC2VerifiedAccessEndpointType endpointType;
+
+/**
+ <p>The load balancer details if creating the Amazon Web Services Verified Access endpoint as <code>load-balancer</code>type.</p>
+ */
+@property (nonatomic, strong) AWSEC2CreateVerifiedAccessEndpointLoadBalancerOptions * _Nullable loadBalancerOptions;
+
+/**
+ <p>The network interface details if creating the Amazon Web Services Verified Access endpoint as <code>network-interface</code>type.</p>
+ */
+@property (nonatomic, strong) AWSEC2CreateVerifiedAccessEndpointEniOptions * _Nullable networkInterfaceOptions;
+
+/**
+ <p>The Amazon Web Services Verified Access policy document.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyDocument;
+
+/**
+ <p>The Amazon EC2 security groups to associate with the Amazon Web Services Verified Access endpoint.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroupIds;
+
+/**
+ <p>The tags to assign to the Amazon Web Services Verified Access endpoint.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+/**
+ <p>The ID of the Verified Access group to associate the endpoint with.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessGroupId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateVerifiedAccessEndpointResult : AWSModel
+
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessEndpoint * _Nullable verifiedAccessEndpoint;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateVerifiedAccessGroupRequest : AWSRequest
+
+
+/**
+ <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>A description for the Amazon Web Services Verified Access group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The Amazon Web Services Verified Access policy document.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyDocument;
+
+/**
+ <p>The tags to assign to the Amazon Web Services Verified Access group.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessInstanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateVerifiedAccessGroupResult : AWSModel
+
+
+/**
+ <p>The ID of the Verified Access group.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessGroup * _Nullable verifiedAccessGroup;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateVerifiedAccessInstanceRequest : AWSRequest
+
+
+/**
+ <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>A description for the Amazon Web Services Verified Access instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The tags to assign to the Amazon Web Services Verified Access instance.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateVerifiedAccessInstanceResult : AWSModel
+
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access instance.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessInstance * _Nullable verifiedAccessInstance;
+
+@end
+
+/**
+ <p>Options for a device-identity type trust provider.</p>
+ */
+@interface AWSEC2CreateVerifiedAccessTrustProviderDeviceOptions : AWSModel
+
+
+/**
+ <p>The ID of the tenant application with the device-identity provider.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tenantId;
+
+@end
+
+/**
+ <p>Options for an OIDC-based, user-identity type trust provider.</p>
+ */
+@interface AWSEC2CreateVerifiedAccessTrustProviderOidcOptions : AWSModel
+
+
+/**
+ <p>The OIDC authorization endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable authorizationEndpoint;
+
+/**
+ <p>The client identifier.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientId;
+
+/**
+ <p>The client secret.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientSecret;
+
+/**
+ <p>The OIDC issuer.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable issuer;
+
+/**
+ <p>OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to a user's details. Each scope returns a specific set of user attributes.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable scope;
+
+/**
+ <p>The OIDC token endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tokenEndpoint;
+
+/**
+ <p>The OIDC user info endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userInfoEndpoint;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateVerifiedAccessTrustProviderRequest : AWSRequest
+
+
+/**
+ <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>A description for the Amazon Web Services Verified Access trust provider.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The options for device identity based trust providers.</p>
+ */
+@property (nonatomic, strong) AWSEC2CreateVerifiedAccessTrustProviderDeviceOptions * _Nullable deviceOptions;
+
+/**
+ <p>The type of device-based trust provider.</p>
+ */
+@property (nonatomic, assign) AWSEC2DeviceTrustProviderType deviceTrustProviderType;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The OpenID Connect details for an <code>oidc</code>-type, user-identity based trust provider.</p>
+ */
+@property (nonatomic, strong) AWSEC2CreateVerifiedAccessTrustProviderOidcOptions * _Nullable oidcOptions;
+
+/**
+ <p>The identifier to be used when working with policy rules.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyReferenceName;
+
+/**
+ <p>The tags to assign to the Amazon Web Services Verified Access trust provider.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+/**
+ <p>The type of trust provider can be either user or device-based.</p>
+ */
+@property (nonatomic, assign) AWSEC2TrustProviderType trustProviderType;
+
+/**
+ <p>The type of user-based trust provider.</p>
+ */
+@property (nonatomic, assign) AWSEC2UserTrustProviderType userTrustProviderType;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateVerifiedAccessTrustProviderResult : AWSModel
+
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessTrustProvider * _Nullable verifiedAccessTrustProvider;
+
+@end
+
+/**
  <p>Describes the user or group to be added or removed from the list of create volume permissions for a volume.</p>
  */
 @interface AWSEC2CreateVolumePermission : AWSModel
@@ -15698,6 +16236,150 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the deleted VPC attachment.</p>
  */
 @property (nonatomic, strong) AWSEC2TransitGatewayVpcAttachment * _Nullable transitGatewayVpcAttachment;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteVerifiedAccessEndpointRequest : AWSRequest
+
+
+/**
+ <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessEndpointId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteVerifiedAccessEndpointResult : AWSModel
+
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessEndpoint * _Nullable verifiedAccessEndpoint;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteVerifiedAccessGroupRequest : AWSRequest
+
+
+/**
+ <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessGroupId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteVerifiedAccessGroupResult : AWSModel
+
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access group.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessGroup * _Nullable verifiedAccessGroup;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteVerifiedAccessInstanceRequest : AWSRequest
+
+
+/**
+ <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessInstanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteVerifiedAccessInstanceResult : AWSModel
+
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access instance.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessInstance * _Nullable verifiedAccessInstance;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteVerifiedAccessTrustProviderRequest : AWSRequest
+
+
+/**
+ <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessTrustProviderId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteVerifiedAccessTrustProviderResult : AWSModel
+
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessTrustProvider * _Nullable verifiedAccessTrustProvider;
 
 @end
 
@@ -22271,6 +22953,276 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2DescribeVerifiedAccessEndpointsRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>One or more filters. Filter names and values are case-sensitive.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable verifiedAccessEndpointIds;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessGroupId;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessInstanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeVerifiedAccessEndpointsResult : AWSModel
+
+
+/**
+ <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2VerifiedAccessEndpoint *> * _Nullable verifiedAccessEndpoints;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeVerifiedAccessGroupsRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>One or more filters. Filter names and values are case-sensitive.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access groups.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable verifiedAccessGroupIds;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessInstanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeVerifiedAccessGroupsResult : AWSModel
+
+
+/**
+ <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The ID of the Verified Access group.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2VerifiedAccessGroup *> * _Nullable verifiedAccessGroups;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeVerifiedAccessInstanceLoggingConfigurationsRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>One or more filters. Filter names and values are case-sensitive.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The IDs of the Amazon Web Services Verified Access instances.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable verifiedAccessInstanceIds;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeVerifiedAccessInstanceLoggingConfigurationsResult : AWSModel
+
+
+/**
+ <p>The current logging configuration for the Amazon Web Services Verified Access instances.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2VerifiedAccessInstanceLoggingConfiguration *> * _Nullable loggingConfigurations;
+
+/**
+ <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeVerifiedAccessInstancesRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>One or more filters. Filter names and values are case-sensitive.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The IDs of the Amazon Web Services Verified Access instances.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable verifiedAccessInstanceIds;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeVerifiedAccessInstancesResult : AWSModel
+
+
+/**
+ <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The IDs of the Amazon Web Services Verified Access instances.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2VerifiedAccessInstance *> * _Nullable verifiedAccessInstances;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeVerifiedAccessTrustProvidersRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>One or more filters. Filter names and values are case-sensitive.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The IDs of the Amazon Web Services Verified Access trust providers.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable verifiedAccessTrustProviderIds;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeVerifiedAccessTrustProvidersResult : AWSModel
+
+
+/**
+ <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The IDs of the Amazon Web Services Verified Access trust providers.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2VerifiedAccessTrustProvider *> * _Nullable verifiedAccessTrustProviders;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2DescribeVolumeAttributeRequest : AWSRequest
 
 
@@ -23207,6 +24159,52 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2DetachVerifiedAccessTrustProviderRequest : AWSRequest
+
+
+/**
+ <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessInstanceId;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessTrustProviderId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DetachVerifiedAccessTrustProviderResult : AWSModel
+
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access instance.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessInstance * _Nullable verifiedAccessInstance;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessTrustProvider * _Nullable verifiedAccessTrustProvider;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2DetachVolumeRequest : AWSRequest
 
 
@@ -23258,6 +24256,19 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the virtual private gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable vpnGatewayId;
+
+@end
+
+/**
+ <p>Options for an Amazon Web Services Verified Access device-identity based trust provider.</p>
+ */
+@interface AWSEC2DeviceOptions : AWSModel
+
+
+/**
+ <p>The ID of the tenant application with the device-identity provider.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tenantId;
 
 @end
 
@@ -28784,6 +29795,78 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the route table propagations.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2TransitGatewayRouteTablePropagation *> * _Nullable transitGatewayRouteTablePropagations;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetVerifiedAccessEndpointPolicyRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessEndpointId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetVerifiedAccessEndpointPolicyResult : AWSModel
+
+
+/**
+ <p>The Amazon Web Services Verified Access policy document.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyDocument;
+
+/**
+ <p>The status of the Verified Access policy.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable policyEnabled;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetVerifiedAccessGroupPolicyRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessGroupId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetVerifiedAccessGroupPolicyResult : AWSModel
+
+
+/**
+ <p>The Amazon Web Services Verified Access policy document.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyDocument;
+
+/**
+ <p>The status of the Verified Access policy.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable policyEnabled;
 
 @end
 
@@ -37470,6 +38553,392 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>Options for a network-interface type Verified Access endpoint.</p>
+ */
+@interface AWSEC2ModifyVerifiedAccessEndpointEniOptions : AWSModel
+
+
+/**
+ <p>The IP port number.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable port;
+
+/**
+ <p>The IP protocol.</p>
+ */
+@property (nonatomic, assign) AWSEC2VerifiedAccessEndpointProtocol protocols;
+
+@end
+
+/**
+ <p>Describes a load balancer when creating an Amazon Web Services Verified Access endpoint using the <code>load-balancer</code> type.</p>
+ */
+@interface AWSEC2ModifyVerifiedAccessEndpointLoadBalancerOptions : AWSModel
+
+
+/**
+ <p>The IP port number.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable port;
+
+/**
+ <p>The IP protocol.</p>
+ */
+@property (nonatomic, assign) AWSEC2VerifiedAccessEndpointProtocol protocols;
+
+/**
+ <p>The IDs of the subnets.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable subnetIds;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyVerifiedAccessEndpointPolicyRequest : AWSRequest
+
+
+/**
+ <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The Amazon Web Services Verified Access policy document.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyDocument;
+
+/**
+ <p>The status of the Verified Access policy.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable policyEnabled;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessEndpointId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyVerifiedAccessEndpointPolicyResult : AWSModel
+
+
+/**
+ <p>The Amazon Web Services Verified Access policy document.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyDocument;
+
+/**
+ <p>The status of the Verified Access policy.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable policyEnabled;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyVerifiedAccessEndpointRequest : AWSRequest
+
+
+/**
+ <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>A description for the Amazon Web Services Verified Access endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The load balancer details if creating the Amazon Web Services Verified Access endpoint as <code>load-balancer</code>type.</p>
+ */
+@property (nonatomic, strong) AWSEC2ModifyVerifiedAccessEndpointLoadBalancerOptions * _Nullable loadBalancerOptions;
+
+/**
+ <p>The network interface options.</p>
+ */
+@property (nonatomic, strong) AWSEC2ModifyVerifiedAccessEndpointEniOptions * _Nullable networkInterfaceOptions;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessEndpointId;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessGroupId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyVerifiedAccessEndpointResult : AWSModel
+
+
+/**
+ <p>The Amazon Web Services Verified Access endpoint details.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessEndpoint * _Nullable verifiedAccessEndpoint;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyVerifiedAccessGroupPolicyRequest : AWSRequest
+
+
+/**
+ <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The Amazon Web Services Verified Access policy document.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyDocument;
+
+/**
+ <p>The status of the Verified Access policy.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable policyEnabled;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessGroupId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyVerifiedAccessGroupPolicyResult : AWSModel
+
+
+/**
+ <p>The Amazon Web Services Verified Access policy document.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyDocument;
+
+/**
+ <p>The status of the Verified Access policy.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable policyEnabled;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyVerifiedAccessGroupRequest : AWSRequest
+
+
+/**
+ <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>A description for the Amazon Web Services Verified Access group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessGroupId;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessInstanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyVerifiedAccessGroupResult : AWSModel
+
+
+/**
+ <p>Details of Amazon Web Services Verified Access group.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessGroup * _Nullable verifiedAccessGroup;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyVerifiedAccessInstanceLoggingConfigurationRequest : AWSRequest
+
+
+/**
+ <p>The configuration options for Amazon Web Services Verified Access instances.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessLogOptions * _Nullable accessLogs;
+
+/**
+ <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessInstanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyVerifiedAccessInstanceLoggingConfigurationResult : AWSModel
+
+
+/**
+ <p>The logging configuration for Amazon Web Services Verified Access instance.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessInstanceLoggingConfiguration * _Nullable loggingConfiguration;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyVerifiedAccessInstanceRequest : AWSRequest
+
+
+/**
+ <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>A description for the Amazon Web Services Verified Access instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessInstanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyVerifiedAccessInstanceResult : AWSModel
+
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access instance.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessInstance * _Nullable verifiedAccessInstance;
+
+@end
+
+/**
+ <p>OpenID Connect options for an <code>oidc</code>-type, user-identity based trust provider.</p>
+ */
+@interface AWSEC2ModifyVerifiedAccessTrustProviderOidcOptions : AWSModel
+
+
+/**
+ <p>OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to a user's details. Each scope returns a specific set of user attributes.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable scope;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyVerifiedAccessTrustProviderRequest : AWSRequest
+
+
+/**
+ <p>A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>A description for the Amazon Web Services Verified Access trust provider.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The OpenID Connect details for an <code>oidc</code>-type, user-identity based trust provider.</p>
+ */
+@property (nonatomic, strong) AWSEC2ModifyVerifiedAccessTrustProviderOidcOptions * _Nullable oidcOptions;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessTrustProviderId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyVerifiedAccessTrustProviderResult : AWSModel
+
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessTrustProvider * _Nullable verifiedAccessTrustProvider;
+
+@end
+
+/**
  
  */
 @interface AWSEC2ModifyVolumeAttributeRequest : AWSRequest
@@ -39377,6 +40846,49 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable values;
+
+@end
+
+/**
+ <p>Options for OIDC-based, user-identity type trust provider.</p>
+ */
+@interface AWSEC2OidcOptions : AWSModel
+
+
+/**
+ <p>The OIDC authorization endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable authorizationEndpoint;
+
+/**
+ <p>The client identifier.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientId;
+
+/**
+ <p>The client secret.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientSecret;
+
+/**
+ <p>The OIDC issuer.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable issuer;
+
+/**
+ <p>The OpenID Connect (OIDC) scope specified.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable scope;
+
+/**
+ <p>The OIDC token endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tokenEndpoint;
+
+/**
+ <p>The OIDC user info endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userInfoEndpoint;
 
 @end
 
@@ -49795,6 +51307,588 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The error codes and error messages.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2ValidationError *> * _Nullable errors;
+
+@end
+
+/**
+ <p>An Amazon Web Services Verified Access endpoint specifies the application that Amazon Web Services Verified Access provides access to. It must be attached to an Amazon Web Services Verified Access group. An Amazon Web Services Verified Access endpoint must also have an attached access policy before you attached it to a group.</p>
+ */
+@interface AWSEC2VerifiedAccessEndpoint : AWSModel
+
+
+/**
+ <p>The DNS name for users to reach your application.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationDomain;
+
+/**
+ <p>The type of attachment used to provide connectivity between the Amazon Web Services Verified Access endpoint and the application.</p>
+ */
+@property (nonatomic, assign) AWSEC2VerifiedAccessEndpointAttachmentType attachmentType;
+
+/**
+ <p>The creation time.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable creationTime;
+
+/**
+ <p>The deletion time.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable deletionTime;
+
+/**
+ <p>A description for the Amazon Web Services Verified Access endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>Returned if endpoint has a device trust provider attached.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable deviceValidationDomain;
+
+/**
+ <p>The ARN of a public TLS/SSL certificate imported into or created with ACM.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable domainCertificateArn;
+
+/**
+ <p>A DNS name that is generated for the endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable endpointDomain;
+
+/**
+ <p>The type of Amazon Web Services Verified Access endpoint. Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.</p>
+ */
+@property (nonatomic, assign) AWSEC2VerifiedAccessEndpointType endpointType;
+
+/**
+ <p>The last updated time.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastUpdatedTime;
+
+/**
+ <p>The load balancer details if creating the Amazon Web Services Verified Access endpoint as <code>load-balancer</code>type.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessEndpointLoadBalancerOptions * _Nullable loadBalancerOptions;
+
+/**
+ <p>The options for network-interface type endpoint.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessEndpointEniOptions * _Nullable networkInterfaceOptions;
+
+/**
+ <p>The IDs of the security groups for the endpoint.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroupIds;
+
+/**
+ <p>The endpoint status.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessEndpointStatus * _Nullable status;
+
+/**
+ <p>The tags.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessEndpointId;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessGroupId;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessInstanceId;
+
+@end
+
+/**
+ <p>Options for a network-interface type endpoint.</p>
+ */
+@interface AWSEC2VerifiedAccessEndpointEniOptions : AWSModel
+
+
+/**
+ <p>The ID of the network interface.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkInterfaceId;
+
+/**
+ <p>The IP port number.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable port;
+
+/**
+ <p>The IP protocol.</p>
+ */
+@property (nonatomic, assign) AWSEC2VerifiedAccessEndpointProtocol protocols;
+
+@end
+
+/**
+ <p>Describes a load balancer when creating an Amazon Web Services Verified Access endpoint using the <code>load-balancer</code> type.</p>
+ */
+@interface AWSEC2VerifiedAccessEndpointLoadBalancerOptions : AWSModel
+
+
+/**
+ <p>The ARN of the load balancer.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable loadBalancerArn;
+
+/**
+ <p>The IP port number.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable port;
+
+/**
+ <p>The IP protocol.</p>
+ */
+@property (nonatomic, assign) AWSEC2VerifiedAccessEndpointProtocol protocols;
+
+/**
+ <p>The IDs of the subnets.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable subnetIds;
+
+@end
+
+/**
+ <p>Describes the status of a Verified Access endpoint.</p>
+ */
+@interface AWSEC2VerifiedAccessEndpointStatus : AWSModel
+
+
+/**
+ <p>The status code of the Verified Access endpoint.</p>
+ */
+@property (nonatomic, assign) AWSEC2VerifiedAccessEndpointStatusCode code;
+
+/**
+ <p>The status message of the Verified Access endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable message;
+
+@end
+
+/**
+ <p>Describes a Verified Access group.</p>
+ */
+@interface AWSEC2VerifiedAccessGroup : AWSModel
+
+
+/**
+ <p>The creation time.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable creationTime;
+
+/**
+ <p>The deletion time.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable deletionTime;
+
+/**
+ <p>A description for the Amazon Web Services Verified Access group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The last updated time.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastUpdatedTime;
+
+/**
+ <p>The Amazon Web Services account number that owns the group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable owner;
+
+/**
+ <p>The tags.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+/**
+ <p>The ARN of the Verified Access group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessGroupArn;
+
+/**
+ <p>The ID of the Verified Access group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessGroupId;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessInstanceId;
+
+@end
+
+/**
+ <p>Describes a Verified Access instance.</p>
+ */
+@interface AWSEC2VerifiedAccessInstance : AWSModel
+
+
+/**
+ <p>The creation time.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable creationTime;
+
+/**
+ <p>A description for the Amazon Web Services Verified Access instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The last updated time.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastUpdatedTime;
+
+/**
+ <p>The tags.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessInstanceId;
+
+/**
+ <p>The IDs of the Amazon Web Services Verified Access trust providers.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2VerifiedAccessTrustProviderCondensed *> * _Nullable verifiedAccessTrustProviders;
+
+@end
+
+/**
+ <p>Describes logging options for an Amazon Web Services Verified Access instance.</p>
+ */
+@interface AWSEC2VerifiedAccessInstanceLoggingConfiguration : AWSModel
+
+
+/**
+ <p>Details about the logging options.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessLogs * _Nullable accessLogs;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessInstanceId;
+
+@end
+
+/**
+ <p>Options for CloudWatch Logs as a logging destination.</p>
+ */
+@interface AWSEC2VerifiedAccessLogCloudWatchLogsDestination : AWSModel
+
+
+/**
+ <p>The delivery status for access logs.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessLogDeliveryStatus * _Nullable deliveryStatus;
+
+/**
+ <p>Indicates whether logging is enabled.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+/**
+ <p>The ID of the CloudWatch Logs log group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable logGroup;
+
+@end
+
+/**
+ <p>Options for CloudWatch Logs as a logging destination.</p>
+ Required parameters: [Enabled]
+ */
+@interface AWSEC2VerifiedAccessLogCloudWatchLogsDestinationOptions : AWSModel
+
+
+/**
+ <p>Indicates whether logging is enabled.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+/**
+ <p>The ID of the CloudWatch Logs log group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable logGroup;
+
+@end
+
+/**
+ <p>Describes a log delivery status.</p>
+ */
+@interface AWSEC2VerifiedAccessLogDeliveryStatus : AWSModel
+
+
+/**
+ <p>The status code.</p>
+ */
+@property (nonatomic, assign) AWSEC2VerifiedAccessLogDeliveryStatusCode code;
+
+/**
+ <p>The status message.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable message;
+
+@end
+
+/**
+ <p>Options for Kinesis as a logging destination.</p>
+ */
+@interface AWSEC2VerifiedAccessLogKinesisDataFirehoseDestination : AWSModel
+
+
+/**
+ <p>The delivery status.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessLogDeliveryStatus * _Nullable deliveryStatus;
+
+/**
+ <p>The ID of the delivery stream.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable deliveryStream;
+
+/**
+ <p>Indicates whether logging is enabled.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+@end
+
+/**
+ <p>Describes Amazon Kinesis Data Firehose logging options.</p>
+ Required parameters: [Enabled]
+ */
+@interface AWSEC2VerifiedAccessLogKinesisDataFirehoseDestinationOptions : AWSModel
+
+
+/**
+ <p>The ID of the delivery stream.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable deliveryStream;
+
+/**
+ <p>Indicates whether logging is enabled.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+@end
+
+/**
+ <p>Describes the destinations for Verified Access logs.</p>
+ */
+@interface AWSEC2VerifiedAccessLogOptions : AWSModel
+
+
+/**
+ <p>Sends Verified Access logs to CloudWatch Logs.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessLogCloudWatchLogsDestinationOptions * _Nullable cloudWatchLogs;
+
+/**
+ <p>Sends Verified Access logs to Kinesis.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessLogKinesisDataFirehoseDestinationOptions * _Nullable kinesisDataFirehose;
+
+/**
+ <p>Sends Verified Access logs to Amazon S3.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessLogS3DestinationOptions * _Nullable s3;
+
+@end
+
+/**
+ <p>Options for Amazon S3 as a logging destination.</p>
+ */
+@interface AWSEC2VerifiedAccessLogS3Destination : AWSModel
+
+
+/**
+ <p>The bucket name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable bucketName;
+
+/**
+ <p>The Amazon Web Services account number that owns the bucket.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable bucketOwner;
+
+/**
+ <p>The delivery status.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessLogDeliveryStatus * _Nullable deliveryStatus;
+
+/**
+ <p>Indicates whether logging is enabled.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+/**
+ <p>The bucket prefix.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable prefix;
+
+@end
+
+/**
+ <p>Options for Amazon S3 as a logging destination.</p>
+ Required parameters: [Enabled]
+ */
+@interface AWSEC2VerifiedAccessLogS3DestinationOptions : AWSModel
+
+
+/**
+ <p>The bucket name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable bucketName;
+
+/**
+ <p>The ID of the Amazon Web Services account that owns the Amazon S3 bucket.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable bucketOwner;
+
+/**
+ <p>Indicates whether logging is enabled.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+/**
+ <p>The bucket prefix.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable prefix;
+
+@end
+
+/**
+ <p>Describes the destinations for Verified Access logs.</p>
+ */
+@interface AWSEC2VerifiedAccessLogs : AWSModel
+
+
+/**
+ <p>CloudWatch Logs logging destination.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessLogCloudWatchLogsDestination * _Nullable cloudWatchLogs;
+
+/**
+ <p>Kinesis logging destination.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessLogKinesisDataFirehoseDestination * _Nullable kinesisDataFirehose;
+
+/**
+ <p>Amazon S3 logging options.</p>
+ */
+@property (nonatomic, strong) AWSEC2VerifiedAccessLogS3Destination * _Nullable s3;
+
+@end
+
+/**
+ <p>Describes a Verified Access trust provider.</p>
+ */
+@interface AWSEC2VerifiedAccessTrustProvider : AWSModel
+
+
+/**
+ <p>The creation time.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable creationTime;
+
+/**
+ <p>A description for the Amazon Web Services Verified Access trust provider.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The options for device-identity type trust provider.</p>
+ */
+@property (nonatomic, strong) AWSEC2DeviceOptions * _Nullable deviceOptions;
+
+/**
+ <p>The type of device-based trust provider.</p>
+ */
+@property (nonatomic, assign) AWSEC2DeviceTrustProviderType deviceTrustProviderType;
+
+/**
+ <p>The last updated time.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastUpdatedTime;
+
+/**
+ <p>The OpenID Connect details for an <code>oidc</code>-type, user-identity based trust provider.</p>
+ */
+@property (nonatomic, strong) AWSEC2OidcOptions * _Nullable oidcOptions;
+
+/**
+ <p>The identifier to be used when working with policy rules.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyReferenceName;
+
+/**
+ <p>The tags.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+/**
+ <p>The type of Verified Access trust provider.</p>
+ */
+@property (nonatomic, assign) AWSEC2TrustProviderType trustProviderType;
+
+/**
+ <p>The type of user-based trust provider.</p>
+ */
+@property (nonatomic, assign) AWSEC2UserTrustProviderType userTrustProviderType;
+
+/**
+ <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessTrustProviderId;
+
+@end
+
+/**
+ <p>Condensed information about a trust provider.</p>
+ */
+@interface AWSEC2VerifiedAccessTrustProviderCondensed : AWSModel
+
+
+/**
+ <p>The description of trust provider.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The type of device-based trust provider.</p>
+ */
+@property (nonatomic, assign) AWSEC2DeviceTrustProviderType deviceTrustProviderType;
+
+/**
+ <p>The type of trust provider (user- or device-based).</p>
+ */
+@property (nonatomic, assign) AWSEC2TrustProviderType trustProviderType;
+
+/**
+ <p>The type of user-based trust provider.</p>
+ */
+@property (nonatomic, assign) AWSEC2UserTrustProviderType userTrustProviderType;
+
+/**
+ <p>The ID of the trust provider.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verifiedAccessTrustProviderId;
 
 @end
 
