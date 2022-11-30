@@ -5,18 +5,16 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ### Misc. Updates
 
 - Model updates for the following services
+---AWSIoT
+---AWSCloudWatchLogs
+---AWSTranscribe
+---AWSTextract
+---AWSIoTDataPlane
 ---AWSKMS
 ---AWSFirehose
 ---AWSEC2
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
 ---AWSLambda
----AWSEC2
+
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
