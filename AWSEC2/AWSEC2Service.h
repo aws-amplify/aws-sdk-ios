@@ -919,6 +919,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)attachNetworkInterface:(AWSEC2AttachNetworkInterfaceRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AttachNetworkInterfaceResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>A trust provider is a third-party entity that creates, maintains, and manages identity information for users and devices. One or more trust providers can be attached to an Amazon Web Services Verified Access instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the AttachVerifiedAccessTrustProvider service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2AttachVerifiedAccessTrustProviderResult`.
+ 
+ @see AWSEC2AttachVerifiedAccessTrustProviderRequest
+ @see AWSEC2AttachVerifiedAccessTrustProviderResult
+ */
+- (AWSTask<AWSEC2AttachVerifiedAccessTrustProviderResult *> *)attachVerifiedAccessTrustProvider:(AWSEC2AttachVerifiedAccessTrustProviderRequest *)request;
+
+/**
+ <p>A trust provider is a third-party entity that creates, maintains, and manages identity information for users and devices. One or more trust providers can be attached to an Amazon Web Services Verified Access instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the AttachVerifiedAccessTrustProvider service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2AttachVerifiedAccessTrustProviderRequest
+ @see AWSEC2AttachVerifiedAccessTrustProviderResult
+ */
+- (void)attachVerifiedAccessTrustProvider:(AWSEC2AttachVerifiedAccessTrustProviderRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AttachVerifiedAccessTrustProviderResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Attaches an EBS volume to a running or stopped instance and exposes it to the instance with the specified device name.</p><p>Encrypted EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>After you attach an EBS volume, you must make it available. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html">Make an EBS volume available for use</a>.</p><p>If a volume has an Amazon Web Services Marketplace product code:</p><ul><li><p>The volume can be attached only to a stopped instance.</p></li><li><p>Amazon Web Services Marketplace product codes are copied from the volume to the instance.</p></li><li><p>You must be subscribed to the product.</p></li><li><p>The instance type and operating system of the instance must support the product. For example, you can't detach a volume from a Windows instance and attach it to a Linux instance.</p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html">Attach an Amazon EBS volume to an instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the AttachVolume service method.
@@ -1188,7 +1213,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)cancelExportTask:(AWSEC2CancelExportTaskRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Removes your Amazon Web Services account from the launch permissions for the specified AMI. For more information, see <a href="https://docs.aws.amazon.com/">Cancel sharing an AMI with your Amazon Web Services account</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Removes your Amazon Web Services account from the launch permissions for the specified AMI. For more information, see <a href="https://docs.aws.amazon.com/">Cancel having an AMI shared with your Amazon Web Services account</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CancelImageLaunchPermission service method.
 
@@ -1200,7 +1225,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CancelImageLaunchPermissionResult *> *)cancelImageLaunchPermission:(AWSEC2CancelImageLaunchPermissionRequest *)request;
 
 /**
- <p>Removes your Amazon Web Services account from the launch permissions for the specified AMI. For more information, see <a href="https://docs.aws.amazon.com/">Cancel sharing an AMI with your Amazon Web Services account</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Removes your Amazon Web Services account from the launch permissions for the specified AMI. For more information, see <a href="https://docs.aws.amazon.com/">Cancel having an AMI shared with your Amazon Web Services account</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CancelImageLaunchPermission service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1363,7 +1388,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)replicateFpgaImage:(AWSEC2ReplicateFpgaImageRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ReplicateFpgaImageResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Initiates the copy of an AMI. You can copy an AMI from one Region to another, or from a Region to an Outpost. You can't copy an AMI from an Outpost to a Region, from one Outpost to another, or within the same Outpost. To copy an AMI to another partition, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.</p><p>To copy an AMI from one Region to another, specify the source Region using the <b>SourceRegion</b> parameter, and specify the destination Region using its endpoint. Copies of encrypted backing snapshots for the AMI are encrypted. Copies of unencrypted backing snapshots remain unencrypted, unless you set <code>Encrypted</code> during the copy operation. You cannot create an unencrypted copy of an encrypted backing snapshot.</p><p>To copy an AMI from a Region to an Outpost, specify the source Region using the <b>SourceRegion</b> parameter, and specify the ARN of the destination Outpost using <b>DestinationOutpostArn</b>. Backing snapshots copied to an Outpost are encrypted by default using the default encryption key for the Region, or a different key that you specify in the request using <b>KmsKeyId</b>. Outposts do not support unencrypted snapshots. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami"> Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>For more information about the prerequisites and limits when copying an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copying an AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Initiates the copy of an AMI. You can copy an AMI from one Region to another, or from a Region to an Outpost. You can't copy an AMI from an Outpost to a Region, from one Outpost to another, or within the same Outpost. To copy an AMI to another partition, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.</p><p>To copy an AMI from one Region to another, specify the source Region using the <b>SourceRegion</b> parameter, and specify the destination Region using its endpoint. Copies of encrypted backing snapshots for the AMI are encrypted. Copies of unencrypted backing snapshots remain unencrypted, unless you set <code>Encrypted</code> during the copy operation. You cannot create an unencrypted copy of an encrypted backing snapshot.</p><p>To copy an AMI from a Region to an Outpost, specify the source Region using the <b>SourceRegion</b> parameter, and specify the ARN of the destination Outpost using <b>DestinationOutpostArn</b>. Backing snapshots copied to an Outpost are encrypted by default using the default encryption key for the Region, or a different key that you specify in the request using <b>KmsKeyId</b>. Outposts do not support unencrypted snapshots. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami"> Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>For more information about the prerequisites and limits when copying an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copy an AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CopyImage service method.
 
@@ -1375,7 +1400,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2ReplicateImageResult *> *)replicateImage:(AWSEC2ReplicateImageRequest *)request;
 
 /**
- <p>Initiates the copy of an AMI. You can copy an AMI from one Region to another, or from a Region to an Outpost. You can't copy an AMI from an Outpost to a Region, from one Outpost to another, or within the same Outpost. To copy an AMI to another partition, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.</p><p>To copy an AMI from one Region to another, specify the source Region using the <b>SourceRegion</b> parameter, and specify the destination Region using its endpoint. Copies of encrypted backing snapshots for the AMI are encrypted. Copies of unencrypted backing snapshots remain unencrypted, unless you set <code>Encrypted</code> during the copy operation. You cannot create an unencrypted copy of an encrypted backing snapshot.</p><p>To copy an AMI from a Region to an Outpost, specify the source Region using the <b>SourceRegion</b> parameter, and specify the ARN of the destination Outpost using <b>DestinationOutpostArn</b>. Backing snapshots copied to an Outpost are encrypted by default using the default encryption key for the Region, or a different key that you specify in the request using <b>KmsKeyId</b>. Outposts do not support unencrypted snapshots. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami"> Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>For more information about the prerequisites and limits when copying an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copying an AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Initiates the copy of an AMI. You can copy an AMI from one Region to another, or from a Region to an Outpost. You can't copy an AMI from an Outpost to a Region, from one Outpost to another, or within the same Outpost. To copy an AMI to another partition, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.</p><p>To copy an AMI from one Region to another, specify the source Region using the <b>SourceRegion</b> parameter, and specify the destination Region using its endpoint. Copies of encrypted backing snapshots for the AMI are encrypted. Copies of unencrypted backing snapshots remain unencrypted, unless you set <code>Encrypted</code> during the copy operation. You cannot create an unencrypted copy of an encrypted backing snapshot.</p><p>To copy an AMI from a Region to an Outpost, specify the source Region using the <b>SourceRegion</b> parameter, and specify the ARN of the destination Outpost using <b>DestinationOutpostArn</b>. Backing snapshots copied to an Outpost are encrypted by default using the default encryption key for the Region, or a different key that you specify in the request using <b>KmsKeyId</b>. Outposts do not support unencrypted snapshots. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami"> Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>For more information about the prerequisites and limits when copying an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copy an AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CopyImage service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1788,7 +1813,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createFpgaImage:(AWSEC2CreateFpgaImageRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateFpgaImageResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is either running or stopped.</p><p>By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it can take snapshots of the attached volumes while data is at rest, in order to ensure a consistent state. You can set the <code>NoReboot</code> parameter to <code>true</code> in the API request, or use the <code>--no-reboot</code> option in the CLI to prevent Amazon EC2 from shutting down and rebooting the instance.</p><important><p>If you choose to bypass the shutdown and reboot process by setting the <code>NoReboot</code> parameter to <code>true</code> in the API request, or by using the <code>--no-reboot</code> option in the CLI, we can't guarantee the file system integrity of the created image.</p></important><p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the new AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI, the instance automatically launches with those additional volumes.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating Amazon EBS-Backed Linux AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is either running or stopped.</p><p>By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it can take snapshots of the attached volumes while data is at rest, in order to ensure a consistent state. You can set the <code>NoReboot</code> parameter to <code>true</code> in the API request, or use the <code>--no-reboot</code> option in the CLI to prevent Amazon EC2 from shutting down and rebooting the instance.</p><important><p>If you choose to bypass the shutdown and reboot process by setting the <code>NoReboot</code> parameter to <code>true</code> in the API request, or by using the <code>--no-reboot</code> option in the CLI, we can't guarantee the file system integrity of the created image.</p></important><p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the new AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI, the instance automatically launches with those additional volumes.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Create an Amazon EBS-backed Linux AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateImage service method.
 
@@ -1800,7 +1825,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateImageResult *> *)createImage:(AWSEC2CreateImageRequest *)request;
 
 /**
- <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is either running or stopped.</p><p>By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it can take snapshots of the attached volumes while data is at rest, in order to ensure a consistent state. You can set the <code>NoReboot</code> parameter to <code>true</code> in the API request, or use the <code>--no-reboot</code> option in the CLI to prevent Amazon EC2 from shutting down and rebooting the instance.</p><important><p>If you choose to bypass the shutdown and reboot process by setting the <code>NoReboot</code> parameter to <code>true</code> in the API request, or by using the <code>--no-reboot</code> option in the CLI, we can't guarantee the file system integrity of the created image.</p></important><p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the new AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI, the instance automatically launches with those additional volumes.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating Amazon EBS-Backed Linux AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is either running or stopped.</p><p>By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it can take snapshots of the attached volumes while data is at rest, in order to ensure a consistent state. You can set the <code>NoReboot</code> parameter to <code>true</code> in the API request, or use the <code>--no-reboot</code> option in the CLI to prevent Amazon EC2 from shutting down and rebooting the instance.</p><important><p>If you choose to bypass the shutdown and reboot process by setting the <code>NoReboot</code> parameter to <code>true</code> in the API request, or by using the <code>--no-reboot</code> option in the CLI, we can't guarantee the file system integrity of the created image.</p></important><p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the new AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI, the instance automatically launches with those additional volumes.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Create an Amazon EBS-backed Linux AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateImage service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2385,7 +2410,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createPublicIpv4Pool:(AWSEC2CreatePublicIpv4PoolRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreatePublicIpv4PoolResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Replaces the EBS-backed root volume for a <code>running</code> instance with a new volume that is restored to the original root volume's launch state, that is restored to a specific snapshot taken from the original root volume, or that is restored from an AMI that has the same key characteristics as that of the instance.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Replaces the EBS-backed root volume for a <code>running</code> instance with a new volume that is restored to the original root volume's launch state, that is restored to a specific snapshot taken from the original root volume, or that is restored from an AMI that has the same key characteristics as that of the instance.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateReplaceRootVolumeTask service method.
 
@@ -2397,7 +2422,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateReplaceRootVolumeTaskResult *> *)createReplaceRootVolumeTask:(AWSEC2CreateReplaceRootVolumeTaskRequest *)request;
 
 /**
- <p>Replaces the EBS-backed root volume for a <code>running</code> instance with a new volume that is restored to the original root volume's launch state, that is restored to a specific snapshot taken from the original root volume, or that is restored from an AMI that has the same key characteristics as that of the instance.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Replaces the EBS-backed root volume for a <code>running</code> instance with a new volume that is restored to the original root volume's launch state, that is restored to a specific snapshot taken from the original root volume, or that is restored from an AMI that has the same key characteristics as that of the instance.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateReplaceRootVolumeTask service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3080,6 +3105,106 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2CreateTransitGatewayVpcAttachmentResult
  */
 - (void)createTransitGatewayVpcAttachment:(AWSEC2CreateTransitGatewayVpcAttachmentRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateTransitGatewayVpcAttachmentResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>An Amazon Web Services Verified Access endpoint is where you define your application along with an optional endpoint-level access policy.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateVerifiedAccessEndpoint service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateVerifiedAccessEndpointResult`.
+ 
+ @see AWSEC2CreateVerifiedAccessEndpointRequest
+ @see AWSEC2CreateVerifiedAccessEndpointResult
+ */
+- (AWSTask<AWSEC2CreateVerifiedAccessEndpointResult *> *)createVerifiedAccessEndpoint:(AWSEC2CreateVerifiedAccessEndpointRequest *)request;
+
+/**
+ <p>An Amazon Web Services Verified Access endpoint is where you define your application along with an optional endpoint-level access policy.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateVerifiedAccessEndpoint service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateVerifiedAccessEndpointRequest
+ @see AWSEC2CreateVerifiedAccessEndpointResult
+ */
+- (void)createVerifiedAccessEndpoint:(AWSEC2CreateVerifiedAccessEndpointRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateVerifiedAccessEndpointResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>An Amazon Web Services Verified Access group is a collection of Amazon Web Services Verified Access endpoints who's associated applications have similar security requirements. Each instance within an Amazon Web Services Verified Access group shares an Amazon Web Services Verified Access policy. For example, you can group all Amazon Web Services Verified Access instances associated with “sales” applications together and use one common Amazon Web Services Verified Access policy.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateVerifiedAccessGroup service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateVerifiedAccessGroupResult`.
+ 
+ @see AWSEC2CreateVerifiedAccessGroupRequest
+ @see AWSEC2CreateVerifiedAccessGroupResult
+ */
+- (AWSTask<AWSEC2CreateVerifiedAccessGroupResult *> *)createVerifiedAccessGroup:(AWSEC2CreateVerifiedAccessGroupRequest *)request;
+
+/**
+ <p>An Amazon Web Services Verified Access group is a collection of Amazon Web Services Verified Access endpoints who's associated applications have similar security requirements. Each instance within an Amazon Web Services Verified Access group shares an Amazon Web Services Verified Access policy. For example, you can group all Amazon Web Services Verified Access instances associated with “sales” applications together and use one common Amazon Web Services Verified Access policy.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateVerifiedAccessGroup service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateVerifiedAccessGroupRequest
+ @see AWSEC2CreateVerifiedAccessGroupResult
+ */
+- (void)createVerifiedAccessGroup:(AWSEC2CreateVerifiedAccessGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateVerifiedAccessGroupResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>An Amazon Web Services Verified Access instance is a regional entity that evaluates application requests and grants access only when your security requirements are met.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateVerifiedAccessInstance service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateVerifiedAccessInstanceResult`.
+ 
+ @see AWSEC2CreateVerifiedAccessInstanceRequest
+ @see AWSEC2CreateVerifiedAccessInstanceResult
+ */
+- (AWSTask<AWSEC2CreateVerifiedAccessInstanceResult *> *)createVerifiedAccessInstance:(AWSEC2CreateVerifiedAccessInstanceRequest *)request;
+
+/**
+ <p>An Amazon Web Services Verified Access instance is a regional entity that evaluates application requests and grants access only when your security requirements are met.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateVerifiedAccessInstance service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateVerifiedAccessInstanceRequest
+ @see AWSEC2CreateVerifiedAccessInstanceResult
+ */
+- (void)createVerifiedAccessInstance:(AWSEC2CreateVerifiedAccessInstanceRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateVerifiedAccessInstanceResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>A trust provider is a third-party entity that creates, maintains, and manages identity information for users and devices. When an application request is made, the identity information sent by the trust provider will be evaluated by Amazon Web Services Verified Access, before allowing or denying the application request.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateVerifiedAccessTrustProvider service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateVerifiedAccessTrustProviderResult`.
+ 
+ @see AWSEC2CreateVerifiedAccessTrustProviderRequest
+ @see AWSEC2CreateVerifiedAccessTrustProviderResult
+ */
+- (AWSTask<AWSEC2CreateVerifiedAccessTrustProviderResult *> *)createVerifiedAccessTrustProvider:(AWSEC2CreateVerifiedAccessTrustProviderRequest *)request;
+
+/**
+ <p>A trust provider is a third-party entity that creates, maintains, and manages identity information for users and devices. When an application request is made, the identity information sent by the trust provider will be evaluated by Amazon Web Services Verified Access, before allowing or denying the application request.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateVerifiedAccessTrustProvider service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateVerifiedAccessTrustProviderRequest
+ @see AWSEC2CreateVerifiedAccessTrustProviderResult
+ */
+- (void)createVerifiedAccessTrustProvider:(AWSEC2CreateVerifiedAccessTrustProviderRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateVerifiedAccessTrustProviderResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Creates an EBS volume that can be attached to an instance in the same Availability Zone.</p><p>You can create a new empty volume or restore a volume from an EBS snapshot. Any Amazon Web Services Marketplace product codes from the snapshot are propagated to the volume.</p><p>You can create encrypted volumes. Encrypted volumes must be attached to instances that support Amazon EBS encryption. Volumes that are created from encrypted snapshots are also automatically encrypted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>You can tag your volumes during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html">Create an Amazon EBS volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -4734,6 +4859,106 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deleteTransitGatewayVpcAttachment:(AWSEC2DeleteTransitGatewayVpcAttachmentRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteTransitGatewayVpcAttachmentResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Delete an Amazon Web Services Verified Access endpoint.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteVerifiedAccessEndpoint service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteVerifiedAccessEndpointResult`.
+ 
+ @see AWSEC2DeleteVerifiedAccessEndpointRequest
+ @see AWSEC2DeleteVerifiedAccessEndpointResult
+ */
+- (AWSTask<AWSEC2DeleteVerifiedAccessEndpointResult *> *)deleteVerifiedAccessEndpoint:(AWSEC2DeleteVerifiedAccessEndpointRequest *)request;
+
+/**
+ <p>Delete an Amazon Web Services Verified Access endpoint.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteVerifiedAccessEndpoint service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteVerifiedAccessEndpointRequest
+ @see AWSEC2DeleteVerifiedAccessEndpointResult
+ */
+- (void)deleteVerifiedAccessEndpoint:(AWSEC2DeleteVerifiedAccessEndpointRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteVerifiedAccessEndpointResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Delete an Amazon Web Services Verified Access group.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteVerifiedAccessGroup service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteVerifiedAccessGroupResult`.
+ 
+ @see AWSEC2DeleteVerifiedAccessGroupRequest
+ @see AWSEC2DeleteVerifiedAccessGroupResult
+ */
+- (AWSTask<AWSEC2DeleteVerifiedAccessGroupResult *> *)deleteVerifiedAccessGroup:(AWSEC2DeleteVerifiedAccessGroupRequest *)request;
+
+/**
+ <p>Delete an Amazon Web Services Verified Access group.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteVerifiedAccessGroup service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteVerifiedAccessGroupRequest
+ @see AWSEC2DeleteVerifiedAccessGroupResult
+ */
+- (void)deleteVerifiedAccessGroup:(AWSEC2DeleteVerifiedAccessGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteVerifiedAccessGroupResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Delete an Amazon Web Services Verified Access instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteVerifiedAccessInstance service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteVerifiedAccessInstanceResult`.
+ 
+ @see AWSEC2DeleteVerifiedAccessInstanceRequest
+ @see AWSEC2DeleteVerifiedAccessInstanceResult
+ */
+- (AWSTask<AWSEC2DeleteVerifiedAccessInstanceResult *> *)deleteVerifiedAccessInstance:(AWSEC2DeleteVerifiedAccessInstanceRequest *)request;
+
+/**
+ <p>Delete an Amazon Web Services Verified Access instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteVerifiedAccessInstance service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteVerifiedAccessInstanceRequest
+ @see AWSEC2DeleteVerifiedAccessInstanceResult
+ */
+- (void)deleteVerifiedAccessInstance:(AWSEC2DeleteVerifiedAccessInstanceRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteVerifiedAccessInstanceResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Delete an Amazon Web Services Verified Access trust provider.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteVerifiedAccessTrustProvider service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteVerifiedAccessTrustProviderResult`.
+ 
+ @see AWSEC2DeleteVerifiedAccessTrustProviderRequest
+ @see AWSEC2DeleteVerifiedAccessTrustProviderResult
+ */
+- (AWSTask<AWSEC2DeleteVerifiedAccessTrustProviderResult *> *)deleteVerifiedAccessTrustProvider:(AWSEC2DeleteVerifiedAccessTrustProviderRequest *)request;
+
+/**
+ <p>Delete an Amazon Web Services Verified Access trust provider.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteVerifiedAccessTrustProvider service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteVerifiedAccessTrustProviderRequest
+ @see AWSEC2DeleteVerifiedAccessTrustProviderResult
+ */
+- (void)deleteVerifiedAccessTrustProvider:(AWSEC2DeleteVerifiedAccessTrustProviderRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteVerifiedAccessTrustProviderResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Deletes the specified EBS volume. The volume must be in the <code>available</code> state (not attached to an instance).</p><p>The volume can remain in the <code>deleting</code> state for several minutes.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html">Delete an Amazon EBS volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DeleteVolume service method.
@@ -5019,7 +5244,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deprovisionPublicIpv4PoolCidr:(AWSEC2DeprovisionPublicIpv4PoolCidrRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeprovisionPublicIpv4PoolCidrResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to launch new instances.</p><p>If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is retained in the Recycle Bin for the specified retention period. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in the Amazon Elastic Compute Cloud User Guide.</p><p>When you deregister an AMI, it doesn't affect any instances that you've already launched from the AMI. You'll continue to incur usage costs for those instances until you terminate them.</p><p>When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was created for the root volume of the instance during the AMI creation process. When you deregister an instance store-backed AMI, it doesn't affect the files that you uploaded to Amazon S3 when you created the AMI.</p>
+ <p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to launch new instances.</p><p>If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is retained in the Recycle Bin for the specified retention period. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>When you deregister an AMI, it doesn't affect any instances that you've already launched from the AMI. You'll continue to incur usage costs for those instances until you terminate them.</p><p>When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was created for the root volume of the instance during the AMI creation process. When you deregister an instance store-backed AMI, it doesn't affect the files that you uploaded to Amazon S3 when you created the AMI.</p>
  
  @param request A container for the necessary parameters to execute the DeregisterImage service method.
 
@@ -5030,7 +5255,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask *)deregisterImage:(AWSEC2DeregisterImageRequest *)request;
 
 /**
- <p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to launch new instances.</p><p>If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is retained in the Recycle Bin for the specified retention period. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in the Amazon Elastic Compute Cloud User Guide.</p><p>When you deregister an AMI, it doesn't affect any instances that you've already launched from the AMI. You'll continue to incur usage costs for those instances until you terminate them.</p><p>When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was created for the root volume of the instance during the AMI creation process. When you deregister an instance store-backed AMI, it doesn't affect the files that you uploaded to Amazon S3 when you created the AMI.</p>
+ <p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to launch new instances.</p><p>If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is retained in the Recycle Bin for the specified retention period. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>When you deregister an AMI, it doesn't affect any instances that you've already launched from the AMI. You'll continue to incur usage costs for those instances until you terminate them.</p><p>When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was created for the root volume of the instance during the AMI creation process. When you deregister an instance store-backed AMI, it doesn't affect the files that you uploaded to Amazon S3 when you created the AMI.</p>
  
  @param request A container for the necessary parameters to execute the DeregisterImage service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5264,6 +5489,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2DescribeAvailabilityZonesResult
  */
 - (void)describeAvailabilityZones:(AWSEC2DescribeAvailabilityZonesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeAvailabilityZonesResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes the curent Infrastructure Performance metric subscriptions.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeAwsNetworkPerformanceMetricSubscriptions service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsResult`.
+ 
+ @see AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsRequest
+ @see AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsResult
+ */
+- (AWSTask<AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsResult *> *)describeAwsNetworkPerformanceMetricSubscriptions:(AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsRequest *)request;
+
+/**
+ <p>Describes the curent Infrastructure Performance metric subscriptions.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeAwsNetworkPerformanceMetricSubscriptions service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsRequest
+ @see AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsResult
+ */
+- (void)describeAwsNetworkPerformanceMetricSubscriptions:(AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Describes the specified bundle tasks or all of your bundle tasks.</p><note><p>Completed bundle tasks are listed for only a limited time. If your bundle task is no longer in the list, you can still register an AMI from it. Just use <code>RegisterImage</code> with the Amazon S3 bucket name and image manifest name you provided to the bundle task.</p></note>
@@ -7141,7 +7391,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeRegions:(AWSEC2DescribeRegionsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeRegionsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes a root volume replacement task. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Describes a root volume replacement task. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeReplaceRootVolumeTasks service method.
 
@@ -7153,7 +7403,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeReplaceRootVolumeTasksResult *> *)describeReplaceRootVolumeTasks:(AWSEC2DescribeReplaceRootVolumeTasksRequest *)request;
 
 /**
- <p>Describes a root volume replacement task. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Describes a root volume replacement task. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeReplaceRootVolumeTasks service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -8091,6 +8341,131 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeTrunkInterfaceAssociations:(AWSEC2DescribeTrunkInterfaceAssociationsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeTrunkInterfaceAssociationsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Describe Amazon Web Services Verified Access endpoints.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeVerifiedAccessEndpoints service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeVerifiedAccessEndpointsResult`.
+ 
+ @see AWSEC2DescribeVerifiedAccessEndpointsRequest
+ @see AWSEC2DescribeVerifiedAccessEndpointsResult
+ */
+- (AWSTask<AWSEC2DescribeVerifiedAccessEndpointsResult *> *)describeVerifiedAccessEndpoints:(AWSEC2DescribeVerifiedAccessEndpointsRequest *)request;
+
+/**
+ <p>Describe Amazon Web Services Verified Access endpoints.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeVerifiedAccessEndpoints service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeVerifiedAccessEndpointsRequest
+ @see AWSEC2DescribeVerifiedAccessEndpointsResult
+ */
+- (void)describeVerifiedAccessEndpoints:(AWSEC2DescribeVerifiedAccessEndpointsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeVerifiedAccessEndpointsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describe details of existing Verified Access groups.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeVerifiedAccessGroups service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeVerifiedAccessGroupsResult`.
+ 
+ @see AWSEC2DescribeVerifiedAccessGroupsRequest
+ @see AWSEC2DescribeVerifiedAccessGroupsResult
+ */
+- (AWSTask<AWSEC2DescribeVerifiedAccessGroupsResult *> *)describeVerifiedAccessGroups:(AWSEC2DescribeVerifiedAccessGroupsRequest *)request;
+
+/**
+ <p>Describe details of existing Verified Access groups.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeVerifiedAccessGroups service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeVerifiedAccessGroupsRequest
+ @see AWSEC2DescribeVerifiedAccessGroupsResult
+ */
+- (void)describeVerifiedAccessGroups:(AWSEC2DescribeVerifiedAccessGroupsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeVerifiedAccessGroupsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes the current logging configuration for the Amazon Web Services Verified Access instances.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeVerifiedAccessInstanceLoggingConfigurations service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeVerifiedAccessInstanceLoggingConfigurationsResult`.
+ 
+ @see AWSEC2DescribeVerifiedAccessInstanceLoggingConfigurationsRequest
+ @see AWSEC2DescribeVerifiedAccessInstanceLoggingConfigurationsResult
+ */
+- (AWSTask<AWSEC2DescribeVerifiedAccessInstanceLoggingConfigurationsResult *> *)describeVerifiedAccessInstanceLoggingConfigurations:(AWSEC2DescribeVerifiedAccessInstanceLoggingConfigurationsRequest *)request;
+
+/**
+ <p>Describes the current logging configuration for the Amazon Web Services Verified Access instances.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeVerifiedAccessInstanceLoggingConfigurations service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeVerifiedAccessInstanceLoggingConfigurationsRequest
+ @see AWSEC2DescribeVerifiedAccessInstanceLoggingConfigurationsResult
+ */
+- (void)describeVerifiedAccessInstanceLoggingConfigurations:(AWSEC2DescribeVerifiedAccessInstanceLoggingConfigurationsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeVerifiedAccessInstanceLoggingConfigurationsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describe Verified Access instances.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeVerifiedAccessInstances service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeVerifiedAccessInstancesResult`.
+ 
+ @see AWSEC2DescribeVerifiedAccessInstancesRequest
+ @see AWSEC2DescribeVerifiedAccessInstancesResult
+ */
+- (AWSTask<AWSEC2DescribeVerifiedAccessInstancesResult *> *)describeVerifiedAccessInstances:(AWSEC2DescribeVerifiedAccessInstancesRequest *)request;
+
+/**
+ <p>Describe Verified Access instances.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeVerifiedAccessInstances service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeVerifiedAccessInstancesRequest
+ @see AWSEC2DescribeVerifiedAccessInstancesResult
+ */
+- (void)describeVerifiedAccessInstances:(AWSEC2DescribeVerifiedAccessInstancesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeVerifiedAccessInstancesResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describe details of existing Verified Access trust providers.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeVerifiedAccessTrustProviders service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeVerifiedAccessTrustProvidersResult`.
+ 
+ @see AWSEC2DescribeVerifiedAccessTrustProvidersRequest
+ @see AWSEC2DescribeVerifiedAccessTrustProvidersResult
+ */
+- (AWSTask<AWSEC2DescribeVerifiedAccessTrustProvidersResult *> *)describeVerifiedAccessTrustProviders:(AWSEC2DescribeVerifiedAccessTrustProvidersRequest *)request;
+
+/**
+ <p>Describe details of existing Verified Access trust providers.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeVerifiedAccessTrustProviders service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeVerifiedAccessTrustProvidersRequest
+ @see AWSEC2DescribeVerifiedAccessTrustProvidersResult
+ */
+- (void)describeVerifiedAccessTrustProviders:(AWSEC2DescribeVerifiedAccessTrustProvidersRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeVerifiedAccessTrustProvidersResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Describes the specified attribute of the specified volume. You can specify only one attribute at a time.</p><p>For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon EBS volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeVolumeAttribute service method.
@@ -8585,6 +8960,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)detachNetworkInterface:(AWSEC2DetachNetworkInterfaceRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Detach a trust provider from an Amazon Web Services Verified Access instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the DetachVerifiedAccessTrustProvider service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DetachVerifiedAccessTrustProviderResult`.
+ 
+ @see AWSEC2DetachVerifiedAccessTrustProviderRequest
+ @see AWSEC2DetachVerifiedAccessTrustProviderResult
+ */
+- (AWSTask<AWSEC2DetachVerifiedAccessTrustProviderResult *> *)detachVerifiedAccessTrustProvider:(AWSEC2DetachVerifiedAccessTrustProviderRequest *)request;
+
+/**
+ <p>Detach a trust provider from an Amazon Web Services Verified Access instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the DetachVerifiedAccessTrustProvider service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DetachVerifiedAccessTrustProviderRequest
+ @see AWSEC2DetachVerifiedAccessTrustProviderResult
+ */
+- (void)detachVerifiedAccessTrustProvider:(AWSEC2DetachVerifiedAccessTrustProviderRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DetachVerifiedAccessTrustProviderResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Detaches an EBS volume from an instance. Make sure to unmount any file systems on the device within your operating system before detaching the volume. Failure to do so can result in the volume becoming stuck in the <code>busy</code> state while detaching. If this happens, detachment can be delayed indefinitely until you unmount the volume, force detachment, reboot the instance, or all three. If an EBS volume is the root device of an instance, it can't be detached while the instance is running. To detach the root volume, stop the instance first.</p><p>When a volume with an Amazon Web Services Marketplace product code is detached from an instance, the product code is no longer associated with the instance.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html">Detach an Amazon EBS volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DetachVolume service method.
@@ -8655,6 +9055,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2DisableAddressTransferResult
  */
 - (void)disableAddressTransfer:(AWSEC2DisableAddressTransferRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisableAddressTransferResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Disables Infrastructure Performance metric subscriptions.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisableAwsNetworkPerformanceMetricSubscription service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionResult`.
+ 
+ @see AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionRequest
+ @see AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionResult
+ */
+- (AWSTask<AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionResult *> *)disableAwsNetworkPerformanceMetricSubscription:(AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionRequest *)request;
+
+/**
+ <p>Disables Infrastructure Performance metric subscriptions.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisableAwsNetworkPerformanceMetricSubscription service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionRequest
+ @see AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionResult
+ */
+- (void)disableAwsNetworkPerformanceMetricSubscription:(AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisableAwsNetworkPerformanceMetricSubscriptionResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Disables EBS encryption by default for your account in the current Region.</p><p>After you disable encryption by default, you can still create encrypted volumes by enabling encryption when you create each volume.</p><p>Disabling encryption by default does not change the encryption status of your existing volumes.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -9223,6 +9648,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)enableAddressTransfer:(AWSEC2EnableAddressTransferRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2EnableAddressTransferResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Enables Infrastructure Performance subscriptions.</p>
+ 
+ @param request A container for the necessary parameters to execute the EnableAwsNetworkPerformanceMetricSubscription service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionResult`.
+ 
+ @see AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionRequest
+ @see AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionResult
+ */
+- (AWSTask<AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionResult *> *)enableAwsNetworkPerformanceMetricSubscription:(AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionRequest *)request;
+
+/**
+ <p>Enables Infrastructure Performance subscriptions.</p>
+ 
+ @param request A container for the necessary parameters to execute the EnableAwsNetworkPerformanceMetricSubscription service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionRequest
+ @see AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionResult
+ */
+- (void)enableAwsNetworkPerformanceMetricSubscription:(AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2EnableAwsNetworkPerformanceMetricSubscriptionResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Enables EBS encryption by default for your account in the current Region.</p><p>After you enable encryption by default, the EBS volumes that you create are always encrypted, either using the default KMS key or the KMS key that you specified when you created each volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>You can specify the default KMS key for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a> or <a>ResetEbsDefaultKmsKeyId</a>.</p><p>Enabling encryption by default has no effect on the encryption status of your existing volumes.</p><p>After you enable encryption by default, you can no longer launch instances using instance types that do not support encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported instance types</a>.</p>
  
  @param request A container for the necessary parameters to execute the EnableEbsEncryptionByDefault service method.
@@ -9346,6 +9796,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2EnableIpamOrganizationAdminAccountResult
  */
 - (void)enableIpamOrganizationAdminAccount:(AWSEC2EnableIpamOrganizationAdminAccountRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2EnableIpamOrganizationAdminAccountResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ EnableReachabilityAnalyzerOrganizationSharing
+ 
+ @param request A container for the necessary parameters to execute the EnableReachabilityAnalyzerOrganizationSharing service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2EnableReachabilityAnalyzerOrganizationSharingResult`.
+ 
+ @see AWSEC2EnableReachabilityAnalyzerOrganizationSharingRequest
+ @see AWSEC2EnableReachabilityAnalyzerOrganizationSharingResult
+ */
+- (AWSTask<AWSEC2EnableReachabilityAnalyzerOrganizationSharingResult *> *)enableReachabilityAnalyzerOrganizationSharing:(AWSEC2EnableReachabilityAnalyzerOrganizationSharingRequest *)request;
+
+/**
+ EnableReachabilityAnalyzerOrganizationSharing
+ 
+ @param request A container for the necessary parameters to execute the EnableReachabilityAnalyzerOrganizationSharing service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2EnableReachabilityAnalyzerOrganizationSharingRequest
+ @see AWSEC2EnableReachabilityAnalyzerOrganizationSharingResult
+ */
+- (void)enableReachabilityAnalyzerOrganizationSharing:(AWSEC2EnableReachabilityAnalyzerOrganizationSharingRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2EnableReachabilityAnalyzerOrganizationSharingResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Enables access to the EC2 serial console of all instances for your account. By default, access to the EC2 serial console is disabled for your account. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access">Manage account access to the EC2 serial console</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -9640,6 +10115,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2GetAssociatedIpv6PoolCidrsResult
  */
 - (void)getAssociatedIpv6PoolCidrs:(AWSEC2GetAssociatedIpv6PoolCidrsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetAssociatedIpv6PoolCidrsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Gets network performance data.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetAwsNetworkPerformanceData service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetAwsNetworkPerformanceDataResult`.
+ 
+ @see AWSEC2GetAwsNetworkPerformanceDataRequest
+ @see AWSEC2GetAwsNetworkPerformanceDataResult
+ */
+- (AWSTask<AWSEC2GetAwsNetworkPerformanceDataResult *> *)getAwsNetworkPerformanceData:(AWSEC2GetAwsNetworkPerformanceDataRequest *)request;
+
+/**
+ <p>Gets network performance data.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetAwsNetworkPerformanceData service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetAwsNetworkPerformanceDataRequest
+ @see AWSEC2GetAwsNetworkPerformanceDataResult
+ */
+- (void)getAwsNetworkPerformanceData:(AWSEC2GetAwsNetworkPerformanceDataRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetAwsNetworkPerformanceDataResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Gets usage information about a Capacity Reservation. If the Capacity Reservation is shared, it shows usage information for the Capacity Reservation owner and each Amazon Web Services account that is currently using the shared capacity. If the Capacity Reservation is not shared, it shows only the Capacity Reservation owner's usage.</p>
@@ -10465,6 +10965,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2GetTransitGatewayRouteTablePropagationsResult
  */
 - (void)getTransitGatewayRouteTablePropagations:(AWSEC2GetTransitGatewayRouteTablePropagationsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetTransitGatewayRouteTablePropagationsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Get the Verified Access policy associated with the endpoint.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetVerifiedAccessEndpointPolicy service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetVerifiedAccessEndpointPolicyResult`.
+ 
+ @see AWSEC2GetVerifiedAccessEndpointPolicyRequest
+ @see AWSEC2GetVerifiedAccessEndpointPolicyResult
+ */
+- (AWSTask<AWSEC2GetVerifiedAccessEndpointPolicyResult *> *)getVerifiedAccessEndpointPolicy:(AWSEC2GetVerifiedAccessEndpointPolicyRequest *)request;
+
+/**
+ <p>Get the Verified Access policy associated with the endpoint.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetVerifiedAccessEndpointPolicy service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetVerifiedAccessEndpointPolicyRequest
+ @see AWSEC2GetVerifiedAccessEndpointPolicyResult
+ */
+- (void)getVerifiedAccessEndpointPolicy:(AWSEC2GetVerifiedAccessEndpointPolicyRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetVerifiedAccessEndpointPolicyResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Shows the contents of the Verified Access policy associated with the group.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetVerifiedAccessGroupPolicy service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetVerifiedAccessGroupPolicyResult`.
+ 
+ @see AWSEC2GetVerifiedAccessGroupPolicyRequest
+ @see AWSEC2GetVerifiedAccessGroupPolicyResult
+ */
+- (AWSTask<AWSEC2GetVerifiedAccessGroupPolicyResult *> *)getVerifiedAccessGroupPolicy:(AWSEC2GetVerifiedAccessGroupPolicyRequest *)request;
+
+/**
+ <p>Shows the contents of the Verified Access policy associated with the group.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetVerifiedAccessGroupPolicy service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetVerifiedAccessGroupPolicyRequest
+ @see AWSEC2GetVerifiedAccessGroupPolicyResult
+ */
+- (void)getVerifiedAccessGroupPolicy:(AWSEC2GetVerifiedAccessGroupPolicyRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetVerifiedAccessGroupPolicyResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Download an Amazon Web Services-provided sample configuration file to be used with the customer gateway device specified for your Site-to-Site VPN connection.</p>
@@ -11746,6 +12296,181 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)modifyTransitGatewayVpcAttachment:(AWSEC2ModifyTransitGatewayVpcAttachmentRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyTransitGatewayVpcAttachmentResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Modifies the configuration of an Amazon Web Services Verified Access endpoint.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessEndpoint service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyVerifiedAccessEndpointResult`.
+ 
+ @see AWSEC2ModifyVerifiedAccessEndpointRequest
+ @see AWSEC2ModifyVerifiedAccessEndpointResult
+ */
+- (AWSTask<AWSEC2ModifyVerifiedAccessEndpointResult *> *)modifyVerifiedAccessEndpoint:(AWSEC2ModifyVerifiedAccessEndpointRequest *)request;
+
+/**
+ <p>Modifies the configuration of an Amazon Web Services Verified Access endpoint.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessEndpoint service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyVerifiedAccessEndpointRequest
+ @see AWSEC2ModifyVerifiedAccessEndpointResult
+ */
+- (void)modifyVerifiedAccessEndpoint:(AWSEC2ModifyVerifiedAccessEndpointRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyVerifiedAccessEndpointResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Modifies the specified Verified Access endpoint policy.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessEndpointPolicy service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyVerifiedAccessEndpointPolicyResult`.
+ 
+ @see AWSEC2ModifyVerifiedAccessEndpointPolicyRequest
+ @see AWSEC2ModifyVerifiedAccessEndpointPolicyResult
+ */
+- (AWSTask<AWSEC2ModifyVerifiedAccessEndpointPolicyResult *> *)modifyVerifiedAccessEndpointPolicy:(AWSEC2ModifyVerifiedAccessEndpointPolicyRequest *)request;
+
+/**
+ <p>Modifies the specified Verified Access endpoint policy.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessEndpointPolicy service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyVerifiedAccessEndpointPolicyRequest
+ @see AWSEC2ModifyVerifiedAccessEndpointPolicyResult
+ */
+- (void)modifyVerifiedAccessEndpointPolicy:(AWSEC2ModifyVerifiedAccessEndpointPolicyRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyVerifiedAccessEndpointPolicyResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Modifies the specified Verified Access group configuration.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessGroup service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyVerifiedAccessGroupResult`.
+ 
+ @see AWSEC2ModifyVerifiedAccessGroupRequest
+ @see AWSEC2ModifyVerifiedAccessGroupResult
+ */
+- (AWSTask<AWSEC2ModifyVerifiedAccessGroupResult *> *)modifyVerifiedAccessGroup:(AWSEC2ModifyVerifiedAccessGroupRequest *)request;
+
+/**
+ <p>Modifies the specified Verified Access group configuration.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessGroup service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyVerifiedAccessGroupRequest
+ @see AWSEC2ModifyVerifiedAccessGroupResult
+ */
+- (void)modifyVerifiedAccessGroup:(AWSEC2ModifyVerifiedAccessGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyVerifiedAccessGroupResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Modifies the specified Verified Access group policy.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessGroupPolicy service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyVerifiedAccessGroupPolicyResult`.
+ 
+ @see AWSEC2ModifyVerifiedAccessGroupPolicyRequest
+ @see AWSEC2ModifyVerifiedAccessGroupPolicyResult
+ */
+- (AWSTask<AWSEC2ModifyVerifiedAccessGroupPolicyResult *> *)modifyVerifiedAccessGroupPolicy:(AWSEC2ModifyVerifiedAccessGroupPolicyRequest *)request;
+
+/**
+ <p>Modifies the specified Verified Access group policy.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessGroupPolicy service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyVerifiedAccessGroupPolicyRequest
+ @see AWSEC2ModifyVerifiedAccessGroupPolicyResult
+ */
+- (void)modifyVerifiedAccessGroupPolicy:(AWSEC2ModifyVerifiedAccessGroupPolicyRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyVerifiedAccessGroupPolicyResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Modifies the configuration of the specified Verified Access instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessInstance service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyVerifiedAccessInstanceResult`.
+ 
+ @see AWSEC2ModifyVerifiedAccessInstanceRequest
+ @see AWSEC2ModifyVerifiedAccessInstanceResult
+ */
+- (AWSTask<AWSEC2ModifyVerifiedAccessInstanceResult *> *)modifyVerifiedAccessInstance:(AWSEC2ModifyVerifiedAccessInstanceRequest *)request;
+
+/**
+ <p>Modifies the configuration of the specified Verified Access instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessInstance service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyVerifiedAccessInstanceRequest
+ @see AWSEC2ModifyVerifiedAccessInstanceResult
+ */
+- (void)modifyVerifiedAccessInstance:(AWSEC2ModifyVerifiedAccessInstanceRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyVerifiedAccessInstanceResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Modifies the logging configuration for the specified Amazon Web Services Verified Access instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessInstanceLoggingConfiguration service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyVerifiedAccessInstanceLoggingConfigurationResult`.
+ 
+ @see AWSEC2ModifyVerifiedAccessInstanceLoggingConfigurationRequest
+ @see AWSEC2ModifyVerifiedAccessInstanceLoggingConfigurationResult
+ */
+- (AWSTask<AWSEC2ModifyVerifiedAccessInstanceLoggingConfigurationResult *> *)modifyVerifiedAccessInstanceLoggingConfiguration:(AWSEC2ModifyVerifiedAccessInstanceLoggingConfigurationRequest *)request;
+
+/**
+ <p>Modifies the logging configuration for the specified Amazon Web Services Verified Access instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessInstanceLoggingConfiguration service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyVerifiedAccessInstanceLoggingConfigurationRequest
+ @see AWSEC2ModifyVerifiedAccessInstanceLoggingConfigurationResult
+ */
+- (void)modifyVerifiedAccessInstanceLoggingConfiguration:(AWSEC2ModifyVerifiedAccessInstanceLoggingConfigurationRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyVerifiedAccessInstanceLoggingConfigurationResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Modifies the configuration of the specified Amazon Web Services Verified Access trust provider.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessTrustProvider service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyVerifiedAccessTrustProviderResult`.
+ 
+ @see AWSEC2ModifyVerifiedAccessTrustProviderRequest
+ @see AWSEC2ModifyVerifiedAccessTrustProviderResult
+ */
+- (AWSTask<AWSEC2ModifyVerifiedAccessTrustProviderResult *> *)modifyVerifiedAccessTrustProvider:(AWSEC2ModifyVerifiedAccessTrustProviderRequest *)request;
+
+/**
+ <p>Modifies the configuration of the specified Amazon Web Services Verified Access trust provider.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyVerifiedAccessTrustProvider service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyVerifiedAccessTrustProviderRequest
+ @see AWSEC2ModifyVerifiedAccessTrustProviderResult
+ */
+- (void)modifyVerifiedAccessTrustProvider:(AWSEC2ModifyVerifiedAccessTrustProviderRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyVerifiedAccessTrustProviderResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>You can modify several parameters of an existing EBS volume, including volume size, volume type, and IOPS capacity. If your EBS volume is attached to a current-generation EC2 instance type, you might be able to apply these changes without stopping the instance or detaching the volume from it. For more information about modifying EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modify-volume.html">Amazon EBS Elastic Volumes</a> (Linux instances) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-modify-volume.html">Amazon EBS Elastic Volumes</a> (Windows instances).</p><p>When you complete a resize operation on your volume, you need to extend the volume's file-system size to take advantage of the new storage capacity. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#recognize-expanded-volume-linux">Extend a Linux file system</a> or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html#recognize-expanded-volume-windows">Extend a Windows file system</a>.</p><p> You can use CloudWatch Events to check the status of a modification to an EBS volume. For information about CloudWatch Events, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/">Amazon CloudWatch Events User Guide</a>. You can also track the status of a modification using <a>DescribeVolumesModifications</a>. For information about tracking status changes using either method, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-modifications.html">Monitor the progress of volume modifications</a>.</p><p>With previous-generation instance types, resizing an EBS volume might require detaching and reattaching the volume or stopping and restarting the instance.</p><p>After modifying a volume, you must wait at least six hours and ensure that the volume is in the <code>in-use</code> or <code>available</code> state before you can modify the same volume. This is sometimes referred to as a cooldown period.</p>
  
  @param request A container for the necessary parameters to execute the ModifyVolume service method.
@@ -12337,7 +13062,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)rebootInstances:(AWSEC2RebootInstancesRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Registers an AMI. When you're creating an AMI, this is the final step you must complete before you can launch an instance from the AMI. For more information about creating AMIs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Creating your own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><note><p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI in a single request, so you don't have to register the AMI yourself. We recommend that you always use <a>CreateImage</a> unless you have a specific reason to use RegisterImage.</p></note><p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration. If you make changes to an image, deregister the previous image and register the new image.</p><p><b>Register a snapshot of a root device volume</b></p><p>You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. You specify the snapshot using a block device mapping. You can't set the encryption state of the volume using the block device mapping. If the snapshot is encrypted, or encryption by default is enabled, the root volume of an instance launched from the AMI is encrypted.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create a Linux AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use encryption with Amazon EBS-backed AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p><b>Amazon Web Services Marketplace product codes</b></p><p>If any snapshots have Amazon Web Services Marketplace product codes, they are copied to the new AMI.</p><p>Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES), use the Amazon EC2 billing product code associated with an AMI to verify the subscription status for package updates. To create a new AMI for operating systems that require a billing product code, instead of registering the AMI, do the following to preserve the billing product code association:</p><ol><li><p>Launch an instance from an existing AMI with that billing product code.</p></li><li><p>Customize the instance.</p></li><li><p>Create an AMI from the instance using <a>CreateImage</a>.</p></li></ol><p>If you purchase a Reserved Instance to apply to an On-Demand Instance that was launched from an AMI with a billing product code, make sure that the Reserved Instance has the matching billing product code. If you purchase a Reserved Instance without the matching billing product code, the Reserved Instance will not be applied to the On-Demand Instance. For information about how to obtain the platform details and billing information of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understanding AMI billing</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Registers an AMI. When you're creating an AMI, this is the final step you must complete before you can launch an instance from the AMI. For more information about creating AMIs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Create your own AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><note><p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI in a single request, so you don't have to register the AMI yourself. We recommend that you always use <a>CreateImage</a> unless you have a specific reason to use RegisterImage.</p></note><p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration. If you make changes to an image, deregister the previous image and register the new image.</p><p><b>Register a snapshot of a root device volume</b></p><p>You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. You specify the snapshot using a block device mapping. You can't set the encryption state of the volume using the block device mapping. If the snapshot is encrypted, or encryption by default is enabled, the root volume of an instance launched from the AMI is encrypted.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create a Linux AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use encryption with Amazon EBS-backed AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p><b>Amazon Web Services Marketplace product codes</b></p><p>If any snapshots have Amazon Web Services Marketplace product codes, they are copied to the new AMI.</p><p>Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES), use the Amazon EC2 billing product code associated with an AMI to verify the subscription status for package updates. To create a new AMI for operating systems that require a billing product code, instead of registering the AMI, do the following to preserve the billing product code association:</p><ol><li><p>Launch an instance from an existing AMI with that billing product code.</p></li><li><p>Customize the instance.</p></li><li><p>Create an AMI from the instance using <a>CreateImage</a>.</p></li></ol><p>If you purchase a Reserved Instance to apply to an On-Demand Instance that was launched from an AMI with a billing product code, make sure that the Reserved Instance has the matching billing product code. If you purchase a Reserved Instance without the matching billing product code, the Reserved Instance will not be applied to the On-Demand Instance. For information about how to obtain the platform details and billing information of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understand AMI billing information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the RegisterImage service method.
 
@@ -12349,7 +13074,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2RegisterImageResult *> *)registerImage:(AWSEC2RegisterImageRequest *)request;
 
 /**
- <p>Registers an AMI. When you're creating an AMI, this is the final step you must complete before you can launch an instance from the AMI. For more information about creating AMIs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Creating your own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><note><p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI in a single request, so you don't have to register the AMI yourself. We recommend that you always use <a>CreateImage</a> unless you have a specific reason to use RegisterImage.</p></note><p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration. If you make changes to an image, deregister the previous image and register the new image.</p><p><b>Register a snapshot of a root device volume</b></p><p>You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. You specify the snapshot using a block device mapping. You can't set the encryption state of the volume using the block device mapping. If the snapshot is encrypted, or encryption by default is enabled, the root volume of an instance launched from the AMI is encrypted.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create a Linux AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use encryption with Amazon EBS-backed AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p><b>Amazon Web Services Marketplace product codes</b></p><p>If any snapshots have Amazon Web Services Marketplace product codes, they are copied to the new AMI.</p><p>Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES), use the Amazon EC2 billing product code associated with an AMI to verify the subscription status for package updates. To create a new AMI for operating systems that require a billing product code, instead of registering the AMI, do the following to preserve the billing product code association:</p><ol><li><p>Launch an instance from an existing AMI with that billing product code.</p></li><li><p>Customize the instance.</p></li><li><p>Create an AMI from the instance using <a>CreateImage</a>.</p></li></ol><p>If you purchase a Reserved Instance to apply to an On-Demand Instance that was launched from an AMI with a billing product code, make sure that the Reserved Instance has the matching billing product code. If you purchase a Reserved Instance without the matching billing product code, the Reserved Instance will not be applied to the On-Demand Instance. For information about how to obtain the platform details and billing information of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understanding AMI billing</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Registers an AMI. When you're creating an AMI, this is the final step you must complete before you can launch an instance from the AMI. For more information about creating AMIs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Create your own AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><note><p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI in a single request, so you don't have to register the AMI yourself. We recommend that you always use <a>CreateImage</a> unless you have a specific reason to use RegisterImage.</p></note><p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration. If you make changes to an image, deregister the previous image and register the new image.</p><p><b>Register a snapshot of a root device volume</b></p><p>You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. You specify the snapshot using a block device mapping. You can't set the encryption state of the volume using the block device mapping. If the snapshot is encrypted, or encryption by default is enabled, the root volume of an instance launched from the AMI is encrypted.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create a Linux AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use encryption with Amazon EBS-backed AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p><b>Amazon Web Services Marketplace product codes</b></p><p>If any snapshots have Amazon Web Services Marketplace product codes, they are copied to the new AMI.</p><p>Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES), use the Amazon EC2 billing product code associated with an AMI to verify the subscription status for package updates. To create a new AMI for operating systems that require a billing product code, instead of registering the AMI, do the following to preserve the billing product code association:</p><ol><li><p>Launch an instance from an existing AMI with that billing product code.</p></li><li><p>Customize the instance.</p></li><li><p>Create an AMI from the instance using <a>CreateImage</a>.</p></li></ol><p>If you purchase a Reserved Instance to apply to an On-Demand Instance that was launched from an AMI with a billing product code, make sure that the Reserved Instance has the matching billing product code. If you purchase a Reserved Instance without the matching billing product code, the Reserved Instance will not be applied to the On-Demand Instance. For information about how to obtain the platform details and billing information of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understand AMI billing information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the RegisterImage service method.
  @param completionHandler The completion handler to call when the load request is complete.

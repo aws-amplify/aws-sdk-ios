@@ -73,6 +73,18 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"NotFoundException" : @(AWSKMSErrorNotFound),
                             @"TagException" : @(AWSKMSErrorTag),
                             @"UnsupportedOperationException" : @(AWSKMSErrorUnsupportedOperation),
+                            @"XksKeyAlreadyInUseException" : @(AWSKMSErrorXksKeyAlreadyInUse),
+                            @"XksKeyInvalidConfigurationException" : @(AWSKMSErrorXksKeyInvalidConfiguration),
+                            @"XksKeyNotFoundException" : @(AWSKMSErrorXksKeyNotFound),
+                            @"XksProxyIncorrectAuthenticationCredentialException" : @(AWSKMSErrorXksProxyIncorrectAuthenticationCredential),
+                            @"XksProxyInvalidConfigurationException" : @(AWSKMSErrorXksProxyInvalidConfiguration),
+                            @"XksProxyInvalidResponseException" : @(AWSKMSErrorXksProxyInvalidResponse),
+                            @"XksProxyUriEndpointInUseException" : @(AWSKMSErrorXksProxyUriEndpointInUse),
+                            @"XksProxyUriInUseException" : @(AWSKMSErrorXksProxyUriInUse),
+                            @"XksProxyUriUnreachableException" : @(AWSKMSErrorXksProxyUriUnreachable),
+                            @"XksProxyVpcEndpointServiceInUseException" : @(AWSKMSErrorXksProxyVpcEndpointServiceInUse),
+                            @"XksProxyVpcEndpointServiceInvalidConfigurationException" : @(AWSKMSErrorXksProxyVpcEndpointServiceInvalidConfiguration),
+                            @"XksProxyVpcEndpointServiceNotFoundException" : @(AWSKMSErrorXksProxyVpcEndpointServiceNotFound),
                             };
 }
 
