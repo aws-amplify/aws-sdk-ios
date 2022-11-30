@@ -10,6 +10,11 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ---AWSTranscribe
 ---AWSTextract
 ---AWSIoTDataPlane
+---AWSKMS
+---AWSFirehose
+---AWSEC2
+---AWSLambda
+
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased

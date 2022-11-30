@@ -143,6 +143,8 @@
 - (void) test_AWSLambdaRemovePermissionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaSelfManagedEventSource API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaSelfManagedKafkaEventSourceConfig API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaSnapStart API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaSnapStartResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaSourceAccessConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaTagResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaTracingConfig API_AVAILABLE(ios(11));
@@ -658,6 +660,14 @@
 
 - (void) test_AWSLambdaSelfManagedKafkaEventSourceConfig {
     [self validateSecureCodingForClass:[AWSLambdaSelfManagedKafkaEventSourceConfig class]];
+}
+
+- (void) test_AWSLambdaSnapStart {
+    [self validateSecureCodingForClass:[AWSLambdaSnapStart class]];
+}
+
+- (void) test_AWSLambdaSnapStartResponse {
+    [self validateSecureCodingForClass:[AWSLambdaSnapStartResponse class]];
 }
 
 - (void) test_AWSLambdaSourceAccessConfiguration {
