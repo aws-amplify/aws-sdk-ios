@@ -14,6 +14,9 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ---AWSLambda
 ---AWSDynamoDB
 ---AWSConnect
+---AWSSTS
+---AWSElasticLoadBalancingv2
+---AWSPolly
 ---AWSComprehend
 
 # AWS Mobile SDK for iOS CHANGELOG
