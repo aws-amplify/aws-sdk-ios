@@ -25,7 +25,7 @@
 #import "AWSConnectResources.h"
 
 static NSString *const AWSInfoConnect = @"Connect";
-NSString *const AWSConnectSDKVersion = @"2.28.4";
+NSString *const AWSConnectSDKVersion = @"2.28.5";
 
 
 @interface AWSConnectResponseSerializer : AWSJSONResponseSerializer
@@ -2699,6 +2699,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectListUsersResponse *response, NSError *error))completionHandler {
     [[self listUsers:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListUsersResponse *> * _Nonnull task) {
         AWSConnectListUsersResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectMonitorContactResponse *> *)monitorContact:(AWSConnectMonitorContactRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/contact/monitor"
+                  targetPrefix:@""
+                 operationName:@"MonitorContact"
+                   outputClass:[AWSConnectMonitorContactResponse class]];
+}
+
+- (void)monitorContact:(AWSConnectMonitorContactRequest *)request
+     completionHandler:(void (^)(AWSConnectMonitorContactResponse *response, NSError *error))completionHandler {
+    [[self monitorContact:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectMonitorContactResponse *> * _Nonnull task) {
+        AWSConnectMonitorContactResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

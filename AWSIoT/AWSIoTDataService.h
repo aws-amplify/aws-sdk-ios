@@ -304,7 +304,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTDataSDKVersion;
  
  @param request A container for the necessary parameters to execute the Publish service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTDataErrorDomain` domain and the following error code: `AWSIoTDataErrorInternalFailure`, `AWSIoTDataErrorInvalidRequest`, `AWSIoTDataErrorUnauthorized`, `AWSIoTDataErrorMethodNotAllowed`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTDataErrorDomain` domain and the following error code: `AWSIoTDataErrorInternalFailure`, `AWSIoTDataErrorInvalidRequest`, `AWSIoTDataErrorUnauthorized`, `AWSIoTDataErrorMethodNotAllowed`, `AWSIoTDataErrorThrottling`.
  
  @see AWSIoTDataPublishRequest
  */
@@ -315,7 +315,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTDataSDKVersion;
  
  @param request A container for the necessary parameters to execute the Publish service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTDataErrorDomain` domain and the following error code: `AWSIoTDataErrorInternalFailure`, `AWSIoTDataErrorInvalidRequest`, `AWSIoTDataErrorUnauthorized`, `AWSIoTDataErrorMethodNotAllowed`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTDataErrorDomain` domain and the following error code: `AWSIoTDataErrorInternalFailure`, `AWSIoTDataErrorInvalidRequest`, `AWSIoTDataErrorUnauthorized`, `AWSIoTDataErrorMethodNotAllowed`, `AWSIoTDataErrorThrottling`.
  
  @see AWSIoTDataPublishRequest
  */
