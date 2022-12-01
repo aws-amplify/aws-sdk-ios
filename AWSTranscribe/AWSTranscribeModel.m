@@ -715,6 +715,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 	return @{
              @"categoryName" : @"CategoryName",
              @"createTime" : @"CreateTime",
+             @"inputType" : @"InputType",
              @"lastUpdateTime" : @"LastUpdateTime",
              @"rules" : @"Rules",
              };
@@ -725,6 +726,27 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)inputTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"REAL_TIME"] == NSOrderedSame) {
+            return @(AWSTranscribeInputTypeRealTime);
+        }
+        if ([value caseInsensitiveCompare:@"POST_CALL"] == NSOrderedSame) {
+            return @(AWSTranscribeInputTypePostCall);
+        }
+        return @(AWSTranscribeInputTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeInputTypeRealTime:
+                return @"REAL_TIME";
+            case AWSTranscribeInputTypePostCall:
+                return @"POST_CALL";
+            default:
+                return nil;
+        }
     }];
 }
 
@@ -840,8 +862,30 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"categoryName" : @"CategoryName",
+             @"inputType" : @"InputType",
              @"rules" : @"Rules",
              };
+}
+
++ (NSValueTransformer *)inputTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"REAL_TIME"] == NSOrderedSame) {
+            return @(AWSTranscribeInputTypeRealTime);
+        }
+        if ([value caseInsensitiveCompare:@"POST_CALL"] == NSOrderedSame) {
+            return @(AWSTranscribeInputTypePostCall);
+        }
+        return @(AWSTranscribeInputTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeInputTypeRealTime:
+                return @"REAL_TIME";
+            case AWSTranscribeInputTypePostCall:
+                return @"POST_CALL";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)rulesJSONTransformer {
@@ -7120,8 +7164,30 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"categoryName" : @"CategoryName",
+             @"inputType" : @"InputType",
              @"rules" : @"Rules",
              };
+}
+
++ (NSValueTransformer *)inputTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"REAL_TIME"] == NSOrderedSame) {
+            return @(AWSTranscribeInputTypeRealTime);
+        }
+        if ([value caseInsensitiveCompare:@"POST_CALL"] == NSOrderedSame) {
+            return @(AWSTranscribeInputTypePostCall);
+        }
+        return @(AWSTranscribeInputTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeInputTypeRealTime:
+                return @"REAL_TIME";
+            case AWSTranscribeInputTypePostCall:
+                return @"POST_CALL";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)rulesJSONTransformer {
