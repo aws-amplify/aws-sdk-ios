@@ -14,6 +14,8 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ---AWSFirehose
 ---AWSEC2
 ---AWSLambda
+---AWSDynamoDB
+---AWSConnect
 
 # AWS Mobile SDK for iOS CHANGELOG
 
