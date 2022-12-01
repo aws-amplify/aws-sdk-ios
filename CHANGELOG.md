@@ -1,13 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSComprehend
----
-
 MOVE THIS SECTION TO THE CORRECT LOCATION
 
 ### Misc. Updates
@@ -24,6 +14,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ---AWSLambda
 ---AWSDynamoDB
 ---AWSConnect
+---AWSComprehend
 
 # AWS Mobile SDK for iOS CHANGELOG
 
