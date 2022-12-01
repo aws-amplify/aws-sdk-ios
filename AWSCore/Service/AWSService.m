@@ -21,7 +21,7 @@
 #import "AWSCocoaLumberjack.h"
 #import "AWSCategory.h"
 
-NSString *const AWSiOSSDKVersion = @"2.28.3";
+NSString *const AWSiOSSDKVersion = @"2.28.5";
 NSString *const AWSServiceErrorDomain = @"com.amazonaws.AWSServiceErrorDomain";
 
 static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
@@ -260,6 +260,7 @@ static NSString *const AWSRegionNameAPNortheast2 = @"ap-northeast-2";
 static NSString *const AWSRegionNameAPSoutheast2 = @"ap-southeast-2";
 static NSString *const AWSRegionNameAPSoutheast3 = @"ap-southeast-3";
 static NSString *const AWSRegionNameAPSouth1 = @"ap-south-1";
+static NSString *const AWSRegionNameAPSouth2 = @"ap-south-2";
 static NSString *const AWSRegionNameSAEast1 = @"sa-east-1";
 static NSString *const AWSRegionNameCNNorth1 = @"cn-north-1";
 static NSString *const AWSRegionNameCNNorthWest1 = @"cn-northwest-1";
@@ -270,6 +271,7 @@ static NSString *const AWSRegionNameMECentral1 = @"me-central-1";
 static NSString *const AWSRegionNameMESouth1 = @"me-south-1";
 static NSString *const AWSRegionNameAFSouth1 = @"af-south-1";
 static NSString *const AWSRegionNameEUSouth1 = @"eu-south-1";
+static NSString *const AWSRegionNameEUSouth2 = @"eu-south-2";
 
 static NSString *const AWSServiceNameAPIGateway = @"execute-api";
 static NSString *const AWSServiceNameAutoScaling = @"autoscaling";
@@ -474,6 +476,8 @@ static NSString *const AWSServiceNameChimeSDKIdentity = @"chime";
             return AWSRegionNameAPNortheast2;
         case AWSRegionAPSouth1:
             return AWSRegionNameAPSouth1;
+        case AWSRegionAPSouth2:
+            return AWSRegionNameAPSouth2;
         case AWSRegionSAEast1:
             return AWSRegionNameSAEast1;
         case AWSRegionCNNorth1:
@@ -500,6 +504,8 @@ static NSString *const AWSServiceNameChimeSDKIdentity = @"chime";
             return AWSRegionNameAFSouth1;
         case AWSRegionEUSouth1:
             return AWSRegionNameEUSouth1;
+        case AWSRegionEUSouth2:
+            return AWSRegionNameEUSouth2;
         default:
             return nil;
     }

@@ -26,7 +26,7 @@
 #import "AWSLambdaRequestRetryHandler.h"
 
 static NSString *const AWSInfoLambda = @"Lambda";
-NSString *const AWSLambdaSDKVersion = @"2.28.3";
+NSString *const AWSLambdaSDKVersion = @"2.28.5";
 
 
 @interface AWSLambdaResponseSerializer : AWSJSONResponseSerializer
@@ -71,6 +71,9 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"ResourceNotFoundException" : @(AWSLambdaErrorResourceNotFound),
                             @"ResourceNotReadyException" : @(AWSLambdaErrorResourceNotReady),
                             @"ServiceException" : @(AWSLambdaErrorService),
+                            @"SnapStartException" : @(AWSLambdaErrorSnapStart),
+                            @"SnapStartNotReadyException" : @(AWSLambdaErrorSnapStartNotReady),
+                            @"SnapStartTimeoutException" : @(AWSLambdaErrorSnapStartTimeout),
                             @"SubnetIPAddressLimitReachedException" : @(AWSLambdaErrorSubnetIPAddressLimitReached),
                             @"TooManyRequestsException" : @(AWSLambdaErrorTooManyRequests),
                             @"UnsupportedMediaTypeException" : @(AWSLambdaErrorUnsupportedMediaType),
