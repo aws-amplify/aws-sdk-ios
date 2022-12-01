@@ -1,5 +1,3 @@
----
-
 MOVE THIS SECTION TO THE CORRECT LOCATION
 
 ### Misc. Updates
@@ -19,6 +17,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ---AWSSTS
 ---AWSElasticLoadBalancingv2
 ---AWSPolly
+---AWSComprehend
 
 # AWS Mobile SDK for iOS CHANGELOG
 
