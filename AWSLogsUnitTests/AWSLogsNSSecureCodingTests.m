@@ -25,6 +25,7 @@
 - (void) test_AWSLogsCreateExportTaskResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsCreateLogGroupRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsCreateLogStreamRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsDeleteDataProtectionPolicyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsDeleteDestinationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsDeleteLogGroupRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsDeleteLogStreamRequest API_AVAILABLE(ios(11));
@@ -60,6 +61,8 @@
 - (void) test_AWSLogsFilterLogEventsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsFilterLogEventsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsFilteredLogEvent API_AVAILABLE(ios(11));
+- (void) test_AWSLogsGetDataProtectionPolicyRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsGetDataProtectionPolicyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsGetLogEventsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsGetLogEventsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsGetLogGroupFieldsRequest API_AVAILABLE(ios(11));
@@ -80,6 +83,8 @@
 - (void) test_AWSLogsMetricFilterMatchRecord API_AVAILABLE(ios(11));
 - (void) test_AWSLogsMetricTransformation API_AVAILABLE(ios(11));
 - (void) test_AWSLogsOutputLogEvent API_AVAILABLE(ios(11));
+- (void) test_AWSLogsPutDataProtectionPolicyRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLogsPutDataProtectionPolicyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLogsPutDestinationPolicyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsPutDestinationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLogsPutDestinationResponse API_AVAILABLE(ios(11));
@@ -139,6 +144,10 @@
 
 - (void) test_AWSLogsCreateLogStreamRequest {
     [self validateSecureCodingForClass:[AWSLogsCreateLogStreamRequest class]];
+}
+
+- (void) test_AWSLogsDeleteDataProtectionPolicyRequest {
+    [self validateSecureCodingForClass:[AWSLogsDeleteDataProtectionPolicyRequest class]];
 }
 
 - (void) test_AWSLogsDeleteDestinationRequest {
@@ -281,6 +290,14 @@
     [self validateSecureCodingForClass:[AWSLogsFilteredLogEvent class]];
 }
 
+- (void) test_AWSLogsGetDataProtectionPolicyRequest {
+    [self validateSecureCodingForClass:[AWSLogsGetDataProtectionPolicyRequest class]];
+}
+
+- (void) test_AWSLogsGetDataProtectionPolicyResponse {
+    [self validateSecureCodingForClass:[AWSLogsGetDataProtectionPolicyResponse class]];
+}
+
 - (void) test_AWSLogsGetLogEventsRequest {
     [self validateSecureCodingForClass:[AWSLogsGetLogEventsRequest class]];
 }
@@ -359,6 +376,14 @@
 
 - (void) test_AWSLogsOutputLogEvent {
     [self validateSecureCodingForClass:[AWSLogsOutputLogEvent class]];
+}
+
+- (void) test_AWSLogsPutDataProtectionPolicyRequest {
+    [self validateSecureCodingForClass:[AWSLogsPutDataProtectionPolicyRequest class]];
+}
+
+- (void) test_AWSLogsPutDataProtectionPolicyResponse {
+    [self validateSecureCodingForClass:[AWSLogsPutDataProtectionPolicyResponse class]];
 }
 
 - (void) test_AWSLogsPutDestinationPolicyRequest {

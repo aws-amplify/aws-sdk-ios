@@ -348,6 +348,7 @@
 - (void) test_AWSIoTIotAnalyticsAction API_AVAILABLE(ios(11));
 - (void) test_AWSIoTIotEventsAction API_AVAILABLE(ios(11));
 - (void) test_AWSIoTIotSiteWiseAction API_AVAILABLE(ios(11));
+- (void) test_AWSIoTIssuerCertificateIdentifier API_AVAILABLE(ios(11));
 - (void) test_AWSIoTJob API_AVAILABLE(ios(11));
 - (void) test_AWSIoTJobExecution API_AVAILABLE(ios(11));
 - (void) test_AWSIoTJobExecutionStatusDetails API_AVAILABLE(ios(11));
@@ -433,6 +434,8 @@
 - (void) test_AWSIoTListProvisioningTemplateVersionsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListProvisioningTemplatesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListProvisioningTemplatesResponse API_AVAILABLE(ios(11));
+- (void) test_AWSIoTListRelatedResourcesForAuditFindingRequest API_AVAILABLE(ios(11));
+- (void) test_AWSIoTListRelatedResourcesForAuditFindingResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListRoleAliasesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListRoleAliasesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListScheduledAuditsRequest API_AVAILABLE(ios(11));
@@ -490,6 +493,7 @@
 - (void) test_AWSIoTMitigationActionIdentifier API_AVAILABLE(ios(11));
 - (void) test_AWSIoTMitigationActionParams API_AVAILABLE(ios(11));
 - (void) test_AWSIoTMqttContext API_AVAILABLE(ios(11));
+- (void) test_AWSIoTMqttHeaders API_AVAILABLE(ios(11));
 - (void) test_AWSIoTNonCompliantResource API_AVAILABLE(ios(11));
 - (void) test_AWSIoTOTAUpdateFile API_AVAILABLE(ios(11));
 - (void) test_AWSIoTOTAUpdateInfo API_AVAILABLE(ios(11));
@@ -536,6 +540,7 @@
 - (void) test_AWSIoTS3Location API_AVAILABLE(ios(11));
 - (void) test_AWSIoTSalesforceAction API_AVAILABLE(ios(11));
 - (void) test_AWSIoTScheduledAuditMetadata API_AVAILABLE(ios(11));
+- (void) test_AWSIoTSchedulingConfig API_AVAILABLE(ios(11));
 - (void) test_AWSIoTSearchIndexRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTSearchIndexResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTSecurityProfileIdentifier API_AVAILABLE(ios(11));
@@ -653,6 +658,7 @@
 - (void) test_AWSIoTUpdateThingResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTUpdateTopicRuleDestinationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTUpdateTopicRuleDestinationResponse API_AVAILABLE(ios(11));
+- (void) test_AWSIoTUserProperty API_AVAILABLE(ios(11));
 - (void) test_AWSIoTValidateSecurityProfileBehaviorsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTValidateSecurityProfileBehaviorsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTValidationError API_AVAILABLE(ios(11));
@@ -1983,6 +1989,10 @@
     [self validateSecureCodingForClass:[AWSIoTIotSiteWiseAction class]];
 }
 
+- (void) test_AWSIoTIssuerCertificateIdentifier {
+    [self validateSecureCodingForClass:[AWSIoTIssuerCertificateIdentifier class]];
+}
+
 - (void) test_AWSIoTJob {
     [self validateSecureCodingForClass:[AWSIoTJob class]];
 }
@@ -2323,6 +2333,14 @@
     [self validateSecureCodingForClass:[AWSIoTListProvisioningTemplatesResponse class]];
 }
 
+- (void) test_AWSIoTListRelatedResourcesForAuditFindingRequest {
+    [self validateSecureCodingForClass:[AWSIoTListRelatedResourcesForAuditFindingRequest class]];
+}
+
+- (void) test_AWSIoTListRelatedResourcesForAuditFindingResponse {
+    [self validateSecureCodingForClass:[AWSIoTListRelatedResourcesForAuditFindingResponse class]];
+}
+
 - (void) test_AWSIoTListRoleAliasesRequest {
     [self validateSecureCodingForClass:[AWSIoTListRoleAliasesRequest class]];
 }
@@ -2551,6 +2569,10 @@
     [self validateSecureCodingForClass:[AWSIoTMqttContext class]];
 }
 
+- (void) test_AWSIoTMqttHeaders {
+    [self validateSecureCodingForClass:[AWSIoTMqttHeaders class]];
+}
+
 - (void) test_AWSIoTNonCompliantResource {
     [self validateSecureCodingForClass:[AWSIoTNonCompliantResource class]];
 }
@@ -2733,6 +2755,10 @@
 
 - (void) test_AWSIoTScheduledAuditMetadata {
     [self validateSecureCodingForClass:[AWSIoTScheduledAuditMetadata class]];
+}
+
+- (void) test_AWSIoTSchedulingConfig {
+    [self validateSecureCodingForClass:[AWSIoTSchedulingConfig class]];
 }
 
 - (void) test_AWSIoTSearchIndexRequest {
@@ -3201,6 +3227,10 @@
 
 - (void) test_AWSIoTUpdateTopicRuleDestinationResponse {
     [self validateSecureCodingForClass:[AWSIoTUpdateTopicRuleDestinationResponse class]];
+}
+
+- (void) test_AWSIoTUserProperty {
+    [self validateSecureCodingForClass:[AWSIoTUserProperty class]];
 }
 
 - (void) test_AWSIoTValidateSecurityProfileBehaviorsRequest {
