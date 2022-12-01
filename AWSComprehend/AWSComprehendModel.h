@@ -47,6 +47,12 @@ typedef NS_ENUM(NSInteger, AWSComprehendAugmentedManifestsDocumentTypeFormat) {
     AWSComprehendAugmentedManifestsDocumentTypeFormatSemiStructuredDocument,
 };
 
+typedef NS_ENUM(NSInteger, AWSComprehendBlockType) {
+    AWSComprehendBlockTypeUnknown,
+    AWSComprehendBlockTypeLine,
+    AWSComprehendBlockTypeWord,
+};
+
 typedef NS_ENUM(NSInteger, AWSComprehendDocumentClassifierDataFormat) {
     AWSComprehendDocumentClassifierDataFormatUnknown,
     AWSComprehendDocumentClassifierDataFormatComprehendCsv,
@@ -75,6 +81,17 @@ typedef NS_ENUM(NSInteger, AWSComprehendDocumentReadMode) {
     AWSComprehendDocumentReadModeUnknown,
     AWSComprehendDocumentReadModeServiceDefault,
     AWSComprehendDocumentReadModeForceDocumentReadAction,
+};
+
+typedef NS_ENUM(NSInteger, AWSComprehendDocumentType) {
+    AWSComprehendDocumentTypeUnknown,
+    AWSComprehendDocumentTypeNativePdf,
+    AWSComprehendDocumentTypeScannedPdf,
+    AWSComprehendDocumentTypeMsWord,
+    AWSComprehendDocumentTypeImage,
+    AWSComprehendDocumentTypePlainText,
+    AWSComprehendDocumentTypeTextractDetectDocumentTextJson,
+    AWSComprehendDocumentTypeTextractAnalyzeDocumentJson,
 };
 
 typedef NS_ENUM(NSInteger, AWSComprehendEndpointStatus) {
@@ -109,6 +126,19 @@ typedef NS_ENUM(NSInteger, AWSComprehendInputFormat) {
     AWSComprehendInputFormatUnknown,
     AWSComprehendInputFormatOneDocPerFile,
     AWSComprehendInputFormatOneDocPerLine,
+};
+
+typedef NS_ENUM(NSInteger, AWSComprehendInvalidRequestDetailReason) {
+    AWSComprehendInvalidRequestDetailReasonUnknown,
+    AWSComprehendInvalidRequestDetailReasonDocumentSizeExceeded,
+    AWSComprehendInvalidRequestDetailReasonUnsupportedDocType,
+    AWSComprehendInvalidRequestDetailReasonPageLimitExceeded,
+    AWSComprehendInvalidRequestDetailReasonTextractAccessDenied,
+};
+
+typedef NS_ENUM(NSInteger, AWSComprehendInvalidRequestReason) {
+    AWSComprehendInvalidRequestReasonUnknown,
+    AWSComprehendInvalidRequestReasonInvalidDocument,
 };
 
 typedef NS_ENUM(NSInteger, AWSComprehendJobStatus) {
@@ -146,6 +176,15 @@ typedef NS_ENUM(NSInteger, AWSComprehendModelStatus) {
     AWSComprehendModelStatusStopped,
     AWSComprehendModelStatusInError,
     AWSComprehendModelStatusTrained,
+};
+
+typedef NS_ENUM(NSInteger, AWSComprehendPageBasedErrorCode) {
+    AWSComprehendPageBasedErrorCodeUnknown,
+    AWSComprehendPageBasedErrorCodeTextractBadPage,
+    AWSComprehendPageBasedErrorCodeTextractProvisionedThroughputExceeded,
+    AWSComprehendPageBasedErrorCodePageCharactersExceeded,
+    AWSComprehendPageBasedErrorCodePageSizeExceeded,
+    AWSComprehendPageBasedErrorCodeInternalServerError,
 };
 
 typedef NS_ENUM(NSInteger, AWSComprehendPartOfSpeechTagType) {
@@ -223,6 +262,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendPiiEntityType) {
     AWSComprehendPiiEntityTypeInVoterNumber,
 };
 
+typedef NS_ENUM(NSInteger, AWSComprehendRelationshipType) {
+    AWSComprehendRelationshipTypeUnknown,
+    AWSComprehendRelationshipTypeChild,
+};
+
 typedef NS_ENUM(NSInteger, AWSComprehendSentimentType) {
     AWSComprehendSentimentTypeUnknown,
     AWSComprehendSentimentTypePositive,
@@ -288,6 +332,10 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 @class AWSComprehendBatchDetectTargetedSentimentRequest;
 @class AWSComprehendBatchDetectTargetedSentimentResponse;
 @class AWSComprehendBatchItemError;
+@class AWSComprehendBlock;
+@class AWSComprehendBlockReference;
+@class AWSComprehendBoundingBox;
+@class AWSComprehendChildBlock;
 @class AWSComprehendClassifierEvaluationMetrics;
 @class AWSComprehendClassifierMetadata;
 @class AWSComprehendClassifyDocumentRequest;
@@ -357,7 +405,9 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 @class AWSComprehendDocumentClassifierProperties;
 @class AWSComprehendDocumentClassifierSummary;
 @class AWSComprehendDocumentLabel;
+@class AWSComprehendDocumentMetadata;
 @class AWSComprehendDocumentReaderConfig;
+@class AWSComprehendDocumentTypeListItem;
 @class AWSComprehendDominantLanguage;
 @class AWSComprehendDominantLanguageDetectionJobFilter;
 @class AWSComprehendDominantLanguageDetectionJobProperties;
@@ -379,11 +429,15 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 @class AWSComprehendEntityRecognizerSummary;
 @class AWSComprehendEntityTypesEvaluationMetrics;
 @class AWSComprehendEntityTypesListItem;
+@class AWSComprehendErrorsListItem;
 @class AWSComprehendEventsDetectionJobFilter;
 @class AWSComprehendEventsDetectionJobProperties;
+@class AWSComprehendExtractedCharactersListItem;
+@class AWSComprehendGeometry;
 @class AWSComprehendImportModelRequest;
 @class AWSComprehendImportModelResponse;
 @class AWSComprehendInputDataConfig;
+@class AWSComprehendInvalidRequestDetail;
 @class AWSComprehendKeyPhrase;
 @class AWSComprehendKeyPhrasesDetectionJobFilter;
 @class AWSComprehendKeyPhrasesDetectionJobProperties;
@@ -424,9 +478,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 @class AWSComprehendPiiEntitiesDetectionJobProperties;
 @class AWSComprehendPiiEntity;
 @class AWSComprehendPiiOutputDataConfig;
+@class AWSComprehendPoint;
 @class AWSComprehendPutResourcePolicyRequest;
 @class AWSComprehendPutResourcePolicyResponse;
 @class AWSComprehendRedactionConfig;
+@class AWSComprehendRelationshipsListItem;
 @class AWSComprehendSentimentDetectionJobFilter;
 @class AWSComprehendSentimentDetectionJobProperties;
 @class AWSComprehendSentimentScore;
@@ -869,6 +925,123 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 @end
 
 /**
+ <p>Information about each word or line of text in the input document.</p><p>For additional information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/API_Block.html">Block</a> in the Amazon Textract API reference.</p>
+ */
+@interface AWSComprehendBlock : AWSModel
+
+
+/**
+ <p>The block represents a line of text or one word of text.</p><ul><li><p>WORD - A word that's detected on a document page. A word is one or more ISO basic Latin script characters that aren't separated by spaces.</p></li><li><p>LINE - A string of tab-delimited, contiguous words that are detected on a document page</p></li></ul>
+ */
+@property (nonatomic, assign) AWSComprehendBlockType blockType;
+
+/**
+ <p>Co-ordinates of the rectangle or polygon that contains the text.</p>
+ */
+@property (nonatomic, strong) AWSComprehendGeometry * _Nullable geometry;
+
+/**
+ <p>Unique identifier for the block.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>Page number where the block appears.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable page;
+
+/**
+ <p>A list of child blocks of the current block. For example, a LINE object has child blocks for each WORD block that's part of the line of text. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendRelationshipsListItem *> * _Nullable relationships;
+
+/**
+ <p>The word or line of text extracted from the block.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable text;
+
+@end
+
+/**
+ <p>A reference to a block. </p>
+ */
+@interface AWSComprehendBlockReference : AWSModel
+
+
+/**
+ <p>Offset of the start of the block within its parent block.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable beginOffset;
+
+/**
+ <p>Unique identifier for the block.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable blockId;
+
+/**
+ <p>List of child blocks within this block.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendChildBlock *> * _Nullable childBlocks;
+
+/**
+ <p>Offset of the end of the block within its parent block.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable endOffset;
+
+@end
+
+/**
+ <p>The bounding box around the detected page or around an element on a document page. The left (x-coordinate) and top (y-coordinate) are coordinates that represent the top and left sides of the bounding box. Note that the upper-left corner of the image is the origin (0,0). </p><p>For additional information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/API_BoundingBox.html">BoundingBox</a> in the Amazon Textract API reference.</p>
+ */
+@interface AWSComprehendBoundingBox : AWSModel
+
+
+/**
+ <p>The height of the bounding box as a ratio of the overall document page height.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable height;
+
+/**
+ <p>The left coordinate of the bounding box as a ratio of overall document page width.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable left;
+
+/**
+ <p>The top coordinate of the bounding box as a ratio of overall document page height.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable top;
+
+/**
+ <p>The width of the bounding box as a ratio of the overall document page width.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable width;
+
+@end
+
+/**
+ <p>Nested block contained within a block.</p>
+ */
+@interface AWSComprehendChildBlock : AWSModel
+
+
+/**
+ <p>Offset of the start of the child block within its parent block.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable beginOffset;
+
+/**
+ <p>Unique identifier for the child block.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable childBlockId;
+
+/**
+ <p>Offset of the end of the child block within its parent block.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable endOffset;
+
+@end
+
+/**
  <p>Describes the result metrics for the test data associated with an documentation classifier.</p>
  */
 @interface AWSComprehendClassifierEvaluationMetrics : AWSModel
@@ -951,12 +1124,22 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 
 
 /**
+ <p>Use the <code>Bytes</code> parameter to input a text, PDF, Word or image file. You can also use the <code>Bytes</code> parameter to input an Amazon Textract <code>DetectDocumentText</code> or <code>AnalyzeDocument</code> output file.</p><p>Provide the input document as a sequence of base64-encoded bytes. If your code uses an Amazon Web Services SDK to classify documents, the SDK may encode the document file bytes for you. </p><p>The maximum length of this field depends on the input document type. For details, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync.html"> Inputs for real-time custom analysis</a> in the Comprehend Developer Guide. </p><p>If you use the <code>Bytes</code> parameter, do not use the <code>Text</code> parameter.</p>
+ */
+@property (nonatomic, strong) NSData * _Nullable bytes;
+
+/**
+ <p>Provides configuration parameters to override the default actions for extracting text from PDF documents and image files.</p>
+ */
+@property (nonatomic, strong) AWSComprehendDocumentReaderConfig * _Nullable documentReaderConfig;
+
+/**
  <p>The Amazon Resource Number (ARN) of the endpoint. For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable endpointArn;
 
 /**
- <p>The document text to be analyzed.</p>
+ <p>The document text to be analyzed. If you enter text using this parameter, do not use the <code>Bytes</code> parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable text;
 
@@ -972,6 +1155,21 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
  <p>The classes used by the document being analyzed. These are used for multi-class trained models. Individual classes are mutually exclusive and each document is expected to have only a single class assigned to it. For example, an animal can be a dog or a cat, but not both at the same time. </p>
  */
 @property (nonatomic, strong) NSArray<AWSComprehendDocumentClass *> * _Nullable classes;
+
+/**
+ <p>Extraction information about the document. This field is present in the response only if your request includes the <code>Byte</code> parameter. </p>
+ */
+@property (nonatomic, strong) AWSComprehendDocumentMetadata * _Nullable documentMetadata;
+
+/**
+ <p>The document type for each page in the input document. This field is present in the response only if your request includes the <code>Byte</code> parameter. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendDocumentTypeListItem *> * _Nullable documentType;
+
+/**
+ <p>Page-level errors that the system detected while processing the input document. The field is empty if the system encountered no errors.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendErrorsListItem *> * _Nullable errors;
 
 /**
  <p>The labels used the document being analyzed. These are used for multi-label trained models. Individual labels represent different categories that are related in some manner and are not mutually exclusive. For example, a movie can be just an action movie, or it can be an action movie, a science fiction movie, and a comedy, all at the same time. </p>
@@ -1170,7 +1368,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 @property (nonatomic, strong) AWSComprehendEntityRecognizerInputDataConfig * _Nullable inputDataConfig;
 
 /**
- <p> You can specify any of the following languages supported by Amazon Comprehend: English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), German ("de"), or Portuguese ("pt"). All documents must be in the same language.</p>
+ <p> You can specify any of the following languages: English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), German ("de"), or Portuguese ("pt"). If you plan to use this entity recognizer with PDF, Word, or image input files, you must specify English as the language. All training documents must be in the same language.</p>
  */
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
@@ -1554,7 +1752,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 
 
 /**
- <p>The Amazon Resource Name (ARN) of the policy to describe.</p>
+ <p>The Amazon Resource Name (ARN) of the custom model version that has the resource policy.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable resourceArn;
 
@@ -1699,17 +1897,27 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 
 
 /**
+ <p>This field applies only when you use a custom entity recognition model that was trained with PDF annotations. For other cases, enter your text input in the <code>Text</code> field.</p><p> Use the <code>Bytes</code> parameter to input a text, PDF, Word or image file. Using a plain-text file in the <code>Bytes</code> parameter is equivelent to using the <code>Text</code> parameter (the <code>Entities</code> field in the response is identical).</p><p>You can also use the <code>Bytes</code> parameter to input an Amazon Textract <code>DetectDocumentText</code> or <code>AnalyzeDocument</code> output file.</p><p>Provide the input document as a sequence of base64-encoded bytes. If your code uses an Amazon Web Services SDK to detect entities, the SDK may encode the document file bytes for you. </p><p>The maximum length of this field depends on the input document type. For details, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync.html"> Inputs for real-time custom analysis</a> in the Comprehend Developer Guide. </p><p>If you use the <code>Bytes</code> parameter, do not use the <code>Text</code> parameter.</p>
+ */
+@property (nonatomic, strong) NSData * _Nullable bytes;
+
+/**
+ <p>Provides configuration parameters to override the default actions for extracting text from PDF documents and image files.</p>
+ */
+@property (nonatomic, strong) AWSComprehendDocumentReaderConfig * _Nullable documentReaderConfig;
+
+/**
  <p>The Amazon Resource Name of an endpoint that is associated with a custom entity recognition model. Provide an endpoint if you want to detect entities by using your own custom model instead of the default model that is used by Amazon Comprehend.</p><p>If you specify an endpoint, Amazon Comprehend uses the language of your custom model, and it ignores any language code that you provide in your request.</p><p>For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable endpointArn;
 
 /**
- <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p><p>If your request includes the endpoint for a custom entity recognition model, Amazon Comprehend uses the language of your custom model, and it ignores any language code that you specify here.</p>
+ <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. If your request includes the endpoint for a custom entity recognition model, Amazon Comprehend uses the language of your custom model, and it ignores any language code that you specify here.</p><p>All input documents must be in the same language.</p>
  */
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
 /**
- <p>A UTF-8 text string. The maximum string size is 100 KB.</p>
+ <p>A UTF-8 text string. The maximum string size is 100 KB. If you enter text using this parameter, do not use the <code>Bytes</code> parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable text;
 
@@ -1722,9 +1930,29 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 
 
 /**
+ <p>Information about each block of text in the input document. Blocks are nested. A page block contains a block for each line of text, which contains a block for each word. </p><p>The <code>Block</code> content for a Word input document does not include a <code>Geometry</code> field.</p><p>The <code>Block</code> field is not present in the response for plain-text inputs.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendBlock *> * _Nullable blocks;
+
+/**
+ <p>Information about the document, discovered during text extraction. This field is present in the response only if your request used the <code>Byte</code> parameter. </p>
+ */
+@property (nonatomic, strong) AWSComprehendDocumentMetadata * _Nullable documentMetadata;
+
+/**
+ <p>The document type for each page in the input document. This field is present in the response only if your request used the <code>Byte</code> parameter. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendDocumentTypeListItem *> * _Nullable documentType;
+
+/**
  <p>A collection of entities identified in the input text. For each entity, the response provides the entity text, entity type, where the entity text begins and ends, and the level of confidence that Amazon Comprehend has in the detection. </p><p>If your request uses a custom entity recognition model, Amazon Comprehend detects the entities that the model is trained to recognize. Otherwise, it detects the default entity types. For a list of default entity types, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html">Entities</a> in the Comprehend Developer Guide. </p>
  */
 @property (nonatomic, strong) NSArray<AWSComprehendEntity *> * _Nullable entities;
+
+/**
+ <p>Page-level errors that the system detected while processing the input document. The field is empty if the system encountered no errors.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendErrorsListItem *> * _Nullable errors;
 
 @end
 
@@ -1898,6 +2126,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
  <p>The name of the class.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>Page number in the input document. This field is present in the response only if your request includes the <code>Byte</code> parameter. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable page;
 
 /**
  <p>The confidence score that Amazon Comprehend has this class correctly attributed.</p>
@@ -2229,6 +2462,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
+ <p>Page number where the label occurs. This field is present in the response only if your request includes the <code>Byte</code> parameter. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable page;
+
+/**
  <p>The confidence score that Amazon Comprehend has this label correctly attributed.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable score;
@@ -2236,26 +2474,62 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 @end
 
 /**
- <p>The input properties for a topic detection job.</p>
+ <p>Information about the document, discovered during text extraction.</p>
+ */
+@interface AWSComprehendDocumentMetadata : AWSModel
+
+
+/**
+ <p>List of pages in the document, with the number of characters extracted from each page.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendExtractedCharactersListItem *> * _Nullable extractedCharacters;
+
+/**
+ <p>Number of pages in the document.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable pages;
+
+@end
+
+/**
+ <p>Provides configuration parameters to override the default actions for extracting text from PDF documents and image files. </p><p> By default, Amazon Comprehend performs the following actions to extract text from files, based on the input file type: </p><ul><li><p><b>Word files</b> - Amazon Comprehend parser extracts the text. </p></li><li><p><b>Digital PDF files</b> - Amazon Comprehend parser extracts the text. </p></li><li><p><b>Image files and scanned PDF files</b> - Amazon Comprehend uses the Amazon Textract <code>DetectDocumentText</code> API to extract the text. </p></li></ul><p><code>DocumentReaderConfig</code> does not apply to plain text files or Word files.</p><p> For image files and PDF documents, you can override these default actions using the fields listed below. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/detecting-cer.html#detecting-cer-pdf"> Setting text extraction options</a>. </p>
  Required parameters: [DocumentReadAction]
  */
 @interface AWSComprehendDocumentReaderConfig : AWSModel
 
 
 /**
- <p>This enum field will start with two values which will apply to PDFs:</p><ul><li><p><code>TEXTRACT_DETECT_DOCUMENT_TEXT</code> - The service calls DetectDocumentText for PDF documents per page.</p></li><li><p><code>TEXTRACT_ANALYZE_DOCUMENT</code> - The service calls AnalyzeDocument for PDF documents per page.</p></li></ul>
+ <p>This field defines the Amazon Textract API operation that Amazon Comprehend uses to extract text from PDF files and image files. Enter one of the following values:</p><ul><li><p><code>TEXTRACT_DETECT_DOCUMENT_TEXT</code> - The Amazon Comprehend service uses the <code>DetectDocumentText</code> API operation. </p></li><li><p><code>TEXTRACT_ANALYZE_DOCUMENT</code> - The Amazon Comprehend service uses the <code>AnalyzeDocument</code> API operation. </p></li></ul>
  */
 @property (nonatomic, assign) AWSComprehendDocumentReadAction documentReadAction;
 
 /**
- <p>This enum field provides two values:</p><ul><li><p><code>SERVICE_DEFAULT</code> - use service defaults for Document reading. For Digital PDF it would mean using an internal parser instead of Textract APIs</p></li><li><p><code>FORCE_DOCUMENT_READ_ACTION</code> - Always use specified action for DocumentReadAction, including Digital PDF. </p></li></ul>
+ <p>Determines the text extraction actions for PDF files. Enter one of the following values:</p><ul><li><p><code>SERVICE_DEFAULT</code> - use the Amazon Comprehend service defaults for PDF files.</p></li><li><p><code>FORCE_DOCUMENT_READ_ACTION</code> - Amazon Comprehend uses the Textract API specified by DocumentReadAction for all PDF files, including digital PDF files. </p></li></ul>
  */
 @property (nonatomic, assign) AWSComprehendDocumentReadMode documentReadMode;
 
 /**
- <p>Specifies how the text in an input file should be processed:</p>
+ <p>Specifies the type of Amazon Textract features to apply. If you chose <code>TEXTRACT_ANALYZE_DOCUMENT</code> as the read action, you must specify one or both of the following values:</p><ul><li><p><code>TABLES</code> - Returns information about any tables that are detected in the input document. </p></li><li><p><code>FORMS</code> - Returns information and the data from any forms that are detected in the input document. </p></li></ul>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable featureTypes;
+
+@end
+
+/**
+ <p>Document type for each page in the document.</p>
+ */
+@interface AWSComprehendDocumentTypeListItem : AWSModel
+
+
+/**
+ <p>Page number.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable page;
+
+/**
+ <p>Document type.</p>
+ */
+@property (nonatomic, assign) AWSComprehendDocumentType types;
 
 @end
 
@@ -2577,12 +2851,17 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 
 
 /**
- <p>The zero-based offset from the beginning of the source text to the first character in the entity.</p>
+ <p>The zero-based offset from the beginning of the source text to the first character in the entity.</p><p>This field is empty for non-text input.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable beginOffset;
 
 /**
- <p>The zero-based offset from the beginning of the source text to the last character in the entity.</p>
+ <p>A reference to each block for this entity. This field is empty for plain-text input.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendBlockReference *> * _Nullable blockReferences;
+
+/**
+ <p>The zero-based offset from the beginning of the source text to the last character in the entity.</p><p>This field is empty for non-text input.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable endOffset;
 
@@ -2597,7 +2876,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 @property (nonatomic, strong) NSString * _Nullable text;
 
 /**
- <p>The entity's type.</p>
+ <p>The entity type. For entity detection using the built-in model, this field contains one of the standard entity types listed below.</p><p>For custom entity detection, this field contains one of the entity types that you specified when you trained your custom model.</p>
  */
 @property (nonatomic, assign) AWSComprehendEntityType types;
 
@@ -2978,6 +3257,29 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 @end
 
 /**
+ <p>Text extraction encountered one or more page-level errors in the input document.</p><p>The <code>ErrorCode</code> contains one of the following values:</p><ul><li><p>TEXTRACT_BAD_PAGE - Amazon Textract cannot read the page. For more information about page limits in Amazon Textract, see <a href="https://docs.aws.amazon.com/textract/latest/dg/limits-document.html"> Page Quotas in Amazon Textract</a>.</p></li><li><p>TEXTRACT_PROVISIONED_THROUGHPUT_EXCEEDED - The number of requests exceeded your throughput limit. For more information about throughput quotas in Amazon Textract, see <a href="https://docs.aws.amazon.com/textract/latest/dg/limits-quotas-explained.html"> Default quotas in Amazon Textract</a>.</p></li><li><p>PAGE_CHARACTERS_EXCEEDED - Too many text characters on the page (10,000 characters maximum).</p></li><li><p>PAGE_SIZE_EXCEEDED - The maximum page size is 10 MB.</p></li><li><p>INTERNAL_SERVER_ERROR - The request encountered a service issue. Try the API request again.</p></li></ul>
+ */
+@interface AWSComprehendErrorsListItem : AWSModel
+
+
+/**
+ <p>Error code for the cause of the error.</p>
+ */
+@property (nonatomic, assign) AWSComprehendPageBasedErrorCode errorCode;
+
+/**
+ <p>Text message explaining the reason for the error.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable errorMessage;
+
+/**
+ <p>Page number where the error occurred.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable page;
+
+@end
+
+/**
  <p>Provides information for filtering a list of event detection jobs.</p>
  */
 @interface AWSComprehendEventsDetectionJobFilter : AWSModel
@@ -3074,6 +3376,42 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 @end
 
 /**
+ <p>Array of the number of characters extracted from each page.</p>
+ */
+@interface AWSComprehendExtractedCharactersListItem : AWSModel
+
+
+/**
+ <p>Number of characters extracted from each page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable count;
+
+/**
+ <p>Page number.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable page;
+
+@end
+
+/**
+ <p>Information about the location of items on a document page.</p><p>For additional information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/API_Geometry.html">Geometry</a> in the Amazon Textract API reference.</p>
+ */
+@interface AWSComprehendGeometry : AWSModel
+
+
+/**
+ <p>An axis-aligned coarse representation of the location of the recognized item on the document page.</p>
+ */
+@property (nonatomic, strong) AWSComprehendBoundingBox * _Nullable boundingBox;
+
+/**
+ <p>Within the bounding box, a fine-grained polygon around the recognized item.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendPoint *> * _Nullable polygon;
+
+@end
+
+/**
  
  */
 @interface AWSComprehendImportModelRequest : AWSRequest
@@ -3125,14 +3463,14 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 @end
 
 /**
- <p>The input properties for an inference job.</p>
+ <p>The input properties for an inference job. The document reader config field applies only to non-text inputs for custom analysis.</p>
  Required parameters: [S3Uri]
  */
 @interface AWSComprehendInputDataConfig : AWSModel
 
 
 /**
- <p>The document reader config field applies only for InputDataConfig of StartEntitiesDetectionJob. </p><p>Use DocumentReaderConfig to provide specifications about how you want your inference documents read. Currently it applies for PDF documents in StartEntitiesDetectionJob custom inference.</p>
+ <p>Provides configuration parameters to override the default actions for extracting text from PDF documents and image files.</p>
  */
 @property (nonatomic, strong) AWSComprehendDocumentReaderConfig * _Nullable documentReaderConfig;
 
@@ -3145,6 +3483,19 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
  <p>The Amazon S3 URI for the input data. The URI must be in same region as the API endpoint that you are calling. The URI can point to a single input file or it can provide the prefix for a collection of data files. </p><p>For example, if you use the URI <code>S3://bucketName/prefix</code>, if the prefix is a single file, Amazon Comprehend uses that file as input. If more than one file begins with the prefix, Amazon Comprehend uses all of them as input.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable s3Uri;
+
+@end
+
+/**
+ <p>Provides additional detail about why the request failed:</p><ul><li><p>Document size is too large - Check the size of your file and resubmit the request.</p></li><li><p>Document type is not supported - Check the file type and resubmit the request.</p></li><li><p>Too many pages in the document - Check the number of pages in your file and resubmit the request.</p></li><li><p>Access denied to Amazon Textract - Verify that your account has permission to use Amazon Textract API operations and resubmit the request.</p></li></ul>
+ */
+@interface AWSComprehendInvalidRequestDetail : AWSModel
+
+
+/**
+ <p>Reason code is <code>INVALID_DOCUMENT</code>.</p>
+ */
+@property (nonatomic, assign) AWSComprehendInvalidRequestDetailReason reason;
 
 @end
 
@@ -4076,6 +4427,24 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 @end
 
 /**
+ <p>The X and Y coordinates of a point on a document page.</p><p>For additional information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/API_Point.html">Point</a> in the Amazon Textract API reference.</p>
+ */
+@interface AWSComprehendPoint : AWSModel
+
+
+/**
+ <p>The value of the X coordinate for a point on a polygon</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable X;
+
+/**
+ <p>The value of the Y coordinate for a point on a polygon</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable Y;
+
+@end
+
+/**
  
  */
 @interface AWSComprehendPutResourcePolicyRequest : AWSRequest
@@ -4131,6 +4500,24 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
  <p>An array of the types of PII entities that Amazon Comprehend detects in the input text for your request.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable piiEntityTypes;
+
+@end
+
+/**
+ <p>List of child blocks for the current block.</p>
+ */
+@interface AWSComprehendRelationshipsListItem : AWSModel
+
+
+/**
+ <p>Identifers of the child blocks.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable ids;
+
+/**
+ <p>Only supported relationship is a child relationship.</p>
+ */
+@property (nonatomic, assign) AWSComprehendRelationshipType types;
 
 @end
 
@@ -4807,7 +5194,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 @property (nonatomic, strong) NSString * _Nullable dataAccessRoleArn;
 
 /**
- <p>The input properties for an inference job.</p>
+ <p>The input properties for an inference job. The document reader config field applies only to non-text inputs for custom analysis.</p>
  */
 @property (nonatomic, strong) AWSComprehendInputDataConfig * _Nullable inputDataConfig;
 
@@ -5324,7 +5711,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendTargetedSentimentEntityType) {
 @property (nonatomic, strong) NSDate * _Nullable endTime;
 
 /**
- <p>The input properties for an inference job.</p>
+ <p>The input properties for an inference job. The document reader config field applies only to non-text inputs for custom analysis.</p>
  */
 @property (nonatomic, strong) AWSComprehendInputDataConfig * _Nullable inputDataConfig;
 
