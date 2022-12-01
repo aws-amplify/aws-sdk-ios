@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -19,6 +19,11 @@
 
 @interface AWSFirehoseNSSecureCodingTests : AWSNSSecureCodingTest
 
+- (void) test_AWSFirehoseAmazonOpenSearchServerlessBufferingHints API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseAmazonOpenSearchServerlessDestinationConfiguration API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseAmazonOpenSearchServerlessDestinationDescription API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseAmazonOpenSearchServerlessDestinationUpdate API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseAmazonOpenSearchServerlessRetryOptions API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseAmazonopensearchserviceBufferingHints API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseAmazonopensearchserviceDestinationConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseAmazonopensearchserviceDestinationDescription API_AVAILABLE(ios(11));
@@ -113,6 +118,26 @@
 @end
 
 @implementation AWSFirehoseNSSecureCodingTests
+
+- (void) test_AWSFirehoseAmazonOpenSearchServerlessBufferingHints {
+    [self validateSecureCodingForClass:[AWSFirehoseAmazonOpenSearchServerlessBufferingHints class]];
+}
+
+- (void) test_AWSFirehoseAmazonOpenSearchServerlessDestinationConfiguration {
+    [self validateSecureCodingForClass:[AWSFirehoseAmazonOpenSearchServerlessDestinationConfiguration class]];
+}
+
+- (void) test_AWSFirehoseAmazonOpenSearchServerlessDestinationDescription {
+    [self validateSecureCodingForClass:[AWSFirehoseAmazonOpenSearchServerlessDestinationDescription class]];
+}
+
+- (void) test_AWSFirehoseAmazonOpenSearchServerlessDestinationUpdate {
+    [self validateSecureCodingForClass:[AWSFirehoseAmazonOpenSearchServerlessDestinationUpdate class]];
+}
+
+- (void) test_AWSFirehoseAmazonOpenSearchServerlessRetryOptions {
+    [self validateSecureCodingForClass:[AWSFirehoseAmazonOpenSearchServerlessRetryOptions class]];
+}
 
 - (void) test_AWSFirehoseAmazonopensearchserviceBufferingHints {
     [self validateSecureCodingForClass:[AWSFirehoseAmazonopensearchserviceBufferingHints class]];
