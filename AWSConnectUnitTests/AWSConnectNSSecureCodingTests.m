@@ -267,6 +267,8 @@
 - (void) test_AWSConnectListUsersRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListUsersResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectMediaConcurrency API_AVAILABLE(ios(11));
+- (void) test_AWSConnectMonitorContactRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectMonitorContactResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectNumberReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectOutboundCallerConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectParticipantDetails API_AVAILABLE(ios(11));
@@ -1413,6 +1415,14 @@
 
 - (void) test_AWSConnectMediaConcurrency {
     [self validateSecureCodingForClass:[AWSConnectMediaConcurrency class]];
+}
+
+- (void) test_AWSConnectMonitorContactRequest {
+    [self validateSecureCodingForClass:[AWSConnectMonitorContactRequest class]];
+}
+
+- (void) test_AWSConnectMonitorContactResponse {
+    [self validateSecureCodingForClass:[AWSConnectMonitorContactResponse class]];
 }
 
 - (void) test_AWSConnectNumberReference {
