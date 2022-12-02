@@ -478,7 +478,8 @@
         \"ca-ES\",\
         \"de-AT\",\
         \"yue-CN\",\
-        \"ar-AE\"\
+        \"ar-AE\",\
+        \"fi-FI\"\
       ]\
     },\
     \"LanguageCodeList\":{\
