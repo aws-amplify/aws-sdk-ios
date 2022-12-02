@@ -1,4 +1,9 @@
-MOVE THIS SECTION TO THE CORRECT LOCATION
+# AWS Mobile SDK for iOS CHANGELOG
+
+## Unreleased
+
+### New features
+-Features for next release
 
 ### Misc. Updates
 
@@ -18,12 +23,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ---AWSElasticLoadBalancingv2
 ---AWSPolly
 ---AWSComprehend
-
-# AWS Mobile SDK for iOS CHANGELOG
-
-## Unreleased
-
--Features for next release
+---AWSRekognition
 
 ## 2.28.5
 
