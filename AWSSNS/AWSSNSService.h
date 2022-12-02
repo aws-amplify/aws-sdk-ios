@@ -175,7 +175,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 + (void)removeSNSForKey:(NSString *)key;
 
 /**
- <p>Adds a statement to a topic's access control policy, granting access for the specified Amazon Web Services accounts to the specified actions.</p>
+ <p>Adds a statement to a topic's access control policy, granting access for the specified Amazon Web Services accounts to the specified actions.</p><note><p>To remove the ability to change topic permissions, you must deny permissions to the <code>AddPermission</code>, <code>RemovePermission</code>, and <code>SetTopicAttributes</code> actions in your IAM policy.</p></note>
  
  @param request A container for the necessary parameters to execute the AddPermission service method.
 
@@ -186,7 +186,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (AWSTask *)addPermission:(AWSSNSAddPermissionInput *)request;
 
 /**
- <p>Adds a statement to a topic's access control policy, granting access for the specified Amazon Web Services accounts to the specified actions.</p>
+ <p>Adds a statement to a topic's access control policy, granting access for the specified Amazon Web Services accounts to the specified actions.</p><note><p>To remove the ability to change topic permissions, you must deny permissions to the <code>AddPermission</code>, <code>RemovePermission</code>, and <code>SetTopicAttributes</code> actions in your IAM policy.</p></note>
  
  @param request A container for the necessary parameters to execute the AddPermission service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -935,7 +935,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (void)putDataProtectionPolicy:(AWSSNSPutDataProtectionPolicyInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Removes a statement from a topic's access control policy.</p>
+ <p>Removes a statement from a topic's access control policy.</p><note><p>To remove the ability to change topic permissions, you must deny permissions to the <code>AddPermission</code>, <code>RemovePermission</code>, and <code>SetTopicAttributes</code> actions in your IAM policy.</p></note>
  
  @param request A container for the necessary parameters to execute the RemovePermission service method.
 
@@ -946,7 +946,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (AWSTask *)removePermission:(AWSSNSRemovePermissionInput *)request;
 
 /**
- <p>Removes a statement from a topic's access control policy.</p>
+ <p>Removes a statement from a topic's access control policy.</p><note><p>To remove the ability to change topic permissions, you must deny permissions to the <code>AddPermission</code>, <code>RemovePermission</code>, and <code>SetTopicAttributes</code> actions in your IAM policy.</p></note>
  
  @param request A container for the necessary parameters to execute the RemovePermission service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1048,7 +1048,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (void)setSubscriptionAttributes:(AWSSNSSetSubscriptionAttributesInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Allows a topic owner to set an attribute of the topic to a new value.</p>
+ <p>Allows a topic owner to set an attribute of the topic to a new value.</p><note><p>To remove the ability to change topic permissions, you must deny permissions to the <code>AddPermission</code>, <code>RemovePermission</code>, and <code>SetTopicAttributes</code> actions in your IAM policy.</p></note>
  
  @param request A container for the necessary parameters to execute the SetTopicAttributes service method.
 
@@ -1059,7 +1059,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (AWSTask *)setTopicAttributes:(AWSSNSSetTopicAttributesInput *)request;
 
 /**
- <p>Allows a topic owner to set an attribute of the topic to a new value.</p>
+ <p>Allows a topic owner to set an attribute of the topic to a new value.</p><note><p>To remove the ability to change topic permissions, you must deny permissions to the <code>AddPermission</code>, <code>RemovePermission</code>, and <code>SetTopicAttributes</code> actions in your IAM policy.</p></note>
  
  @param request A container for the necessary parameters to execute the SetTopicAttributes service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1120,7 +1120,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (void)tagResource:(AWSSNSTagResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSSNSTagResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a subscription. If the subscription requires authentication for deletion, only the owner of the subscription or the topic's owner can unsubscribe, and an Amazon Web Services signature is required. If the <code>Unsubscribe</code> call does not require authentication and the requester is not the subscription owner, a final cancellation message is delivered to the endpoint, so that the endpoint owner can easily resubscribe to the topic if the <code>Unsubscribe</code> request was unintended.</p><p>This action is throttled at 100 transactions per second (TPS).</p>
+ <p>Deletes a subscription. If the subscription requires authentication for deletion, only the owner of the subscription or the topic's owner can unsubscribe, and an Amazon Web Services signature is required. If the <code>Unsubscribe</code> call does not require authentication and the requester is not the subscription owner, a final cancellation message is delivered to the endpoint, so that the endpoint owner can easily resubscribe to the topic if the <code>Unsubscribe</code> request was unintended.</p><note><p>Amazon SQS queue subscriptions require authentication for deletion. Only the owner of the subscription, or the owner of the topic can unsubscribe using the required Amazon Web Services signature.</p></note><p>This action is throttled at 100 transactions per second (TPS).</p>
  
  @param request A container for the necessary parameters to execute the Unsubscribe service method.
 
@@ -1131,7 +1131,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (AWSTask *)unsubscribe:(AWSSNSUnsubscribeInput *)request;
 
 /**
- <p>Deletes a subscription. If the subscription requires authentication for deletion, only the owner of the subscription or the topic's owner can unsubscribe, and an Amazon Web Services signature is required. If the <code>Unsubscribe</code> call does not require authentication and the requester is not the subscription owner, a final cancellation message is delivered to the endpoint, so that the endpoint owner can easily resubscribe to the topic if the <code>Unsubscribe</code> request was unintended.</p><p>This action is throttled at 100 transactions per second (TPS).</p>
+ <p>Deletes a subscription. If the subscription requires authentication for deletion, only the owner of the subscription or the topic's owner can unsubscribe, and an Amazon Web Services signature is required. If the <code>Unsubscribe</code> call does not require authentication and the requester is not the subscription owner, a final cancellation message is delivered to the endpoint, so that the endpoint owner can easily resubscribe to the topic if the <code>Unsubscribe</code> request was unintended.</p><note><p>Amazon SQS queue subscriptions require authentication for deletion. Only the owner of the subscription, or the owner of the topic can unsubscribe using the required Amazon Web Services signature.</p></note><p>This action is throttled at 100 transactions per second (TPS).</p>
  
  @param request A container for the necessary parameters to execute the Unsubscribe service method.
  @param completionHandler The completion handler to call when the load request is complete.
