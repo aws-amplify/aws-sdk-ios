@@ -1211,6 +1211,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"ap-south-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintAPSouth1);
         }
+        if ([value caseInsensitiveCompare:@"ap-south-2"] == NSOrderedSame) {
+            return @(AWSS3BucketLocationConstraintAPSouth2);
+        }
         if ([value caseInsensitiveCompare:@"ap-southeast-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintAPSoutheast1);
         }
@@ -1243,6 +1246,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         }
         if ([value caseInsensitiveCompare:@"eu-south-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintEUSouth1);
+        }
+        if ([value caseInsensitiveCompare:@"eu-south-2"] == NSOrderedSame) {
+            return @(AWSS3BucketLocationConstraintEUSouth2);
         }
         if ([value caseInsensitiveCompare:@"eu-west-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintEUWest1);
@@ -1294,6 +1300,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"ap-northeast-3";
             case AWSS3BucketLocationConstraintAPSouth1:
                 return @"ap-south-1";
+            case AWSS3BucketLocationConstraintAPSouth2:
+                return @"ap-south-2";
             case AWSS3BucketLocationConstraintAPSoutheast1:
                 return @"ap-southeast-1";
             case AWSS3BucketLocationConstraintAPSoutheast2:
@@ -1316,6 +1324,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"eu-north-1";
             case AWSS3BucketLocationConstraintEUSouth1:
                 return @"eu-south-1";
+            case AWSS3BucketLocationConstraintEUSouth2:
+                return @"eu-south-2";
             case AWSS3BucketLocationConstraintEUWest1:
                 return @"eu-west-1";
             case AWSS3BucketLocationConstraintEUWest2:
@@ -2804,6 +2814,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"ap-south-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintAPSouth1);
         }
+        if ([value caseInsensitiveCompare:@"ap-south-2"] == NSOrderedSame) {
+            return @(AWSS3BucketLocationConstraintAPSouth2);
+        }
         if ([value caseInsensitiveCompare:@"ap-southeast-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintAPSoutheast1);
         }
@@ -2836,6 +2849,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         }
         if ([value caseInsensitiveCompare:@"eu-south-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintEUSouth1);
+        }
+        if ([value caseInsensitiveCompare:@"eu-south-2"] == NSOrderedSame) {
+            return @(AWSS3BucketLocationConstraintEUSouth2);
         }
         if ([value caseInsensitiveCompare:@"eu-west-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintEUWest1);
@@ -2887,6 +2903,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"ap-northeast-3";
             case AWSS3BucketLocationConstraintAPSouth1:
                 return @"ap-south-1";
+            case AWSS3BucketLocationConstraintAPSouth2:
+                return @"ap-south-2";
             case AWSS3BucketLocationConstraintAPSoutheast1:
                 return @"ap-southeast-1";
             case AWSS3BucketLocationConstraintAPSoutheast2:
@@ -2909,6 +2927,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"eu-north-1";
             case AWSS3BucketLocationConstraintEUSouth1:
                 return @"eu-south-1";
+            case AWSS3BucketLocationConstraintEUSouth2:
+                return @"eu-south-2";
             case AWSS3BucketLocationConstraintEUWest1:
                 return @"eu-west-1";
             case AWSS3BucketLocationConstraintEUWest2:

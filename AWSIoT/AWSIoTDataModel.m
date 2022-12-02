@@ -181,11 +181,38 @@ NSString *const AWSIoTDataErrorDomain = @"com.amazonaws.AWSIoTDataErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"contentType" : @"contentType",
+             @"correlationData" : @"correlationData",
+             @"messageExpiry" : @"messageExpiry",
              @"payload" : @"payload",
+             @"payloadFormatIndicator" : @"payloadFormatIndicator",
              @"qos" : @"qos",
+             @"responseTopic" : @"responseTopic",
              @"retainValue" : @"retain",
              @"topic" : @"topic",
+             @"userProperties" : @"userProperties",
              };
+}
+
++ (NSValueTransformer *)payloadFormatIndicatorJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"UNSPECIFIED_BYTES"] == NSOrderedSame) {
+            return @(AWSIoTDataPayloadFormatIndicatorUnspecifiedBytes);
+        }
+        if ([value caseInsensitiveCompare:@"UTF8_DATA"] == NSOrderedSame) {
+            return @(AWSIoTDataPayloadFormatIndicatorUtf8Data);
+        }
+        return @(AWSIoTDataPayloadFormatIndicatorUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTDataPayloadFormatIndicatorUnspecifiedBytes:
+                return @"UNSPECIFIED_BYTES";
+            case AWSIoTDataPayloadFormatIndicatorUtf8Data:
+                return @"UTF8_DATA";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end

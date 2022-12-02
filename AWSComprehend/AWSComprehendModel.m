@@ -793,6 +793,108 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 @end
 
+@implementation AWSComprehendBlock
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"blockType" : @"BlockType",
+             @"geometry" : @"Geometry",
+             @"identifier" : @"Id",
+             @"page" : @"Page",
+             @"relationships" : @"Relationships",
+             @"text" : @"Text",
+             };
+}
+
++ (NSValueTransformer *)blockTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"LINE"] == NSOrderedSame) {
+            return @(AWSComprehendBlockTypeLine);
+        }
+        if ([value caseInsensitiveCompare:@"WORD"] == NSOrderedSame) {
+            return @(AWSComprehendBlockTypeWord);
+        }
+        return @(AWSComprehendBlockTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendBlockTypeLine:
+                return @"LINE";
+            case AWSComprehendBlockTypeWord:
+                return @"WORD";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)geometryJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendGeometry class]];
+}
+
++ (NSValueTransformer *)relationshipsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendRelationshipsListItem class]];
+}
+
+@end
+
+@implementation AWSComprehendBlockReference
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"beginOffset" : @"BeginOffset",
+             @"blockId" : @"BlockId",
+             @"childBlocks" : @"ChildBlocks",
+             @"endOffset" : @"EndOffset",
+             };
+}
+
++ (NSValueTransformer *)childBlocksJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendChildBlock class]];
+}
+
+@end
+
+@implementation AWSComprehendBoundingBox
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"height" : @"Height",
+             @"left" : @"Left",
+             @"top" : @"Top",
+             @"width" : @"Width",
+             };
+}
+
+@end
+
+@implementation AWSComprehendChildBlock
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"beginOffset" : @"BeginOffset",
+             @"childBlockId" : @"ChildBlockId",
+             @"endOffset" : @"EndOffset",
+             };
+}
+
+@end
+
 @implementation AWSComprehendClassifierEvaluationMetrics
 
 + (BOOL)supportsSecureCoding {
@@ -843,9 +945,15 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"bytes" : @"Bytes",
+             @"documentReaderConfig" : @"DocumentReaderConfig",
              @"endpointArn" : @"EndpointArn",
              @"text" : @"Text",
              };
+}
+
++ (NSValueTransformer *)documentReaderConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendDocumentReaderConfig class]];
 }
 
 @end
@@ -859,12 +967,27 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"classes" : @"Classes",
+             @"documentMetadata" : @"DocumentMetadata",
+             @"documentType" : @"DocumentType",
+             @"errors" : @"Errors",
              @"labels" : @"Labels",
              };
 }
 
 + (NSValueTransformer *)classesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendDocumentClass class]];
+}
+
++ (NSValueTransformer *)documentMetadataJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendDocumentMetadata class]];
+}
+
++ (NSValueTransformer *)documentTypeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendDocumentTypeListItem class]];
+}
+
++ (NSValueTransformer *)errorsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendErrorsListItem class]];
 }
 
 + (NSValueTransformer *)labelsJSONTransformer {
@@ -1843,10 +1966,16 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"bytes" : @"Bytes",
+             @"documentReaderConfig" : @"DocumentReaderConfig",
              @"endpointArn" : @"EndpointArn",
              @"languageCode" : @"LanguageCode",
              @"text" : @"Text",
              };
+}
+
++ (NSValueTransformer *)documentReaderConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendDocumentReaderConfig class]];
 }
 
 + (NSValueTransformer *)languageCodeJSONTransformer {
@@ -1930,12 +2059,32 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"blocks" : @"Blocks",
+             @"documentMetadata" : @"DocumentMetadata",
+             @"documentType" : @"DocumentType",
              @"entities" : @"Entities",
+             @"errors" : @"Errors",
              };
+}
+
++ (NSValueTransformer *)blocksJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendBlock class]];
+}
+
++ (NSValueTransformer *)documentMetadataJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendDocumentMetadata class]];
+}
+
++ (NSValueTransformer *)documentTypeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendDocumentTypeListItem class]];
 }
 
 + (NSValueTransformer *)entitiesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendEntity class]];
+}
+
++ (NSValueTransformer *)errorsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendErrorsListItem class]];
 }
 
 @end
@@ -2471,6 +2620,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"name" : @"Name",
+             @"page" : @"Page",
              @"score" : @"Score",
              };
 }
@@ -3081,8 +3231,28 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"name" : @"Name",
+             @"page" : @"Page",
              @"score" : @"Score",
              };
+}
+
+@end
+
+@implementation AWSComprehendDocumentMetadata
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"extractedCharacters" : @"ExtractedCharacters",
+             @"pages" : @"Pages",
+             };
+}
+
++ (NSValueTransformer *)extractedCharactersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendExtractedCharactersListItem class]];
 }
 
 @end
@@ -3137,6 +3307,67 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
                 return @"SERVICE_DEFAULT";
             case AWSComprehendDocumentReadModeForceDocumentReadAction:
                 return @"FORCE_DOCUMENT_READ_ACTION";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSComprehendDocumentTypeListItem
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"page" : @"Page",
+             @"types" : @"Type",
+             };
+}
+
++ (NSValueTransformer *)typesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"NATIVE_PDF"] == NSOrderedSame) {
+            return @(AWSComprehendDocumentTypeNativePdf);
+        }
+        if ([value caseInsensitiveCompare:@"SCANNED_PDF"] == NSOrderedSame) {
+            return @(AWSComprehendDocumentTypeScannedPdf);
+        }
+        if ([value caseInsensitiveCompare:@"MS_WORD"] == NSOrderedSame) {
+            return @(AWSComprehendDocumentTypeMsWord);
+        }
+        if ([value caseInsensitiveCompare:@"IMAGE"] == NSOrderedSame) {
+            return @(AWSComprehendDocumentTypeImage);
+        }
+        if ([value caseInsensitiveCompare:@"PLAIN_TEXT"] == NSOrderedSame) {
+            return @(AWSComprehendDocumentTypePlainText);
+        }
+        if ([value caseInsensitiveCompare:@"TEXTRACT_DETECT_DOCUMENT_TEXT_JSON"] == NSOrderedSame) {
+            return @(AWSComprehendDocumentTypeTextractDetectDocumentTextJson);
+        }
+        if ([value caseInsensitiveCompare:@"TEXTRACT_ANALYZE_DOCUMENT_JSON"] == NSOrderedSame) {
+            return @(AWSComprehendDocumentTypeTextractAnalyzeDocumentJson);
+        }
+        return @(AWSComprehendDocumentTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendDocumentTypeNativePdf:
+                return @"NATIVE_PDF";
+            case AWSComprehendDocumentTypeScannedPdf:
+                return @"SCANNED_PDF";
+            case AWSComprehendDocumentTypeMsWord:
+                return @"MS_WORD";
+            case AWSComprehendDocumentTypeImage:
+                return @"IMAGE";
+            case AWSComprehendDocumentTypePlainText:
+                return @"PLAIN_TEXT";
+            case AWSComprehendDocumentTypeTextractDetectDocumentTextJson:
+                return @"TEXTRACT_DETECT_DOCUMENT_TEXT_JSON";
+            case AWSComprehendDocumentTypeTextractAnalyzeDocumentJson:
+                return @"TEXTRACT_ANALYZE_DOCUMENT_JSON";
             default:
                 return nil;
         }
@@ -3723,11 +3954,16 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"beginOffset" : @"BeginOffset",
+             @"blockReferences" : @"BlockReferences",
              @"endOffset" : @"EndOffset",
              @"score" : @"Score",
              @"text" : @"Text",
              @"types" : @"Type",
              };
+}
+
++ (NSValueTransformer *)blockReferencesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendBlockReference class]];
 }
 
 + (NSValueTransformer *)typesJSONTransformer {
@@ -4557,6 +4793,58 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 @end
 
+@implementation AWSComprehendErrorsListItem
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"errorCode" : @"ErrorCode",
+             @"errorMessage" : @"ErrorMessage",
+             @"page" : @"Page",
+             };
+}
+
++ (NSValueTransformer *)errorCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"TEXTRACT_BAD_PAGE"] == NSOrderedSame) {
+            return @(AWSComprehendPageBasedErrorCodeTextractBadPage);
+        }
+        if ([value caseInsensitiveCompare:@"TEXTRACT_PROVISIONED_THROUGHPUT_EXCEEDED"] == NSOrderedSame) {
+            return @(AWSComprehendPageBasedErrorCodeTextractProvisionedThroughputExceeded);
+        }
+        if ([value caseInsensitiveCompare:@"PAGE_CHARACTERS_EXCEEDED"] == NSOrderedSame) {
+            return @(AWSComprehendPageBasedErrorCodePageCharactersExceeded);
+        }
+        if ([value caseInsensitiveCompare:@"PAGE_SIZE_EXCEEDED"] == NSOrderedSame) {
+            return @(AWSComprehendPageBasedErrorCodePageSizeExceeded);
+        }
+        if ([value caseInsensitiveCompare:@"INTERNAL_SERVER_ERROR"] == NSOrderedSame) {
+            return @(AWSComprehendPageBasedErrorCodeInternalServerError);
+        }
+        return @(AWSComprehendPageBasedErrorCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendPageBasedErrorCodeTextractBadPage:
+                return @"TEXTRACT_BAD_PAGE";
+            case AWSComprehendPageBasedErrorCodeTextractProvisionedThroughputExceeded:
+                return @"TEXTRACT_PROVISIONED_THROUGHPUT_EXCEEDED";
+            case AWSComprehendPageBasedErrorCodePageCharactersExceeded:
+                return @"PAGE_CHARACTERS_EXCEEDED";
+            case AWSComprehendPageBasedErrorCodePageSizeExceeded:
+                return @"PAGE_SIZE_EXCEEDED";
+            case AWSComprehendPageBasedErrorCodeInternalServerError:
+                return @"INTERNAL_SERVER_ERROR";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSComprehendEventsDetectionJobFilter
 
 + (BOOL)supportsSecureCoding {
@@ -4792,6 +5080,44 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 @end
 
+@implementation AWSComprehendExtractedCharactersListItem
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"count" : @"Count",
+             @"page" : @"Page",
+             };
+}
+
+@end
+
+@implementation AWSComprehendGeometry
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"boundingBox" : @"BoundingBox",
+             @"polygon" : @"Polygon",
+             };
+}
+
++ (NSValueTransformer *)boundingBoxJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendBoundingBox class]];
+}
+
++ (NSValueTransformer *)polygonJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendPoint class]];
+}
+
+@end
+
 @implementation AWSComprehendImportModelRequest
 
 + (BOOL)supportsSecureCoding {
@@ -4862,6 +5188,51 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
                 return @"ONE_DOC_PER_FILE";
             case AWSComprehendInputFormatOneDocPerLine:
                 return @"ONE_DOC_PER_LINE";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSComprehendInvalidRequestDetail
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"reason" : @"Reason",
+             };
+}
+
++ (NSValueTransformer *)reasonJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"DOCUMENT_SIZE_EXCEEDED"] == NSOrderedSame) {
+            return @(AWSComprehendInvalidRequestDetailReasonDocumentSizeExceeded);
+        }
+        if ([value caseInsensitiveCompare:@"UNSUPPORTED_DOC_TYPE"] == NSOrderedSame) {
+            return @(AWSComprehendInvalidRequestDetailReasonUnsupportedDocType);
+        }
+        if ([value caseInsensitiveCompare:@"PAGE_LIMIT_EXCEEDED"] == NSOrderedSame) {
+            return @(AWSComprehendInvalidRequestDetailReasonPageLimitExceeded);
+        }
+        if ([value caseInsensitiveCompare:@"TEXTRACT_ACCESS_DENIED"] == NSOrderedSame) {
+            return @(AWSComprehendInvalidRequestDetailReasonTextractAccessDenied);
+        }
+        return @(AWSComprehendInvalidRequestDetailReasonUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendInvalidRequestDetailReasonDocumentSizeExceeded:
+                return @"DOCUMENT_SIZE_EXCEEDED";
+            case AWSComprehendInvalidRequestDetailReasonUnsupportedDocType:
+                return @"UNSUPPORTED_DOC_TYPE";
+            case AWSComprehendInvalidRequestDetailReasonPageLimitExceeded:
+                return @"PAGE_LIMIT_EXCEEDED";
+            case AWSComprehendInvalidRequestDetailReasonTextractAccessDenied:
+                return @"TEXTRACT_ACCESS_DENIED";
             default:
                 return nil;
         }
@@ -6366,6 +6737,21 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 @end
 
+@implementation AWSComprehendPoint
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"X" : @"X",
+             @"Y" : @"Y",
+             };
+}
+
+@end
+
 @implementation AWSComprehendPutResourcePolicyRequest
 
 + (BOOL)supportsSecureCoding {
@@ -6425,6 +6811,37 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
                 return @"MASK";
             case AWSComprehendPiiEntitiesDetectionMaskModeReplaceWithPiiEntityType:
                 return @"REPLACE_WITH_PII_ENTITY_TYPE";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSComprehendRelationshipsListItem
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ids" : @"Ids",
+             @"types" : @"Type",
+             };
+}
+
++ (NSValueTransformer *)typesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CHILD"] == NSOrderedSame) {
+            return @(AWSComprehendRelationshipTypeChild);
+        }
+        return @(AWSComprehendRelationshipTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendRelationshipTypeChild:
+                return @"CHILD";
             default:
                 return nil;
         }

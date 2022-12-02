@@ -30,7 +30,9 @@
 - (void) test_AWSTextractBoundingBox API_AVAILABLE(ios(11));
 - (void) test_AWSTextractDetectDocumentTextRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTextractDetectDocumentTextResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTextractDetectedSignature API_AVAILABLE(ios(11));
 - (void) test_AWSTextractDocument API_AVAILABLE(ios(11));
+- (void) test_AWSTextractDocumentGroup API_AVAILABLE(ios(11));
 - (void) test_AWSTextractDocumentLocation API_AVAILABLE(ios(11));
 - (void) test_AWSTextractDocumentMetadata API_AVAILABLE(ios(11));
 - (void) test_AWSTextractExpenseCurrency API_AVAILABLE(ios(11));
@@ -39,6 +41,7 @@
 - (void) test_AWSTextractExpenseField API_AVAILABLE(ios(11));
 - (void) test_AWSTextractExpenseGroupProperty API_AVAILABLE(ios(11));
 - (void) test_AWSTextractExpenseType API_AVAILABLE(ios(11));
+- (void) test_AWSTextractExtraction API_AVAILABLE(ios(11));
 - (void) test_AWSTextractGeometry API_AVAILABLE(ios(11));
 - (void) test_AWSTextractGetDocumentAnalysisRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTextractGetDocumentAnalysisResponse API_AVAILABLE(ios(11));
@@ -46,27 +49,43 @@
 - (void) test_AWSTextractGetDocumentTextDetectionResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTextractGetExpenseAnalysisRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTextractGetExpenseAnalysisResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTextractGetLendingAnalysisRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTextractGetLendingAnalysisResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTextractGetLendingAnalysisSummaryRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTextractGetLendingAnalysisSummaryResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTextractHumanLoopActivationOutput API_AVAILABLE(ios(11));
 - (void) test_AWSTextractHumanLoopConfig API_AVAILABLE(ios(11));
 - (void) test_AWSTextractHumanLoopDataAttributes API_AVAILABLE(ios(11));
 - (void) test_AWSTextractIdentityDocument API_AVAILABLE(ios(11));
 - (void) test_AWSTextractIdentityDocumentField API_AVAILABLE(ios(11));
+- (void) test_AWSTextractLendingDetection API_AVAILABLE(ios(11));
+- (void) test_AWSTextractLendingDocument API_AVAILABLE(ios(11));
+- (void) test_AWSTextractLendingField API_AVAILABLE(ios(11));
+- (void) test_AWSTextractLendingResult API_AVAILABLE(ios(11));
+- (void) test_AWSTextractLendingSummary API_AVAILABLE(ios(11));
 - (void) test_AWSTextractLineItemFields API_AVAILABLE(ios(11));
 - (void) test_AWSTextractLineItemGroup API_AVAILABLE(ios(11));
 - (void) test_AWSTextractNormalizedValue API_AVAILABLE(ios(11));
 - (void) test_AWSTextractNotificationChannel API_AVAILABLE(ios(11));
 - (void) test_AWSTextractOutputConfig API_AVAILABLE(ios(11));
+- (void) test_AWSTextractPageClassification API_AVAILABLE(ios(11));
 - (void) test_AWSTextractPoint API_AVAILABLE(ios(11));
+- (void) test_AWSTextractPrediction API_AVAILABLE(ios(11));
 - (void) test_AWSTextractQueriesConfig API_AVAILABLE(ios(11));
 - (void) test_AWSTextractQuery API_AVAILABLE(ios(11));
 - (void) test_AWSTextractRelationship API_AVAILABLE(ios(11));
 - (void) test_AWSTextractS3Object API_AVAILABLE(ios(11));
+- (void) test_AWSTextractSignatureDetection API_AVAILABLE(ios(11));
+- (void) test_AWSTextractSplitDocument API_AVAILABLE(ios(11));
 - (void) test_AWSTextractStartDocumentAnalysisRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTextractStartDocumentAnalysisResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTextractStartDocumentTextDetectionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTextractStartDocumentTextDetectionResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTextractStartExpenseAnalysisRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTextractStartExpenseAnalysisResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTextractStartLendingAnalysisRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTextractStartLendingAnalysisResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTextractUndetectedSignature API_AVAILABLE(ios(11));
 - (void) test_AWSTextractWarning API_AVAILABLE(ios(11));
 
 @end
@@ -117,8 +136,16 @@
     [self validateSecureCodingForClass:[AWSTextractDetectDocumentTextResponse class]];
 }
 
+- (void) test_AWSTextractDetectedSignature {
+    [self validateSecureCodingForClass:[AWSTextractDetectedSignature class]];
+}
+
 - (void) test_AWSTextractDocument {
     [self validateSecureCodingForClass:[AWSTextractDocument class]];
+}
+
+- (void) test_AWSTextractDocumentGroup {
+    [self validateSecureCodingForClass:[AWSTextractDocumentGroup class]];
 }
 
 - (void) test_AWSTextractDocumentLocation {
@@ -153,6 +180,10 @@
     [self validateSecureCodingForClass:[AWSTextractExpenseType class]];
 }
 
+- (void) test_AWSTextractExtraction {
+    [self validateSecureCodingForClass:[AWSTextractExtraction class]];
+}
+
 - (void) test_AWSTextractGeometry {
     [self validateSecureCodingForClass:[AWSTextractGeometry class]];
 }
@@ -181,6 +212,22 @@
     [self validateSecureCodingForClass:[AWSTextractGetExpenseAnalysisResponse class]];
 }
 
+- (void) test_AWSTextractGetLendingAnalysisRequest {
+    [self validateSecureCodingForClass:[AWSTextractGetLendingAnalysisRequest class]];
+}
+
+- (void) test_AWSTextractGetLendingAnalysisResponse {
+    [self validateSecureCodingForClass:[AWSTextractGetLendingAnalysisResponse class]];
+}
+
+- (void) test_AWSTextractGetLendingAnalysisSummaryRequest {
+    [self validateSecureCodingForClass:[AWSTextractGetLendingAnalysisSummaryRequest class]];
+}
+
+- (void) test_AWSTextractGetLendingAnalysisSummaryResponse {
+    [self validateSecureCodingForClass:[AWSTextractGetLendingAnalysisSummaryResponse class]];
+}
+
 - (void) test_AWSTextractHumanLoopActivationOutput {
     [self validateSecureCodingForClass:[AWSTextractHumanLoopActivationOutput class]];
 }
@@ -199,6 +246,26 @@
 
 - (void) test_AWSTextractIdentityDocumentField {
     [self validateSecureCodingForClass:[AWSTextractIdentityDocumentField class]];
+}
+
+- (void) test_AWSTextractLendingDetection {
+    [self validateSecureCodingForClass:[AWSTextractLendingDetection class]];
+}
+
+- (void) test_AWSTextractLendingDocument {
+    [self validateSecureCodingForClass:[AWSTextractLendingDocument class]];
+}
+
+- (void) test_AWSTextractLendingField {
+    [self validateSecureCodingForClass:[AWSTextractLendingField class]];
+}
+
+- (void) test_AWSTextractLendingResult {
+    [self validateSecureCodingForClass:[AWSTextractLendingResult class]];
+}
+
+- (void) test_AWSTextractLendingSummary {
+    [self validateSecureCodingForClass:[AWSTextractLendingSummary class]];
 }
 
 - (void) test_AWSTextractLineItemFields {
@@ -221,8 +288,16 @@
     [self validateSecureCodingForClass:[AWSTextractOutputConfig class]];
 }
 
+- (void) test_AWSTextractPageClassification {
+    [self validateSecureCodingForClass:[AWSTextractPageClassification class]];
+}
+
 - (void) test_AWSTextractPoint {
     [self validateSecureCodingForClass:[AWSTextractPoint class]];
+}
+
+- (void) test_AWSTextractPrediction {
+    [self validateSecureCodingForClass:[AWSTextractPrediction class]];
 }
 
 - (void) test_AWSTextractQueriesConfig {
@@ -239,6 +314,14 @@
 
 - (void) test_AWSTextractS3Object {
     [self validateSecureCodingForClass:[AWSTextractS3Object class]];
+}
+
+- (void) test_AWSTextractSignatureDetection {
+    [self validateSecureCodingForClass:[AWSTextractSignatureDetection class]];
+}
+
+- (void) test_AWSTextractSplitDocument {
+    [self validateSecureCodingForClass:[AWSTextractSplitDocument class]];
 }
 
 - (void) test_AWSTextractStartDocumentAnalysisRequest {
@@ -263,6 +346,18 @@
 
 - (void) test_AWSTextractStartExpenseAnalysisResponse {
     [self validateSecureCodingForClass:[AWSTextractStartExpenseAnalysisResponse class]];
+}
+
+- (void) test_AWSTextractStartLendingAnalysisRequest {
+    [self validateSecureCodingForClass:[AWSTextractStartLendingAnalysisRequest class]];
+}
+
+- (void) test_AWSTextractStartLendingAnalysisResponse {
+    [self validateSecureCodingForClass:[AWSTextractStartLendingAnalysisResponse class]];
+}
+
+- (void) test_AWSTextractUndetectedSignature {
+    [self validateSecureCodingForClass:[AWSTextractUndetectedSignature class]];
 }
 
 - (void) test_AWSTextractWarning {

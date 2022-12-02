@@ -325,7 +325,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)batchDetectTargetedSentiment:(AWSComprehendBatchDetectTargetedSentimentRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendBatchDetectTargetedSentimentResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a new document classification request to analyze a single document in real-time, using a previously created and trained custom model and an endpoint.</p>
+ <p>Creates a new document classification request to analyze a single document in real-time, using a previously created and trained custom model and an endpoint.</p><p>You can input plain text or you can upload a single-page input document (text, PDF, Word, or image). </p><p>If the system detects errors while processing a page in the input document, the API response includes an entry in <code>Errors</code> that describes the errors.</p><p>If the system detects a document-level error in your input document, the API returns an <code>InvalidRequestException</code> error response. For details about this exception, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html"> Errors in semi-structured documents</a> in the Comprehend Developer Guide. </p>
  
  @param request A container for the necessary parameters to execute the ClassifyDocument service method.
 
@@ -337,7 +337,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (AWSTask<AWSComprehendClassifyDocumentResponse *> *)classifyDocument:(AWSComprehendClassifyDocumentRequest *)request;
 
 /**
- <p>Creates a new document classification request to analyze a single document in real-time, using a previously created and trained custom model and an endpoint.</p>
+ <p>Creates a new document classification request to analyze a single document in real-time, using a previously created and trained custom model and an endpoint.</p><p>You can input plain text or you can upload a single-page input document (text, PDF, Word, or image). </p><p>If the system detects errors while processing a page in the input document, the API response includes an entry in <code>Errors</code> that describes the errors.</p><p>If the system detects a document-level error in your input document, the API returns an <code>InvalidRequestException</code> error response. For details about this exception, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html"> Errors in semi-structured documents</a> in the Comprehend Developer Guide. </p>
  
  @param request A container for the necessary parameters to execute the ClassifyDocument service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -900,7 +900,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)detectDominantLanguage:(AWSComprehendDetectDominantLanguageRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendDetectDominantLanguageResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Inspects text for named entities, and returns information about them. For more information, about named entities, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html">Entities</a> in the Comprehend Developer Guide.</p>
+ <p>Detects named entities in input text when you use the pre-trained model. Detects custom entities if you have a custom entity recognition model. </p><p> When detecting named entities using the pre-trained model, use plain text as the input. For more information about named entities, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html">Entities</a> in the Comprehend Developer Guide.</p><p>When you use a custom entity recognition model, you can input plain text or you can upload a single-page input document (text, PDF, Word, or image). </p><p>If the system detects errors while processing a page in the input document, the API response includes an entry in <code>Errors</code> for each error. </p><p>If the system detects a document-level error in your input document, the API returns an <code>InvalidRequestException</code> error response. For details about this exception, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html"> Errors in semi-structured documents</a> in the Comprehend Developer Guide. </p>
  
  @param request A container for the necessary parameters to execute the DetectEntities service method.
 
@@ -912,7 +912,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (AWSTask<AWSComprehendDetectEntitiesResponse *> *)detectEntities:(AWSComprehendDetectEntitiesRequest *)request;
 
 /**
- <p>Inspects text for named entities, and returns information about them. For more information, about named entities, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html">Entities</a> in the Comprehend Developer Guide.</p>
+ <p>Detects named entities in input text when you use the pre-trained model. Detects custom entities if you have a custom entity recognition model. </p><p> When detecting named entities using the pre-trained model, use plain text as the input. For more information about named entities, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html">Entities</a> in the Comprehend Developer Guide.</p><p>When you use a custom entity recognition model, you can input plain text or you can upload a single-page input document (text, PDF, Word, or image). </p><p>If the system detects errors while processing a page in the input document, the API response includes an entry in <code>Errors</code> for each error. </p><p>If the system detects a document-level error in your input document, the API returns an <code>InvalidRequestException</code> error response. For details about this exception, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html"> Errors in semi-structured documents</a> in the Comprehend Developer Guide. </p>
  
  @param request A container for the necessary parameters to execute the DetectEntities service method.
  @param completionHandler The completion handler to call when the load request is complete.
