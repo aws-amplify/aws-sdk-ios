@@ -95,6 +95,7 @@ typedef NS_ENUM(NSInteger, AWSPollyLanguageCode) {
     AWSPollyLanguageCodeDeAT,
     AWSPollyLanguageCodeYueCN,
     AWSPollyLanguageCodeArAE,
+    AWSPollyLanguageCodeFiFI,
 };
 
 typedef NS_ENUM(NSInteger, AWSPollyOutputFormat) {
