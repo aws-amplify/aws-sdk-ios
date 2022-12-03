@@ -24,6 +24,7 @@
 ---AWSPolly
 ---AWSComprehend
 ---AWSRekognition
+---AWSSNS
 
 ## 2.28.5
 
