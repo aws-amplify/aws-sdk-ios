@@ -26291,7 +26291,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- 
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
@@ -26304,7 +26304,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- 
+ <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable returnValue;
 
@@ -40297,7 +40297,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- 
+ <p>The member accounts that contain resources that the path can traverse.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable additionalAccounts;
 
@@ -40362,7 +40362,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable statusMessage;
 
 /**
- 
+ <p>Potential intermediate accounts.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable suggestedAccounts;
 
@@ -40395,7 +40395,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable destination;
 
 /**
- 
+ <p>The Amazon Resource Name (ARN) of the destination.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable destinationArn;
 
@@ -40430,7 +40430,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable source;
 
 /**
- 
+ <p>The Amazon Resource Name (ARN) of the source.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceArn;
 
@@ -48151,7 +48151,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- 
+ <p>The member accounts that contain resources that the path can traverse.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable additionalAccounts;
 

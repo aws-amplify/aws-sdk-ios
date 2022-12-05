@@ -2210,7 +2210,7 @@
       },\
       \"input\":{\"shape\":\"DescribeAwsNetworkPerformanceMetricSubscriptionsRequest\"},\
       \"output\":{\"shape\":\"DescribeAwsNetworkPerformanceMetricSubscriptionsResult\"},\
-      \"documentation\":\"<p>Describes the curent Infrastructure Performance metric subscriptions.</p>\"\
+      \"documentation\":\"<p>Describes the current Infrastructure Performance metric subscriptions.</p>\"\
     },\
     \"DescribeBundleTasks\":{\
       \"name\":\"DescribeBundleTasks\",\
@@ -3933,7 +3933,8 @@
         \"requestUri\":\"/\"\
       },\
       \"input\":{\"shape\":\"EnableReachabilityAnalyzerOrganizationSharingRequest\"},\
-      \"output\":{\"shape\":\"EnableReachabilityAnalyzerOrganizationSharingResult\"}\
+      \"output\":{\"shape\":\"EnableReachabilityAnalyzerOrganizationSharingResult\"},\
+      \"documentation\":\"<p>Establishes a trust relationship between Reachability Analyzer and Organizations. This operation must be performed by the management account for the organization.</p> <p>After you establish a trust relationship, a user in the management account or a delegated administrator account can run a cross-account analysis using resources from the member accounts.</p>\"\
     },\
     \"EnableSerialConsoleAccess\":{\
       \"name\":\"EnableSerialConsoleAccess\",\
@@ -26091,7 +26092,10 @@
     \"EnableReachabilityAnalyzerOrganizationSharingRequest\":{\
       \"type\":\"structure\",\
       \"members\":{\
-        \"DryRun\":{\"shape\":\"Boolean\"}\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
       }\
     },\
     \"EnableReachabilityAnalyzerOrganizationSharingResult\":{\
@@ -26099,6 +26103,7 @@
       \"members\":{\
         \"ReturnValue\":{\
           \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>\",\
           \"locationName\":\"returnValue\"\
         }\
       }\
@@ -41244,6 +41249,7 @@
         },\
         \"AdditionalAccounts\":{\
           \"shape\":\"ValueStringList\",\
+          \"documentation\":\"<p>The member accounts that contain resources that the path can traverse.</p>\",\
           \"locationName\":\"additionalAccountSet\"\
         },\
         \"FilterInArns\":{\
@@ -41298,6 +41304,7 @@
         },\
         \"SuggestedAccounts\":{\
           \"shape\":\"ValueStringList\",\
+          \"documentation\":\"<p>Potential intermediate accounts.</p>\",\
           \"locationName\":\"suggestedAccountSet\"\
         },\
         \"Tags\":{\
@@ -41358,10 +41365,12 @@
         },\
         \"SourceArn\":{\
           \"shape\":\"ResourceArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the source.</p>\",\
           \"locationName\":\"sourceArn\"\
         },\
         \"DestinationArn\":{\
           \"shape\":\"ResourceArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the destination.</p>\",\
           \"locationName\":\"destinationArn\"\
         },\
         \"SourceIp\":{\
@@ -49854,6 +49863,7 @@
         },\
         \"AdditionalAccounts\":{\
           \"shape\":\"ValueStringList\",\
+          \"documentation\":\"<p>The member accounts that contain resources that the path can traverse.</p>\",\
           \"locationName\":\"AdditionalAccount\"\
         },\
         \"FilterInArns\":{\
