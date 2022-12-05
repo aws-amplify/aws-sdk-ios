@@ -6,6 +6,8 @@
 -Features for next release
 
 ### Misc. Updates
+- **AWSIoT**
+  -remove basic authentication support in `AWSSRWebsocket` (See [PR #4444](https://github.com/aws-amplify/aws-sdk-ios/pull/4444))
 
 - Model updates for the following services
 ---AWSIoT
