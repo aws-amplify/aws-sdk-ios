@@ -729,7 +729,9 @@
         \"hi-IN\",\
         \"es-US\",\
         \"en-GB\",\
-        \"en-AU\"\
+        \"en-AU\",\
+        \"de-DE\",\
+        \"ja-JP\"\
       ]\
     },\
     \"CallAnalyticsJob\":{\
