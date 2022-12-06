@@ -370,6 +370,8 @@ static NSUInteger _numProcessors;
     }
 }
 
+// Note: make sure to follow best security practices and ensure that all inputs are validated and sanitized.
+// Verify that the number of formatting directives in the format string corresponds to the number of arguments to be formatted.
 + (void)log:(BOOL)asynchronous
       level:(AWSDDLogLevel)level
        flag:(AWSDDLogFlag)flag
