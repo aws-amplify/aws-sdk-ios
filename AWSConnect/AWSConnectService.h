@@ -404,7 +404,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)associateSecurityKey:(AWSConnectAssociateSecurityKeyRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectAssociateSecurityKeyResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Claims an available phone number to your Amazon Connect instance or traffic distribution group. You can call this API only in the same Amazon Web Services Region where the Amazon Connect instance or traffic distribution group was created.</p><important><p>You can call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a> operation.</p></important>
+ <p>Claims an available phone number to your Amazon Connect instance or traffic distribution group. You can call this API only in the same Amazon Web Services Region where the Amazon Connect instance or traffic distribution group was created.</p><p>For more information about how to use this operation, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/claim-phone-number.html">Claim a phone number in your country</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/claim-phone-numbers-traffic-distribution-groups.html">Claim phone numbers to traffic distribution groups</a> in the <i>Amazon Connect Administrator Guide</i>. </p><important><p>You can call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html">SearchAvailablePhoneNumbers</a> API for available phone numbers that you can claim. Call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a> operation.</p></important>
  
  @param request A container for the necessary parameters to execute the ClaimPhoneNumber service method.
 
@@ -416,7 +416,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectClaimPhoneNumberResponse *> *)claimPhoneNumber:(AWSConnectClaimPhoneNumberRequest *)request;
 
 /**
- <p>Claims an available phone number to your Amazon Connect instance or traffic distribution group. You can call this API only in the same Amazon Web Services Region where the Amazon Connect instance or traffic distribution group was created.</p><important><p>You can call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a> operation.</p></important>
+ <p>Claims an available phone number to your Amazon Connect instance or traffic distribution group. You can call this API only in the same Amazon Web Services Region where the Amazon Connect instance or traffic distribution group was created.</p><p>For more information about how to use this operation, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/claim-phone-number.html">Claim a phone number in your country</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/claim-phone-numbers-traffic-distribution-groups.html">Claim phone numbers to traffic distribution groups</a> in the <i>Amazon Connect Administrator Guide</i>. </p><important><p>You can call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html">SearchAvailablePhoneNumbers</a> API for available phone numbers that you can claim. Call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a> operation.</p></important>
  
  @param request A container for the necessary parameters to execute the ClaimPhoneNumber service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -652,6 +652,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectCreateRoutingProfileResponse
  */
 - (void)createRoutingProfile:(AWSConnectCreateRoutingProfileRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateRoutingProfileResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Creates a rule for the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateRule service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectCreateRuleResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorThrottling`, `AWSConnectErrorAccessDenied`, `AWSConnectErrorResourceConflict`, `AWSConnectErrorServiceQuotaExceeded`.
+ 
+ @see AWSConnectCreateRuleRequest
+ @see AWSConnectCreateRuleResponse
+ */
+- (AWSTask<AWSConnectCreateRuleResponse *> *)createRule:(AWSConnectCreateRuleRequest *)request;
+
+/**
+ <p>Creates a rule for the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateRule service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorThrottling`, `AWSConnectErrorAccessDenied`, `AWSConnectErrorResourceConflict`, `AWSConnectErrorServiceQuotaExceeded`.
+ 
+ @see AWSConnectCreateRuleRequest
+ @see AWSConnectCreateRuleResponse
+ */
+- (void)createRule:(AWSConnectCreateRuleRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateRuleResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Creates a security profile.</p>
@@ -962,6 +987,28 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectDeleteQuickConnectRequest
  */
 - (void)deleteQuickConnect:(AWSConnectDeleteQuickConnectRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes a rule for the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteRule service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorThrottling`, `AWSConnectErrorAccessDenied`.
+ 
+ @see AWSConnectDeleteRuleRequest
+ */
+- (AWSTask *)deleteRule:(AWSConnectDeleteRuleRequest *)request;
+
+/**
+ <p>Deletes a rule for the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteRule service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorThrottling`, `AWSConnectErrorAccessDenied`.
+ 
+ @see AWSConnectDeleteRuleRequest
+ */
+- (void)deleteRule:(AWSConnectDeleteRuleRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Deletes a security profile.</p>
@@ -1425,6 +1472,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectDescribeRoutingProfileResponse
  */
 - (void)describeRoutingProfile:(AWSConnectDescribeRoutingProfileRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDescribeRoutingProfileResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes a rule for the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeRule service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectDescribeRuleResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorThrottling`, `AWSConnectErrorAccessDenied`.
+ 
+ @see AWSConnectDescribeRuleRequest
+ @see AWSConnectDescribeRuleResponse
+ */
+- (AWSTask<AWSConnectDescribeRuleResponse *> *)describeRule:(AWSConnectDescribeRuleRequest *)request;
+
+/**
+ <p>Describes a rule for the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeRule service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorThrottling`, `AWSConnectErrorAccessDenied`.
+ 
+ @see AWSConnectDescribeRuleRequest
+ @see AWSConnectDescribeRuleResponse
+ */
+- (void)describeRule:(AWSConnectDescribeRuleRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDescribeRuleResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Gets basic information about the security profle.</p>
@@ -2523,6 +2595,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectListRoutingProfilesResponse
  */
 - (void)listRoutingProfiles:(AWSConnectListRoutingProfilesRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListRoutingProfilesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>List all rules for the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListRules service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectListRulesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInternalService`, `AWSConnectErrorThrottling`, `AWSConnectErrorAccessDenied`, `AWSConnectErrorResourceNotFound`.
+ 
+ @see AWSConnectListRulesRequest
+ @see AWSConnectListRulesResponse
+ */
+- (AWSTask<AWSConnectListRulesResponse *> *)listRules:(AWSConnectListRulesRequest *)request;
+
+/**
+ <p>List all rules for the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListRules service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInternalService`, `AWSConnectErrorThrottling`, `AWSConnectErrorAccessDenied`, `AWSConnectErrorResourceNotFound`.
+ 
+ @see AWSConnectListRulesRequest
+ @see AWSConnectListRulesResponse
+ */
+- (void)listRules:(AWSConnectListRulesRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListRulesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Returns a paginated list of all security keys associated with the instance.</p>
@@ -3860,6 +3957,28 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectUpdateRoutingProfileQueuesRequest
  */
 - (void)updateRoutingProfileQueues:(AWSConnectUpdateRoutingProfileQueuesRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Updates a rule for the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateRule service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorThrottling`, `AWSConnectErrorAccessDenied`, `AWSConnectErrorResourceConflict`.
+ 
+ @see AWSConnectUpdateRuleRequest
+ */
+- (AWSTask *)updateRule:(AWSConnectUpdateRuleRequest *)request;
+
+/**
+ <p>Updates a rule for the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateRule service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorThrottling`, `AWSConnectErrorAccessDenied`, `AWSConnectErrorResourceConflict`.
+ 
+ @see AWSConnectUpdateRuleRequest
+ */
+- (void)updateRule:(AWSConnectUpdateRuleRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates a security profile.</p>

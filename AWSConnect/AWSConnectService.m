@@ -749,6 +749,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectCreateRuleResponse *> *)createRule:(AWSConnectCreateRuleRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/rules/{InstanceId}"
+                  targetPrefix:@""
+                 operationName:@"CreateRule"
+                   outputClass:[AWSConnectCreateRuleResponse class]];
+}
+
+- (void)createRule:(AWSConnectCreateRuleRequest *)request
+     completionHandler:(void (^)(AWSConnectCreateRuleResponse *response, NSError *error))completionHandler {
+    [[self createRule:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectCreateRuleResponse *> * _Nonnull task) {
+        AWSConnectCreateRuleResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectCreateSecurityProfileResponse *> *)createSecurityProfile:(AWSConnectCreateSecurityProfileRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -1033,6 +1056,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)deleteQuickConnect:(AWSConnectDeleteQuickConnectRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self deleteQuickConnect:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)deleteRule:(AWSConnectDeleteRuleRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/rules/{InstanceId}/{RuleId}"
+                  targetPrefix:@""
+                 operationName:@"DeleteRule"
+                   outputClass:nil];
+}
+
+- (void)deleteRule:(AWSConnectDeleteRuleRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteRule:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1466,6 +1511,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectDescribeRoutingProfileResponse *response, NSError *error))completionHandler {
     [[self describeRoutingProfile:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDescribeRoutingProfileResponse *> * _Nonnull task) {
         AWSConnectDescribeRoutingProfileResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectDescribeRuleResponse *> *)describeRule:(AWSConnectDescribeRuleRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/rules/{InstanceId}/{RuleId}"
+                  targetPrefix:@""
+                 operationName:@"DescribeRule"
+                   outputClass:[AWSConnectDescribeRuleResponse class]];
+}
+
+- (void)describeRule:(AWSConnectDescribeRuleRequest *)request
+     completionHandler:(void (^)(AWSConnectDescribeRuleResponse *response, NSError *error))completionHandler {
+    [[self describeRule:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDescribeRuleResponse *> * _Nonnull task) {
+        AWSConnectDescribeRuleResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -2492,6 +2560,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectListRoutingProfilesResponse *response, NSError *error))completionHandler {
     [[self listRoutingProfiles:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListRoutingProfilesResponse *> * _Nonnull task) {
         AWSConnectListRoutingProfilesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectListRulesResponse *> *)listRules:(AWSConnectListRulesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/rules/{InstanceId}"
+                  targetPrefix:@""
+                 operationName:@"ListRules"
+                   outputClass:[AWSConnectListRulesResponse class]];
+}
+
+- (void)listRules:(AWSConnectListRulesRequest *)request
+     completionHandler:(void (^)(AWSConnectListRulesResponse *response, NSError *error))completionHandler {
+    [[self listRules:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListRulesResponse *> * _Nonnull task) {
+        AWSConnectListRulesResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -3759,6 +3850,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)updateRoutingProfileQueues:(AWSConnectUpdateRoutingProfileQueuesRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self updateRoutingProfileQueues:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)updateRule:(AWSConnectUpdateRuleRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/rules/{InstanceId}/{RuleId}"
+                  targetPrefix:@""
+                 operationName:@"UpdateRule"
+                   outputClass:nil];
+}
+
+- (void)updateRule:(AWSConnectUpdateRuleRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self updateRule:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {
