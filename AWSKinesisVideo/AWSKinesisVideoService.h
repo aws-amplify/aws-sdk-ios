@@ -275,6 +275,31 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
 - (void)deleteStream:(AWSKinesisVideoDeleteStreamInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoDeleteStreamOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Describes a stream’s edge configuration that was set using the <code>StartEdgeConfigurationUpdate</code> API. Use this API to get the status of the configuration if the configuration is in sync with the Edge Agent.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeEdgeConfiguration service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisVideoDescribeEdgeConfigurationOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorAccessDenied`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorStreamEdgeConfigurationNotFound`.
+ 
+ @see AWSKinesisVideoDescribeEdgeConfigurationInput
+ @see AWSKinesisVideoDescribeEdgeConfigurationOutput
+ */
+- (AWSTask<AWSKinesisVideoDescribeEdgeConfigurationOutput *> *)describeEdgeConfiguration:(AWSKinesisVideoDescribeEdgeConfigurationInput *)request;
+
+/**
+ <p>Describes a stream’s edge configuration that was set using the <code>StartEdgeConfigurationUpdate</code> API. Use this API to get the status of the configuration if the configuration is in sync with the Edge Agent.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeEdgeConfiguration service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorAccessDenied`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorStreamEdgeConfigurationNotFound`.
+ 
+ @see AWSKinesisVideoDescribeEdgeConfigurationInput
+ @see AWSKinesisVideoDescribeEdgeConfigurationOutput
+ */
+- (void)describeEdgeConfiguration:(AWSKinesisVideoDescribeEdgeConfigurationInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoDescribeEdgeConfigurationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Gets the <code>ImageGenerationConfiguration</code> for a given Kinesis video stream.</p>
  
  @param request A container for the necessary parameters to execute the DescribeImageGenerationConfiguration service method.
@@ -523,6 +548,31 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
  @see AWSKinesisVideoListTagsForStreamOutput
  */
 - (void)listTagsForStream:(AWSKinesisVideoListTagsForStreamInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoListTagsForStreamOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>An asynchronous API that updates a stream’s existing edge configuration. If this API is invoked for the first time, a new edge configuration will be created for the stream, and the sync status will be set to <code>SYNCING</code>. </p><p>The Kinesis Video Stream will sync the stream’s edge configuration with the Edge Agent IoT Greengrass component that runs on an IoT Hub Device setup at your premise. The time to sync can vary and depends on the connectivity of the Hub Device. The <code>SyncStatus</code> will be updated as the edge configuration is acknowledged, and synced with the Edge Agent. You will have to wait for the sync status to reach a terminal state such as: <code>IN_SYNC</code> and <code>SYNC_FAILED</code>, before using this API again.</p><p>If you invoke this API during the syncing process, a <code>ResourceInUseException</code> will be thrown. The connectivity of the stream's edge configuration and the Edge Agent will be retried for 15 minutes. After 15 minutes, the status will transition into the <code>SYNC_FAILED</code> state. </p>
+ 
+ @param request A container for the necessary parameters to execute the StartEdgeConfigurationUpdate service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisVideoStartEdgeConfigurationUpdateOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorAccessDenied`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorNoDataRetention`, `AWSKinesisVideoErrorResourceInUse`, `AWSKinesisVideoErrorResourceNotFound`.
+ 
+ @see AWSKinesisVideoStartEdgeConfigurationUpdateInput
+ @see AWSKinesisVideoStartEdgeConfigurationUpdateOutput
+ */
+- (AWSTask<AWSKinesisVideoStartEdgeConfigurationUpdateOutput *> *)startEdgeConfigurationUpdate:(AWSKinesisVideoStartEdgeConfigurationUpdateInput *)request;
+
+/**
+ <p>An asynchronous API that updates a stream’s existing edge configuration. If this API is invoked for the first time, a new edge configuration will be created for the stream, and the sync status will be set to <code>SYNCING</code>. </p><p>The Kinesis Video Stream will sync the stream’s edge configuration with the Edge Agent IoT Greengrass component that runs on an IoT Hub Device setup at your premise. The time to sync can vary and depends on the connectivity of the Hub Device. The <code>SyncStatus</code> will be updated as the edge configuration is acknowledged, and synced with the Edge Agent. You will have to wait for the sync status to reach a terminal state such as: <code>IN_SYNC</code> and <code>SYNC_FAILED</code>, before using this API again.</p><p>If you invoke this API during the syncing process, a <code>ResourceInUseException</code> will be thrown. The connectivity of the stream's edge configuration and the Edge Agent will be retried for 15 minutes. After 15 minutes, the status will transition into the <code>SYNC_FAILED</code> state. </p>
+ 
+ @param request A container for the necessary parameters to execute the StartEdgeConfigurationUpdate service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorAccessDenied`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorNoDataRetention`, `AWSKinesisVideoErrorResourceInUse`, `AWSKinesisVideoErrorResourceNotFound`.
+ 
+ @see AWSKinesisVideoStartEdgeConfigurationUpdateInput
+ @see AWSKinesisVideoStartEdgeConfigurationUpdateOutput
+ */
+- (void)startEdgeConfigurationUpdate:(AWSKinesisVideoStartEdgeConfigurationUpdateInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoStartEdgeConfigurationUpdateOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Adds one or more tags to a signaling channel. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to Amazon Web Services resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a> in the <i>Billing and Cost Management and Cost Management User Guide</i>.</p>

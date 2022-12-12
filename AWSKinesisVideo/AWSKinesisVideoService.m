@@ -51,6 +51,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"NotAuthorizedException" : @(AWSKinesisVideoErrorNotAuthorized),
                             @"ResourceInUseException" : @(AWSKinesisVideoErrorResourceInUse),
                             @"ResourceNotFoundException" : @(AWSKinesisVideoErrorResourceNotFound),
+                            @"StreamEdgeConfigurationNotFoundException" : @(AWSKinesisVideoErrorStreamEdgeConfigurationNotFound),
                             @"TagsPerResourceExceededLimitException" : @(AWSKinesisVideoErrorTagsPerResourceExceededLimit),
                             @"VersionMismatchException" : @(AWSKinesisVideoErrorVersionMismatch),
                             };
@@ -381,6 +382,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSKinesisVideoDescribeEdgeConfigurationOutput *> *)describeEdgeConfiguration:(AWSKinesisVideoDescribeEdgeConfigurationInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/describeEdgeConfiguration"
+                  targetPrefix:@""
+                 operationName:@"DescribeEdgeConfiguration"
+                   outputClass:[AWSKinesisVideoDescribeEdgeConfigurationOutput class]];
+}
+
+- (void)describeEdgeConfiguration:(AWSKinesisVideoDescribeEdgeConfigurationInput *)request
+     completionHandler:(void (^)(AWSKinesisVideoDescribeEdgeConfigurationOutput *response, NSError *error))completionHandler {
+    [[self describeEdgeConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisVideoDescribeEdgeConfigurationOutput *> * _Nonnull task) {
+        AWSKinesisVideoDescribeEdgeConfigurationOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSKinesisVideoDescribeImageGenerationConfigurationOutput *> *)describeImageGenerationConfiguration:(AWSKinesisVideoDescribeImageGenerationConfigurationInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -601,6 +625,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSKinesisVideoListTagsForStreamOutput *response, NSError *error))completionHandler {
     [[self listTagsForStream:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisVideoListTagsForStreamOutput *> * _Nonnull task) {
         AWSKinesisVideoListTagsForStreamOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSKinesisVideoStartEdgeConfigurationUpdateOutput *> *)startEdgeConfigurationUpdate:(AWSKinesisVideoStartEdgeConfigurationUpdateInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/startEdgeConfigurationUpdate"
+                  targetPrefix:@""
+                 operationName:@"StartEdgeConfigurationUpdate"
+                   outputClass:[AWSKinesisVideoStartEdgeConfigurationUpdateOutput class]];
+}
+
+- (void)startEdgeConfigurationUpdate:(AWSKinesisVideoStartEdgeConfigurationUpdateInput *)request
+     completionHandler:(void (^)(AWSKinesisVideoStartEdgeConfigurationUpdateOutput *response, NSError *error))completionHandler {
+    [[self startEdgeConfigurationUpdate:request] continueWithBlock:^id _Nullable(AWSTask<AWSKinesisVideoStartEdgeConfigurationUpdateOutput *> * _Nonnull task) {
+        AWSKinesisVideoStartEdgeConfigurationUpdateOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

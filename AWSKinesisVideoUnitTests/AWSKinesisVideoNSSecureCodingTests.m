@@ -29,6 +29,9 @@
 - (void) test_AWSKinesisVideoDeleteSignalingChannelOutput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoDeleteStreamInput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoDeleteStreamOutput API_AVAILABLE(ios(11));
+- (void) test_AWSKinesisVideoDeletionConfig API_AVAILABLE(ios(11));
+- (void) test_AWSKinesisVideoDescribeEdgeConfigurationInput API_AVAILABLE(ios(11));
+- (void) test_AWSKinesisVideoDescribeEdgeConfigurationOutput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoDescribeImageGenerationConfigurationInput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoDescribeImageGenerationConfigurationOutput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoDescribeNotificationConfigurationInput API_AVAILABLE(ios(11));
@@ -37,6 +40,7 @@
 - (void) test_AWSKinesisVideoDescribeSignalingChannelOutput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoDescribeStreamInput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoDescribeStreamOutput API_AVAILABLE(ios(11));
+- (void) test_AWSKinesisVideoEdgeConfig API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoGetDataEndpointInput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoGetDataEndpointOutput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoGetSignalingChannelEndpointInput API_AVAILABLE(ios(11));
@@ -51,11 +55,17 @@
 - (void) test_AWSKinesisVideoListTagsForResourceOutput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoListTagsForStreamInput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoListTagsForStreamOutput API_AVAILABLE(ios(11));
+- (void) test_AWSKinesisVideoLocalSizeConfig API_AVAILABLE(ios(11));
+- (void) test_AWSKinesisVideoMediaSourceConfig API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoNotificationConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoNotificationDestinationConfig API_AVAILABLE(ios(11));
+- (void) test_AWSKinesisVideoRecorderConfig API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoResourceEndpointListItem API_AVAILABLE(ios(11));
+- (void) test_AWSKinesisVideoScheduleConfig API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoSingleMasterChannelEndpointConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoSingleMasterConfiguration API_AVAILABLE(ios(11));
+- (void) test_AWSKinesisVideoStartEdgeConfigurationUpdateInput API_AVAILABLE(ios(11));
+- (void) test_AWSKinesisVideoStartEdgeConfigurationUpdateOutput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoStreamInfo API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoStreamNameCondition API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoTag API_AVAILABLE(ios(11));
@@ -77,6 +87,7 @@
 - (void) test_AWSKinesisVideoUpdateSignalingChannelOutput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoUpdateStreamInput API_AVAILABLE(ios(11));
 - (void) test_AWSKinesisVideoUpdateStreamOutput API_AVAILABLE(ios(11));
+- (void) test_AWSKinesisVideoUploaderConfig API_AVAILABLE(ios(11));
 
 @end
 
@@ -122,6 +133,18 @@
     [self validateSecureCodingForClass:[AWSKinesisVideoDeleteStreamOutput class]];
 }
 
+- (void) test_AWSKinesisVideoDeletionConfig {
+    [self validateSecureCodingForClass:[AWSKinesisVideoDeletionConfig class]];
+}
+
+- (void) test_AWSKinesisVideoDescribeEdgeConfigurationInput {
+    [self validateSecureCodingForClass:[AWSKinesisVideoDescribeEdgeConfigurationInput class]];
+}
+
+- (void) test_AWSKinesisVideoDescribeEdgeConfigurationOutput {
+    [self validateSecureCodingForClass:[AWSKinesisVideoDescribeEdgeConfigurationOutput class]];
+}
+
 - (void) test_AWSKinesisVideoDescribeImageGenerationConfigurationInput {
     [self validateSecureCodingForClass:[AWSKinesisVideoDescribeImageGenerationConfigurationInput class]];
 }
@@ -152,6 +175,10 @@
 
 - (void) test_AWSKinesisVideoDescribeStreamOutput {
     [self validateSecureCodingForClass:[AWSKinesisVideoDescribeStreamOutput class]];
+}
+
+- (void) test_AWSKinesisVideoEdgeConfig {
+    [self validateSecureCodingForClass:[AWSKinesisVideoEdgeConfig class]];
 }
 
 - (void) test_AWSKinesisVideoGetDataEndpointInput {
@@ -210,6 +237,14 @@
     [self validateSecureCodingForClass:[AWSKinesisVideoListTagsForStreamOutput class]];
 }
 
+- (void) test_AWSKinesisVideoLocalSizeConfig {
+    [self validateSecureCodingForClass:[AWSKinesisVideoLocalSizeConfig class]];
+}
+
+- (void) test_AWSKinesisVideoMediaSourceConfig {
+    [self validateSecureCodingForClass:[AWSKinesisVideoMediaSourceConfig class]];
+}
+
 - (void) test_AWSKinesisVideoNotificationConfiguration {
     [self validateSecureCodingForClass:[AWSKinesisVideoNotificationConfiguration class]];
 }
@@ -218,8 +253,16 @@
     [self validateSecureCodingForClass:[AWSKinesisVideoNotificationDestinationConfig class]];
 }
 
+- (void) test_AWSKinesisVideoRecorderConfig {
+    [self validateSecureCodingForClass:[AWSKinesisVideoRecorderConfig class]];
+}
+
 - (void) test_AWSKinesisVideoResourceEndpointListItem {
     [self validateSecureCodingForClass:[AWSKinesisVideoResourceEndpointListItem class]];
+}
+
+- (void) test_AWSKinesisVideoScheduleConfig {
+    [self validateSecureCodingForClass:[AWSKinesisVideoScheduleConfig class]];
 }
 
 - (void) test_AWSKinesisVideoSingleMasterChannelEndpointConfiguration {
@@ -228,6 +271,14 @@
 
 - (void) test_AWSKinesisVideoSingleMasterConfiguration {
     [self validateSecureCodingForClass:[AWSKinesisVideoSingleMasterConfiguration class]];
+}
+
+- (void) test_AWSKinesisVideoStartEdgeConfigurationUpdateInput {
+    [self validateSecureCodingForClass:[AWSKinesisVideoStartEdgeConfigurationUpdateInput class]];
+}
+
+- (void) test_AWSKinesisVideoStartEdgeConfigurationUpdateOutput {
+    [self validateSecureCodingForClass:[AWSKinesisVideoStartEdgeConfigurationUpdateOutput class]];
 }
 
 - (void) test_AWSKinesisVideoStreamInfo {
@@ -312,6 +363,10 @@
 
 - (void) test_AWSKinesisVideoUpdateStreamOutput {
     [self validateSecureCodingForClass:[AWSKinesisVideoUpdateStreamOutput class]];
+}
+
+- (void) test_AWSKinesisVideoUploaderConfig {
+    [self validateSecureCodingForClass:[AWSKinesisVideoUploaderConfig class]];
 }
 
 @end
