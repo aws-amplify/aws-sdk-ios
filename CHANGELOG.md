@@ -1,3 +1,13 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSKinesisVideo
+---AWSEC2
+---AWSRekognition
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
