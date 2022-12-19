@@ -154,6 +154,7 @@
 - (void) test_AWSRekognitionLabelAlias API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionLabelCategory API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionLabelDetection API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionLabelDetectionSettings API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionLandmark API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionListCollectionsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionListCollectionsResponse API_AVAILABLE(ios(11));
@@ -803,6 +804,10 @@
 
 - (void) test_AWSRekognitionLabelDetection {
     [self validateSecureCodingForClass:[AWSRekognitionLabelDetection class]];
+}
+
+- (void) test_AWSRekognitionLabelDetectionSettings {
+    [self validateSecureCodingForClass:[AWSRekognitionLabelDetectionSettings class]];
 }
 
 - (void) test_AWSRekognitionLandmark {

@@ -145,6 +145,17 @@ typedef NS_ENUM(NSInteger, AWSRekognitionKnownGenderType) {
     AWSRekognitionKnownGenderTypeUnlisted,
 };
 
+typedef NS_ENUM(NSInteger, AWSRekognitionLabelDetectionAggregateBy) {
+    AWSRekognitionLabelDetectionAggregateByUnknown,
+    AWSRekognitionLabelDetectionAggregateByTimestamps,
+    AWSRekognitionLabelDetectionAggregateBySegments,
+};
+
+typedef NS_ENUM(NSInteger, AWSRekognitionLabelDetectionFeatureName) {
+    AWSRekognitionLabelDetectionFeatureNameUnknown,
+    AWSRekognitionLabelDetectionFeatureNameGeneralLabels,
+};
+
 typedef NS_ENUM(NSInteger, AWSRekognitionLabelDetectionSortBy) {
     AWSRekognitionLabelDetectionSortByUnknown,
     AWSRekognitionLabelDetectionSortByName,
@@ -436,6 +447,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionLabelAlias;
 @class AWSRekognitionLabelCategory;
 @class AWSRekognitionLabelDetection;
+@class AWSRekognitionLabelDetectionSettings;
 @class AWSRekognitionLandmark;
 @class AWSRekognitionListCollectionsRequest;
 @class AWSRekognitionListCollectionsResponse;
@@ -2523,7 +2535,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Structure containing attributes of the face that the algorithm detected.</p><p>A <code>FaceDetail</code> object contains either the default facial attributes or all facial attributes. The default attributes are <code>BoundingBox</code>, <code>Confidence</code>, <code>Landmarks</code>, <code>Pose</code>, and <code>Quality</code>.</p><p><a>GetFaceDetection</a> is the only Amazon Rekognition Video stored video operation that can return a <code>FaceDetail</code> object with all attributes. To specify which attributes to return, use the <code>FaceAttributes</code> input parameter for <a>StartFaceDetection</a>. The following Amazon Rekognition Video operations return only the default attributes. The corresponding Start operations don't have a <code>FaceAttributes</code> input parameter.</p><ul><li><p>GetCelebrityRecognition</p></li><li><p>GetPersonTracking</p></li><li><p>GetFaceSearch</p></li></ul><p>The Amazon Rekognition Image <a>DetectFaces</a> and <a>IndexFaces</a> operations can return all facial attributes. To specify which attributes to return, use the <code>Attributes</code> input parameter for <code>DetectFaces</code>. For <code>IndexFaces</code>, use the <code>DetectAttributes</code> input parameter.</p>
+ <p>Structure containing attributes of the face that the algorithm detected.</p><p>A <code>FaceDetail</code> object contains either the default facial attributes or all facial attributes. The default attributes are <code>BoundingBox</code>, <code>Confidence</code>, <code>Landmarks</code>, <code>Pose</code>, and <code>Quality</code>.</p><p><a>GetFaceDetection</a> is the only Amazon Rekognition Video stored video operation that can return a <code>FaceDetail</code> object with all attributes. To specify which attributes to return, use the <code>FaceAttributes</code> input parameter for <a>StartFaceDetection</a>. The following Amazon Rekognition Video operations return only the default attributes. The corresponding Start operations don't have a <code>FaceAttributes</code> input parameter:</p><ul><li><p>GetCelebrityRecognition</p></li><li><p>GetPersonTracking</p></li><li><p>GetFaceSearch</p></li></ul><p>The Amazon Rekognition Image <a>DetectFaces</a> and <a>IndexFaces</a> operations can return all facial attributes. To specify which attributes to return, use the <code>Attributes</code> input parameter for <code>DetectFaces</code>. For <code>IndexFaces</code>, use the <code>DetectAttributes</code> input parameter.</p>
  */
 @interface AWSRekognitionFaceDetail : AWSModel
 
@@ -3026,6 +3038,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  */
 @interface AWSRekognitionGetLabelDetectionRequest : AWSRequest
 
+
+/**
+ <p>Defines how to aggregate the returned results. Results can be aggregated by timestamps or segments.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionLabelDetectionAggregateBy aggregateBy;
 
 /**
  <p>Job identifier for the label detection operation for which you want results returned. You get the job identifer from an initial call to <code>StartlabelDetection</code>.</p>
@@ -3601,14 +3618,42 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
+ <p>The time duration of a segment in milliseconds, I.e. time elapsed from StartTimestampMillis to EndTimestampMillis.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable durationMillis;
+
+/**
+ <p>The time in milliseconds defining the end of the timeline segment containing a continuously detected label.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable endTimestampMillis;
+
+/**
  <p>Details about the detected label.</p>
  */
 @property (nonatomic, strong) AWSRekognitionLabel * _Nullable label;
 
 /**
+ <p>The time in milliseconds defining the start of the timeline segment containing a continuously detected label.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable startTimestampMillis;
+
+/**
  <p>Time, in milliseconds from the start of the video, that the label was detected. Note that <code>Timestamp</code> is not guaranteed to be accurate to the individual frame where the label first appears.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable timestamp;
+
+@end
+
+/**
+ <p>Contains the specified filters that should be applied to a list of returned GENERAL_LABELS.</p>
+ */
+@interface AWSRekognitionLabelDetectionSettings : AWSModel
+
+
+/**
+ <p>Contains filters for the object labels returned by DetectLabels. Filters can be inclusive, exclusive, or a combination of both and can be applied to individual l abels or entire label categories.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionGeneralLabelsSettings * _Nullable generalLabels;
 
 @end
 
@@ -4949,12 +4994,17 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable clientRequestToken;
 
 /**
+ <p>The features to return after video analysis. You can specify that GENERAL_LABELS are returned.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable features;
+
+/**
  <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
- <p>Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected label. Confidence represents how certain Amazon Rekognition is that a label is correctly identified.0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition Video doesn't return any labels with a confidence level lower than this specified value.</p><p>If you don't specify <code>MinConfidence</code>, the operation returns labels with confidence values greater than or equal to 50 percent.</p>
+ <p>Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected label. Confidence represents how certain Amazon Rekognition is that a label is correctly identified.0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition Video doesn't return any labels with a confidence level lower than this specified value.</p><p>If you don't specify <code>MinConfidence</code>, the operation returns labels and bounding boxes (if detected) with confidence values greater than or equal to 50 percent.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable minConfidence;
 
@@ -4962,6 +5012,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the label detection operation to. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy.</p>
  */
 @property (nonatomic, strong) AWSRekognitionNotificationChannel * _Nullable notificationChannel;
+
+/**
+ <p>The settings for a StartLabelDetection request.Contains the specified parameters for the label detection request of an asynchronous label analysis operation. Settings can include filters for GENERAL_LABELS.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionLabelDetectionSettings * _Nullable settings;
 
 /**
  <p>The video in which you want to detect labels. The video must be stored in an Amazon S3 bucket.</p>
