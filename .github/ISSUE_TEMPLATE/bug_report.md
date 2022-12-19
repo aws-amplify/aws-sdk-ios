@@ -56,3 +56,15 @@ In some cases, it might be helpful to add any logs from your console that better
 AWSDDLog.sharedInstance.logLevel = .debug
 AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
 ```
+
+**Logs**
+
+Please logs in the code block below. (See: [Logs Guidance](https://github.com/aws-amplify/aws-sdk-ios/blob/main/LogsGuidance.md.md))
+
+<details>
+<summary>Log Messages</summary>
+
+```
+INSERT LOG MESSAGES HERE
+```
+</details>
