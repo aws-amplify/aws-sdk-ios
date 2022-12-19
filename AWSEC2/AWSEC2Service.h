@@ -5491,7 +5491,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeAvailabilityZones:(AWSEC2DescribeAvailabilityZonesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeAvailabilityZonesResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes the curent Infrastructure Performance metric subscriptions.</p>
+ <p>Describes the current Infrastructure Performance metric subscriptions.</p>
  
  @param request A container for the necessary parameters to execute the DescribeAwsNetworkPerformanceMetricSubscriptions service method.
 
@@ -5503,7 +5503,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsResult *> *)describeAwsNetworkPerformanceMetricSubscriptions:(AWSEC2DescribeAwsNetworkPerformanceMetricSubscriptionsRequest *)request;
 
 /**
- <p>Describes the curent Infrastructure Performance metric subscriptions.</p>
+ <p>Describes the current Infrastructure Performance metric subscriptions.</p>
  
  @param request A container for the necessary parameters to execute the DescribeAwsNetworkPerformanceMetricSubscriptions service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -9798,7 +9798,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)enableIpamOrganizationAdminAccount:(AWSEC2EnableIpamOrganizationAdminAccountRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2EnableIpamOrganizationAdminAccountResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- EnableReachabilityAnalyzerOrganizationSharing
+ <p>Establishes a trust relationship between Reachability Analyzer and Organizations. This operation must be performed by the management account for the organization.</p><p>After you establish a trust relationship, a user in the management account or a delegated administrator account can run a cross-account analysis using resources from the member accounts.</p>
  
  @param request A container for the necessary parameters to execute the EnableReachabilityAnalyzerOrganizationSharing service method.
 
@@ -9810,7 +9810,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2EnableReachabilityAnalyzerOrganizationSharingResult *> *)enableReachabilityAnalyzerOrganizationSharing:(AWSEC2EnableReachabilityAnalyzerOrganizationSharingRequest *)request;
 
 /**
- EnableReachabilityAnalyzerOrganizationSharing
+ <p>Establishes a trust relationship between Reachability Analyzer and Organizations. This operation must be performed by the management account for the organization.</p><p>After you establish a trust relationship, a user in the management account or a delegated administrator account can run a cross-account analysis using resources from the member accounts.</p>
  
  @param request A container for the necessary parameters to execute the EnableReachabilityAnalyzerOrganizationSharing service method.
  @param completionHandler The completion handler to call when the load request is complete.
