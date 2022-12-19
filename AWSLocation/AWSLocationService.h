@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 
 /**
- <p>Suite of geospatial services including Maps, Places, Routes, Tracking, and Geofencing</p>
+ <p>"Suite of geospatial services including Maps, Places, Routes, Tracking, and Geofencing"</p>
  */
 @interface AWSLocation : AWSService
 
@@ -350,7 +350,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (void)batchUpdateDevicePosition:(AWSLocationBatchUpdateDevicePositionRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationBatchUpdateDevicePositionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters: <code>DeparturePosition</code> and <code>DestinationPosition</code>. Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a route calculator resource</a>.</p><p>By default, a request that doesn't specify a departure time uses the best time of day to travel with the best traffic conditions when calculating the route.</p><p>Additional options include:</p><ul><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html">Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartNow</code>. This calculates a route based on predictive traffic data at the given time. </p><note><p>You can't specify both <code>DepartureTime</code> and <code>DepartNow</code> in a single request. Specifying both parameters returns a validation error.</p></note></li><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying a travel mode</a> using TravelMode sets the transportation mode used to calculate the routes. This also lets you specify additional route preferences in <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p></li></ul>
+ <p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters: <code>DeparturePosition</code> and <code>DestinationPosition</code>. Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a route calculator resource</a>.</p><p>By default, a request that doesn't specify a departure time uses the best time of day to travel with the best traffic conditions when calculating the route.</p><p>Additional options include:</p><ul><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html">Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartNow</code>. This calculates a route based on predictive traffic data at the given time. </p><note><p>You can't specify both <code>DepartureTime</code> and <code>DepartNow</code> in a single request. Specifying both parameters returns a validation error.</p></note></li><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying a travel mode</a> using TravelMode sets the transportation mode used to calculate the routes. This also lets you specify additional route preferences in <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p><note><p>If you specify <code>walking</code> for the travel mode and your data provider is Esri, the start and destination must be within 40km.</p></note></li></ul>
  
  @param request A container for the necessary parameters to execute the CalculateRoute service method.
 
@@ -362,7 +362,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (AWSTask<AWSLocationCalculateRouteResponse *> *)calculateRoute:(AWSLocationCalculateRouteRequest *)request;
 
 /**
- <p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters: <code>DeparturePosition</code> and <code>DestinationPosition</code>. Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a route calculator resource</a>.</p><p>By default, a request that doesn't specify a departure time uses the best time of day to travel with the best traffic conditions when calculating the route.</p><p>Additional options include:</p><ul><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html">Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartNow</code>. This calculates a route based on predictive traffic data at the given time. </p><note><p>You can't specify both <code>DepartureTime</code> and <code>DepartNow</code> in a single request. Specifying both parameters returns a validation error.</p></note></li><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying a travel mode</a> using TravelMode sets the transportation mode used to calculate the routes. This also lets you specify additional route preferences in <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p></li></ul>
+ <p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters: <code>DeparturePosition</code> and <code>DestinationPosition</code>. Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a route calculator resource</a>.</p><p>By default, a request that doesn't specify a departure time uses the best time of day to travel with the best traffic conditions when calculating the route.</p><p>Additional options include:</p><ul><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html">Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartNow</code>. This calculates a route based on predictive traffic data at the given time. </p><note><p>You can't specify both <code>DepartureTime</code> and <code>DepartNow</code> in a single request. Specifying both parameters returns a validation error.</p></note></li><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying a travel mode</a> using TravelMode sets the transportation mode used to calculate the routes. This also lets you specify additional route preferences in <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p><note><p>If you specify <code>walking</code> for the travel mode and your data provider is Esri, the start and destination must be within 40km.</p></note></li></ul>
  
  @param request A container for the necessary parameters to execute the CalculateRoute service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -973,6 +973,31 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
  @see AWSLocationGetMapTileResponse
  */
 - (void)getMapTile:(AWSLocationGetMapTileRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationGetMapTileResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Finds a place by its unique ID. A <code>PlaceId</code> is returned by other search operations.</p><note><p>A PlaceId is valid only if all of the following are the same in the original search request and the call to <code>GetPlace</code>.</p><ul><li><p>Customer AWS account</p></li><li><p>AWS Region</p></li><li><p>Data provider specified in the place index resource</p></li></ul></note>
+ 
+ @param request A container for the necessary parameters to execute the GetPlace service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLocationGetPlaceResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorResourceNotFound`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorThrottling`.
+ 
+ @see AWSLocationGetPlaceRequest
+ @see AWSLocationGetPlaceResponse
+ */
+- (AWSTask<AWSLocationGetPlaceResponse *> *)getPlace:(AWSLocationGetPlaceRequest *)request;
+
+/**
+ <p>Finds a place by its unique ID. A <code>PlaceId</code> is returned by other search operations.</p><note><p>A PlaceId is valid only if all of the following are the same in the original search request and the call to <code>GetPlace</code>.</p><ul><li><p>Customer AWS account</p></li><li><p>AWS Region</p></li><li><p>Data provider specified in the place index resource</p></li></ul></note>
+ 
+ @param request A container for the necessary parameters to execute the GetPlace service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorResourceNotFound`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorThrottling`.
+ 
+ @see AWSLocationGetPlaceRequest
+ @see AWSLocationGetPlaceResponse
+ */
+- (void)getPlace:(AWSLocationGetPlaceRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationGetPlaceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>A batch request to retrieve all device positions.</p>

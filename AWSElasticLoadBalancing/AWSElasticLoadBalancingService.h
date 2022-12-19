@@ -800,7 +800,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
 - (void)modifyRule:(AWSElasticLoadBalancingModifyRuleInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingModifyRuleOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Modifies the health checks used when evaluating the health state of the targets in the specified target group.</p><p>If the protocol of the target group is TCP, TLS, UDP, or TCP_UDP, you can't modify the health check protocol, interval, timeout, or success codes.</p>
+ <p>Modifies the health checks used when evaluating the health state of the targets in the specified target group.</p>
  
  @param request A container for the necessary parameters to execute the ModifyTargetGroup service method.
 
@@ -812,7 +812,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
 - (AWSTask<AWSElasticLoadBalancingModifyTargetGroupOutput *> *)modifyTargetGroup:(AWSElasticLoadBalancingModifyTargetGroupInput *)request;
 
 /**
- <p>Modifies the health checks used when evaluating the health state of the targets in the specified target group.</p><p>If the protocol of the target group is TCP, TLS, UDP, or TCP_UDP, you can't modify the health check protocol, interval, timeout, or success codes.</p>
+ <p>Modifies the health checks used when evaluating the health state of the targets in the specified target group.</p>
  
  @param request A container for the necessary parameters to execute the ModifyTargetGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -925,7 +925,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
 - (void)removeTags:(AWSElasticLoadBalancingRemoveTagsInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingRemoveTagsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sets the type of IP addresses used by the subnets of the specified Application Load Balancer or Network Load Balancer.</p>
+ <p>Sets the type of IP addresses used by the subnets of the specified load balancer.</p>
  
  @param request A container for the necessary parameters to execute the SetIpAddressType service method.
 
@@ -937,7 +937,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
 - (AWSTask<AWSElasticLoadBalancingSetIpAddressTypeOutput *> *)setIpAddressType:(AWSElasticLoadBalancingSetIpAddressTypeInput *)request;
 
 /**
- <p>Sets the type of IP addresses used by the subnets of the specified Application Load Balancer or Network Load Balancer.</p>
+ <p>Sets the type of IP addresses used by the subnets of the specified load balancer.</p>
  
  @param request A container for the necessary parameters to execute the SetIpAddressType service method.
  @param completionHandler The completion handler to call when the load request is complete.

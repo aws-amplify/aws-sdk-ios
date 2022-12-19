@@ -25,7 +25,7 @@
 #import "AWSKMSResources.h"
 
 static NSString *const AWSInfoKMS = @"KMS";
-NSString *const AWSKMSSDKVersion = @"2.27.12";
+NSString *const AWSKMSSDKVersion = @"2.28.5";
 
 
 @interface AWSKMSResponseSerializer : AWSJSONResponseSerializer
@@ -73,6 +73,18 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"NotFoundException" : @(AWSKMSErrorNotFound),
                             @"TagException" : @(AWSKMSErrorTag),
                             @"UnsupportedOperationException" : @(AWSKMSErrorUnsupportedOperation),
+                            @"XksKeyAlreadyInUseException" : @(AWSKMSErrorXksKeyAlreadyInUse),
+                            @"XksKeyInvalidConfigurationException" : @(AWSKMSErrorXksKeyInvalidConfiguration),
+                            @"XksKeyNotFoundException" : @(AWSKMSErrorXksKeyNotFound),
+                            @"XksProxyIncorrectAuthenticationCredentialException" : @(AWSKMSErrorXksProxyIncorrectAuthenticationCredential),
+                            @"XksProxyInvalidConfigurationException" : @(AWSKMSErrorXksProxyInvalidConfiguration),
+                            @"XksProxyInvalidResponseException" : @(AWSKMSErrorXksProxyInvalidResponse),
+                            @"XksProxyUriEndpointInUseException" : @(AWSKMSErrorXksProxyUriEndpointInUse),
+                            @"XksProxyUriInUseException" : @(AWSKMSErrorXksProxyUriInUse),
+                            @"XksProxyUriUnreachableException" : @(AWSKMSErrorXksProxyUriUnreachable),
+                            @"XksProxyVpcEndpointServiceInUseException" : @(AWSKMSErrorXksProxyVpcEndpointServiceInUse),
+                            @"XksProxyVpcEndpointServiceInvalidConfigurationException" : @(AWSKMSErrorXksProxyVpcEndpointServiceInvalidConfiguration),
+                            @"XksProxyVpcEndpointServiceNotFoundException" : @(AWSKMSErrorXksProxyVpcEndpointServiceNotFound),
                             };
 }
 

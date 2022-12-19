@@ -113,10 +113,9 @@ NSString *const AWSPinpointJourneyKey = @"journey";
 
 - (void)interceptDidRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     //Check if device token has changed
-    NSData *currentToken = [self.context.configuration.userDefaults objectForKey:AWSDeviceTokenKey];
+    NSData *currentToken = [self.context.keychain dataForKey:AWSDeviceTokenKey];
     if (![currentToken isEqualToData:deviceToken]) {
-        [self.context.configuration.userDefaults setObject:deviceToken forKey:AWSDeviceTokenKey];
-        [self.context.configuration.userDefaults synchronize];
+        [self.context.keychain setData:deviceToken forKey:AWSDeviceTokenKey];
         //Update endpoint
         AWSDDLogInfo(@"Calling endpoint Service to register token");
         

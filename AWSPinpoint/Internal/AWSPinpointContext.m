@@ -20,7 +20,6 @@
 
 static NSString *const AWSMobileAnalyticsRoot = @"com.amazonaws.MobileAnalytics";
 
-static NSString *const AWSPinpointContextKeychainService = @"com.amazonaws.AWSPinpointContext";
 static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.AWSPinpointContextKeychainUniqueIdKey";
 
 @interface AWSPinpointClientContext()
@@ -29,7 +28,6 @@ static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.A
 @end
 
 @interface AWSPinpointContext ()
-@property (nonatomic, strong) AWSUICKeyChainStore *keychain;
 @property (nonatomic, strong) AWSPinpointClientContext *clientContext;
 @property (nonatomic, strong) NSString* uniqueId;
 @end

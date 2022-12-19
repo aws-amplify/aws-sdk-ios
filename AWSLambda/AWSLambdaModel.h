@@ -54,6 +54,9 @@ typedef NS_ENUM(NSInteger, AWSLambdaErrorType) {
     AWSLambdaErrorResourceNotFound,
     AWSLambdaErrorResourceNotReady,
     AWSLambdaErrorService,
+    AWSLambdaErrorSnapStart,
+    AWSLambdaErrorSnapStartNotReady,
+    AWSLambdaErrorSnapStartTimeout,
     AWSLambdaErrorSubnetIPAddressLimitReached,
     AWSLambdaErrorTooManyRequests,
     AWSLambdaErrorUnsupportedMediaType,
@@ -125,6 +128,17 @@ typedef NS_ENUM(NSInteger, AWSLambdaLastUpdateStatusReasonCode) {
     AWSLambdaLastUpdateStatusReasonCodeImageDeleted,
     AWSLambdaLastUpdateStatusReasonCodeImageAccessDenied,
     AWSLambdaLastUpdateStatusReasonCodeInvalidImage,
+    AWSLambdaLastUpdateStatusReasonCodeKMSKeyAccessDenied,
+    AWSLambdaLastUpdateStatusReasonCodeKMSKeyNotFound,
+    AWSLambdaLastUpdateStatusReasonCodeInvalidStateKMSKey,
+    AWSLambdaLastUpdateStatusReasonCodeDisabledKMSKey,
+    AWSLambdaLastUpdateStatusReasonCodeEFSIOError,
+    AWSLambdaLastUpdateStatusReasonCodeEFSMountConnectivityError,
+    AWSLambdaLastUpdateStatusReasonCodeEFSMountFailure,
+    AWSLambdaLastUpdateStatusReasonCodeEFSMountTimeout,
+    AWSLambdaLastUpdateStatusReasonCodeInvalidRuntime,
+    AWSLambdaLastUpdateStatusReasonCodeInvalidZipFileException,
+    AWSLambdaLastUpdateStatusReasonCodeFunctionError,
 };
 
 typedef NS_ENUM(NSInteger, AWSLambdaLogType) {
@@ -175,6 +189,19 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
     AWSLambdaRuntimeRuby27,
     AWSLambdaRuntimeProvided,
     AWSLambdaRuntimeProvidedAl2,
+    AWSLambdaRuntimeNodejs18X,
+};
+
+typedef NS_ENUM(NSInteger, AWSLambdaSnapStartApplyOn) {
+    AWSLambdaSnapStartApplyOnUnknown,
+    AWSLambdaSnapStartApplyOnPublishedVersions,
+    AWSLambdaSnapStartApplyOnNone,
+};
+
+typedef NS_ENUM(NSInteger, AWSLambdaSnapStartOptimizationStatus) {
+    AWSLambdaSnapStartOptimizationStatusUnknown,
+    AWSLambdaSnapStartOptimizationStatusOn,
+    AWSLambdaSnapStartOptimizationStatusOff,
 };
 
 typedef NS_ENUM(NSInteger, AWSLambdaSourceAccessType) {
@@ -212,6 +239,17 @@ typedef NS_ENUM(NSInteger, AWSLambdaStateReasonCode) {
     AWSLambdaStateReasonCodeImageDeleted,
     AWSLambdaStateReasonCodeImageAccessDenied,
     AWSLambdaStateReasonCodeInvalidImage,
+    AWSLambdaStateReasonCodeKMSKeyAccessDenied,
+    AWSLambdaStateReasonCodeKMSKeyNotFound,
+    AWSLambdaStateReasonCodeInvalidStateKMSKey,
+    AWSLambdaStateReasonCodeDisabledKMSKey,
+    AWSLambdaStateReasonCodeEFSIOError,
+    AWSLambdaStateReasonCodeEFSMountConnectivityError,
+    AWSLambdaStateReasonCodeEFSMountFailure,
+    AWSLambdaStateReasonCodeEFSMountTimeout,
+    AWSLambdaStateReasonCodeInvalidRuntime,
+    AWSLambdaStateReasonCodeInvalidZipFileException,
+    AWSLambdaStateReasonCodeFunctionError,
 };
 
 typedef NS_ENUM(NSInteger, AWSLambdaThrottleReason) {
@@ -221,6 +259,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaThrottleReason) {
     AWSLambdaThrottleReasonReservedFunctionConcurrentInvocationLimitExceeded,
     AWSLambdaThrottleReasonReservedFunctionInvocationRateLimitExceeded,
     AWSLambdaThrottleReasonCallerRateLimitExceeded,
+    AWSLambdaThrottleReasonConcurrentSnapshotCreateLimitExceeded,
 };
 
 typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
@@ -238,6 +277,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaAliasConfiguration;
 @class AWSLambdaAliasRoutingConfiguration;
 @class AWSLambdaAllowedPublishers;
+@class AWSLambdaAmazonManagedKafkaEventSourceConfig;
 @class AWSLambdaCodeSigningConfig;
 @class AWSLambdaCodeSigningPolicies;
 @class AWSLambdaConcurrency;
@@ -351,6 +391,9 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaRemoveLayerVersionPermissionRequest;
 @class AWSLambdaRemovePermissionRequest;
 @class AWSLambdaSelfManagedEventSource;
+@class AWSLambdaSelfManagedKafkaEventSourceConfig;
+@class AWSLambdaSnapStart;
+@class AWSLambdaSnapStartResponse;
 @class AWSLambdaSourceAccessConfiguration;
 @class AWSLambdaTagResourceRequest;
 @class AWSLambdaTracingConfig;
@@ -492,22 +535,22 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable action;
 
 /**
- <p>For Alexa Smart Home functions, a token that must be supplied by the invoker.</p>
+ <p>For Alexa Smart Home functions, a token that the invoker must supply.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable eventSourceToken;
 
 /**
- <p>The name of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ <p>The name of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
 /**
- <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+ <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
  */
 @property (nonatomic, assign) AWSLambdaFunctionUrlAuthType functionUrlAuthType;
 
 /**
- <p>The Amazon Web Services service or account that invokes the function. If you specify a service, use <code>SourceArn</code> or <code>SourceAccount</code> to limit who can invoke the function through that service.</p>
+ <p>The Amazon Web Service or Amazon Web Services account that invokes the function. If you specify a service, use <code>SourceArn</code> or <code>SourceAccount</code> to limit who can invoke the function through that service.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable principal;
 
@@ -522,17 +565,17 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable qualifier;
 
 /**
- <p>Only update the policy if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.</p>
+ <p>Update the policy only if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable revisionId;
 
 /**
- <p>For Amazon S3, the ID of the account that owns the resource. Use this together with <code>SourceArn</code> to ensure that the resource is owned by the specified account. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.</p>
+ <p>For Amazon Web Service, the ID of the Amazon Web Services account that owns the resource. Use this together with <code>SourceArn</code> to ensure that the specified account owns the resource. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceAccount;
 
 /**
- <p>For Amazon Web Services services, the ARN of the Amazon Web Services resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.</p><p>Note that Lambda configures the comparison using the <code>StringLike</code> operator.</p>
+ <p>For Amazon Web Services, the ARN of the Amazon Web Services resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.</p><p>Note that Lambda configures the comparison using the <code>StringLike</code> operator.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceArn;
 
@@ -622,6 +665,19 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
+ <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
+ */
+@interface AWSLambdaAmazonManagedKafkaEventSourceConfig : AWSModel
+
+
+/**
+ <p>The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id">Customizable consumer group ID</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable consumerGroupId;
+
+@end
+
+/**
  <p>Details about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html">Code signing configuration</a>. </p>
  Required parameters: [CodeSigningConfigId, CodeSigningConfigArn, AllowedPublishers, CodeSigningPolicies, LastModified]
  */
@@ -680,7 +736,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The number of concurrent executions that are reserved for this function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html">Managing Concurrency</a>.</p>
+ <p>The number of concurrent executions that are reserved for this function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html">Managing Lambda reserved concurrency</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable reservedConcurrentExecutions;
 
@@ -800,7 +856,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</p></li></ul>
+ <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
+ */
+@property (nonatomic, strong) AWSLambdaAmazonManagedKafkaEventSourceConfig * _Nullable amazonManagedKafkaEventSourceConfig;
+
+/**
+ <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Self-managed Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</p></li></ul>
  */
 @property (nonatomic, strong) NSNumber * _Nullable batchSize;
 
@@ -820,12 +881,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 /**
- <p>The Amazon Resource Name (ARN) of the event source.</p><ul><li><p><b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p></li><li><p><b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p></li><li><p><b>Amazon Simple Queue Service</b> - The ARN of the queue.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - The ARN of the cluster.</p></li></ul>
+ <p>The Amazon Resource Name (ARN) of the event source.</p><ul><li><p><b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p></li><li><p><b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p></li><li><p><b>Amazon Simple Queue Service</b> - The ARN of the queue.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - The ARN of the cluster.</p></li><li><p><b>Amazon MQ</b> - The ARN of the broker.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable eventSourceArn;
 
 /**
- <p>(Streams and Amazon SQS) An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
+ <p>An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
  */
 @property (nonatomic, strong) AWSLambdaFilterCriteria * _Nullable filterCriteria;
 
@@ -840,7 +901,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable functionResponseTypes;
 
 /**
- <p>(Streams and Amazon SQS standard queues) The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.</p><p>Default: 0</p><p>Related setting: When you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
+ <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p><p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, and Amazon MQ event sources, the default batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.</p><p>Related setting: For streams and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumBatchingWindowInSeconds;
 
@@ -850,7 +911,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable maximumRecordAgeInSeconds;
 
 /**
- <p>(Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>
+ <p>(Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumRetryAttempts;
 
@@ -865,9 +926,14 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable queues;
 
 /**
- <p>The Self-Managed Apache Kafka cluster to send records.</p>
+ <p>The self-managed Apache Kafka cluster to receive records from.</p>
  */
 @property (nonatomic, strong) AWSLambdaSelfManagedEventSource * _Nullable selfManagedEventSource;
+
+/**
+ <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
+ */
+@property (nonatomic, strong) AWSLambdaSelfManagedKafkaEventSourceConfig * _Nullable selfManagedKafkaEventSourceConfig;
 
 /**
  <p>An array of authentication protocols or VPC components required to secure your event source.</p>
@@ -875,7 +941,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<AWSLambdaSourceAccessConfiguration *> * _Nullable sourceAccessConfigurations;
 
 /**
- <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>
+ <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources. <code>AT_TIMESTAMP</code> is supported only for Amazon Kinesis streams.</p>
  */
 @property (nonatomic, assign) AWSLambdaEventSourcePosition startingPosition;
 
@@ -890,7 +956,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable topics;
 
 /**
- <p>(Streams only) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
+ <p>(Streams only) The duration in seconds of a processing window. The range is between 1 second and 900 seconds.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable tumblingWindowInSeconds;
 
@@ -918,7 +984,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable codeSigningConfigArn;
 
 /**
- <p>A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">Dead Letter Queues</a>.</p>
+ <p>A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq">Dead-letter queues</a>.</p>
  */
 @property (nonatomic, strong) AWSLambdaDeadLetterConfig * _Nullable deadLetterConfig;
 
@@ -933,7 +999,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) AWSLambdaEnvironment * _Nullable environment;
 
 /**
- <p>The size of the function’s /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10240 MB.</p>
+ <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB.</p>
  */
 @property (nonatomic, strong) AWSLambdaEphemeralStorage * _Nullable ephemeralStorage;
 
@@ -943,12 +1009,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<AWSLambdaFileSystemConfig *> * _Nullable fileSystemConfigs;
 
 /**
- <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
 /**
- <p>The name of the method within your code that Lambda calls to execute your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming Model</a>.</p>
+ <p>The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html">Lambda programming model</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable handler;
 
@@ -958,7 +1024,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) AWSLambdaImageConfig * _Nullable imageConfig;
 
 /**
- <p>The ARN of the Amazon Web Services Key Management Service (KMS) key that's used to encrypt your function's environment variables. If it's not provided, Lambda uses a default service key.</p>
+ <p>The ARN of the Key Management Service (KMS) key that's used to encrypt your function's environment variables. If it's not provided, Lambda uses a default service key.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable KMSKeyArn;
 
@@ -968,12 +1034,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable layers;
 
 /**
- <p>The amount of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html">memory available to the function</a> at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
+ <p>The amount of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console">memory available to the function</a> at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable memorySize;
 
 /**
- <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for ZIP archive.</p>
+ <p>The type of deployment package. Set to <code>Image</code> for container image and set to <code>Zip</code> for .zip file archive.</p>
  */
 @property (nonatomic, assign) AWSLambdaPackageType packageType;
 
@@ -993,12 +1059,17 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, assign) AWSLambdaRuntime runtime;
 
 /**
+ <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">SnapStart</a> setting.</p>
+ */
+@property (nonatomic, strong) AWSLambdaSnapStart * _Nullable snapStart;
+
+/**
  <p>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a> to apply to the function.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
 /**
- <p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For additional information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
+ <p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable timeout;
 
@@ -1008,7 +1079,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) AWSLambdaTracingConfig * _Nullable tracingConfig;
 
 /**
- <p>For network connectivity to Amazon Web Services resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
+ <p>For network connectivity to Amazon Web Services resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">Configuring a Lambda function to access resources in a VPC</a>.</p>
  */
 @property (nonatomic, strong) AWSLambdaVpcConfig * _Nullable vpcConfig;
 
@@ -1021,7 +1092,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+ <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
  */
 @property (nonatomic, assign) AWSLambdaFunctionUrlAuthType authType;
 
@@ -1031,7 +1102,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) AWSLambdaCors * _Nullable cors;
 
 /**
- <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
@@ -1049,7 +1120,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+ <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
  */
 @property (nonatomic, assign) AWSLambdaFunctionUrlAuthType authType;
 
@@ -1160,7 +1231,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
@@ -1191,12 +1262,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The name of the Lambda function or version.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:1</code> (with version).</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ <p>The name of the Lambda function or version.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:1</code> (with version).</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
 /**
- <p>Specify a version to delete. You can't delete a version that's referenced by an alias.</p>
+ <p>Specify a version to delete. You can't delete a version that an alias references.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable qualifier;
 
@@ -1209,7 +1280,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
@@ -1245,7 +1316,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
@@ -1275,7 +1346,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- <p>A function's environment variable settings. You can use environment variables to adjust your function's behavior without updating code. An environment variable is a pair of strings that are stored in a function's version-specific configuration. </p>
+ <p>A function's environment variable settings. You can use environment variables to adjust your function's behavior without updating code. An environment variable is a pair of strings that are stored in a function's version-specific configuration.</p>
  */
 @interface AWSLambdaEnvironment : AWSModel
 
@@ -1306,7 +1377,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- <p>The results of an operation to update or read environment variables. If the operation is successful, the response contains the environment variables. If it failed, the response contains details about the error.</p>
+ <p>The results of an operation to update or read environment variables. If the operation succeeds, the response contains the environment variables. If it fails, the response contains details about the error.</p>
  */
 @interface AWSLambdaEnvironmentResponse : AWSModel
 
@@ -1317,21 +1388,21 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) AWSLambdaEnvironmentError * _Nullable error;
 
 /**
- <p>Environment variable key-value pairs.</p>
+ <p>Environment variable key-value pairs. Omitted from CloudTrail logs.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable variables;
 
 @end
 
 /**
- <p>The size of the function’s /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10240 MB.</p>
+ <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.</p>
  Required parameters: [Size]
  */
 @interface AWSLambdaEphemeralStorage : AWSModel
 
 
 /**
- <p>The size of the function’s /tmp directory.</p>
+ <p>The size of the function's <code>/tmp</code> directory.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable size;
 
@@ -1342,6 +1413,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  */
 @interface AWSLambdaEventSourceMappingConfiguration : AWSModel
 
+
+/**
+ <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
+ */
+@property (nonatomic, strong) AWSLambdaAmazonManagedKafkaEventSourceConfig * _Nullable amazonManagedKafkaEventSourceConfig;
 
 /**
  <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p><p>Default value: Varies by service. For Amazon SQS, the default is 10. For all other services, the default is 100.</p><p>Related setting: When you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
@@ -1364,7 +1440,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable eventSourceArn;
 
 /**
- <p>(Streams and Amazon SQS) An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
+ <p>An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
  */
 @property (nonatomic, strong) AWSLambdaFilterCriteria * _Nullable filterCriteria;
 
@@ -1389,7 +1465,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable lastProcessingResult;
 
 /**
- <p>(Streams and Amazon SQS standard queues) The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.</p><p>Default: 0</p><p>Related setting: When you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
+ <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p><p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, and Amazon MQ event sources, the default batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.</p><p>Related setting: For streams and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumBatchingWindowInSeconds;
 
@@ -1417,6 +1493,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The self-managed Apache Kafka cluster for your event source.</p>
  */
 @property (nonatomic, strong) AWSLambdaSelfManagedEventSource * _Nullable selfManagedEventSource;
+
+/**
+ <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
+ */
+@property (nonatomic, strong) AWSLambdaSelfManagedKafkaEventSourceConfig * _Nullable selfManagedKafkaEventSourceConfig;
 
 /**
  <p>An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.</p>
@@ -1506,7 +1587,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- <p>The code for the Lambda function. You can specify either an object in Amazon S3, upload a .zip file archive deployment package directly, or specify the URI of a container image.</p>
+ <p>The code for the Lambda function. You can either specify an object in Amazon S3, upload a .zip file archive deployment package directly, or specify the URI of a container image.</p>
  */
 @interface AWSLambdaFunctionCode : AWSModel
 
@@ -1532,7 +1613,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable s3ObjectVersion;
 
 /**
- <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
+ <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you.</p>
  */
 @property (nonatomic, strong) NSData * _Nullable zipFile;
 
@@ -1598,12 +1679,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">environment variables</a>.</p>
+ <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">environment variables</a>. Omitted from CloudTrail logs.</p>
  */
 @property (nonatomic, strong) AWSLambdaEnvironmentResponse * _Nullable environment;
 
 /**
- <p>The size of the function’s /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10240 MB.</p>
+ <p>The size of the function’s <code>/tmp</code> directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.</p>
  */
 @property (nonatomic, strong) AWSLambdaEphemeralStorage * _Nullable ephemeralStorage;
 
@@ -1623,7 +1704,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
 /**
- <p>The function that Lambda calls to begin executing your function.</p>
+ <p>The function that Lambda calls to begin running your function.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable handler;
 
@@ -1633,7 +1714,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) AWSLambdaImageConfigResponse * _Nullable imageConfigResponse;
 
 /**
- <p>The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed key.</p>
+ <p>The KMS key that's used to encrypt the function's environment variables. This key is returned only if you've configured a customer managed key.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable KMSKeyArn;
 
@@ -1658,7 +1739,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, assign) AWSLambdaLastUpdateStatusReasonCode lastUpdateStatusReasonCode;
 
 /**
- <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html"> layers</a>.</p>
+ <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">layers</a>.</p>
  */
 @property (nonatomic, strong) NSArray<AWSLambdaLayer *> * _Nullable layers;
 
@@ -1668,7 +1749,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable masterArn;
 
 /**
- <p>The amount of memory available to the function at runtime. </p>
+ <p>The amount of memory available to the function at runtime.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable memorySize;
 
@@ -1701,6 +1782,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The ARN of the signing profile version.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable signingProfileVersionArn;
+
+/**
+ <p>Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Reducing startup time with Lambda SnapStart</a>.</p>
+ */
+@property (nonatomic, strong) AWSLambdaSnapStartResponse * _Nullable snapStart;
 
 /**
  <p>The current state of the function. When the state is <code>Inactive</code>, you can reactivate the function by invoking it.</p>
@@ -1780,7 +1866,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+ <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
  */
 @property (nonatomic, assign) AWSLambdaFunctionUrlAuthType authType;
 
@@ -1932,7 +2018,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
@@ -1958,7 +2044,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The name of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ <p>The name of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
@@ -1994,7 +2080,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The name of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ <p>The name of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
@@ -2040,7 +2126,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
@@ -2058,7 +2144,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+ <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
  */
 @property (nonatomic, assign) AWSLambdaFunctionUrlAuthType authType;
 
@@ -2216,7 +2302,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The name of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ <p>The name of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
@@ -2252,7 +2338,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
@@ -2270,7 +2356,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The amount of provisioned concurrency allocated.</p>
+ <p>The amount of provisioned concurrency allocated. When a weighted alias is used during linear and canary deployments, this value fluctuates depending on the amount of concurrency that is provisioned for the function versions.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable allocatedProvisionedConcurrentExecutions;
 
@@ -2302,13 +2388,13 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- <p>Configuration values that override the container image Dockerfile settings. See <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms">Container settings</a>. </p>
+ <p>Configuration values that override the container image Dockerfile settings. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms">Container image settings</a>.</p>
  */
 @interface AWSLambdaImageConfig : AWSModel
 
 
 /**
- <p>Specifies parameters that you want to pass in with ENTRYPOINT. </p>
+ <p>Specifies parameters that you want to pass in with ENTRYPOINT.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable command;
 
@@ -2325,7 +2411,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- <p>Error response to GetFunctionConfiguration.</p>
+ <p>Error response to <code>GetFunctionConfiguration</code>.</p>
  */
 @interface AWSLambdaImageConfigError : AWSModel
 
@@ -2343,13 +2429,13 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- <p>Response to GetFunctionConfiguration request.</p>
+ <p>Response to a <code>GetFunctionConfiguration</code> request.</p>
  */
 @interface AWSLambdaImageConfigResponse : AWSModel
 
 
 /**
- <p>Error response to GetFunctionConfiguration.</p>
+ <p>Error response to <code>GetFunctionConfiguration</code>.</p>
  */
 @property (nonatomic, strong) AWSLambdaImageConfigError * _Nullable error;
 
@@ -2367,17 +2453,17 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>Up to 3583 bytes of base64-encoded data about the invoking client to pass to the function in the context object.</p>
+ <p>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context object.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientContext;
 
 /**
- <p>The name of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ <p>The name of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
 /**
- <p>Choose from the following options.</p><ul><li><p><code>RequestResponse</code> (default) - Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.</p></li><li><p><code>Event</code> - Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if it's configured). The API response only includes a status code.</p></li><li><p><code>DryRun</code> - Validate parameter values and verify that the user or role has permission to invoke the function.</p></li></ul>
+ <p>Choose from the following options.</p><ul><li><p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.</p></li><li><p><code>Event</code> – Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if one is configured). The API response only includes a status code.</p></li><li><p><code>DryRun</code> – Validate parameter values and verify that the user or role has permission to invoke the function.</p></li></ul>
  */
 @property (nonatomic, assign) AWSLambdaInvocationType invocationType;
 
@@ -2387,7 +2473,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, assign) AWSLambdaLogType logType;
 
 /**
- <p>The JSON that you want to provide to your Lambda function as input.</p><p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>. </p>
+ <p>The JSON that you want to provide to your Lambda function as input.</p><p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
  */
 @property (nonatomic, strong) id _Nullable payload;
 
@@ -2415,7 +2501,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable functionError;
 
 /**
- <p>The last 4 KB of the execution log, which is base64 encoded.</p>
+ <p>The last 4 KB of the execution log, which is base64-encoded.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable logResult;
 
@@ -2438,7 +2524,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
@@ -2450,7 +2536,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- <p>A success response (<code>202 Accepted</code>) indicates that the request is queued for invocation. </p>
+ <p>A success response (<code>202 Accepted</code>) indicates that the request is queued for invocation.</p>
  */
 @interface AWSLambdaInvokeAsyncResponse : AWSModel
 
@@ -2706,7 +2792,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The Amazon Resource Name (ARN) of the event source.</p><ul><li><p><b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p></li><li><p><b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p></li><li><p><b>Amazon Simple Queue Service</b> - The ARN of the queue.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - The ARN of the cluster.</p></li></ul>
+ <p>The Amazon Resource Name (ARN) of the event source.</p><ul><li><p><b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p></li><li><p><b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p></li><li><p><b>Amazon Simple Queue Service</b> - The ARN of the queue.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - The ARN of the cluster.</p></li><li><p><b>Amazon MQ</b> - The ARN of the broker.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable eventSourceArn;
 
@@ -2793,7 +2879,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
@@ -2885,7 +2971,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable marker;
 
 /**
- <p>For Lambda@Edge functions, the Amazon Web Services Region of the master function. For example, <code>us-east-1</code> filters the list of functions to only include Lambda@Edge functions replicated from a master function in US East (N. Virginia). If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</p>
+ <p>For Lambda@Edge functions, the Amazon Web Services Region of the master function. For example, <code>us-east-1</code> filters the list of functions to include only Lambda@Edge functions replicated from a master function in US East (N. Virginia). If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable masterRegion;
 
@@ -3018,7 +3104,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
@@ -3152,7 +3238,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The amount of provisioned concurrency allocated.</p>
+ <p>The amount of provisioned concurrency allocated. When a weighted alias is used during linear and canary deployments, this value fluctuates depending on the amount of concurrency that is provisioned for the function versions.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable allocatedProvisionedConcurrentExecutions;
 
@@ -3350,7 +3436,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
@@ -3401,7 +3487,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
@@ -3424,7 +3510,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The amount of provisioned concurrency allocated.</p>
+ <p>The amount of provisioned concurrency allocated. When a weighted alias is used during linear and canary deployments, this value fluctuates depending on the amount of concurrency that is provisioned for the function versions.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable allocatedProvisionedConcurrentExecutions;
 
@@ -3490,7 +3576,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The name of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ <p>The name of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
@@ -3500,7 +3586,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable qualifier;
 
 /**
- <p>Only update the policy if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.</p>
+ <p>Update the policy only if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable revisionId;
 
@@ -3525,13 +3611,57 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
+ <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
+ */
+@interface AWSLambdaSelfManagedKafkaEventSourceConfig : AWSModel
+
+
+/**
+ <p>The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id">Customizable consumer group ID</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable consumerGroupId;
+
+@end
+
+/**
+ <p>The function's SnapStart setting. Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Reducing startup time with Lambda SnapStart</a>.</p>
+ */
+@interface AWSLambdaSnapStart : AWSModel
+
+
+/**
+ <p>Set to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version.</p>
+ */
+@property (nonatomic, assign) AWSLambdaSnapStartApplyOn applyOn;
+
+@end
+
+/**
+ <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">SnapStart</a> setting.</p>
+ */
+@interface AWSLambdaSnapStartResponse : AWSModel
+
+
+/**
+ <p>When set to <code>PublishedVersions</code>, Lambda creates a snapshot of the execution environment when you publish a function version.</p>
+ */
+@property (nonatomic, assign) AWSLambdaSnapStartApplyOn applyOn;
+
+/**
+ <p>When you provide a <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using">qualified Amazon Resource Name (ARN)</a>, this response element indicates whether SnapStart is activated for the specified function version.</p>
+ */
+@property (nonatomic, assign) AWSLambdaSnapStartOptimizationStatus optimizationStatus;
+
+@end
+
+/**
  <p>To secure and define access to your event source, you can specify the authentication protocol, VPC components, or virtual host.</p>
  */
 @interface AWSLambdaSourceAccessConfiguration : AWSModel
 
 
 /**
- <p>The type of authentication protocol, VPC components, or virtual host for your event source. For example: <code>"Type":"SASL_SCRAM_512_AUTH"</code>.</p><ul><li><p><code>BASIC_AUTH</code> - (Amazon MQ) The Secrets Manager secret that stores your broker credentials.</p></li><li><p><code>BASIC_AUTH</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.</p></li><li><p><code>VPC_SUBNET</code> - The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.</p></li><li><p><code>VPC_SECURITY_GROUP</code> - The VPC security group used to manage access to your self-managed Apache Kafka brokers.</p></li><li><p><code>SASL_SCRAM_256_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.</p></li><li><p><code>SASL_SCRAM_512_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.</p></li><li><p><code>VIRTUAL_HOST</code> - (Amazon MQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.</p></li><li><p><code>CLIENT_CERTIFICATE_TLS_AUTH</code> - (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.</p></li><li><p><code>SERVER_ROOT_CA_CERTIFICATE</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers. </p></li></ul>
+ <p>The type of authentication protocol, VPC components, or virtual host for your event source. For example: <code>"Type":"SASL_SCRAM_512_AUTH"</code>.</p><ul><li><p><code>BASIC_AUTH</code> - (Amazon MQ) The Secrets Manager secret that stores your broker credentials.</p></li><li><p><code>BASIC_AUTH</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.</p></li><li><p><code>VPC_SUBNET</code> - (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.</p></li><li><p><code>VPC_SECURITY_GROUP</code> - (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.</p></li><li><p><code>SASL_SCRAM_256_AUTH</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.</p></li><li><p><code>SASL_SCRAM_512_AUTH</code> - (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.</p></li><li><p><code>VIRTUAL_HOST</code> - (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.</p></li><li><p><code>CLIENT_CERTIFICATE_TLS_AUTH</code> - (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.</p></li><li><p><code>SERVER_ROOT_CA_CERTIFICATE</code> - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers. </p></li></ul>
  */
 @property (nonatomic, assign) AWSLambdaSourceAccessType types;
 
@@ -3690,7 +3820,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</p></li></ul>
+ <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Self-managed Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</p></li></ul>
  */
 @property (nonatomic, strong) NSNumber * _Nullable batchSize;
 
@@ -3710,7 +3840,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 /**
- <p>(Streams and Amazon SQS) An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
+ <p>An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
  */
 @property (nonatomic, strong) AWSLambdaFilterCriteria * _Nullable filterCriteria;
 
@@ -3725,7 +3855,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable functionResponseTypes;
 
 /**
- <p>(Streams and Amazon SQS standard queues) The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.</p><p>Default: 0</p><p>Related setting: When you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
+ <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p><p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, and Amazon MQ event sources, the default batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.</p><p>Related setting: For streams and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumBatchingWindowInSeconds;
 
@@ -3735,7 +3865,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable maximumRecordAgeInSeconds;
 
 /**
- <p>(Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>
+ <p>(Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumRetryAttempts;
 
@@ -3750,7 +3880,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<AWSLambdaSourceAccessConfiguration *> * _Nullable sourceAccessConfigurations;
 
 /**
- <p>(Streams only) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
+ <p>(Streams only) The duration in seconds of a processing window. The range is between 1 second and 900 seconds.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable tumblingWindowInSeconds;
 
@@ -3778,7 +3908,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
@@ -3793,7 +3923,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable publish;
 
 /**
- <p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.</p>
+ <p>Update the function only if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable revisionId;
 
@@ -3813,7 +3943,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable s3ObjectVersion;
 
 /**
- <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you. Use only with a function defined with a .zip file archive deployment package.</p>
+ <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you. Use only with a function defined with a .zip file archive deployment package.</p>
  */
 @property (nonatomic, strong) NSData * _Nullable zipFile;
 
@@ -3826,7 +3956,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">Dead Letter Queues</a>.</p>
+ <p>A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq">Dead-letter queues</a>.</p>
  */
 @property (nonatomic, strong) AWSLambdaDeadLetterConfig * _Nullable deadLetterConfig;
 
@@ -3841,7 +3971,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) AWSLambdaEnvironment * _Nullable environment;
 
 /**
- <p>The size of the function’s /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10240 MB.</p>
+ <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB.</p>
  */
 @property (nonatomic, strong) AWSLambdaEphemeralStorage * _Nullable ephemeralStorage;
 
@@ -3851,12 +3981,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<AWSLambdaFileSystemConfig *> * _Nullable fileSystemConfigs;
 
 /**
- <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
 /**
- <p>The name of the method within your code that Lambda calls to execute your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming Model</a>.</p>
+ <p>The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html">Lambda programming model</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable handler;
 
@@ -3866,7 +3996,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) AWSLambdaImageConfig * _Nullable imageConfig;
 
 /**
- <p>The ARN of the Amazon Web Services Key Management Service (KMS) key that's used to encrypt your function's environment variables. If it's not provided, Lambda uses a default service key.</p>
+ <p>The ARN of the Key Management Service (KMS) key that's used to encrypt your function's environment variables. If it's not provided, Lambda uses a default service key.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable KMSKeyArn;
 
@@ -3876,12 +4006,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable layers;
 
 /**
- <p>The amount of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html">memory available to the function</a> at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
+ <p>The amount of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console">memory available to the function</a> at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable memorySize;
 
 /**
- <p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.</p>
+ <p>Update the function only if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable revisionId;
 
@@ -3896,7 +4026,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, assign) AWSLambdaRuntime runtime;
 
 /**
- <p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For additional information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
+ <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">SnapStart</a> setting.</p>
+ */
+@property (nonatomic, strong) AWSLambdaSnapStart * _Nullable snapStart;
+
+/**
+ <p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable timeout;
 
@@ -3906,7 +4041,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) AWSLambdaTracingConfig * _Nullable tracingConfig;
 
 /**
- <p>For network connectivity to Amazon Web Services resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
+ <p>For network connectivity to Amazon Web Services resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">Configuring a Lambda function to access resources in a VPC</a>.</p>
  */
 @property (nonatomic, strong) AWSLambdaVpcConfig * _Nullable vpcConfig;
 
@@ -3952,7 +4087,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+ <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
  */
 @property (nonatomic, assign) AWSLambdaFunctionUrlAuthType authType;
 
@@ -3962,7 +4097,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) AWSLambdaCors * _Nullable cors;
 
 /**
- <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
@@ -3980,7 +4115,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+ <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated IAM users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
  */
 @property (nonatomic, assign) AWSLambdaFunctionUrlAuthType authType;
 
@@ -4012,13 +4147,13 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- <p>The VPC security groups and subnets that are attached to a Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
+ <p>The VPC security groups and subnets that are attached to a Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">Configuring a Lambda function to access resources in a VPC</a>.</p>
  */
 @interface AWSLambdaVpcConfig : AWSModel
 
 
 /**
- <p>A list of VPC security groups IDs.</p>
+ <p>A list of VPC security group IDs.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroupIds;
 
@@ -4036,7 +4171,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>A list of VPC security groups IDs.</p>
+ <p>A list of VPC security group IDs.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroupIds;
 

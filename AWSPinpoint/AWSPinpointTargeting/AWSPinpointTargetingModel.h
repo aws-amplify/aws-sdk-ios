@@ -251,6 +251,17 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
     AWSPinpointTargeting__EndpointTypesElementInApp,
 };
 
+typedef NS_ENUM(NSInteger, AWSPinpointTargetingDayOfWeek) {
+    AWSPinpointTargetingDayOfWeekUnknown,
+    AWSPinpointTargetingDayOfWeekMonday,
+    AWSPinpointTargetingDayOfWeekTuesday,
+    AWSPinpointTargetingDayOfWeekWednesday,
+    AWSPinpointTargetingDayOfWeekThursday,
+    AWSPinpointTargetingDayOfWeekFriday,
+    AWSPinpointTargetingDayOfWeekSaturday,
+    AWSPinpointTargetingDayOfWeekSunday,
+};
+
 @class AWSPinpointTargetingADMChannelRequest;
 @class AWSPinpointTargetingADMChannelResponse;
 @class AWSPinpointTargetingADMMessage;
@@ -685,6 +696,10 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @class AWSPinpointTargetingWriteJourneyRequest;
 @class AWSPinpointTargetingWriteSegmentRequest;
 @class AWSPinpointTargetingWriteTreatmentResource;
+@class AWSPinpointTargetingOpenHoursRule;
+@class AWSPinpointTargetingOpenHours;
+@class AWSPinpointTargetingClosedDaysRule;
+@class AWSPinpointTargetingClosedDays;
 
 /**
  <p>Specifies the status and settings of the ADM (Amazon Device Messaging) channel for an application.</p>
@@ -7562,6 +7577,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
+ <p>The time when journey will stop sending messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingClosedDays * _Nullable closedDays;
+
+/**
  <p>The date, in ISO 8601 format, when the journey was created.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable creationDate;
@@ -7597,6 +7617,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
+ <p>The time when journey allow to send messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingOpenHours * _Nullable openHours;
+
+/**
  <p>The quiet time settings for the journey. Quiet time is a specific time range when a journey doesn't send messages to participants, if all the following conditions are met:</p><ul><li><p>The EndpointDemographic.Timezone property of the endpoint for the participant is set to a valid value.</p></li><li><p>The current time in the participant's time zone is later than or equal to the time specified by the QuietTime.Start property for the journey.</p></li><li><p>The current time in the participant's time zone is earlier than or equal to the time specified by the QuietTime.End property for the journey.</p></li></ul><p>If any of the preceding conditions isn't met, the participant will receive messages from the journey, even if quiet time is enabled.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingQuietTime * _Nullable quietTime;
@@ -7615,6 +7640,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
  <p>The schedule settings for the journey.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingJourneySchedule * _Nullable schedule;
+
+/**
+ <p>Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays). This flag should be set to true in order to allow (OpenHours and ClosedDays)</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable sendingSchedule;
 
 /**
  <p>The unique identifier for the first activity in the journey.</p>
@@ -11539,6 +11569,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @property (nonatomic, strong) NSDictionary<NSString *, AWSPinpointTargetingActivity *> * _Nullable activities;
 
 /**
+ <p>The time when journey will stop sending messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingClosedDays * _Nullable closedDays;
+
+/**
  <p>The date, in ISO 8601 format, when the journey was created.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable creationDate;
@@ -11569,6 +11604,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
+ <p>The time when journey allow to send messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingOpenHours * _Nullable openHours;
+
+/**
  <p>The quiet time settings for the journey. Quiet time is a specific time range when a journey doesn't send messages to participants, if all the following conditions are met:</p><ul><li><p>The EndpointDemographic.Timezone property of the endpoint for the participant is set to a valid value.</p></li><li><p>The current time in the participant's time zone is later than or equal to the time specified by the QuietTime.Start property for the journey.</p></li><li><p>The current time in the participant's time zone is earlier than or equal to the time specified by the QuietTime.End property for the journey.</p></li></ul><p>If any of the preceding conditions isn't met, the participant will receive messages from the journey, even if quiet time is enabled.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingQuietTime * _Nullable quietTime;
@@ -11587,6 +11627,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
  <p>The schedule settings for the journey.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingJourneySchedule * _Nullable schedule;
+
+/**
+ <p>Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays). This flag should be set to true in order to allow (OpenHours and ClosedDays)</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable sendingSchedule;
 
 /**
  <p>The unique identifier for the first activity in the journey. The identifier for this activity can contain a maximum of 128 characters. The characters must be alphanumeric characters.</p>
@@ -11679,6 +11724,113 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
  <p>A custom name for the treatment.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable treatmentName;
+
+@end
+
+/**
+ <p>List of OpenHours Rules.</p>
+ */
+@interface AWSPinpointTargetingOpenHoursRule : AWSModel
+
+
+/**
+ <p>Local start time in ISO 8601 format.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable endTime;
+
+/**
+ <p>Local start time in ISO 8601 format.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable startTime;
+
+@end
+
+/**
+ <p>The time when journey allow to send messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
+ */
+@interface AWSPinpointTargetingOpenHours : AWSModel
+
+
+/**
+ <p>Rules for Custom Channel.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSArray<AWSPinpointTargetingOpenHoursRule *> *> * _Nullable CUSTOM;
+
+/**
+ <p>Rules for Email Channel.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSArray<AWSPinpointTargetingOpenHoursRule *> *> * _Nullable EMAIL;
+
+/**
+ <p>Rules for Push Channel.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSArray<AWSPinpointTargetingOpenHoursRule *> *> * _Nullable PUSH;
+
+/**
+ <p>Rules for SMS Channel.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSArray<AWSPinpointTargetingOpenHoursRule *> *> * _Nullable SMS;
+
+/**
+ <p>Rules for Voice Channel.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSArray<AWSPinpointTargetingOpenHoursRule *> *> * _Nullable VOICE;
+
+@end
+
+/**
+ <p>Closed Days Rule. Part of Journey sending schedule.</p>
+ */
+@interface AWSPinpointTargetingClosedDaysRule : AWSModel
+
+
+/**
+ <p>End Datetime in ISO 8601 format.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable endDateTime;
+
+/**
+ <p>Name of the rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>Start Datetime in ISO 8601 format.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable startDateTime;
+
+@end
+
+/**
+ <p>The time when journey will stop sending messages.</p>
+ */
+@interface AWSPinpointTargetingClosedDays : AWSModel
+
+
+/**
+ <p>Rules for Custom Channel.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSPinpointTargetingClosedDaysRule *> * _Nullable CUSTOM;
+
+/**
+ <p>Rules for Email Channel.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSPinpointTargetingClosedDaysRule *> * _Nullable EMAIL;
+
+/**
+ <p>Rules for Push Channel.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSPinpointTargetingClosedDaysRule *> * _Nullable PUSH;
+
+/**
+ <p>Rules for SMS Channel.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSPinpointTargetingClosedDaysRule *> * _Nullable SMS;
+
+/**
+ <p>Rules for Voice Channel.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSPinpointTargetingClosedDaysRule *> * _Nullable VOICE;
 
 @end
 

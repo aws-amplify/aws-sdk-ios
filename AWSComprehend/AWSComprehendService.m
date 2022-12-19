@@ -25,7 +25,7 @@
 #import "AWSComprehendResources.h"
 
 static NSString *const AWSInfoComprehend = @"Comprehend";
-NSString *const AWSComprehendSDKVersion = @"2.27.12";
+NSString *const AWSComprehendSDKVersion = @"2.28.5";
 
 
 @interface AWSComprehendResponseSerializer : AWSJSONResponseSerializer
@@ -394,6 +394,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSComprehendBatchDetectSyntaxResponse *response, NSError *error))completionHandler {
     [[self batchDetectSyntax:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendBatchDetectSyntaxResponse *> * _Nonnull task) {
         AWSComprehendBatchDetectSyntaxResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendBatchDetectTargetedSentimentResponse *> *)batchDetectTargetedSentiment:(AWSComprehendBatchDetectTargetedSentimentRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"BatchDetectTargetedSentiment"
+                   outputClass:[AWSComprehendBatchDetectTargetedSentimentResponse class]];
+}
+
+- (void)batchDetectTargetedSentiment:(AWSComprehendBatchDetectTargetedSentimentRequest *)request
+     completionHandler:(void (^)(AWSComprehendBatchDetectTargetedSentimentResponse *response, NSError *error))completionHandler {
+    [[self batchDetectTargetedSentiment:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendBatchDetectTargetedSentimentResponse *> * _Nonnull task) {
+        AWSComprehendBatchDetectTargetedSentimentResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1038,6 +1061,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSComprehendDetectSyntaxResponse *response, NSError *error))completionHandler {
     [[self detectSyntax:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDetectSyntaxResponse *> * _Nonnull task) {
         AWSComprehendDetectSyntaxResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendDetectTargetedSentimentResponse *> *)detectTargetedSentiment:(AWSComprehendDetectTargetedSentimentRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"DetectTargetedSentiment"
+                   outputClass:[AWSComprehendDetectTargetedSentimentResponse class]];
+}
+
+- (void)detectTargetedSentiment:(AWSComprehendDetectTargetedSentimentRequest *)request
+     completionHandler:(void (^)(AWSComprehendDetectTargetedSentimentResponse *response, NSError *error))completionHandler {
+    [[self detectTargetedSentiment:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDetectTargetedSentimentResponse *> * _Nonnull task) {
+        AWSComprehendDetectTargetedSentimentResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

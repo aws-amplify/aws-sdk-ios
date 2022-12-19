@@ -891,6 +891,18 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
     return YES;
 }
 
+- (BOOL)isConnectivityError:(NSError *) error {
+    NSArray *networkErrorCodes = @[
+        [NSNumber numberWithLong:NSURLErrorCannotFindHost],
+        [NSNumber numberWithLong:NSURLErrorCannotConnectToHost],
+        [NSNumber numberWithLong:NSURLErrorNetworkConnectionLost],
+        [NSNumber numberWithLong:NSURLErrorDNSLookupFailed],
+        [NSNumber numberWithLong:NSURLErrorNotConnectedToInternet]
+    ];
+    
+    return [networkErrorCodes containsObject:[NSNumber numberWithLong:error.code]];
+}
+
 - (void) processEndpointResponse:(NSString *) endpointId
                   resultResponse:(AWSPinpointTargetingPutEventsResponse *) response {
     @try {
@@ -1029,7 +1041,11 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
         //PutEvents encountered an exception
         if (task.error) {
             AWSDDLogError(@"PutEvents Error: [%@]", task.error);
-            if (![self isRetryable:task.error]) {
+            if ([self isConnectivityError:task.error]) {
+                // Connectivity issues should be retryable indefinitely
+                AWSDDLogError(@"Unable to submit events. The device does not have internet access. Error Message:%@", task.error);
+                return task;
+            } else if (![self isRetryable:task.error]) {
                 NSInteger responseCode = [task.error.userInfo[@"responseStatusCode"] integerValue];
                 AWSDDLogError(@"Server rejected submission of %lu events. (Events will be marked dirty.) Response code:%ld, Error Message:%@", (unsigned long)[events count], (long)responseCode, task.error);
                 

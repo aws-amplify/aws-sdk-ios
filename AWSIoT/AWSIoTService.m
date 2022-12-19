@@ -25,7 +25,7 @@
 #import "AWSIoTResources.h"
 
 static NSString *const AWSInfoIoT = @"IoT";
-NSString *const AWSIoTSDKVersion = @"2.27.12";
+NSString *const AWSIoTSDKVersion = @"2.28.5";
 
 
 @interface AWSIoTResponseSerializer : AWSJSONResponseSerializer
@@ -4095,6 +4095,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTListProvisioningTemplatesResponse *response, NSError *error))completionHandler {
     [[self listProvisioningTemplates:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListProvisioningTemplatesResponse *> * _Nonnull task) {
         AWSIoTListProvisioningTemplatesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListRelatedResourcesForAuditFindingResponse *> *)listRelatedResourcesForAuditFinding:(AWSIoTListRelatedResourcesForAuditFindingRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/audit/relatedResources"
+                  targetPrefix:@""
+                 operationName:@"ListRelatedResourcesForAuditFinding"
+                   outputClass:[AWSIoTListRelatedResourcesForAuditFindingResponse class]];
+}
+
+- (void)listRelatedResourcesForAuditFinding:(AWSIoTListRelatedResourcesForAuditFindingRequest *)request
+     completionHandler:(void (^)(AWSIoTListRelatedResourcesForAuditFindingResponse *response, NSError *error))completionHandler {
+    [[self listRelatedResourcesForAuditFinding:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListRelatedResourcesForAuditFindingResponse *> * _Nonnull task) {
+        AWSIoTListRelatedResourcesForAuditFindingResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

@@ -50,6 +50,7 @@
 - (void) test_AWSLocationCalculateRouteResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationCalculateRouteSummary API_AVAILABLE(ios(11));
 - (void) test_AWSLocationCalculateRouteTruckModeOptions API_AVAILABLE(ios(11));
+- (void) test_AWSLocationCircle API_AVAILABLE(ios(11));
 - (void) test_AWSLocationCreateGeofenceCollectionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationCreateGeofenceCollectionResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationCreateMapRequest API_AVAILABLE(ios(11));
@@ -100,6 +101,8 @@
 - (void) test_AWSLocationGetMapStyleDescriptorResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationGetMapTileRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationGetMapTileResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLocationGetPlaceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLocationGetPlaceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationLeg API_AVAILABLE(ios(11));
 - (void) test_AWSLocationLegGeometry API_AVAILABLE(ios(11));
 - (void) test_AWSLocationListDevicePositionsRequest API_AVAILABLE(ios(11));
@@ -293,6 +296,10 @@
 
 - (void) test_AWSLocationCalculateRouteTruckModeOptions {
     [self validateSecureCodingForClass:[AWSLocationCalculateRouteTruckModeOptions class]];
+}
+
+- (void) test_AWSLocationCircle {
+    [self validateSecureCodingForClass:[AWSLocationCircle class]];
 }
 
 - (void) test_AWSLocationCreateGeofenceCollectionRequest {
@@ -493,6 +500,14 @@
 
 - (void) test_AWSLocationGetMapTileResponse {
     [self validateSecureCodingForClass:[AWSLocationGetMapTileResponse class]];
+}
+
+- (void) test_AWSLocationGetPlaceRequest {
+    [self validateSecureCodingForClass:[AWSLocationGetPlaceRequest class]];
+}
+
+- (void) test_AWSLocationGetPlaceResponse {
+    [self validateSecureCodingForClass:[AWSLocationGetPlaceResponse class]];
 }
 
 - (void) test_AWSLocationLeg {

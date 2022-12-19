@@ -2083,6 +2083,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"acceleratorNames" : @"AcceleratorNames",
              @"acceleratorTotalMemoryMiB" : @"AcceleratorTotalMemoryMiB",
              @"acceleratorTypes" : @"AcceleratorTypes",
+             @"allowedInstanceTypes" : @"AllowedInstanceTypes",
              @"bareMetal" : @"BareMetal",
              @"baselineEbsBandwidthMbps" : @"BaselineEbsBandwidthMbps",
              @"burstablePerformance" : @"BurstablePerformance",
@@ -2093,6 +2094,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"localStorageTypes" : @"LocalStorageTypes",
              @"memoryGiBPerVCpu" : @"MemoryGiBPerVCpu",
              @"memoryMiB" : @"MemoryMiB",
+             @"networkBandwidthGbps" : @"NetworkBandwidthGbps",
              @"networkInterfaceCount" : @"NetworkInterfaceCount",
              @"onDemandMaxPricePercentageOverLowestPrice" : @"OnDemandMaxPricePercentageOverLowestPrice",
              @"requireHibernateSupport" : @"RequireHibernateSupport",
@@ -2198,6 +2200,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)memoryMiBJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingMemoryMiBRequest class]];
+}
+
++ (NSValueTransformer *)networkBandwidthGbpsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingNetworkBandwidthGbpsRequest class]];
 }
 
 + (NSValueTransformer *)networkInterfaceCountJSONTransformer {
@@ -2659,6 +2665,21 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)launchTemplateJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingLaunchTemplate class]];
+}
+
+@end
+
+@implementation AWSAutoScalingNetworkBandwidthGbpsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"max" : @"Max",
+             @"min" : @"Min",
+             };
 }
 
 @end

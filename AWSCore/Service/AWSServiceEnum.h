@@ -56,6 +56,10 @@ typedef NS_ENUM(NSInteger, AWSRegionType) {
      */
     AWSRegionEUCentral1 NS_SWIFT_NAME(EUCentral1),
     /**
+     *  EU (Zurich)
+     */
+    AWSRegionEUCentral2 NS_SWIFT_NAME(EUCentral2),
+    /**
      *  Asia Pacific (Singapore)
      */
     AWSRegionAPSoutheast1 NS_SWIFT_NAME(APSoutheast1),
@@ -79,6 +83,10 @@ typedef NS_ENUM(NSInteger, AWSRegionType) {
      *  Asia Pacific (Mumbai)
      */
     AWSRegionAPSouth1 NS_SWIFT_NAME(APSouth1),
+    /**
+     *  Asia Pacific (Hyderabad)
+     */
+    AWSRegionAPSouth2 NS_SWIFT_NAME(APSouth2),
     /**
      *  South America (Sao Paulo)
      */
@@ -116,6 +124,10 @@ typedef NS_ENUM(NSInteger, AWSRegionType) {
      */
     AWSRegionAPEast1 NS_SWIFT_NAME(APEast1),
     /**
+     *  Middle East Central (UAE)
+     */
+    AWSRegionMECentral1 NS_SWIFT_NAME(MECentral1),
+    /**
      *  Middle East South (Bahrain)
      */
     AWSRegionMESouth1 NS_SWIFT_NAME(MESouth1),
@@ -127,6 +139,10 @@ typedef NS_ENUM(NSInteger, AWSRegionType) {
      *  Europe (Milan)
      */
     AWSRegionEUSouth1 NS_SWIFT_NAME(EUSouth1),
+    /**
+     *  Europe (Spain)
+     */
+    AWSRegionEUSouth2 NS_SWIFT_NAME(EUSouth2),
 };
 
 /**

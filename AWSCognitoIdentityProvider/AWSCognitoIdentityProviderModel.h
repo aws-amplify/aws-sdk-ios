@@ -30,6 +30,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderErrorType) {
     AWSCognitoIdentityProviderErrorDuplicateProvider,
     AWSCognitoIdentityProviderErrorEnableSoftwareTokenMFA,
     AWSCognitoIdentityProviderErrorExpiredCode,
+    AWSCognitoIdentityProviderErrorForbidden,
     AWSCognitoIdentityProviderErrorGroupExists,
     AWSCognitoIdentityProviderErrorInternalError,
     AWSCognitoIdentityProviderErrorInvalidEmailRoleAccessPolicy,
@@ -154,6 +155,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderDefaultEmailOptionType) {
     AWSCognitoIdentityProviderDefaultEmailOptionTypeConfirmWithCode,
 };
 
+typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderDeletionProtectionType) {
+    AWSCognitoIdentityProviderDeletionProtectionTypeUnknown,
+    AWSCognitoIdentityProviderDeletionProtectionTypeActive,
+    AWSCognitoIdentityProviderDeletionProtectionTypeInactive,
+};
+
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderDeliveryMediumType) {
     AWSCognitoIdentityProviderDeliveryMediumTypeUnknown,
     AWSCognitoIdentityProviderDeliveryMediumTypeSms,
@@ -190,8 +197,9 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderEventFilterType) {
 
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderEventResponseType) {
     AWSCognitoIdentityProviderEventResponseTypeUnknown,
-    AWSCognitoIdentityProviderEventResponseTypeSuccess,
-    AWSCognitoIdentityProviderEventResponseTypeFailure,
+    AWSCognitoIdentityProviderEventResponseTypePass,
+    AWSCognitoIdentityProviderEventResponseTypeFail,
+    AWSCognitoIdentityProviderEventResponseTypeInProgress,
 };
 
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderEventType) {
@@ -199,6 +207,8 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderEventType) {
     AWSCognitoIdentityProviderEventTypeSignIn,
     AWSCognitoIdentityProviderEventTypeSignUp,
     AWSCognitoIdentityProviderEventTypeForgotPassword,
+    AWSCognitoIdentityProviderEventTypePasswordChange,
+    AWSCognitoIdentityProviderEventTypeResendCode,
 };
 
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderExplicitAuthFlowsType) {
@@ -1302,7 +1312,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- <p>The maximum number of authentication events to return.</p>
+ <p>The maximum number of authentication events to return. Returns 60 events if you set <code>MaxResults</code> to 0, or if you don't include a <code>MaxResults</code> parameter.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -1785,7 +1795,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- <p>A unique generated shared secret code that is used in the time-based one-time password (TOTP) algorithm to generate a one-time code.</p>
+ <p>A unique generated shared secret code that is used in the TOTP algorithm to generate a one-time code.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable secretCode;
 
@@ -2072,12 +2082,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable clientMetadata;
 
 /**
- <p>The confirmation code sent by a user's request to retrieve a forgotten password. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ForgotPassword.html">ForgotPassword</a>.</p>
+ <p>The confirmation code from your user's request to reset their password. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ForgotPassword.html">ForgotPassword</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable confirmationCode;
 
 /**
- <p>The password sent by a user's request to retrieve a forgotten password.</p>
+ <p>The new password that your user wants to set.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable password;
 
@@ -2380,7 +2390,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- <p>The access token time limit. After this limit expires, your user can't use their access token. To specify the time unit for <code>AccessTokenValidity</code> as <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code> value in your API request.</p><p>For example, when you set <code>AccessTokenValidity</code> to <code>10</code> and <code>TokenValidityUnits</code> to <code>hours</code>, your user can authorize access with their access token for 10 hours.</p><p>The default time unit for <code>AccessTokenValidity</code> in an API request is hours. <i>Valid range</i> is displayed below in seconds.</p>
+ <p>The access token time limit. After this limit expires, your user can't use their access token. To specify the time unit for <code>AccessTokenValidity</code> as <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code> value in your API request.</p><p>For example, when you set <code>AccessTokenValidity</code> to <code>10</code> and <code>TokenValidityUnits</code> to <code>hours</code>, your user can authorize access with their access token for 10 hours.</p><p>The default time unit for <code>AccessTokenValidity</code> in an API request is hours. <i>Valid range</i> is displayed below in seconds.</p><p>If you don't specify otherwise in the configuration of your app client, your access tokens are valid for one hour.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable accessTokenValidity;
 
@@ -2403,6 +2413,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
  <p>The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.</p><note><p>In Amazon Web Services Regions where Amazon Pinpoint isn't available, user pools only support sending events to Amazon Pinpoint projects in Amazon Web Services Region us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.</p></note>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsConfigurationType * _Nullable analyticsConfiguration;
+
+/**
+ <p>Amazon Cognito creates a session token for each API request in an authentication flow. <code>AuthSessionValidity</code> is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable authSessionValidity;
 
 /**
  <p>A list of allowed redirect (callback) URLs for the IdPs.</p><p>A redirect URI must:</p><ul><li><p>Be an absolute URI.</p></li><li><p>Be registered with the authorization server.</p></li><li><p>Not include a fragment component.</p></li></ul><p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p><p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p><p>App callback URLs such as myapp://example are also supported.</p>
@@ -2430,7 +2445,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSNumber * _Nullable enableTokenRevocation;
 
 /**
- <p>The authentication flows that are supported by the user pool clients. Flow names without the <code>ALLOW_</code> prefix are no longer supported, in favor of new names with the <code>ALLOW_</code> prefix.</p><note><p>Values with <code>ALLOW_</code> prefix must be used only along with the <code>ALLOW_</code> prefix.</p></note><p>Valid values include:</p><ul><li><p><code>ALLOW_ADMIN_USER_PASSWORD_AUTH</code>: Enable admin based user password authentication flow <code>ADMIN_USER_PASSWORD_AUTH</code>. This setting replaces the <code>ADMIN_NO_SRP_AUTH</code> setting. With this authentication flow, Amazon Cognito receives the password in the request instead of using the Secure Remote Password (SRP) protocol to verify passwords.</p></li><li><p><code>ALLOW_CUSTOM_AUTH</code>: Enable Lambda trigger based authentication.</p></li><li><p><code>ALLOW_USER_PASSWORD_AUTH</code>: Enable user password-based authentication. In this flow, Amazon Cognito receives the password in the request instead of using the SRP protocol to verify passwords.</p></li><li><p><code>ALLOW_USER_SRP_AUTH</code>: Enable SRP-based authentication.</p></li><li><p><code>ALLOW_REFRESH_TOKEN_AUTH</code>: Enable authflow to refresh tokens.</p></li></ul><p>If you don't specify a value for <code>ExplicitAuthFlows</code>, your app client activates the <code>ALLOW_USER_SRP_AUTH</code> and <code>ALLOW_CUSTOM_AUTH</code> authentication flows.</p>
+ <p>The authentication flows that you want your user pool client to support. For each app client in your user pool, you can sign in your users with any combination of one or more flows, including with a user name and Secure Remote Password (SRP), a user name and password, or a custom authentication process that you define with Lambda functions.</p><note><p>If you don't specify a value for <code>ExplicitAuthFlows</code>, your user client supports <code>ALLOW_REFRESH_TOKEN_AUTH</code>, <code>ALLOW_USER_SRP_AUTH</code>, and <code>ALLOW_CUSTOM_AUTH</code>.</p></note><p>Valid values include:</p><ul><li><p><code>ALLOW_ADMIN_USER_PASSWORD_AUTH</code>: Enable admin based user password authentication flow <code>ADMIN_USER_PASSWORD_AUTH</code>. This setting replaces the <code>ADMIN_NO_SRP_AUTH</code> setting. With this authentication flow, your app passes a user name and password to Amazon Cognito in the request, instead of using the Secure Remote Password (SRP) protocol to securely transmit the password.</p></li><li><p><code>ALLOW_CUSTOM_AUTH</code>: Enable Lambda trigger based authentication.</p></li><li><p><code>ALLOW_USER_PASSWORD_AUTH</code>: Enable user password-based authentication. In this flow, Amazon Cognito receives the password in the request instead of using the SRP protocol to verify passwords.</p></li><li><p><code>ALLOW_USER_SRP_AUTH</code>: Enable SRP-based authentication.</p></li><li><p><code>ALLOW_REFRESH_TOKEN_AUTH</code>: Enable authflow to refresh tokens.</p></li></ul><p>In some environments, you will see the values <code>ADMIN_NO_SRP_AUTH</code>, <code>CUSTOM_AUTH_FLOW_ONLY</code>, or <code>USER_PASSWORD_AUTH</code>. You can't assign these legacy <code>ExplicitAuthFlows</code> values to user pool clients at the same time as values that begin with <code>ALLOW_</code>, like <code>ALLOW_USER_SRP_AUTH</code>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable explicitAuthFlows;
 
@@ -2440,7 +2455,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSNumber * _Nullable generateSecret;
 
 /**
- <p>The ID token time limit. After this limit expires, your user can't use their ID token. To specify the time unit for <code>IdTokenValidity</code> as <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code> value in your API request.</p><p>For example, when you set <code>IdTokenValidity</code> as <code>10</code> and <code>TokenValidityUnits</code> as <code>hours</code>, your user can authenticate their session with their ID token for 10 hours.</p><p>The default time unit for <code>AccessTokenValidity</code> in an API request is hours. <i>Valid range</i> is displayed below in seconds.</p>
+ <p>The ID token time limit. After this limit expires, your user can't use their ID token. To specify the time unit for <code>IdTokenValidity</code> as <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code> value in your API request.</p><p>For example, when you set <code>IdTokenValidity</code> as <code>10</code> and <code>TokenValidityUnits</code> as <code>hours</code>, your user can authenticate their session with their ID token for 10 hours.</p><p>The default time unit for <code>AccessTokenValidity</code> in an API request is hours. <i>Valid range</i> is displayed below in seconds.</p><p>If you don't specify otherwise in the configuration of your app client, your ID tokens are valid for one hour.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable idTokenValidity;
 
@@ -2460,12 +2475,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable readAttributes;
 
 /**
- <p>The refresh token time limit. After this limit expires, your user can't use their refresh token. To specify the time unit for <code>RefreshTokenValidity</code> as <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code> value in your API request.</p><p>For example, when you set <code>RefreshTokenValidity</code> as <code>10</code> and <code>TokenValidityUnits</code> as <code>days</code>, your user can refresh their session and retrieve new access and ID tokens for 10 days.</p><p>The default time unit for <code>RefreshTokenValidity</code> in an API request is days. You can't set <code>RefreshTokenValidity</code> to 0. If you do, Amazon Cognito overrides the value with the default value of 30 days. <i>Valid range</i> is displayed below in seconds.</p>
+ <p>The refresh token time limit. After this limit expires, your user can't use their refresh token. To specify the time unit for <code>RefreshTokenValidity</code> as <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code> value in your API request.</p><p>For example, when you set <code>RefreshTokenValidity</code> as <code>10</code> and <code>TokenValidityUnits</code> as <code>days</code>, your user can refresh their session and retrieve new access and ID tokens for 10 days.</p><p>The default time unit for <code>RefreshTokenValidity</code> in an API request is days. You can't set <code>RefreshTokenValidity</code> to 0. If you do, Amazon Cognito overrides the value with the default value of 30 days. <i>Valid range</i> is displayed below in seconds.</p><p>If you don't specify otherwise in the configuration of your app client, your refresh tokens are valid for 30 days.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable refreshTokenValidity;
 
 /**
- <p>A list of provider names for the IdPs that this client supports. The following are supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code><code>LoginWithAmazon</code>, and the names of your own SAML and OIDC providers.</p>
+ <p>A list of provider names for the identity providers (IdPs) that are supported on this client. The following are supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code>, <code>SignInWithApple</code>, and <code>LoginWithAmazon</code>. You can also specify the names that you configured for the SAML and OIDC IdPs in your user pool, for example <code>MySAMLIdP</code> or <code>MyOIDCIdP</code>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable supportedIdentityProviders;
 
@@ -2563,7 +2578,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable autoVerifiedAttributes;
 
 /**
- <p>The device configuration.</p>
+ <p>When active, <code>DeletionProtection</code> prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature.</p><p>When you try to delete a protected user pool in a <code>DeleteUserPool</code> API request, Amazon Cognito returns an <code>InvalidParameterException</code> error. To delete a protected user pool, send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an <code>UpdateUserPool</code> API request.</p>
+ */
+@property (nonatomic, assign) AWSCognitoIdentityProviderDeletionProtectionType deletionProtection;
+
+/**
+ <p>The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.</p><note><p>When you provide a value for any <code>DeviceConfiguration</code> field, you activate the Amazon Cognito device-remembering feature.</p></note>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderDeviceConfigurationType * _Nullable deviceConfiguration;
 
@@ -2573,12 +2593,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) AWSCognitoIdentityProviderEmailConfigurationType * _Nullable emailConfiguration;
 
 /**
- <p>A string representing the email verification message. EmailVerificationMessage is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is DEVELOPER. </p>
+ <p>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable emailVerificationMessage;
 
 /**
- <p>A string representing the email verification subject. EmailVerificationSubject is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is DEVELOPER. </p>
+ <p>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable emailVerificationSubject;
 
@@ -2618,12 +2638,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) AWSCognitoIdentityProviderSmsConfigurationType * _Nullable smsConfiguration;
 
 /**
- <p>A string representing the SMS verification message.</p>
+ <p>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable smsVerificationMessage;
 
 /**
- <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>, a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates"> Verifying updates to to email addresses and phone numbers</a>.</p>
+ <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>, a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates"> Verifying updates to email addresses and phone numbers</a>.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserAttributeUpdateSettingsType * _Nullable userAttributeUpdateSettings;
 
@@ -2898,7 +2918,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- <p>The IdP that was deleted.</p>
+ <p>The identity provider details.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderIdentityProviderType * _Nullable identityProvider;
 
@@ -3084,18 +3104,18 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- <p>The device tracking configuration for a user pool. A user pool with device tracking deactivated returns a null value.</p><note><p>When you provide values for any DeviceConfiguration field, you activate device tracking.</p></note>
+ <p>The device-remembering configuration for a user pool. A <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html"> DescribeUserPool</a> request returns a null value for this object when the user pool isn't configured to remember devices. When device remembering is active, you can remember a user's device with a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html">ConfirmDevice</a> API request. Additionally. when the property <code>DeviceOnlyRememberedOnUserPrompt</code> is <code>true</code>, you must follow <code>ConfirmDevice</code> with an <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html">UpdateDeviceStatus</a> API request that sets the user's device to <code>remembered</code> or <code>not_remembered</code>.</p><p>To sign in with a remembered device, include <code>DEVICE_KEY</code> in the authentication parameters in your user's <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html"> InitiateAuth</a> request. If your app doesn't include a <code>DEVICE_KEY</code> parameter, the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html#API_InitiateAuth_ResponseSyntax">response</a> from Amazon Cognito includes newly-generated <code>DEVICE_KEY</code> and <code>DEVICE_GROUP_KEY</code> values under <code>NewDeviceMetadata</code>. Store these values to use in future device-authentication requests.</p><note><p>When you provide a value for any property of <code>DeviceConfiguration</code>, you activate the device remembering for the user pool.</p></note>
  */
 @interface AWSCognitoIdentityProviderDeviceConfigurationType : AWSModel
 
 
 /**
- <p>When true, device authentication can replace SMS and time-based one-time password (TOTP) factors for multi-factor authentication (MFA).</p><note><p>Users that sign in with devices that have not been confirmed or remembered will still have to provide a second factor, whether or not ChallengeRequiredOnNewDevice is true, when your user pool requires MFA.</p></note>
+ <p>When true, a remembered device can sign in with device authentication instead of SMS and time-based one-time password (TOTP) factors for multi-factor authentication (MFA).</p><note><p>Whether or not <code>ChallengeRequiredOnNewDevice</code> is true, users who sign in with devices that have not been confirmed or remembered must still provide a second factor in a user pool that requires MFA.</p></note>
  */
 @property (nonatomic, strong) NSNumber * _Nullable challengeRequiredOnNewDevice;
 
 /**
- <p>When true, users can opt in to remembering their device. Your app code must use callback functions to return the user's choice.</p>
+ <p>When true, Amazon Cognito doesn't automatically remember a user's device when your app sends a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html"> ConfirmDevice</a> API request. In your app, create a prompt for your user to choose whether they want to remember their device. Return the user's choice in an <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html"> UpdateDeviceStatus</a> API request.</p><p>When <code>DeviceOnlyRememberedOnUserPrompt</code> is <code>false</code>, Amazon Cognito immediately remembers devices that you register in a <code>ConfirmDevice</code> API request.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable deviceOnlyRememberedOnUserPrompt;
 
@@ -3212,7 +3232,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable configurationSet;
 
 /**
- <p>Specifies whether Amazon Cognito uses its built-in functionality to send your users email messages, or uses your Amazon Simple Email Service email configuration. Specify one of the following values:</p><dl><dt>COGNITO_DEFAULT</dt><dd><p>When Amazon Cognito emails your users, it uses its built-in email functionality. When you use the default option, Amazon Cognito allows only a limited number of emails each day for your user pool. For typical production environments, the default email limit is less than the required delivery volume. To achieve a higher delivery volume, specify DEVELOPER to use your Amazon SES email configuration.</p><p>To look up the email delivery limit for the default option, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html">Limits in </a> in the <i> Developer Guide</i>.</p><p>The default FROM address is <code>no-reply@verificationemail.com</code>. To customize the FROM address, provide the Amazon Resource Name (ARN) of an Amazon SES verified email address for the <code>SourceArn</code> parameter.</p></dd><dt>DEVELOPER</dt><dd><p>When Amazon Cognito emails your users, it uses your Amazon SES configuration. Amazon Cognito calls Amazon SES on your behalf to send email from your verified email address. When you use this option, the email delivery limits are the same limits that apply to your Amazon SES verified email address in your Amazon Web Services account.</p><p>If you use this option, provide the ARN of an Amazon SES verified email address for the <code>SourceArn</code> parameter.</p><p>Before Amazon Cognito can email your users, it requires additional permissions to call Amazon SES on your behalf. When you update your user pool with this option, Amazon Cognito creates a <i>service-linked role</i>, which is a type of role, in your Amazon Web Services account. This role contains the permissions that allow to access Amazon SES and send email messages with your address. For more information about the service-linked role that Amazon Cognito creates, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html">Using Service-Linked Roles for Amazon Cognito</a> in the <i>Amazon Cognito Developer Guide</i>.</p></dd></dl>
+ <p>Specifies whether Amazon Cognito uses its built-in functionality to send your users email messages, or uses your Amazon Simple Email Service email configuration. Specify one of the following values:</p><dl><dt>COGNITO_DEFAULT</dt><dd><p>When Amazon Cognito emails your users, it uses its built-in email functionality. When you use the default option, Amazon Cognito allows only a limited number of emails each day for your user pool. For typical production environments, the default email limit is less than the required delivery volume. To achieve a higher delivery volume, specify DEVELOPER to use your Amazon SES email configuration.</p><p>To look up the email delivery limit for the default option, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html">Limits</a> in the <i>Amazon Cognito Developer Guide</i>.</p><p>The default FROM address is <code>no-reply@verificationemail.com</code>. To customize the FROM address, provide the Amazon Resource Name (ARN) of an Amazon SES verified email address for the <code>SourceArn</code> parameter.</p></dd><dt>DEVELOPER</dt><dd><p>When Amazon Cognito emails your users, it uses your Amazon SES configuration. Amazon Cognito calls Amazon SES on your behalf to send email from your verified email address. When you use this option, the email delivery limits are the same limits that apply to your Amazon SES verified email address in your Amazon Web Services account.</p><p>If you use this option, provide the ARN of an Amazon SES verified email address for the <code>SourceArn</code> parameter.</p><p>Before Amazon Cognito can email your users, it requires additional permissions to call Amazon SES on your behalf. When you update your user pool with this option, Amazon Cognito creates a <i>service-linked role</i>, which is a type of role in your Amazon Web Services account. This role contains the permissions that allow you to access Amazon SES and send email messages from your email address. For more information about the service-linked role that Amazon Cognito creates, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html">Using Service-Linked Roles for Amazon Cognito</a> in the <i>Amazon Cognito Developer Guide</i>.</p></dd></dl>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderEmailSendingAccountType emailSendingAccount;
 
@@ -3505,7 +3525,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- <p>The IdP object.</p>
+ <p>The identity provider details.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderIdentityProviderType * _Nullable identityProvider;
 
@@ -3626,17 +3646,17 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- <p>The multi-factor (MFA) configuration. Valid values include:</p><ul><li><p><code>OFF</code> MFA won't be used for any users.</p></li><li><p><code>ON</code> MFA is required for all users to sign in.</p></li><li><p><code>OPTIONAL</code> MFA will be required only for individual users who have an MFA factor activated.</p></li></ul>
+ <p>The multi-factor authentication (MFA) configuration. Valid values include:</p><ul><li><p><code>OFF</code> MFA won't be used for any users.</p></li><li><p><code>ON</code> MFA is required for all users to sign in.</p></li><li><p><code>OPTIONAL</code> MFA will be required only for individual users who have an MFA factor activated.</p></li></ul>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderUserPoolMfaType mfaConfiguration;
 
 /**
- <p>The SMS text message multi-factor (MFA) configuration.</p>
+ <p>The SMS text message multi-factor authentication (MFA) configuration.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderSmsMfaConfigType * _Nullable smsMfaConfiguration;
 
 /**
- <p>The software token multi-factor (MFA) configuration.</p>
+ <p>The software token multi-factor authentication (MFA) configuration.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderSoftwareTokenMfaConfigType * _Nullable softwareTokenMfaConfiguration;
 
@@ -5042,7 +5062,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) AWSCognitoIdentityProviderSMSMfaSettingsType * _Nullable SMSMfaSettings;
 
 /**
- <p>The time-based one-time password software token MFA settings.</p>
+ <p>The time-based one-time password (TOTP) software token MFA settings.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderSoftwareTokenMfaSettingsType * _Nullable softwareTokenMfaSettings;
 
@@ -5063,7 +5083,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- <p>The MFA configuration. If you set the MfaConfiguration value to ‘ON’, only users who have set up an MFA factor can sign in. To learn more, see <a href="cognito/latest/developerguide/user-pool-settings-mfa.html">Adding Multi-Factor Authentication (MFA) to a user pool</a>. Valid values include:</p><ul><li><p><code>OFF</code> MFA won't be used for any users.</p></li><li><p><code>ON</code> MFA is required for all users to sign in.</p></li><li><p><code>OPTIONAL</code> MFA will be required only for individual users who have an MFA factor activated.</p></li></ul>
+ <p>The MFA configuration. If you set the MfaConfiguration value to ‘ON’, only users who have set up an MFA factor can sign in. To learn more, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa.html">Adding Multi-Factor Authentication (MFA) to a user pool</a>. Valid values include:</p><ul><li><p><code>OFF</code> MFA won't be used for any users.</p></li><li><p><code>ON</code> MFA is required for all users to sign in.</p></li><li><p><code>OPTIONAL</code> MFA will be required only for individual users who have an MFA factor activated.</p></li></ul>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderUserPoolMfaType mfaConfiguration;
 
@@ -5644,7 +5664,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- <p>The IdP object.</p>
+ <p>The identity provider details.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderIdentityProviderType * _Nullable identityProvider;
 
@@ -5736,7 +5756,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- <p>The access token time limit. After this limit expires, your user can't use their access token. To specify the time unit for <code>AccessTokenValidity</code> as <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code> value in your API request.</p><p>For example, when you set <code>AccessTokenValidity</code> to <code>10</code> and <code>TokenValidityUnits</code> to <code>hours</code>, your user can authorize access with their access token for 10 hours.</p><p>The default time unit for <code>AccessTokenValidity</code> in an API request is hours. <i>Valid range</i> is displayed below in seconds.</p>
+ <p>The access token time limit. After this limit expires, your user can't use their access token. To specify the time unit for <code>AccessTokenValidity</code> as <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code> value in your API request.</p><p>For example, when you set <code>AccessTokenValidity</code> to <code>10</code> and <code>TokenValidityUnits</code> to <code>hours</code>, your user can authorize access with their access token for 10 hours.</p><p>The default time unit for <code>AccessTokenValidity</code> in an API request is hours. <i>Valid range</i> is displayed below in seconds.</p><p>If you don't specify otherwise in the configuration of your app client, your access tokens are valid for one hour.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable accessTokenValidity;
 
@@ -5759,6 +5779,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
  <p>The Amazon Pinpoint analytics configuration necessary to collect metrics for this user pool.</p><note><p>In Amazon Web Services Regions where Amazon Pinpoint isn't available, user pools only support sending events to Amazon Pinpoint projects in us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.</p></note>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsConfigurationType * _Nullable analyticsConfiguration;
+
+/**
+ <p>Amazon Cognito creates a session token for each API request in an authentication flow. <code>AuthSessionValidity</code> is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable authSessionValidity;
 
 /**
  <p>A list of allowed redirect (callback) URLs for the IdPs.</p><p>A redirect URI must:</p><ul><li><p>Be an absolute URI.</p></li><li><p>Be registered with the authorization server.</p></li><li><p>Not include a fragment component.</p></li></ul><p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p><p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p><p>App callback URLs such as <code>myapp://example</code> are also supported.</p>
@@ -5791,12 +5816,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSNumber * _Nullable enableTokenRevocation;
 
 /**
- <p>The authentication flows that are supported by the user pool clients. Flow names without the <code>ALLOW_</code> prefix are no longer supported in favor of new names with the <code>ALLOW_</code> prefix. Note that values with <code>ALLOW_</code> prefix must be used only along with values with the <code>ALLOW_</code> prefix.</p><p>Valid values include:</p><ul><li><p><code>ALLOW_ADMIN_USER_PASSWORD_AUTH</code>: Enable admin based user password authentication flow <code>ADMIN_USER_PASSWORD_AUTH</code>. This setting replaces the <code>ADMIN_NO_SRP_AUTH</code> setting. With this authentication flow, Amazon Cognito receives the password in the request instead of using the Secure Remote Password (SRP) protocol to verify passwords.</p></li><li><p><code>ALLOW_CUSTOM_AUTH</code>: Enable Lambda trigger based authentication.</p></li><li><p><code>ALLOW_USER_PASSWORD_AUTH</code>: Enable user password-based authentication. In this flow, Amazon Cognito receives the password in the request instead of using the SRP protocol to verify passwords.</p></li><li><p><code>ALLOW_USER_SRP_AUTH</code>: Enable SRP-based authentication.</p></li><li><p><code>ALLOW_REFRESH_TOKEN_AUTH</code>: Enable authflow to refresh tokens.</p></li></ul>
+ <p>The authentication flows that you want your user pool client to support. For each app client in your user pool, you can sign in your users with any combination of one or more flows, including with a user name and Secure Remote Password (SRP), a user name and password, or a custom authentication process that you define with Lambda functions.</p><note><p>If you don't specify a value for <code>ExplicitAuthFlows</code>, your user client supports <code>ALLOW_REFRESH_TOKEN_AUTH</code>, <code>ALLOW_USER_SRP_AUTH</code>, and <code>ALLOW_CUSTOM_AUTH</code>.</p></note><p>Valid values include:</p><ul><li><p><code>ALLOW_ADMIN_USER_PASSWORD_AUTH</code>: Enable admin based user password authentication flow <code>ADMIN_USER_PASSWORD_AUTH</code>. This setting replaces the <code>ADMIN_NO_SRP_AUTH</code> setting. With this authentication flow, your app passes a user name and password to Amazon Cognito in the request, instead of using the Secure Remote Password (SRP) protocol to securely transmit the password.</p></li><li><p><code>ALLOW_CUSTOM_AUTH</code>: Enable Lambda trigger based authentication.</p></li><li><p><code>ALLOW_USER_PASSWORD_AUTH</code>: Enable user password-based authentication. In this flow, Amazon Cognito receives the password in the request instead of using the SRP protocol to verify passwords.</p></li><li><p><code>ALLOW_USER_SRP_AUTH</code>: Enable SRP-based authentication.</p></li><li><p><code>ALLOW_REFRESH_TOKEN_AUTH</code>: Enable authflow to refresh tokens.</p></li></ul><p>In some environments, you will see the values <code>ADMIN_NO_SRP_AUTH</code>, <code>CUSTOM_AUTH_FLOW_ONLY</code>, or <code>USER_PASSWORD_AUTH</code>. You can't assign these legacy <code>ExplicitAuthFlows</code> values to user pool clients at the same time as values that begin with <code>ALLOW_</code>, like <code>ALLOW_USER_SRP_AUTH</code>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable explicitAuthFlows;
 
 /**
- <p>The ID token time limit. After this limit expires, your user can't use their ID token. To specify the time unit for <code>IdTokenValidity</code> as <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code> value in your API request.</p><p>For example, when you set <code>IdTokenValidity</code> as <code>10</code> and <code>TokenValidityUnits</code> as <code>hours</code>, your user can authenticate their session with their ID token for 10 hours.</p><p>The default time unit for <code>AccessTokenValidity</code> in an API request is hours. <i>Valid range</i> is displayed below in seconds.</p>
+ <p>The ID token time limit. After this limit expires, your user can't use their ID token. To specify the time unit for <code>IdTokenValidity</code> as <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code> value in your API request.</p><p>For example, when you set <code>IdTokenValidity</code> as <code>10</code> and <code>TokenValidityUnits</code> as <code>hours</code>, your user can authenticate their session with their ID token for 10 hours.</p><p>The default time unit for <code>AccessTokenValidity</code> in an API request is hours. <i>Valid range</i> is displayed below in seconds.</p><p>If you don't specify otherwise in the configuration of your app client, your ID tokens are valid for one hour.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable idTokenValidity;
 
@@ -5816,12 +5841,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable readAttributes;
 
 /**
- <p>The refresh token time limit. After this limit expires, your user can't use their refresh token. To specify the time unit for <code>RefreshTokenValidity</code> as <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code> value in your API request.</p><p>For example, when you set <code>RefreshTokenValidity</code> as <code>10</code> and <code>TokenValidityUnits</code> as <code>days</code>, your user can refresh their session and retrieve new access and ID tokens for 10 days.</p><p>The default time unit for <code>RefreshTokenValidity</code> in an API request is days. You can't set <code>RefreshTokenValidity</code> to 0. If you do, Amazon Cognito overrides the value with the default value of 30 days. <i>Valid range</i> is displayed below in seconds.</p>
+ <p>The refresh token time limit. After this limit expires, your user can't use their refresh token. To specify the time unit for <code>RefreshTokenValidity</code> as <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code> value in your API request.</p><p>For example, when you set <code>RefreshTokenValidity</code> as <code>10</code> and <code>TokenValidityUnits</code> as <code>days</code>, your user can refresh their session and retrieve new access and ID tokens for 10 days.</p><p>The default time unit for <code>RefreshTokenValidity</code> in an API request is days. You can't set <code>RefreshTokenValidity</code> to 0. If you do, Amazon Cognito overrides the value with the default value of 30 days. <i>Valid range</i> is displayed below in seconds.</p><p>If you don't specify otherwise in the configuration of your app client, your refresh tokens are valid for 30 days.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable refreshTokenValidity;
 
 /**
- <p>A list of provider names for the IdPs that this client supports. The following are supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code><code>LoginWithAmazon</code>, and the names of your own SAML and OIDC providers.</p>
+ <p>A list of provider names for the IdPs that this client supports. The following are supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code>, <code>SignInWithApple</code>, <code>LoginWithAmazon</code>, and the names of your own SAML and OIDC providers.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable supportedIdentityProviders;
 
@@ -5915,7 +5940,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable autoVerifiedAttributes;
 
 /**
- <p>Device configuration.</p>
+ <p>When active, <code>DeletionProtection</code> prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature.</p><p>When you try to delete a protected user pool in a <code>DeleteUserPool</code> API request, Amazon Cognito returns an <code>InvalidParameterException</code> error. To delete a protected user pool, send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an <code>UpdateUserPool</code> API request.</p>
+ */
+@property (nonatomic, assign) AWSCognitoIdentityProviderDeletionProtectionType deletionProtection;
+
+/**
+ <p>The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.</p><note><p>When you provide a value for any <code>DeviceConfiguration</code> field, you activate the Amazon Cognito device-remembering feature.</p></note>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderDeviceConfigurationType * _Nullable deviceConfiguration;
 
@@ -5925,12 +5955,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) AWSCognitoIdentityProviderEmailConfigurationType * _Nullable emailConfiguration;
 
 /**
- <p>The contents of the email verification message.</p>
+ <p>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable emailVerificationMessage;
 
 /**
- <p>The subject of the email verification message.</p>
+ <p>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable emailVerificationSubject;
 
@@ -5960,12 +5990,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) AWSCognitoIdentityProviderSmsConfigurationType * _Nullable smsConfiguration;
 
 /**
- <p>A container with information about the SMS verification message.</p>
+ <p>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable smsVerificationMessage;
 
 /**
- <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>, a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates"> Verifying updates to to email addresses and phone numbers</a>.</p>
+ <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>, a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates"> Verifying updates to email addresses and phone numbers</a>.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserAttributeUpdateSettingsType * _Nullable userAttributeUpdateSettings;
 
@@ -6000,7 +6030,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>, a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates"> Verifying updates to to email addresses and phone numbers</a>.</p>
+ <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>, a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates"> Verifying updates to email addresses and phone numbers</a>.</p>
  */
 @interface AWSCognitoIdentityProviderUserAttributeUpdateSettingsType : AWSModel
 
@@ -6147,7 +6177,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- <p>The access token time limit. After this limit expires, your user can't use their access token. To specify the time unit for <code>AccessTokenValidity</code> as <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code> value in your API request.</p><p>For example, when you set <code>AccessTokenValidity</code> to <code>10</code> and <code>TokenValidityUnits</code> to <code>hours</code>, your user can authorize access with their access token for 10 hours.</p><p>The default time unit for <code>AccessTokenValidity</code> in an API request is hours. <i>Valid range</i> is displayed below in seconds.</p>
+ <p>The access token time limit. After this limit expires, your user can't use their access token. To specify the time unit for <code>AccessTokenValidity</code> as <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code> value in your API request.</p><p>For example, when you set <code>AccessTokenValidity</code> to <code>10</code> and <code>TokenValidityUnits</code> to <code>hours</code>, your user can authorize access with their access token for 10 hours.</p><p>The default time unit for <code>AccessTokenValidity</code> in an API request is hours. <i>Valid range</i> is displayed below in seconds.</p><p>If you don't specify otherwise in the configuration of your app client, your access tokens are valid for one hour.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable accessTokenValidity;
 
@@ -6170,6 +6200,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
  <p>The Amazon Pinpoint analytics configuration for the user pool client.</p><note><p>Amazon Cognito user pools only support sending events to Amazon Pinpoint projects in the US East (N. Virginia) us-east-1 Region, regardless of the Region where the user pool resides.</p></note>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsConfigurationType * _Nullable analyticsConfiguration;
+
+/**
+ <p>Amazon Cognito creates a session token for each API request in an authentication flow. <code>AuthSessionValidity</code> is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable authSessionValidity;
 
 /**
  <p>A list of allowed redirect (callback) URLs for the IdPs.</p><p>A redirect URI must:</p><ul><li><p>Be an absolute URI.</p></li><li><p>Be registered with the authorization server.</p></li><li><p>Not include a fragment component.</p></li></ul><p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p><p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p><p>App callback URLs such as myapp://example are also supported.</p>
@@ -6212,12 +6247,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSNumber * _Nullable enableTokenRevocation;
 
 /**
- <p>The authentication flows that are supported by the user pool clients. Flow names without the <code>ALLOW_</code> prefix are no longer supported in favor of new names with the <code>ALLOW_</code> prefix. Note that values with <code>ALLOW_</code> prefix must be used only along with values including the <code>ALLOW_</code> prefix.</p><p>Valid values include:</p><ul><li><p><code>ALLOW_ADMIN_USER_PASSWORD_AUTH</code>: Enable admin based user password authentication flow <code>ADMIN_USER_PASSWORD_AUTH</code>. This setting replaces the <code>ADMIN_NO_SRP_AUTH</code> setting. With this authentication flow, Amazon Cognito receives the password in the request instead of using the Secure Remote Password (SRP) protocol to verify passwords.</p></li><li><p><code>ALLOW_CUSTOM_AUTH</code>: Enable Lambda trigger based authentication.</p></li><li><p><code>ALLOW_USER_PASSWORD_AUTH</code>: Enable user password-based authentication. In this flow, Amazon Cognito receives the password in the request instead of using the SRP protocol to verify passwords.</p></li><li><p><code>ALLOW_USER_SRP_AUTH</code>: Enable SRP-based authentication.</p></li><li><p><code>ALLOW_REFRESH_TOKEN_AUTH</code>: Enable authflow to refresh tokens.</p></li></ul>
+ <p>The authentication flows that you want your user pool client to support. For each app client in your user pool, you can sign in your users with any combination of one or more flows, including with a user name and Secure Remote Password (SRP), a user name and password, or a custom authentication process that you define with Lambda functions.</p><note><p>If you don't specify a value for <code>ExplicitAuthFlows</code>, your user client supports <code>ALLOW_REFRESH_TOKEN_AUTH</code>, <code>ALLOW_USER_SRP_AUTH</code>, and <code>ALLOW_CUSTOM_AUTH</code>.</p></note><p>Valid values include:</p><ul><li><p><code>ALLOW_ADMIN_USER_PASSWORD_AUTH</code>: Enable admin based user password authentication flow <code>ADMIN_USER_PASSWORD_AUTH</code>. This setting replaces the <code>ADMIN_NO_SRP_AUTH</code> setting. With this authentication flow, your app passes a user name and password to Amazon Cognito in the request, instead of using the Secure Remote Password (SRP) protocol to securely transmit the password.</p></li><li><p><code>ALLOW_CUSTOM_AUTH</code>: Enable Lambda trigger based authentication.</p></li><li><p><code>ALLOW_USER_PASSWORD_AUTH</code>: Enable user password-based authentication. In this flow, Amazon Cognito receives the password in the request instead of using the SRP protocol to verify passwords.</p></li><li><p><code>ALLOW_USER_SRP_AUTH</code>: Enable SRP-based authentication.</p></li><li><p><code>ALLOW_REFRESH_TOKEN_AUTH</code>: Enable authflow to refresh tokens.</p></li></ul><p>In some environments, you will see the values <code>ADMIN_NO_SRP_AUTH</code>, <code>CUSTOM_AUTH_FLOW_ONLY</code>, or <code>USER_PASSWORD_AUTH</code>. You can't assign these legacy <code>ExplicitAuthFlows</code> values to user pool clients at the same time as values that begin with <code>ALLOW_</code>, like <code>ALLOW_USER_SRP_AUTH</code>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable explicitAuthFlows;
 
 /**
- <p>The ID token time limit. After this limit expires, your user can't use their ID token. To specify the time unit for <code>IdTokenValidity</code> as <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code> value in your API request.</p><p>For example, when you set <code>IdTokenValidity</code> as <code>10</code> and <code>TokenValidityUnits</code> as <code>hours</code>, your user can authenticate their session with their ID token for 10 hours.</p><p>The default time unit for <code>AccessTokenValidity</code> in an API request is hours. <i>Valid range</i> is displayed below in seconds.</p>
+ <p>The ID token time limit. After this limit expires, your user can't use their ID token. To specify the time unit for <code>IdTokenValidity</code> as <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code> value in your API request.</p><p>For example, when you set <code>IdTokenValidity</code> as <code>10</code> and <code>TokenValidityUnits</code> as <code>hours</code>, your user can authenticate their session with their ID token for 10 hours.</p><p>The default time unit for <code>AccessTokenValidity</code> in an API request is hours. <i>Valid range</i> is displayed below in seconds.</p><p>If you don't specify otherwise in the configuration of your app client, your ID tokens are valid for one hour.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable idTokenValidity;
 
@@ -6242,12 +6277,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable readAttributes;
 
 /**
- <p>The refresh token time limit. After this limit expires, your user can't use their refresh token. To specify the time unit for <code>RefreshTokenValidity</code> as <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code> value in your API request.</p><p>For example, when you set <code>RefreshTokenValidity</code> as <code>10</code> and <code>TokenValidityUnits</code> as <code>days</code>, your user can refresh their session and retrieve new access and ID tokens for 10 days.</p><p>The default time unit for <code>RefreshTokenValidity</code> in an API request is days. You can't set <code>RefreshTokenValidity</code> to 0. If you do, Amazon Cognito overrides the value with the default value of 30 days. <i>Valid range</i> is displayed below in seconds.</p>
+ <p>The refresh token time limit. After this limit expires, your user can't use their refresh token. To specify the time unit for <code>RefreshTokenValidity</code> as <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>, set a <code>TokenValidityUnits</code> value in your API request.</p><p>For example, when you set <code>RefreshTokenValidity</code> as <code>10</code> and <code>TokenValidityUnits</code> as <code>days</code>, your user can refresh their session and retrieve new access and ID tokens for 10 days.</p><p>The default time unit for <code>RefreshTokenValidity</code> in an API request is days. You can't set <code>RefreshTokenValidity</code> to 0. If you do, Amazon Cognito overrides the value with the default value of 30 days. <i>Valid range</i> is displayed below in seconds.</p><p>If you don't specify otherwise in the configuration of your app client, your refresh tokens are valid for 30 days.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable refreshTokenValidity;
 
 /**
- <p>A list of provider names for the IdPs that this client supports. The following are supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code><code>LoginWithAmazon</code>, and the names of your own SAML and OIDC providers.</p>
+ <p>A list of provider names for the IdPs that this client supports. The following are supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code>, <code>SignInWithApple</code>, <code>LoginWithAmazon</code>, and the names of your own SAML and OIDC providers.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable supportedIdentityProviders;
 
@@ -6361,7 +6396,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable customDomain;
 
 /**
- <p>The device configuration.</p>
+ <p>When active, <code>DeletionProtection</code> prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature.</p><p>When you try to delete a protected user pool in a <code>DeleteUserPool</code> API request, Amazon Cognito returns an <code>InvalidParameterException</code> error. To delete a protected user pool, send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an <code>UpdateUserPool</code> API request.</p>
+ */
+@property (nonatomic, assign) AWSCognitoIdentityProviderDeletionProtectionType deletionProtection;
+
+/**
+ <p>The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.</p><note><p>When you provide a value for any <code>DeviceConfiguration</code> field, you activate the Amazon Cognito device-remembering feature.</p></note>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderDeviceConfigurationType * _Nullable deviceConfiguration;
 
@@ -6381,12 +6421,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable emailConfigurationFailure;
 
 /**
- <p>The contents of the email verification message.</p>
+ <p>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable emailVerificationMessage;
 
 /**
- <p>The subject of the email verification message.</p>
+ <p>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable emailVerificationSubject;
 
@@ -6446,7 +6486,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable smsConfigurationFailure;
 
 /**
- <p>The contents of the SMS verification message.</p>
+ <p>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable smsVerificationMessage;
 
@@ -6456,7 +6496,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, assign) AWSCognitoIdentityProviderStatusType status;
 
 /**
- <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>, a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates"> Verifying updates to to email addresses and phone numbers</a>.</p>
+ <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>, a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates"> Verifying updates to email addresses and phone numbers</a>.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserAttributeUpdateSettingsType * _Nullable userAttributeUpdateSettings;
 

@@ -1648,6 +1648,13 @@
 			remoteGlobalIDString = CE0D416C1C6A66E5006B91B5;
 			remoteInfo = AWSCore;
 		};
+		891417A82880C00900C61658 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 181154751E201403008F184C;
+			remoteInfo = AWSAllTestsHost;
+		};
 		CE9DEA251C6A7E5B0060793F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
@@ -8698,6 +8705,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				891417A92880C00900C61658 /* PBXTargetDependency */,
 			);
 			name = AWSPinpointTests;
 			productName = AWSPinpointTests;
@@ -10559,6 +10567,7 @@
 					};
 					18798F861DEF9EA900BC419B = {
 						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 181154751E201403008F184C;
 					};
 					18798F981DEF9EF800BC419B = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -13481,6 +13490,11 @@
 			target = CE0D416C1C6A66E5006B91B5 /* AWSCore */;
 			targetProxy = 5C1590192755727C00F88085 /* PBXContainerItemProxy */;
 		};
+		891417A92880C00900C61658 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 181154751E201403008F184C /* AWSAllTestsHost */;
+			targetProxy = 891417A82880C00900C61658 /* PBXContainerItemProxy */;
+		};
 		CE9DEA261C6A7E5B0060793F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CE0D416C1C6A66E5006B91B5 /* AWSCore */;
@@ -15023,6 +15037,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSPinpointTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AWSAllTestsHost.app/AWSAllTestsHost";
 			};
 			name = Debug;
 		};
@@ -15039,6 +15054,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSPinpointTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AWSAllTestsHost.app/AWSAllTestsHost";
 			};
 			name = Release;
 		};

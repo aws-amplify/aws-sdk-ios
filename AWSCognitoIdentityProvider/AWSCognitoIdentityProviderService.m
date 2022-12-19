@@ -25,7 +25,7 @@
 #import "AWSCognitoIdentityProviderResources.h"
 
 static NSString *const AWSInfoCognitoIdentityProvider = @"CognitoIdentityProvider";
-NSString *const AWSCognitoIdentityProviderSDKVersion = @"2.27.12";
+NSString *const AWSCognitoIdentityProviderSDKVersion = @"2.28.5";
 
 
 @interface AWSCognitoIdentityProviderResponseSerializer : AWSJSONResponseSerializer
@@ -46,6 +46,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"DuplicateProviderException" : @(AWSCognitoIdentityProviderErrorDuplicateProvider),
                             @"EnableSoftwareTokenMFAException" : @(AWSCognitoIdentityProviderErrorEnableSoftwareTokenMFA),
                             @"ExpiredCodeException" : @(AWSCognitoIdentityProviderErrorExpiredCode),
+                            @"ForbiddenException" : @(AWSCognitoIdentityProviderErrorForbidden),
                             @"GroupExistsException" : @(AWSCognitoIdentityProviderErrorGroupExists),
                             @"InternalErrorException" : @(AWSCognitoIdentityProviderErrorInternalError),
                             @"InvalidEmailRoleAccessPolicyException" : @(AWSCognitoIdentityProviderErrorInvalidEmailRoleAccessPolicy),

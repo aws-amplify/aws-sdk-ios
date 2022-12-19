@@ -55,12 +55,12 @@ static NSString *const AWSCognitoIdentityASFVersion= @"IOS20171114";
     CGRect bounds = [[UIScreen mainScreen] nativeBounds];
     CGFloat screenWidth = bounds.size.width;
     CGFloat screenHeight = bounds.size.height;
-    
+
     NSDateFormatter *localTimeZoneFormatter = [NSDateFormatter new];
     localTimeZoneFormatter.timeZone = [NSTimeZone localTimeZone];
     localTimeZoneFormatter.dateFormat = @"Z";
     NSString *localTimeZoneOffset = [localTimeZoneFormatter stringFromDate:[NSDate date]];
-    
+
     NSString *hourOffset = [localTimeZoneOffset substringToIndex:[localTimeZoneOffset length] - 2];
     NSString *minuteOffset = [localTimeZoneOffset substringFromIndex:[localTimeZoneOffset length] - 2];
     NSString *timezoneOffset = [NSString stringWithFormat:@"%@:%@",hourOffset,minuteOffset];

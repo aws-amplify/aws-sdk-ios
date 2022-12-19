@@ -49,7 +49,13 @@ extension AWSMobileClient: UserPoolAuthHelperCallbacks {
     func getNewPasswordDetails(_ newPasswordRequiredInput: AWSCognitoIdentityNewPasswordRequiredInput,
                                newPasswordRequiredCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityNewPasswordRequiredDetails>) {
         self.userpoolOpsHelper.newPasswordRequiredTaskCompletionSource = newPasswordRequiredCompletionSource
-        let result = SignInResult(signInState: .newPasswordRequired, codeDetails: nil)
+        let result = SignInResult(
+            signInState: .newPasswordRequired,
+            parameters: [
+                "requiredAttributes": newPasswordRequiredInput.requiredAttributes.description,
+                "userAttributes": newPasswordRequiredInput.userAttributes.description
+            ]
+        )
         invokeSignInCallback(signResult: result, error: nil)
     }
 

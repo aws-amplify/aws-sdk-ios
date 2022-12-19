@@ -393,6 +393,102 @@ static id mockNetworking = nil;
     [AWSTextract removeTextractForKey:key];
 }
 
+- (void)testGetLendingAnalysis {
+    NSString *key = @"testGetLendingAnalysis";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTextract registerTextractWithConfiguration:configuration forKey:key];
+
+    AWSTextract *awsClient = [AWSTextract TextractForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSTextract TextractForKey:key] getLendingAnalysis:[AWSTextractGetLendingAnalysisRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTextract removeTextractForKey:key];
+}
+
+- (void)testGetLendingAnalysisCompletionHandler {
+    NSString *key = @"testGetLendingAnalysis";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTextract registerTextractWithConfiguration:configuration forKey:key];
+
+    AWSTextract *awsClient = [AWSTextract TextractForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSTextract TextractForKey:key] getLendingAnalysis:[AWSTextractGetLendingAnalysisRequest new] completionHandler:^(AWSTextractGetLendingAnalysisResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTextract removeTextractForKey:key];
+}
+
+- (void)testGetLendingAnalysisSummary {
+    NSString *key = @"testGetLendingAnalysisSummary";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTextract registerTextractWithConfiguration:configuration forKey:key];
+
+    AWSTextract *awsClient = [AWSTextract TextractForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSTextract TextractForKey:key] getLendingAnalysisSummary:[AWSTextractGetLendingAnalysisSummaryRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTextract removeTextractForKey:key];
+}
+
+- (void)testGetLendingAnalysisSummaryCompletionHandler {
+    NSString *key = @"testGetLendingAnalysisSummary";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTextract registerTextractWithConfiguration:configuration forKey:key];
+
+    AWSTextract *awsClient = [AWSTextract TextractForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSTextract TextractForKey:key] getLendingAnalysisSummary:[AWSTextractGetLendingAnalysisSummaryRequest new] completionHandler:^(AWSTextractGetLendingAnalysisSummaryResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTextract removeTextractForKey:key];
+}
+
 - (void)testStartDocumentAnalysis {
     NSString *key = @"testStartDocumentAnalysis";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -524,6 +620,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSTextract TextractForKey:key] startExpenseAnalysis:[AWSTextractStartExpenseAnalysisRequest new] completionHandler:^(AWSTextractStartExpenseAnalysisResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTextract removeTextractForKey:key];
+}
+
+- (void)testStartLendingAnalysis {
+    NSString *key = @"testStartLendingAnalysis";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTextract registerTextractWithConfiguration:configuration forKey:key];
+
+    AWSTextract *awsClient = [AWSTextract TextractForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSTextract TextractForKey:key] startLendingAnalysis:[AWSTextractStartLendingAnalysisRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTextract removeTextractForKey:key];
+}
+
+- (void)testStartLendingAnalysisCompletionHandler {
+    NSString *key = @"testStartLendingAnalysis";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTextract registerTextractWithConfiguration:configuration forKey:key];
+
+    AWSTextract *awsClient = [AWSTextract TextractForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSTextract TextractForKey:key] startLendingAnalysis:[AWSTextractStartLendingAnalysisRequest new] completionHandler:^(AWSTextractStartLendingAnalysisResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);

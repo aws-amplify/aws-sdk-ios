@@ -25,7 +25,7 @@
 #import "AWSChimeSDKMessagingResources.h"
 
 static NSString *const AWSInfoChimeSDKMessaging = @"ChimeSDKMessaging";
-NSString *const AWSChimeSDKMessagingSDKVersion = @"2.27.12";
+NSString *const AWSChimeSDKMessagingSDKVersion = @"2.28.5";
 
 
 @interface AWSChimeSDKMessagingResponseSerializer : AWSJSONResponseSerializer
@@ -1071,6 +1071,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSChimeSDKMessagingListChannelsModeratedByAppInstanceUserResponse *response, NSError *error))completionHandler {
     [[self listChannelsModeratedByAppInstanceUser:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingListChannelsModeratedByAppInstanceUserResponse *> * _Nonnull task) {
         AWSChimeSDKMessagingListChannelsModeratedByAppInstanceUserResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSChimeSDKMessagingListSubChannelsResponse *> *)listSubChannels:(AWSChimeSDKMessagingListSubChannelsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/channels/{channelArn}/subchannels"
+                  targetPrefix:@""
+                 operationName:@"ListSubChannels"
+                   outputClass:[AWSChimeSDKMessagingListSubChannelsResponse class]];
+}
+
+- (void)listSubChannels:(AWSChimeSDKMessagingListSubChannelsRequest *)request
+     completionHandler:(void (^)(AWSChimeSDKMessagingListSubChannelsResponse *response, NSError *error))completionHandler {
+    [[self listSubChannels:request] continueWithBlock:^id _Nullable(AWSTask<AWSChimeSDKMessagingListSubChannelsResponse *> * _Nonnull task) {
+        AWSChimeSDKMessagingListSubChannelsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

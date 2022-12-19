@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
 
 /**
- <p>Provides translation between one source language and another of the same set of languages.</p>
+ <p>Provides translation of the input content from the source language to the target language.</p>
  */
 @interface AWSTranslate : AWSService
 
@@ -179,7 +179,7 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
  
  @param request A container for the necessary parameters to execute the CreateParallelData service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranslateCreateParallelDataResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorInvalidRequest`, `AWSTranslateErrorLimitExceeded`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorConflict`, `AWSTranslateErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranslateCreateParallelDataResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorInvalidRequest`, `AWSTranslateErrorLimitExceeded`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorTooManyTags`, `AWSTranslateErrorConflict`, `AWSTranslateErrorConcurrentModification`, `AWSTranslateErrorInternalServer`.
  
  @see AWSTranslateCreateParallelDataRequest
  @see AWSTranslateCreateParallelDataResponse
@@ -192,7 +192,7 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
  @param request A container for the necessary parameters to execute the CreateParallelData service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorInvalidRequest`, `AWSTranslateErrorLimitExceeded`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorConflict`, `AWSTranslateErrorInternalServer`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorInvalidRequest`, `AWSTranslateErrorLimitExceeded`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorTooManyTags`, `AWSTranslateErrorConflict`, `AWSTranslateErrorConcurrentModification`, `AWSTranslateErrorInternalServer`.
  
  @see AWSTranslateCreateParallelDataRequest
  @see AWSTranslateCreateParallelDataResponse
@@ -326,7 +326,7 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
  
  @param request A container for the necessary parameters to execute the ImportTerminology service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranslateImportTerminologyResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorLimitExceeded`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranslateImportTerminologyResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorLimitExceeded`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorTooManyTags`, `AWSTranslateErrorConcurrentModification`, `AWSTranslateErrorInternalServer`.
  
  @see AWSTranslateImportTerminologyRequest
  @see AWSTranslateImportTerminologyResponse
@@ -339,7 +339,7 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
  @param request A container for the necessary parameters to execute the ImportTerminology service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorLimitExceeded`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorInternalServer`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorLimitExceeded`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorTooManyTags`, `AWSTranslateErrorConcurrentModification`, `AWSTranslateErrorInternalServer`.
  
  @see AWSTranslateImportTerminologyRequest
  @see AWSTranslateImportTerminologyResponse
@@ -397,6 +397,31 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
 - (void)listParallelData:(AWSTranslateListParallelDataRequest *)request completionHandler:(void (^ _Nullable)(AWSTranslateListParallelDataResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Lists all tags associated with a given Amazon Translate resource. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html"> Tagging your resources</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListTagsForResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranslateListTagsForResourceResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateListTagsForResourceRequest
+ @see AWSTranslateListTagsForResourceResponse
+ */
+- (AWSTask<AWSTranslateListTagsForResourceResponse *> *)listTagsForResource:(AWSTranslateListTagsForResourceRequest *)request;
+
+/**
+ <p>Lists all tags associated with a given Amazon Translate resource. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html"> Tagging your resources</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListTagsForResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateListTagsForResourceRequest
+ @see AWSTranslateListTagsForResourceResponse
+ */
+- (void)listTagsForResource:(AWSTranslateListTagsForResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSTranslateListTagsForResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Provides a list of custom terminologies associated with your account.</p>
  
  @param request A container for the necessary parameters to execute the ListTerminologies service method.
@@ -447,7 +472,7 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
 - (void)listTextTranslationJobs:(AWSTranslateListTextTranslationJobsRequest *)request completionHandler:(void (^ _Nullable)(AWSTranslateListTextTranslationJobsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Starts an asynchronous batch translation job. Batch translation jobs can be used to translate large volumes of text across multiple documents at once. For more information, see <a>async</a>.</p><p>Batch translation jobs can be described with the <a>DescribeTextTranslationJob</a> operation, listed with the <a>ListTextTranslationJobs</a> operation, and stopped with the <a>StopTextTranslationJob</a> operation.</p><note><p>Amazon Translate does not support batch translation of multiple source languages at once.</p></note>
+ <p>Starts an asynchronous batch translation job. Use batch translation jobs to translate large volumes of text across multiple documents at once. For batch translation, you can input documents with different source languages (specify <code>auto</code> as the source language). You can specify one or more target languages. Batch translation translates each input document into each of the target languages. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/async.html">Asynchronous batch processing</a>.</p><p>Batch translation jobs can be described with the <a>DescribeTextTranslationJob</a> operation, listed with the <a>ListTextTranslationJobs</a> operation, and stopped with the <a>StopTextTranslationJob</a> operation.</p>
  
  @param request A container for the necessary parameters to execute the StartTextTranslationJob service method.
 
@@ -459,7 +484,7 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
 - (AWSTask<AWSTranslateStartTextTranslationJobResponse *> *)startTextTranslationJob:(AWSTranslateStartTextTranslationJobRequest *)request;
 
 /**
- <p>Starts an asynchronous batch translation job. Batch translation jobs can be used to translate large volumes of text across multiple documents at once. For more information, see <a>async</a>.</p><p>Batch translation jobs can be described with the <a>DescribeTextTranslationJob</a> operation, listed with the <a>ListTextTranslationJobs</a> operation, and stopped with the <a>StopTextTranslationJob</a> operation.</p><note><p>Amazon Translate does not support batch translation of multiple source languages at once.</p></note>
+ <p>Starts an asynchronous batch translation job. Use batch translation jobs to translate large volumes of text across multiple documents at once. For batch translation, you can input documents with different source languages (specify <code>auto</code> as the source language). You can specify one or more target languages. Batch translation translates each input document into each of the target languages. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/async.html">Asynchronous batch processing</a>.</p><p>Batch translation jobs can be described with the <a>DescribeTextTranslationJob</a> operation, listed with the <a>ListTextTranslationJobs</a> operation, and stopped with the <a>StopTextTranslationJob</a> operation.</p>
  
  @param request A container for the necessary parameters to execute the StartTextTranslationJob service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -497,7 +522,32 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
 - (void)stopTextTranslationJob:(AWSTranslateStopTextTranslationJobRequest *)request completionHandler:(void (^ _Nullable)(AWSTranslateStopTextTranslationJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Translates input text from the source language to the target language. For a list of available languages and language codes, see <a>what-is-languages</a>.</p>
+ <p>Associates a specific tag with a resource. A tag is a key-value pair that adds as a metadata to a resource. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html"> Tagging your resources</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the TagResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranslateTagResourceResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorConcurrentModification`, `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorTooManyTags`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateTagResourceRequest
+ @see AWSTranslateTagResourceResponse
+ */
+- (AWSTask<AWSTranslateTagResourceResponse *> *)tagResource:(AWSTranslateTagResourceRequest *)request;
+
+/**
+ <p>Associates a specific tag with a resource. A tag is a key-value pair that adds as a metadata to a resource. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html"> Tagging your resources</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the TagResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorConcurrentModification`, `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorTooManyTags`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateTagResourceRequest
+ @see AWSTranslateTagResourceResponse
+ */
+- (void)tagResource:(AWSTranslateTagResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSTranslateTagResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Translates input text from the source language to the target language. For a list of available languages and language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
  
  @param request A container for the necessary parameters to execute the TranslateText service method.
 
@@ -509,7 +559,7 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
 - (AWSTask<AWSTranslateTranslateTextResponse *> *)translateText:(AWSTranslateTranslateTextRequest *)request;
 
 /**
- <p>Translates input text from the source language to the target language. For a list of available languages and language codes, see <a>what-is-languages</a>.</p>
+ <p>Translates input text from the source language to the target language. For a list of available languages and language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
  
  @param request A container for the necessary parameters to execute the TranslateText service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -520,6 +570,31 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
  @see AWSTranslateTranslateTextResponse
  */
 - (void)translateText:(AWSTranslateTranslateTextRequest *)request completionHandler:(void (^ _Nullable)(AWSTranslateTranslateTextResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Removes a specific tag associated with an Amazon Translate resource. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html"> Tagging your resources</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the UntagResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranslateUntagResourceResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorConcurrentModification`, `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateUntagResourceRequest
+ @see AWSTranslateUntagResourceResponse
+ */
+- (AWSTask<AWSTranslateUntagResourceResponse *> *)untagResource:(AWSTranslateUntagResourceRequest *)request;
+
+/**
+ <p>Removes a specific tag associated with an Amazon Translate resource. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html"> Tagging your resources</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the UntagResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorConcurrentModification`, `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateUntagResourceRequest
+ @see AWSTranslateUntagResourceResponse
+ */
+- (void)untagResource:(AWSTranslateUntagResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSTranslateUntagResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Updates a previously created parallel data resource by importing a new input file from Amazon S3.</p>

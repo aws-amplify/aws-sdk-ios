@@ -112,6 +112,9 @@
 - (void) test_AWSKMSVerifyMacResponse API_AVAILABLE(ios(11));
 - (void) test_AWSKMSVerifyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSKMSVerifyResponse API_AVAILABLE(ios(11));
+- (void) test_AWSKMSXksKeyConfigurationType API_AVAILABLE(ios(11));
+- (void) test_AWSKMSXksProxyAuthenticationCredentialType API_AVAILABLE(ios(11));
+- (void) test_AWSKMSXksProxyConfigurationType API_AVAILABLE(ios(11));
 
 @end
 
@@ -487,6 +490,18 @@
 
 - (void) test_AWSKMSVerifyResponse {
     [self validateSecureCodingForClass:[AWSKMSVerifyResponse class]];
+}
+
+- (void) test_AWSKMSXksKeyConfigurationType {
+    [self validateSecureCodingForClass:[AWSKMSXksKeyConfigurationType class]];
+}
+
+- (void) test_AWSKMSXksProxyAuthenticationCredentialType {
+    [self validateSecureCodingForClass:[AWSKMSXksProxyAuthenticationCredentialType class]];
+}
+
+- (void) test_AWSKMSXksProxyConfigurationType {
+    [self validateSecureCodingForClass:[AWSKMSXksProxyConfigurationType class]];
 }
 
 @end

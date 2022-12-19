@@ -1106,6 +1106,54 @@ static id mockNetworking = nil;
     [AWSConnect removeConnectForKey:key];
 }
 
+- (void)testCreateTrafficDistributionGroup {
+    NSString *key = @"testCreateTrafficDistributionGroup";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSConnect registerConnectWithConfiguration:configuration forKey:key];
+
+    AWSConnect *awsClient = [AWSConnect ConnectForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSConnect ConnectForKey:key] createTrafficDistributionGroup:[AWSConnectCreateTrafficDistributionGroupRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSConnect removeConnectForKey:key];
+}
+
+- (void)testCreateTrafficDistributionGroupCompletionHandler {
+    NSString *key = @"testCreateTrafficDistributionGroup";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSConnect registerConnectWithConfiguration:configuration forKey:key];
+
+    AWSConnect *awsClient = [AWSConnect ConnectForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSConnect ConnectForKey:key] createTrafficDistributionGroup:[AWSConnectCreateTrafficDistributionGroupRequest new] completionHandler:^(AWSConnectCreateTrafficDistributionGroupResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSConnect removeConnectForKey:key];
+}
+
 - (void)testCreateUseCase {
     NSString *key = @"testCreateUseCase";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -1663,6 +1711,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSConnect ConnectForKey:key] deleteTaskTemplate:[AWSConnectDeleteTaskTemplateRequest new] completionHandler:^(AWSConnectDeleteTaskTemplateResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSConnect removeConnectForKey:key];
+}
+
+- (void)testDeleteTrafficDistributionGroup {
+    NSString *key = @"testDeleteTrafficDistributionGroup";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSConnect registerConnectWithConfiguration:configuration forKey:key];
+
+    AWSConnect *awsClient = [AWSConnect ConnectForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSConnect ConnectForKey:key] deleteTrafficDistributionGroup:[AWSConnectDeleteTrafficDistributionGroupRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSConnect removeConnectForKey:key];
+}
+
+- (void)testDeleteTrafficDistributionGroupCompletionHandler {
+    NSString *key = @"testDeleteTrafficDistributionGroup";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSConnect registerConnectWithConfiguration:configuration forKey:key];
+
+    AWSConnect *awsClient = [AWSConnect ConnectForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSConnect ConnectForKey:key] deleteTrafficDistributionGroup:[AWSConnectDeleteTrafficDistributionGroupRequest new] completionHandler:^(AWSConnectDeleteTrafficDistributionGroupResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -2489,6 +2585,54 @@ static id mockNetworking = nil;
     [AWSConnect removeConnectForKey:key];
 }
 
+- (void)testDescribeTrafficDistributionGroup {
+    NSString *key = @"testDescribeTrafficDistributionGroup";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSConnect registerConnectWithConfiguration:configuration forKey:key];
+
+    AWSConnect *awsClient = [AWSConnect ConnectForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSConnect ConnectForKey:key] describeTrafficDistributionGroup:[AWSConnectDescribeTrafficDistributionGroupRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSConnect removeConnectForKey:key];
+}
+
+- (void)testDescribeTrafficDistributionGroupCompletionHandler {
+    NSString *key = @"testDescribeTrafficDistributionGroup";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSConnect registerConnectWithConfiguration:configuration forKey:key];
+
+    AWSConnect *awsClient = [AWSConnect ConnectForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSConnect ConnectForKey:key] describeTrafficDistributionGroup:[AWSConnectDescribeTrafficDistributionGroupRequest new] completionHandler:^(AWSConnectDescribeTrafficDistributionGroupResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSConnect removeConnectForKey:key];
+}
+
 - (void)testDescribeUser {
     NSString *key = @"testDescribeUser";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -3104,6 +3248,54 @@ static id mockNetworking = nil;
     [AWSConnect removeConnectForKey:key];
 }
 
+- (void)testDismissUserContact {
+    NSString *key = @"testDismissUserContact";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSConnect registerConnectWithConfiguration:configuration forKey:key];
+
+    AWSConnect *awsClient = [AWSConnect ConnectForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSConnect ConnectForKey:key] dismissUserContact:[AWSConnectDismissUserContactRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSConnect removeConnectForKey:key];
+}
+
+- (void)testDismissUserContactCompletionHandler {
+    NSString *key = @"testDismissUserContact";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSConnect registerConnectWithConfiguration:configuration forKey:key];
+
+    AWSConnect *awsClient = [AWSConnect ConnectForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSConnect ConnectForKey:key] dismissUserContact:[AWSConnectDismissUserContactRequest new] completionHandler:^(AWSConnectDismissUserContactResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSConnect removeConnectForKey:key];
+}
+
 - (void)testGetContactAttributes {
     NSString *key = @"testGetContactAttributes";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -3187,6 +3379,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSConnect ConnectForKey:key] getCurrentMetricData:[AWSConnectGetCurrentMetricDataRequest new] completionHandler:^(AWSConnectGetCurrentMetricDataResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSConnect removeConnectForKey:key];
+}
+
+- (void)testGetCurrentUserData {
+    NSString *key = @"testGetCurrentUserData";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSConnect registerConnectWithConfiguration:configuration forKey:key];
+
+    AWSConnect *awsClient = [AWSConnect ConnectForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSConnect ConnectForKey:key] getCurrentUserData:[AWSConnectGetCurrentUserDataRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSConnect removeConnectForKey:key];
+}
+
+- (void)testGetCurrentUserDataCompletionHandler {
+    NSString *key = @"testGetCurrentUserData";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSConnect registerConnectWithConfiguration:configuration forKey:key];
+
+    AWSConnect *awsClient = [AWSConnect ConnectForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSConnect ConnectForKey:key] getCurrentUserData:[AWSConnectGetCurrentUserDataRequest new] completionHandler:^(AWSConnectGetCurrentUserDataResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -3331,6 +3571,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSConnect ConnectForKey:key] getTaskTemplate:[AWSConnectGetTaskTemplateRequest new] completionHandler:^(AWSConnectGetTaskTemplateResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSConnect removeConnectForKey:key];
+}
+
+- (void)testGetTrafficDistribution {
+    NSString *key = @"testGetTrafficDistribution";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSConnect registerConnectWithConfiguration:configuration forKey:key];
+
+    AWSConnect *awsClient = [AWSConnect ConnectForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSConnect ConnectForKey:key] getTrafficDistribution:[AWSConnectGetTrafficDistributionRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSConnect removeConnectForKey:key];
+}
+
+- (void)testGetTrafficDistributionCompletionHandler {
+    NSString *key = @"testGetTrafficDistribution";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSConnect registerConnectWithConfiguration:configuration forKey:key];
+
+    AWSConnect *awsClient = [AWSConnect ConnectForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSConnect ConnectForKey:key] getTrafficDistribution:[AWSConnectGetTrafficDistributionRequest new] completionHandler:^(AWSConnectGetTrafficDistributionResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -4640,6 +4928,54 @@ static id mockNetworking = nil;
     [AWSConnect removeConnectForKey:key];
 }
 
+- (void)testListTrafficDistributionGroups {
+    NSString *key = @"testListTrafficDistributionGroups";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSConnect registerConnectWithConfiguration:configuration forKey:key];
+
+    AWSConnect *awsClient = [AWSConnect ConnectForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSConnect ConnectForKey:key] listTrafficDistributionGroups:[AWSConnectListTrafficDistributionGroupsRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSConnect removeConnectForKey:key];
+}
+
+- (void)testListTrafficDistributionGroupsCompletionHandler {
+    NSString *key = @"testListTrafficDistributionGroups";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSConnect registerConnectWithConfiguration:configuration forKey:key];
+
+    AWSConnect *awsClient = [AWSConnect ConnectForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSConnect ConnectForKey:key] listTrafficDistributionGroups:[AWSConnectListTrafficDistributionGroupsRequest new] completionHandler:^(AWSConnectListTrafficDistributionGroupsResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSConnect removeConnectForKey:key];
+}
+
 - (void)testListUseCases {
     NSString *key = @"testListUseCases";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -4784,6 +5120,54 @@ static id mockNetworking = nil;
     [AWSConnect removeConnectForKey:key];
 }
 
+- (void)testMonitorContact {
+    NSString *key = @"testMonitorContact";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSConnect registerConnectWithConfiguration:configuration forKey:key];
+
+    AWSConnect *awsClient = [AWSConnect ConnectForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSConnect ConnectForKey:key] monitorContact:[AWSConnectMonitorContactRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSConnect removeConnectForKey:key];
+}
+
+- (void)testMonitorContactCompletionHandler {
+    NSString *key = @"testMonitorContact";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSConnect registerConnectWithConfiguration:configuration forKey:key];
+
+    AWSConnect *awsClient = [AWSConnect ConnectForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSConnect ConnectForKey:key] monitorContact:[AWSConnectMonitorContactRequest new] completionHandler:^(AWSConnectMonitorContactResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSConnect removeConnectForKey:key];
+}
+
 - (void)testPutUserStatus {
     NSString *key = @"testPutUserStatus";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -4879,6 +5263,54 @@ static id mockNetworking = nil;
     [AWSConnect removeConnectForKey:key];
 }
 
+- (void)testReplicateInstance {
+    NSString *key = @"testReplicateInstance";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSConnect registerConnectWithConfiguration:configuration forKey:key];
+
+    AWSConnect *awsClient = [AWSConnect ConnectForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSConnect ConnectForKey:key] replicateInstance:[AWSConnectReplicateInstanceRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSConnect removeConnectForKey:key];
+}
+
+- (void)testReplicateInstanceCompletionHandler {
+    NSString *key = @"testReplicateInstance";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSConnect registerConnectWithConfiguration:configuration forKey:key];
+
+    AWSConnect *awsClient = [AWSConnect ConnectForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSConnect ConnectForKey:key] replicateInstance:[AWSConnectReplicateInstanceRequest new] completionHandler:^(AWSConnectReplicateInstanceResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSConnect removeConnectForKey:key];
+}
+
 - (void)testResumeContactRecording {
     NSString *key = @"testResumeContactRecording";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -4962,6 +5394,150 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSConnect ConnectForKey:key] searchAvailablePhoneNumbers:[AWSConnectSearchAvailablePhoneNumbersRequest new] completionHandler:^(AWSConnectSearchAvailablePhoneNumbersResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSConnect removeConnectForKey:key];
+}
+
+- (void)testSearchQueues {
+    NSString *key = @"testSearchQueues";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSConnect registerConnectWithConfiguration:configuration forKey:key];
+
+    AWSConnect *awsClient = [AWSConnect ConnectForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSConnect ConnectForKey:key] searchQueues:[AWSConnectSearchQueuesRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSConnect removeConnectForKey:key];
+}
+
+- (void)testSearchQueuesCompletionHandler {
+    NSString *key = @"testSearchQueues";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSConnect registerConnectWithConfiguration:configuration forKey:key];
+
+    AWSConnect *awsClient = [AWSConnect ConnectForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSConnect ConnectForKey:key] searchQueues:[AWSConnectSearchQueuesRequest new] completionHandler:^(AWSConnectSearchQueuesResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSConnect removeConnectForKey:key];
+}
+
+- (void)testSearchRoutingProfiles {
+    NSString *key = @"testSearchRoutingProfiles";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSConnect registerConnectWithConfiguration:configuration forKey:key];
+
+    AWSConnect *awsClient = [AWSConnect ConnectForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSConnect ConnectForKey:key] searchRoutingProfiles:[AWSConnectSearchRoutingProfilesRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSConnect removeConnectForKey:key];
+}
+
+- (void)testSearchRoutingProfilesCompletionHandler {
+    NSString *key = @"testSearchRoutingProfiles";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSConnect registerConnectWithConfiguration:configuration forKey:key];
+
+    AWSConnect *awsClient = [AWSConnect ConnectForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSConnect ConnectForKey:key] searchRoutingProfiles:[AWSConnectSearchRoutingProfilesRequest new] completionHandler:^(AWSConnectSearchRoutingProfilesResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSConnect removeConnectForKey:key];
+}
+
+- (void)testSearchSecurityProfiles {
+    NSString *key = @"testSearchSecurityProfiles";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSConnect registerConnectWithConfiguration:configuration forKey:key];
+
+    AWSConnect *awsClient = [AWSConnect ConnectForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSConnect ConnectForKey:key] searchSecurityProfiles:[AWSConnectSearchSecurityProfilesRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSConnect removeConnectForKey:key];
+}
+
+- (void)testSearchSecurityProfilesCompletionHandler {
+    NSString *key = @"testSearchSecurityProfiles";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSConnect registerConnectWithConfiguration:configuration forKey:key];
+
+    AWSConnect *awsClient = [AWSConnect ConnectForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSConnect ConnectForKey:key] searchSecurityProfiles:[AWSConnectSearchSecurityProfilesRequest new] completionHandler:^(AWSConnectSearchSecurityProfilesResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -6861,6 +7437,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSConnect ConnectForKey:key] updateTaskTemplate:[AWSConnectUpdateTaskTemplateRequest new] completionHandler:^(AWSConnectUpdateTaskTemplateResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSConnect removeConnectForKey:key];
+}
+
+- (void)testUpdateTrafficDistribution {
+    NSString *key = @"testUpdateTrafficDistribution";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSConnect registerConnectWithConfiguration:configuration forKey:key];
+
+    AWSConnect *awsClient = [AWSConnect ConnectForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSConnect ConnectForKey:key] updateTrafficDistribution:[AWSConnectUpdateTrafficDistributionRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSConnect removeConnectForKey:key];
+}
+
+- (void)testUpdateTrafficDistributionCompletionHandler {
+    NSString *key = @"testUpdateTrafficDistribution";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSConnect registerConnectWithConfiguration:configuration forKey:key];
+
+    AWSConnect *awsClient = [AWSConnect ConnectForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSConnect ConnectForKey:key] updateTrafficDistribution:[AWSConnectUpdateTrafficDistributionRequest new] completionHandler:^(AWSConnectUpdateTrafficDistributionResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);

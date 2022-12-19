@@ -25,7 +25,7 @@
 #import "AWSLocationResources.h"
 
 static NSString *const AWSInfoLocation = @"Location";
-NSString *const AWSLocationSDKVersion = @"2.27.12";
+NSString *const AWSLocationSDKVersion = @"2.28.5";
 
 
 @interface AWSLocationResponseSerializer : AWSJSONResponseSerializer
@@ -1008,6 +1008,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLocationGetMapTileResponse *response, NSError *error))completionHandler {
     [[self getMapTile:request] continueWithBlock:^id _Nullable(AWSTask<AWSLocationGetMapTileResponse *> * _Nonnull task) {
         AWSLocationGetMapTileResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLocationGetPlaceResponse *> *)getPlace:(AWSLocationGetPlaceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/places/v0/indexes/{IndexName}/places/{PlaceId}"
+                  targetPrefix:@""
+                 operationName:@"GetPlace"
+                   outputClass:[AWSLocationGetPlaceResponse class]];
+}
+
+- (void)getPlace:(AWSLocationGetPlaceRequest *)request
+     completionHandler:(void (^)(AWSLocationGetPlaceResponse *response, NSError *error))completionHandler {
+    [[self getPlace:request] continueWithBlock:^id _Nullable(AWSTask<AWSLocationGetPlaceResponse *> * _Nonnull task) {
+        AWSLocationGetPlaceResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

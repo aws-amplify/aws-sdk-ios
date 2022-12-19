@@ -58,6 +58,7 @@
 - (void) test_AWSDynamoDBCreateReplicationGroupMemberAction API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBCreateTableInput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBCreateTableOutput API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBCsvOptions API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBRemove API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBDeleteBackupInput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBDeleteBackupOutput API_AVAILABLE(ios(11));
@@ -83,6 +84,8 @@
 - (void) test_AWSDynamoDBDescribeGlobalTableOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBDescribeGlobalTableSettingsInput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBDescribeGlobalTableSettingsOutput API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBDescribeImportInput API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBDescribeImportOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBDescribeKinesisStreamingDestinationInput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBDescribeKinesisStreamingDestinationOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBDescribeLimitsInput API_AVAILABLE(ios(11));
@@ -115,6 +118,11 @@
 - (void) test_AWSDynamoDBGlobalTable API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBGlobalTableDescription API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBGlobalTableGlobalSecondaryIndexSettingsUpdate API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBImportSummary API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBImportTableDescription API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBImportTableInput API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBImportTableOutput API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBInputFormatOptions API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBItemCollectionMetrics API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBItemResponse API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBKeySchemaElement API_AVAILABLE(ios(11));
@@ -130,6 +138,8 @@
 - (void) test_AWSDynamoDBListExportsOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBListGlobalTablesInput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBListGlobalTablesOutput API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBListImportsInput API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBListImportsOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBListTablesInput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBListTablesOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBListTagsOfResourceInput API_AVAILABLE(ios(11));
@@ -169,6 +179,7 @@
 - (void) test_AWSDynamoDBRestoreTableFromBackupOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBRestoreTableToPointInTimeInput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBRestoreTableToPointInTimeOutput API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBS3BucketSource API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBSSEDescription API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBSSESpecification API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBScanInput API_AVAILABLE(ios(11));
@@ -178,6 +189,7 @@
 - (void) test_AWSDynamoDBStreamSpecification API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBTableAutoScalingDescription API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBTableClassSummary API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBTableCreationParameters API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBTableDescription API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBTag API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBTagResourceInput API_AVAILABLE(ios(11));
@@ -371,6 +383,10 @@
     [self validateSecureCodingForClass:[AWSDynamoDBCreateTableOutput class]];
 }
 
+- (void) test_AWSDynamoDBCsvOptions {
+    [self validateSecureCodingForClass:[AWSDynamoDBCsvOptions class]];
+}
+
 - (void) test_AWSDynamoDBRemove {
     [self validateSecureCodingForClass:[AWSDynamoDBRemove class]];
 }
@@ -469,6 +485,14 @@
 
 - (void) test_AWSDynamoDBDescribeGlobalTableSettingsOutput {
     [self validateSecureCodingForClass:[AWSDynamoDBDescribeGlobalTableSettingsOutput class]];
+}
+
+- (void) test_AWSDynamoDBDescribeImportInput {
+    [self validateSecureCodingForClass:[AWSDynamoDBDescribeImportInput class]];
+}
+
+- (void) test_AWSDynamoDBDescribeImportOutput {
+    [self validateSecureCodingForClass:[AWSDynamoDBDescribeImportOutput class]];
 }
 
 - (void) test_AWSDynamoDBDescribeKinesisStreamingDestinationInput {
@@ -599,6 +623,26 @@
     [self validateSecureCodingForClass:[AWSDynamoDBGlobalTableGlobalSecondaryIndexSettingsUpdate class]];
 }
 
+- (void) test_AWSDynamoDBImportSummary {
+    [self validateSecureCodingForClass:[AWSDynamoDBImportSummary class]];
+}
+
+- (void) test_AWSDynamoDBImportTableDescription {
+    [self validateSecureCodingForClass:[AWSDynamoDBImportTableDescription class]];
+}
+
+- (void) test_AWSDynamoDBImportTableInput {
+    [self validateSecureCodingForClass:[AWSDynamoDBImportTableInput class]];
+}
+
+- (void) test_AWSDynamoDBImportTableOutput {
+    [self validateSecureCodingForClass:[AWSDynamoDBImportTableOutput class]];
+}
+
+- (void) test_AWSDynamoDBInputFormatOptions {
+    [self validateSecureCodingForClass:[AWSDynamoDBInputFormatOptions class]];
+}
+
 - (void) test_AWSDynamoDBItemCollectionMetrics {
     [self validateSecureCodingForClass:[AWSDynamoDBItemCollectionMetrics class]];
 }
@@ -657,6 +701,14 @@
 
 - (void) test_AWSDynamoDBListGlobalTablesOutput {
     [self validateSecureCodingForClass:[AWSDynamoDBListGlobalTablesOutput class]];
+}
+
+- (void) test_AWSDynamoDBListImportsInput {
+    [self validateSecureCodingForClass:[AWSDynamoDBListImportsInput class]];
+}
+
+- (void) test_AWSDynamoDBListImportsOutput {
+    [self validateSecureCodingForClass:[AWSDynamoDBListImportsOutput class]];
 }
 
 - (void) test_AWSDynamoDBListTablesInput {
@@ -815,6 +867,10 @@
     [self validateSecureCodingForClass:[AWSDynamoDBRestoreTableToPointInTimeOutput class]];
 }
 
+- (void) test_AWSDynamoDBS3BucketSource {
+    [self validateSecureCodingForClass:[AWSDynamoDBS3BucketSource class]];
+}
+
 - (void) test_AWSDynamoDBSSEDescription {
     [self validateSecureCodingForClass:[AWSDynamoDBSSEDescription class]];
 }
@@ -849,6 +905,10 @@
 
 - (void) test_AWSDynamoDBTableClassSummary {
     [self validateSecureCodingForClass:[AWSDynamoDBTableClassSummary class]];
+}
+
+- (void) test_AWSDynamoDBTableCreationParameters {
+    [self validateSecureCodingForClass:[AWSDynamoDBTableCreationParameters class]];
 }
 
 - (void) test_AWSDynamoDBTableDescription {

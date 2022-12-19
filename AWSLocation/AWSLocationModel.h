@@ -137,6 +137,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @class AWSLocationCalculateRouteResponse;
 @class AWSLocationCalculateRouteSummary;
 @class AWSLocationCalculateRouteTruckModeOptions;
+@class AWSLocationCircle;
 @class AWSLocationCreateGeofenceCollectionRequest;
 @class AWSLocationCreateGeofenceCollectionResponse;
 @class AWSLocationCreateMapRequest;
@@ -187,6 +188,8 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @class AWSLocationGetMapStyleDescriptorResponse;
 @class AWSLocationGetMapTileRequest;
 @class AWSLocationGetMapTileResponse;
+@class AWSLocationGetPlaceRequest;
+@class AWSLocationGetPlaceResponse;
 @class AWSLocationLeg;
 @class AWSLocationLegGeometry;
 @class AWSLocationListDevicePositionsRequest;
@@ -558,7 +561,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSString * _Nullable geofenceId;
 
 /**
- <p>Contains the polygon details to specify the position of the geofence.</p><note><p>Each <a href="https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html">geofence polygon</a> can have a maximum of 1,000 vertices.</p></note>
+ <p>Contains the details of the position of the geofence. Can be either a polygon or a circle. Including both will return a validation error.</p><note><p>Each <a href="https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html"> geofence polygon</a> can have a maximum of 1,000 vertices.</p></note>
  */
 @property (nonatomic, strong) AWSLocationGeofenceGeometry * _Nullable geometry;
 
@@ -837,7 +840,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSNumber * _Nullable includeLegGeometry;
 
 /**
- <p>Specifies the mode of transport when calculating a route. Used in estimating the speed of travel and road compatibility.</p><p>The <code>TravelMode</code> you specify also determines how you specify route preferences: </p><ul><li><p>If traveling by <code>Car</code> use the <code>CarModeOptions</code> parameter.</p></li><li><p>If traveling by <code>Truck</code> use the <code>TruckModeOptions</code> parameter.</p></li></ul><p>Default Value: <code>Car</code></p>
+ <p>Specifies the mode of transport when calculating a route. Used in estimating the speed of travel and road compatibility. You can choose <code>Car</code>, <code>Truck</code>, or <code>Walking</code> as options for the <code>TravelMode</code>.</p><p>The <code>TravelMode</code> you specify also determines how you specify route preferences: </p><ul><li><p>If traveling by <code>Car</code> use the <code>CarModeOptions</code> parameter.</p></li><li><p>If traveling by <code>Truck</code> use the <code>TruckModeOptions</code> parameter.</p></li></ul><p>Default Value: <code>Car</code></p>
  */
 @property (nonatomic, assign) AWSLocationTravelMode travelMode;
 
@@ -935,6 +938,25 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @end
 
 /**
+ <p>A circle on the earth, as defined by a center point and a radius.</p>
+ Required parameters: [Center, Radius]
+ */
+@interface AWSLocationCircle : AWSModel
+
+
+/**
+ <p>A single point geometry, specifying the center of the circle, using <a href="https://gisgeography.com/wgs84-world-geodetic-system/">WGS 84</a> coordinates, in the form <code>[longitude, latitude]</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSNumber *> * _Nullable center;
+
+/**
+ <p>The radius of the circle in meters. Must be greater than zero and no larger than 100,000 (100 kilometers).</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable radius;
+
+@end
+
+/**
  
  */
 @interface AWSLocationCreateGeofenceCollectionRequest : AWSRequest
@@ -1002,7 +1024,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 
 
 /**
- <p>Specifies the map style selected from an available data provider.</p>
+ <p>Specifies the <code>MapConfiguration</code>, including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.</p>
  */
 @property (nonatomic, strong) AWSLocationMapConfiguration * _Nullable configuration;
 
@@ -1040,7 +1062,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSDate * _Nullable createTime;
 
 /**
- <p>The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.</p><ul><li><p>Format example: <code>arn:aws:geo:region:account-id:maps/ExampleMap</code></p></li></ul>
+ <p>The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.</p><ul><li><p>Format example: <code>arn:aws:geo:region:account-id:map/ExampleMap</code></p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable mapArn;
 
@@ -1458,7 +1480,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.</p><ul><li><p>Format example: <code>arn:aws:geo:region:account-id:maps/ExampleMap</code></p></li></ul>
+ <p>The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.</p><ul><li><p>Format example: <code>arn:aws:geo:region:account-id:map/ExampleMap</code></p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable mapArn;
 
@@ -1782,13 +1804,18 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @end
 
 /**
- <p>Contains the geofence geometry details.</p><note><p>Amazon Location doesn't currently support polygons with holes, multipolygons, polygons that are wound clockwise, or that cross the antimeridian. </p></note>
+ <p>Contains the geofence geometry details.</p><p>A geofence geometry is made up of either a polygon or a circle. Can be either a polygon or a circle. Including both will return a validation error.</p><note><p>Amazon Location doesn't currently support polygons with holes, multipolygons, polygons that are wound clockwise, or that cross the antimeridian. </p></note>
  */
 @interface AWSLocationGeofenceGeometry : AWSModel
 
 
 /**
- <p>An array of 1 or more linear rings. A linear ring is an array of 4 or more vertices, where the first and last vertex are the same to form a closed boundary. Each vertex is a 2-dimensional point of the form: <code>[longitude, latitude]</code>. </p><p>The first linear ring is an outer ring, describing the polygon's boundary. Subsequent linear rings may be inner or outer rings to describe holes and islands. Outer rings must list their vertices in counter-clockwise order around the ring's center, where the left side is the polygon's exterior. Inner rings must list their vertices in clockwise order, where the left side is the polygon's interior.</p>
+ <p>A circle on the earth, as defined by a center point and a radius.</p>
+ */
+@property (nonatomic, strong) AWSLocationCircle * _Nullable circle;
+
+/**
+ <p>A polygon is a list of linear rings which are each made up of a list of vertices.</p><p>Each vertex is a 2-dimensional point of the form: <code>[longitude, latitude]</code>. This is represented as an array of doubles of length 2 (so <code>[double, double]</code>).</p><p>An array of 4 or more vertices, where the first and last vertex are the same (to form a closed boundary), is called a linear ring. The linear ring vertices must be listed in counter-clockwise order around the ring’s interior. The linear ring is represented as an array of vertices, or an array of arrays of doubles (<code>[[double, double], ...]</code>).</p><p>A geofence consists of a single linear ring. To allow for future expansion, the Polygon parameter takes an array of linear rings, which is represented as an array of arrays of arrays of doubles (<code>[[[double, double], ...], ...]</code>).</p><p>A linear ring for use in geofences can consist of between 4 and 1,000 vertices.</p>
  */
 @property (nonatomic, strong) NSArray<NSArray<NSArray<NSNumber *> *> *> * _Nullable polygon;
 
@@ -1941,7 +1968,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSString * _Nullable geofenceId;
 
 /**
- <p>Contains the geofence geometry details describing a polygon.</p>
+ <p>Contains the geofence geometry details describing a polygon or a circle.</p>
  */
 @property (nonatomic, strong) AWSLocationGeofenceGeometry * _Nullable geometry;
 
@@ -1964,7 +1991,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 
 
 /**
- <p>A comma-separated list of fonts to load glyphs from in order of preference. For example, <code>Noto Sans Regular, Arial Unicode</code>.</p><p>Valid fonts stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a> styles: </p><ul><li><p>VectorEsriDarkGrayCanvas – <code>Ubuntu Medium Italic</code> | <code>Ubuntu Medium</code> | <code>Ubuntu Italic</code> | <code>Ubuntu Regular</code> | <code>Ubuntu Bold</code></p></li><li><p>VectorEsriLightGrayCanvas – <code>Ubuntu Italic</code> | <code>Ubuntu Regular</code> | <code>Ubuntu Light</code> | <code>Ubuntu Bold</code></p></li><li><p>VectorEsriTopographic – <code>Noto Sans Italic</code> | <code>Noto Sans Regular</code> | <code>Noto Sans Bold</code> | <code>Noto Serif Regular</code> | <code>Roboto Condensed Light Italic</code></p></li><li><p>VectorEsriStreets – <code>Arial Regular</code> | <code>Arial Italic</code> | <code>Arial Bold</code></p></li><li><p>VectorEsriNavigation – <code>Arial Regular</code> | <code>Arial Italic</code> | <code>Arial Bold</code></p></li></ul><p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE Technologies</a> styles: </p><ul><li><p>VectorHereBerlin – <code>Fira GO Regular</code> | <code>Fira GO Bold</code></p></li><li><p>VectorHereExplore, VectorHereExploreTruck – <code>Firo GO Italic</code> | <code>Fira GO Map</code> | <code>Fira GO Map Bold</code> | <code>Noto Sans CJK JP Bold</code> | <code>Noto Sans CJK JP Light</code> | <code>Noto Sans CJK JP Regular</code></p></li></ul>
+ <p>A comma-separated list of fonts to load glyphs from in order of preference. For example, <code>Noto Sans Regular, Arial Unicode</code>.</p><p>Valid fonts stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a> styles: </p><ul><li><p>VectorEsriDarkGrayCanvas – <code>Ubuntu Medium Italic</code> | <code>Ubuntu Medium</code> | <code>Ubuntu Italic</code> | <code>Ubuntu Regular</code> | <code>Ubuntu Bold</code></p></li><li><p>VectorEsriLightGrayCanvas – <code>Ubuntu Italic</code> | <code>Ubuntu Regular</code> | <code>Ubuntu Light</code> | <code>Ubuntu Bold</code></p></li><li><p>VectorEsriTopographic – <code>Noto Sans Italic</code> | <code>Noto Sans Regular</code> | <code>Noto Sans Bold</code> | <code>Noto Serif Regular</code> | <code>Roboto Condensed Light Italic</code></p></li><li><p>VectorEsriStreets – <code>Arial Regular</code> | <code>Arial Italic</code> | <code>Arial Bold</code></p></li><li><p>VectorEsriNavigation – <code>Arial Regular</code> | <code>Arial Italic</code> | <code>Arial Bold</code></p></li></ul><p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE Technologies</a> styles: </p><ul><li><p>VectorHereContrast – <code>Fira GO Regular</code> | <code>Fira GO Bold</code></p></li><li><p>VectorHereExplore, VectorHereExploreTruck, HybridHereExploreSatellite – <code>Fira GO Italic</code> | <code>Fira GO Map</code> | <code>Fira GO Map Bold</code> | <code>Noto Sans CJK JP Bold</code> | <code>Noto Sans CJK JP Light</code> | <code>Noto Sans CJK JP Regular</code></p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable fontStack;
 
@@ -2005,7 +2032,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 
 
 /**
- <p>The name of the sprite ﬁle. Use the following ﬁle names for the sprite sheet:</p><ul><li><p><code>sprites.png</code></p></li><li><p><code>sprites@2x.png</code> for high pixel density displays</p></li></ul><p>For the JSON document contain image offsets. Use the following ﬁle names:</p><ul><li><p><code>sprites.json</code></p></li><li><p><code>sprites@2x.json</code> for high pixel density displays</p></li></ul>
+ <p>The name of the sprite ﬁle. Use the following ﬁle names for the sprite sheet:</p><ul><li><p><code>sprites.png</code></p></li><li><p><code>sprites@2x.png</code> for high pixel density displays</p></li></ul><p>For the JSON document containing image offsets. Use the following ﬁle names:</p><ul><li><p><code>sprites.json</code></p></li><li><p><code>sprites@2x.json</code> for high pixel density displays</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable fileName;
 
@@ -2108,6 +2135,42 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
  <p>The map tile's content type. For example, <code>application/vnd.mapbox-vector-tile</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable contentType;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLocationGetPlaceRequest : AWSRequest
+
+
+/**
+ <p>The name of the place index resource that you want to use for the search.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example, <code>en</code> for English.</p><p>This setting affects the languages used in the results, but not the results themselves. If no language is specified, or not supported for a particular result, the partner automatically chooses a language for the result.</p><p>For an example, we'll use the Greek language. You search for a location around Athens, Greece, with the <code>language</code> parameter set to <code>en</code>. The <code>city</code> in the results will most likely be returned as <code>Athens</code>.</p><p>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then the <code>city</code> in the results will more likely be returned as <code>Αθήνα</code>.</p><p>If the data provider does not have a value for Greek, the result will be in a language that the provider does support.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable language;
+
+/**
+ <p>The identifier of the place to find.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable placeId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLocationGetPlaceResponse : AWSModel
+
+
+/**
+ <p>Details about the result, such as its address and position.</p>
+ */
+@property (nonatomic, strong) AWSLocationPlace * _Nullable place;
 
 @end
 
@@ -2331,7 +2394,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSString * _Nullable geofenceId;
 
 /**
- <p>Contains the geofence geometry details describing a polygon.</p>
+ <p>Contains the geofence geometry details describing a polygon or a circle.</p>
  */
 @property (nonatomic, strong) AWSLocationGeofenceGeometry * _Nullable geometry;
 
@@ -2763,7 +2826,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 
 
 /**
- <p>Specifies the map style selected from an available data provider.</p><p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri map styles</a>:</p><ul><li><p><code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray Canvas map style. A vector basemap with a dark gray, neutral background with minimal colors, labels, and features that's designed to draw attention to your thematic content. </p></li><li><p><code>RasterEsriImagery</code> – The Esri Imagery map style. A raster basemap that provides one meter or better satellite and aerial imagery in many parts of the world and lower resolution satellite imagery worldwide. </p></li><li><p><code>VectorEsriLightGrayCanvas</code> – The Esri Light Gray Canvas map style, which provides a detailed vector basemap with a light gray, neutral background style with minimal colors, labels, and features that's designed to draw attention to your thematic content. </p></li><li><p><code>VectorEsriTopographic</code> – The Esri Light map style, which provides a detailed vector basemap with a classic Esri map style.</p></li><li><p><code>VectorEsriStreets</code> – The Esri World Streets map style, which provides a detailed vector basemap for the world symbolized with a classic Esri street map style. The vector tile layer is similar in content and style to the World Street Map raster map.</p></li><li><p><code>VectorEsriNavigation</code> – The Esri World Navigation map style, which provides a detailed basemap for the world symbolized with a custom navigation map style that's designed for use during the day in mobile devices.</p></li></ul><p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE Technologies map styles</a>:</p><ul><li><p><code>VectorHereBerlin</code> – The HERE Berlin map style is a high contrast detailed base map of the world that blends 3D and 2D rendering.</p></li><li><p><code>VectorHereExplore</code> – A default HERE map style containing a neutral, global map and its features including roads, buildings, landmarks, and water features. It also now includes a fully designed map of Japan.</p></li><li><p><code>VectorHereExploreTruck</code> – A global map containing truck restrictions and attributes (e.g. width / height / HAZMAT) symbolized with highlighted segments and icons on top of HERE Explore to support use cases within transport and logistics.</p></li></ul>
+ <p>Specifies the map style selected from an available data provider.</p><p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri map styles</a>:</p><ul><li><p><code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray Canvas map style. A vector basemap with a dark gray, neutral background with minimal colors, labels, and features that's designed to draw attention to your thematic content. </p></li><li><p><code>RasterEsriImagery</code> – The Esri Imagery map style. A raster basemap that provides one meter or better satellite and aerial imagery in many parts of the world and lower resolution satellite imagery worldwide. </p></li><li><p><code>VectorEsriLightGrayCanvas</code> – The Esri Light Gray Canvas map style, which provides a detailed vector basemap with a light gray, neutral background style with minimal colors, labels, and features that's designed to draw attention to your thematic content. </p></li><li><p><code>VectorEsriTopographic</code> – The Esri Light map style, which provides a detailed vector basemap with a classic Esri map style.</p></li><li><p><code>VectorEsriStreets</code> – The Esri World Streets map style, which provides a detailed vector basemap for the world symbolized with a classic Esri street map style. The vector tile layer is similar in content and style to the World Street Map raster map.</p></li><li><p><code>VectorEsriNavigation</code> – The Esri World Navigation map style, which provides a detailed basemap for the world symbolized with a custom navigation map style that's designed for use during the day in mobile devices.</p></li></ul><p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE Technologies map styles</a>:</p><ul><li><p><code>VectorHereContrast</code> – The HERE Contrast (Berlin) map style is a high contrast detailed base map of the world that blends 3D and 2D rendering.</p><note><p>The <code>VectorHereContrast</code> style has been renamed from <code>VectorHereBerlin</code>. <code>VectorHereBerlin</code> has been deprecated, but will continue to work in applications that use it.</p></note></li><li><p><code>VectorHereExplore</code> – A default HERE map style containing a neutral, global map and its features including roads, buildings, landmarks, and water features. It also now includes a fully designed map of Japan.</p></li><li><p><code>VectorHereExploreTruck</code> – A global map containing truck restrictions and attributes (e.g. width / height / HAZMAT) symbolized with highlighted segments and icons on top of HERE Explore to support use cases within transport and logistics.</p></li><li><p><code>RasterHereExploreSatellite</code> – A global map containing high resolution satellite imagery.</p></li><li><p><code>HybridHereExploreSatellite</code> – A global map displaying the road network, street names, and city labels over satellite imagery. This style will automatically retrieve both raster and vector tiles, and your charges will be based on total tiles retrieved.</p><note><p>Hybrid styles use both vector and raster tiles when rendering the map that you see. This means that more tiles are retrieved than when using either vector or raster tiles alone. Your charges will include all tiles retrieved.</p></note></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable style;
 
@@ -2832,9 +2895,19 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSString * _Nullable subRegion;
 
 /**
- <p>The time zone in which the <code>Place</code> is located. Returned only when using Here as the selected partner.</p>
+ <p>The time zone in which the <code>Place</code> is located. Returned only when using HERE as the selected partner.</p>
  */
 @property (nonatomic, strong) AWSLocationTimeZone * _Nullable timeZone;
+
+/**
+ <p>For addresses with multiple units, the unit identifier. Can include numbers and letters, for example <code>3B</code> or <code>Unit 123</code>.</p><note><p>Returned only for a place index that uses Esri as a data provider. Is not returned for <code>SearchPlaceIndexForPosition</code>.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable unitNumber;
+
+/**
+ <p>For addresses with a <code>UnitNumber</code>, the type of unit. For example, <code>Apartment</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable unitType;
 
 @end
 
@@ -2882,7 +2955,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSString * _Nullable geofenceId;
 
 /**
- <p>Contains the polygon details to specify the position of the geofence.</p><note><p>Each <a href="https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html">geofence polygon</a> can have a maximum of 1,000 vertices.</p></note>
+ <p>Contains the details to specify the position of the geofence. Can be either a polygon or a circle. Including both will return a validation error.</p><note><p>Each <a href="https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html"> geofence polygon</a> can have a maximum of 1,000 vertices.</p></note>
  */
 @property (nonatomic, strong) AWSLocationGeofenceGeometry * _Nullable geometry;
 
@@ -2970,6 +3043,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
  */
 @property (nonatomic, strong) AWSLocationPlace * _Nullable place;
 
+/**
+ <p>The unique identifier of the place. You can use this with the <code>GetPlace</code> operation to find the place again later.</p><note><p>For <code>SearchPlaceIndexForPosition</code> operations, the <code>PlaceId</code> is returned only by place indexes that use HERE as a data provider.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable placeId;
+
 @end
 
 /**
@@ -2978,6 +3056,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
  */
 @interface AWSLocationSearchForSuggestionsResult : AWSModel
 
+
+/**
+ <p>The unique identifier of the place. You can use this with the <code>GetPlace</code> operation to find the place again later.</p><note><p>For <code>SearchPlaceIndexForSuggestions</code> operations, the <code>PlaceId</code> is returned by place indexes that use HERE or Esri as data providers.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable placeId;
 
 /**
  <p>The text of the place suggestion, typically formatted as an address string.</p>
@@ -3002,6 +3085,11 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
  <p>Details about the search result, such as its address and position.</p>
  */
 @property (nonatomic, strong) AWSLocationPlace * _Nullable place;
+
+/**
+ <p>The unique identifier of the place. You can use this with the <code>GetPlace</code> operation to find the place again later.</p><note><p>For <code>SearchPlaceIndexForText</code> operations, the <code>PlaceId</code> is returned only by place indexes that use HERE as a data provider.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable placeId;
 
 /**
  <p>The relative confidence in the match for a result among the results returned. For example, if more fields for an address match (including house number, street, city, country/region, and postal code), the relevance score is closer to 1.</p><p>Returned only when the partner selected is Esri.</p>
@@ -3386,12 +3474,12 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 
 
 /**
- <p>The height of the truck.</p><ul><li><p>For example, <code>4.5</code>.</p></li></ul>
+ <p>The height of the truck.</p><ul><li><p>For example, <code>4.5</code>.</p></li></ul><note><p> For routes calculated with a HERE resource, this value must be between 0 and 50 meters. </p></note>
  */
 @property (nonatomic, strong) NSNumber * _Nullable height;
 
 /**
- <p>The length of the truck.</p><ul><li><p>For example, <code>15.5</code>.</p></li></ul>
+ <p>The length of the truck.</p><ul><li><p>For example, <code>15.5</code>.</p></li></ul><note><p> For routes calculated with a HERE resource, this value must be between 0 and 300 meters. </p></note>
  */
 @property (nonatomic, strong) NSNumber * _Nullable length;
 
@@ -3401,7 +3489,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, assign) AWSLocationDimensionUnit unit;
 
 /**
- <p>The width of the truck.</p><ul><li><p>For example, <code>4.5</code>.</p></li></ul>
+ <p>The width of the truck.</p><ul><li><p>For example, <code>4.5</code>.</p></li></ul><note><p> For routes calculated with a HERE resource, this value must be between 0 and 50 meters. </p></note>
  */
 @property (nonatomic, strong) NSNumber * _Nullable width;
 
@@ -3532,7 +3620,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 
 
 /**
- <p>The Amazon Resource Name (ARN) of the updated map resource. Used to specify a resource across AWS.</p><ul><li><p>Format example: <code>arn:aws:geo:region:account-id:maps/ExampleMap</code></p></li></ul>
+ <p>The Amazon Resource Name (ARN) of the updated map resource. Used to specify a resource across AWS.</p><ul><li><p>Format example: <code>arn:aws:geo:region:account-id:map/ExampleMap</code></p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable mapArn;
 

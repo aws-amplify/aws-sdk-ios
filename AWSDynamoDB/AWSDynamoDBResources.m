@@ -118,7 +118,7 @@
         {\"shape\":\"RequestLimitExceeded\"},\
         {\"shape\":\"InternalServerError\"}\
       ],\
-      \"documentation\":\"<p>The <code>BatchWriteItem</code> operation puts or deletes multiple items in one or more tables. A single call to <code>BatchWriteItem</code> can transmit up to 16MB of data over the network, consisting of up to 25 item put or delete operations. While individual items can be up to 400 KB once stored, it's important to note that an item's representation might be greater than 400KB while being sent in DynamoDB's JSON format for the API call. For more details on this distinction, see <a href=\\\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html\\\">Naming Rules and Data Types</a>.</p> <note> <p> <code>BatchWriteItem</code> cannot update items. To update items, use the <code>UpdateItem</code> action.</p> </note> <p>The individual <code>PutItem</code> and <code>DeleteItem</code> operations specified in <code>BatchWriteItem</code> are atomic; however <code>BatchWriteItem</code> as a whole is not. If any requested operations fail because the table's provisioned throughput is exceeded or an internal processing failure occurs, the failed operations are returned in the <code>UnprocessedItems</code> response parameter. You can investigate and optionally resend the requests. Typically, you would call <code>BatchWriteItem</code> in a loop. Each iteration would check for unprocessed items and submit a new <code>BatchWriteItem</code> request with those unprocessed items until all items have been processed.</p> <p>If <i>none</i> of the items can be processed due to insufficient provisioned throughput on all of the tables in the request, then <code>BatchWriteItem</code> returns a <code>ProvisionedThroughputExceededException</code>.</p> <important> <p>If DynamoDB returns any unprocessed items, you should retry the batch operation on those items. However, <i>we strongly recommend that you use an exponential backoff algorithm</i>. If you retry the batch operation immediately, the underlying read or write requests can still fail due to throttling on the individual tables. If you delay the batch operation using exponential backoff, the individual requests in the batch are much more likely to succeed.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#Programming.Errors.BatchOperations\\\">Batch Operations and Error Handling</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p> </important> <p>With <code>BatchWriteItem</code>, you can efficiently write or delete large amounts of data, such as from Amazon EMR, or copy data from another database into DynamoDB. In order to improve performance with these large-scale operations, <code>BatchWriteItem</code> does not behave in the same way as individual <code>PutItem</code> and <code>DeleteItem</code> calls would. For example, you cannot specify conditions on individual put and delete requests, and <code>BatchWriteItem</code> does not return deleted items in the response.</p> <p>If you use a programming language that supports concurrency, you can use threads to write items in parallel. Your application must include the necessary logic to manage the threads. With languages that don't support threading, you must update or delete the specified items one at a time. In both situations, <code>BatchWriteItem</code> performs the specified put and delete operations in parallel, giving you the power of the thread pool approach without having to introduce complexity into your application.</p> <p>Parallel processing reduces latency, but each specified put and delete request consumes the same number of write capacity units whether it is processed in parallel or not. Delete operations on nonexistent items consume one write capacity unit.</p> <p>If one or more of the following is true, DynamoDB rejects the entire batch write operation:</p> <ul> <li> <p>One or more tables specified in the <code>BatchWriteItem</code> request does not exist.</p> </li> <li> <p>Primary key attributes specified on an item in the request do not match those in the corresponding table's primary key schema.</p> </li> <li> <p>You try to perform multiple operations on the same item in the same <code>BatchWriteItem</code> request. For example, you cannot put and delete the same item in the same <code>BatchWriteItem</code> request. </p> </li> <li> <p> Your request contains at least two items with identical hash and range keys (which essentially is two put operations). </p> </li> <li> <p>There are more than 25 requests in the batch.</p> </li> <li> <p>Any individual item in a batch exceeds 400 KB.</p> </li> <li> <p>The total request size exceeds 16 MB.</p> </li> </ul>\",\
+      \"documentation\":\"<p>The <code>BatchWriteItem</code> operation puts or deletes multiple items in one or more tables. A single call to <code>BatchWriteItem</code> can transmit up to 16MB of data over the network, consisting of up to 25 item put or delete operations. While individual items can be up to 400 KB once stored, it's important to note that an item's representation might be greater than 400KB while being sent in DynamoDB's JSON format for the API call. For more details on this distinction, see <a href=\\\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html\\\">Naming Rules and Data Types</a>.</p> <note> <p> <code>BatchWriteItem</code> cannot update items. If you perform a <code>BatchWriteItem</code> operation on an existing item, that item's values will be overwritten by the operation and it will appear like it was updated. To update items, we recommend you use the <code>UpdateItem</code> action.</p> </note> <p>The individual <code>PutItem</code> and <code>DeleteItem</code> operations specified in <code>BatchWriteItem</code> are atomic; however <code>BatchWriteItem</code> as a whole is not. If any requested operations fail because the table's provisioned throughput is exceeded or an internal processing failure occurs, the failed operations are returned in the <code>UnprocessedItems</code> response parameter. You can investigate and optionally resend the requests. Typically, you would call <code>BatchWriteItem</code> in a loop. Each iteration would check for unprocessed items and submit a new <code>BatchWriteItem</code> request with those unprocessed items until all items have been processed.</p> <p>If <i>none</i> of the items can be processed due to insufficient provisioned throughput on all of the tables in the request, then <code>BatchWriteItem</code> returns a <code>ProvisionedThroughputExceededException</code>.</p> <important> <p>If DynamoDB returns any unprocessed items, you should retry the batch operation on those items. However, <i>we strongly recommend that you use an exponential backoff algorithm</i>. If you retry the batch operation immediately, the underlying read or write requests can still fail due to throttling on the individual tables. If you delay the batch operation using exponential backoff, the individual requests in the batch are much more likely to succeed.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#Programming.Errors.BatchOperations\\\">Batch Operations and Error Handling</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p> </important> <p>With <code>BatchWriteItem</code>, you can efficiently write or delete large amounts of data, such as from Amazon EMR, or copy data from another database into DynamoDB. In order to improve performance with these large-scale operations, <code>BatchWriteItem</code> does not behave in the same way as individual <code>PutItem</code> and <code>DeleteItem</code> calls would. For example, you cannot specify conditions on individual put and delete requests, and <code>BatchWriteItem</code> does not return deleted items in the response.</p> <p>If you use a programming language that supports concurrency, you can use threads to write items in parallel. Your application must include the necessary logic to manage the threads. With languages that don't support threading, you must update or delete the specified items one at a time. In both situations, <code>BatchWriteItem</code> performs the specified put and delete operations in parallel, giving you the power of the thread pool approach without having to introduce complexity into your application.</p> <p>Parallel processing reduces latency, but each specified put and delete request consumes the same number of write capacity units whether it is processed in parallel or not. Delete operations on nonexistent items consume one write capacity unit.</p> <p>If one or more of the following is true, DynamoDB rejects the entire batch write operation:</p> <ul> <li> <p>One or more tables specified in the <code>BatchWriteItem</code> request does not exist.</p> </li> <li> <p>Primary key attributes specified on an item in the request do not match those in the corresponding table's primary key schema.</p> </li> <li> <p>You try to perform multiple operations on the same item in the same <code>BatchWriteItem</code> request. For example, you cannot put and delete the same item in the same <code>BatchWriteItem</code> request. </p> </li> <li> <p> Your request contains at least two items with identical hash and range keys (which essentially is two put operations). </p> </li> <li> <p>There are more than 25 requests in the batch.</p> </li> <li> <p>Any individual item in a batch exceeds 400 KB.</p> </li> <li> <p>The total request size exceeds 16 MB.</p> </li> </ul>\",\
       \"endpointdiscovery\":{\
       }\
     },\
@@ -338,6 +338,19 @@
       \"endpointdiscovery\":{\
       }\
     },\
+    \"DescribeImport\":{\
+      \"name\":\"DescribeImport\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DescribeImportInput\"},\
+      \"output\":{\"shape\":\"DescribeImportOutput\"},\
+      \"errors\":[\
+        {\"shape\":\"ImportNotFoundException\"}\
+      ],\
+      \"documentation\":\"<p> Represents the properties of the import. </p>\"\
+    },\
     \"DescribeKinesisStreamingDestination\":{\
       \"name\":\"DescribeKinesisStreamingDestination\",\
       \"http\":{\
@@ -526,6 +539,21 @@
       \"endpointdiscovery\":{\
       }\
     },\
+    \"ImportTable\":{\
+      \"name\":\"ImportTable\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"ImportTableInput\"},\
+      \"output\":{\"shape\":\"ImportTableOutput\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceInUseException\"},\
+        {\"shape\":\"LimitExceededException\"},\
+        {\"shape\":\"ImportConflictException\"}\
+      ],\
+      \"documentation\":\"<p> Imports table data from an S3 bucket. </p>\"\
+    },\
     \"ListBackups\":{\
       \"name\":\"ListBackups\",\
       \"http\":{\
@@ -584,6 +612,19 @@
       \"endpointdiscovery\":{\
       }\
     },\
+    \"ListImports\":{\
+      \"name\":\"ListImports\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"ListImportsInput\"},\
+      \"output\":{\"shape\":\"ListImportsOutput\"},\
+      \"errors\":[\
+        {\"shape\":\"LimitExceededException\"}\
+      ],\
+      \"documentation\":\"<p> Lists completed imports within the past 90 days. </p>\"\
+    },\
     \"ListTables\":{\
       \"name\":\"ListTables\",\
       \"http\":{\
@@ -632,7 +673,7 @@
         {\"shape\":\"RequestLimitExceeded\"},\
         {\"shape\":\"InternalServerError\"}\
       ],\
-      \"documentation\":\"<p>Creates a new item, or replaces an old item with a new item. If an item that has the same primary key as the new item already exists in the specified table, the new item completely replaces the existing item. You can perform a conditional put operation (add a new item if one with the specified primary key doesn't exist), or replace an existing item if it has certain attribute values. You can return the item's attribute values in the same operation, using the <code>ReturnValues</code> parameter.</p> <p>When you add an item, the primary key attributes are the only required attributes. Attribute values cannot be null.</p> <p>Empty String and Binary attribute values are allowed. Attribute values of type String and Binary must have a length greater than zero if the attribute is used as a key attribute for a table or index. Set type attributes cannot be empty. </p> <p>Invalid Requests with empty values will be rejected with a <code>ValidationException</code> exception.</p> <note> <p>To prevent a new item from replacing an existing item, use a conditional expression that contains the <code>attribute_not_exists</code> function with the name of the attribute being used as the partition key for the table. Since every record must contain that attribute, the <code>attribute_not_exists</code> function will only succeed if no matching item exists.</p> </note> <p>For more information about <code>PutItem</code>, see <a href=\\\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html\\\">Working with Items</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>\",\
+      \"documentation\":\"<p>Creates a new item, or replaces an old item with a new item. If an item that has the same primary key as the new item already exists in the specified table, the new item completely replaces the existing item. You can perform a conditional put operation (add a new item if one with the specified primary key doesn't exist), or replace an existing item if it has certain attribute values. You can return the item's attribute values in the same operation, using the <code>ReturnValues</code> parameter.</p> <p>When you add an item, the primary key attributes are the only required attributes. </p> <p>Empty String and Binary attribute values are allowed. Attribute values of type String and Binary must have a length greater than zero if the attribute is used as a key attribute for a table or index. Set type attributes cannot be empty. </p> <p>Invalid Requests with empty values will be rejected with a <code>ValidationException</code> exception.</p> <note> <p>To prevent a new item from replacing an existing item, use a conditional expression that contains the <code>attribute_not_exists</code> function with the name of the attribute being used as the partition key for the table. Since every record must contain that attribute, the <code>attribute_not_exists</code> function will only succeed if no matching item exists.</p> </note> <p>For more information about <code>PutItem</code>, see <a href=\\\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html\\\">Working with Items</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>\",\
       \"endpointdiscovery\":{\
       }\
     },\
@@ -745,7 +786,7 @@
         {\"shape\":\"RequestLimitExceeded\"},\
         {\"shape\":\"InternalServerError\"}\
       ],\
-      \"documentation\":\"<p> <code>TransactGetItems</code> is a synchronous operation that atomically retrieves multiple items from one or more tables (but not from indexes) in a single account and Region. A <code>TransactGetItems</code> call can contain up to 25 <code>TransactGetItem</code> objects, each of which contains a <code>Get</code> structure that specifies an item to retrieve from a table in the account and Region. A call to <code>TransactGetItems</code> cannot retrieve items from tables in more than one Amazon Web Services account or Region. The aggregate size of the items in the transaction cannot exceed 4 MB.</p> <p>DynamoDB rejects the entire <code>TransactGetItems</code> request if any of the following is true:</p> <ul> <li> <p>A conflicting operation is in the process of updating an item to be read.</p> </li> <li> <p>There is insufficient provisioned capacity for the transaction to be completed.</p> </li> <li> <p>There is a user error, such as an invalid data format.</p> </li> <li> <p>The aggregate size of the items in the transaction cannot exceed 4 MB.</p> </li> </ul>\",\
+      \"documentation\":\"<p> <code>TransactGetItems</code> is a synchronous operation that atomically retrieves multiple items from one or more tables (but not from indexes) in a single account and Region. A <code>TransactGetItems</code> call can contain up to 100 <code>TransactGetItem</code> objects, each of which contains a <code>Get</code> structure that specifies an item to retrieve from a table in the account and Region. A call to <code>TransactGetItems</code> cannot retrieve items from tables in more than one Amazon Web Services account or Region. The aggregate size of the items in the transaction cannot exceed 4 MB.</p> <p>DynamoDB rejects the entire <code>TransactGetItems</code> request if any of the following is true:</p> <ul> <li> <p>A conflicting operation is in the process of updating an item to be read.</p> </li> <li> <p>There is insufficient provisioned capacity for the transaction to be completed.</p> </li> <li> <p>There is a user error, such as an invalid data format.</p> </li> <li> <p>The aggregate size of the items in the transaction cannot exceed 4 MB.</p> </li> </ul>\",\
       \"endpointdiscovery\":{\
       }\
     },\
@@ -766,7 +807,7 @@
         {\"shape\":\"RequestLimitExceeded\"},\
         {\"shape\":\"InternalServerError\"}\
       ],\
-      \"documentation\":\"<p> <code>TransactWriteItems</code> is a synchronous write operation that groups up to 25 action requests. These actions can target items in different tables, but not in different Amazon Web Services accounts or Regions, and no two actions can target the same item. For example, you cannot both <code>ConditionCheck</code> and <code>Update</code> the same item. The aggregate size of the items in the transaction cannot exceed 4 MB.</p> <p>The actions are completed atomically so that either all of them succeed, or all of them fail. They are defined by the following objects:</p> <ul> <li> <p> <code>Put</code> Â â Â  Initiates a <code>PutItem</code> operation to write a new item. This structure specifies the primary key of the item to be written, the name of the table to write it in, an optional condition expression that must be satisfied for the write to succeed, a list of the item's attributes, and a field indicating whether to retrieve the item's attributes if the condition is not met.</p> </li> <li> <p> <code>Update</code> Â â Â  Initiates an <code>UpdateItem</code> operation to update an existing item. This structure specifies the primary key of the item to be updated, the name of the table where it resides, an optional condition expression that must be satisfied for the update to succeed, an expression that defines one or more attributes to be updated, and a field indicating whether to retrieve the item's attributes if the condition is not met.</p> </li> <li> <p> <code>Delete</code> Â â Â  Initiates a <code>DeleteItem</code> operation to delete an existing item. This structure specifies the primary key of the item to be deleted, the name of the table where it resides, an optional condition expression that must be satisfied for the deletion to succeed, and a field indicating whether to retrieve the item's attributes if the condition is not met.</p> </li> <li> <p> <code>ConditionCheck</code> Â â Â  Applies a condition to an item that is not being modified by the transaction. This structure specifies the primary key of the item to be checked, the name of the table where it resides, a condition expression that must be satisfied for the transaction to succeed, and a field indicating whether to retrieve the item's attributes if the condition is not met.</p> </li> </ul> <p>DynamoDB rejects the entire <code>TransactWriteItems</code> request if any of the following is true:</p> <ul> <li> <p>A condition in one of the condition expressions is not met.</p> </li> <li> <p>An ongoing operation is in the process of updating the same item.</p> </li> <li> <p>There is insufficient provisioned capacity for the transaction to be completed.</p> </li> <li> <p>An item size becomes too large (bigger than 400 KB), a local secondary index (LSI) becomes too large, or a similar validation error occurs because of changes made by the transaction.</p> </li> <li> <p>The aggregate size of the items in the transaction exceeds 4 MB.</p> </li> <li> <p>There is a user error, such as an invalid data format.</p> </li> </ul>\",\
+      \"documentation\":\"<p> <code>TransactWriteItems</code> is a synchronous write operation that groups up to 100 action requests. These actions can target items in different tables, but not in different Amazon Web Services accounts or Regions, and no two actions can target the same item. For example, you cannot both <code>ConditionCheck</code> and <code>Update</code> the same item. The aggregate size of the items in the transaction cannot exceed 4 MB.</p> <p>The actions are completed atomically so that either all of them succeed, or all of them fail. They are defined by the following objects:</p> <ul> <li> <p> <code>Put</code> Â â Â  Initiates a <code>PutItem</code> operation to write a new item. This structure specifies the primary key of the item to be written, the name of the table to write it in, an optional condition expression that must be satisfied for the write to succeed, a list of the item's attributes, and a field indicating whether to retrieve the item's attributes if the condition is not met.</p> </li> <li> <p> <code>Update</code> Â â Â  Initiates an <code>UpdateItem</code> operation to update an existing item. This structure specifies the primary key of the item to be updated, the name of the table where it resides, an optional condition expression that must be satisfied for the update to succeed, an expression that defines one or more attributes to be updated, and a field indicating whether to retrieve the item's attributes if the condition is not met.</p> </li> <li> <p> <code>Delete</code> Â â Â  Initiates a <code>DeleteItem</code> operation to delete an existing item. This structure specifies the primary key of the item to be deleted, the name of the table where it resides, an optional condition expression that must be satisfied for the deletion to succeed, and a field indicating whether to retrieve the item's attributes if the condition is not met.</p> </li> <li> <p> <code>ConditionCheck</code> Â â Â  Applies a condition to an item that is not being modified by the transaction. This structure specifies the primary key of the item to be checked, the name of the table where it resides, a condition expression that must be satisfied for the transaction to succeed, and a field indicating whether to retrieve the item's attributes if the condition is not met.</p> </li> </ul> <p>DynamoDB rejects the entire <code>TransactWriteItems</code> request if any of the following is true:</p> <ul> <li> <p>A condition in one of the condition expressions is not met.</p> </li> <li> <p>An ongoing operation is in the process of updating the same item.</p> </li> <li> <p>There is insufficient provisioned capacity for the transaction to be completed.</p> </li> <li> <p>An item size becomes too large (bigger than 400 KB), a local secondary index (LSI) becomes too large, or a similar validation error occurs because of changes made by the transaction.</p> </li> <li> <p>The aggregate size of the items in the transaction exceeds 4 MB.</p> </li> <li> <p>There is a user error, such as an invalid data format.</p> </li> </ul>\",\
       \"endpointdiscovery\":{\
       }\
     },\
@@ -1454,7 +1495,7 @@
         },\
         \"Message\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p> The error message associated with the PartiQL batch resposne. </p>\"\
+          \"documentation\":\"<p> The error message associated with the PartiQL batch response. </p>\"\
         }\
       },\
       \"documentation\":\"<p> An error associated with a statement in a PartiQL batch that was run. </p>\"\
@@ -1533,7 +1574,7 @@
       \"members\":{\
         \"UnprocessedItems\":{\
           \"shape\":\"BatchWriteItemRequestMap\",\
-          \"documentation\":\"<p>A map of tables and requests against those tables that were not processed. The <code>UnprocessedItems</code> value is in the same form as <code>RequestItems</code>, so you can provide this value directly to a subsequent <code>BatchGetItem</code> operation. For more information, see <code>RequestItems</code> in the Request Parameters section.</p> <p>Each <code>UnprocessedItems</code> entry consists of a table name and, for that table, a list of operations to perform (<code>DeleteRequest</code> or <code>PutRequest</code>).</p> <ul> <li> <p> <code>DeleteRequest</code> - Perform a <code>DeleteItem</code> operation on the specified item. The item to be deleted is identified by a <code>Key</code> subelement:</p> <ul> <li> <p> <code>Key</code> - A map of primary key attribute values that uniquely identify the item. Each entry in this map consists of an attribute name and an attribute value.</p> </li> </ul> </li> <li> <p> <code>PutRequest</code> - Perform a <code>PutItem</code> operation on the specified item. The item to be put is identified by an <code>Item</code> subelement:</p> <ul> <li> <p> <code>Item</code> - A map of attributes and their values. Each entry in this map consists of an attribute name and an attribute value. Attribute values must not be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests that contain empty values will be rejected with a <code>ValidationException</code> exception.</p> <p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p> </li> </ul> </li> </ul> <p>If there are no unprocessed items remaining, the response contains an empty <code>UnprocessedItems</code> map.</p>\"\
+          \"documentation\":\"<p>A map of tables and requests against those tables that were not processed. The <code>UnprocessedItems</code> value is in the same form as <code>RequestItems</code>, so you can provide this value directly to a subsequent <code>BatchWriteItem</code> operation. For more information, see <code>RequestItems</code> in the Request Parameters section.</p> <p>Each <code>UnprocessedItems</code> entry consists of a table name and, for that table, a list of operations to perform (<code>DeleteRequest</code> or <code>PutRequest</code>).</p> <ul> <li> <p> <code>DeleteRequest</code> - Perform a <code>DeleteItem</code> operation on the specified item. The item to be deleted is identified by a <code>Key</code> subelement:</p> <ul> <li> <p> <code>Key</code> - A map of primary key attribute values that uniquely identify the item. Each entry in this map consists of an attribute name and an attribute value.</p> </li> </ul> </li> <li> <p> <code>PutRequest</code> - Perform a <code>PutItem</code> operation on the specified item. The item to be put is identified by an <code>Item</code> subelement:</p> <ul> <li> <p> <code>Item</code> - A map of attributes and their values. Each entry in this map consists of an attribute name and an attribute value. Attribute values must not be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests that contain empty values will be rejected with a <code>ValidationException</code> exception.</p> <p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p> </li> </ul> </li> </ul> <p>If there are no unprocessed items remaining, the response contains an empty <code>UnprocessedItems</code> map.</p>\"\
         },\
         \"ItemCollectionMetrics\":{\
           \"shape\":\"ItemCollectionMetricsPerTable\",\
@@ -1576,7 +1617,7 @@
           \"documentation\":\"<p>Represents the time when <code>PAY_PER_REQUEST</code> was last set as the read/write capacity mode.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Contains the details for the read/write capacity mode.</p>\"\
+      \"documentation\":\"<p>Contains the details for the read/write capacity mode. This page talks about <code>PROVISIONED</code> and <code>PAY_PER_REQUEST</code> billing modes. For more information about these modes, see <a href=\\\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html\\\">Read/write capacity mode</a>.</p> <note> <p>You may need to switch to on-demand mode at least once in order to return a <code>BillingModeSummary</code> response.</p> </note>\"\
     },\
     \"BinaryAttributeValue\":{\"type\":\"blob\"},\
     \"BinarySetAttributeValue\":{\
@@ -1606,7 +1647,7 @@
     \"CancellationReasonList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"CancellationReason\"},\
-      \"max\":25,\
+      \"max\":100,\
       \"min\":1\
     },\
     \"Capacity\":{\
@@ -1632,7 +1673,15 @@
       \"max\":36,\
       \"min\":1\
     },\
-    \"ClientToken\":{\"type\":\"string\"},\
+    \"ClientToken\":{\
+      \"type\":\"string\",\
+      \"pattern\":\"^[^\\\\$]+$\"\
+    },\
+    \"CloudWatchLogGroupArn\":{\
+      \"type\":\"string\",\
+      \"max\":1024,\
+      \"min\":1\
+    },\
     \"Code\":{\"type\":\"string\"},\
     \"ComparisonOperator\":{\
       \"type\":\"string\",\
@@ -2020,6 +2069,38 @@
       },\
       \"documentation\":\"<p>Represents the output of a <code>CreateTable</code> operation.</p>\"\
     },\
+    \"CsvDelimiter\":{\
+      \"type\":\"string\",\
+      \"max\":1,\
+      \"min\":1,\
+      \"pattern\":\"[,;:|\\\\t ]\"\
+    },\
+    \"CsvHeader\":{\
+      \"type\":\"string\",\
+      \"max\":65536,\
+      \"min\":1,\
+      \"pattern\":\"[\\\\x20-\\\\x21\\\\x23-\\\\x2B\\\\x2D-\\\\x7E]*\"\
+    },\
+    \"CsvHeaderList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"CsvHeader\"},\
+      \"max\":255,\
+      \"min\":1\
+    },\
+    \"CsvOptions\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Delimiter\":{\
+          \"shape\":\"CsvDelimiter\",\
+          \"documentation\":\"<p> The delimiter used for separating items in the CSV file being imported. </p>\"\
+        },\
+        \"HeaderList\":{\
+          \"shape\":\"CsvHeaderList\",\
+          \"documentation\":\"<p> List of the headers used to specify a common header for all source CSV files being imported. If this field is specified then the first line of each CSV file is treated as data instead of the header. If this field is not specified the the first line of each CSV file is treated as the header. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p> Processing options for the CSV file being imported. </p>\"\
+    },\
     \"Date\":{\"type\":\"timestamp\"},\
     \"Delete\":{\
       \"type\":\"structure\",\
@@ -2361,6 +2442,26 @@
         }\
       }\
     },\
+    \"DescribeImportInput\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"ImportArn\"],\
+      \"members\":{\
+        \"ImportArn\":{\
+          \"shape\":\"ImportArn\",\
+          \"documentation\":\"<p> The Amazon Resource Name (ARN) associated with the table you're importing to. </p>\"\
+        }\
+      }\
+    },\
+    \"DescribeImportOutput\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"ImportTableDescription\"],\
+      \"members\":{\
+        \"ImportTableDescription\":{\
+          \"shape\":\"ImportTableDescription\",\
+          \"documentation\":\"<p> Represents the properties of the table created for the import, and parameters of the import. The import parameters include import status, how many items were processed, and how many errors were encountered. </p>\"\
+        }\
+      }\
+    },\
     \"DescribeKinesisStreamingDestinationInput\":{\
       \"type\":\"structure\",\
       \"required\":[\"TableName\"],\
@@ -2511,6 +2612,10 @@
     \"Endpoints\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"Endpoint\"}\
+    },\
+    \"ErrorCount\":{\
+      \"type\":\"long\",\
+      \"min\":0\
     },\
     \"ErrorMessage\":{\"type\":\"string\"},\
     \"ExceptionDescription\":{\"type\":\"string\"},\
@@ -2776,7 +2881,7 @@
         },\
         \"ClientToken\":{\
           \"shape\":\"ClientToken\",\
-          \"documentation\":\"<p>Providing a <code>ClientToken</code> makes the call to <code>ExportTableToPointInTimeInput</code> idempotent, meaning that multiple identical calls have the same effect as one single call.</p> <p>A client token is valid for 8 hours after the first request that uses it is completed. After 8 hours, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 8 hours, or the result might not be idempotent.</p> <p>If you submit a request with the same client token but a change in other parameters within the 8-hour idempotency window, DynamoDB returns an <code>IdempotentParameterMismatch</code> exception.</p>\",\
+          \"documentation\":\"<p>Providing a <code>ClientToken</code> makes the call to <code>ExportTableToPointInTimeInput</code> idempotent, meaning that multiple identical calls have the same effect as one single call.</p> <p>A client token is valid for 8 hours after the first request that uses it is completed. After 8 hours, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 8 hours, or the result might not be idempotent.</p> <p>If you submit a request with the same client token but a change in other parameters within the 8-hour idempotency window, DynamoDB returns an <code>ImportConflictException</code>.</p>\",\
           \"idempotencyToken\":true\
         },\
         \"S3Bucket\":{\
@@ -3167,6 +3272,218 @@
       \"documentation\":\"<p>DynamoDB rejected the request because you retried a request with a different payload but with an idempotent token that was already used.</p>\",\
       \"exception\":true\
     },\
+    \"ImportArn\":{\
+      \"type\":\"string\",\
+      \"max\":1024,\
+      \"min\":37\
+    },\
+    \"ImportConflictException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\"shape\":\"ErrorMessage\"}\
+      },\
+      \"documentation\":\"<p> There was a conflict when importing from the specified S3 source. This can occur when the current import conflicts with a previous import request that had the same client token. </p>\",\
+      \"exception\":true\
+    },\
+    \"ImportEndTime\":{\"type\":\"timestamp\"},\
+    \"ImportNextToken\":{\
+      \"type\":\"string\",\
+      \"max\":1024,\
+      \"min\":112,\
+      \"pattern\":\"([0-9a-f]{16})+\"\
+    },\
+    \"ImportNotFoundException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\"shape\":\"ErrorMessage\"}\
+      },\
+      \"documentation\":\"<p> The specified import was not found. </p>\",\
+      \"exception\":true\
+    },\
+    \"ImportStartTime\":{\"type\":\"timestamp\"},\
+    \"ImportStatus\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"IN_PROGRESS\",\
+        \"COMPLETED\",\
+        \"CANCELLING\",\
+        \"CANCELLED\",\
+        \"FAILED\"\
+      ]\
+    },\
+    \"ImportSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ImportArn\":{\
+          \"shape\":\"ImportArn\",\
+          \"documentation\":\"<p> The Amazon Resource Number (ARN) corresponding to the import request. </p>\"\
+        },\
+        \"ImportStatus\":{\
+          \"shape\":\"ImportStatus\",\
+          \"documentation\":\"<p> The status of the import operation. </p>\"\
+        },\
+        \"TableArn\":{\
+          \"shape\":\"TableArn\",\
+          \"documentation\":\"<p> The Amazon Resource Number (ARN) of the table being imported into. </p>\"\
+        },\
+        \"S3BucketSource\":{\
+          \"shape\":\"S3BucketSource\",\
+          \"documentation\":\"<p> The path and S3 bucket of the source file that is being imported. This includes the S3Bucket (required), S3KeyPrefix (optional) and S3BucketOwner (optional if the bucket is owned by the requester). </p>\"\
+        },\
+        \"CloudWatchLogGroupArn\":{\
+          \"shape\":\"CloudWatchLogGroupArn\",\
+          \"documentation\":\"<p> The Amazon Resource Number (ARN) of the Cloudwatch Log Group associated with this import task. </p>\"\
+        },\
+        \"InputFormat\":{\
+          \"shape\":\"InputFormat\",\
+          \"documentation\":\"<p> The format of the source data. Valid values are <code>CSV</code>, <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>\"\
+        },\
+        \"StartTime\":{\
+          \"shape\":\"ImportStartTime\",\
+          \"documentation\":\"<p> The time at which this import task began. </p>\"\
+        },\
+        \"EndTime\":{\
+          \"shape\":\"ImportEndTime\",\
+          \"documentation\":\"<p> The time at which this import task ended. (Does this include the successful complete creation of the table it was imported to?) </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p> Summary information about the source file for the import. </p>\"\
+    },\
+    \"ImportSummaryList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ImportSummary\"}\
+    },\
+    \"ImportTableDescription\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ImportArn\":{\
+          \"shape\":\"ImportArn\",\
+          \"documentation\":\"<p> The Amazon Resource Number (ARN) corresponding to the import request. </p>\"\
+        },\
+        \"ImportStatus\":{\
+          \"shape\":\"ImportStatus\",\
+          \"documentation\":\"<p> The status of the import. </p>\"\
+        },\
+        \"TableArn\":{\
+          \"shape\":\"TableArn\",\
+          \"documentation\":\"<p> The Amazon Resource Number (ARN) of the table being imported into. </p>\"\
+        },\
+        \"TableId\":{\
+          \"shape\":\"TableId\",\
+          \"documentation\":\"<p> The table id corresponding to the table created by import table process. </p>\"\
+        },\
+        \"ClientToken\":{\
+          \"shape\":\"ClientToken\",\
+          \"documentation\":\"<p> The client token that was provided for the import task. Reusing the client token on retry makes a call to <code>ImportTable</code> idempotent. </p>\"\
+        },\
+        \"S3BucketSource\":{\
+          \"shape\":\"S3BucketSource\",\
+          \"documentation\":\"<p> Values for the S3 bucket the source file is imported from. Includes bucket name (required), key prefix (optional) and bucket account owner ID (optional). </p>\"\
+        },\
+        \"ErrorCount\":{\
+          \"shape\":\"ErrorCount\",\
+          \"documentation\":\"<p> The number of errors occurred on importing the source file into the target table. </p>\"\
+        },\
+        \"CloudWatchLogGroupArn\":{\
+          \"shape\":\"CloudWatchLogGroupArn\",\
+          \"documentation\":\"<p> The Amazon Resource Number (ARN) of the Cloudwatch Log Group associated with the target table. </p>\"\
+        },\
+        \"InputFormat\":{\
+          \"shape\":\"InputFormat\",\
+          \"documentation\":\"<p> The format of the source data going into the target table. </p>\"\
+        },\
+        \"InputFormatOptions\":{\
+          \"shape\":\"InputFormatOptions\",\
+          \"documentation\":\"<p> The format options for the data that was imported into the target table. There is one value, CsvOption. </p>\"\
+        },\
+        \"InputCompressionType\":{\
+          \"shape\":\"InputCompressionType\",\
+          \"documentation\":\"<p> The compression options for the data that has been imported into the target table. The values are NONE, GZIP, or ZSTD. </p>\"\
+        },\
+        \"TableCreationParameters\":{\
+          \"shape\":\"TableCreationParameters\",\
+          \"documentation\":\"<p> The parameters for the new table that is being imported into. </p>\"\
+        },\
+        \"StartTime\":{\
+          \"shape\":\"ImportStartTime\",\
+          \"documentation\":\"<p> The time when this import task started. </p>\"\
+        },\
+        \"EndTime\":{\
+          \"shape\":\"ImportEndTime\",\
+          \"documentation\":\"<p> The time at which the creation of the table associated with this import task completed. </p>\"\
+        },\
+        \"ProcessedSizeBytes\":{\
+          \"shape\":\"Long\",\
+          \"documentation\":\"<p> The total size of data processed from the source file, in Bytes. </p>\"\
+        },\
+        \"ProcessedItemCount\":{\
+          \"shape\":\"ProcessedItemCount\",\
+          \"documentation\":\"<p> The total number of items processed from the source file. </p>\"\
+        },\
+        \"ImportedItemCount\":{\
+          \"shape\":\"ImportedItemCount\",\
+          \"documentation\":\"<p> The number of items successfully imported into the new table. </p>\"\
+        },\
+        \"FailureCode\":{\
+          \"shape\":\"FailureCode\",\
+          \"documentation\":\"<p> The error code corresponding to the failure that the import job ran into during execution. </p>\"\
+        },\
+        \"FailureMessage\":{\
+          \"shape\":\"FailureMessage\",\
+          \"documentation\":\"<p> The error message corresponding to the failure that the import job ran into during execution. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p> Represents the properties of the table being imported into. </p>\"\
+    },\
+    \"ImportTableInput\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"S3BucketSource\",\
+        \"InputFormat\",\
+        \"TableCreationParameters\"\
+      ],\
+      \"members\":{\
+        \"ClientToken\":{\
+          \"shape\":\"ClientToken\",\
+          \"documentation\":\"<p>Providing a <code>ClientToken</code> makes the call to <code>ImportTableInput</code> idempotent, meaning that multiple identical calls have the same effect as one single call.</p> <p>A client token is valid for 8 hours after the first request that uses it is completed. After 8 hours, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 8 hours, or the result might not be idempotent.</p> <p>If you submit a request with the same client token but a change in other parameters within the 8-hour idempotency window, DynamoDB returns an <code>IdempotentParameterMismatch</code> exception.</p>\",\
+          \"idempotencyToken\":true\
+        },\
+        \"S3BucketSource\":{\
+          \"shape\":\"S3BucketSource\",\
+          \"documentation\":\"<p> The S3 bucket that provides the source for the import. </p>\"\
+        },\
+        \"InputFormat\":{\
+          \"shape\":\"InputFormat\",\
+          \"documentation\":\"<p> The format of the source data. Valid values for <code>ImportFormat</code> are <code>CSV</code>, <code>DYNAMODB_JSON</code> or <code>ION</code>. </p>\"\
+        },\
+        \"InputFormatOptions\":{\
+          \"shape\":\"InputFormatOptions\",\
+          \"documentation\":\"<p> Additional properties that specify how the input is formatted, </p>\"\
+        },\
+        \"InputCompressionType\":{\
+          \"shape\":\"InputCompressionType\",\
+          \"documentation\":\"<p> Type of compression to be used on the input coming from the imported table. </p>\"\
+        },\
+        \"TableCreationParameters\":{\
+          \"shape\":\"TableCreationParameters\",\
+          \"documentation\":\"<p>Parameters for the table to import the data into. </p>\"\
+        }\
+      }\
+    },\
+    \"ImportTableOutput\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"ImportTableDescription\"],\
+      \"members\":{\
+        \"ImportTableDescription\":{\
+          \"shape\":\"ImportTableDescription\",\
+          \"documentation\":\"<p> Represents the properties of the table created for the import, and parameters of the import. The import parameters include import status, how many items were processed, and how many errors were encountered. </p>\"\
+        }\
+      }\
+    },\
+    \"ImportedItemCount\":{\
+      \"type\":\"long\",\
+      \"min\":0\
+    },\
     \"IndexName\":{\
       \"type\":\"string\",\
       \"max\":255,\
@@ -3189,6 +3506,32 @@
         \"DELETING\",\
         \"ACTIVE\"\
       ]\
+    },\
+    \"InputCompressionType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"GZIP\",\
+        \"ZSTD\",\
+        \"NONE\"\
+      ]\
+    },\
+    \"InputFormat\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"DYNAMODB_JSON\",\
+        \"ION\",\
+        \"CSV\"\
+      ]\
+    },\
+    \"InputFormatOptions\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Csv\":{\
+          \"shape\":\"CsvOptions\",\
+          \"documentation\":\"<p> The options for imported source files in CSV format. The values are Delimiter and HeaderList. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p> The format options for the data that was imported into the target table. There is one value, CsvOption.</p>\"\
     },\
     \"Integer\":{\"type\":\"integer\"},\
     \"IntegerObject\":{\"type\":\"integer\"},\
@@ -3285,7 +3628,7 @@
     \"ItemResponseList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"ItemResponse\"},\
-      \"max\":25,\
+      \"max\":100,\
       \"min\":1\
     },\
     \"KMSMasterKeyArn\":{\"type\":\"string\"},\
@@ -3435,7 +3778,7 @@
           \"documentation\":\"<p>Too many operations for a given subscriber.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>There is no limit to the number of daily on-demand backups that can be taken. </p> <p>Up to 500 simultaneous table operations are allowed per account. These operations include <code>CreateTable</code>, <code>UpdateTable</code>, <code>DeleteTable</code>,<code>UpdateTimeToLive</code>, <code>RestoreTableFromBackup</code>, and <code>RestoreTableToPointInTime</code>. </p> <p>The only exception is when you are creating a table with one or more secondary indexes. You can have up to 250 such requests running at a time; however, if the table or index specifications are complex, DynamoDB might temporarily reduce the number of concurrent operations.</p> <p>There is a soft account quota of 2,500 tables.</p>\",\
+      \"documentation\":\"<p>There is no limit to the number of daily on-demand backups that can be taken. </p> <p>For most purposes, up to 500 simultaneous table operations are allowed per account. These operations include <code>CreateTable</code>, <code>UpdateTable</code>, <code>DeleteTable</code>,<code>UpdateTimeToLive</code>, <code>RestoreTableFromBackup</code>, and <code>RestoreTableToPointInTime</code>. </p> <p>When you are creating a table with one or more secondary indexes, you can have up to 250 such requests running at a time. However, if the table or index specifications are complex, then DynamoDB might temporarily reduce the number of concurrent operations.</p> <p>When importing into DynamoDB, up to 50 simultaneous import table operations are allowed per account.</p> <p>There is a soft account quota of 2,500 tables.</p>\",\
       \"exception\":true\
     },\
     \"ListAttributeValue\":{\
@@ -3580,6 +3923,41 @@
         \"LastEvaluatedGlobalTableName\":{\
           \"shape\":\"TableName\",\
           \"documentation\":\"<p>Last evaluated global table name.</p>\"\
+        }\
+      }\
+    },\
+    \"ListImportsInput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TableArn\":{\
+          \"shape\":\"TableArn\",\
+          \"documentation\":\"<p> The Amazon Resource Name (ARN) associated with the table that was imported to. </p>\"\
+        },\
+        \"PageSize\":{\
+          \"shape\":\"ListImportsMaxLimit\",\
+          \"documentation\":\"<p> The number of <code>ImportSummary </code>objects returned in a single page. </p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"ImportNextToken\",\
+          \"documentation\":\"<p> An optional string that, if supplied, must be copied from the output of a previous call to <code>ListImports</code>. When provided in this manner, the API fetches the next page of results. </p>\"\
+        }\
+      }\
+    },\
+    \"ListImportsMaxLimit\":{\
+      \"type\":\"integer\",\
+      \"max\":25,\
+      \"min\":1\
+    },\
+    \"ListImportsOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ImportSummaryList\":{\
+          \"shape\":\"ImportSummaryList\",\
+          \"documentation\":\"<p> A list of <code>ImportSummary</code> objects. </p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"ImportNextToken\",\
+          \"documentation\":\"<p> If this value is returned, there are additional results to be displayed. To retrieve them, call <code>ListImports</code> again, with <code>NextToken</code> set to this value. </p>\"\
         }\
       }\
     },\
@@ -3772,7 +4150,7 @@
     \"ParameterizedStatements\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"ParameterizedStatement\"},\
-      \"max\":25,\
+      \"max\":100,\
       \"min\":1\
     },\
     \"PartiQLBatchRequest\":{\
@@ -3851,6 +4229,10 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"AttributeValue\"},\
       \"min\":1\
+    },\
+    \"ProcessedItemCount\":{\
+      \"type\":\"long\",\
+      \"min\":0\
     },\
     \"Projection\":{\
       \"type\":\"structure\",\
@@ -4284,7 +4666,7 @@
         },\
         \"IndexStatus\":{\
           \"shape\":\"IndexStatus\",\
-          \"documentation\":\"<p>The current state of the replica global secondary index:</p> <ul> <li> <p> <code>CREATING</code> - The index is being created.</p> </li> <li> <p> <code>UPDATING</code> - The index is being updated.</p> </li> <li> <p> <code>DELETING</code> - The index is being deleted.</p> </li> <li> <p> <code>ACTIVE</code> - The index is ready for use.</p> </li> </ul>\"\
+          \"documentation\":\"<p>The current state of the replica global secondary index:</p> <ul> <li> <p> <code>CREATING</code> - The index is being created.</p> </li> <li> <p> <code>UPDATING</code> - The table/index configuration is being updated. The table/index remains available for data operations when <code>UPDATING</code> </p> </li> <li> <p> <code>DELETING</code> - The index is being deleted.</p> </li> <li> <p> <code>ACTIVE</code> - The index is ready for use.</p> </li> </ul>\"\
         },\
         \"ProvisionedReadCapacityAutoScalingSettings\":{\"shape\":\"AutoScalingSettingsDescription\"},\
         \"ProvisionedWriteCapacityAutoScalingSettings\":{\"shape\":\"AutoScalingSettingsDescription\"}\
@@ -4733,9 +5115,38 @@
         \"NONE\"\
       ]\
     },\
-    \"S3Bucket\":{\"type\":\"string\"},\
-    \"S3BucketOwner\":{\"type\":\"string\"},\
-    \"S3Prefix\":{\"type\":\"string\"},\
+    \"S3Bucket\":{\
+      \"type\":\"string\",\
+      \"max\":255,\
+      \"pattern\":\"^[a-z0-9A-Z]+[\\\\.\\\\-\\\\w]*[a-z0-9A-Z]+$\"\
+    },\
+    \"S3BucketOwner\":{\
+      \"type\":\"string\",\
+      \"pattern\":\"[0-9]{12}\"\
+    },\
+    \"S3BucketSource\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"S3Bucket\"],\
+      \"members\":{\
+        \"S3BucketOwner\":{\
+          \"shape\":\"S3BucketOwner\",\
+          \"documentation\":\"<p> The account number of the S3 bucket that is being imported from. If the bucket is owned by the requester this is optional. </p>\"\
+        },\
+        \"S3Bucket\":{\
+          \"shape\":\"S3Bucket\",\
+          \"documentation\":\"<p> The S3 bucket that is being imported from. </p>\"\
+        },\
+        \"S3KeyPrefix\":{\
+          \"shape\":\"S3Prefix\",\
+          \"documentation\":\"<p> The key prefix shared by all S3 Objects that are being imported. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p> The S3 bucket that is being imported from. </p>\"\
+    },\
+    \"S3Prefix\":{\
+      \"type\":\"string\",\
+      \"max\":1024\
+    },\
     \"S3SseAlgorithm\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -5092,6 +5503,39 @@
       \"documentation\":\"<p>Contains details of the table class.</p>\"\
     },\
     \"TableCreationDateTime\":{\"type\":\"timestamp\"},\
+    \"TableCreationParameters\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"TableName\",\
+        \"AttributeDefinitions\",\
+        \"KeySchema\"\
+      ],\
+      \"members\":{\
+        \"TableName\":{\
+          \"shape\":\"TableName\",\
+          \"documentation\":\"<p> The name of the table created as part of the import operation. </p>\"\
+        },\
+        \"AttributeDefinitions\":{\
+          \"shape\":\"AttributeDefinitions\",\
+          \"documentation\":\"<p> The attributes of the table created as part of the import operation. </p>\"\
+        },\
+        \"KeySchema\":{\
+          \"shape\":\"KeySchema\",\
+          \"documentation\":\"<p> The primary key and option sort key of the table created as part of the import operation. </p>\"\
+        },\
+        \"BillingMode\":{\
+          \"shape\":\"BillingMode\",\
+          \"documentation\":\"<p> The billing mode for provisioning the table created as part of the import operation. </p>\"\
+        },\
+        \"ProvisionedThroughput\":{\"shape\":\"ProvisionedThroughput\"},\
+        \"SSESpecification\":{\"shape\":\"SSESpecification\"},\
+        \"GlobalSecondaryIndexes\":{\
+          \"shape\":\"GlobalSecondaryIndexList\",\
+          \"documentation\":\"<p> The Global Secondary Indexes (GSI) of the table to be created as part of the import operation. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p> The parameters for the table created as part of the import operation. </p>\"\
+    },\
     \"TableDescription\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -5109,7 +5553,7 @@
         },\
         \"TableStatus\":{\
           \"shape\":\"TableStatus\",\
-          \"documentation\":\"<p>The current state of the table:</p> <ul> <li> <p> <code>CREATING</code> - The table is being created.</p> </li> <li> <p> <code>UPDATING</code> - The table is being updated.</p> </li> <li> <p> <code>DELETING</code> - The table is being deleted.</p> </li> <li> <p> <code>ACTIVE</code> - The table is ready for use.</p> </li> <li> <p> <code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the KMS key. DynamoDB will initiate the table archival process when a table's KMS key remains inaccessible for more than seven days. </p> </li> <li> <p> <code>ARCHIVING</code> - The table is being archived. Operations are not allowed until archival is complete. </p> </li> <li> <p> <code>ARCHIVED</code> - The table has been archived. See the ArchivalReason for more information. </p> </li> </ul>\"\
+          \"documentation\":\"<p>The current state of the table:</p> <ul> <li> <p> <code>CREATING</code> - The table is being created.</p> </li> <li> <p> <code>UPDATING</code> - The table/index configuration is being updated. The table/index remains available for data operations when <code>UPDATING</code>.</p> </li> <li> <p> <code>DELETING</code> - The table is being deleted.</p> </li> <li> <p> <code>ACTIVE</code> - The table is ready for use.</p> </li> <li> <p> <code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the KMS key. DynamoDB will initiate the table archival process when a table's KMS key remains inaccessible for more than seven days. </p> </li> <li> <p> <code>ARCHIVING</code> - The table is being archived. Operations are not allowed until archival is complete. </p> </li> <li> <p> <code>ARCHIVED</code> - The table has been archived. See the ArchivalReason for more information. </p> </li> </ul>\"\
         },\
         \"CreationDateTime\":{\
           \"shape\":\"Date\",\
@@ -5344,7 +5788,7 @@
     \"TransactGetItemList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"TransactGetItem\"},\
-      \"max\":25,\
+      \"max\":100,\
       \"min\":1\
     },\
     \"TransactGetItemsInput\":{\
@@ -5353,7 +5797,7 @@
       \"members\":{\
         \"TransactItems\":{\
           \"shape\":\"TransactGetItemList\",\
-          \"documentation\":\"<p>An ordered array of up to 25 <code>TransactGetItem</code> objects, each of which contains a <code>Get</code> structure.</p>\"\
+          \"documentation\":\"<p>An ordered array of up to 100 <code>TransactGetItem</code> objects, each of which contains a <code>Get</code> structure.</p>\"\
         },\
         \"ReturnConsumedCapacity\":{\
           \"shape\":\"ReturnConsumedCapacity\",\
@@ -5370,7 +5814,7 @@
         },\
         \"Responses\":{\
           \"shape\":\"ItemResponseList\",\
-          \"documentation\":\"<p>An ordered array of up to 25 <code>ItemResponse</code> objects, each of which corresponds to the <code>TransactGetItem</code> object in the same position in the <i>TransactItems</i> array. Each <code>ItemResponse</code> object contains a Map of the name-value pairs that are the projected attributes of the requested item.</p> <p>If a requested item could not be retrieved, the corresponding <code>ItemResponse</code> object is Null, or if the requested item has no projected attributes, the corresponding <code>ItemResponse</code> object is an empty Map. </p>\"\
+          \"documentation\":\"<p>An ordered array of up to 100 <code>ItemResponse</code> objects, each of which corresponds to the <code>TransactGetItem</code> object in the same position in the <i>TransactItems</i> array. Each <code>ItemResponse</code> object contains a Map of the name-value pairs that are the projected attributes of the requested item.</p> <p>If a requested item could not be retrieved, the corresponding <code>ItemResponse</code> object is Null, or if the requested item has no projected attributes, the corresponding <code>ItemResponse</code> object is an empty Map. </p>\"\
         }\
       }\
     },\
@@ -5399,7 +5843,7 @@
     \"TransactWriteItemList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"TransactWriteItem\"},\
-      \"max\":25,\
+      \"max\":100,\
       \"min\":1\
     },\
     \"TransactWriteItemsInput\":{\
@@ -5408,7 +5852,7 @@
       \"members\":{\
         \"TransactItems\":{\
           \"shape\":\"TransactWriteItemList\",\
-          \"documentation\":\"<p>An ordered array of up to 25 <code>TransactWriteItem</code> objects, each of which contains a <code>ConditionCheck</code>, <code>Put</code>, <code>Update</code>, or <code>Delete</code> object. These can operate on items in different tables, but the tables must reside in the same Amazon Web Services account and Region, and no two of them can operate on the same item. </p>\"\
+          \"documentation\":\"<p>An ordered array of up to 100 <code>TransactWriteItem</code> objects, each of which contains a <code>ConditionCheck</code>, <code>Put</code>, <code>Update</code>, or <code>Delete</code> object. These can operate on items in different tables, but the tables must reside in the same Amazon Web Services account and Region, and no two of them can operate on the same item. </p>\"\
         },\
         \"ReturnConsumedCapacity\":{\"shape\":\"ReturnConsumedCapacity\"},\
         \"ReturnItemCollectionMetrics\":{\

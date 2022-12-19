@@ -25,7 +25,7 @@
 #import "AWSSNSResources.h"
 
 static NSString *const AWSInfoSNS = @"SNS";
-NSString *const AWSSNSSDKVersion = @"2.27.12";
+NSString *const AWSSNSSDKVersion = @"2.28.5";
 
 
 @interface AWSSNSResponseSerializer : AWSXMLResponseSerializer
@@ -552,6 +552,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSSNSGetDataProtectionPolicyResponse *> *)getDataProtectionPolicy:(AWSSNSGetDataProtectionPolicyInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetDataProtectionPolicy"
+                   outputClass:[AWSSNSGetDataProtectionPolicyResponse class]];
+}
+
+- (void)getDataProtectionPolicy:(AWSSNSGetDataProtectionPolicyInput *)request
+     completionHandler:(void (^)(AWSSNSGetDataProtectionPolicyResponse *response, NSError *error))completionHandler {
+    [[self getDataProtectionPolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSSNSGetDataProtectionPolicyResponse *> * _Nonnull task) {
+        AWSSNSGetDataProtectionPolicyResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSSNSGetEndpointAttributesResponse *> *)getEndpointAttributes:(AWSSNSGetEndpointAttributesInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -960,6 +983,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)putDataProtectionPolicy:(AWSSNSPutDataProtectionPolicyInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"PutDataProtectionPolicy"
+                   outputClass:nil];
+}
+
+- (void)putDataProtectionPolicy:(AWSSNSPutDataProtectionPolicyInput *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self putDataProtectionPolicy:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
         }
 
         return nil;

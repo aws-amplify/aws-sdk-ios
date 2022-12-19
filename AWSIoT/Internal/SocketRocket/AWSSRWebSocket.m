@@ -225,7 +225,6 @@ typedef void (^data_callback)(AWSSRWebSocket *webSocket,  NSData *data);
     NSString *_closeReason;
     
     NSString *_secKey;
-    NSString *_basicAuthorizationString;
     
     BOOL _pinnedCertFound;
     
@@ -530,22 +529,6 @@ static __strong NSData *CRLFCRLF;
         if ([cookieKey length] && [cookieValue length]) {
             CFHTTPMessageSetHeaderFieldValue(request, (__bridge CFStringRef)cookieKey, (__bridge CFStringRef)cookieValue);
         }
-    }
- 
-    // set header for http basic auth
-    if (_url.user.length && _url.password.length) {
-        NSData *userAndPassword = [[NSString stringWithFormat:@"%@:%@", _url.user, _url.password] dataUsingEncoding:NSUTF8StringEncoding];
-        NSString *userAndPasswordBase64Encoded;
-        if ([keyBytes respondsToSelector:@selector(base64EncodedStringWithOptions:)]) {
-            userAndPasswordBase64Encoded = [userAndPassword base64EncodedStringWithOptions:0];
-        } else {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-            userAndPasswordBase64Encoded = [userAndPassword base64Encoding];
-#pragma clang diagnostic pop
-        }
-        _basicAuthorizationString = [NSString stringWithFormat:@"Basic %@", userAndPasswordBase64Encoded];
-        CFHTTPMessageSetHeaderFieldValue(request, CFSTR("Authorization"), (__bridge CFStringRef)_basicAuthorizationString);
     }
 
     CFHTTPMessageSetHeaderFieldValue(request, CFSTR("Upgrade"), CFSTR("websocket"));

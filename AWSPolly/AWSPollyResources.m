@@ -476,7 +476,10 @@
         \"en-NZ\",\
         \"en-ZA\",\
         \"ca-ES\",\
-        \"de-AT\"\
+        \"de-AT\",\
+        \"yue-CN\",\
+        \"ar-AE\",\
+        \"fi-FI\"\
       ]\
     },\
     \"LanguageCodeList\":{\
@@ -1139,7 +1142,15 @@
         \"Arthur\",\
         \"Daniel\",\
         \"Liam\",\
-        \"Pedro\"\
+        \"Pedro\",\
+        \"Kajal\",\
+        \"Hiujin\",\
+        \"Laura\",\
+        \"Elin\",\
+        \"Ida\",\
+        \"Suvi\",\
+        \"Ola\",\
+        \"Hala\"\
       ]\
     },\
     \"VoiceList\":{\

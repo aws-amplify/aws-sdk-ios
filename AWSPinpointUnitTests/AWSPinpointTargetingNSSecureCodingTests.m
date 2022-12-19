@@ -453,6 +453,10 @@
 - (void) test_AWSPinpointTargetingWriteJourneyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingWriteSegmentRequest API_AVAILABLE(ios(11));
 - (void) test_AWSPinpointTargetingWriteTreatmentResource API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingOpenHoursRule API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingOpenHours API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingClosedDaysRule API_AVAILABLE(ios(11));
+- (void) test_AWSPinpointTargetingClosedDays API_AVAILABLE(ios(11));
 
 @end
 
@@ -2192,6 +2196,22 @@
 
 - (void) test_AWSPinpointTargetingWriteTreatmentResource {
     [self validateSecureCodingForClass:[AWSPinpointTargetingWriteTreatmentResource class]];
+}
+
+- (void) test_AWSPinpointTargetingOpenHoursRule {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingOpenHoursRule class]];
+}
+
+- (void) test_AWSPinpointTargetingOpenHours {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingOpenHours class]];
+}
+
+- (void) test_AWSPinpointTargetingClosedDaysRule {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingClosedDaysRule class]];
+}
+
+- (void) test_AWSPinpointTargetingClosedDays {
+    [self validateSecureCodingForClass:[AWSPinpointTargetingClosedDays class]];
 }
 
 @end

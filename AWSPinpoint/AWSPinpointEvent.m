@@ -19,9 +19,10 @@
 #import "AWSPinpointDateUtils.h"
 #import "AWSPinpointSessionClient.h"
 
-static int const MAX_NUM_OF_METRICS_AND_ATTRIBUTES = 50;
-static int const MAX_EVENT_TYPE_ATTRIBUTE_METRIC_KEY_LENGTH = 50;
-static int const MAX_EVENT_ATTRIBUTE_VALUE_LENGTH = 1000;
+const NSInteger AWSPinpointEventMaxNumberOfAttributes = 40;
+const NSInteger AWSPinpointEventMaxNumberOfMetrics = 40;
+const NSInteger AWSPinpointEventMaxAttributeAndMetricKeyLength = 50;
+const NSInteger AWSPinpointEventMaxAttributeValueLength = 200;
 
 NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventErrorDomain";
 
@@ -31,7 +32,6 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
 @property (nonatomic, readwrite) AWSPinpointSession *session;
 @property (nonatomic, readwrite) NSMutableDictionary *attributes;
 @property (nonatomic, readwrite) NSMutableDictionary *metrics;
-@property (atomic, readonly) int currentNumOfAttributesAndMetrics;
 
 @end
 
@@ -67,10 +67,6 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
         _metrics = metrics;
     }
     return self;
-}
-
-- (int) currentNumOfAttributesAndMetrics {
-    return (int)self.attributes.count + (int)self.metrics.count;
 }
 
 - (NSMutableDictionary*) attributes {
@@ -115,12 +111,12 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
     if(!theKey) return;
     
     @synchronized(self.attributes) {
-        if(self.currentNumOfAttributesAndMetrics < MAX_NUM_OF_METRICS_AND_ATTRIBUTES) {
+        if(self.attributes.count < AWSPinpointEventMaxNumberOfAttributes) {
             NSString* trimmedKey = [AWSPinpointEvent trimKey:theKey forType:@"attribute"];
             NSString* trimmedValued = [AWSPinpointEvent trimValue:theValue];
             [self.attributes setValue:trimmedValued forKey:trimmedKey];
         } else {
-            AWSDDLogWarn(@"Max number of attributes/metrics reached, dropping attribute with key: %@", theKey);
+            AWSDDLogWarn(@"Max number of attributes reached, dropping attribute with key: %@", theKey);
         }
     }
 }
@@ -160,11 +156,11 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
     }
     
     @synchronized(self.metrics) {
-        if(self.currentNumOfAttributesAndMetrics < MAX_NUM_OF_METRICS_AND_ATTRIBUTES) {
-            NSString* trimmedKey = [AWSPinpointEvent trimKey:theKey forType:@"attribute"];
+        if(self.metrics.count < AWSPinpointEventMaxNumberOfMetrics) {
+            NSString* trimmedKey = [AWSPinpointEvent trimKey:theKey forType:@"metric"];
             [self.metrics setValue:theValue forKey:trimmedKey];
         } else {
-            AWSDDLogWarn(@"Max number of attributes/metrics reached, dropping metric with key: %@", theKey);
+            AWSDDLogWarn(@"Max number of metrics reached, dropping metric with key: %@", theKey);
         }
     }
 }
@@ -190,9 +186,9 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
 + (NSString*)trimKey:(NSString*)theKey
              forType:(NSString*)theType {
     NSString* trimmedKey = [AWSPinpointStringUtils clipString:theKey
-                                                   toMaxChars:MAX_EVENT_TYPE_ATTRIBUTE_METRIC_KEY_LENGTH andAppendEllipses:NO];
+                                                   toMaxChars:AWSPinpointEventMaxAttributeAndMetricKeyLength andAppendEllipses:NO];
     if(trimmedKey.length < theKey.length) {
-        AWSDDLogWarn(@"The %@ key has been trimmed to a length of %0d characters", theType, MAX_EVENT_TYPE_ATTRIBUTE_METRIC_KEY_LENGTH);
+        AWSDDLogWarn(@"The %@ key has been trimmed to a length of %0d characters", theType, AWSPinpointEventMaxAttributeAndMetricKeyLength);
     }
     
     return trimmedKey;
@@ -200,9 +196,9 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
 
 + (NSString*)trimValue:(NSString*)theValue {
     NSString* trimmedValue = [AWSPinpointStringUtils clipString:theValue
-                                                     toMaxChars:MAX_EVENT_ATTRIBUTE_VALUE_LENGTH andAppendEllipses:NO];
+                                                     toMaxChars:AWSPinpointEventMaxAttributeValueLength andAppendEllipses:NO];
     if(trimmedValue.length < theValue.length) {
-        AWSDDLogWarn( @"The attribute value has been trimmed to a length of %0d characters", MAX_EVENT_ATTRIBUTE_VALUE_LENGTH);
+        AWSDDLogWarn( @"The attribute value has been trimmed to a length of %0d characters", AWSPinpointEventMaxAttributeValueLength);
     }
     
     return trimmedValue;
