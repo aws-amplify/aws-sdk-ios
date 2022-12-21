@@ -3552,7 +3552,7 @@
     },\
     \"ChatContent\":{\
       \"type\":\"string\",\
-      \"max\":1024,\
+      \"max\":16384,\
       \"min\":1\
     },\
     \"ChatContentType\":{\
