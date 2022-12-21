@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -360,18 +360,6 @@ NSString *const AWSConnectParticipantErrorDomain = @"com.amazonaws.AWSConnectPar
         if ([value caseInsensitiveCompare:@"CONNECTION_ACK"] == NSOrderedSame) {
             return @(AWSConnectParticipantChatItemTypeConnectionAck);
         }
-        if ([value caseInsensitiveCompare:@"PARTICIPANT_ACTIVE"] == NSOrderedSame) {
-            return @(AWSConnectParticipantChatItemTypeParticipantActive);
-        }
-        if ([value caseInsensitiveCompare:@"PARTICIPANT_INACTIVE"] == NSOrderedSame) {
-            return @(AWSConnectParticipantChatItemTypeParticipantInactive);
-        }
-        if ([value caseInsensitiveCompare:@"PARTICIPANT_ENGAGED"] == NSOrderedSame) {
-            return @(AWSConnectParticipantChatItemTypeParticipantEngaged);
-        }
-        if ([value caseInsensitiveCompare:@"PARTICIPANT_DISENGAGED"] == NSOrderedSame) {
-            return @(AWSConnectParticipantChatItemTypeParticipantDisengaged);
-        }
         return @(AWSConnectParticipantChatItemTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -395,14 +383,6 @@ NSString *const AWSConnectParticipantErrorDomain = @"com.amazonaws.AWSConnectPar
                 return @"ATTACHMENT";
             case AWSConnectParticipantChatItemTypeConnectionAck:
                 return @"CONNECTION_ACK";
-            case AWSConnectParticipantChatItemTypeParticipantActive:
-                return @"PARTICIPANT_ACTIVE";
-            case AWSConnectParticipantChatItemTypeParticipantInactive:
-                return @"PARTICIPANT_INACTIVE";
-            case AWSConnectParticipantChatItemTypeParticipantEngaged:
-                return @"PARTICIPANT_ENGAGED";
-            case AWSConnectParticipantChatItemTypeParticipantDisengaged:
-                return @"PARTICIPANT_DISENGAGED";
             default:
                 return nil;
         }

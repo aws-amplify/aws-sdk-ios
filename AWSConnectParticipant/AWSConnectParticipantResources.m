@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -271,7 +271,7 @@
     \"Bool\":{\"type\":\"boolean\"},\
     \"ChatContent\":{\
       \"type\":\"string\",\
-      \"max\":1024,\
+      \"max\":16384,\
       \"min\":1\
     },\
     \"ChatContentType\":{\
@@ -296,11 +296,7 @@
         \"MESSAGE\",\
         \"EVENT\",\
         \"ATTACHMENT\",\
-        \"CONNECTION_ACK\",\
-        \"PARTICIPANT_ACTIVE\",\
-        \"PARTICIPANT_INACTIVE\",\
-        \"PARTICIPANT_ENGAGED\",\
-        \"PARTICIPANT_DISENGAGED\"\
+        \"CONNECTION_ACK\"\
       ]\
     },\
     \"ClientToken\":{\
