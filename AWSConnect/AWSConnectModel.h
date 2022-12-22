@@ -288,6 +288,17 @@ typedef NS_ENUM(NSInteger, AWSConnectNotificationDeliveryType) {
     AWSConnectNotificationDeliveryTypeEmail,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectParticipantTimerAction) {
+    AWSConnectParticipantTimerActionUnknown,
+    AWSConnectParticipantTimerActionUnset,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectParticipantTimerType) {
+    AWSConnectParticipantTimerTypeUnknown,
+    AWSConnectParticipantTimerTypeIdle,
+    AWSConnectParticipantTimerTypeDisconnectNoncustomer,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectPhoneNumberCountryCode) {
     AWSConnectPhoneNumberCountryCodeUnknown,
     AWSConnectPhoneNumberCountryCodeAf,
@@ -665,6 +676,12 @@ typedef NS_ENUM(NSInteger, AWSConnectTaskTemplateStatus) {
     AWSConnectTaskTemplateStatusInactive,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectTimerEligibleParticipantRoles) {
+    AWSConnectTimerEligibleParticipantRolesUnknown,
+    AWSConnectTimerEligibleParticipantRolesCustomer,
+    AWSConnectTimerEligibleParticipantRolesAgent,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectTrafficDistributionGroupStatus) {
     AWSConnectTrafficDistributionGroupStatusUnknown,
     AWSConnectTrafficDistributionGroupStatusCreationInProgress,
@@ -761,6 +778,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectAttribute;
 @class AWSConnectAvailableNumberSummary;
 @class AWSConnectChatMessage;
+@class AWSConnectChatParticipantRoleConfig;
 @class AWSConnectChatStreamingConfiguration;
 @class AWSConnectClaimPhoneNumberRequest;
 @class AWSConnectClaimPhoneNumberResponse;
@@ -1000,6 +1018,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectNumberReference;
 @class AWSConnectOutboundCallerConfig;
 @class AWSConnectParticipantDetails;
+@class AWSConnectParticipantTimerConfiguration;
+@class AWSConnectParticipantTimerValue;
 @class AWSConnectPhoneNumberQuickConnectConfig;
 @class AWSConnectPhoneNumberStatus;
 @class AWSConnectPhoneNumberSummary;
@@ -1112,6 +1132,9 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectUpdateHoursOfOperationRequest;
 @class AWSConnectUpdateInstanceAttributeRequest;
 @class AWSConnectUpdateInstanceStorageConfigRequest;
+@class AWSConnectUpdateParticipantRoleConfigChannelInfo;
+@class AWSConnectUpdateParticipantRoleConfigRequest;
+@class AWSConnectUpdateParticipantRoleConfigResponse;
 @class AWSConnectUpdatePhoneNumberRequest;
 @class AWSConnectUpdatePhoneNumberResponse;
 @class AWSConnectUpdateQueueHoursOfOperationRequest;
@@ -1667,14 +1690,28 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The content of the chat message.</p>
+ <p>The content of the chat message. </p><ul><li><p>For <code>text/plain</code> and <code>text/markdown</code>, the Length Constraints are Minimum of 1, Maximum of 1024. </p></li><li><p>For <code>application/json</code>, the Length Constraints are Minimum of 1, Maximum of 12000. </p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable content;
 
 /**
- <p>The type of the content. Supported types are <code>text/plain</code>.</p>
+ <p>The type of the content. Supported types are <code>text/plain</code>, <code>text/markdown</code>, and <code>application/json</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable contentType;
+
+@end
+
+/**
+ <p>Configuration information for the chat participant role.</p>
+ Required parameters: [ParticipantTimerConfigList]
+ */
+@interface AWSConnectChatParticipantRoleConfig : AWSModel
+
+
+/**
+ <p>A list of participant timers. You can specify any unique combination of role and timer type. Duplicate entries error out the request with a 400.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectParticipantTimerConfiguration *> * _Nullable participantTimerConfigList;
 
 @end
 
@@ -7111,6 +7148,48 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>Configuration information for the timer. After the timer configuration is set, it persists for the duration of the chat. It persists across new contacts in the chain, for example, transfer contacts.</p><p>For more information about how chat timeouts work, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html">Set up chat timeouts for human participants</a>. </p>
+ Required parameters: [ParticipantRole, TimerType, TimerValue]
+ */
+@interface AWSConnectParticipantTimerConfiguration : AWSModel
+
+
+/**
+ <p>The role of the participant in the chat conversation.</p>
+ */
+@property (nonatomic, assign) AWSConnectTimerEligibleParticipantRoles participantRole;
+
+/**
+ <p>The type of timer. <code>IDLE</code> indicates the timer applies for considering a human chat participant as idle. <code>DISCONNECT_NONCUSTOMER</code> indicates the timer applies to automatically disconnecting a chat participant due to idleness.</p>
+ */
+@property (nonatomic, assign) AWSConnectParticipantTimerType timerType;
+
+/**
+ <p>The value of the timer. Either the timer action (Unset to delete the timer), or the duration of the timer in minutes. Only one value can be set.</p>
+ */
+@property (nonatomic, strong) AWSConnectParticipantTimerValue * _Nullable timerValue;
+
+@end
+
+/**
+ <p>The value of the timer. Either the timer action (<code>Unset</code> to delete the timer), or the duration of the timer in minutes. Only one value can be set.</p><p>For more information about how chat timeouts work, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html">Set up chat timeouts for human participants</a>. </p>
+ */
+@interface AWSConnectParticipantTimerValue : AWSModel
+
+
+/**
+ <p>The timer action. Currently only one value is allowed: <code>Unset</code>. It deletes a timer.</p>
+ */
+@property (nonatomic, assign) AWSConnectParticipantTimerAction participantTimerAction;
+
+/**
+ <p>The duration of a timer, in minutes. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable participantTimerDurationInMinutes;
+
+@end
+
+/**
  <p>Contains information about a phone number for a quick connect.</p>
  Required parameters: [PhoneNumber]
  */
@@ -8703,7 +8782,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) AWSConnectParticipantDetails * _Nullable participantDetails;
 
 /**
- <p>The supported chat message content types. Content types can be text/plain or both text/plain and text/markdown.</p>
+ <p>The supported chat message content types. Content types must always contain <code>text/plain</code>. You can then put any other supported type in the list. For example, all the following lists are valid because they contain <code>text/plain</code>: <code>[text/plain, text/markdown, application/json]</code>, <code>[text/markdown, text/plain]</code>, <code>[text/plain, application/json]</code>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable supportedMessagingContentTypes;
 
@@ -9890,6 +9969,50 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The storage configuration for the instance.</p>
  */
 @property (nonatomic, strong) AWSConnectInstanceStorageConfig * _Nullable storageConfig;
+
+@end
+
+/**
+ <p>Configuration information for the chat participant role.</p>
+ */
+@interface AWSConnectUpdateParticipantRoleConfigChannelInfo : AWSModel
+
+
+/**
+ <p>Configuration information for the chat participant role.</p>
+ */
+@property (nonatomic, strong) AWSConnectChatParticipantRoleConfig * _Nullable chat;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateParticipantRoleConfigRequest : AWSRequest
+
+
+/**
+ <p>The Amazon Connect channel you want to configure.</p>
+ */
+@property (nonatomic, strong) AWSConnectUpdateParticipantRoleConfigChannelInfo * _Nullable channelConfiguration;
+
+/**
+ <p>The identifier of the contact in this instance of Amazon Connect. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateParticipantRoleConfigResponse : AWSModel
+
 
 @end
 

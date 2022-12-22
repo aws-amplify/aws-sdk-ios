@@ -3595,6 +3595,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectUpdateParticipantRoleConfigResponse *> *)updateParticipantRoleConfig:(AWSConnectUpdateParticipantRoleConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/contact/participant-role-config/{InstanceId}/{ContactId}"
+                  targetPrefix:@""
+                 operationName:@"UpdateParticipantRoleConfig"
+                   outputClass:[AWSConnectUpdateParticipantRoleConfigResponse class]];
+}
+
+- (void)updateParticipantRoleConfig:(AWSConnectUpdateParticipantRoleConfigRequest *)request
+     completionHandler:(void (^)(AWSConnectUpdateParticipantRoleConfigResponse *response, NSError *error))completionHandler {
+    [[self updateParticipantRoleConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectUpdateParticipantRoleConfigResponse *> * _Nonnull task) {
+        AWSConnectUpdateParticipantRoleConfigResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectUpdatePhoneNumberResponse *> *)updatePhoneNumber:(AWSConnectUpdatePhoneNumberRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT

@@ -44,6 +44,7 @@
 - (void) test_AWSConnectAttribute API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAvailableNumberSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectChatMessage API_AVAILABLE(ios(11));
+- (void) test_AWSConnectChatParticipantRoleConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectChatStreamingConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSConnectClaimPhoneNumberRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectClaimPhoneNumberResponse API_AVAILABLE(ios(11));
@@ -283,6 +284,8 @@
 - (void) test_AWSConnectNumberReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectOutboundCallerConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectParticipantDetails API_AVAILABLE(ios(11));
+- (void) test_AWSConnectParticipantTimerConfiguration API_AVAILABLE(ios(11));
+- (void) test_AWSConnectParticipantTimerValue API_AVAILABLE(ios(11));
 - (void) test_AWSConnectPhoneNumberQuickConnectConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectPhoneNumberStatus API_AVAILABLE(ios(11));
 - (void) test_AWSConnectPhoneNumberSummary API_AVAILABLE(ios(11));
@@ -395,6 +398,9 @@
 - (void) test_AWSConnectUpdateHoursOfOperationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateInstanceAttributeRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateInstanceStorageConfigRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUpdateParticipantRoleConfigChannelInfo API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUpdateParticipantRoleConfigRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUpdateParticipantRoleConfigResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdatePhoneNumberRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdatePhoneNumberResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateQueueHoursOfOperationRequest API_AVAILABLE(ios(11));
@@ -541,6 +547,10 @@
 
 - (void) test_AWSConnectChatMessage {
     [self validateSecureCodingForClass:[AWSConnectChatMessage class]];
+}
+
+- (void) test_AWSConnectChatParticipantRoleConfig {
+    [self validateSecureCodingForClass:[AWSConnectChatParticipantRoleConfig class]];
 }
 
 - (void) test_AWSConnectChatStreamingConfiguration {
@@ -1499,6 +1509,14 @@
     [self validateSecureCodingForClass:[AWSConnectParticipantDetails class]];
 }
 
+- (void) test_AWSConnectParticipantTimerConfiguration {
+    [self validateSecureCodingForClass:[AWSConnectParticipantTimerConfiguration class]];
+}
+
+- (void) test_AWSConnectParticipantTimerValue {
+    [self validateSecureCodingForClass:[AWSConnectParticipantTimerValue class]];
+}
+
 - (void) test_AWSConnectPhoneNumberQuickConnectConfig {
     [self validateSecureCodingForClass:[AWSConnectPhoneNumberQuickConnectConfig class]];
 }
@@ -1945,6 +1963,18 @@
 
 - (void) test_AWSConnectUpdateInstanceStorageConfigRequest {
     [self validateSecureCodingForClass:[AWSConnectUpdateInstanceStorageConfigRequest class]];
+}
+
+- (void) test_AWSConnectUpdateParticipantRoleConfigChannelInfo {
+    [self validateSecureCodingForClass:[AWSConnectUpdateParticipantRoleConfigChannelInfo class]];
+}
+
+- (void) test_AWSConnectUpdateParticipantRoleConfigRequest {
+    [self validateSecureCodingForClass:[AWSConnectUpdateParticipantRoleConfigRequest class]];
+}
+
+- (void) test_AWSConnectUpdateParticipantRoleConfigResponse {
+    [self validateSecureCodingForClass:[AWSConnectUpdateParticipantRoleConfigResponse class]];
 }
 
 - (void) test_AWSConnectUpdatePhoneNumberRequest {

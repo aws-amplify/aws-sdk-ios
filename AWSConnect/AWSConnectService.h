@@ -2847,7 +2847,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listUsers:(AWSConnectListUsersRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListUsersResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Initiates silent monitoring of a contact. The Contact Control Panel (CCP) of the user specified by <i>userId</i> will be set to silent monitoring mode on the contact.</p>
+ <p>Initiates silent monitoring of a contact. The Contact Control Panel (CCP) of the user specified by <i>userId</i> will be set to silent monitoring mode on the contact. Supports voice and chat contacts.</p>
  
  @param request A container for the necessary parameters to execute the MonitorContact service method.
 
@@ -2859,7 +2859,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectMonitorContactResponse *> *)monitorContact:(AWSConnectMonitorContactRequest *)request;
 
 /**
- <p>Initiates silent monitoring of a contact. The Contact Control Panel (CCP) of the user specified by <i>userId</i> will be set to silent monitoring mode on the contact.</p>
+ <p>Initiates silent monitoring of a contact. The Contact Control Panel (CCP) of the user specified by <i>userId</i> will be set to silent monitoring mode on the contact. Supports voice and chat contacts.</p>
  
  @param request A container for the necessary parameters to execute the MonitorContact service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3690,6 +3690,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectUpdateInstanceStorageConfigRequest
  */
 - (void)updateInstanceStorageConfig:(AWSConnectUpdateInstanceStorageConfigRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Updates timeouts for when human chat participants are to be considered idle, and when agents are automatically disconnected from a chat due to idleness. You can set four timers:</p><ul><li><p>Customer idle timeout</p></li><li><p>Customer auto-disconnect timeout</p></li><li><p>Agent idle timeout</p></li><li><p>Agent auto-disconnect timeout</p></li></ul><p>For more information about how chat timeouts work, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html">Set up chat timeouts for human participants</a>. </p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateParticipantRoleConfig service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectUpdateParticipantRoleConfigResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorAccessDenied`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectUpdateParticipantRoleConfigRequest
+ @see AWSConnectUpdateParticipantRoleConfigResponse
+ */
+- (AWSTask<AWSConnectUpdateParticipantRoleConfigResponse *> *)updateParticipantRoleConfig:(AWSConnectUpdateParticipantRoleConfigRequest *)request;
+
+/**
+ <p>Updates timeouts for when human chat participants are to be considered idle, and when agents are automatically disconnected from a chat due to idleness. You can set four timers:</p><ul><li><p>Customer idle timeout</p></li><li><p>Customer auto-disconnect timeout</p></li><li><p>Agent idle timeout</p></li><li><p>Agent auto-disconnect timeout</p></li></ul><p>For more information about how chat timeouts work, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html">Set up chat timeouts for human participants</a>. </p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateParticipantRoleConfig service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorAccessDenied`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectUpdateParticipantRoleConfigRequest
+ @see AWSConnectUpdateParticipantRoleConfigResponse
+ */
+- (void)updateParticipantRoleConfig:(AWSConnectUpdateParticipantRoleConfigRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectUpdateParticipantRoleConfigResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Updates your claimed phone number from its current Amazon Connect instance or traffic distribution group to another Amazon Connect instance or traffic distribution group in the same Amazon Web Services Region.</p><important><p>You can call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation.</p></important>

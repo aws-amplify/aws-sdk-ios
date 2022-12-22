@@ -2151,6 +2151,24 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectChatParticipantRoleConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"participantTimerConfigList" : @"ParticipantTimerConfigList",
+             };
+}
+
++ (NSValueTransformer *)participantTimerConfigListJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectParticipantTimerConfiguration class]];
+}
+
+@end
+
 @implementation AWSConnectChatStreamingConfiguration
 
 + (BOOL)supportsSecureCoding {
@@ -10921,6 +10939,99 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectParticipantTimerConfiguration
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"participantRole" : @"ParticipantRole",
+             @"timerType" : @"TimerType",
+             @"timerValue" : @"TimerValue",
+             };
+}
+
++ (NSValueTransformer *)participantRoleJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CUSTOMER"] == NSOrderedSame) {
+            return @(AWSConnectTimerEligibleParticipantRolesCustomer);
+        }
+        if ([value caseInsensitiveCompare:@"AGENT"] == NSOrderedSame) {
+            return @(AWSConnectTimerEligibleParticipantRolesAgent);
+        }
+        return @(AWSConnectTimerEligibleParticipantRolesUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectTimerEligibleParticipantRolesCustomer:
+                return @"CUSTOMER";
+            case AWSConnectTimerEligibleParticipantRolesAgent:
+                return @"AGENT";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)timerTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"IDLE"] == NSOrderedSame) {
+            return @(AWSConnectParticipantTimerTypeIdle);
+        }
+        if ([value caseInsensitiveCompare:@"DISCONNECT_NONCUSTOMER"] == NSOrderedSame) {
+            return @(AWSConnectParticipantTimerTypeDisconnectNoncustomer);
+        }
+        return @(AWSConnectParticipantTimerTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectParticipantTimerTypeIdle:
+                return @"IDLE";
+            case AWSConnectParticipantTimerTypeDisconnectNoncustomer:
+                return @"DISCONNECT_NONCUSTOMER";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)timerValueJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectParticipantTimerValue class]];
+}
+
+@end
+
+@implementation AWSConnectParticipantTimerValue
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"participantTimerAction" : @"ParticipantTimerAction",
+             @"participantTimerDurationInMinutes" : @"ParticipantTimerDurationInMinutes",
+             };
+}
+
++ (NSValueTransformer *)participantTimerActionJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Unset"] == NSOrderedSame) {
+            return @(AWSConnectParticipantTimerActionUnset);
+        }
+        return @(AWSConnectParticipantTimerActionUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectParticipantTimerActionUnset:
+                return @"Unset";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSConnectPhoneNumberQuickConnectConfig
 
 + (BOOL)supportsSecureCoding {
@@ -16502,6 +16613,52 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSValueTransformer *)storageConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectInstanceStorageConfig class]];
+}
+
+@end
+
+@implementation AWSConnectUpdateParticipantRoleConfigChannelInfo
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"chat" : @"Chat",
+             };
+}
+
++ (NSValueTransformer *)chatJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectChatParticipantRoleConfig class]];
+}
+
+@end
+
+@implementation AWSConnectUpdateParticipantRoleConfigRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"channelConfiguration" : @"ChannelConfiguration",
+             @"contactId" : @"ContactId",
+             @"instanceId" : @"InstanceId",
+             };
+}
+
++ (NSValueTransformer *)channelConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectUpdateParticipantRoleConfigChannelInfo class]];
+}
+
+@end
+
+@implementation AWSConnectUpdateParticipantRoleConfigResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
 }
 
 @end
