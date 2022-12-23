@@ -3,30 +3,40 @@
 ## Unreleased
 
 ### New features
--Features for next release
+- **AWSTranscribeStreaming**
+  - Add support for the following addtional language codes:
+    - EnAU
+    - ItIT
+    - DeDE
+    - PtBR
+    - JaJP
+    - KoKR
+    - ZhCN
+    - HiIN
+    - ThTH
 
 ### Misc. Updates
 - **AWSIoT**
-  -remove basic authentication support in `AWSSRWebsocket` (See [PR #4444](https://github.com/aws-amplify/aws-sdk-ios/pull/4444))
+  - remove basic authentication support in `AWSSRWebsocket` (See [PR #4444](https://github.com/aws-amplify/aws-sdk-ios/pull/4444))
 
 - Model updates for the following services
----AWSIoT
----AWSCloudWatchLogs
----AWSTranscribe
----AWSTextract
----AWSIoTDataPlane
----AWSKMS
----AWSFirehose
----AWSEC2
----AWSLambda
----AWSDynamoDB
----AWSConnect
----AWSSTS
----AWSElasticLoadBalancingv2
----AWSPolly
----AWSComprehend
----AWSRekognition
----AWSSNS
+  - AWSIoT
+  - AWSCloudWatchLogs
+  - AWSTranscribe
+  - AWSTextract
+  - AWSIoTDataPlane
+  - AWSKMS
+  - AWSFirehose
+  - AWSEC2
+  - AWSLambda
+  - AWSDynamoDB
+  - AWSConnect
+  - AWSSTS
+  - AWSElasticLoadBalancingv2
+  - AWSPolly
+  - AWSComprehend
+  - AWSRekognition
+  - AWSSNS
 
 ## 2.28.5
 
