@@ -729,7 +729,9 @@
         \"hi-IN\",\
         \"es-US\",\
         \"en-GB\",\
-        \"en-AU\"\
+        \"en-AU\",\
+        \"de-DE\",\
+        \"ja-JP\"\
       ]\
     },\
     \"CallAnalyticsJob\":{\
@@ -1641,7 +1643,9 @@
         \"zh-TW\",\
         \"th-TH\",\
         \"en-ZA\",\
-        \"en-NZ\"\
+        \"en-NZ\",\
+        \"vi-VN\",\
+        \"sv-SE\"\
       ]\
     },\
     \"LanguageCodeItem\":{\
