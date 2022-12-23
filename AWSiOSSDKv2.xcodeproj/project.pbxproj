@@ -560,6 +560,7 @@
 		21E97D472558DBFF004C98D6 /* AsynchronousOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E97D462558DBFF004C98D6 /* AsynchronousOperation.swift */; };
 		5C1590172755727C00F88085 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
 		5C1978DD2702364800F9C11E /* AWSLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1978DC2702364800F9C11E /* AWSLocationTests.swift */; };
+		5C71F33F295672B8001183A4 /* guten_tag.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5C71F33E295672B8001183A4 /* guten_tag.wav */; };
 		6BE9D6AA25A54EBA00AB5C9A /* AWSIotDataManagerRetainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9D6A925A54EBA00AB5C9A /* AWSIotDataManagerRetainTests.swift */; };
 		6BE9D74025A6D52100AB5C9A /* MQTTStatusCallBackWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9D73F25A6D52100AB5C9A /* MQTTStatusCallBackWrapper.swift */; };
 		6BE9D74225A6D62000AB5C9A /* AWSIotDataManagerQoSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9D74125A6D62000AB5C9A /* AWSIotDataManagerQoSTests.swift */; };
@@ -3089,6 +3090,7 @@
 		21E97D462558DBFF004C98D6 /* AsynchronousOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsynchronousOperation.swift; sourceTree = "<group>"; };
 		5C1978DB2702364800F9C11E /* AWSLocationTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSLocationTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		5C1978DC2702364800F9C11E /* AWSLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSLocationTests.swift; sourceTree = "<group>"; };
+		5C71F33E295672B8001183A4 /* guten_tag.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = guten_tag.wav; sourceTree = "<group>"; };
 		6BE9D6A925A54EBA00AB5C9A /* AWSIotDataManagerRetainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSIotDataManagerRetainTests.swift; sourceTree = "<group>"; };
 		6BE9D73F25A6D52100AB5C9A /* MQTTStatusCallBackWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTTStatusCallBackWrapper.swift; sourceTree = "<group>"; };
 		6BE9D74125A6D62000AB5C9A /* AWSIotDataManagerQoSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSIotDataManagerQoSTests.swift; sourceTree = "<group>"; };
@@ -5211,6 +5213,7 @@
 			children = (
 				FA53332022D4065900BD88AF /* AWSTranscribeStreamingSwiftTests.swift */,
 				FA53331F22D4065800BD88AF /* AWSTranscribeStreamingTests-Bridging-Header.h */,
+				5C71F33E295672B8001183A4 /* guten_tag.wav */,
 				FABD9ED322D6661200BD4441 /* hello_world.wav */,
 				178A805122B097B900B167D6 /* Info.plist */,
 			);
@@ -11134,6 +11137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FABD9ED422D6661300BD4441 /* hello_world.wav in Resources */,
+				5C71F33F295672B8001183A4 /* guten_tag.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
