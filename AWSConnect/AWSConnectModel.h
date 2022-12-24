@@ -46,6 +46,14 @@ typedef NS_ENUM(NSInteger, AWSConnectErrorType) {
     AWSConnectErrorUserNotFound,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectActionType) {
+    AWSConnectActionTypeUnknown,
+    AWSConnectActionTypeCreateTask,
+    AWSConnectActionTypeAssignContactCategory,
+    AWSConnectActionTypeGenerateEventbridgeEvent,
+    AWSConnectActionTypeSendNotification,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectAgentStatusState) {
     AWSConnectAgentStatusStateUnknown,
     AWSConnectAgentStatusStateEnabled,
@@ -154,6 +162,16 @@ typedef NS_ENUM(NSInteger, AWSConnectEncryptionType) {
     AWSConnectEncryptionTypeKms,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectEventSourceName) {
+    AWSConnectEventSourceNameUnknown,
+    AWSConnectEventSourceNameOnPostCallAnalysisAvailable,
+    AWSConnectEventSourceNameOnRealTimeCallAnalysisAvailable,
+    AWSConnectEventSourceNameOnPostChatAnalysisAvailable,
+    AWSConnectEventSourceNameOnZendeskTicketCreate,
+    AWSConnectEventSourceNameOnZendeskTicketStatusUpdate,
+    AWSConnectEventSourceNameOnSalesforceCaseCreate,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectGrouping) {
     AWSConnectGroupingUnknown,
     AWSConnectGroupingQueue,
@@ -258,6 +276,16 @@ typedef NS_ENUM(NSInteger, AWSConnectMonitorCapability) {
     AWSConnectMonitorCapabilityUnknown,
     AWSConnectMonitorCapabilitySilentMonitor,
     AWSConnectMonitorCapabilityBarge,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectNotificationContentType) {
+    AWSConnectNotificationContentTypeUnknown,
+    AWSConnectNotificationContentTypePlainText,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectNotificationDeliveryType) {
+    AWSConnectNotificationDeliveryTypeUnknown,
+    AWSConnectNotificationDeliveryTypeEmail,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectPhoneNumberCountryCode) {
@@ -576,6 +604,12 @@ typedef NS_ENUM(NSInteger, AWSConnectResourceType) {
     AWSConnectResourceTypeUser,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectRulePublishStatus) {
+    AWSConnectRulePublishStatusUnknown,
+    AWSConnectRulePublishStatusDraft,
+    AWSConnectRulePublishStatusPublished,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectSearchableQueueType) {
     AWSConnectSearchableQueueTypeUnknown,
     AWSConnectSearchableQueueTypeStandard,
@@ -683,6 +717,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVocabularyLanguageCode) {
     AWSConnectVocabularyLanguageCodePtBR,
     AWSConnectVocabularyLanguageCodePtPT,
     AWSConnectVocabularyLanguageCodeZhCN,
+    AWSConnectVocabularyLanguageCodeEnNZ,
+    AWSConnectVocabularyLanguageCodeEnZA,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectVocabularyState) {
@@ -700,12 +736,14 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
     AWSConnectVoiceRecordingTrackAll,
 };
 
+@class AWSConnectActionSummary;
 @class AWSConnectAgentContactReference;
 @class AWSConnectAgentInfo;
 @class AWSConnectAgentStatus;
 @class AWSConnectAgentStatusReference;
 @class AWSConnectAgentStatusSummary;
 @class AWSConnectAnswerMachineDetectionConfig;
+@class AWSConnectAssignContactCategoryActionDefinition;
 @class AWSConnectAssociateApprovedOriginRequest;
 @class AWSConnectAssociateBotRequest;
 @class AWSConnectAssociateDefaultVocabularyRequest;
@@ -752,6 +790,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectCreateQuickConnectResponse;
 @class AWSConnectCreateRoutingProfileRequest;
 @class AWSConnectCreateRoutingProfileResponse;
+@class AWSConnectCreateRuleRequest;
+@class AWSConnectCreateRuleResponse;
 @class AWSConnectCreateSecurityProfileRequest;
 @class AWSConnectCreateSecurityProfileResponse;
 @class AWSConnectCreateTaskTemplateRequest;
@@ -779,6 +819,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDeleteInstanceRequest;
 @class AWSConnectDeleteIntegrationAssociationRequest;
 @class AWSConnectDeleteQuickConnectRequest;
+@class AWSConnectDeleteRuleRequest;
 @class AWSConnectDeleteSecurityProfileRequest;
 @class AWSConnectDeleteTaskTemplateRequest;
 @class AWSConnectDeleteTaskTemplateResponse;
@@ -813,6 +854,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDescribeQuickConnectResponse;
 @class AWSConnectDescribeRoutingProfileRequest;
 @class AWSConnectDescribeRoutingProfileResponse;
+@class AWSConnectDescribeRuleRequest;
+@class AWSConnectDescribeRuleResponse;
 @class AWSConnectDescribeSecurityProfileRequest;
 @class AWSConnectDescribeSecurityProfileResponse;
 @class AWSConnectDescribeTrafficDistributionGroupRequest;
@@ -840,6 +883,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDistribution;
 @class AWSConnectEmailReference;
 @class AWSConnectEncryptionConfig;
+@class AWSConnectEventBridgeActionDefinition;
 @class AWSConnectFilters;
 @class AWSConnectGetContactAttributesRequest;
 @class AWSConnectGetContactAttributesResponse;
@@ -929,6 +973,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectListRoutingProfileQueuesResponse;
 @class AWSConnectListRoutingProfilesRequest;
 @class AWSConnectListRoutingProfilesResponse;
+@class AWSConnectListRulesRequest;
+@class AWSConnectListRulesResponse;
 @class AWSConnectListSecurityKeysRequest;
 @class AWSConnectListSecurityKeysResponse;
 @class AWSConnectListSecurityProfilePermissionsRequest;
@@ -950,6 +996,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectMediaConcurrency;
 @class AWSConnectMonitorContactRequest;
 @class AWSConnectMonitorContactResponse;
+@class AWSConnectNotificationRecipientType;
 @class AWSConnectNumberReference;
 @class AWSConnectOutboundCallerConfig;
 @class AWSConnectParticipantDetails;
@@ -988,6 +1035,10 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectRoutingProfileSearchCriteria;
 @class AWSConnectRoutingProfileSearchFilter;
 @class AWSConnectRoutingProfileSummary;
+@class AWSConnectRule;
+@class AWSConnectRuleAction;
+@class AWSConnectRuleSummary;
+@class AWSConnectRuleTriggerEventSource;
 @class AWSConnectS3Config;
 @class AWSConnectSearchAvailablePhoneNumbersRequest;
 @class AWSConnectSearchAvailablePhoneNumbersResponse;
@@ -1007,6 +1058,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectSecurityProfileSearchSummary;
 @class AWSConnectSecurityProfileSummary;
 @class AWSConnectSecurityProfilesSearchFilter;
+@class AWSConnectSendNotificationActionDefinition;
 @class AWSConnectStartChatContactRequest;
 @class AWSConnectStartChatContactResponse;
 @class AWSConnectStartContactRecordingRequest;
@@ -1029,6 +1081,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectSuspendContactRecordingResponse;
 @class AWSConnectTagCondition;
 @class AWSConnectTagResourceRequest;
+@class AWSConnectTaskActionDefinition;
 @class AWSConnectTaskTemplateConstraints;
 @class AWSConnectTaskTemplateDefaultFieldValue;
 @class AWSConnectTaskTemplateDefaults;
@@ -1072,6 +1125,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectUpdateRoutingProfileDefaultOutboundQueueRequest;
 @class AWSConnectUpdateRoutingProfileNameRequest;
 @class AWSConnectUpdateRoutingProfileQueuesRequest;
+@class AWSConnectUpdateRuleRequest;
 @class AWSConnectUpdateSecurityProfileRequest;
 @class AWSConnectUpdateTaskTemplateRequest;
 @class AWSConnectUpdateTaskTemplateResponse;
@@ -1101,6 +1155,20 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectVocabulary;
 @class AWSConnectVocabularySummary;
 @class AWSConnectVoiceRecordingConfiguration;
+
+/**
+ <p>Information about an action.</p>
+ Required parameters: [ActionType]
+ */
+@interface AWSConnectActionSummary : AWSModel
+
+
+/**
+ <p>The action type.</p>
+ */
+@property (nonatomic, assign) AWSConnectActionType actionType;
+
+@end
 
 /**
  <p>Information about the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Contact.html">contact</a> associated to the user.</p>
@@ -1272,6 +1340,14 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The flag to indicate if answer machine detection analysis needs to be performed for a voice call. If set to <code>true</code>, <code>TrafficType</code> must be set as <code>CAMPAIGN</code>. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enableAnswerMachineDetection;
+
+@end
+
+/**
+ <p>This action must be set if <code>TriggerEventSource</code> is one of the following values: <code>OnPostCallAnalysisAvailable</code> | <code>OnRealTimeCallAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code>. Contact is categorized using the rule name.</p><p><code>RuleName</code> is used as <code>ContactCategory</code>.</p>
+ */
+@interface AWSConnectAssignContactCategoryActionDefinition : AWSModel
+
 
 @end
 
@@ -1936,7 +2012,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
- <p>Contains summary information about a flow.</p><p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect Flow language</a>.</p>
+ <p>Contains summary information about a flow.</p><p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect Flow language</a>.</p>
  */
 @interface AWSConnectContactFlowSummary : AWSModel
 
@@ -2513,6 +2589,67 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectCreateRuleRequest : AWSRequest
+
+
+/**
+ <p>A list of actions to be run when the rule is triggered.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectRuleAction *> * _Nullable actions;
+
+/**
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>The conditions of the rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable function;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>A unique name for the rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The publish status of the rule.</p>
+ */
+@property (nonatomic, assign) AWSConnectRulePublishStatus publishStatus;
+
+/**
+ <p>The event source to trigger the rule.</p>
+ */
+@property (nonatomic, strong) AWSConnectRuleTriggerEventSource * _Nullable triggerEventSource;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectCreateRuleResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleArn;
+
+/**
+ <p>A unique identifier for the rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectCreateSecurityProfileRequest : AWSRequest
 
 
@@ -2542,7 +2679,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable securityProfileName;
 
 /**
- <p>The list of resources that a security profile applies tag restrictions to in Amazon Connect.</p>
+ <p>The list of resources that a security profile applies tag restrictions to in Amazon Connect. Following are acceptable ResourceNames: <code>User</code> | <code>SecurityProfile</code> | <code>Queue</code> | <code>RoutingProfile</code></p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable tagRestrictedResources;
 
@@ -3165,6 +3302,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectDeleteRuleRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>A unique identifier for the rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectDeleteSecurityProfileRequest : AWSRequest
 
 
@@ -3697,6 +3852,37 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectDescribeRuleRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>A unique identifier for the rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDescribeRuleResponse : AWSModel
+
+
+/**
+ <p>Information about the rule.</p>
+ */
+@property (nonatomic, strong) AWSConnectRule * _Nullable rule;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectDescribeSecurityProfileRequest : AWSRequest
 
 
@@ -4159,6 +4345,20 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The full ARN of the encryption key. </p><note><p>Be sure to provide the full ARN of the encryption key, not just the ID.</p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable keyId;
+
+@end
+
+/**
+ <p>The EventBridge action definition.</p>
+ Required parameters: [Name]
+ */
+@interface AWSConnectEventBridgeActionDefinition : AWSModel
+
+
+/**
+ <p>The name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
 
 @end
 
@@ -6344,6 +6544,57 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectListRulesRequest : AWSRequest
+
+
+/**
+ <p>The name of the event source.</p>
+ */
+@property (nonatomic, assign) AWSConnectEventSourceName eventSourceName;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The publish status of the rule.</p>
+ */
+@property (nonatomic, assign) AWSConnectRulePublishStatus publishStatus;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListRulesResponse : AWSModel
+
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Summary information about a rule.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectRuleSummary *> * _Nullable ruleSummaryList;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectListSecurityKeysRequest : AWSRequest
 
 
@@ -6783,6 +7034,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The identifier of the contact.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable contactId;
+
+@end
+
+/**
+ <p>The type of notification recipient.</p>
+ */
+@interface AWSConnectNotificationRecipientType : AWSModel
+
+
+/**
+ <p>A list of user IDs.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable userIds;
+
+/**
+ <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }. Amazon Connect users with the specified tags will be notified.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable userTags;
 
 @end
 
@@ -7665,6 +7934,172 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>Information about a rule.</p>
+ Required parameters: [Name, RuleId, RuleArn, TriggerEventSource, Function, Actions, PublishStatus, CreatedTime, LastUpdatedTime, LastUpdatedBy]
+ */
+@interface AWSConnectRule : AWSModel
+
+
+/**
+ <p>A list of actions to be run when the rule is triggered.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectRuleAction *> * _Nullable actions;
+
+/**
+ <p>The timestamp for when the rule was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable createdTime;
+
+/**
+ <p>The conditions of the rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable function;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the user who last updated the rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastUpdatedBy;
+
+/**
+ <p>The timestamp for the when the rule was last updated.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastUpdatedTime;
+
+/**
+ <p>The name of the rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The publish status of the rule.</p>
+ */
+@property (nonatomic, assign) AWSConnectRulePublishStatus publishStatus;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleArn;
+
+/**
+ <p>A unique identifier for the rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleId;
+
+/**
+ <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+/**
+ <p>The event source to trigger the rule.</p>
+ */
+@property (nonatomic, strong) AWSConnectRuleTriggerEventSource * _Nullable triggerEventSource;
+
+@end
+
+/**
+ <p>Information about the action to be performed when a rule is triggered.</p>
+ Required parameters: [ActionType]
+ */
+@interface AWSConnectRuleAction : AWSModel
+
+
+/**
+ <p>The type of action that creates a rule.</p>
+ */
+@property (nonatomic, assign) AWSConnectActionType actionType;
+
+/**
+ <p>Information about the contact category action.</p>
+ */
+@property (nonatomic, strong) AWSConnectAssignContactCategoryActionDefinition * _Nullable assignContactCategoryAction;
+
+/**
+ <p>Information about the EventBridge action.</p>
+ */
+@property (nonatomic, strong) AWSConnectEventBridgeActionDefinition * _Nullable eventBridgeAction;
+
+/**
+ <p>Information about the send notification action.</p>
+ */
+@property (nonatomic, strong) AWSConnectSendNotificationActionDefinition * _Nullable sendNotificationAction;
+
+/**
+ <p>Information about the task action. This field is required if <code>TriggerEventSource</code> is one of the following values: <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code></p>
+ */
+@property (nonatomic, strong) AWSConnectTaskActionDefinition * _Nullable taskAction;
+
+@end
+
+/**
+ <p>A list of <code>ActionTypes</code> associated with a rule. </p>
+ Required parameters: [Name, RuleId, RuleArn, EventSourceName, PublishStatus, ActionSummaries, CreatedTime, LastUpdatedTime]
+ */
+@interface AWSConnectRuleSummary : AWSModel
+
+
+/**
+ <p>A list of ActionTypes associated with a rule. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectActionSummary *> * _Nullable actionSummaries;
+
+/**
+ <p>The timestamp for when the rule was created. </p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable createdTime;
+
+/**
+ <p>The name of the event source.</p>
+ */
+@property (nonatomic, assign) AWSConnectEventSourceName eventSourceName;
+
+/**
+ <p>The timestamp for when the rule was last updated.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastUpdatedTime;
+
+/**
+ <p>The name of the rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The publish status of the rule.</p>
+ */
+@property (nonatomic, assign) AWSConnectRulePublishStatus publishStatus;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleArn;
+
+/**
+ <p>A unique identifier for the rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleId;
+
+@end
+
+/**
+ <p>The name of the event source. This field is required if <code>TriggerEventSource</code> is one of the following values: <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code></p>
+ Required parameters: [EventSourceName]
+ */
+@interface AWSConnectRuleTriggerEventSource : AWSModel
+
+
+/**
+ <p>The name of the event source.</p>
+ */
+@property (nonatomic, assign) AWSConnectEventSourceName eventSourceName;
+
+/**
+ <p>The identifier for the integration association.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable integrationAssociationId;
+
+@end
+
+/**
  <p>Information about the Amazon Simple Storage Service (Amazon S3) storage type.</p>
  Required parameters: [BucketName, BucketPrefix]
  */
@@ -8193,6 +8628,40 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>Information about the send notification action.</p>
+ Required parameters: [DeliveryMethod, Content, ContentType, Recipient]
+ */
+@interface AWSConnectSendNotificationActionDefinition : AWSModel
+
+
+/**
+ <p>Notification content. Supports variable injection. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html">JSONPath reference</a> in the <i>Amazon Connect Administrators Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable content;
+
+/**
+ <p>Content type format.</p>
+ */
+@property (nonatomic, assign) AWSConnectNotificationContentType contentType;
+
+/**
+ <p>Notification delivery method.</p>
+ */
+@property (nonatomic, assign) AWSConnectNotificationDeliveryType deliveryMethod;
+
+/**
+ <p>Notification recipient.</p>
+ */
+@property (nonatomic, strong) AWSConnectNotificationRecipientType * _Nullable recipient;
+
+/**
+ <p>The subject of the email if the delivery method is <code>EMAIL</code>. Supports variable injection. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html">JSONPath reference</a> in the <i>Amazon Connect Administrators Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable subject;
+
+@end
+
+/**
  
  */
 @interface AWSConnectStartChatContactRequest : AWSRequest
@@ -8684,6 +9153,35 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>Information about the task action.</p>
+ Required parameters: [Name, ContactFlowId]
+ */
+@interface AWSConnectTaskActionDefinition : AWSModel
+
+
+/**
+ <p>The identifier of the flow.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactFlowId;
+
+/**
+ <p>The description. Supports variable injection. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html">JSONPath reference</a> in the <i>Amazon Connect Administrators Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The name. Supports variable injection. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html">JSONPath reference</a> in the <i>Amazon Connect Administrators Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>Information about the reference when the <code>referenceType</code> is <code>URL</code>. Otherwise, null. (Supports variable injection in the <code>Value</code> field.)</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSConnectReference *> * _Nullable references;
+
+@end
+
+/**
  <p>Describes constraints that apply to the template fields.</p>
  */
 @interface AWSConnectTaskTemplateConstraints : AWSModel
@@ -9090,7 +9588,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable contactFlowId;
 
 /**
- <p>The JSON string that represents flow's content. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language-example.html">Example contact flow in Amazon Connect Flow language</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+ <p>The JSON string that represents flow's content. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example contact flow in Amazon Connect Flow language</a>. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable content;
 
@@ -9701,6 +10199,44 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The identifier of the routing profile.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable routingProfileId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateRuleRequest : AWSRequest
+
+
+/**
+ <p>A list of actions to be run when the rule is triggered.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectRuleAction *> * _Nullable actions;
+
+/**
+ <p>The conditions of the rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable function;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The name of the rule. You can change the name only if <code>TriggerEventSource</code> is one of the following values: <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The publish status of the rule.</p>
+ */
+@property (nonatomic, assign) AWSConnectRulePublishStatus publishStatus;
+
+/**
+ <p>A unique identifier for the rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleId;
 
 @end
 

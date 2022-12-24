@@ -43,6 +43,8 @@ typedef NS_ENUM(NSInteger, AWSTranscribeCLMLanguageCode) {
     AWSTranscribeCLMLanguageCodeEsUS,
     AWSTranscribeCLMLanguageCodeEnGB,
     AWSTranscribeCLMLanguageCodeEnAU,
+    AWSTranscribeCLMLanguageCodeDeDE,
+    AWSTranscribeCLMLanguageCodeJaJP,
 };
 
 typedef NS_ENUM(NSInteger, AWSTranscribeCallAnalyticsJobStatus) {
@@ -98,6 +100,8 @@ typedef NS_ENUM(NSInteger, AWSTranscribeLanguageCode) {
     AWSTranscribeLanguageCodeThTH,
     AWSTranscribeLanguageCodeEnZA,
     AWSTranscribeLanguageCodeEnNZ,
+    AWSTranscribeLanguageCodeViVN,
+    AWSTranscribeLanguageCodeSvSE,
 };
 
 typedef NS_ENUM(NSInteger, AWSTranscribeMediaFormat) {
