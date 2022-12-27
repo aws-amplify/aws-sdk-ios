@@ -63,8 +63,8 @@
     client.APIKey = @"someApikey";
     NSDictionary *finalizedHeader = [client finalizeRequestHeaders:requestHeader];
     XCTAssertEqual(finalizedHeader.count, 3);
-    XCTAssertEqual([finalizedHeader valueForKey:@"x-api-key"], @"someApikey");
-    XCTAssertEqual([finalizedHeader valueForKey:@"Cache-Control"], @"no-store");
+    XCTAssertEqualObjects([finalizedHeader valueForKey:@"x-api-key"], @"someApikey");
+    XCTAssertEqualObjects([finalizedHeader valueForKey:@"Cache-Control"], @"no-store");
 }
 
 - (void)testHeaderGenerationWithCustomCache {
@@ -72,7 +72,7 @@
     AWSAPIGatewayClient *client = [AWSAPIGatewayClient new];
     NSDictionary *finalizedHeader = [client finalizeRequestHeaders:requestHeader];
     XCTAssertEqual(finalizedHeader.count, 1);
-    XCTAssertEqual([finalizedHeader valueForKey:@"Cache-Control"], @"private");
+    XCTAssertEqualObjects([finalizedHeader valueForKey:@"Cache-Control"], @"private");
 }
 
 @end
