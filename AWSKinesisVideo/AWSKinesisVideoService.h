@@ -275,6 +275,31 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
 - (void)deleteStream:(AWSKinesisVideoDeleteStreamInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoDeleteStreamOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Describes a stream’s edge configuration that was set using the <code>StartEdgeConfigurationUpdate</code> API. Use this API to get the status of the configuration if the configuration is in sync with the Edge Agent.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeEdgeConfiguration service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisVideoDescribeEdgeConfigurationOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorAccessDenied`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorStreamEdgeConfigurationNotFound`.
+ 
+ @see AWSKinesisVideoDescribeEdgeConfigurationInput
+ @see AWSKinesisVideoDescribeEdgeConfigurationOutput
+ */
+- (AWSTask<AWSKinesisVideoDescribeEdgeConfigurationOutput *> *)describeEdgeConfiguration:(AWSKinesisVideoDescribeEdgeConfigurationInput *)request;
+
+/**
+ <p>Describes a stream’s edge configuration that was set using the <code>StartEdgeConfigurationUpdate</code> API. Use this API to get the status of the configuration if the configuration is in sync with the Edge Agent.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeEdgeConfiguration service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorAccessDenied`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorStreamEdgeConfigurationNotFound`.
+ 
+ @see AWSKinesisVideoDescribeEdgeConfigurationInput
+ @see AWSKinesisVideoDescribeEdgeConfigurationOutput
+ */
+- (void)describeEdgeConfiguration:(AWSKinesisVideoDescribeEdgeConfigurationInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoDescribeEdgeConfigurationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Gets the <code>ImageGenerationConfiguration</code> for a given Kinesis video stream.</p>
  
  @param request A container for the necessary parameters to execute the DescribeImageGenerationConfiguration service method.
@@ -298,6 +323,56 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
  @see AWSKinesisVideoDescribeImageGenerationConfigurationOutput
  */
 - (void)describeImageGenerationConfiguration:(AWSKinesisVideoDescribeImageGenerationConfigurationInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoDescribeImageGenerationConfigurationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Returns the most current information about the stream. Either streamName or streamARN should be provided in the input.</p><p>Returns the most current information about the stream. The <code>streamName</code> or <code>streamARN</code> should be provided in the input.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeMappedResourceConfiguration service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisVideoDescribeMappedResourceConfigurationOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorAccessDenied`, `AWSKinesisVideoErrorClientLimitExceeded`.
+ 
+ @see AWSKinesisVideoDescribeMappedResourceConfigurationInput
+ @see AWSKinesisVideoDescribeMappedResourceConfigurationOutput
+ */
+- (AWSTask<AWSKinesisVideoDescribeMappedResourceConfigurationOutput *> *)describeMappedResourceConfiguration:(AWSKinesisVideoDescribeMappedResourceConfigurationInput *)request;
+
+/**
+ <p>Returns the most current information about the stream. Either streamName or streamARN should be provided in the input.</p><p>Returns the most current information about the stream. The <code>streamName</code> or <code>streamARN</code> should be provided in the input.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeMappedResourceConfiguration service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorAccessDenied`, `AWSKinesisVideoErrorClientLimitExceeded`.
+ 
+ @see AWSKinesisVideoDescribeMappedResourceConfigurationInput
+ @see AWSKinesisVideoDescribeMappedResourceConfigurationOutput
+ */
+- (void)describeMappedResourceConfiguration:(AWSKinesisVideoDescribeMappedResourceConfigurationInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoDescribeMappedResourceConfigurationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Returns the most current information about the channel. Specify the <code>ChannelName</code> or <code>ChannelARN</code> in the input.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeMediaStorageConfiguration service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisVideoDescribeMediaStorageConfigurationOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorAccessDenied`, `AWSKinesisVideoErrorClientLimitExceeded`.
+ 
+ @see AWSKinesisVideoDescribeMediaStorageConfigurationInput
+ @see AWSKinesisVideoDescribeMediaStorageConfigurationOutput
+ */
+- (AWSTask<AWSKinesisVideoDescribeMediaStorageConfigurationOutput *> *)describeMediaStorageConfiguration:(AWSKinesisVideoDescribeMediaStorageConfigurationInput *)request;
+
+/**
+ <p>Returns the most current information about the channel. Specify the <code>ChannelName</code> or <code>ChannelARN</code> in the input.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeMediaStorageConfiguration service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorAccessDenied`, `AWSKinesisVideoErrorClientLimitExceeded`.
+ 
+ @see AWSKinesisVideoDescribeMediaStorageConfigurationInput
+ @see AWSKinesisVideoDescribeMediaStorageConfigurationOutput
+ */
+- (void)describeMediaStorageConfiguration:(AWSKinesisVideoDescribeMediaStorageConfigurationInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoDescribeMediaStorageConfigurationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Gets the <code>NotificationConfiguration</code> for a given Kinesis video stream.</p>
@@ -525,6 +600,31 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
 - (void)listTagsForStream:(AWSKinesisVideoListTagsForStreamInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoListTagsForStreamOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>An asynchronous API that updates a stream’s existing edge configuration. The Kinesis Video Stream will sync the stream’s edge configuration with the Edge Agent IoT Greengrass component that runs on an IoT Hub Device, setup at your premise. The time to sync can vary and depends on the connectivity of the Hub Device. The <code>SyncStatus</code> will be updated as the edge configuration is acknowledged, and synced with the Edge Agent. </p><p>If this API is invoked for the first time, a new edge configuration will be created for the stream, and the sync status will be set to <code>SYNCING</code>. You will have to wait for the sync status to reach a terminal state such as: <code>IN_SYNC</code>, or <code>SYNC_FAILED</code>, before using this API again. If you invoke this API during the syncing process, a <code>ResourceInUseException</code> will be thrown. The connectivity of the stream’s edge configuration and the Edge Agent will be retried for 15 minutes. After 15 minutes, the status will transition into the <code>SYNC_FAILED</code> state.</p>
+ 
+ @param request A container for the necessary parameters to execute the StartEdgeConfigurationUpdate service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisVideoStartEdgeConfigurationUpdateOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorAccessDenied`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorNoDataRetention`, `AWSKinesisVideoErrorResourceInUse`, `AWSKinesisVideoErrorResourceNotFound`.
+ 
+ @see AWSKinesisVideoStartEdgeConfigurationUpdateInput
+ @see AWSKinesisVideoStartEdgeConfigurationUpdateOutput
+ */
+- (AWSTask<AWSKinesisVideoStartEdgeConfigurationUpdateOutput *> *)startEdgeConfigurationUpdate:(AWSKinesisVideoStartEdgeConfigurationUpdateInput *)request;
+
+/**
+ <p>An asynchronous API that updates a stream’s existing edge configuration. The Kinesis Video Stream will sync the stream’s edge configuration with the Edge Agent IoT Greengrass component that runs on an IoT Hub Device, setup at your premise. The time to sync can vary and depends on the connectivity of the Hub Device. The <code>SyncStatus</code> will be updated as the edge configuration is acknowledged, and synced with the Edge Agent. </p><p>If this API is invoked for the first time, a new edge configuration will be created for the stream, and the sync status will be set to <code>SYNCING</code>. You will have to wait for the sync status to reach a terminal state such as: <code>IN_SYNC</code>, or <code>SYNC_FAILED</code>, before using this API again. If you invoke this API during the syncing process, a <code>ResourceInUseException</code> will be thrown. The connectivity of the stream’s edge configuration and the Edge Agent will be retried for 15 minutes. After 15 minutes, the status will transition into the <code>SYNC_FAILED</code> state.</p>
+ 
+ @param request A container for the necessary parameters to execute the StartEdgeConfigurationUpdate service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorAccessDenied`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorNoDataRetention`, `AWSKinesisVideoErrorResourceInUse`, `AWSKinesisVideoErrorResourceNotFound`.
+ 
+ @see AWSKinesisVideoStartEdgeConfigurationUpdateInput
+ @see AWSKinesisVideoStartEdgeConfigurationUpdateOutput
+ */
+- (void)startEdgeConfigurationUpdate:(AWSKinesisVideoStartEdgeConfigurationUpdateInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoStartEdgeConfigurationUpdateOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Adds one or more tags to a signaling channel. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to Amazon Web Services resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a> in the <i>Billing and Cost Management and Cost Management User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the TagResource service method.
@@ -673,6 +773,31 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
  @see AWSKinesisVideoUpdateImageGenerationConfigurationOutput
  */
 - (void)updateImageGenerationConfiguration:(AWSKinesisVideoUpdateImageGenerationConfigurationInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoUpdateImageGenerationConfigurationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Associates a <code>SignalingChannel</code> to a stream to store the media. There are two signaling modes that can specified :</p><ul><li><p>If the <code>StorageStatus</code> is disabled, no data will be stored, and the <code>StreamARN</code> parameter will not be needed. </p></li><li><p>If the <code>StorageStatus</code> is enabled, the data will be stored in the <code>StreamARN</code> provided. </p></li></ul>
+ 
+ @param request A container for the necessary parameters to execute the UpdateMediaStorageConfiguration service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisVideoUpdateMediaStorageConfigurationOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorResourceInUse`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorAccessDenied`, `AWSKinesisVideoErrorNoDataRetention`.
+ 
+ @see AWSKinesisVideoUpdateMediaStorageConfigurationInput
+ @see AWSKinesisVideoUpdateMediaStorageConfigurationOutput
+ */
+- (AWSTask<AWSKinesisVideoUpdateMediaStorageConfigurationOutput *> *)updateMediaStorageConfiguration:(AWSKinesisVideoUpdateMediaStorageConfigurationInput *)request;
+
+/**
+ <p>Associates a <code>SignalingChannel</code> to a stream to store the media. There are two signaling modes that can specified :</p><ul><li><p>If the <code>StorageStatus</code> is disabled, no data will be stored, and the <code>StreamARN</code> parameter will not be needed. </p></li><li><p>If the <code>StorageStatus</code> is enabled, the data will be stored in the <code>StreamARN</code> provided. </p></li></ul>
+ 
+ @param request A container for the necessary parameters to execute the UpdateMediaStorageConfiguration service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorResourceInUse`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorAccessDenied`, `AWSKinesisVideoErrorNoDataRetention`.
+ 
+ @see AWSKinesisVideoUpdateMediaStorageConfigurationInput
+ @see AWSKinesisVideoUpdateMediaStorageConfigurationOutput
+ */
+- (void)updateMediaStorageConfiguration:(AWSKinesisVideoUpdateMediaStorageConfigurationInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoUpdateMediaStorageConfigurationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Updates the notification information for a stream.</p>
