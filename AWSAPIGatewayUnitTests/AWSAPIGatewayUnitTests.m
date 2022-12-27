@@ -69,8 +69,10 @@
 
 - (void)testHeaderGenerationWithCustomCache {
     NSDictionary *requestHeader = [NSDictionary dictionaryWithObjectsAndKeys: @"Cache-Control", @"private", nil];
+    NSLog(@"requestHeader: %@", requestHeader);
     AWSAPIGatewayClient *client = [AWSAPIGatewayClient new];
     NSDictionary *finalizedHeader = [client finalizeRequestHeaders:requestHeader];
+    NSLog(@"finalizedHeader: %@", finalizedHeader);
     XCTAssertEqual(finalizedHeader.count, 1);
     XCTAssertEqualObjects([finalizedHeader valueForKey:@"Cache-Control"], @"private");
 }
