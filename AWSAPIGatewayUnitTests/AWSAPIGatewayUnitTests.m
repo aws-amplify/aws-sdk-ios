@@ -20,6 +20,7 @@
 @interface AWSAPIGatewayClient()
 
 - (NSURL *)requestURL:(NSString *)URLString query:(NSDictionary *)query URLPathComponentsDictionary:(NSDictionary *)URLPathComponentsDictionary;
+- (NSDictionary *)finalizeRequestHeaders:(NSDictionary *)requestHeaders;
 
 @end
 
@@ -54,6 +55,24 @@
                                       }];
 
     XCTAssertEqualObjects([URL path], @"/user/my-user-id/action/my-action-id");
+}
+
+- (void)testHeaderGenerationWithAPIKey {
+    NSDictionary *requestHeader = [NSDictionary dictionaryWithObjectsAndKeys: @"someheader", @"somevalue", nil];
+    AWSAPIGatewayClient *client = [AWSAPIGatewayClient new];
+    client.APIKey = @"someApikey";
+    NSDictionary *finalizedHeader = [client finalizeRequestHeaders:requestHeader];
+    XCTAssertEqual(finalizedHeader.count, 3);
+    XCTAssertEqual([finalizedHeader valueForKey:@"x-api-key"], @"someApikey");
+    XCTAssertEqual([finalizedHeader valueForKey:@"Cache-Control"], @"no-store");
+}
+
+- (void)testHeaderGenerationWithCustomCache {
+    NSDictionary *requestHeader = [NSDictionary dictionaryWithObjectsAndKeys: @"Cache-Control", @"private", nil];
+    AWSAPIGatewayClient *client = [AWSAPIGatewayClient new];
+    NSDictionary *finalizedHeader = [client finalizeRequestHeaders:requestHeader];
+    XCTAssertEqual(finalizedHeader.count, 1);
+    XCTAssertEqual([finalizedHeader valueForKey:@"Cache-Control"], @"private");
 }
 
 @end
