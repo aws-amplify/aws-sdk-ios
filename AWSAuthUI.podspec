@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
                       :tag => s.version}
    s.requires_arc = true
    s.dependency 'AWSCore', '2.28.5'
-   s.dependency 'AWSAuthCoƒre', '2.28.5'
+   s.dependency 'AWSAuthCore', '2.28.5'
    s.source_files = 'AWSAuthSDK/Sources/AWSAuthUI/*.{h,m}', 'AWSAuthSDK/Sources/AWSAuthUI/**/*.{h,m}', 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/UserPoolsUI/AWSFormTableCell.h', 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/UserPoolsUI/AWSTableInputCell.h', 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/UserPoolsUI/AWSFormTableDelegate.h', 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/UserPoolsUI/AWSUserPoolsUIHelper.h'
    s.public_header_files = 'AWSAuthSDK/Sources/AWSAuthUI/AWSAuthUI.h', 'AWSAuthSDK/Sources/AWSAuthUI/AWSAuthUIViewController.h', 'AWSAuthSDK/Sources/AWSAuthUI/AWSAuthUIConfiguration.h'
    s.private_header_files = 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/UserPoolsUI/AWSFormTableCell.h', 'AWSAuthSDK/Sources/AWSAuthUI/AWSSignInViewController.h', 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/UserPoolsUI/AWSTableInputCell.h', 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/UserPoolsUI/AWSFormTableDelegate.h'
