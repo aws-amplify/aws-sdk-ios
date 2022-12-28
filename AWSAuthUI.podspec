@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
    s.name         = 'AWSAuthUI'
-   s.version      = '3.0.1'
+   s.version      = '3.0.2'
    s.summary      = 'Amazon Web Services SDK for iOS.'
  
    s.description  = 'The AWS SDK for iOS provides a library, code samples, and documentation for developers to build connected mobile applications using AWS.'
  
-   s.homepage     = 'http://aws.amazon.com/mobile/sdk'
+   s.homepage     = 'http://leaksentinel.com'
    s.license      = 'Apache License, Version 2.0'
    s.author       = { 'Amazon Web Services' => 'amazonwebservices' }
    s.platform     = :ios, '9.0'
