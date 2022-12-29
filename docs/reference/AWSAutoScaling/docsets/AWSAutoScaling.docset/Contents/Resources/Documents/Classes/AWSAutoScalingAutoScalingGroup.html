@@ -17,7 +17,7 @@
     <a title="AWSAutoScalingAutoScalingGroup Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSAutoScaling 2.28.5 Docs</a> (82% documented)</p>
+        <p><a href="../index.html">AWSAutoScaling 2.28.6 Docs</a> (82% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSAutoScaling.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -78,6 +78,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingAttachLoadBalancersType.html">AWSAutoScalingAttachLoadBalancersType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSAutoScalingAttachTrafficSourcesResultType">AWSAutoScalingAttachTrafficSourcesResultType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingAttachTrafficSourcesType.html">AWSAutoScalingAttachTrafficSourcesType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingAutoScalingGroup.html">AWSAutoScalingAutoScalingGroup</a>
@@ -230,6 +236,12 @@
                 <a href="../Classes/AWSAutoScalingDescribeTerminationPolicyTypesAnswer.html">AWSAutoScalingDescribeTerminationPolicyTypesAnswer</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingDescribeTrafficSourcesRequest.html">AWSAutoScalingDescribeTrafficSourcesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingDescribeTrafficSourcesResponse.html">AWSAutoScalingDescribeTrafficSourcesResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingDescribeWarmPoolAnswer.html">AWSAutoScalingDescribeWarmPoolAnswer</a>
               </li>
               <li class="nav-group-task">
@@ -255,6 +267,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingDetachLoadBalancersType.html">AWSAutoScalingDetachLoadBalancersType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSAutoScalingDetachTrafficSourcesResultType">AWSAutoScalingDetachTrafficSourcesResultType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingDetachTrafficSourcesType.html">AWSAutoScalingDetachTrafficSourcesType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingDisableMetricsCollectionQuery.html">AWSAutoScalingDisableMetricsCollectionQuery</a>
@@ -521,10 +539,22 @@
                 <a href="../Classes/AWSAutoScalingTargetTrackingConfiguration.html">AWSAutoScalingTargetTrackingConfiguration</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingTargetTrackingMetricDataQuery.html">AWSAutoScalingTargetTrackingMetricDataQuery</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingTargetTrackingMetricStat.html">AWSAutoScalingTargetTrackingMetricStat</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingTerminateInstanceInAutoScalingGroupType.html">AWSAutoScalingTerminateInstanceInAutoScalingGroupType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingTotalLocalStorageGBRequest.html">AWSAutoScalingTotalLocalStorageGBRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingTrafficSourceIdentifier.html">AWSAutoScalingTrafficSourceIdentifier</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingTrafficSourceState.html">AWSAutoScalingTrafficSourceState</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingUpdateAutoScalingGroupType.html">AWSAutoScalingUpdateAutoScalingGroupType</a>
@@ -1057,7 +1087,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The service to use for the health checks. The valid values are <code>EC2</code> and <code>ELB</code>. If you configure an Auto Scaling group to use <code>ELB</code> health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks.</p>
+                        <p>Determines whether any additional health checks are performed on the instances in this group. Amazon EC2 health checks are always on.</p><p>The valid values are <code>EC2</code> (default), <code>ELB</code>, and <code>VPC_LATTICE</code>. The <code>VPC_LATTICE</code> health check type is reserved for use with VPC Lattice, which is in preview release and is subject to change.</p>
 
                       </div>
                       <div class="declaration">
@@ -1623,6 +1653,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSAutoScalingAutoScalingGroup(py)trafficSources"></a>
+                    <a name="//apple_ref/objc/Property/trafficSources" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSAutoScalingAutoScalingGroup(py)trafficSources">trafficSources</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The unique identifiers of the traffic sources.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/AWSAutoScalingTrafficSourceIdentifier.html">AWSAutoScalingTrafficSourceIdentifier</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">trafficSources</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">trafficSources</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/AWSAutoScalingTrafficSourceIdentifier.html">AWSAutoScalingTrafficSourceIdentifier</a></span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSAutoScalingAutoScalingGroup(py)VPCZoneIdentifier"></a>
                     <a name="//apple_ref/objc/Property/VPCZoneIdentifier" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSAutoScalingAutoScalingGroup(py)VPCZoneIdentifier">VPCZoneIdentifier</a>
@@ -1721,7 +1783,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-11-22)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-12-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

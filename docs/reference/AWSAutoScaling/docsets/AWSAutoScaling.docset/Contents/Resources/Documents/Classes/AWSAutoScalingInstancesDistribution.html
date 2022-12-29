@@ -17,7 +17,7 @@
     <a title="AWSAutoScalingInstancesDistribution Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSAutoScaling 2.28.5 Docs</a> (82% documented)</p>
+        <p><a href="../index.html">AWSAutoScaling 2.28.6 Docs</a> (82% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSAutoScaling.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -78,6 +78,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingAttachLoadBalancersType.html">AWSAutoScalingAttachLoadBalancersType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSAutoScalingAttachTrafficSourcesResultType">AWSAutoScalingAttachTrafficSourcesResultType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingAttachTrafficSourcesType.html">AWSAutoScalingAttachTrafficSourcesType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingAutoScalingGroup.html">AWSAutoScalingAutoScalingGroup</a>
@@ -230,6 +236,12 @@
                 <a href="../Classes/AWSAutoScalingDescribeTerminationPolicyTypesAnswer.html">AWSAutoScalingDescribeTerminationPolicyTypesAnswer</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingDescribeTrafficSourcesRequest.html">AWSAutoScalingDescribeTrafficSourcesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingDescribeTrafficSourcesResponse.html">AWSAutoScalingDescribeTrafficSourcesResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingDescribeWarmPoolAnswer.html">AWSAutoScalingDescribeWarmPoolAnswer</a>
               </li>
               <li class="nav-group-task">
@@ -255,6 +267,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingDetachLoadBalancersType.html">AWSAutoScalingDetachLoadBalancersType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSAutoScalingDetachTrafficSourcesResultType">AWSAutoScalingDetachTrafficSourcesResultType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingDetachTrafficSourcesType.html">AWSAutoScalingDetachTrafficSourcesType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingDisableMetricsCollectionQuery.html">AWSAutoScalingDisableMetricsCollectionQuery</a>
@@ -521,10 +539,22 @@
                 <a href="../Classes/AWSAutoScalingTargetTrackingConfiguration.html">AWSAutoScalingTargetTrackingConfiguration</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingTargetTrackingMetricDataQuery.html">AWSAutoScalingTargetTrackingMetricDataQuery</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingTargetTrackingMetricStat.html">AWSAutoScalingTargetTrackingMetricStat</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingTerminateInstanceInAutoScalingGroupType.html">AWSAutoScalingTerminateInstanceInAutoScalingGroupType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingTotalLocalStorageGBRequest.html">AWSAutoScalingTotalLocalStorageGBRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingTrafficSourceIdentifier.html">AWSAutoScalingTrafficSourceIdentifier</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingTrafficSourceState.html">AWSAutoScalingTrafficSourceState</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingUpdateAutoScalingGroupType.html">AWSAutoScalingUpdateAutoScalingGroupType</a>
@@ -767,7 +797,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>The allocation strategy to apply to your Spot Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.</p><p>The following lists the valid values:</p><dl><dt>capacity-optimized</dt><dd><p>Requests Spot Instances using pools that are optimally chosen based on the available Spot capacity. This strategy has the lowest risk of interruption. To give certain instance types a higher chance of launching first, use <code>capacity-optimized-prioritized</code>.</p></dd><dt>capacity-optimized-prioritized</dt><dd><p>You set the order of instance types for the launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling honors the instance type priorities on a best effort basis but optimizes for capacity first. Note that if the On-Demand allocation strategy is set to <code>prioritized</code>, the same priority is applied when fulfilling On-Demand capacity. This is not a valid value for Auto Scaling groups that specify <a>InstanceRequirements</a>.</p></dd><dt>lowest-price</dt><dd><p>Requests Spot Instances using the lowest priced pools within an Availability Zone, across the number of Spot pools that you specify for the <code>SpotInstancePools</code> property. To ensure that your desired capacity is met, you might receive Spot Instances from several pools. This is the default value, but it might lead to high interruption rates because this strategy only considers instance price and not available capacity.</p></dd><dt>price-capacity-optimized (recommended)</dt><dd><p>Amazon EC2 Auto Scaling identifies the pools with the highest capacity availability for the number of instances that are launching. This means that we will request Spot Instances from the pools that we believe have the lowest chance of interruption in the near term. Amazon EC2 Auto Scaling then requests Spot Instances from the lowest priced of these pools.</p></dd></dl></p>
+                        <p><p>The allocation strategy to apply to your Spot Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.</p><p>The following lists the valid values:</p><dl><dt>capacity-optimized</dt><dd><p>Requests Spot Instances using pools that are optimally chosen based on the available Spot capacity. This strategy has the lowest risk of interruption. To give certain instance types a higher chance of launching first, use <code>capacity-optimized-prioritized</code>.</p></dd><dt>capacity-optimized-prioritized</dt><dd><p>You set the order of instance types for the launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling honors the instance type priorities on a best effort basis but optimizes for capacity first. Note that if the On-Demand allocation strategy is set to <code>prioritized</code>, the same priority is applied when fulfilling On-Demand capacity. This is not a valid value for Auto Scaling groups that specify <a>InstanceRequirements</a>.</p></dd><dt>lowest-price</dt><dd><p>Requests Spot Instances using the lowest priced pools within an Availability Zone, across the number of Spot pools that you specify for the <code>SpotInstancePools</code> property. To ensure that your desired capacity is met, you might receive Spot Instances from several pools. This is the default value, but it might lead to high interruption rates because this strategy only considers instance price and not available capacity.</p></dd><dt>price-capacity-optimized (recommended)</dt><dd><p>The price and capacity optimized allocation strategy looks at both price and capacity to select the Spot Instance pools that are the least likely to be interrupted and have the lowest possible price.</p></dd></dl></p>
 
                       </div>
                       <div class="declaration">
@@ -855,7 +885,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-11-22)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-12-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

@@ -17,7 +17,7 @@
     <a title="AWSAutoScaling Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSAutoScaling 2.28.5 Docs</a> (82% documented)</p>
+        <p><a href="../index.html">AWSAutoScaling 2.28.6 Docs</a> (82% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSAutoScaling.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -78,6 +78,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingAttachLoadBalancersType.html">AWSAutoScalingAttachLoadBalancersType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSAutoScalingAttachTrafficSourcesResultType">AWSAutoScalingAttachTrafficSourcesResultType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingAttachTrafficSourcesType.html">AWSAutoScalingAttachTrafficSourcesType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingAutoScalingGroup.html">AWSAutoScalingAutoScalingGroup</a>
@@ -230,6 +236,12 @@
                 <a href="../Classes/AWSAutoScalingDescribeTerminationPolicyTypesAnswer.html">AWSAutoScalingDescribeTerminationPolicyTypesAnswer</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingDescribeTrafficSourcesRequest.html">AWSAutoScalingDescribeTrafficSourcesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingDescribeTrafficSourcesResponse.html">AWSAutoScalingDescribeTrafficSourcesResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingDescribeWarmPoolAnswer.html">AWSAutoScalingDescribeWarmPoolAnswer</a>
               </li>
               <li class="nav-group-task">
@@ -255,6 +267,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingDetachLoadBalancersType.html">AWSAutoScalingDetachLoadBalancersType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSAutoScalingDetachTrafficSourcesResultType">AWSAutoScalingDetachTrafficSourcesResultType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingDetachTrafficSourcesType.html">AWSAutoScalingDetachTrafficSourcesType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingDisableMetricsCollectionQuery.html">AWSAutoScalingDisableMetricsCollectionQuery</a>
@@ -521,10 +539,22 @@
                 <a href="../Classes/AWSAutoScalingTargetTrackingConfiguration.html">AWSAutoScalingTargetTrackingConfiguration</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingTargetTrackingMetricDataQuery.html">AWSAutoScalingTargetTrackingMetricDataQuery</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingTargetTrackingMetricStat.html">AWSAutoScalingTargetTrackingMetricStat</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingTerminateInstanceInAutoScalingGroupType.html">AWSAutoScalingTerminateInstanceInAutoScalingGroupType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingTotalLocalStorageGBRequest.html">AWSAutoScalingTotalLocalStorageGBRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingTrafficSourceIdentifier.html">AWSAutoScalingTrafficSourceIdentifier</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingTrafficSourceState.html">AWSAutoScalingTrafficSourceState</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingUpdateAutoScalingGroupType.html">AWSAutoScalingUpdateAutoScalingGroupType</a>
@@ -1411,6 +1441,150 @@
                               <td>
                                 <div>
                                   <p>A container for the necessary parameters to execute the AttachLoadBalancers service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSAutoScalingErrorDomain">AWSAutoScalingErrorDomain</a></code> domain and the following error code: <code>AWSAutoScalingErrorResourceContention</code>, <code>AWSAutoScalingErrorServiceLinkedRoleFailure</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSAutoScaling(im)attachTrafficSources:"></a>
+                    <a name="//apple_ref/objc/Method/-attachTrafficSources:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSAutoScaling(im)attachTrafficSources:">-attachTrafficSources:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change. Do not use this API for production workloads. This API is also subject to change.</b></p><p>Attaches one or more traffic sources to the specified Auto Scaling group.</p><p>To describe the traffic sources for an Auto Scaling group, call the <a>DescribeTrafficSources</a> API. To detach a traffic source from the Auto Scaling group, call the <a>DetachTrafficSources</a> API.</p><p>This operation is additive and does not detach existing traffic sources from the Auto Scaling group.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSAutoScalingAttachTrafficSourcesType</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSAutoScalingAttachTrafficSourcesResultType</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">attachTrafficSources</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSAutoScalingAttachTrafficSourcesType.html">AWSAutoScalingAttachTrafficSourcesType</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">attachTrafficSources</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingAttachTrafficSourcesType.html">AWSAutoScalingAttachTrafficSourcesType</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the AttachTrafficSources service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSAutoScalingAttachTrafficSourcesResultType">AWSAutoScalingAttachTrafficSourcesResultType</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSAutoScalingErrorDomain">AWSAutoScalingErrorDomain</a></code> domain and the following error code: <code>AWSAutoScalingErrorResourceContention</code>, <code>AWSAutoScalingErrorServiceLinkedRoleFailure</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSAutoScaling(im)attachTrafficSources:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-attachTrafficSources:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSAutoScaling(im)attachTrafficSources:completionHandler:">-attachTrafficSources:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change. Do not use this API for production workloads. This API is also subject to change.</b></p><p>Attaches one or more traffic sources to the specified Auto Scaling group.</p><p>To describe the traffic sources for an Auto Scaling group, call the <a>DescribeTrafficSources</a> API. To detach a traffic source from the Auto Scaling group, call the <a>DetachTrafficSources</a> API.</p><p>This operation is additive and does not detach existing traffic sources from the Auto Scaling group.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSAutoScalingAttachTrafficSourcesType</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSAutoScalingAttachTrafficSourcesResultType</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">attachTrafficSources</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSAutoScalingAttachTrafficSourcesType.html">AWSAutoScalingAttachTrafficSourcesType</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+           <span class="nf">completionHandler</span><span class="p">:</span>
+               <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                   <span class="n"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingAttachTrafficSourcesResultType">AWSAutoScalingAttachTrafficSourcesResultType</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                   <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">attachTrafficSources</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingAttachTrafficSourcesType.html">AWSAutoScalingAttachTrafficSourcesType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingAttachTrafficSourcesResultType">AWSAutoScalingAttachTrafficSourcesResultType</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the AttachTrafficSources service method.</p>
                                 </div>
                               </td>
                             </tr>
@@ -4792,7 +4966,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets information about the Elastic Load Balancing target groups for the specified Auto Scaling group.</p><p>To determine the attachment status of the target group, use the <code>State</code> element in the response. When you attach a target group to an Auto Scaling group, the initial <code>State</code> value is <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling instances are registered with the target group. If Elastic Load Balancing health checks are enabled for the Auto Scaling group, the state transitions to <code>InService</code> after at least one Auto Scaling instance passes the health check. When the target group is in the <code>InService</code> state, Amazon EC2 Auto Scaling can terminate and replace any instances that are reported as unhealthy. If no registered instances pass the health checks, the target group doesn&rsquo;t enter the <code>InService</code> state. </p><p>Target groups also have an <code>InService</code> state if you attach them in the <a>CreateAutoScalingGroup</a> API call. If your target group state is <code>InService</code>, but it is not working properly, check the scaling activities by calling <a>DescribeScalingActivities</a> and take any corrective actions necessary.</p><p>For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
+                        <p><p>Gets information about the Elastic Load Balancing target groups for the specified Auto Scaling group.</p><p>To determine the attachment status of the target group, use the <code>State</code> element in the response. When you attach a target group to an Auto Scaling group, the initial <code>State</code> value is <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling instances are registered with the target group. If Elastic Load Balancing health checks are enabled for the Auto Scaling group, the state transitions to <code>InService</code> after at least one Auto Scaling instance passes the health check. When the target group is in the <code>InService</code> state, Amazon EC2 Auto Scaling can terminate and replace any instances that are reported as unhealthy. If no registered instances pass the health checks, the target group doesn&rsquo;t enter the <code>InService</code> state. </p><p>Target groups also have an <code>InService</code> state if you attach them in the <a>CreateAutoScalingGroup</a> API call. If your target group state is <code>InService</code>, but it is not working properly, check the scaling activities by calling <a>DescribeScalingActivities</a> and take any corrective actions necessary.</p><p>For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p><note><p>You can use this operation to describe target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>, but not for target groups that were attached by using <a>AttachTrafficSources</a>.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSAutoScalingDescribeLoadBalancerTargetGroupsRequest</p>
@@ -4857,7 +5031,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets information about the Elastic Load Balancing target groups for the specified Auto Scaling group.</p><p>To determine the attachment status of the target group, use the <code>State</code> element in the response. When you attach a target group to an Auto Scaling group, the initial <code>State</code> value is <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling instances are registered with the target group. If Elastic Load Balancing health checks are enabled for the Auto Scaling group, the state transitions to <code>InService</code> after at least one Auto Scaling instance passes the health check. When the target group is in the <code>InService</code> state, Amazon EC2 Auto Scaling can terminate and replace any instances that are reported as unhealthy. If no registered instances pass the health checks, the target group doesn&rsquo;t enter the <code>InService</code> state. </p><p>Target groups also have an <code>InService</code> state if you attach them in the <a>CreateAutoScalingGroup</a> API call. If your target group state is <code>InService</code>, but it is not working properly, check the scaling activities by calling <a>DescribeScalingActivities</a> and take any corrective actions necessary.</p><p>For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
+                        <p><p>Gets information about the Elastic Load Balancing target groups for the specified Auto Scaling group.</p><p>To determine the attachment status of the target group, use the <code>State</code> element in the response. When you attach a target group to an Auto Scaling group, the initial <code>State</code> value is <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling instances are registered with the target group. If Elastic Load Balancing health checks are enabled for the Auto Scaling group, the state transitions to <code>InService</code> after at least one Auto Scaling instance passes the health check. When the target group is in the <code>InService</code> state, Amazon EC2 Auto Scaling can terminate and replace any instances that are reported as unhealthy. If no registered instances pass the health checks, the target group doesn&rsquo;t enter the <code>InService</code> state. </p><p>Target groups also have an <code>InService</code> state if you attach them in the <a>CreateAutoScalingGroup</a> API call. If your target group state is <code>InService</code>, but it is not working properly, check the scaling activities by calling <a>DescribeScalingActivities</a> and take any corrective actions necessary.</p><p>For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p><note><p>You can use this operation to describe target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>, but not for target groups that were attached by using <a>AttachTrafficSources</a>.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSAutoScalingDescribeLoadBalancerTargetGroupsRequest</p>
@@ -6213,6 +6387,150 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSAutoScaling(im)describeTrafficSources:"></a>
+                    <a name="//apple_ref/objc/Method/-describeTrafficSources:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSAutoScaling(im)describeTrafficSources:">-describeTrafficSources:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change. Do not use this API for production workloads. This API is also subject to change.</b></p><p>Gets information about the traffic sources for the specified Auto Scaling group.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSAutoScalingDescribeTrafficSourcesRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSAutoScalingDescribeTrafficSourcesResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">describeTrafficSources</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSAutoScalingDescribeTrafficSourcesRequest.html">AWSAutoScalingDescribeTrafficSourcesRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeTrafficSources</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeTrafficSourcesRequest.html">AWSAutoScalingDescribeTrafficSourcesRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DescribeTrafficSources service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSAutoScalingDescribeTrafficSourcesResponse.html">AWSAutoScalingDescribeTrafficSourcesResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSAutoScalingErrorDomain">AWSAutoScalingErrorDomain</a></code> domain and the following error code: <code>AWSAutoScalingErrorResourceContention</code>, <code>AWSAutoScalingErrorInvalidNextToken</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSAutoScaling(im)describeTrafficSources:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-describeTrafficSources:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSAutoScaling(im)describeTrafficSources:completionHandler:">-describeTrafficSources:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change. Do not use this API for production workloads. This API is also subject to change.</b></p><p>Gets information about the traffic sources for the specified Auto Scaling group.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSAutoScalingDescribeTrafficSourcesRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSAutoScalingDescribeTrafficSourcesResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">describeTrafficSources</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSAutoScalingDescribeTrafficSourcesRequest.html">AWSAutoScalingDescribeTrafficSourcesRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+             <span class="nf">completionHandler</span><span class="p">:</span>
+                 <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                     <span class="n"><a href="../Classes/AWSAutoScalingDescribeTrafficSourcesResponse.html">AWSAutoScalingDescribeTrafficSourcesResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                     <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeTrafficSources</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeTrafficSourcesRequest.html">AWSAutoScalingDescribeTrafficSourcesRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AWSAutoScalingDescribeTrafficSourcesResponse.html">AWSAutoScalingDescribeTrafficSourcesResponse</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DescribeTrafficSources service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSAutoScalingErrorDomain">AWSAutoScalingErrorDomain</a></code> domain and the following error code: <code>AWSAutoScalingErrorResourceContention</code>, <code>AWSAutoScalingErrorInvalidNextToken</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSAutoScaling(im)describeWarmPool:"></a>
                     <a name="//apple_ref/objc/Method/-describeWarmPool:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSAutoScaling(im)describeWarmPool:">-describeWarmPool:<wbr></a>
@@ -6505,7 +6823,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Detaches one or more target groups from the specified Auto Scaling group.</p><p>When you detach a target group, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the target group using the <a>DescribeLoadBalancerTargetGroups</a> API call. The instances remain running.</p>
+                        <p><p>Detaches one or more target groups from the specified Auto Scaling group.</p><p>When you detach a target group, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the target group using the <a>DescribeLoadBalancerTargetGroups</a> API call. The instances remain running.</p><note><p>You can use this operation to detach target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>, but not for target groups that were attached by using <a>AttachTrafficSources</a>.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSAutoScalingDetachLoadBalancerTargetGroupsType</p>
@@ -6570,7 +6888,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Detaches one or more target groups from the specified Auto Scaling group.</p><p>When you detach a target group, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the target group using the <a>DescribeLoadBalancerTargetGroups</a> API call. The instances remain running.</p>
+                        <p><p>Detaches one or more target groups from the specified Auto Scaling group.</p><p>When you detach a target group, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the target group using the <a>DescribeLoadBalancerTargetGroups</a> API call. The instances remain running.</p><note><p>You can use this operation to detach target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>, but not for target groups that were attached by using <a>AttachTrafficSources</a>.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSAutoScalingDetachLoadBalancerTargetGroupsType</p>
@@ -6759,6 +7077,150 @@
                               <td>
                                 <div>
                                   <p>A container for the necessary parameters to execute the DetachLoadBalancers service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSAutoScalingErrorDomain">AWSAutoScalingErrorDomain</a></code> domain and the following error code: <code>AWSAutoScalingErrorResourceContention</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSAutoScaling(im)detachTrafficSources:"></a>
+                    <a name="//apple_ref/objc/Method/-detachTrafficSources:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSAutoScaling(im)detachTrafficSources:">-detachTrafficSources:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change. Do not use this API for production workloads. This API is also subject to change.</b></p><p>Detaches one or more traffic sources from the specified Auto Scaling group.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSAutoScalingDetachTrafficSourcesType</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSAutoScalingDetachTrafficSourcesResultType</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">detachTrafficSources</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSAutoScalingDetachTrafficSourcesType.html">AWSAutoScalingDetachTrafficSourcesType</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detachTrafficSources</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDetachTrafficSourcesType.html">AWSAutoScalingDetachTrafficSourcesType</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DetachTrafficSources service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSAutoScalingDetachTrafficSourcesResultType">AWSAutoScalingDetachTrafficSourcesResultType</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSAutoScalingErrorDomain">AWSAutoScalingErrorDomain</a></code> domain and the following error code: <code>AWSAutoScalingErrorResourceContention</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSAutoScaling(im)detachTrafficSources:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-detachTrafficSources:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSAutoScaling(im)detachTrafficSources:completionHandler:">-detachTrafficSources:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change. Do not use this API for production workloads. This API is also subject to change.</b></p><p>Detaches one or more traffic sources from the specified Auto Scaling group.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSAutoScalingDetachTrafficSourcesType</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSAutoScalingDetachTrafficSourcesResultType</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">detachTrafficSources</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSAutoScalingDetachTrafficSourcesType.html">AWSAutoScalingDetachTrafficSourcesType</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+           <span class="nf">completionHandler</span><span class="p">:</span>
+               <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                   <span class="n"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingDetachTrafficSourcesResultType">AWSAutoScalingDetachTrafficSourcesResultType</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                   <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detachTrafficSources</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSAutoScalingDetachTrafficSourcesType.html">AWSAutoScalingDetachTrafficSourcesType</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSAutoScalingDetachTrafficSourcesResultType">AWSAutoScalingDetachTrafficSourcesResultType</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DetachTrafficSources service method.</p>
                                 </div>
                               </td>
                             </tr>
@@ -9535,7 +9997,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-11-22)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-12-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
