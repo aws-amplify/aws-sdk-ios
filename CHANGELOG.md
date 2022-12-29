@@ -1,6 +1,8 @@
 ## Unreleased
 
 ### Misc. Updates
+- **AWSAPIGateway**
+  - Update cache control to disable caching by default. This can be overridden by setting the `Cache-Control` request header. (See [PR #4478](https://github.com/aws-amplify/aws-sdk-ios/pull/4478))
 
 - Model updates for the following services
   - AWSConnect
