@@ -17,7 +17,7 @@
     <a title="AWSTranscribeSettings Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTranscribe 2.28.5 Docs</a> (76% documented)</p>
+        <p><a href="../index.html">AWSTranscribe 2.28.6 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTranscribe.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -396,6 +396,9 @@
                 <a href="../Enums/AWSTranscribeErrorType.html">AWSTranscribeErrorType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeInputType.html">AWSTranscribeInputType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSTranscribeLanguageCode.html">AWSTranscribeLanguageCode</a>
               </li>
               <li class="nav-group-task">
@@ -466,7 +469,7 @@
 
                 </div>
               </div>
-            <p>Allows additional optional settings in your request, including channel identification, alternative transcriptions, and speaker labeling; allows you to apply custom vocabularies to your transcription job.</p>
+            <p>Allows additional optional settings in your request, including channel identification, alternative transcriptions, and speaker partitioning. You can use that to apply custom vocabularies to your transcription job.</p>
 
           </section>
           <section class="section task-group-section">
@@ -549,7 +552,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specify the maximum number of speakers you want to identify in your media.</p><p>Note that if your media contains more speakers than the specified number, multiple speakers will be identified as a single speaker.</p><p>If you specify the <code>MaxSpeakerLabels</code> field, you must set the <code>ShowSpeakerLabels</code> field to true.</p>
+                        <p>Specify the maximum number of speakers you want to partition in your media.</p><p>Note that if your media contains more speakers than the specified number, multiple speakers are treated as a single speaker.</p><p>If you specify the <code>MaxSpeakerLabels</code> field, you must set the <code>ShowSpeakerLabels</code> field to true.</p>
 
                       </div>
                       <div class="declaration">
@@ -613,7 +616,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Enables speaker identification (diarization) in your transcription output. Speaker identification labels the speech from individual speakers in your media file.</p><p>If you enable <code>ShowSpeakerLabels</code> in your request, you must also include <code>MaxSpeakerLabels</code>.</p><p>You can&rsquo;t include both <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code> in the same request. Including both parameters returns a <code>BadRequestException</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Identifying speakers (diarization)</a>.</p>
+                        <p>Enables speaker partitioning (diarization) in your transcription output. Speaker partitioning labels the speech from individual speakers in your media file.</p><p>If you enable <code>ShowSpeakerLabels</code> in your request, you must also include <code>MaxSpeakerLabels</code>.</p><p>You can&rsquo;t include both <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code> in the same request. Including both parameters returns a <code>BadRequestException</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Partitioning speakers (diarization)</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -645,7 +648,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specify how you want your vocabulary filter applied to your transcript.</p><p>To replace words with <code>***</code>, choose <code>mask</code>.</p><p>To delete words, choose <code>remove</code>.</p><p>To flag words without changing them, choose <code>tag</code>.</p>
+                        <p>Specify how you want your custom vocabulary filter applied to your transcript.</p><p>To replace words with <code>***</code>, choose <code>mask</code>.</p><p>To delete words, choose <code>remove</code>.</p><p>To flag words without changing them, choose <code>tag</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -733,7 +736,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-11-22)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-12-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

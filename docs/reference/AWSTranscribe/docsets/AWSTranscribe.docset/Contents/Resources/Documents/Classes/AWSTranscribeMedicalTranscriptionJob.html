@@ -17,7 +17,7 @@
     <a title="AWSTranscribeMedicalTranscriptionJob Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTranscribe 2.28.5 Docs</a> (76% documented)</p>
+        <p><a href="../index.html">AWSTranscribe 2.28.6 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTranscribe.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -396,6 +396,9 @@
                 <a href="../Enums/AWSTranscribeErrorType.html">AWSTranscribeErrorType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeInputType.html">AWSTranscribeInputType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSTranscribeLanguageCode.html">AWSTranscribeLanguageCode</a>
               </li>
               <li class="nav-group-task">
@@ -517,7 +520,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Labels all personal health information (PHI) identified in your transcript. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/phi-id.html">Identifying personal health information (PHI) in a transcription</a>.</p>
+                        <p>Indicates whether content identification was enabled for your transcription request.</p>
 
                       </div>
                       <div class="declaration">
@@ -581,7 +584,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>If <code>TranscriptionJobStatus</code> is <code>FAILED</code>, <code>FailureReason</code> contains information about why the transcription job request failed.</p><p>The <code>FailureReason</code> field contains one of the following values:</p><ul><li><p><code>Unsupported media format</code>.</p><p>The media format specified in <code>MediaFormat</code> isn&rsquo;t valid. Refer to <b>MediaFormat</b> for a list of supported formats.</p></li><li><p><code>The media format provided does not match the detected media format</code>.</p><p>The media format specified in <code>MediaFormat</code> doesn&rsquo;t match the format of the input file. Check the media format of your media file and correct the specified value.</p></li><li><p><code>Invalid sample rate for audio file</code>.</p><p>The sample rate specified in <code>MediaSampleRateHertz</code> isn&rsquo;t valid. The sample rate must be between 16,000 and 48,000 Hertz.</p></li><li><p><code>The sample rate provided does not match the detected sample rate</code>.</p><p>The sample rate specified in <code>MediaSampleRateHertz</code> doesn&rsquo;t match the sample rate detected in your input media file. Check the sample rate of your media file and correct the specified value.</p></li><li><p><code>Invalid file size: file size too large</code>.</p><p>The size of your media file is larger than what Amazon Transcribe can process. For more information, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits">Guidelines and quotas</a>.</p></li><li><p><code>Invalid number of channels: number of channels too large</code>.</p><p>Your audio contains more channels than Amazon Transcribe is able to process. For more information, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits">Guidelines and quotas</a>.</p></li></ul></p>
+                        <p><p>If <code>TranscriptionJobStatus</code> is <code>FAILED</code>, <code>FailureReason</code> contains information about why the transcription job request failed.</p><p>The <code>FailureReason</code> field contains one of the following values:</p><ul><li><p><code>Unsupported media format</code>.</p><p>The media format specified in <code>MediaFormat</code> isn&rsquo;t valid. Refer to <b>MediaFormat</b> for a list of supported formats.</p></li><li><p><code>The media format provided does not match the detected media format</code>.</p><p>The media format specified in <code>MediaFormat</code> doesn&rsquo;t match the format of the input file. Check the media format of your media file and correct the specified value.</p></li><li><p><code>Invalid sample rate for audio file</code>.</p><p>The sample rate specified in <code>MediaSampleRateHertz</code> isn&rsquo;t valid. The sample rate must be between 16,000 and 48,000 hertz.</p></li><li><p><code>The sample rate provided does not match the detected sample rate</code>.</p><p>The sample rate specified in <code>MediaSampleRateHertz</code> doesn&rsquo;t match the sample rate detected in your input media file. Check the sample rate of your media file and correct the specified value.</p></li><li><p><code>Invalid file size: file size too large</code>.</p><p>The size of your media file is larger than what Amazon Transcribe can process. For more information, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits">Guidelines and quotas</a>.</p></li><li><p><code>Invalid number of channels: number of channels too large</code>.</p><p>Your audio contains more channels than Amazon Transcribe is able to process. For more information, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits">Guidelines and quotas</a>.</p></li></ul></p>
 
                       </div>
                       <div class="declaration">
@@ -645,7 +648,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Describes the Amazon S3 location of the media file you want to use in your request.</p>
+                        <p>Describes the Amazon S3 location of the media file you want to use in your request.</p><p>For information on supported media formats, refer to the <a href="https://docs.aws.amazon.com/APIReference/API_StartTranscriptionJob.html#transcribe-StartTranscriptionJob-request-MediaFormat">MediaFormat</a> parameter or the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a> section in the Amazon S3 Developer Guide.</p>
 
                       </div>
                       <div class="declaration">
@@ -709,7 +712,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The sample rate, in Hertz, of the audio track in your input media file.</p>
+                        <p>The sample rate, in hertz, of the audio track in your input media file.</p>
 
                       </div>
                       <div class="declaration">
@@ -773,7 +776,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specify additional optional settings in your request, including channel identification, alternative transcriptions, and speaker labeling; allows you to apply custom vocabularies to your medical transcription job.</p>
+                        <p>Provides information on any additional settings that were included in your request. Additional settings include channel identification, alternative transcriptions, speaker partitioning, custom vocabularies, and custom vocabulary filters.</p>
 
                       </div>
                       <div class="declaration">
@@ -989,7 +992,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-11-22)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-12-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

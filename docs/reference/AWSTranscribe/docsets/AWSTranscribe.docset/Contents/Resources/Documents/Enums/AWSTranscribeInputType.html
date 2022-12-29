@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSTranscribeDescribeLanguageModelRequest Class Reference</title>
+    <title>AWSTranscribeInputType Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSTranscribeDescribeLanguageModelRequest" class="dashAnchor"></a>
-    <a title="AWSTranscribeDescribeLanguageModelRequest Class Reference"></a>
+    <a name="//apple_ref/objc/Enum/AWSTranscribeInputType" class="dashAnchor"></a>
+    <a title="AWSTranscribeInputType Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSTranscribe 2.28.6 Docs</a> (76% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSTranscribe Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        AWSTranscribeDescribeLanguageModelRequest Class Reference
+        AWSTranscribeInputType Enumeration Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -456,20 +456,25 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSTranscribeDescribeLanguageModelRequest</h1>
+            <h1>AWSTranscribeInputType</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTranscribeDescribeLanguageModelRequest</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSTranscribeInputType</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSTranscribeInputTypeUnknown</span><span class="p">,</span>
+    <span class="n">AWSTranscribeInputTypeRealTime</span><span class="p">,</span>
+    <span class="n">AWSTranscribeInputTypePostCall</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTranscribeDescribeLanguageModelRequest</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTranscribeInputType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                 </div>
               </div>
-            
+            <p>Undocumented</p>
+
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -477,9 +482,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSTranscribeDescribeLanguageModelRequest(py)modelName"></a>
-                    <a name="//apple_ref/objc/Property/modelName" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTranscribeDescribeLanguageModelRequest(py)modelName">modelName</a>
+                    <a name="/c:@E@AWSTranscribeInputType@AWSTranscribeInputTypeUnknown"></a>
+                    <a name="//apple_ref/objc/Case/AWSTranscribeInputTypeUnknown" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranscribeInputType@AWSTranscribeInputTypeUnknown">AWSTranscribeInputTypeUnknown</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -487,19 +492,83 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The name of the custom language model you want information about. Model names are case sensitive.</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">modelName</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTranscribeInputTypeUnknown</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">modelName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unknown</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSTranscribeInputType@AWSTranscribeInputTypeRealTime"></a>
+                    <a name="//apple_ref/objc/Case/AWSTranscribeInputTypeRealTime" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranscribeInputType@AWSTranscribeInputTypeRealTime">AWSTranscribeInputTypeRealTime</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTranscribeInputTypeRealTime</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">realTime</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSTranscribeInputType@AWSTranscribeInputTypePostCall"></a>
+                    <a name="//apple_ref/objc/Case/AWSTranscribeInputTypePostCall" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranscribeInputType@AWSTranscribeInputTypePostCall">AWSTranscribeInputTypePostCall</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTranscribeInputTypePostCall</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">postCall</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
 
                         </div>
                       </div>

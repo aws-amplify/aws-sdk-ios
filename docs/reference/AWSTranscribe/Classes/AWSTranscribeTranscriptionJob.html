@@ -17,7 +17,7 @@
     <a title="AWSTranscribeTranscriptionJob Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTranscribe 2.28.5 Docs</a> (76% documented)</p>
+        <p><a href="../index.html">AWSTranscribe 2.28.6 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTranscribe.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -396,6 +396,9 @@
                 <a href="../Enums/AWSTranscribeErrorType.html">AWSTranscribeErrorType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeInputType.html">AWSTranscribeInputType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSTranscribeLanguageCode.html">AWSTranscribeLanguageCode</a>
               </li>
               <li class="nav-group-task">
@@ -517,7 +520,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Redacts or flags specified personally identifiable information (PII) in your transcript.</p>
+                        <p>Indicates whether redaction was enabled in your transcript.</p>
 
                       </div>
                       <div class="declaration">
@@ -581,7 +584,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>If <code>TranscriptionJobStatus</code> is <code>FAILED</code>, <code>FailureReason</code> contains information about why the transcription job request failed.</p><p>The <code>FailureReason</code> field contains one of the following values:</p><ul><li><p><code>Unsupported media format</code>.</p><p>The media format specified in <code>MediaFormat</code> isn&rsquo;t valid. Refer to <b>MediaFormat</b> for a list of supported formats.</p></li><li><p><code>The media format provided does not match the detected media format</code>.</p><p>The media format specified in <code>MediaFormat</code> doesn&rsquo;t match the format of the input file. Check the media format of your media file and correct the specified value.</p></li><li><p><code>Invalid sample rate for audio file</code>.</p><p>The sample rate specified in <code>MediaSampleRateHertz</code> isn&rsquo;t valid. The sample rate must be between 8,000 and 48,000 Hertz.</p></li><li><p><code>The sample rate provided does not match the detected sample rate</code>.</p><p>The sample rate specified in <code>MediaSampleRateHertz</code> doesn&rsquo;t match the sample rate detected in your input media file. Check the sample rate of your media file and correct the specified value.</p></li><li><p><code>Invalid file size: file size too large</code>.</p><p>The size of your media file is larger than what Amazon Transcribe can process. For more information, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits">Guidelines and quotas</a>.</p></li><li><p><code>Invalid number of channels: number of channels too large</code>.</p><p>Your audio contains more channels than Amazon Transcribe is able to process. For more information, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits">Guidelines and quotas</a>.</p></li></ul></p>
+                        <p><p>If <code>TranscriptionJobStatus</code> is <code>FAILED</code>, <code>FailureReason</code> contains information about why the transcription job request failed.</p><p>The <code>FailureReason</code> field contains one of the following values:</p><ul><li><p><code>Unsupported media format</code>.</p><p>The media format specified in <code>MediaFormat</code> isn&rsquo;t valid. Refer to <b>MediaFormat</b> for a list of supported formats.</p></li><li><p><code>The media format provided does not match the detected media format</code>.</p><p>The media format specified in <code>MediaFormat</code> doesn&rsquo;t match the format of the input file. Check the media format of your media file and correct the specified value.</p></li><li><p><code>Invalid sample rate for audio file</code>.</p><p>The sample rate specified in <code>MediaSampleRateHertz</code> isn&rsquo;t valid. The sample rate must be between 8,000 and 48,000 hertz.</p></li><li><p><code>The sample rate provided does not match the detected sample rate</code>.</p><p>The sample rate specified in <code>MediaSampleRateHertz</code> doesn&rsquo;t match the sample rate detected in your input media file. Check the sample rate of your media file and correct the specified value.</p></li><li><p><code>Invalid file size: file size too large</code>.</p><p>The size of your media file is larger than what Amazon Transcribe can process. For more information, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits">Guidelines and quotas</a>.</p></li><li><p><code>Invalid number of channels: number of channels too large</code>.</p><p>Your audio contains more channels than Amazon Transcribe is able to process. For more information, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits">Guidelines and quotas</a>.</p></li></ul></p>
 
                       </div>
                       <div class="declaration">
@@ -709,7 +712,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Provides information about how your transcription job is being processed. This parameter shows if your request is queued and what data access role is being used.</p>
+                        <p>Provides information about how your transcription job was processed. This parameter shows if your request was queued and what data access role was used.</p>
 
                       </div>
                       <div class="declaration">
@@ -741,7 +744,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The language code used to create your transcription job. For a list of supported languages and their associated language codes, refer to the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a> table.</p><p>Note that you must include one of <code>LanguageCode</code>, <code>IdentifyLanguage</code>, or <code>IdentifyMultipleLanguages</code> in your request. If you include more than one of these parameters, your transcription job fails.</p>
+                        <p>The language code used to create your transcription job. This parameter is used with single-language identification. For multi-language identification requests, refer to the plural version of this parameter, <code>LanguageCodes</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -773,7 +776,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The language codes used to create your transcription job. This parameter is used with multi-language identification. For single-language identification requests, refer to the singular version of this parameter, <code>LanguageCode</code>.</p><p>For a list of supported languages and their associated language codes, refer to the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a> table.</p>
+                        <p>The language codes used to create your transcription job. This parameter is used with multi-language identification. For single-language identification requests, refer to the singular version of this parameter, <code>LanguageCode</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -805,7 +808,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If using automatic language identification (<code>IdentifyLanguage</code>) in your request and you want to apply a custom language model, a custom vocabulary, or a custom vocabulary filter, include <code>LanguageIdSettings</code> with the relevant sub-parameters (<code>VocabularyName</code>, <code>LanguageModelName</code>, and <code>VocabularyFilterName</code>).</p><p>You can specify two or more language codes that represent the languages you think may be present in your media; including more than five is not recommended. Each language code you include can have an associated custom language model, custom vocabulary, and custom vocabulary filter. The languages you specify must match the languages of the specified custom language models, custom vocabularies, and custom vocabulary filters.</p><p>To include language options using <code>IdentifyLanguage</code><b>without</b> including a custom language model, a custom vocabulary, or a custom vocabulary filter, use <code>LanguageOptions</code> instead of <code>LanguageIdSettings</code>. Including language options can improve the accuracy of automatic language identification.</p><p>If you want to include a custom language model with your request but <b>do not</b> want to use automatic language identification, use instead the <code/> parameter with the <code>LanguageModelName</code> sub-parameter.</p><p>If you want to include a custom vocabulary or a custom vocabulary filter (or both) with your request but <b>do not</b> want to use automatic language identification, use instead the <code/> parameter with the <code>VocabularyName</code> or <code>VocabularyFilterName</code> (or both) sub-parameter.</p>
+                        <p>Provides the name and language of all custom language models, custom vocabularies, and custom vocabulary filters that you included in your request.</p>
 
                       </div>
                       <div class="declaration">
@@ -837,7 +840,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>You can specify two or more language codes that represent the languages you think may be present in your media; including more than five is not recommended. If you&rsquo;re unsure what languages are present, do not include this parameter.</p><p>If you include <code>LanguageOptions</code> in your request, you must also include <code>IdentifyLanguage</code>.</p><p>For more information, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a>.</p><p>To transcribe speech in Modern Standard Arabic (<code>ar-SA</code>), your media file must be encoded at a sample rate of 16,000 Hz or higher.</p>
+                        <p>Provides the language codes you specified in your request.</p>
 
                       </div>
                       <div class="declaration">
@@ -869,7 +872,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Describes the Amazon S3 location of the media file you want to use in your request.</p>
+                        <p>Provides the Amazon S3 location of the media file you used in your request.</p>
 
                       </div>
                       <div class="declaration">
@@ -933,7 +936,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The sample rate, in Hertz, of the audio track in your input media file.</p>
+                        <p>The sample rate, in hertz, of the audio track in your input media file.</p>
 
                       </div>
                       <div class="declaration">
@@ -965,7 +968,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The custom language model you want to include with your transcription job. If you include <code>ModelSettings</code> in your request, you must include the <code>LanguageModelName</code> sub-parameter.</p>
+                        <p>Provides information on the custom language model you included in your request.</p>
 
                       </div>
                       <div class="declaration">
@@ -997,7 +1000,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specify additional optional settings in your request, including channel identification, alternative transcriptions, speaker labeling; allows you to apply custom vocabularies and vocabulary filters.</p><p>If you want to include a custom vocabulary or a custom vocabulary filter (or both) with your request but <b>do not</b> want to use automatic language identification, use <code>Settings</code> with the <code>VocabularyName</code> or <code>VocabularyFilterName</code> (or both) sub-parameter.</p><p>If you&rsquo;re using automatic language identification with your request and want to include a custom language model, a custom vocabulary, or a custom vocabulary filter, do not use the <code>Settings</code> parameter; use instead the <code/> parameter with the <code>LanguageModelName</code>, <code>VocabularyName</code> or <code>VocabularyFilterName</code> sub-parameters.</p>
+                        <p>Provides information on any additional settings that were included in your request. Additional settings include channel identification, alternative transcriptions, speaker partitioning, custom vocabularies, and custom vocabulary filters.</p>
 
                       </div>
                       <div class="declaration">
@@ -1061,7 +1064,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Generate subtitles for your media file with your transcription request.</p>
+                        <p>Indicates whether subtitles were generated with your transcription.</p>
 
                       </div>
                       <div class="declaration">
@@ -1093,7 +1096,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Adds one or more custom tags, each in the form of a key:value pair, to a new transcription job at the time you start this new job.</p><p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging resources</a>.</p>
+                        <p>The tags, each in the form of a key:value pair, assigned to the specified transcription job.</p>
 
                       </div>
                       <div class="declaration">
@@ -1213,7 +1216,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-11-22)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-12-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

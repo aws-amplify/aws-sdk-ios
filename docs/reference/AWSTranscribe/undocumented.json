@@ -170,1015 +170,1078 @@
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 48,
-      "symbol": "AWSTranscribeCallAnalyticsJobStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "line": 46,
+      "symbol": "AWSTranscribeCLMLanguageCode.AWSTranscribeCLMLanguageCodeDeDE",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 48,
-      "symbol": "AWSTranscribeCallAnalyticsJobStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 49,
-      "symbol": "AWSTranscribeCallAnalyticsJobStatus.AWSTranscribeCallAnalyticsJobStatusUnknown",
+      "line": 47,
+      "symbol": "AWSTranscribeCLMLanguageCode.AWSTranscribeCLMLanguageCodeJaJP",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 50,
-      "symbol": "AWSTranscribeCallAnalyticsJobStatus.AWSTranscribeCallAnalyticsJobStatusQueued",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSTranscribeCallAnalyticsJobStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
+      "line": 50,
+      "symbol": "AWSTranscribeCallAnalyticsJobStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 51,
-      "symbol": "AWSTranscribeCallAnalyticsJobStatus.AWSTranscribeCallAnalyticsJobStatusInProgress",
+      "symbol": "AWSTranscribeCallAnalyticsJobStatus.AWSTranscribeCallAnalyticsJobStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 52,
-      "symbol": "AWSTranscribeCallAnalyticsJobStatus.AWSTranscribeCallAnalyticsJobStatusFailed",
+      "symbol": "AWSTranscribeCallAnalyticsJobStatus.AWSTranscribeCallAnalyticsJobStatusQueued",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 53,
+      "symbol": "AWSTranscribeCallAnalyticsJobStatus.AWSTranscribeCallAnalyticsJobStatusInProgress",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
+      "line": 54,
+      "symbol": "AWSTranscribeCallAnalyticsJobStatus.AWSTranscribeCallAnalyticsJobStatusFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
+      "line": 55,
       "symbol": "AWSTranscribeCallAnalyticsJobStatus.AWSTranscribeCallAnalyticsJobStatusCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 56,
-      "symbol": "AWSTranscribeLanguageCode",
+      "line": 58,
+      "symbol": "AWSTranscribeInputType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 56,
-      "symbol": "AWSTranscribeLanguageCode",
+      "line": 58,
+      "symbol": "AWSTranscribeInputType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 57,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 58,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeAfZA",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 59,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeArAE",
+      "symbol": "AWSTranscribeInputType.AWSTranscribeInputTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 60,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeArSA",
+      "symbol": "AWSTranscribeInputType.AWSTranscribeInputTypeRealTime",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 61,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeDaDK",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 62,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeDeCH",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 63,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeDeDE",
+      "symbol": "AWSTranscribeInputType.AWSTranscribeInputTypePostCall",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 64,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEnAB",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSTranscribeLanguageCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
+      "line": 64,
+      "symbol": "AWSTranscribeLanguageCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 65,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEnAU",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 66,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEnGB",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeAfZA",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 67,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEnIE",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeArAE",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 68,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEnIN",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeArSA",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 69,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEnUS",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeDaDK",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 70,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEnWL",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeDeCH",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 71,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEsES",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeDeDE",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 72,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEsUS",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEnAB",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 73,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeFaIR",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEnAU",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 74,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeFrCA",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEnGB",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 75,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeFrFR",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEnIE",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 76,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeHeIL",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEnIN",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 77,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeHiIN",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEnUS",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 78,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeIdID",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEnWL",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 79,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeItIT",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEsES",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 80,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeJaJP",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEsUS",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 81,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeKoKR",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeFaIR",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 82,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeMsMY",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeFrCA",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 83,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeNlNL",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeFrFR",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 84,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodePtBR",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeHeIL",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 85,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodePtPT",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeHiIN",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 86,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeRuRU",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeIdID",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 87,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeTaIN",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeItIT",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 88,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeTeIN",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeJaJP",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 89,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeTrTR",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeKoKR",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 90,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeZhCN",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeMsMY",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 91,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeZhTW",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeNlNL",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 92,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeThTH",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodePtBR",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 93,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEnZA",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodePtPT",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 94,
-      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEnNZ",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeRuRU",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
+      "line": 95,
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeTaIN",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
+      "line": 96,
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeTeIN",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 97,
-      "symbol": "AWSTranscribeMediaFormat",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 97,
-      "symbol": "AWSTranscribeMediaFormat",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeTrTR",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 98,
-      "symbol": "AWSTranscribeMediaFormat.AWSTranscribeMediaFormatUnknown",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeZhCN",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 99,
-      "symbol": "AWSTranscribeMediaFormat.AWSTranscribeMediaFormatMp3",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeZhTW",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 100,
-      "symbol": "AWSTranscribeMediaFormat.AWSTranscribeMediaFormatMp4",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeThTH",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 101,
-      "symbol": "AWSTranscribeMediaFormat.AWSTranscribeMediaFormatWav",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEnZA",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 102,
-      "symbol": "AWSTranscribeMediaFormat.AWSTranscribeMediaFormatFlac",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeEnNZ",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 103,
-      "symbol": "AWSTranscribeMediaFormat.AWSTranscribeMediaFormatOgg",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeViVN",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 104,
-      "symbol": "AWSTranscribeMediaFormat.AWSTranscribeMediaFormatAmr",
+      "symbol": "AWSTranscribeLanguageCode.AWSTranscribeLanguageCodeSvSE",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 105,
-      "symbol": "AWSTranscribeMediaFormat.AWSTranscribeMediaFormatWebm",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 108,
-      "symbol": "AWSTranscribeMedicalContentIdentificationType",
+      "line": 107,
+      "symbol": "AWSTranscribeMediaFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 108,
-      "symbol": "AWSTranscribeMedicalContentIdentificationType",
+      "line": 107,
+      "symbol": "AWSTranscribeMediaFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
+      "line": 108,
+      "symbol": "AWSTranscribeMediaFormat.AWSTranscribeMediaFormatUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 109,
-      "symbol": "AWSTranscribeMedicalContentIdentificationType.AWSTranscribeMedicalContentIdentificationTypeUnknown",
+      "symbol": "AWSTranscribeMediaFormat.AWSTranscribeMediaFormatMp3",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 110,
-      "symbol": "AWSTranscribeMedicalContentIdentificationType.AWSTranscribeMedicalContentIdentificationTypePhi",
+      "symbol": "AWSTranscribeMediaFormat.AWSTranscribeMediaFormatMp4",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
+      "line": 111,
+      "symbol": "AWSTranscribeMediaFormat.AWSTranscribeMediaFormatWav",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
+      "line": 112,
+      "symbol": "AWSTranscribeMediaFormat.AWSTranscribeMediaFormatFlac",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 113,
-      "symbol": "AWSTranscribeModelStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 113,
-      "symbol": "AWSTranscribeModelStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSTranscribeMediaFormat.AWSTranscribeMediaFormatOgg",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 114,
-      "symbol": "AWSTranscribeModelStatus.AWSTranscribeModelStatusUnknown",
+      "symbol": "AWSTranscribeMediaFormat.AWSTranscribeMediaFormatAmr",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 115,
-      "symbol": "AWSTranscribeModelStatus.AWSTranscribeModelStatusInProgress",
+      "symbol": "AWSTranscribeMediaFormat.AWSTranscribeMediaFormatWebm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 116,
-      "symbol": "AWSTranscribeModelStatus.AWSTranscribeModelStatusFailed",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 117,
-      "symbol": "AWSTranscribeModelStatus.AWSTranscribeModelStatusCompleted",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 120,
-      "symbol": "AWSTranscribeOutputLocationType",
+      "line": 118,
+      "symbol": "AWSTranscribeMedicalContentIdentificationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 120,
-      "symbol": "AWSTranscribeOutputLocationType",
+      "line": 118,
+      "symbol": "AWSTranscribeMedicalContentIdentificationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 121,
-      "symbol": "AWSTranscribeOutputLocationType.AWSTranscribeOutputLocationTypeUnknown",
+      "line": 119,
+      "symbol": "AWSTranscribeMedicalContentIdentificationType.AWSTranscribeMedicalContentIdentificationTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 122,
-      "symbol": "AWSTranscribeOutputLocationType.AWSTranscribeOutputLocationTypeCustomerBucket",
+      "line": 120,
+      "symbol": "AWSTranscribeMedicalContentIdentificationType.AWSTranscribeMedicalContentIdentificationTypePhi",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
       "line": 123,
+      "symbol": "AWSTranscribeModelStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
+      "line": 123,
+      "symbol": "AWSTranscribeModelStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
+      "line": 124,
+      "symbol": "AWSTranscribeModelStatus.AWSTranscribeModelStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
+      "line": 125,
+      "symbol": "AWSTranscribeModelStatus.AWSTranscribeModelStatusInProgress",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
+      "line": 126,
+      "symbol": "AWSTranscribeModelStatus.AWSTranscribeModelStatusFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
+      "line": 127,
+      "symbol": "AWSTranscribeModelStatus.AWSTranscribeModelStatusCompleted",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
+      "line": 130,
+      "symbol": "AWSTranscribeOutputLocationType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
+      "line": 130,
+      "symbol": "AWSTranscribeOutputLocationType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
+      "line": 131,
+      "symbol": "AWSTranscribeOutputLocationType.AWSTranscribeOutputLocationTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
+      "line": 132,
+      "symbol": "AWSTranscribeOutputLocationType.AWSTranscribeOutputLocationTypeCustomerBucket",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
+      "line": 133,
       "symbol": "AWSTranscribeOutputLocationType.AWSTranscribeOutputLocationTypeServiceBucket",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 126,
+      "line": 136,
       "symbol": "AWSTranscribeParticipantRole",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 126,
+      "line": 136,
       "symbol": "AWSTranscribeParticipantRole",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 127,
+      "line": 137,
       "symbol": "AWSTranscribeParticipantRole.AWSTranscribeParticipantRoleUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 128,
+      "line": 138,
       "symbol": "AWSTranscribeParticipantRole.AWSTranscribeParticipantRoleAgent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 129,
+      "line": 139,
       "symbol": "AWSTranscribeParticipantRole.AWSTranscribeParticipantRoleCustomer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 132,
+      "line": 142,
       "symbol": "AWSTranscribePiiEntityType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 132,
+      "line": 142,
       "symbol": "AWSTranscribePiiEntityType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 133,
+      "line": 143,
       "symbol": "AWSTranscribePiiEntityType.AWSTranscribePiiEntityTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 134,
+      "line": 144,
       "symbol": "AWSTranscribePiiEntityType.AWSTranscribePiiEntityTypeBankAccountNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 135,
+      "line": 145,
       "symbol": "AWSTranscribePiiEntityType.AWSTranscribePiiEntityTypeBankRouting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 136,
+      "line": 146,
       "symbol": "AWSTranscribePiiEntityType.AWSTranscribePiiEntityTypeCreditDebitNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 137,
+      "line": 147,
       "symbol": "AWSTranscribePiiEntityType.AWSTranscribePiiEntityTypeCreditDebitCvv",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 138,
+      "line": 148,
       "symbol": "AWSTranscribePiiEntityType.AWSTranscribePiiEntityTypeCreditDebitExpiry",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 139,
+      "line": 149,
       "symbol": "AWSTranscribePiiEntityType.AWSTranscribePiiEntityTypePin",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 140,
+      "line": 150,
       "symbol": "AWSTranscribePiiEntityType.AWSTranscribePiiEntityTypeEmail",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 141,
+      "line": 151,
       "symbol": "AWSTranscribePiiEntityType.AWSTranscribePiiEntityTypeAddress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 142,
+      "line": 152,
       "symbol": "AWSTranscribePiiEntityType.AWSTranscribePiiEntityTypeName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 143,
+      "line": 153,
       "symbol": "AWSTranscribePiiEntityType.AWSTranscribePiiEntityTypePhone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 144,
+      "line": 154,
       "symbol": "AWSTranscribePiiEntityType.AWSTranscribePiiEntityTypeSsn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 145,
+      "line": 155,
       "symbol": "AWSTranscribePiiEntityType.AWSTranscribePiiEntityTypeAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 148,
+      "line": 158,
       "symbol": "AWSTranscribeRedactionOutput",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 148,
+      "line": 158,
       "symbol": "AWSTranscribeRedactionOutput",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 149,
+      "line": 159,
       "symbol": "AWSTranscribeRedactionOutput.AWSTranscribeRedactionOutputUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 150,
+      "line": 160,
       "symbol": "AWSTranscribeRedactionOutput.AWSTranscribeRedactionOutputRedacted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 151,
+      "line": 161,
       "symbol": "AWSTranscribeRedactionOutput.AWSTranscribeRedactionOutputRedactedAndUnredacted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 154,
+      "line": 164,
       "symbol": "AWSTranscribeRedactionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 154,
+      "line": 164,
       "symbol": "AWSTranscribeRedactionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 155,
+      "line": 165,
       "symbol": "AWSTranscribeRedactionType.AWSTranscribeRedactionTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 156,
+      "line": 166,
       "symbol": "AWSTranscribeRedactionType.AWSTranscribeRedactionTypePii",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 159,
+      "line": 169,
       "symbol": "AWSTranscribeSentimentValue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 159,
+      "line": 169,
       "symbol": "AWSTranscribeSentimentValue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 160,
+      "line": 170,
       "symbol": "AWSTranscribeSentimentValue.AWSTranscribeSentimentValueUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 161,
+      "line": 171,
       "symbol": "AWSTranscribeSentimentValue.AWSTranscribeSentimentValuePositive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 162,
+      "line": 172,
       "symbol": "AWSTranscribeSentimentValue.AWSTranscribeSentimentValueNegative",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 163,
+      "line": 173,
       "symbol": "AWSTranscribeSentimentValue.AWSTranscribeSentimentValueNeutral",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 164,
+      "line": 174,
       "symbol": "AWSTranscribeSentimentValue.AWSTranscribeSentimentValueMixed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 167,
+      "line": 177,
       "symbol": "AWSTranscribeSpecialty",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 167,
+      "line": 177,
       "symbol": "AWSTranscribeSpecialty",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 168,
+      "line": 178,
       "symbol": "AWSTranscribeSpecialty.AWSTranscribeSpecialtyUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 169,
+      "line": 179,
       "symbol": "AWSTranscribeSpecialty.AWSTranscribeSpecialtyPrimarycare",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 172,
+      "line": 182,
       "symbol": "AWSTranscribeSubtitleFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 172,
+      "line": 182,
       "symbol": "AWSTranscribeSubtitleFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 173,
+      "line": 183,
       "symbol": "AWSTranscribeSubtitleFormat.AWSTranscribeSubtitleFormatUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 174,
+      "line": 184,
       "symbol": "AWSTranscribeSubtitleFormat.AWSTranscribeSubtitleFormatVtt",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 175,
+      "line": 185,
       "symbol": "AWSTranscribeSubtitleFormat.AWSTranscribeSubtitleFormatSrt",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 178,
+      "line": 188,
       "symbol": "AWSTranscribeTranscriptFilterType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 178,
+      "line": 188,
       "symbol": "AWSTranscribeTranscriptFilterType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 179,
+      "line": 189,
       "symbol": "AWSTranscribeTranscriptFilterType.AWSTranscribeTranscriptFilterTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 180,
+      "line": 190,
       "symbol": "AWSTranscribeTranscriptFilterType.AWSTranscribeTranscriptFilterTypeExact",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 183,
+      "line": 193,
       "symbol": "AWSTranscribeTranscriptionJobStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 183,
+      "line": 193,
       "symbol": "AWSTranscribeTranscriptionJobStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 184,
+      "line": 194,
       "symbol": "AWSTranscribeTranscriptionJobStatus.AWSTranscribeTranscriptionJobStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 185,
+      "line": 195,
       "symbol": "AWSTranscribeTranscriptionJobStatus.AWSTranscribeTranscriptionJobStatusQueued",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 186,
+      "line": 196,
       "symbol": "AWSTranscribeTranscriptionJobStatus.AWSTranscribeTranscriptionJobStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 187,
+      "line": 197,
       "symbol": "AWSTranscribeTranscriptionJobStatus.AWSTranscribeTranscriptionJobStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 188,
+      "line": 198,
       "symbol": "AWSTranscribeTranscriptionJobStatus.AWSTranscribeTranscriptionJobStatusCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 191,
+      "line": 201,
       "symbol": "AWSTranscribeTypes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 191,
+      "line": 201,
       "symbol": "AWSTranscribeTypes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 192,
+      "line": 202,
       "symbol": "AWSTranscribeTypes.AWSTranscribeTypesUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 193,
+      "line": 203,
       "symbol": "AWSTranscribeTypes.AWSTranscribeTypesConversation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 194,
+      "line": 204,
       "symbol": "AWSTranscribeTypes.AWSTranscribeTypesDictation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 197,
+      "line": 207,
       "symbol": "AWSTranscribeVocabularyFilterMethod",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 197,
+      "line": 207,
       "symbol": "AWSTranscribeVocabularyFilterMethod",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 198,
+      "line": 208,
       "symbol": "AWSTranscribeVocabularyFilterMethod.AWSTranscribeVocabularyFilterMethodUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 199,
+      "line": 209,
       "symbol": "AWSTranscribeVocabularyFilterMethod.AWSTranscribeVocabularyFilterMethodRemove",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 200,
+      "line": 210,
       "symbol": "AWSTranscribeVocabularyFilterMethod.AWSTranscribeVocabularyFilterMethodMask",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 201,
+      "line": 211,
       "symbol": "AWSTranscribeVocabularyFilterMethod.AWSTranscribeVocabularyFilterMethodTag",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 204,
+      "line": 214,
       "symbol": "AWSTranscribeVocabularyState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 204,
+      "line": 214,
       "symbol": "AWSTranscribeVocabularyState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 205,
+      "line": 215,
       "symbol": "AWSTranscribeVocabularyState.AWSTranscribeVocabularyStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 206,
+      "line": 216,
       "symbol": "AWSTranscribeVocabularyState.AWSTranscribeVocabularyStatePending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 207,
+      "line": 217,
       "symbol": "AWSTranscribeVocabularyState.AWSTranscribeVocabularyStateReady",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTranscribe/AWSTranscribeModel.h",
-      "line": 208,
+      "line": 218,
       "symbol": "AWSTranscribeVocabularyState.AWSTranscribeVocabularyStateFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
