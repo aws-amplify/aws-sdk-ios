@@ -192,1406 +192,1672 @@
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 50,
-      "symbol": "AWSComprehendDocumentClassifierDataFormat",
+      "symbol": "AWSComprehendBlockType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 50,
-      "symbol": "AWSComprehendDocumentClassifierDataFormat",
+      "symbol": "AWSComprehendBlockType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 51,
-      "symbol": "AWSComprehendDocumentClassifierDataFormat.AWSComprehendDocumentClassifierDataFormatUnknown",
+      "symbol": "AWSComprehendBlockType.AWSComprehendBlockTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 52,
-      "symbol": "AWSComprehendDocumentClassifierDataFormat.AWSComprehendDocumentClassifierDataFormatComprehendCsv",
+      "symbol": "AWSComprehendBlockType.AWSComprehendBlockTypeLine",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 53,
-      "symbol": "AWSComprehendDocumentClassifierDataFormat.AWSComprehendDocumentClassifierDataFormatAugmentedManifest",
+      "symbol": "AWSComprehendBlockType.AWSComprehendBlockTypeWord",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 56,
-      "symbol": "AWSComprehendDocumentClassifierMode",
+      "symbol": "AWSComprehendDocumentClassifierDataFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 56,
-      "symbol": "AWSComprehendDocumentClassifierMode",
+      "symbol": "AWSComprehendDocumentClassifierDataFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 57,
-      "symbol": "AWSComprehendDocumentClassifierMode.AWSComprehendDocumentClassifierModeUnknown",
+      "symbol": "AWSComprehendDocumentClassifierDataFormat.AWSComprehendDocumentClassifierDataFormatUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 58,
-      "symbol": "AWSComprehendDocumentClassifierMode.AWSComprehendDocumentClassifierModeMultiClass",
+      "symbol": "AWSComprehendDocumentClassifierDataFormat.AWSComprehendDocumentClassifierDataFormatComprehendCsv",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 59,
-      "symbol": "AWSComprehendDocumentClassifierMode.AWSComprehendDocumentClassifierModeMultiLabel",
+      "symbol": "AWSComprehendDocumentClassifierDataFormat.AWSComprehendDocumentClassifierDataFormatAugmentedManifest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 62,
-      "symbol": "AWSComprehendDocumentReadAction",
+      "symbol": "AWSComprehendDocumentClassifierMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 62,
-      "symbol": "AWSComprehendDocumentReadAction",
+      "symbol": "AWSComprehendDocumentClassifierMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 63,
-      "symbol": "AWSComprehendDocumentReadAction.AWSComprehendDocumentReadActionUnknown",
+      "symbol": "AWSComprehendDocumentClassifierMode.AWSComprehendDocumentClassifierModeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 64,
-      "symbol": "AWSComprehendDocumentReadAction.AWSComprehendDocumentReadActionTextractDetectDocumentText",
+      "symbol": "AWSComprehendDocumentClassifierMode.AWSComprehendDocumentClassifierModeMultiClass",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 65,
-      "symbol": "AWSComprehendDocumentReadAction.AWSComprehendDocumentReadActionTextractAnalyzeDocument",
+      "symbol": "AWSComprehendDocumentClassifierMode.AWSComprehendDocumentClassifierModeMultiLabel",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 68,
-      "symbol": "AWSComprehendDocumentReadFeatureTypes",
+      "symbol": "AWSComprehendDocumentReadAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 68,
-      "symbol": "AWSComprehendDocumentReadFeatureTypes",
+      "symbol": "AWSComprehendDocumentReadAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 69,
-      "symbol": "AWSComprehendDocumentReadFeatureTypes.AWSComprehendDocumentReadFeatureTypesUnknown",
+      "symbol": "AWSComprehendDocumentReadAction.AWSComprehendDocumentReadActionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 70,
-      "symbol": "AWSComprehendDocumentReadFeatureTypes.AWSComprehendDocumentReadFeatureTypesTables",
+      "symbol": "AWSComprehendDocumentReadAction.AWSComprehendDocumentReadActionTextractDetectDocumentText",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 71,
-      "symbol": "AWSComprehendDocumentReadFeatureTypes.AWSComprehendDocumentReadFeatureTypesForms",
+      "symbol": "AWSComprehendDocumentReadAction.AWSComprehendDocumentReadActionTextractAnalyzeDocument",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 74,
-      "symbol": "AWSComprehendDocumentReadMode",
+      "symbol": "AWSComprehendDocumentReadFeatureTypes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 74,
-      "symbol": "AWSComprehendDocumentReadMode",
+      "symbol": "AWSComprehendDocumentReadFeatureTypes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 75,
-      "symbol": "AWSComprehendDocumentReadMode.AWSComprehendDocumentReadModeUnknown",
+      "symbol": "AWSComprehendDocumentReadFeatureTypes.AWSComprehendDocumentReadFeatureTypesUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 76,
-      "symbol": "AWSComprehendDocumentReadMode.AWSComprehendDocumentReadModeServiceDefault",
+      "symbol": "AWSComprehendDocumentReadFeatureTypes.AWSComprehendDocumentReadFeatureTypesTables",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 77,
-      "symbol": "AWSComprehendDocumentReadMode.AWSComprehendDocumentReadModeForceDocumentReadAction",
+      "symbol": "AWSComprehendDocumentReadFeatureTypes.AWSComprehendDocumentReadFeatureTypesForms",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 80,
-      "symbol": "AWSComprehendEndpointStatus",
+      "symbol": "AWSComprehendDocumentReadMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 80,
-      "symbol": "AWSComprehendEndpointStatus",
+      "symbol": "AWSComprehendDocumentReadMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 81,
-      "symbol": "AWSComprehendEndpointStatus.AWSComprehendEndpointStatusUnknown",
+      "symbol": "AWSComprehendDocumentReadMode.AWSComprehendDocumentReadModeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 82,
-      "symbol": "AWSComprehendEndpointStatus.AWSComprehendEndpointStatusCreating",
+      "symbol": "AWSComprehendDocumentReadMode.AWSComprehendDocumentReadModeServiceDefault",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 83,
-      "symbol": "AWSComprehendEndpointStatus.AWSComprehendEndpointStatusDeleting",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 84,
-      "symbol": "AWSComprehendEndpointStatus.AWSComprehendEndpointStatusFailed",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 85,
-      "symbol": "AWSComprehendEndpointStatus.AWSComprehendEndpointStatusInService",
+      "symbol": "AWSComprehendDocumentReadMode.AWSComprehendDocumentReadModeForceDocumentReadAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 86,
-      "symbol": "AWSComprehendEndpointStatus.AWSComprehendEndpointStatusUpdating",
+      "symbol": "AWSComprehendDocumentType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 86,
+      "symbol": "AWSComprehendDocumentType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 87,
+      "symbol": "AWSComprehendDocumentType.AWSComprehendDocumentTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 88,
+      "symbol": "AWSComprehendDocumentType.AWSComprehendDocumentTypeNativePdf",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 89,
-      "symbol": "AWSComprehendEntityRecognizerDataFormat",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 89,
-      "symbol": "AWSComprehendEntityRecognizerDataFormat",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSComprehendDocumentType.AWSComprehendDocumentTypeScannedPdf",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 90,
-      "symbol": "AWSComprehendEntityRecognizerDataFormat.AWSComprehendEntityRecognizerDataFormatUnknown",
+      "symbol": "AWSComprehendDocumentType.AWSComprehendDocumentTypeMsWord",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 91,
-      "symbol": "AWSComprehendEntityRecognizerDataFormat.AWSComprehendEntityRecognizerDataFormatComprehendCsv",
+      "symbol": "AWSComprehendDocumentType.AWSComprehendDocumentTypeImage",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 92,
-      "symbol": "AWSComprehendEntityRecognizerDataFormat.AWSComprehendEntityRecognizerDataFormatAugmentedManifest",
+      "symbol": "AWSComprehendDocumentType.AWSComprehendDocumentTypePlainText",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 95,
-      "symbol": "AWSComprehendEntityType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "line": 93,
+      "symbol": "AWSComprehendDocumentType.AWSComprehendDocumentTypeTextractDetectDocumentTextJson",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 95,
-      "symbol": "AWSComprehendEntityType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 96,
-      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypeUnknown",
+      "line": 94,
+      "symbol": "AWSComprehendDocumentType.AWSComprehendDocumentTypeTextractAnalyzeDocumentJson",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 97,
-      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypePerson",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSComprehendEndpointStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 97,
+      "symbol": "AWSComprehendEndpointStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 98,
-      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypeLocation",
+      "symbol": "AWSComprehendEndpointStatus.AWSComprehendEndpointStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 99,
-      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypeOrganization",
+      "symbol": "AWSComprehendEndpointStatus.AWSComprehendEndpointStatusCreating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 100,
-      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypeCommercialItem",
+      "symbol": "AWSComprehendEndpointStatus.AWSComprehendEndpointStatusDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 101,
-      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypeEvent",
+      "symbol": "AWSComprehendEndpointStatus.AWSComprehendEndpointStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 102,
-      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypeDate",
+      "symbol": "AWSComprehendEndpointStatus.AWSComprehendEndpointStatusInService",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 103,
-      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypeQuantity",
+      "symbol": "AWSComprehendEndpointStatus.AWSComprehendEndpointStatusUpdating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 104,
-      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypeTitle",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 105,
-      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypeOther",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 108,
-      "symbol": "AWSComprehendInputFormat",
+      "line": 106,
+      "symbol": "AWSComprehendEntityRecognizerDataFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 108,
-      "symbol": "AWSComprehendInputFormat",
+      "line": 106,
+      "symbol": "AWSComprehendEntityRecognizerDataFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 107,
+      "symbol": "AWSComprehendEntityRecognizerDataFormat.AWSComprehendEntityRecognizerDataFormatUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 108,
+      "symbol": "AWSComprehendEntityRecognizerDataFormat.AWSComprehendEntityRecognizerDataFormatComprehendCsv",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 109,
-      "symbol": "AWSComprehendInputFormat.AWSComprehendInputFormatUnknown",
+      "symbol": "AWSComprehendEntityRecognizerDataFormat.AWSComprehendEntityRecognizerDataFormatAugmentedManifest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 110,
-      "symbol": "AWSComprehendInputFormat.AWSComprehendInputFormatOneDocPerFile",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 111,
-      "symbol": "AWSComprehendInputFormat.AWSComprehendInputFormatOneDocPerLine",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 114,
-      "symbol": "AWSComprehendJobStatus",
+      "line": 112,
+      "symbol": "AWSComprehendEntityType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 114,
-      "symbol": "AWSComprehendJobStatus",
+      "line": 112,
+      "symbol": "AWSComprehendEntityType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 113,
+      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 114,
+      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypePerson",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 115,
-      "symbol": "AWSComprehendJobStatus.AWSComprehendJobStatusUnknown",
+      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypeLocation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 116,
-      "symbol": "AWSComprehendJobStatus.AWSComprehendJobStatusSubmitted",
+      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypeOrganization",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 117,
-      "symbol": "AWSComprehendJobStatus.AWSComprehendJobStatusInProgress",
+      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypeCommercialItem",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 118,
-      "symbol": "AWSComprehendJobStatus.AWSComprehendJobStatusCompleted",
+      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypeEvent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 119,
-      "symbol": "AWSComprehendJobStatus.AWSComprehendJobStatusFailed",
+      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypeDate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 120,
-      "symbol": "AWSComprehendJobStatus.AWSComprehendJobStatusStopRequested",
+      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypeQuantity",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 121,
-      "symbol": "AWSComprehendJobStatus.AWSComprehendJobStatusStopped",
+      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypeTitle",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 124,
-      "symbol": "AWSComprehendLanguageCode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 124,
-      "symbol": "AWSComprehendLanguageCode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 122,
+      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypeOther",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 125,
-      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSComprehendInputFormat",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 125,
+      "symbol": "AWSComprehendInputFormat",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 126,
-      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeEn",
+      "symbol": "AWSComprehendInputFormat.AWSComprehendInputFormatUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 127,
-      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeEs",
+      "symbol": "AWSComprehendInputFormat.AWSComprehendInputFormatOneDocPerFile",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 128,
-      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeFr",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 129,
-      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeDe",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 130,
-      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeIt",
+      "symbol": "AWSComprehendInputFormat.AWSComprehendInputFormatOneDocPerLine",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 131,
-      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodePt",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSComprehendInvalidRequestDetailReason",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 131,
+      "symbol": "AWSComprehendInvalidRequestDetailReason",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 132,
-      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeAr",
+      "symbol": "AWSComprehendInvalidRequestDetailReason.AWSComprehendInvalidRequestDetailReasonUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 133,
-      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeHi",
+      "symbol": "AWSComprehendInvalidRequestDetailReason.AWSComprehendInvalidRequestDetailReasonDocumentSizeExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 134,
-      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeJa",
+      "symbol": "AWSComprehendInvalidRequestDetailReason.AWSComprehendInvalidRequestDetailReasonUnsupportedDocType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 135,
-      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeKo",
+      "symbol": "AWSComprehendInvalidRequestDetailReason.AWSComprehendInvalidRequestDetailReasonPageLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 136,
-      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeZh",
+      "symbol": "AWSComprehendInvalidRequestDetailReason.AWSComprehendInvalidRequestDetailReasonTextractAccessDenied",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 137,
-      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeZhTW",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 140,
-      "symbol": "AWSComprehendModelStatus",
+      "line": 139,
+      "symbol": "AWSComprehendInvalidRequestReason",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 140,
-      "symbol": "AWSComprehendModelStatus",
+      "line": 139,
+      "symbol": "AWSComprehendInvalidRequestReason",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 140,
+      "symbol": "AWSComprehendInvalidRequestReason.AWSComprehendInvalidRequestReasonUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 141,
-      "symbol": "AWSComprehendModelStatus.AWSComprehendModelStatusUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 142,
-      "symbol": "AWSComprehendModelStatus.AWSComprehendModelStatusSubmitted",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 143,
-      "symbol": "AWSComprehendModelStatus.AWSComprehendModelStatusTraining",
+      "symbol": "AWSComprehendInvalidRequestReason.AWSComprehendInvalidRequestReasonInvalidDocument",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 144,
-      "symbol": "AWSComprehendModelStatus.AWSComprehendModelStatusDeleting",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSComprehendJobStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 144,
+      "symbol": "AWSComprehendJobStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 145,
-      "symbol": "AWSComprehendModelStatus.AWSComprehendModelStatusStopRequested",
+      "symbol": "AWSComprehendJobStatus.AWSComprehendJobStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 146,
-      "symbol": "AWSComprehendModelStatus.AWSComprehendModelStatusStopped",
+      "symbol": "AWSComprehendJobStatus.AWSComprehendJobStatusSubmitted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 147,
-      "symbol": "AWSComprehendModelStatus.AWSComprehendModelStatusInError",
+      "symbol": "AWSComprehendJobStatus.AWSComprehendJobStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 148,
-      "symbol": "AWSComprehendModelStatus.AWSComprehendModelStatusTrained",
+      "symbol": "AWSComprehendJobStatus.AWSComprehendJobStatusCompleted",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 149,
+      "symbol": "AWSComprehendJobStatus.AWSComprehendJobStatusFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 150,
+      "symbol": "AWSComprehendJobStatus.AWSComprehendJobStatusStopRequested",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 151,
-      "symbol": "AWSComprehendPartOfSpeechTagType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 151,
-      "symbol": "AWSComprehendPartOfSpeechTagType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 152,
-      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 153,
-      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeAdj",
+      "symbol": "AWSComprehendJobStatus.AWSComprehendJobStatusStopped",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 154,
-      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeAdp",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSComprehendLanguageCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 154,
+      "symbol": "AWSComprehendLanguageCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 155,
-      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeAdv",
+      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 156,
-      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeAux",
+      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeEn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 157,
-      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeConj",
+      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeEs",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 158,
-      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeCconj",
+      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeFr",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 159,
-      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeDet",
+      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeDe",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 160,
-      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeIntj",
+      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeIt",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 161,
-      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeNoun",
+      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodePt",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 162,
-      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeNum",
+      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeAr",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 163,
-      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeO",
+      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeHi",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 164,
-      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypePart",
+      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeJa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 165,
-      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypePron",
+      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeKo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 166,
-      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypePropn",
+      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeZh",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 167,
-      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypePunct",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 168,
-      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeSconj",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 169,
-      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeSym",
+      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeZhTW",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 170,
-      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeVerb",
+      "symbol": "AWSComprehendModelStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 170,
+      "symbol": "AWSComprehendModelStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 171,
+      "symbol": "AWSComprehendModelStatus.AWSComprehendModelStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 172,
+      "symbol": "AWSComprehendModelStatus.AWSComprehendModelStatusSubmitted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 173,
-      "symbol": "AWSComprehendPiiEntitiesDetectionMaskMode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 173,
-      "symbol": "AWSComprehendPiiEntitiesDetectionMaskMode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSComprehendModelStatus.AWSComprehendModelStatusTraining",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 174,
-      "symbol": "AWSComprehendPiiEntitiesDetectionMaskMode.AWSComprehendPiiEntitiesDetectionMaskModeUnknown",
+      "symbol": "AWSComprehendModelStatus.AWSComprehendModelStatusDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 175,
-      "symbol": "AWSComprehendPiiEntitiesDetectionMaskMode.AWSComprehendPiiEntitiesDetectionMaskModeMask",
+      "symbol": "AWSComprehendModelStatus.AWSComprehendModelStatusStopRequested",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 176,
-      "symbol": "AWSComprehendPiiEntitiesDetectionMaskMode.AWSComprehendPiiEntitiesDetectionMaskModeReplaceWithPiiEntityType",
+      "symbol": "AWSComprehendModelStatus.AWSComprehendModelStatusStopped",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 179,
-      "symbol": "AWSComprehendPiiEntitiesDetectionMode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "line": 177,
+      "symbol": "AWSComprehendModelStatus.AWSComprehendModelStatusInError",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 179,
-      "symbol": "AWSComprehendPiiEntitiesDetectionMode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 180,
-      "symbol": "AWSComprehendPiiEntitiesDetectionMode.AWSComprehendPiiEntitiesDetectionModeUnknown",
+      "line": 178,
+      "symbol": "AWSComprehendModelStatus.AWSComprehendModelStatusTrained",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 181,
-      "symbol": "AWSComprehendPiiEntitiesDetectionMode.AWSComprehendPiiEntitiesDetectionModeOnlyRedaction",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 182,
-      "symbol": "AWSComprehendPiiEntitiesDetectionMode.AWSComprehendPiiEntitiesDetectionModeOnlyOffsets",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 185,
-      "symbol": "AWSComprehendPiiEntityType",
+      "symbol": "AWSComprehendPageBasedErrorCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 185,
-      "symbol": "AWSComprehendPiiEntityType",
+      "line": 181,
+      "symbol": "AWSComprehendPageBasedErrorCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 182,
+      "symbol": "AWSComprehendPageBasedErrorCode.AWSComprehendPageBasedErrorCodeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 183,
+      "symbol": "AWSComprehendPageBasedErrorCode.AWSComprehendPageBasedErrorCodeTextractBadPage",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 184,
+      "symbol": "AWSComprehendPageBasedErrorCode.AWSComprehendPageBasedErrorCodeTextractProvisionedThroughputExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 185,
+      "symbol": "AWSComprehendPageBasedErrorCode.AWSComprehendPageBasedErrorCodePageCharactersExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 186,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeUnknown",
+      "symbol": "AWSComprehendPageBasedErrorCode.AWSComprehendPageBasedErrorCodePageSizeExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 187,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeBankAccountNumber",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 188,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeBankRouting",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 189,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeCreditDebitNumber",
+      "symbol": "AWSComprehendPageBasedErrorCode.AWSComprehendPageBasedErrorCodeInternalServerError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 190,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeCreditDebitCvv",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSComprehendPartOfSpeechTagType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 190,
+      "symbol": "AWSComprehendPartOfSpeechTagType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 191,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeCreditDebitExpiry",
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 192,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypePin",
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeAdj",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 193,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeEmail",
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeAdp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 194,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeAddress",
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeAdv",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 195,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeName",
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeAux",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 196,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypePhone",
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeConj",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 197,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeSsn",
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeCconj",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 198,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeDateTime",
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeDet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 199,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypePassportNumber",
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeIntj",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 200,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeDriverId",
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeNoun",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 201,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeUrl",
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeNum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 202,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeAge",
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeO",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 203,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeUsername",
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypePart",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 204,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypePassword",
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypePron",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 205,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeAwsAccessKey",
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypePropn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 206,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeAwsSecretKey",
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypePunct",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 207,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeIpAddress",
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeSconj",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 208,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeMacAddress",
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeSym",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 209,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeAll",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 210,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeLicensePlate",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 211,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeVehicleIdentificationNumber",
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeVerb",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 212,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeUkNationalInsuranceNumber",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSComprehendPiiEntitiesDetectionMaskMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 212,
+      "symbol": "AWSComprehendPiiEntitiesDetectionMaskMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 213,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeCaSocialInsuranceNumber",
+      "symbol": "AWSComprehendPiiEntitiesDetectionMaskMode.AWSComprehendPiiEntitiesDetectionMaskModeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 214,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeUsIndividualTaxIdentificationNumber",
+      "symbol": "AWSComprehendPiiEntitiesDetectionMaskMode.AWSComprehendPiiEntitiesDetectionMaskModeMask",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 215,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeUkUniqueTaxpayerReferenceNumber",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 216,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeInPermanentAccountNumber",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 217,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeInNrega",
+      "symbol": "AWSComprehendPiiEntitiesDetectionMaskMode.AWSComprehendPiiEntitiesDetectionMaskModeReplaceWithPiiEntityType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 218,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeInternationalBankAccountNumber",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSComprehendPiiEntitiesDetectionMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 218,
+      "symbol": "AWSComprehendPiiEntitiesDetectionMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 219,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeSwiftCode",
+      "symbol": "AWSComprehendPiiEntitiesDetectionMode.AWSComprehendPiiEntitiesDetectionModeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 220,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeUkNationalHealthServiceNumber",
+      "symbol": "AWSComprehendPiiEntitiesDetectionMode.AWSComprehendPiiEntitiesDetectionModeOnlyRedaction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 221,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeCaHealthNumber",
+      "symbol": "AWSComprehendPiiEntitiesDetectionMode.AWSComprehendPiiEntitiesDetectionModeOnlyOffsets",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 222,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeInAadhaar",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 223,
-      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeInVoterNumber",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 226,
-      "symbol": "AWSComprehendSentimentType",
+      "line": 224,
+      "symbol": "AWSComprehendPiiEntityType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 226,
-      "symbol": "AWSComprehendSentimentType",
+      "line": 224,
+      "symbol": "AWSComprehendPiiEntityType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 225,
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 226,
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeBankAccountNumber",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 227,
-      "symbol": "AWSComprehendSentimentType.AWSComprehendSentimentTypeUnknown",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeBankRouting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 228,
-      "symbol": "AWSComprehendSentimentType.AWSComprehendSentimentTypePositive",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeCreditDebitNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 229,
-      "symbol": "AWSComprehendSentimentType.AWSComprehendSentimentTypeNegative",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeCreditDebitCvv",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 230,
-      "symbol": "AWSComprehendSentimentType.AWSComprehendSentimentTypeNeutral",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeCreditDebitExpiry",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 231,
-      "symbol": "AWSComprehendSentimentType.AWSComprehendSentimentTypeMixed",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypePin",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 232,
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeEmail",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 233,
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeAddress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 234,
-      "symbol": "AWSComprehendSplit",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 234,
-      "symbol": "AWSComprehendSplit",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 235,
-      "symbol": "AWSComprehendSplit.AWSComprehendSplitUnknown",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypePhone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 236,
-      "symbol": "AWSComprehendSplit.AWSComprehendSplitTrain",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeSsn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 237,
-      "symbol": "AWSComprehendSplit.AWSComprehendSplitTest",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeDateTime",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 238,
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypePassportNumber",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 239,
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeDriverId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 240,
-      "symbol": "AWSComprehendSyntaxLanguageCode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 240,
-      "symbol": "AWSComprehendSyntaxLanguageCode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeUrl",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 241,
-      "symbol": "AWSComprehendSyntaxLanguageCode.AWSComprehendSyntaxLanguageCodeUnknown",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeAge",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 242,
-      "symbol": "AWSComprehendSyntaxLanguageCode.AWSComprehendSyntaxLanguageCodeEn",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeUsername",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 243,
-      "symbol": "AWSComprehendSyntaxLanguageCode.AWSComprehendSyntaxLanguageCodeEs",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypePassword",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 244,
-      "symbol": "AWSComprehendSyntaxLanguageCode.AWSComprehendSyntaxLanguageCodeFr",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeAwsAccessKey",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 245,
-      "symbol": "AWSComprehendSyntaxLanguageCode.AWSComprehendSyntaxLanguageCodeDe",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeAwsSecretKey",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 246,
-      "symbol": "AWSComprehendSyntaxLanguageCode.AWSComprehendSyntaxLanguageCodeIt",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeIpAddress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 247,
-      "symbol": "AWSComprehendSyntaxLanguageCode.AWSComprehendSyntaxLanguageCodePt",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeMacAddress",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 248,
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeAll",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 249,
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeLicensePlate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 250,
-      "symbol": "AWSComprehendTargetedSentimentEntityType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 250,
-      "symbol": "AWSComprehendTargetedSentimentEntityType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeVehicleIdentificationNumber",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 251,
-      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeUnknown",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeUkNationalInsuranceNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 252,
-      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypePerson",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeCaSocialInsuranceNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 253,
-      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeLocation",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeUsIndividualTaxIdentificationNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 254,
-      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeOrganization",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeUkUniqueTaxpayerReferenceNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 255,
-      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeFacility",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeInPermanentAccountNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 256,
-      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeBrand",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeInNrega",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 257,
-      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeCommercialItem",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeInternationalBankAccountNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 258,
-      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeMovie",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeSwiftCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 259,
-      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeMusic",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeUkNationalHealthServiceNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 260,
-      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeBook",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeCaHealthNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 261,
-      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeSoftware",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeInAadhaar",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 262,
-      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeGame",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 263,
-      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypePersonalTitle",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 264,
-      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeEvent",
+      "symbol": "AWSComprehendPiiEntityType.AWSComprehendPiiEntityTypeInVoterNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 265,
-      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeDate",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSComprehendRelationshipType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 265,
+      "symbol": "AWSComprehendRelationshipType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 266,
-      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeQuantity",
+      "symbol": "AWSComprehendRelationshipType.AWSComprehendRelationshipTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
       "line": 267,
+      "symbol": "AWSComprehendRelationshipType.AWSComprehendRelationshipTypeChild",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 270,
+      "symbol": "AWSComprehendSentimentType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 270,
+      "symbol": "AWSComprehendSentimentType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 271,
+      "symbol": "AWSComprehendSentimentType.AWSComprehendSentimentTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 272,
+      "symbol": "AWSComprehendSentimentType.AWSComprehendSentimentTypePositive",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 273,
+      "symbol": "AWSComprehendSentimentType.AWSComprehendSentimentTypeNegative",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 274,
+      "symbol": "AWSComprehendSentimentType.AWSComprehendSentimentTypeNeutral",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 275,
+      "symbol": "AWSComprehendSentimentType.AWSComprehendSentimentTypeMixed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 278,
+      "symbol": "AWSComprehendSplit",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 278,
+      "symbol": "AWSComprehendSplit",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 279,
+      "symbol": "AWSComprehendSplit.AWSComprehendSplitUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 280,
+      "symbol": "AWSComprehendSplit.AWSComprehendSplitTrain",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 281,
+      "symbol": "AWSComprehendSplit.AWSComprehendSplitTest",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 284,
+      "symbol": "AWSComprehendSyntaxLanguageCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 284,
+      "symbol": "AWSComprehendSyntaxLanguageCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 285,
+      "symbol": "AWSComprehendSyntaxLanguageCode.AWSComprehendSyntaxLanguageCodeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 286,
+      "symbol": "AWSComprehendSyntaxLanguageCode.AWSComprehendSyntaxLanguageCodeEn",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 287,
+      "symbol": "AWSComprehendSyntaxLanguageCode.AWSComprehendSyntaxLanguageCodeEs",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 288,
+      "symbol": "AWSComprehendSyntaxLanguageCode.AWSComprehendSyntaxLanguageCodeFr",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 289,
+      "symbol": "AWSComprehendSyntaxLanguageCode.AWSComprehendSyntaxLanguageCodeDe",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 290,
+      "symbol": "AWSComprehendSyntaxLanguageCode.AWSComprehendSyntaxLanguageCodeIt",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 291,
+      "symbol": "AWSComprehendSyntaxLanguageCode.AWSComprehendSyntaxLanguageCodePt",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 294,
+      "symbol": "AWSComprehendTargetedSentimentEntityType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 294,
+      "symbol": "AWSComprehendTargetedSentimentEntityType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 295,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 296,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypePerson",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 297,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeLocation",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 298,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeOrganization",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 299,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeFacility",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 300,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeBrand",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 301,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeCommercialItem",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 302,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeMovie",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 303,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeMusic",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 304,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeBook",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 305,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeSoftware",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 306,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeGame",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 307,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypePersonalTitle",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 308,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeEvent",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 309,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeDate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 310,
+      "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeQuantity",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
+      "line": 311,
       "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeAttribute",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSComprehend/AWSComprehendModel.h",
-      "line": 268,
+      "line": 312,
       "symbol": "AWSComprehendTargetedSentimentEntityType.AWSComprehendTargetedSentimentEntityTypeOther",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
