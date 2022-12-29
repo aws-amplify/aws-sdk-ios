@@ -1,17 +1,12 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
+## Unreleased
 
 ### Misc. Updates
 
 - Model updates for the following services
----AWSConnect
----AWSConnectParticipant
+  - AWSConnect
+  - AWSConnectParticipant
+
 # AWS Mobile SDK for iOS CHANGELOG
-
-## Unreleased
-
--Features for next release
 
 ## 2.28.6
 
