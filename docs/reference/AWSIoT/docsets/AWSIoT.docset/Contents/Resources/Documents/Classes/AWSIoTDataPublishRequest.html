@@ -17,7 +17,7 @@
     <a title="AWSIoTDataPublishRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSIoT 2.28.5 Docs</a> (84% documented)</p>
+        <p><a href="../index.html">AWSIoT 2.28.6 Docs</a> (84% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSIoT.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -1085,6 +1085,9 @@
                 <a href="../Classes/AWSIoTIotSiteWiseAction.html">AWSIoTIotSiteWiseAction</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSIoTIssuerCertificateIdentifier.html">AWSIoTIssuerCertificateIdentifier</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSIoTJob.html">AWSIoTJob</a>
               </li>
               <li class="nav-group-task">
@@ -1340,6 +1343,12 @@
                 <a href="../Classes/AWSIoTListProvisioningTemplatesResponse.html">AWSIoTListProvisioningTemplatesResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSIoTListRelatedResourcesForAuditFindingRequest.html">AWSIoTListRelatedResourcesForAuditFindingRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSIoTListRelatedResourcesForAuditFindingResponse.html">AWSIoTListRelatedResourcesForAuditFindingResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSIoTListRoleAliasesRequest.html">AWSIoTListRoleAliasesRequest</a>
               </li>
               <li class="nav-group-task">
@@ -1523,6 +1532,9 @@
                 <a href="../Classes/AWSIoTMqttContext.html">AWSIoTMqttContext</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSIoTMqttHeaders.html">AWSIoTMqttHeaders</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSIoTNonCompliantResource.html">AWSIoTNonCompliantResource</a>
               </li>
               <li class="nav-group-task">
@@ -1662,6 +1674,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTScheduledAuditMetadata.html">AWSIoTScheduledAuditMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSIoTSchedulingConfig.html">AWSIoTSchedulingConfig</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTSearchIndexRequest.html">AWSIoTSearchIndexRequest</a>
@@ -2015,6 +2030,9 @@
                 <a href="../Classes.html#/c:objc(cs)AWSIoTUpdateTopicRuleDestinationResponse">AWSIoTUpdateTopicRuleDestinationResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSIoTUserProperty.html">AWSIoTUserProperty</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSIoTValidateSecurityProfileBehaviorsRequest.html">AWSIoTValidateSecurityProfileBehaviorsRequest</a>
               </li>
               <li class="nav-group-task">
@@ -2157,6 +2175,9 @@
                 <a href="../Enums/AWSIoTDataErrorType.html">AWSIoTDataErrorType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSIoTDataPayloadFormatIndicator.html">AWSIoTDataPayloadFormatIndicator</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSIoTDayOfWeek.html">AWSIoTDayOfWeek</a>
               </li>
               <li class="nav-group-task">
@@ -2203,6 +2224,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSIoTIndexStatus.html">AWSIoTIndexStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSIoTJobEndBehavior.html">AWSIoTJobEndBehavior</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSIoTJobExecutionFailureType.html">AWSIoTJobExecutionFailureType</a>
@@ -2348,6 +2372,102 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSIoTDataPublishRequest(py)contentType"></a>
+                    <a name="//apple_ref/objc/Property/contentType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSIoTDataPublishRequest(py)contentType">contentType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A UTF-8 encoded string that describes the content of the publishing message.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">contentType</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">contentType</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSIoTDataPublishRequest(py)correlationData"></a>
+                    <a name="//apple_ref/objc/Property/correlationData" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSIoTDataPublishRequest(py)correlationData">correlationData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The base64-encoded binary data used by the sender of the request message to identify which request the response message is for when it&rsquo;s received. <code>correlationData</code> is an HTTP header value in the API.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">correlationData</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">correlationData</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSIoTDataPublishRequest(py)messageExpiry"></a>
+                    <a name="//apple_ref/objc/Property/messageExpiry" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSIoTDataPublishRequest(py)messageExpiry">messageExpiry</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A user-defined integer value that represents the message expiry interval in seconds. If absent, the message doesn&rsquo;t expire. For more information about the limits of <code>messageExpiry</code>, see <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html#message-broker-limits">Amazon Web Services IoT Core message broker and protocol limits and quotas </a> from the Amazon Web Services Reference Guide.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">messageExpiry</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">messageExpiry</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSIoTDataPublishRequest(py)payload"></a>
                     <a name="//apple_ref/objc/Property/payload" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSIoTDataPublishRequest(py)payload">payload</a>
@@ -2380,6 +2500,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSIoTDataPublishRequest(py)payloadFormatIndicator"></a>
+                    <a name="//apple_ref/objc/Property/payloadFormatIndicator" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSIoTDataPublishRequest(py)payloadFormatIndicator">payloadFormatIndicator</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An <code>Enum</code> string value that indicates whether the payload is formatted as UTF-8. <code>payloadFormatIndicator</code> is an HTTP header value in the API.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSIoTDataPayloadFormatIndicator.html">AWSIoTDataPayloadFormatIndicator</a></span> <span class="n">payloadFormatIndicator</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">payloadFormatIndicator</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSIoTDataPayloadFormatIndicator.html">AWSIoTDataPayloadFormatIndicator</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSIoTDataPublishRequest(py)qos"></a>
                     <a name="//apple_ref/objc/Property/qos" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSIoTDataPublishRequest(py)qos">qos</a>
@@ -2390,7 +2542,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The Quality of Service (QoS) level.</p>
+                        <p>The Quality of Service (QoS) level. The default QoS level is 0.</p>
 
                       </div>
                       <div class="declaration">
@@ -2403,6 +2555,38 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">qos</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSIoTDataPublishRequest(py)responseTopic"></a>
+                    <a name="//apple_ref/objc/Property/responseTopic" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSIoTDataPublishRequest(py)responseTopic">responseTopic</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A UTF-8 encoded string that&rsquo;s used as the topic name for a response message. The response topic is used to describe the topic which the receiver should publish to as part of the request-response flow. The topic must not contain wildcard characters.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">responseTopic</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">responseTopic</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -2473,12 +2657,44 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSIoTDataPublishRequest(py)userProperties"></a>
+                    <a name="//apple_ref/objc/Property/userProperties" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSIoTDataPublishRequest(py)userProperties">userProperties</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A JSON string that contains an array of JSON objects. If you don’t use Amazon Web Services SDK or CLI, you must encode the JSON string to base64 format before adding it to the HTTP header. <code>userProperties</code> is an HTTP header value in the API.</p><p>The following example <code>userProperties</code> parameter is a JSON string which represents two User Properties. Note that it needs to be base64-encoded:</p><p><code>[{"deviceName": "alpha"}, {"deviceCnt": "45"}]</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">userProperties</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">userProperties</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-11-22)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-12-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
