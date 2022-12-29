@@ -17,7 +17,7 @@
     <a title="AWSKMSImportKeyMaterialRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSKMS 2.28.5 Docs</a> (70% documented)</p>
+        <p><a href="../index.html">AWSKMS 2.28.6 Docs</a> (68% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKMS.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -325,6 +325,15 @@
               <li class="nav-group-task">
                 <a href="../Classes/AWSKMSVerifyResponse.html">AWSKMSVerifyResponse</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSXksKeyConfigurationType.html">AWSKMSXksKeyConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSXksProxyAuthenticationCredentialType.html">AWSKMSXksProxyAuthenticationCredentialType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSXksProxyConfigurationType.html">AWSKMSXksProxyConfigurationType</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -355,6 +364,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSKMSConnectionStateType.html">AWSKMSConnectionStateType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSCustomKeyStoreType.html">AWSKMSCustomKeyStoreType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSKMSCustomerMasterKeySpec.html">AWSKMSCustomerMasterKeySpec</a>
@@ -406,6 +418,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSKMSWrappingKeySpec.html">AWSKMSWrappingKeySpec</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSXksProxyConnectivityType.html">AWSKMSXksProxyConnectivityType</a>
               </li>
             </ul>
           </li>
@@ -477,7 +492,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies whether the key material expires. The default is <code>KEY_MATERIAL_EXPIRES</code>, in which case you must include the <code>ValidTo</code> parameter. When this parameter is set to <code>KEY_MATERIAL_DOES_NOT_EXPIRE</code>, you must omit the <code>ValidTo</code> parameter.</p>
+                        <p>Specifies whether the key material expires. The default is <code>KEY_MATERIAL_EXPIRES</code>.</p><p>When the value of <code>ExpirationModel</code> is <code>KEY_MATERIAL_EXPIRES</code>, you must specify a value for the <code>ValidTo</code> parameter. When value is <code>KEY_MATERIAL_DOES_NOT_EXPIRE</code>, you must omit the <code>ValidTo</code> parameter.</p><p>You cannot change the <code>ExpirationModel</code> or <code>ValidTo</code> values for the current import after the request completes. To change either value, you must delete (<a>DeleteImportedKeyMaterial</a>) and reimport the key material.</p>
 
                       </div>
                       <div class="declaration">
@@ -573,7 +588,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The time at which the imported key material expires. When the key material expires, KMS deletes the key material and the KMS key becomes unusable. You must omit this parameter when the <code>ExpirationModel</code> parameter is set to <code>KEY_MATERIAL_DOES_NOT_EXPIRE</code>. Otherwise it is required.</p>
+                        <p>The date and time when the imported key material expires. This parameter is required when the value of the <code>ExpirationModel</code> parameter is <code>KEY_MATERIAL_EXPIRES</code>. Otherwise it is not valid.</p><p>The value of this parameter must be a future date and time. The maximum value is 365 days from the request date.</p><p>When the key material expires, KMS deletes the key material from the KMS key. Without its key material, the KMS key is unusable. To use the KMS key in cryptographic operations, you must reimport the same key material.</p><p>You cannot change the <code>ExpirationModel</code> or <code>ValidTo</code> values for the current import after the request completes. To change either value, you must delete (<a>DeleteImportedKeyMaterial</a>) and reimport the key material.</p>
 
                       </div>
                       <div class="declaration">
@@ -597,7 +612,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-11-22)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-12-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

@@ -17,7 +17,7 @@
     <a title="AWSKMSErrorType Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSKMS 2.28.5 Docs</a> (70% documented)</p>
+        <p><a href="../index.html">AWSKMS 2.28.6 Docs</a> (68% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKMS.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -325,6 +325,15 @@
               <li class="nav-group-task">
                 <a href="../Classes/AWSKMSVerifyResponse.html">AWSKMSVerifyResponse</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSXksKeyConfigurationType.html">AWSKMSXksKeyConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSXksProxyAuthenticationCredentialType.html">AWSKMSXksProxyAuthenticationCredentialType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSXksProxyConfigurationType.html">AWSKMSXksProxyConfigurationType</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -355,6 +364,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSKMSConnectionStateType.html">AWSKMSConnectionStateType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSCustomKeyStoreType.html">AWSKMSCustomKeyStoreType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSKMSCustomerMasterKeySpec.html">AWSKMSCustomerMasterKeySpec</a>
@@ -407,6 +419,9 @@
               <li class="nav-group-task">
                 <a href="../Enums/AWSKMSWrappingKeySpec.html">AWSKMSWrappingKeySpec</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSXksProxyConnectivityType.html">AWSKMSXksProxyConnectivityType</a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -454,6 +469,18 @@
     <span class="n">AWSKMSErrorNotFound</span><span class="p">,</span>
     <span class="n">AWSKMSErrorTag</span><span class="p">,</span>
     <span class="n">AWSKMSErrorUnsupportedOperation</span><span class="p">,</span>
+    <span class="n">AWSKMSErrorXksKeyAlreadyInUse</span><span class="p">,</span>
+    <span class="n">AWSKMSErrorXksKeyInvalidConfiguration</span><span class="p">,</span>
+    <span class="n">AWSKMSErrorXksKeyNotFound</span><span class="p">,</span>
+    <span class="n">AWSKMSErrorXksProxyIncorrectAuthenticationCredential</span><span class="p">,</span>
+    <span class="n">AWSKMSErrorXksProxyInvalidConfiguration</span><span class="p">,</span>
+    <span class="n">AWSKMSErrorXksProxyInvalidResponse</span><span class="p">,</span>
+    <span class="n">AWSKMSErrorXksProxyUriEndpointInUse</span><span class="p">,</span>
+    <span class="n">AWSKMSErrorXksProxyUriInUse</span><span class="p">,</span>
+    <span class="n">AWSKMSErrorXksProxyUriUnreachable</span><span class="p">,</span>
+    <span class="n">AWSKMSErrorXksProxyVpcEndpointServiceInUse</span><span class="p">,</span>
+    <span class="n">AWSKMSErrorXksProxyVpcEndpointServiceInvalidConfiguration</span><span class="p">,</span>
+    <span class="n">AWSKMSErrorXksProxyVpcEndpointServiceNotFound</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                 </div>
@@ -1589,12 +1616,396 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSKMSErrorType@AWSKMSErrorXksKeyAlreadyInUse"></a>
+                    <a name="//apple_ref/objc/Case/AWSKMSErrorXksKeyAlreadyInUse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSKMSErrorType@AWSKMSErrorXksKeyAlreadyInUse">AWSKMSErrorXksKeyAlreadyInUse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSKMSErrorXksKeyAlreadyInUse</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">xksKeyAlreadyInUse</span> <span class="o">=</span> <span class="mi">35</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSKMSErrorType@AWSKMSErrorXksKeyInvalidConfiguration"></a>
+                    <a name="//apple_ref/objc/Case/AWSKMSErrorXksKeyInvalidConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSKMSErrorType@AWSKMSErrorXksKeyInvalidConfiguration">AWSKMSErrorXksKeyInvalidConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSKMSErrorXksKeyInvalidConfiguration</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">xksKeyInvalidConfiguration</span> <span class="o">=</span> <span class="mi">36</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSKMSErrorType@AWSKMSErrorXksKeyNotFound"></a>
+                    <a name="//apple_ref/objc/Case/AWSKMSErrorXksKeyNotFound" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSKMSErrorType@AWSKMSErrorXksKeyNotFound">AWSKMSErrorXksKeyNotFound</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSKMSErrorXksKeyNotFound</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">xksKeyNotFound</span> <span class="o">=</span> <span class="mi">37</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSKMSErrorType@AWSKMSErrorXksProxyIncorrectAuthenticationCredential"></a>
+                    <a name="//apple_ref/objc/Case/AWSKMSErrorXksProxyIncorrectAuthenticationCredential" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSKMSErrorType@AWSKMSErrorXksProxyIncorrectAuthenticationCredential">AWSKMSErrorXksProxyIncorrectAuthenticationCredential</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSKMSErrorXksProxyIncorrectAuthenticationCredential</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">xksProxyIncorrectAuthenticationCredential</span> <span class="o">=</span> <span class="mi">38</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSKMSErrorType@AWSKMSErrorXksProxyInvalidConfiguration"></a>
+                    <a name="//apple_ref/objc/Case/AWSKMSErrorXksProxyInvalidConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSKMSErrorType@AWSKMSErrorXksProxyInvalidConfiguration">AWSKMSErrorXksProxyInvalidConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSKMSErrorXksProxyInvalidConfiguration</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">xksProxyInvalidConfiguration</span> <span class="o">=</span> <span class="mi">39</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSKMSErrorType@AWSKMSErrorXksProxyInvalidResponse"></a>
+                    <a name="//apple_ref/objc/Case/AWSKMSErrorXksProxyInvalidResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSKMSErrorType@AWSKMSErrorXksProxyInvalidResponse">AWSKMSErrorXksProxyInvalidResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSKMSErrorXksProxyInvalidResponse</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">xksProxyInvalidResponse</span> <span class="o">=</span> <span class="mi">40</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSKMSErrorType@AWSKMSErrorXksProxyUriEndpointInUse"></a>
+                    <a name="//apple_ref/objc/Case/AWSKMSErrorXksProxyUriEndpointInUse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSKMSErrorType@AWSKMSErrorXksProxyUriEndpointInUse">AWSKMSErrorXksProxyUriEndpointInUse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSKMSErrorXksProxyUriEndpointInUse</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">xksProxyUriEndpointInUse</span> <span class="o">=</span> <span class="mi">41</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSKMSErrorType@AWSKMSErrorXksProxyUriInUse"></a>
+                    <a name="//apple_ref/objc/Case/AWSKMSErrorXksProxyUriInUse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSKMSErrorType@AWSKMSErrorXksProxyUriInUse">AWSKMSErrorXksProxyUriInUse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSKMSErrorXksProxyUriInUse</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">xksProxyUriInUse</span> <span class="o">=</span> <span class="mi">42</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSKMSErrorType@AWSKMSErrorXksProxyUriUnreachable"></a>
+                    <a name="//apple_ref/objc/Case/AWSKMSErrorXksProxyUriUnreachable" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSKMSErrorType@AWSKMSErrorXksProxyUriUnreachable">AWSKMSErrorXksProxyUriUnreachable</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSKMSErrorXksProxyUriUnreachable</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">xksProxyUriUnreachable</span> <span class="o">=</span> <span class="mi">43</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSKMSErrorType@AWSKMSErrorXksProxyVpcEndpointServiceInUse"></a>
+                    <a name="//apple_ref/objc/Case/AWSKMSErrorXksProxyVpcEndpointServiceInUse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSKMSErrorType@AWSKMSErrorXksProxyVpcEndpointServiceInUse">AWSKMSErrorXksProxyVpcEndpointServiceInUse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSKMSErrorXksProxyVpcEndpointServiceInUse</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">xksProxyVpcEndpointServiceInUse</span> <span class="o">=</span> <span class="mi">44</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSKMSErrorType@AWSKMSErrorXksProxyVpcEndpointServiceInvalidConfiguration"></a>
+                    <a name="//apple_ref/objc/Case/AWSKMSErrorXksProxyVpcEndpointServiceInvalidConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSKMSErrorType@AWSKMSErrorXksProxyVpcEndpointServiceInvalidConfiguration">AWSKMSErrorXksProxyVpcEndpointServiceInvalidConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSKMSErrorXksProxyVpcEndpointServiceInvalidConfiguration</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">xksProxyVpcEndpointServiceInvalidConfiguration</span> <span class="o">=</span> <span class="mi">45</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSKMSErrorType@AWSKMSErrorXksProxyVpcEndpointServiceNotFound"></a>
+                    <a name="//apple_ref/objc/Case/AWSKMSErrorXksProxyVpcEndpointServiceNotFound" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSKMSErrorType@AWSKMSErrorXksProxyVpcEndpointServiceNotFound">AWSKMSErrorXksProxyVpcEndpointServiceNotFound</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSKMSErrorXksProxyVpcEndpointServiceNotFound</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">xksProxyVpcEndpointServiceNotFound</span> <span class="o">=</span> <span class="mi">46</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-11-22)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-12-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

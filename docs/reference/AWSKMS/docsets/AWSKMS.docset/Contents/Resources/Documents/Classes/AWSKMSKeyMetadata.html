@@ -17,7 +17,7 @@
     <a title="AWSKMSKeyMetadata Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSKMS 2.28.5 Docs</a> (70% documented)</p>
+        <p><a href="../index.html">AWSKMS 2.28.6 Docs</a> (68% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKMS.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -325,6 +325,15 @@
               <li class="nav-group-task">
                 <a href="../Classes/AWSKMSVerifyResponse.html">AWSKMSVerifyResponse</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSXksKeyConfigurationType.html">AWSKMSXksKeyConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSXksProxyAuthenticationCredentialType.html">AWSKMSXksProxyAuthenticationCredentialType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSXksProxyConfigurationType.html">AWSKMSXksProxyConfigurationType</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -355,6 +364,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSKMSConnectionStateType.html">AWSKMSConnectionStateType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSCustomKeyStoreType.html">AWSKMSCustomKeyStoreType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSKMSCustomerMasterKeySpec.html">AWSKMSCustomerMasterKeySpec</a>
@@ -407,6 +419,9 @@
               <li class="nav-group-task">
                 <a href="../Enums/AWSKMSWrappingKeySpec.html">AWSKMSWrappingKeySpec</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSXksProxyConnectivityType.html">AWSKMSXksProxyConnectivityType</a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -427,7 +442,7 @@
 
                 </div>
               </div>
-            <p>Contains metadata about a KMS key.</p><p>This data type is used as a response element for the <a>CreateKey</a> and <a>DescribeKey</a> operations.</p>
+            <p>Contains metadata about a KMS key.</p><p>This data type is used as a response element for the <a>CreateKey</a>, <a>DescribeKey</a>, and <a>ReplicateKey</a> operations.</p>
 
 <p>Required parameters: [KeyId]</p>
 
@@ -512,7 +527,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The cluster ID of the CloudHSM cluster that contains the key material for the KMS key. When you create a KMS key in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>, KMS creates the key material for the KMS key in the associated CloudHSM cluster. This value is present only when the KMS key is created in a custom key store.</p>
+                        <p>The cluster ID of the CloudHSM cluster that contains the key material for the KMS key. When you create a KMS key in an CloudHSM <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>, KMS creates the key material for the KMS key in the associated CloudHSM cluster. This field is present only when the KMS key is created in an CloudHSM key store.</p>
 
                       </div>
                       <div class="declaration">
@@ -576,7 +591,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A unique identifier for the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> that contains the KMS key. This value is present only when the KMS key is created in a custom key store.</p>
+                        <p>A unique identifier for the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> that contains the KMS key. This field is present only when the KMS key is created in a custom key store.</p>
 
                       </div>
                       <div class="declaration">
@@ -608,7 +623,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Instead, use the <code>KeySpec</code> field.</p><p>The <code>KeySpec</code> and <code>CustomerMasterKeySpec</code> fields have the same value. We recommend that you use the <code>KeySpec</code> field in your code. However, to avoid breaking changes, KMS will support both fields.</p>
+                        <p>Instead, use the <code>KeySpec</code> field.</p><p>The <code>KeySpec</code> and <code>CustomerMasterKeySpec</code> fields have the same value. We recommend that you use the <code>KeySpec</code> field in your code. However, to avoid breaking changes, KMS supports both fields.</p>
 
                       </div>
                       <div class="declaration">
@@ -1171,12 +1186,44 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKMSKeyMetadata(py)xksKeyConfiguration"></a>
+                    <a name="//apple_ref/objc/Property/xksKeyConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSKeyMetadata(py)xksKeyConfiguration">xksKeyConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Information about the external key that is associated with a KMS key in an external key store.</p><p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html#concept-external-key">External key</a> in the <i>Key Management Service Developer Guide</i>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSKMSXksKeyConfigurationType.html">AWSKMSXksKeyConfigurationType</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">xksKeyConfiguration</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">xksKeyConfiguration</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSKMSXksKeyConfigurationType.html">AWSKMSXksKeyConfigurationType</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-11-22)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-12-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
