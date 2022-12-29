@@ -17,7 +17,7 @@
     <a title="AWSLogsStartQueryRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLogs 2.28.5 Docs</a> (85% documented)</p>
+        <p><a href="../index.html">AWSLogs 2.28.6 Docs</a> (84% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLogs.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -60,6 +60,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLogsCreateLogStreamRequest.html">AWSLogsCreateLogStreamRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsDeleteDataProtectionPolicyRequest.html">AWSLogsDeleteDataProtectionPolicyRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLogsDeleteDestinationRequest.html">AWSLogsDeleteDestinationRequest</a>
@@ -167,6 +170,12 @@
                 <a href="../Classes/AWSLogsFilteredLogEvent.html">AWSLogsFilteredLogEvent</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLogsGetDataProtectionPolicyRequest.html">AWSLogsGetDataProtectionPolicyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsGetDataProtectionPolicyResponse.html">AWSLogsGetDataProtectionPolicyResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLogsGetLogEventsRequest.html">AWSLogsGetLogEventsRequest</a>
               </li>
               <li class="nav-group-task">
@@ -225,6 +234,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLogsOutputLogEvent.html">AWSLogsOutputLogEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsPutDataProtectionPolicyRequest.html">AWSLogsPutDataProtectionPolicyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsPutDataProtectionPolicyResponse.html">AWSLogsPutDataProtectionPolicyResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLogsPutDestinationPolicyRequest.html">AWSLogsPutDestinationPolicyRequest</a>
@@ -348,6 +363,9 @@
             <a href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Enums/AWSLogsDataProtectionStatus.html">AWSLogsDataProtectionStatus</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSLogsDistribution.html">AWSLogsDistribution</a>
               </li>
               <li class="nav-group-task">
@@ -403,7 +421,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The end of the time range to query. The range is inclusive, so the specified end time is included in the query. Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.</p>
+                        <p>The end of the time range to query. The range is inclusive, so the specified end time is included in the query. Specified as epoch time, the number of seconds since <code>January 1, 1970, 00:00:00 UTC</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -457,6 +475,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSLogsStartQueryRequest(py)logGroupIdentifiers"></a>
+                    <a name="//apple_ref/objc/Property/logGroupIdentifiers" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLogsStartQueryRequest(py)logGroupIdentifiers">logGroupIdentifiers</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The list of log groups to query. You can include up to 50 log groups.</p><p>You can specify them by the log group name or ARN. If a log group that you&rsquo;re querying is in a source account and you&rsquo;re using a monitoring account, you must specify the ARN of the log group here. The query definition must also be defined in the monitoring account.</p><p>If you specify an ARN, the ARN can&rsquo;t end with an asterisk (*).</p><p>A <code>StartQuery</code> operation must include exactly one of the following parameters: <code><a href="../Classes/AWSLogsStartQueryRequest.html#/c:objc(cs)AWSLogsStartQueryRequest(py)logGroupName">logGroupName</a></code>, <code><a href="../Classes/AWSLogsStartQueryRequest.html#/c:objc(cs)AWSLogsStartQueryRequest(py)logGroupNames">logGroupNames</a></code> or <code>logGroupIdentifiers</code>. </p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">logGroupIdentifiers</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">logGroupIdentifiers</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSLogsStartQueryRequest(py)logGroupName"></a>
                     <a name="//apple_ref/objc/Property/logGroupName" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSLogsStartQueryRequest(py)logGroupName">logGroupName</a>
@@ -467,7 +517,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The log group on which to perform the query.</p><p>A <code>StartQuery</code> operation must include a <code><a href="../Classes/AWSLogsStartQueryRequest.html#/c:objc(cs)AWSLogsStartQueryRequest(py)logGroupNames">logGroupNames</a></code> or a <code>logGroupName</code> parameter, but not both.</p>
+                        <p><p>The log group on which to perform the query.</p><note><p>A <code>StartQuery</code> operation must include exactly one of the following parameters: <code>logGroupName</code>, <code><a href="../Classes/AWSLogsStartQueryRequest.html#/c:objc(cs)AWSLogsStartQueryRequest(py)logGroupNames">logGroupNames</a></code> or <code><a href="../Classes/AWSLogsStartQueryRequest.html#/c:objc(cs)AWSLogsStartQueryRequest(py)logGroupIdentifiers">logGroupIdentifiers</a></code>. </p></note></p>
 
                       </div>
                       <div class="declaration">
@@ -499,7 +549,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The list of log groups to be queried. You can include up to 20 log groups.</p><p>A <code>StartQuery</code> operation must include a <code>logGroupNames</code> or a <code><a href="../Classes/AWSLogsStartQueryRequest.html#/c:objc(cs)AWSLogsStartQueryRequest(py)logGroupName">logGroupName</a></code> parameter, but not both.</p>
+                        <p><p>The list of log groups to be queried. You can include up to 50 log groups.</p><note><p>A <code>StartQuery</code> operation must include exactly one of the following parameters: <code><a href="../Classes/AWSLogsStartQueryRequest.html#/c:objc(cs)AWSLogsStartQueryRequest(py)logGroupName">logGroupName</a></code>, <code>logGroupNames</code> or <code><a href="../Classes/AWSLogsStartQueryRequest.html#/c:objc(cs)AWSLogsStartQueryRequest(py)logGroupIdentifiers">logGroupIdentifiers</a></code>. </p></note></p>
 
                       </div>
                       <div class="declaration">
@@ -563,7 +613,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The beginning of the time range to query. The range is inclusive, so the specified start time is included in the query. Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.</p>
+                        <p>The beginning of the time range to query. The range is inclusive, so the specified start time is included in the query. Specified as epoch time, the number of seconds since <code>January 1, 1970, 00:00:00 UTC</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -587,7 +637,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-11-22)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-12-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

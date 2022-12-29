@@ -17,7 +17,7 @@
     <a title="AWSLogsMetricTransformation Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLogs 2.28.5 Docs</a> (85% documented)</p>
+        <p><a href="../index.html">AWSLogs 2.28.6 Docs</a> (84% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLogs.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -60,6 +60,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLogsCreateLogStreamRequest.html">AWSLogsCreateLogStreamRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsDeleteDataProtectionPolicyRequest.html">AWSLogsDeleteDataProtectionPolicyRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLogsDeleteDestinationRequest.html">AWSLogsDeleteDestinationRequest</a>
@@ -167,6 +170,12 @@
                 <a href="../Classes/AWSLogsFilteredLogEvent.html">AWSLogsFilteredLogEvent</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLogsGetDataProtectionPolicyRequest.html">AWSLogsGetDataProtectionPolicyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsGetDataProtectionPolicyResponse.html">AWSLogsGetDataProtectionPolicyResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLogsGetLogEventsRequest.html">AWSLogsGetLogEventsRequest</a>
               </li>
               <li class="nav-group-task">
@@ -225,6 +234,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLogsOutputLogEvent.html">AWSLogsOutputLogEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsPutDataProtectionPolicyRequest.html">AWSLogsPutDataProtectionPolicyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsPutDataProtectionPolicyResponse.html">AWSLogsPutDataProtectionPolicyResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLogsPutDestinationPolicyRequest.html">AWSLogsPutDestinationPolicyRequest</a>
@@ -348,6 +363,9 @@
             <a href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Enums/AWSLogsDataProtectionStatus.html">AWSLogsDataProtectionStatus</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSLogsDistribution.html">AWSLogsDistribution</a>
               </li>
               <li class="nav-group-task">
@@ -438,7 +456,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>The fields to use as dimensions for the metric. One metric filter can include as many as three dimensions.</p><important><p>Metrics extracted from log events are charged as custom metrics. To prevent unexpected high charges, do not specify high-cardinality fields such as <code>IPAddress</code> or <code>requestID</code> as dimensions. Each different value found for a dimension is treated as a separate metric and accrues charges as a separate custom metric. </p><p>To help prevent accidental high charges, Amazon disables a metric filter if it generates 1000 different name/value pairs for the dimensions that you have specified within a certain amount of time.</p><p>You can also set up a billing alarm to alert you if your charges are higher than expected. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html"> Creating a Billing Alarm to Monitor Your Estimated Amazon Web Services Charges</a>. </p></important></p>
+                        <p><p>The fields to use as dimensions for the metric. One metric filter can include as many as three dimensions.</p><important><p>Metrics extracted from log events are charged as custom metrics. To prevent unexpected high charges, do not specify high-cardinality fields such as <code>IPAddress</code> or <code>requestID</code> as dimensions. Each different value found for a dimension is treated as a separate metric and accrues charges as a separate custom metric. </p><p>CloudWatch Logs disables a metric filter if it generates 1000 different name/value pairs for your specified dimensions within a certain amount of time. This helps to prevent accidental high charges.</p><p>You can also set up a billing alarm to alert you if your charges are higher than expected. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html"> Creating a Billing Alarm to Monitor Your Estimated Amazon Web Services Charges</a>. </p></important></p>
 
                       </div>
                       <div class="declaration">
@@ -590,7 +608,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-11-22)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-12-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
