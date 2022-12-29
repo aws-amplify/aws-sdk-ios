@@ -37,6 +37,7 @@
   - AWSComprehend
   - AWSRekognition
   - AWSSNS
+  - AWSAutoScaling
 
 ## 2.28.5
 
