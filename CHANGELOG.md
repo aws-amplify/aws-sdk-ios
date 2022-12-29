@@ -1,6 +1,14 @@
+## Unreleased
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSConnect
+  - Breaking change to AWSConnectParticipant
+
 # AWS Mobile SDK for iOS CHANGELOG
 
-## Unreleased
+## 2.28.6
 
 ### New features
 - **AWSTranscribeStreaming**
@@ -37,6 +45,7 @@
   - AWSComprehend
   - AWSRekognition
   - AWSSNS
+  - AWSAutoScaling
 
 ## 2.28.5
 
