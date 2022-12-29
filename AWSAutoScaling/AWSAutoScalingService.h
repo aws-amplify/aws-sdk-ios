@@ -247,6 +247,31 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)attachLoadBalancers:(AWSAutoScalingAttachLoadBalancersType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingAttachLoadBalancersResultType * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p><b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change. Do not use this API for production workloads. This API is also subject to change.</b></p><p>Attaches one or more traffic sources to the specified Auto Scaling group.</p><p>To describe the traffic sources for an Auto Scaling group, call the <a>DescribeTrafficSources</a> API. To detach a traffic source from the Auto Scaling group, call the <a>DetachTrafficSources</a> API.</p><p>This operation is additive and does not detach existing traffic sources from the Auto Scaling group.</p>
+ 
+ @param request A container for the necessary parameters to execute the AttachTrafficSources service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingAttachTrafficSourcesResultType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`, `AWSAutoScalingErrorServiceLinkedRoleFailure`.
+ 
+ @see AWSAutoScalingAttachTrafficSourcesType
+ @see AWSAutoScalingAttachTrafficSourcesResultType
+ */
+- (AWSTask<AWSAutoScalingAttachTrafficSourcesResultType *> *)attachTrafficSources:(AWSAutoScalingAttachTrafficSourcesType *)request;
+
+/**
+ <p><b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change. Do not use this API for production workloads. This API is also subject to change.</b></p><p>Attaches one or more traffic sources to the specified Auto Scaling group.</p><p>To describe the traffic sources for an Auto Scaling group, call the <a>DescribeTrafficSources</a> API. To detach a traffic source from the Auto Scaling group, call the <a>DetachTrafficSources</a> API.</p><p>This operation is additive and does not detach existing traffic sources from the Auto Scaling group.</p>
+ 
+ @param request A container for the necessary parameters to execute the AttachTrafficSources service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`, `AWSAutoScalingErrorServiceLinkedRoleFailure`.
+ 
+ @see AWSAutoScalingAttachTrafficSourcesType
+ @see AWSAutoScalingAttachTrafficSourcesResultType
+ */
+- (void)attachTrafficSources:(AWSAutoScalingAttachTrafficSourcesType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingAttachTrafficSourcesResultType * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Deletes one or more scheduled actions for the specified Auto Scaling group.</p>
  
  @param request A container for the necessary parameters to execute the BatchDeleteScheduledAction service method.
@@ -820,7 +845,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)describeLifecycleHooks:(AWSAutoScalingDescribeLifecycleHooksType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingDescribeLifecycleHooksAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets information about the Elastic Load Balancing target groups for the specified Auto Scaling group.</p><p>To determine the attachment status of the target group, use the <code>State</code> element in the response. When you attach a target group to an Auto Scaling group, the initial <code>State</code> value is <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling instances are registered with the target group. If Elastic Load Balancing health checks are enabled for the Auto Scaling group, the state transitions to <code>InService</code> after at least one Auto Scaling instance passes the health check. When the target group is in the <code>InService</code> state, Amazon EC2 Auto Scaling can terminate and replace any instances that are reported as unhealthy. If no registered instances pass the health checks, the target group doesn't enter the <code>InService</code> state. </p><p>Target groups also have an <code>InService</code> state if you attach them in the <a>CreateAutoScalingGroup</a> API call. If your target group state is <code>InService</code>, but it is not working properly, check the scaling activities by calling <a>DescribeScalingActivities</a> and take any corrective actions necessary.</p><p>For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
+ <p>Gets information about the Elastic Load Balancing target groups for the specified Auto Scaling group.</p><p>To determine the attachment status of the target group, use the <code>State</code> element in the response. When you attach a target group to an Auto Scaling group, the initial <code>State</code> value is <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling instances are registered with the target group. If Elastic Load Balancing health checks are enabled for the Auto Scaling group, the state transitions to <code>InService</code> after at least one Auto Scaling instance passes the health check. When the target group is in the <code>InService</code> state, Amazon EC2 Auto Scaling can terminate and replace any instances that are reported as unhealthy. If no registered instances pass the health checks, the target group doesn't enter the <code>InService</code> state. </p><p>Target groups also have an <code>InService</code> state if you attach them in the <a>CreateAutoScalingGroup</a> API call. If your target group state is <code>InService</code>, but it is not working properly, check the scaling activities by calling <a>DescribeScalingActivities</a> and take any corrective actions necessary.</p><p>For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p><note><p>You can use this operation to describe target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>, but not for target groups that were attached by using <a>AttachTrafficSources</a>.</p></note>
  
  @param request A container for the necessary parameters to execute the DescribeLoadBalancerTargetGroups service method.
 
@@ -832,7 +857,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask<AWSAutoScalingDescribeLoadBalancerTargetGroupsResponse *> *)describeLoadBalancerTargetGroups:(AWSAutoScalingDescribeLoadBalancerTargetGroupsRequest *)request;
 
 /**
- <p>Gets information about the Elastic Load Balancing target groups for the specified Auto Scaling group.</p><p>To determine the attachment status of the target group, use the <code>State</code> element in the response. When you attach a target group to an Auto Scaling group, the initial <code>State</code> value is <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling instances are registered with the target group. If Elastic Load Balancing health checks are enabled for the Auto Scaling group, the state transitions to <code>InService</code> after at least one Auto Scaling instance passes the health check. When the target group is in the <code>InService</code> state, Amazon EC2 Auto Scaling can terminate and replace any instances that are reported as unhealthy. If no registered instances pass the health checks, the target group doesn't enter the <code>InService</code> state. </p><p>Target groups also have an <code>InService</code> state if you attach them in the <a>CreateAutoScalingGroup</a> API call. If your target group state is <code>InService</code>, but it is not working properly, check the scaling activities by calling <a>DescribeScalingActivities</a> and take any corrective actions necessary.</p><p>For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
+ <p>Gets information about the Elastic Load Balancing target groups for the specified Auto Scaling group.</p><p>To determine the attachment status of the target group, use the <code>State</code> element in the response. When you attach a target group to an Auto Scaling group, the initial <code>State</code> value is <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling instances are registered with the target group. If Elastic Load Balancing health checks are enabled for the Auto Scaling group, the state transitions to <code>InService</code> after at least one Auto Scaling instance passes the health check. When the target group is in the <code>InService</code> state, Amazon EC2 Auto Scaling can terminate and replace any instances that are reported as unhealthy. If no registered instances pass the health checks, the target group doesn't enter the <code>InService</code> state. </p><p>Target groups also have an <code>InService</code> state if you attach them in the <a>CreateAutoScalingGroup</a> API call. If your target group state is <code>InService</code>, but it is not working properly, check the scaling activities by calling <a>DescribeScalingActivities</a> and take any corrective actions necessary.</p><p>For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p><note><p>You can use this operation to describe target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>, but not for target groups that were attached by using <a>AttachTrafficSources</a>.</p></note>
  
  @param request A container for the necessary parameters to execute the DescribeLoadBalancerTargetGroups service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1070,6 +1095,31 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)describeTerminationPolicyTypes:(AWSRequest *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingDescribeTerminationPolicyTypesAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p><b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change. Do not use this API for production workloads. This API is also subject to change.</b></p><p>Gets information about the traffic sources for the specified Auto Scaling group.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTrafficSources service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDescribeTrafficSourcesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`, `AWSAutoScalingErrorInvalidNextToken`.
+ 
+ @see AWSAutoScalingDescribeTrafficSourcesRequest
+ @see AWSAutoScalingDescribeTrafficSourcesResponse
+ */
+- (AWSTask<AWSAutoScalingDescribeTrafficSourcesResponse *> *)describeTrafficSources:(AWSAutoScalingDescribeTrafficSourcesRequest *)request;
+
+/**
+ <p><b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change. Do not use this API for production workloads. This API is also subject to change.</b></p><p>Gets information about the traffic sources for the specified Auto Scaling group.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTrafficSources service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`, `AWSAutoScalingErrorInvalidNextToken`.
+ 
+ @see AWSAutoScalingDescribeTrafficSourcesRequest
+ @see AWSAutoScalingDescribeTrafficSourcesResponse
+ */
+- (void)describeTrafficSources:(AWSAutoScalingDescribeTrafficSourcesRequest *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingDescribeTrafficSourcesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Gets information about a warm pool and its instances.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm pools for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeWarmPool service method.
@@ -1120,7 +1170,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)detachInstances:(AWSAutoScalingDetachInstancesQuery *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingDetachInstancesAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Detaches one or more target groups from the specified Auto Scaling group.</p><p>When you detach a target group, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the target group using the <a>DescribeLoadBalancerTargetGroups</a> API call. The instances remain running.</p>
+ <p>Detaches one or more target groups from the specified Auto Scaling group.</p><p>When you detach a target group, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the target group using the <a>DescribeLoadBalancerTargetGroups</a> API call. The instances remain running.</p><note><p>You can use this operation to detach target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>, but not for target groups that were attached by using <a>AttachTrafficSources</a>.</p></note>
  
  @param request A container for the necessary parameters to execute the DetachLoadBalancerTargetGroups service method.
 
@@ -1132,7 +1182,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask<AWSAutoScalingDetachLoadBalancerTargetGroupsResultType *> *)detachLoadBalancerTargetGroups:(AWSAutoScalingDetachLoadBalancerTargetGroupsType *)request;
 
 /**
- <p>Detaches one or more target groups from the specified Auto Scaling group.</p><p>When you detach a target group, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the target group using the <a>DescribeLoadBalancerTargetGroups</a> API call. The instances remain running.</p>
+ <p>Detaches one or more target groups from the specified Auto Scaling group.</p><p>When you detach a target group, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the target group using the <a>DescribeLoadBalancerTargetGroups</a> API call. The instances remain running.</p><note><p>You can use this operation to detach target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>, but not for target groups that were attached by using <a>AttachTrafficSources</a>.</p></note>
  
  @param request A container for the necessary parameters to execute the DetachLoadBalancerTargetGroups service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1168,6 +1218,31 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
  @see AWSAutoScalingDetachLoadBalancersResultType
  */
 - (void)detachLoadBalancers:(AWSAutoScalingDetachLoadBalancersType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingDetachLoadBalancersResultType * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p><b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change. Do not use this API for production workloads. This API is also subject to change.</b></p><p>Detaches one or more traffic sources from the specified Auto Scaling group.</p>
+ 
+ @param request A container for the necessary parameters to execute the DetachTrafficSources service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSAutoScalingDetachTrafficSourcesResultType`. On failed execution, `task.error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
+ 
+ @see AWSAutoScalingDetachTrafficSourcesType
+ @see AWSAutoScalingDetachTrafficSourcesResultType
+ */
+- (AWSTask<AWSAutoScalingDetachTrafficSourcesResultType *> *)detachTrafficSources:(AWSAutoScalingDetachTrafficSourcesType *)request;
+
+/**
+ <p><b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change. Do not use this API for production workloads. This API is also subject to change.</b></p><p>Detaches one or more traffic sources from the specified Auto Scaling group.</p>
+ 
+ @param request A container for the necessary parameters to execute the DetachTrafficSources service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSAutoScalingErrorDomain` domain and the following error code: `AWSAutoScalingErrorResourceContention`.
+ 
+ @see AWSAutoScalingDetachTrafficSourcesType
+ @see AWSAutoScalingDetachTrafficSourcesResultType
+ */
+- (void)detachTrafficSources:(AWSAutoScalingDetachTrafficSourcesType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingDetachTrafficSourcesResultType * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Disables group metrics collection for the specified Auto Scaling group.</p>
