@@ -4,7 +4,7 @@
 
 - Model updates for the following services
   - AWSConnect
-  - AWSConnectParticipant
+  - Breaking change to AWSConnectParticipant
 
 # AWS Mobile SDK for iOS CHANGELOG
 
