@@ -278,7 +278,7 @@ final public class AWSMobileClient: _AWSMobileClient {
             }
             let userState = determineIntialUserState()
             if userState == .signedIn
-                && federationProvider == .userPools
+                && (federationProvider == .userPools || federationProvider == .hostedUI)
                 && self.username == nil {
                 self.signOut()
                 currentUserState = .signedOut
