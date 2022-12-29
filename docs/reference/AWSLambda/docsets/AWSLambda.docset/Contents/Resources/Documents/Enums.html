@@ -17,7 +17,7 @@
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSLambda 2.28.5 Docs</a> (79% documented)</p>
+        <p><a href="index.html">AWSLambda 2.28.6 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLambda.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -428,6 +428,12 @@
                 <a href="Classes/AWSLambdaSelfManagedKafkaEventSourceConfig.html">AWSLambdaSelfManagedKafkaEventSourceConfig</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSLambdaSnapStart.html">AWSLambdaSnapStart</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLambdaSnapStartResponse.html">AWSLambdaSnapStartResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSLambdaSourceAccessConfiguration.html">AWSLambdaSourceAccessConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -561,6 +567,12 @@
                 <a href="Enums/AWSLambdaRuntime.html">AWSLambdaRuntime</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/AWSLambdaSnapStartApplyOn.html">AWSLambdaSnapStartApplyOn</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSLambdaSnapStartOptimizationStatus.html">AWSLambdaSnapStartOptimizationStatus</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/AWSLambdaSourceAccessType.html">AWSLambdaSourceAccessType</a>
               </li>
               <li class="nav-group-task">
@@ -679,6 +691,9 @@
     <span class="n">AWSLambdaErrorResourceNotFound</span><span class="p">,</span>
     <span class="n">AWSLambdaErrorResourceNotReady</span><span class="p">,</span>
     <span class="n">AWSLambdaErrorService</span><span class="p">,</span>
+    <span class="n">AWSLambdaErrorSnapStart</span><span class="p">,</span>
+    <span class="n">AWSLambdaErrorSnapStartNotReady</span><span class="p">,</span>
+    <span class="n">AWSLambdaErrorSnapStartTimeout</span><span class="p">,</span>
     <span class="n">AWSLambdaErrorSubnetIPAddressLimitReached</span><span class="p">,</span>
     <span class="n">AWSLambdaErrorTooManyRequests</span><span class="p">,</span>
     <span class="n">AWSLambdaErrorUnsupportedMediaType</span><span class="p">,</span>
@@ -1060,6 +1075,17 @@
     <span class="n">AWSLambdaLastUpdateStatusReasonCodeImageDeleted</span><span class="p">,</span>
     <span class="n">AWSLambdaLastUpdateStatusReasonCodeImageAccessDenied</span><span class="p">,</span>
     <span class="n">AWSLambdaLastUpdateStatusReasonCodeInvalidImage</span><span class="p">,</span>
+    <span class="n">AWSLambdaLastUpdateStatusReasonCodeKMSKeyAccessDenied</span><span class="p">,</span>
+    <span class="n">AWSLambdaLastUpdateStatusReasonCodeKMSKeyNotFound</span><span class="p">,</span>
+    <span class="n">AWSLambdaLastUpdateStatusReasonCodeInvalidStateKMSKey</span><span class="p">,</span>
+    <span class="n">AWSLambdaLastUpdateStatusReasonCodeDisabledKMSKey</span><span class="p">,</span>
+    <span class="n">AWSLambdaLastUpdateStatusReasonCodeEFSIOError</span><span class="p">,</span>
+    <span class="n">AWSLambdaLastUpdateStatusReasonCodeEFSMountConnectivityError</span><span class="p">,</span>
+    <span class="n">AWSLambdaLastUpdateStatusReasonCodeEFSMountFailure</span><span class="p">,</span>
+    <span class="n">AWSLambdaLastUpdateStatusReasonCodeEFSMountTimeout</span><span class="p">,</span>
+    <span class="n">AWSLambdaLastUpdateStatusReasonCodeInvalidRuntime</span><span class="p">,</span>
+    <span class="n">AWSLambdaLastUpdateStatusReasonCodeInvalidZipFileException</span><span class="p">,</span>
+    <span class="n">AWSLambdaLastUpdateStatusReasonCodeFunctionError</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                         </div>
@@ -1234,12 +1260,87 @@
     <span class="n">AWSLambdaRuntimeRuby27</span><span class="p">,</span>
     <span class="n">AWSLambdaRuntimeProvided</span><span class="p">,</span>
     <span class="n">AWSLambdaRuntimeProvidedAl2</span><span class="p">,</span>
+    <span class="n">AWSLambdaRuntimeNodejs18X</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSLambdaRuntime</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSLambdaSnapStartApplyOn"></a>
+                    <a name="//apple_ref/objc/Enum/AWSLambdaSnapStartApplyOn" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSLambdaSnapStartApplyOn">AWSLambdaSnapStartApplyOn</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSLambdaSnapStartApplyOn.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSLambdaSnapStartApplyOn</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSLambdaSnapStartApplyOnUnknown</span><span class="p">,</span>
+    <span class="n">AWSLambdaSnapStartApplyOnPublishedVersions</span><span class="p">,</span>
+    <span class="n">AWSLambdaSnapStartApplyOnNone</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSLambdaSnapStartApplyOn</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSLambdaSnapStartOptimizationStatus"></a>
+                    <a name="//apple_ref/objc/Enum/AWSLambdaSnapStartOptimizationStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSLambdaSnapStartOptimizationStatus">AWSLambdaSnapStartOptimizationStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSLambdaSnapStartOptimizationStatus.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSLambdaSnapStartOptimizationStatus</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSLambdaSnapStartOptimizationStatusUnknown</span><span class="p">,</span>
+    <span class="n">AWSLambdaSnapStartOptimizationStatusOn</span><span class="p">,</span>
+    <span class="n">AWSLambdaSnapStartOptimizationStatusOff</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSLambdaSnapStartOptimizationStatus</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -1364,6 +1465,17 @@
     <span class="n">AWSLambdaStateReasonCodeImageDeleted</span><span class="p">,</span>
     <span class="n">AWSLambdaStateReasonCodeImageAccessDenied</span><span class="p">,</span>
     <span class="n">AWSLambdaStateReasonCodeInvalidImage</span><span class="p">,</span>
+    <span class="n">AWSLambdaStateReasonCodeKMSKeyAccessDenied</span><span class="p">,</span>
+    <span class="n">AWSLambdaStateReasonCodeKMSKeyNotFound</span><span class="p">,</span>
+    <span class="n">AWSLambdaStateReasonCodeInvalidStateKMSKey</span><span class="p">,</span>
+    <span class="n">AWSLambdaStateReasonCodeDisabledKMSKey</span><span class="p">,</span>
+    <span class="n">AWSLambdaStateReasonCodeEFSIOError</span><span class="p">,</span>
+    <span class="n">AWSLambdaStateReasonCodeEFSMountConnectivityError</span><span class="p">,</span>
+    <span class="n">AWSLambdaStateReasonCodeEFSMountFailure</span><span class="p">,</span>
+    <span class="n">AWSLambdaStateReasonCodeEFSMountTimeout</span><span class="p">,</span>
+    <span class="n">AWSLambdaStateReasonCodeInvalidRuntime</span><span class="p">,</span>
+    <span class="n">AWSLambdaStateReasonCodeInvalidZipFileException</span><span class="p">,</span>
+    <span class="n">AWSLambdaStateReasonCodeFunctionError</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                         </div>
@@ -1404,6 +1516,7 @@
     <span class="n">AWSLambdaThrottleReasonReservedFunctionConcurrentInvocationLimitExceeded</span><span class="p">,</span>
     <span class="n">AWSLambdaThrottleReasonReservedFunctionInvocationRateLimitExceeded</span><span class="p">,</span>
     <span class="n">AWSLambdaThrottleReasonCallerRateLimitExceeded</span><span class="p">,</span>
+    <span class="n">AWSLambdaThrottleReasonConcurrentSnapshotCreateLimitExceeded</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                         </div>
@@ -1458,7 +1571,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-11-22)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-12-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

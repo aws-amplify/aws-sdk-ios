@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSLambda 2.28.5 Docs</a> (79% documented)</p>
+        <p><a href="index.html">AWSLambda 2.28.6 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLambda.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -428,6 +428,12 @@
                 <a href="Classes/AWSLambdaSelfManagedKafkaEventSourceConfig.html">AWSLambdaSelfManagedKafkaEventSourceConfig</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSLambdaSnapStart.html">AWSLambdaSnapStart</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLambdaSnapStartResponse.html">AWSLambdaSnapStartResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSLambdaSourceAccessConfiguration.html">AWSLambdaSourceAccessConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -559,6 +565,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSLambdaRuntime.html">AWSLambdaRuntime</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSLambdaSnapStartApplyOn.html">AWSLambdaSnapStartApplyOn</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSLambdaSnapStartOptimizationStatus.html">AWSLambdaSnapStartOptimizationStatus</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSLambdaSourceAccessType.html">AWSLambdaSourceAccessType</a>
@@ -2001,7 +2013,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A function&rsquo;s environment variable settings. You can use environment variables to adjust your function&rsquo;s behavior without updating code. An environment variable is a pair of strings that are stored in a function&rsquo;s version-specific configuration. </p>
+                        <p>A function&rsquo;s environment variable settings. You can use environment variables to adjust your function&rsquo;s behavior without updating code. An environment variable is a pair of strings that are stored in a function&rsquo;s version-specific configuration.</p>
 
                         <a href="Classes/AWSLambdaEnvironment.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2067,7 +2079,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The results of an operation to update or read environment variables. If the operation is successful, the response contains the environment variables. If it failed, the response contains details about the error.</p>
+                        <p>The results of an operation to update or read environment variables. If the operation succeeds, the response contains the environment variables. If it fails, the response contains details about the error.</p>
 
                         <a href="Classes/AWSLambdaEnvironmentResponse.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2100,7 +2112,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The size of the function’s /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10240 MB.</p>
+                        <p>The size of the function&rsquo;s <code>/tmp</code> directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.</p>
 
 <p>Required parameters: [Size]</p>
 
@@ -2269,7 +2281,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The code for the Lambda function. You can specify either an object in Amazon S3, upload a .zip file archive deployment package directly, or specify the URI of a container image.</p>
+                        <p>The code for the Lambda function. You can either specify an object in Amazon S3, upload a .zip file archive deployment package directly, or specify the URI of a container image.</p>
 
                         <a href="Classes/AWSLambdaFunctionCode.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3234,7 +3246,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Configuration values that override the container image Dockerfile settings. See <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms">Container settings</a>. </p>
+                        <p>Configuration values that override the container image Dockerfile settings. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms">Container image settings</a>.</p>
 
                         <a href="Classes/AWSLambdaImageConfig.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3267,7 +3279,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Error response to GetFunctionConfiguration.</p>
+                        <p>Error response to <code>GetFunctionConfiguration</code>.</p>
 
                         <a href="Classes/AWSLambdaImageConfigError.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3300,7 +3312,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Response to GetFunctionConfiguration request.</p>
+                        <p>Response to a <code>GetFunctionConfiguration</code> request.</p>
 
                         <a href="Classes/AWSLambdaImageConfigResponse.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3429,7 +3441,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A success response (<code>202 Accepted</code>) indicates that the request is queued for invocation. </p>
+                        <p>A success response (<code>202 Accepted</code>) indicates that the request is queued for invocation.</p>
 
                         <a href="Classes/AWSLambdaInvokeAsyncResponse.html" class="slightly-smaller">See more</a>
                       </div>
@@ -4903,6 +4915,72 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSLambdaSnapStart"></a>
+                    <a name="//apple_ref/objc/Class/AWSLambdaSnapStart" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaSnapStart">AWSLambdaSnapStart</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The function&rsquo;s SnapStart setting. Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Reducing startup time with Lambda SnapStart</a>.</p>
+
+                        <a href="Classes/AWSLambdaSnapStart.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLambdaSnapStart</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLambdaSnapStart</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaSnapStartResponse"></a>
+                    <a name="//apple_ref/objc/Class/AWSLambdaSnapStartResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaSnapStartResponse">AWSLambdaSnapStartResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The function&rsquo;s <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">SnapStart</a> setting.</p>
+
+                        <a href="Classes/AWSLambdaSnapStartResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLambdaSnapStartResponse</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLambdaSnapStartResponse</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSLambdaSourceAccessConfiguration"></a>
                     <a name="//apple_ref/objc/Class/AWSLambdaSourceAccessConfiguration" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSLambdaSourceAccessConfiguration">AWSLambdaSourceAccessConfiguration</a>
@@ -5364,7 +5442,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The VPC security groups and subnets that are attached to a Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
+                        <p>The VPC security groups and subnets that are attached to a Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">Configuring a Lambda function to access resources in a VPC</a>.</p>
 
                         <a href="Classes/AWSLambdaVpcConfig.html" class="slightly-smaller">See more</a>
                       </div>
@@ -5494,7 +5572,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-11-22)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-12-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

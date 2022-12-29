@@ -17,7 +17,7 @@
     <a title="AWSLambdaFunctionConfiguration Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLambda 2.28.5 Docs</a> (79% documented)</p>
+        <p><a href="../index.html">AWSLambda 2.28.6 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLambda.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -428,6 +428,12 @@
                 <a href="../Classes/AWSLambdaSelfManagedKafkaEventSourceConfig.html">AWSLambdaSelfManagedKafkaEventSourceConfig</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaSnapStart.html">AWSLambdaSnapStart</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaSnapStartResponse.html">AWSLambdaSnapStartResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLambdaSourceAccessConfiguration.html">AWSLambdaSourceAccessConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -559,6 +565,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSLambdaRuntime.html">AWSLambdaRuntime</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaSnapStartApplyOn.html">AWSLambdaSnapStartApplyOn</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaSnapStartOptimizationStatus.html">AWSLambdaSnapStartOptimizationStatus</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSLambdaSourceAccessType.html">AWSLambdaSourceAccessType</a>
@@ -774,7 +786,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The function&rsquo;s <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">environment variables</a>.</p>
+                        <p>The function&rsquo;s <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">environment variables</a>. Omitted from CloudTrail logs.</p>
 
                       </div>
                       <div class="declaration">
@@ -806,7 +818,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The size of the function’s /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10240 MB.</p>
+                        <p>The size of the function’s <code>/tmp</code> directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.</p>
 
                       </div>
                       <div class="declaration">
@@ -934,7 +946,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The function that Lambda calls to begin executing your function.</p>
+                        <p>The function that Lambda calls to begin running your function.</p>
 
                       </div>
                       <div class="declaration">
@@ -998,7 +1010,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The KMS key that&rsquo;s used to encrypt the function&rsquo;s environment variables. This key is only returned if you&rsquo;ve configured a customer managed key.</p>
+                        <p>The KMS key that&rsquo;s used to encrypt the function&rsquo;s environment variables. This key is returned only if you&rsquo;ve configured a customer managed key.</p>
 
                       </div>
                       <div class="declaration">
@@ -1158,7 +1170,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The function&rsquo;s <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html"> layers</a>.</p>
+                        <p>The function&rsquo;s <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">layers</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -1222,7 +1234,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The amount of memory available to the function at runtime. </p>
+                        <p>The amount of memory available to the function at runtime.</p>
 
                       </div>
                       <div class="declaration">
@@ -1427,6 +1439,38 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">signingProfileVersionArn</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaFunctionConfiguration(py)snapStart"></a>
+                    <a name="//apple_ref/objc/Property/snapStart" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaFunctionConfiguration(py)snapStart">snapStart</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Reducing startup time with Lambda SnapStart</a>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSLambdaSnapStartResponse.html">AWSLambdaSnapStartResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">snapStart</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">snapStart</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLambdaSnapStartResponse.html">AWSLambdaSnapStartResponse</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -1662,7 +1706,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-11-22)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-12-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

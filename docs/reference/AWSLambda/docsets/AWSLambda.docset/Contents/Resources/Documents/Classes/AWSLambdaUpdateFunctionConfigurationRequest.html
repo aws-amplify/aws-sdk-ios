@@ -17,7 +17,7 @@
     <a title="AWSLambdaUpdateFunctionConfigurationRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLambda 2.28.5 Docs</a> (79% documented)</p>
+        <p><a href="../index.html">AWSLambda 2.28.6 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLambda.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -428,6 +428,12 @@
                 <a href="../Classes/AWSLambdaSelfManagedKafkaEventSourceConfig.html">AWSLambdaSelfManagedKafkaEventSourceConfig</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaSnapStart.html">AWSLambdaSnapStart</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaSnapStartResponse.html">AWSLambdaSnapStartResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLambdaSourceAccessConfiguration.html">AWSLambdaSourceAccessConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -561,6 +567,12 @@
                 <a href="../Enums/AWSLambdaRuntime.html">AWSLambdaRuntime</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaSnapStartApplyOn.html">AWSLambdaSnapStartApplyOn</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaSnapStartOptimizationStatus.html">AWSLambdaSnapStartOptimizationStatus</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSLambdaSourceAccessType.html">AWSLambdaSourceAccessType</a>
               </li>
               <li class="nav-group-task">
@@ -613,7 +625,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">Dead Letter Queues</a>.</p>
+                        <p>A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq">Dead-letter queues</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -709,7 +721,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The size of the function’s /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10240 MB.</p>
+                        <p>The size of the function&rsquo;s <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB.</p>
 
                       </div>
                       <div class="declaration">
@@ -773,7 +785,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+                        <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
 
                       </div>
                       <div class="declaration">
@@ -805,7 +817,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The name of the method within your code that Lambda calls to execute your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming Model</a>.</p>
+                        <p>The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html">Lambda programming model</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -869,7 +881,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ARN of the Amazon Web Services Key Management Service (KMS) key that&rsquo;s used to encrypt your function&rsquo;s environment variables. If it&rsquo;s not provided, Lambda uses a default service key.</p>
+                        <p>The ARN of the Key Management Service (KMS) key that&rsquo;s used to encrypt your function&rsquo;s environment variables. If it&rsquo;s not provided, Lambda uses a default service key.</p>
 
                       </div>
                       <div class="declaration">
@@ -933,7 +945,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The amount of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html">memory available to the function</a> at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
+                        <p>The amount of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console">memory available to the function</a> at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
 
                       </div>
                       <div class="declaration">
@@ -965,7 +977,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Only update the function if the revision ID matches the ID that&rsquo;s specified. Use this option to avoid modifying a function that has changed since you last read it.</p>
+                        <p>Update the function only if the revision ID matches the ID that&rsquo;s specified. Use this option to avoid modifying a function that has changed since you last read it.</p>
 
                       </div>
                       <div class="declaration">
@@ -1051,6 +1063,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSLambdaUpdateFunctionConfigurationRequest(py)snapStart"></a>
+                    <a name="//apple_ref/objc/Property/snapStart" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaUpdateFunctionConfigurationRequest(py)snapStart">snapStart</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The function&rsquo;s <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">SnapStart</a> setting.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSLambdaSnapStart.html">AWSLambdaSnapStart</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">snapStart</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">snapStart</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLambdaSnapStart.html">AWSLambdaSnapStart</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSLambdaUpdateFunctionConfigurationRequest(py)timeout"></a>
                     <a name="//apple_ref/objc/Property/timeout" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSLambdaUpdateFunctionConfigurationRequest(py)timeout">timeout</a>
@@ -1061,7 +1105,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For additional information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
+                        <p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -1125,7 +1169,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>For network connectivity to Amazon Web Services resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
+                        <p>For network connectivity to Amazon Web Services resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">Configuring a Lambda function to access resources in a VPC</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -1149,7 +1193,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-11-22)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-12-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

@@ -17,7 +17,7 @@
     <a title="AWSLambdaStateReasonCode Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLambda 2.28.5 Docs</a> (79% documented)</p>
+        <p><a href="../index.html">AWSLambda 2.28.6 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLambda.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -428,6 +428,12 @@
                 <a href="../Classes/AWSLambdaSelfManagedKafkaEventSourceConfig.html">AWSLambdaSelfManagedKafkaEventSourceConfig</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaSnapStart.html">AWSLambdaSnapStart</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaSnapStartResponse.html">AWSLambdaSnapStartResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLambdaSourceAccessConfiguration.html">AWSLambdaSourceAccessConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -561,6 +567,12 @@
                 <a href="../Enums/AWSLambdaRuntime.html">AWSLambdaRuntime</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaSnapStartApplyOn.html">AWSLambdaSnapStartApplyOn</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaSnapStartOptimizationStatus.html">AWSLambdaSnapStartOptimizationStatus</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSLambdaSourceAccessType.html">AWSLambdaSourceAccessType</a>
               </li>
               <li class="nav-group-task">
@@ -601,6 +613,17 @@
     <span class="n">AWSLambdaStateReasonCodeImageDeleted</span><span class="p">,</span>
     <span class="n">AWSLambdaStateReasonCodeImageAccessDenied</span><span class="p">,</span>
     <span class="n">AWSLambdaStateReasonCodeInvalidImage</span><span class="p">,</span>
+    <span class="n">AWSLambdaStateReasonCodeKMSKeyAccessDenied</span><span class="p">,</span>
+    <span class="n">AWSLambdaStateReasonCodeKMSKeyNotFound</span><span class="p">,</span>
+    <span class="n">AWSLambdaStateReasonCodeInvalidStateKMSKey</span><span class="p">,</span>
+    <span class="n">AWSLambdaStateReasonCodeDisabledKMSKey</span><span class="p">,</span>
+    <span class="n">AWSLambdaStateReasonCodeEFSIOError</span><span class="p">,</span>
+    <span class="n">AWSLambdaStateReasonCodeEFSMountConnectivityError</span><span class="p">,</span>
+    <span class="n">AWSLambdaStateReasonCodeEFSMountFailure</span><span class="p">,</span>
+    <span class="n">AWSLambdaStateReasonCodeEFSMountTimeout</span><span class="p">,</span>
+    <span class="n">AWSLambdaStateReasonCodeInvalidRuntime</span><span class="p">,</span>
+    <span class="n">AWSLambdaStateReasonCodeInvalidZipFileException</span><span class="p">,</span>
+    <span class="n">AWSLambdaStateReasonCodeFunctionError</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                 </div>
@@ -1064,12 +1087,364 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSLambdaStateReasonCode@AWSLambdaStateReasonCodeKMSKeyAccessDenied"></a>
+                    <a name="//apple_ref/objc/Case/AWSLambdaStateReasonCodeKMSKeyAccessDenied" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSLambdaStateReasonCode@AWSLambdaStateReasonCodeKMSKeyAccessDenied">AWSLambdaStateReasonCodeKMSKeyAccessDenied</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSLambdaStateReasonCodeKMSKeyAccessDenied</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">kmsKeyAccessDenied</span> <span class="o">=</span> <span class="mi">14</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSLambdaStateReasonCode@AWSLambdaStateReasonCodeKMSKeyNotFound"></a>
+                    <a name="//apple_ref/objc/Case/AWSLambdaStateReasonCodeKMSKeyNotFound" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSLambdaStateReasonCode@AWSLambdaStateReasonCodeKMSKeyNotFound">AWSLambdaStateReasonCodeKMSKeyNotFound</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSLambdaStateReasonCodeKMSKeyNotFound</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">kmsKeyNotFound</span> <span class="o">=</span> <span class="mi">15</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSLambdaStateReasonCode@AWSLambdaStateReasonCodeInvalidStateKMSKey"></a>
+                    <a name="//apple_ref/objc/Case/AWSLambdaStateReasonCodeInvalidStateKMSKey" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSLambdaStateReasonCode@AWSLambdaStateReasonCodeInvalidStateKMSKey">AWSLambdaStateReasonCodeInvalidStateKMSKey</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSLambdaStateReasonCodeInvalidStateKMSKey</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidStateKMSKey</span> <span class="o">=</span> <span class="mi">16</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSLambdaStateReasonCode@AWSLambdaStateReasonCodeDisabledKMSKey"></a>
+                    <a name="//apple_ref/objc/Case/AWSLambdaStateReasonCodeDisabledKMSKey" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSLambdaStateReasonCode@AWSLambdaStateReasonCodeDisabledKMSKey">AWSLambdaStateReasonCodeDisabledKMSKey</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSLambdaStateReasonCodeDisabledKMSKey</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">disabledKMSKey</span> <span class="o">=</span> <span class="mi">17</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSLambdaStateReasonCode@AWSLambdaStateReasonCodeEFSIOError"></a>
+                    <a name="//apple_ref/objc/Case/AWSLambdaStateReasonCodeEFSIOError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSLambdaStateReasonCode@AWSLambdaStateReasonCodeEFSIOError">AWSLambdaStateReasonCodeEFSIOError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSLambdaStateReasonCodeEFSIOError</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">efsioError</span> <span class="o">=</span> <span class="mi">18</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSLambdaStateReasonCode@AWSLambdaStateReasonCodeEFSMountConnectivityError"></a>
+                    <a name="//apple_ref/objc/Case/AWSLambdaStateReasonCodeEFSMountConnectivityError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSLambdaStateReasonCode@AWSLambdaStateReasonCodeEFSMountConnectivityError">AWSLambdaStateReasonCodeEFSMountConnectivityError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSLambdaStateReasonCodeEFSMountConnectivityError</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">efsMountConnectivityError</span> <span class="o">=</span> <span class="mi">19</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSLambdaStateReasonCode@AWSLambdaStateReasonCodeEFSMountFailure"></a>
+                    <a name="//apple_ref/objc/Case/AWSLambdaStateReasonCodeEFSMountFailure" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSLambdaStateReasonCode@AWSLambdaStateReasonCodeEFSMountFailure">AWSLambdaStateReasonCodeEFSMountFailure</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSLambdaStateReasonCodeEFSMountFailure</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">efsMountFailure</span> <span class="o">=</span> <span class="mi">20</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSLambdaStateReasonCode@AWSLambdaStateReasonCodeEFSMountTimeout"></a>
+                    <a name="//apple_ref/objc/Case/AWSLambdaStateReasonCodeEFSMountTimeout" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSLambdaStateReasonCode@AWSLambdaStateReasonCodeEFSMountTimeout">AWSLambdaStateReasonCodeEFSMountTimeout</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSLambdaStateReasonCodeEFSMountTimeout</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">efsMountTimeout</span> <span class="o">=</span> <span class="mi">21</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSLambdaStateReasonCode@AWSLambdaStateReasonCodeInvalidRuntime"></a>
+                    <a name="//apple_ref/objc/Case/AWSLambdaStateReasonCodeInvalidRuntime" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSLambdaStateReasonCode@AWSLambdaStateReasonCodeInvalidRuntime">AWSLambdaStateReasonCodeInvalidRuntime</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSLambdaStateReasonCodeInvalidRuntime</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidRuntime</span> <span class="o">=</span> <span class="mi">22</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSLambdaStateReasonCode@AWSLambdaStateReasonCodeInvalidZipFileException"></a>
+                    <a name="//apple_ref/objc/Case/AWSLambdaStateReasonCodeInvalidZipFileException" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSLambdaStateReasonCode@AWSLambdaStateReasonCodeInvalidZipFileException">AWSLambdaStateReasonCodeInvalidZipFileException</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSLambdaStateReasonCodeInvalidZipFileException</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidZipFileException</span> <span class="o">=</span> <span class="mi">23</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSLambdaStateReasonCode@AWSLambdaStateReasonCodeFunctionError"></a>
+                    <a name="//apple_ref/objc/Case/AWSLambdaStateReasonCodeFunctionError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSLambdaStateReasonCode@AWSLambdaStateReasonCodeFunctionError">AWSLambdaStateReasonCodeFunctionError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSLambdaStateReasonCodeFunctionError</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">functionError</span> <span class="o">=</span> <span class="mi">24</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-11-22)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-12-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
