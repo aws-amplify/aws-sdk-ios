@@ -17,7 +17,7 @@
     <a title="AWSTranslateTranslationSettings Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTranslate 2.28.5 Docs</a> (74% documented)</p>
+        <p><a href="../index.html">AWSTranslate 2.28.6 Docs</a> (74% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTranslate.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -277,7 +277,7 @@
 
                 </div>
               </div>
-            <p>Settings that configure the translation output.</p>
+            <p>Optional settings that configure the translation output. Use these settings for real time translations and asynchronous translation jobs.</p>
 
           </section>
           <section class="section task-group-section">
@@ -296,7 +296,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>You can optionally specify the desired level of formality for real-time translations to supported target languages. The formality setting controls the level of formal language usage (also known as <a href="https://en.wikipedia.org/wiki/Register_(sociolinguistics)">register</a>) in the translation output. You can set the value to informal or formal. If you don&rsquo;t specify a value for formality, or if the target language doesn&rsquo;t support formality, the translation will ignore the formality setting.</p><p>Note that asynchronous translation jobs don&rsquo;t support formality. If you provide a value for formality, the <code>StartTextTranslationJob</code> API throws an exception (InvalidRequestException).</p><p>For target languages that support formality, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is.html">Supported Languages and Language Codes in the Amazon Translate Developer Guide</a>.</p>
+                        <p>You can optionally specify the desired level of formality for translations to supported target languages. The formality setting controls the level of formal language usage (also known as <a href="https://en.wikipedia.org/wiki/Register_(sociolinguistics)">register</a>) in the translation output. You can set the value to informal or formal. If you don&rsquo;t specify a value for formality, or if the target language doesn&rsquo;t support formality, the translation will ignore the formality setting.</p><p> If you specify multiple target languages for the job, translate ignores the formality setting for any unsupported target language.</p><p>For a list of target languages that support formality, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html#customizing-translations-formality-languages">Supported languages</a> in the Amazon Translate Developer Guide.</p>
 
                       </div>
                       <div class="declaration">
@@ -328,7 +328,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Enable the profanity setting if you want Amazon Translate to mask profane words and phrases in your translation output.</p><p>To mask profane words and phrases, Amazon Translate replaces them with the grawlix string “?$#@$“. This 5-character sequence is used for each profane word or phrase, regardless of the length or number of words.</p><p>Amazon Translate doesn&rsquo;t detect profanity in all of its supported languages. For languages that support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is.html">Supported Languages and Language Codes in the Amazon Translate Developer Guide</a>.</p>
+                        <p>Enable the profanity setting if you want Amazon Translate to mask profane words and phrases in your translation output.</p><p>To mask profane words and phrases, Amazon Translate replaces them with the grawlix string “?$#@$“. This 5-character sequence is used for each profane word or phrase, regardless of the length or number of words.</p><p>Amazon Translate doesn&rsquo;t detect profanity in all of its supported languages. For languages that don&rsquo;t support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-profanity.html#customizing-translations-profanity-languages">Unsupported languages</a> in the Amazon Translate Developer Guide.</p><p>If you specify multiple target languages for the job, all the target languages must support profanity masking. If any of the target languages don&rsquo;t support profanity masking, the translation job won&rsquo;t mask profanity for any target language.</p>
 
                       </div>
                       <div class="declaration">
@@ -352,7 +352,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-11-22)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-12-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

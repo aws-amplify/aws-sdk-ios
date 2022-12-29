@@ -17,7 +17,7 @@
     <a title="AWSTranslate Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTranslate 2.28.5 Docs</a> (74% documented)</p>
+        <p><a href="../index.html">AWSTranslate 2.28.6 Docs</a> (74% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTranslate.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -277,7 +277,7 @@
 
                 </div>
               </div>
-            <p>Provides translation between one source language and another of the same set of languages.</p>
+            <p>Provides translation of the input content from the source language to the target language.</p>
 
           </section>
           <section class="section task-group-section">
@@ -1919,7 +1919,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>ListTagsForResource</p>
+                        <p>Lists all tags associated with a given Amazon Translate resource. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html"> Tagging your resources</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSTranslateListTagsForResourceRequest</p>
@@ -1984,7 +1984,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>ListTagsForResource</p>
+                        <p>Lists all tags associated with a given Amazon Translate resource. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html"> Tagging your resources</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSTranslateListTagsForResourceRequest</p>
@@ -2349,7 +2349,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Starts an asynchronous batch translation job. Batch translation jobs can be used to translate large volumes of text across multiple documents at once. For more information, see <a>async</a>.</p><p>Batch translation jobs can be described with the <a>DescribeTextTranslationJob</a> operation, listed with the <a>ListTextTranslationJobs</a> operation, and stopped with the <a>StopTextTranslationJob</a> operation.</p><note><p>Amazon Translate does not support batch translation of multiple source languages at once.</p></note></p>
+                        <p>Starts an asynchronous batch translation job. Use batch translation jobs to translate large volumes of text across multiple documents at once. For batch translation, you can input documents with different source languages (specify <code>auto</code> as the source language). You can specify one or more target languages. Batch translation translates each input document into each of the target languages. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/async.html">Asynchronous batch processing</a>.</p><p>Batch translation jobs can be described with the <a>DescribeTextTranslationJob</a> operation, listed with the <a>ListTextTranslationJobs</a> operation, and stopped with the <a>StopTextTranslationJob</a> operation.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSTranslateStartTextTranslationJobRequest</p>
@@ -2414,7 +2414,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Starts an asynchronous batch translation job. Batch translation jobs can be used to translate large volumes of text across multiple documents at once. For more information, see <a>async</a>.</p><p>Batch translation jobs can be described with the <a>DescribeTextTranslationJob</a> operation, listed with the <a>ListTextTranslationJobs</a> operation, and stopped with the <a>StopTextTranslationJob</a> operation.</p><note><p>Amazon Translate does not support batch translation of multiple source languages at once.</p></note></p>
+                        <p>Starts an asynchronous batch translation job. Use batch translation jobs to translate large volumes of text across multiple documents at once. For batch translation, you can input documents with different source languages (specify <code>auto</code> as the source language). You can specify one or more target languages. Batch translation translates each input document into each of the target languages. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/async.html">Asynchronous batch processing</a>.</p><p>Batch translation jobs can be described with the <a>DescribeTextTranslationJob</a> operation, listed with the <a>ListTextTranslationJobs</a> operation, and stopped with the <a>StopTextTranslationJob</a> operation.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSTranslateStartTextTranslationJobRequest</p>
@@ -2637,7 +2637,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>TagResource</p>
+                        <p>Associates a specific tag with a resource. A tag is a key-value pair that adds as a metadata to a resource. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html"> Tagging your resources</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSTranslateTagResourceRequest</p>
@@ -2701,7 +2701,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>TagResource</p>
+                        <p>Associates a specific tag with a resource. A tag is a key-value pair that adds as a metadata to a resource. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html"> Tagging your resources</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSTranslateTagResourceRequest</p>
@@ -2778,7 +2778,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Translates input text from the source language to the target language. For a list of available languages and language codes, see <a>what-is-languages</a>.</p>
+                        <p>Translates input text from the source language to the target language. For a list of available languages and language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSTranslateTranslateTextRequest</p>
@@ -2842,7 +2842,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Translates input text from the source language to the target language. For a list of available languages and language codes, see <a>what-is-languages</a>.</p>
+                        <p>Translates input text from the source language to the target language. For a list of available languages and language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSTranslateTranslateTextRequest</p>
@@ -2919,7 +2919,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>UntagResource</p>
+                        <p>Removes a specific tag associated with an Amazon Translate resource. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html"> Tagging your resources</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSTranslateUntagResourceRequest</p>
@@ -2983,7 +2983,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>UntagResource</p>
+                        <p>Removes a specific tag associated with an Amazon Translate resource. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html"> Tagging your resources</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSTranslateUntagResourceRequest</p>
@@ -3195,7 +3195,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-11-22)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-12-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
