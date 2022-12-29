@@ -220,174 +220,160 @@
     {
       "file": "/Users/distiller/project/AWSConnectParticipant/AWSConnectParticipantModel.h",
       "line": 53,
-      "symbol": "AWSConnectParticipantChatItemType.AWSConnectParticipantChatItemTypeParticipantActive",
+      "symbol": "AWSConnectParticipantChatItemType.AWSConnectParticipantChatItemTypeMessageDelivered",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnectParticipant/AWSConnectParticipantModel.h",
       "line": 54,
-      "symbol": "AWSConnectParticipantChatItemType.AWSConnectParticipantChatItemTypeParticipantInactive",
+      "symbol": "AWSConnectParticipantChatItemType.AWSConnectParticipantChatItemTypeMessageRead",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnectParticipant/AWSConnectParticipantModel.h",
-      "line": 55,
-      "symbol": "AWSConnectParticipantChatItemType.AWSConnectParticipantChatItemTypeParticipantEngaged",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnectParticipant/AWSConnectParticipantModel.h",
-      "line": 56,
-      "symbol": "AWSConnectParticipantChatItemType.AWSConnectParticipantChatItemTypeParticipantDisengaged",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnectParticipant/AWSConnectParticipantModel.h",
-      "line": 59,
+      "line": 57,
       "symbol": "AWSConnectParticipantConnectionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnectParticipant/AWSConnectParticipantModel.h",
-      "line": 59,
+      "line": 57,
       "symbol": "AWSConnectParticipantConnectionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnectParticipant/AWSConnectParticipantModel.h",
-      "line": 60,
+      "line": 58,
       "symbol": "AWSConnectParticipantConnectionType.AWSConnectParticipantConnectionTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnectParticipant/AWSConnectParticipantModel.h",
-      "line": 61,
+      "line": 59,
       "symbol": "AWSConnectParticipantConnectionType.AWSConnectParticipantConnectionTypeWebsocket",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnectParticipant/AWSConnectParticipantModel.h",
-      "line": 62,
+      "line": 60,
       "symbol": "AWSConnectParticipantConnectionType.AWSConnectParticipantConnectionTypeConnectionCredentials",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnectParticipant/AWSConnectParticipantModel.h",
-      "line": 65,
+      "line": 63,
       "symbol": "AWSConnectParticipantParticipantRole",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnectParticipant/AWSConnectParticipantModel.h",
-      "line": 65,
+      "line": 63,
       "symbol": "AWSConnectParticipantParticipantRole",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnectParticipant/AWSConnectParticipantModel.h",
-      "line": 66,
+      "line": 64,
       "symbol": "AWSConnectParticipantParticipantRole.AWSConnectParticipantParticipantRoleUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnectParticipant/AWSConnectParticipantModel.h",
-      "line": 67,
+      "line": 65,
       "symbol": "AWSConnectParticipantParticipantRole.AWSConnectParticipantParticipantRoleAgent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnectParticipant/AWSConnectParticipantModel.h",
-      "line": 68,
+      "line": 66,
       "symbol": "AWSConnectParticipantParticipantRole.AWSConnectParticipantParticipantRoleCustomer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnectParticipant/AWSConnectParticipantModel.h",
-      "line": 69,
+      "line": 67,
       "symbol": "AWSConnectParticipantParticipantRole.AWSConnectParticipantParticipantRoleSystem",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnectParticipant/AWSConnectParticipantModel.h",
-      "line": 72,
+      "line": 70,
       "symbol": "AWSConnectParticipantScanDirection",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnectParticipant/AWSConnectParticipantModel.h",
-      "line": 72,
+      "line": 70,
       "symbol": "AWSConnectParticipantScanDirection",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnectParticipant/AWSConnectParticipantModel.h",
-      "line": 73,
+      "line": 71,
       "symbol": "AWSConnectParticipantScanDirection.AWSConnectParticipantScanDirectionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnectParticipant/AWSConnectParticipantModel.h",
-      "line": 74,
+      "line": 72,
       "symbol": "AWSConnectParticipantScanDirection.AWSConnectParticipantScanDirectionForward",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnectParticipant/AWSConnectParticipantModel.h",
-      "line": 75,
+      "line": 73,
       "symbol": "AWSConnectParticipantScanDirection.AWSConnectParticipantScanDirectionBackward",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnectParticipant/AWSConnectParticipantModel.h",
-      "line": 78,
+      "line": 76,
       "symbol": "AWSConnectParticipantSortKey",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnectParticipant/AWSConnectParticipantModel.h",
-      "line": 78,
+      "line": 76,
       "symbol": "AWSConnectParticipantSortKey",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnectParticipant/AWSConnectParticipantModel.h",
-      "line": 79,
+      "line": 77,
       "symbol": "AWSConnectParticipantSortKey.AWSConnectParticipantSortKeyUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnectParticipant/AWSConnectParticipantModel.h",
-      "line": 80,
+      "line": 78,
       "symbol": "AWSConnectParticipantSortKey.AWSConnectParticipantSortKeyDescending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnectParticipant/AWSConnectParticipantModel.h",
-      "line": 81,
+      "line": 79,
       "symbol": "AWSConnectParticipantSortKey.AWSConnectParticipantSortKeyAscending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"

@@ -17,7 +17,7 @@
     <a title="AWSConnectParticipantChatItemType Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSConnectParticipant 2.28.6 Docs</a> (64% documented)</p>
+        <p><a href="../index.html">AWSConnectParticipant 2.29.0 Docs</a> (67% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSConnectParticipant.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -81,6 +81,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectParticipantItem.html">AWSConnectParticipantItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantMessageMetadata.html">AWSConnectParticipantMessageMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantReceipt.html">AWSConnectParticipantReceipt</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectParticipantResources.html">AWSConnectParticipantResources</a>
@@ -178,10 +184,8 @@
     <span class="n">AWSConnectParticipantChatItemTypeEvent</span><span class="p">,</span>
     <span class="n">AWSConnectParticipantChatItemTypeAttachment</span><span class="p">,</span>
     <span class="n">AWSConnectParticipantChatItemTypeConnectionAck</span><span class="p">,</span>
-    <span class="n">AWSConnectParticipantChatItemTypeParticipantActive</span><span class="p">,</span>
-    <span class="n">AWSConnectParticipantChatItemTypeParticipantInactive</span><span class="p">,</span>
-    <span class="n">AWSConnectParticipantChatItemTypeParticipantEngaged</span><span class="p">,</span>
-    <span class="n">AWSConnectParticipantChatItemTypeParticipantDisengaged</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantChatItemTypeMessageDelivered</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantChatItemTypeMessageRead</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                 </div>
@@ -552,9 +556,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeParticipantActive"></a>
-                    <a name="//apple_ref/objc/Case/AWSConnectParticipantChatItemTypeParticipantActive" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeParticipantActive">AWSConnectParticipantChatItemTypeParticipantActive</a>
+                    <a name="/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeMessageDelivered"></a>
+                    <a name="//apple_ref/objc/Case/AWSConnectParticipantChatItemTypeMessageDelivered" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeMessageDelivered">AWSConnectParticipantChatItemTypeMessageDelivered</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -569,12 +573,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSConnectParticipantChatItemTypeParticipantActive</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSConnectParticipantChatItemTypeMessageDelivered</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">participantActive</span> <span class="o">=</span> <span class="mi">11</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">messageDelivered</span> <span class="o">=</span> <span class="mi">11</span></code></pre>
 
                         </div>
                       </div>
@@ -584,9 +588,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeParticipantInactive"></a>
-                    <a name="//apple_ref/objc/Case/AWSConnectParticipantChatItemTypeParticipantInactive" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeParticipantInactive">AWSConnectParticipantChatItemTypeParticipantInactive</a>
+                    <a name="/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeMessageRead"></a>
+                    <a name="//apple_ref/objc/Case/AWSConnectParticipantChatItemTypeMessageRead" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeMessageRead">AWSConnectParticipantChatItemTypeMessageRead</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -601,76 +605,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSConnectParticipantChatItemTypeParticipantInactive</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSConnectParticipantChatItemTypeMessageRead</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">participantInactive</span> <span class="o">=</span> <span class="mi">12</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeParticipantEngaged"></a>
-                    <a name="//apple_ref/objc/Case/AWSConnectParticipantChatItemTypeParticipantEngaged" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeParticipantEngaged">AWSConnectParticipantChatItemTypeParticipantEngaged</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSConnectParticipantChatItemTypeParticipantEngaged</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">participantEngaged</span> <span class="o">=</span> <span class="mi">13</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeParticipantDisengaged"></a>
-                    <a name="//apple_ref/objc/Case/AWSConnectParticipantChatItemTypeParticipantDisengaged" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeParticipantDisengaged">AWSConnectParticipantChatItemTypeParticipantDisengaged</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSConnectParticipantChatItemTypeParticipantDisengaged</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">participantDisengaged</span> <span class="o">=</span> <span class="mi">14</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">messageRead</span> <span class="o">=</span> <span class="mi">12</span></code></pre>
 
                         </div>
                       </div>
