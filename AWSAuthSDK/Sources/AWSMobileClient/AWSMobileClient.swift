@@ -285,7 +285,7 @@ final public class AWSMobileClient: _AWSMobileClient {
             } else {
                 currentUserState = userState
             }
-            completionHandler(userState, nil)
+            completionHandler(currentUserState, nil)
             isInitialized = true
         }
     }
