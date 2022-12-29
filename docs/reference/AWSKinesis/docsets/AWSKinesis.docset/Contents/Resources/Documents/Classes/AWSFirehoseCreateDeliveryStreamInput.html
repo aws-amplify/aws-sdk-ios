@@ -17,7 +17,7 @@
     <a title="AWSFirehoseCreateDeliveryStreamInput Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSKinesis 2.28.5 Docs</a> (76% documented)</p>
+        <p><a href="../index.html">AWSKinesis 2.28.6 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKinesis.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -45,6 +45,21 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSFirehose.html">AWSFirehose</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseAmazonOpenSearchServerlessBufferingHints.html">AWSFirehoseAmazonOpenSearchServerlessBufferingHints</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseAmazonOpenSearchServerlessDestinationConfiguration.html">AWSFirehoseAmazonOpenSearchServerlessDestinationConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseAmazonOpenSearchServerlessDestinationDescription.html">AWSFirehoseAmazonOpenSearchServerlessDestinationDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseAmazonOpenSearchServerlessDestinationUpdate.html">AWSFirehoseAmazonOpenSearchServerlessDestinationUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseAmazonOpenSearchServerlessRetryOptions.html">AWSFirehoseAmazonOpenSearchServerlessRetryOptions</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSFirehoseAmazonopensearchserviceBufferingHints.html">AWSFirehoseAmazonopensearchserviceBufferingHints</a>
@@ -519,6 +534,9 @@
             <a href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseAmazonOpenSearchServerlessS3BackupMode.html">AWSFirehoseAmazonOpenSearchServerlessS3BackupMode</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSFirehoseAmazonopensearchserviceIndexRotationPeriod.html">AWSFirehoseAmazonopensearchserviceIndexRotationPeriod</a>
               </li>
               <li class="nav-group-task">
@@ -642,6 +660,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSFirehoseCreateDeliveryStreamInput(py)amazonOpenSearchServerlessDestinationConfiguration"></a>
+                    <a name="//apple_ref/objc/Property/amazonOpenSearchServerlessDestinationConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFirehoseCreateDeliveryStreamInput(py)amazonOpenSearchServerlessDestinationConfiguration">amazonOpenSearchServerlessDestinationConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The destination in the Serverless offering for Amazon OpenSearch Service. You can specify only one destination.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSFirehoseAmazonOpenSearchServerlessDestinationConfiguration.html">AWSFirehoseAmazonOpenSearchServerlessDestinationConfiguration</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">amazonOpenSearchServerlessDestinationConfiguration</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">amazonOpenSearchServerlessDestinationConfiguration</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSFirehoseAmazonOpenSearchServerlessDestinationConfiguration.html">AWSFirehoseAmazonOpenSearchServerlessDestinationConfiguration</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSFirehoseCreateDeliveryStreamInput(py)amazonopensearchserviceDestinationConfiguration"></a>
                     <a name="//apple_ref/objc/Property/amazonopensearchserviceDestinationConfiguration" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSFirehoseCreateDeliveryStreamInput(py)amazonopensearchserviceDestinationConfiguration">amazonopensearchserviceDestinationConfiguration</a>
@@ -652,7 +702,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>The destination in Amazon OpenSearch Service. You can specify only one destination.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -715,7 +766,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The name of the delivery stream. This name must be unique per AWS account in the same AWS Region. If the delivery streams are in different accounts or different Regions, you can have multiple delivery streams with the same name.</p>
+                        <p>The name of the delivery stream. This name must be unique per Amazon Web Services account in the same Amazon Web Services Region. If the delivery streams are in different accounts or different Regions, you can have multiple delivery streams with the same name.</p>
 
                       </div>
                       <div class="declaration">
@@ -1003,7 +1054,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A set of tags to assign to the delivery stream. A tag is a key-value pair that you can define and assign to AWS resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a> in the AWS Billing and Cost Management User Guide.</p><p>You can specify up to 50 tags when creating a delivery stream.</p>
+                        <p>A set of tags to assign to the delivery stream. A tag is a key-value pair that you can define and assign to Amazon Web Services resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a> in the Amazon Web Services Billing and Cost Management User Guide.</p><p>You can specify up to 50 tags when creating a delivery stream.</p>
 
                       </div>
                       <div class="declaration">
@@ -1027,7 +1078,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-11-22)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-12-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

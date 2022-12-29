@@ -17,7 +17,7 @@
     <a title="AWSFirehoseAmazonopensearchserviceDestinationConfiguration Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSKinesis 2.28.5 Docs</a> (76% documented)</p>
+        <p><a href="../index.html">AWSKinesis 2.28.6 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKinesis.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -45,6 +45,21 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSFirehose.html">AWSFirehose</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseAmazonOpenSearchServerlessBufferingHints.html">AWSFirehoseAmazonOpenSearchServerlessBufferingHints</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseAmazonOpenSearchServerlessDestinationConfiguration.html">AWSFirehoseAmazonOpenSearchServerlessDestinationConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseAmazonOpenSearchServerlessDestinationDescription.html">AWSFirehoseAmazonOpenSearchServerlessDestinationDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseAmazonOpenSearchServerlessDestinationUpdate.html">AWSFirehoseAmazonOpenSearchServerlessDestinationUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseAmazonOpenSearchServerlessRetryOptions.html">AWSFirehoseAmazonOpenSearchServerlessRetryOptions</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSFirehoseAmazonopensearchserviceBufferingHints.html">AWSFirehoseAmazonopensearchserviceBufferingHints</a>
@@ -519,6 +534,9 @@
             <a href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseAmazonOpenSearchServerlessS3BackupMode.html">AWSFirehoseAmazonOpenSearchServerlessS3BackupMode</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSFirehoseAmazonopensearchserviceIndexRotationPeriod.html">AWSFirehoseAmazonopensearchserviceIndexRotationPeriod</a>
               </li>
               <li class="nav-group-task">
@@ -634,7 +652,10 @@
 
                 </div>
               </div>
-            
+            <p>Describes the configuration of a destination in Amazon OpenSearch Service</p>
+
+<p>Required parameters: [RoleARN, IndexName, S3Configuration]</p>
+
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -652,7 +673,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>The buffering options. If no value is specified, the default values for AmazonopensearchserviceBufferingHints are used. </p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -715,7 +737,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>The endpoint to use when communicating with the cluster. Specify either this ClusterEndpoint or the DomainARN field. </p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -746,7 +769,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>The ARN of the Amazon OpenSearch Service domain. The IAM role must have permissions for DescribeElasticsearchDomain, DescribeElasticsearchDomains, and DescribeElasticsearchDomainConfig after assuming the role specified in RoleARN. </p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -777,7 +801,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>The ElasticsearAmazon OpenSearch Service index name.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -808,7 +833,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>The Amazon OpenSearch Service index rotation period. Index rotation appends a timestamp to the IndexName to facilitate the expiration of old data.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -871,7 +897,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon OpenSearch Service. The default value is 300 (5 minutes). </p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -902,7 +929,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon OpenSearch Service Configuration API and for indexing documents.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -933,7 +961,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Defines how documents should be delivered to Amazon S3. When it is set to FailedDocumentsOnly, Kinesis Data Firehose writes any documents that could not be indexed to the configured Amazon S3 destination, with AmazonOpenSearchService-failed/ appended to the key prefix. When set to AllDocuments, Kinesis Data Firehose delivers all incoming records to Amazon S3, and also writes failed documents with AmazonOpenSearchService-failed/ appended to the prefix. </p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -996,7 +1025,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>The Amazon OpenSearch Service type name. For Elasticsearch 6.x, there can be only one type per index. If you try to specify a new type for an existing index that already has another type, Kinesis Data Firehose returns an error during run time. </p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -1051,7 +1081,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-11-22)</p>
+          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-12-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
