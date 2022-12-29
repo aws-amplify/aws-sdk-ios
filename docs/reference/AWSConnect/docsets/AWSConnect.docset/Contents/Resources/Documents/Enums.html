@@ -17,7 +17,7 @@
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSConnect 2.28.6 Docs</a> (75% documented)</p>
+        <p><a href="index.html">AWSConnect 2.29.0 Docs</a> (75% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSConnect.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -117,6 +117,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSConnectChatMessage.html">AWSConnectChatMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSConnectChatParticipantRoleConfig.html">AWSConnectChatParticipantRoleConfig</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSConnectChatStreamingConfiguration.html">AWSConnectChatStreamingConfiguration</a>
@@ -264,6 +267,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSConnectCurrentMetricResult.html">AWSConnectCurrentMetricResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSConnectCurrentMetricSortCriteria.html">AWSConnectCurrentMetricSortCriteria</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSConnectDateReference.html">AWSConnectDateReference</a>
@@ -836,6 +842,12 @@
                 <a href="Classes/AWSConnectParticipantDetails.html">AWSConnectParticipantDetails</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSConnectParticipantTimerConfiguration.html">AWSConnectParticipantTimerConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSConnectParticipantTimerValue.html">AWSConnectParticipantTimerValue</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSConnectPhoneNumberQuickConnectConfig.html">AWSConnectPhoneNumberQuickConnectConfig</a>
               </li>
               <li class="nav-group-task">
@@ -1175,6 +1187,15 @@
                 <a href="Classes/AWSConnectUpdateInstanceStorageConfigRequest.html">AWSConnectUpdateInstanceStorageConfigRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSConnectUpdateParticipantRoleConfigChannelInfo.html">AWSConnectUpdateParticipantRoleConfigChannelInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSConnectUpdateParticipantRoleConfigRequest.html">AWSConnectUpdateParticipantRoleConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes.html#/c:objc(cs)AWSConnectUpdateParticipantRoleConfigResponse">AWSConnectUpdateParticipantRoleConfigResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSConnectUpdatePhoneNumberRequest.html">AWSConnectUpdatePhoneNumberRequest</a>
               </li>
               <li class="nav-group-task">
@@ -1410,6 +1431,12 @@
                 <a href="Enums/AWSConnectNotificationDeliveryType.html">AWSConnectNotificationDeliveryType</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/AWSConnectParticipantTimerAction.html">AWSConnectParticipantTimerAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSConnectParticipantTimerType.html">AWSConnectParticipantTimerType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/AWSConnectPhoneNumberCountryCode.html">AWSConnectPhoneNumberCountryCode</a>
               </li>
               <li class="nav-group-task">
@@ -1449,6 +1476,9 @@
                 <a href="Enums/AWSConnectSearchableQueueType.html">AWSConnectSearchableQueueType</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/AWSConnectSortOrder.html">AWSConnectSortOrder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/AWSConnectSourceType.html">AWSConnectSourceType</a>
               </li>
               <li class="nav-group-task">
@@ -1465,6 +1495,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSConnectTaskTemplateStatus.html">AWSConnectTaskTemplateStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSConnectTimerEligibleParticipantRoles.html">AWSConnectTimerEligibleParticipantRoles</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSConnectTrafficDistributionGroupStatus.html">AWSConnectTrafficDistributionGroupStatus</a>
@@ -2173,6 +2206,7 @@
     <span class="n">AWSConnectGroupingUnknown</span><span class="p">,</span>
     <span class="n">AWSConnectGroupingQueue</span><span class="p">,</span>
     <span class="n">AWSConnectGroupingChannel</span><span class="p">,</span>
+    <span class="n">AWSConnectGroupingRoutingProfile</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                         </div>
@@ -2630,6 +2664,79 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSConnectNotificationDeliveryType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSConnectParticipantTimerAction"></a>
+                    <a name="//apple_ref/objc/Enum/AWSConnectParticipantTimerAction" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSConnectParticipantTimerAction">AWSConnectParticipantTimerAction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSConnectParticipantTimerAction.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSConnectParticipantTimerAction</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSConnectParticipantTimerActionUnknown</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantTimerActionUnset</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSConnectParticipantTimerAction</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSConnectParticipantTimerType"></a>
+                    <a name="//apple_ref/objc/Enum/AWSConnectParticipantTimerType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSConnectParticipantTimerType">AWSConnectParticipantTimerType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSConnectParticipantTimerType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSConnectParticipantTimerType</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSConnectParticipantTimerTypeUnknown</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantTimerTypeIdle</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantTimerTypeDisconnectNoncustomer</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSConnectParticipantTimerType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -3369,6 +3476,43 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@AWSConnectSortOrder"></a>
+                    <a name="//apple_ref/objc/Enum/AWSConnectSortOrder" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSConnectSortOrder">AWSConnectSortOrder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSConnectSortOrder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSConnectSortOrder</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSConnectSortOrderUnknown</span><span class="p">,</span>
+    <span class="n">AWSConnectSortOrderAscending</span><span class="p">,</span>
+    <span class="n">AWSConnectSortOrderDescending</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSConnectSortOrder</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@AWSConnectSourceType"></a>
                     <a name="//apple_ref/objc/Enum/AWSConnectSourceType" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@AWSConnectSourceType">AWSConnectSourceType</a>
@@ -3596,6 +3740,43 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSConnectTaskTemplateStatus</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSConnectTimerEligibleParticipantRoles"></a>
+                    <a name="//apple_ref/objc/Enum/AWSConnectTimerEligibleParticipantRoles" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSConnectTimerEligibleParticipantRoles">AWSConnectTimerEligibleParticipantRoles</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSConnectTimerEligibleParticipantRoles.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSConnectTimerEligibleParticipantRoles</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSConnectTimerEligibleParticipantRolesUnknown</span><span class="p">,</span>
+    <span class="n">AWSConnectTimerEligibleParticipantRolesCustomer</span><span class="p">,</span>
+    <span class="n">AWSConnectTimerEligibleParticipantRolesAgent</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSConnectTimerEligibleParticipantRoles</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>

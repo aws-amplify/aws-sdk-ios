@@ -17,7 +17,7 @@
     <a title="AWSConnectGetCurrentMetricDataRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSConnect 2.28.6 Docs</a> (75% documented)</p>
+        <p><a href="../index.html">AWSConnect 2.29.0 Docs</a> (75% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSConnect.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -117,6 +117,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectChatMessage.html">AWSConnectChatMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectChatParticipantRoleConfig.html">AWSConnectChatParticipantRoleConfig</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectChatStreamingConfiguration.html">AWSConnectChatStreamingConfiguration</a>
@@ -264,6 +267,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectCurrentMetricResult.html">AWSConnectCurrentMetricResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCurrentMetricSortCriteria.html">AWSConnectCurrentMetricSortCriteria</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectDateReference.html">AWSConnectDateReference</a>
@@ -836,6 +842,12 @@
                 <a href="../Classes/AWSConnectParticipantDetails.html">AWSConnectParticipantDetails</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantTimerConfiguration.html">AWSConnectParticipantTimerConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantTimerValue.html">AWSConnectParticipantTimerValue</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSConnectPhoneNumberQuickConnectConfig.html">AWSConnectPhoneNumberQuickConnectConfig</a>
               </li>
               <li class="nav-group-task">
@@ -1175,6 +1187,15 @@
                 <a href="../Classes/AWSConnectUpdateInstanceStorageConfigRequest.html">AWSConnectUpdateInstanceStorageConfigRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateParticipantRoleConfigChannelInfo.html">AWSConnectUpdateParticipantRoleConfigChannelInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateParticipantRoleConfigRequest.html">AWSConnectUpdateParticipantRoleConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectUpdateParticipantRoleConfigResponse">AWSConnectUpdateParticipantRoleConfigResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSConnectUpdatePhoneNumberRequest.html">AWSConnectUpdatePhoneNumberRequest</a>
               </li>
               <li class="nav-group-task">
@@ -1410,6 +1431,12 @@
                 <a href="../Enums/AWSConnectNotificationDeliveryType.html">AWSConnectNotificationDeliveryType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSConnectParticipantTimerAction.html">AWSConnectParticipantTimerAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectParticipantTimerType.html">AWSConnectParticipantTimerType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSConnectPhoneNumberCountryCode.html">AWSConnectPhoneNumberCountryCode</a>
               </li>
               <li class="nav-group-task">
@@ -1449,6 +1476,9 @@
                 <a href="../Enums/AWSConnectSearchableQueueType.html">AWSConnectSearchableQueueType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSConnectSortOrder.html">AWSConnectSortOrder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSConnectSourceType.html">AWSConnectSourceType</a>
               </li>
               <li class="nav-group-task">
@@ -1465,6 +1495,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSConnectTaskTemplateStatus.html">AWSConnectTaskTemplateStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectTimerEligibleParticipantRoles.html">AWSConnectTimerEligibleParticipantRoles</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSConnectTrafficDistributionGroupStatus.html">AWSConnectTrafficDistributionGroupStatus</a>
@@ -1557,7 +1590,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is retrieved only for the resources associated with the queues or channels included in the filter. You can include both queue IDs and queue ARNs in the same request. VOICE, CHAT, and TASK channels are supported.</p>
+                        <p>The filters to apply to returned metrics. You can filter up to the following limits:</p><ul><li><p>Queues: 100</p></li><li><p>Routing profiles: 100</p></li><li><p>Channels: 3 (VOICE, CHAT, and TASK channels are supported.)</p></li></ul><p>Metric data is retrieved only for the resources associated with the queues or routing profiles, and by any channels included in the filter. (You cannot filter by both queue AND routing profile.) You can include both resource IDs and resource ARNs in the same request. </p><p>Currently tagging is only supported on the resources that are passed in the filter.</p>
 
                       </div>
                       <div class="declaration">
@@ -1589,7 +1622,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>The grouping applied to the metrics returned. For example, when grouped by <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all queues. </p><ul><li><p>If you group by <code>CHANNEL</code>, you should include a Channels filter. VOICE, CHAT, and TASK channels are supported.</p></li><li><p>If you group by <code>ROUTING_PROFILE</code>, you must include either a queue or routing profile filter.</p></li><li><p>If no <code>Grouping</code> is included in the request, a summary of metrics is returned.</p></li></ul></p>
+                        <p><p>The grouping applied to the metrics returned. For example, when grouped by <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all queues. </p><ul><li><p>If you group by <code>CHANNEL</code>, you should include a Channels filter. VOICE, CHAT, and TASK channels are supported.</p></li><li><p>If you group by <code>ROUTING_PROFILE</code>, you must include either a queue or routing profile filter. In addition, a routing profile filter is required for metrics <code>CONTACTS_SCHEDULED</code>, <code>CONTACTS_IN_QUEUE</code>, and <code> OLDEST_CONTACT_AGE</code>.</p></li><li><p>If no <code>Grouping</code> is included in the request, a summary of metrics is returned.</p></li></ul></p>
 
                       </div>
                       <div class="declaration">
@@ -1698,6 +1731,38 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">nextToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnectGetCurrentMetricDataRequest(py)sortCriteria"></a>
+                    <a name="//apple_ref/objc/Property/sortCriteria" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectGetCurrentMetricDataRequest(py)sortCriteria">sortCriteria</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>The way to sort the resulting response based on metrics. You can enter one sort criteria. By default resources are sorted based on <code>AGENTS_ONLINE</code>, <code>DESCENDING</code>. The metric collection is sorted based on the input metrics.</p><p>Note the following:</p><ul><li><p>Sorting on <code>SLOTS_ACTIVE</code> and <code>SLOTS_AVAILABLE</code> is not supported.</p></li></ul></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/AWSConnectCurrentMetricSortCriteria.html">AWSConnectCurrentMetricSortCriteria</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">sortCriteria</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">sortCriteria</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/AWSConnectCurrentMetricSortCriteria.html">AWSConnectCurrentMetricSortCriteria</a></span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>

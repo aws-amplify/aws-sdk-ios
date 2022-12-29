@@ -17,7 +17,7 @@
     <a title="AWSConnect Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSConnect 2.28.6 Docs</a> (75% documented)</p>
+        <p><a href="../index.html">AWSConnect 2.29.0 Docs</a> (75% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSConnect.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -117,6 +117,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectChatMessage.html">AWSConnectChatMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectChatParticipantRoleConfig.html">AWSConnectChatParticipantRoleConfig</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectChatStreamingConfiguration.html">AWSConnectChatStreamingConfiguration</a>
@@ -264,6 +267,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectCurrentMetricResult.html">AWSConnectCurrentMetricResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectCurrentMetricSortCriteria.html">AWSConnectCurrentMetricSortCriteria</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectDateReference.html">AWSConnectDateReference</a>
@@ -836,6 +842,12 @@
                 <a href="../Classes/AWSConnectParticipantDetails.html">AWSConnectParticipantDetails</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantTimerConfiguration.html">AWSConnectParticipantTimerConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantTimerValue.html">AWSConnectParticipantTimerValue</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSConnectPhoneNumberQuickConnectConfig.html">AWSConnectPhoneNumberQuickConnectConfig</a>
               </li>
               <li class="nav-group-task">
@@ -1175,6 +1187,15 @@
                 <a href="../Classes/AWSConnectUpdateInstanceStorageConfigRequest.html">AWSConnectUpdateInstanceStorageConfigRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateParticipantRoleConfigChannelInfo.html">AWSConnectUpdateParticipantRoleConfigChannelInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectUpdateParticipantRoleConfigRequest.html">AWSConnectUpdateParticipantRoleConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectUpdateParticipantRoleConfigResponse">AWSConnectUpdateParticipantRoleConfigResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSConnectUpdatePhoneNumberRequest.html">AWSConnectUpdatePhoneNumberRequest</a>
               </li>
               <li class="nav-group-task">
@@ -1410,6 +1431,12 @@
                 <a href="../Enums/AWSConnectNotificationDeliveryType.html">AWSConnectNotificationDeliveryType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSConnectParticipantTimerAction.html">AWSConnectParticipantTimerAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectParticipantTimerType.html">AWSConnectParticipantTimerType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSConnectPhoneNumberCountryCode.html">AWSConnectPhoneNumberCountryCode</a>
               </li>
               <li class="nav-group-task">
@@ -1449,6 +1476,9 @@
                 <a href="../Enums/AWSConnectSearchableQueueType.html">AWSConnectSearchableQueueType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSConnectSortOrder.html">AWSConnectSortOrder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSConnectSourceType.html">AWSConnectSourceType</a>
               </li>
               <li class="nav-group-task">
@@ -1465,6 +1495,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSConnectTaskTemplateStatus.html">AWSConnectTaskTemplateStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectTimerEligibleParticipantRoles.html">AWSConnectTimerEligibleParticipantRoles</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSConnectTrafficDistributionGroupStatus.html">AWSConnectTrafficDistributionGroupStatus</a>
@@ -22176,6 +22209,151 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorInternalService</code>, <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorThrottling</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnect(im)updateParticipantRoleConfig:"></a>
+                    <a name="//apple_ref/objc/Method/-updateParticipantRoleConfig:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnect(im)updateParticipantRoleConfig:">-updateParticipantRoleConfig:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Updates timeouts for when human chat participants are to be considered idle, and when agents are automatically disconnected from a chat due to idleness. You can set four timers:</p><ul><li><p>Customer idle timeout</p></li><li><p>Customer auto-disconnect timeout</p></li><li><p>Agent idle timeout</p></li><li><p>Agent auto-disconnect timeout</p></li></ul><p>For more information about how chat timeouts work, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html">Set up chat timeouts for human participants</a>. </p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectUpdateParticipantRoleConfigRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectUpdateParticipantRoleConfigResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">updateParticipantRoleConfig</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectUpdateParticipantRoleConfigRequest.html">AWSConnectUpdateParticipantRoleConfigRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateParticipantRoleConfig</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateParticipantRoleConfigRequest.html">AWSConnectUpdateParticipantRoleConfigRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the UpdateParticipantRoleConfig service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSConnectUpdateParticipantRoleConfigResponse">AWSConnectUpdateParticipantRoleConfigResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorAccessDenied</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnect(im)updateParticipantRoleConfig:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-updateParticipantRoleConfig:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnect(im)updateParticipantRoleConfig:completionHandler:">-updateParticipantRoleConfig:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Updates timeouts for when human chat participants are to be considered idle, and when agents are automatically disconnected from a chat due to idleness. You can set four timers:</p><ul><li><p>Customer idle timeout</p></li><li><p>Customer auto-disconnect timeout</p></li><li><p>Agent idle timeout</p></li><li><p>Agent auto-disconnect timeout</p></li></ul><p>For more information about how chat timeouts work, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html">Set up chat timeouts for human participants</a>. </p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectUpdateParticipantRoleConfigRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectUpdateParticipantRoleConfigResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="nf">updateParticipantRoleConfig</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectUpdateParticipantRoleConfigRequest.html">AWSConnectUpdateParticipantRoleConfigRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+              <span class="nf">completionHandler</span><span class="p">:</span>
+                  <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                      <span class="n"><a href="../Classes.html#/c:objc(cs)AWSConnectUpdateParticipantRoleConfigResponse">AWSConnectUpdateParticipantRoleConfigResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                      <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateParticipantRoleConfig</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateParticipantRoleConfigRequest.html">AWSConnectUpdateParticipantRoleConfigRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectUpdateParticipantRoleConfigResponse">AWSConnectUpdateParticipantRoleConfigResponse</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the UpdateParticipantRoleConfig service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorAccessDenied</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
                                 </div>
                               </td>
                             </tr>
