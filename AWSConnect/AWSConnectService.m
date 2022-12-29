@@ -25,7 +25,7 @@
 #import "AWSConnectResources.h"
 
 static NSString *const AWSInfoConnect = @"Connect";
-NSString *const AWSConnectSDKVersion = @"2.28.5";
+NSString *const AWSConnectSDKVersion = @"2.29.0";
 
 
 @interface AWSConnectResponseSerializer : AWSJSONResponseSerializer
@@ -3589,6 +3589,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectUpdateParticipantRoleConfigResponse *> *)updateParticipantRoleConfig:(AWSConnectUpdateParticipantRoleConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/contact/participant-role-config/{InstanceId}/{ContactId}"
+                  targetPrefix:@""
+                 operationName:@"UpdateParticipantRoleConfig"
+                   outputClass:[AWSConnectUpdateParticipantRoleConfigResponse class]];
+}
+
+- (void)updateParticipantRoleConfig:(AWSConnectUpdateParticipantRoleConfigRequest *)request
+     completionHandler:(void (^)(AWSConnectUpdateParticipantRoleConfigResponse *response, NSError *error))completionHandler {
+    [[self updateParticipantRoleConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectUpdateParticipantRoleConfigResponse *> * _Nonnull task) {
+        AWSConnectUpdateParticipantRoleConfigResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;

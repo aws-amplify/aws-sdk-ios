@@ -247,6 +247,8 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @class AWSAutoScalingAttachLoadBalancerTargetGroupsType;
 @class AWSAutoScalingAttachLoadBalancersResultType;
 @class AWSAutoScalingAttachLoadBalancersType;
+@class AWSAutoScalingAttachTrafficSourcesResultType;
+@class AWSAutoScalingAttachTrafficSourcesType;
 @class AWSAutoScalingAutoScalingGroup;
 @class AWSAutoScalingAutoScalingGroupNamesType;
 @class AWSAutoScalingAutoScalingGroupsType;
@@ -297,6 +299,8 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @class AWSAutoScalingDescribeScheduledActionsType;
 @class AWSAutoScalingDescribeTagsType;
 @class AWSAutoScalingDescribeTerminationPolicyTypesAnswer;
+@class AWSAutoScalingDescribeTrafficSourcesRequest;
+@class AWSAutoScalingDescribeTrafficSourcesResponse;
 @class AWSAutoScalingDescribeWarmPoolAnswer;
 @class AWSAutoScalingDescribeWarmPoolType;
 @class AWSAutoScalingDesiredConfiguration;
@@ -306,6 +310,8 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @class AWSAutoScalingDetachLoadBalancerTargetGroupsType;
 @class AWSAutoScalingDetachLoadBalancersResultType;
 @class AWSAutoScalingDetachLoadBalancersType;
+@class AWSAutoScalingDetachTrafficSourcesResultType;
+@class AWSAutoScalingDetachTrafficSourcesType;
 @class AWSAutoScalingDisableMetricsCollectionQuery;
 @class AWSAutoScalingEbs;
 @class AWSAutoScalingEnableMetricsCollectionQuery;
@@ -393,8 +399,12 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @class AWSAutoScalingTagDescription;
 @class AWSAutoScalingTagsType;
 @class AWSAutoScalingTargetTrackingConfiguration;
+@class AWSAutoScalingTargetTrackingMetricDataQuery;
+@class AWSAutoScalingTargetTrackingMetricStat;
 @class AWSAutoScalingTerminateInstanceInAutoScalingGroupType;
 @class AWSAutoScalingTotalLocalStorageGBRequest;
+@class AWSAutoScalingTrafficSourceIdentifier;
+@class AWSAutoScalingTrafficSourceState;
 @class AWSAutoScalingUpdateAutoScalingGroupType;
 @class AWSAutoScalingVCpuCountRequest;
 @class AWSAutoScalingWarmPoolConfiguration;
@@ -604,7 +614,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSString * _Nullable autoScalingGroupName;
 
 /**
- <p>The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target groups. To get the ARN of a target group, use the Elastic Load Balancing <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> API operation.</p>
+ <p>The Amazon Resource Names (ARNs) of the target groups. You can specify up to 10 target groups. To get the ARN of a target group, use the Elastic Load Balancing <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> API operation.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable targetGroupARNs;
 
@@ -633,6 +643,32 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
  <p>The names of the load balancers. You can specify up to 10 load balancers.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable loadBalancerNames;
+
+@end
+
+/**
+ 
+ */
+@interface AWSAutoScalingAttachTrafficSourcesResultType : AWSModel
+
+
+@end
+
+/**
+ 
+ */
+@interface AWSAutoScalingAttachTrafficSourcesType : AWSRequest
+
+
+/**
+ <p>The name of the Auto Scaling group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable autoScalingGroupName;
+
+/**
+ <p>The unique identifiers of one or more traffic sources. You can specify up to 10 traffic sources.</p><p>Currently, you must specify an Amazon Resource Name (ARN) for an existing VPC Lattice target group. Amazon EC2 Auto Scaling registers the running instances with the attached target groups. The target groups receive incoming traffic and route requests to one or more registered targets.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSAutoScalingTrafficSourceIdentifier *> * _Nullable trafficSources;
 
 @end
 
@@ -704,7 +740,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable healthCheckGracePeriod;
 
 /**
- <p>The service to use for the health checks. The valid values are <code>EC2</code> and <code>ELB</code>. If you configure an Auto Scaling group to use <code>ELB</code> health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks.</p>
+ <p>Determines whether any additional health checks are performed on the instances in this group. Amazon EC2 health checks are always on.</p><p>The valid values are <code>EC2</code> (default), <code>ELB</code>, and <code>VPC_LATTICE</code>. The <code>VPC_LATTICE</code> health check type is reserved for use with VPC Lattice, which is in preview release and is subject to change.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable healthCheckType;
 
@@ -792,6 +828,11 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
  <p>The termination policies for the group.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable terminationPolicies;
+
+/**
+ <p>The unique identifiers of the traffic sources.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSAutoScalingTrafficSourceIdentifier *> * _Nullable trafficSources;
 
 /**
  <p>One or more subnet IDs, if applicable, separated by commas.</p>
@@ -1175,12 +1216,12 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSString * _Nullable desiredCapacityType;
 
 /**
- <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed Elastic Load Balancing or custom health check. This is useful if your instances do not immediately pass these health checks after they enter the <code>InService</code> state. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html">Set the health check grace period for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>Default: <code>0</code> seconds</p>
+ <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed health check. This is useful if your instances do not immediately pass their health checks after they enter the <code>InService</code> state. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html">Set the health check grace period for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>Default: <code>0</code> seconds</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable healthCheckGracePeriod;
 
 /**
- <p>The service to use for the health checks. The valid values are <code>EC2</code> (default) and <code>ELB</code>. If you configure an Auto Scaling group to use load balancer (ELB) health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health checks for Auto Scaling instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Determines whether any additional health checks are performed on the instances in this group. Amazon EC2 health checks are always on. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health checks for Auto Scaling instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>The valid values are <code>EC2</code> (default), <code>ELB</code>, and <code>VPC_LATTICE</code>. The <code>VPC_LATTICE</code> health check type is reserved for use with VPC Lattice, which is in preview release and is subject to change.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable healthCheckType;
 
@@ -1250,7 +1291,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSArray<AWSAutoScalingTag *> * _Nullable tags;
 
 /**
- <p>The Amazon Resource Names (ARN) of the target groups to associate with the Auto Scaling group. Instances are registered as targets with the target groups. The target groups receive incoming traffic and route requests to one or more registered targets. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>The Amazon Resource Names (ARN) of the Elastic Load Balancing target groups to associate with the Auto Scaling group. Instances are registered as targets with the target groups. The target groups receive incoming traffic and route requests to one or more registered targets. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable targetGroupARNs;
 
@@ -1258,6 +1299,11 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
  <p>A policy or a list of policies that are used to select the instance to terminate. These policies are executed in the order that you list them. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html">Work with Amazon EC2 Auto Scaling termination policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>Valid values: <code>Default</code> | <code>AllocationStrategy</code> | <code>ClosestToNextInstanceHour</code> | <code>NewestInstance</code> | <code>OldestInstance</code> | <code>OldestLaunchConfiguration</code> | <code>OldestLaunchTemplate</code> | <code>arn:aws:lambda:region:account-id:function:my-function:my-alias</code></p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable terminationPolicies;
+
+/**
+ <p><b>Reserved for use with Amazon VPC Lattice, which is in preview release and is subject to change. Do not use this parameter for production workloads. It is also subject to change.</b></p><p>The unique identifiers of one or more traffic sources.</p><p>Currently, you must specify an Amazon Resource Name (ARN) for an existing VPC Lattice target group. Amazon EC2 Auto Scaling registers the running instances with the attached target groups. The target groups receive incoming traffic and route requests to one or more registered targets.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSAutoScalingTrafficSourceIdentifier *> * _Nullable trafficSources;
 
 /**
  <p>A comma-separated list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created. If you specify <code>VPCZoneIdentifier</code> with <code>AvailabilityZones</code>, the subnets that you specify must reside in those Availability Zones.</p>
@@ -1384,7 +1430,6 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 
 /**
  <p>Represents a CloudWatch metric of your choosing for a target tracking scaling policy to use with Amazon EC2 Auto Scaling.</p><p>To create your customized metric specification:</p><ul><li><p>Add values for each required property from CloudWatch. You can use an existing metric, or a new metric that you create. To use your own metric, you must first publish the metric to CloudWatch. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">Publish custom metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</p></li><li><p>Choose a metric that changes proportionally with capacity. The value of the metric should increase or decrease in inverse proportion to the number of capacity units. That is, the value of the metric should decrease when capacity increases.</p></li></ul><p>For more information about the CloudWatch terminology below, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch concepts</a>.</p><note><p>Each individual service provides information about the metrics, namespace, and dimensions they use. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html">Amazon Web Services services that publish CloudWatch metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</p></note>
- Required parameters: [MetricName, Namespace, Statistic]
  */
 @interface AWSAutoScalingCustomizedMetricSpecification : AWSModel
 
@@ -1398,6 +1443,11 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
  <p>The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html">Metric</a> object that is returned by a call to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html">ListMetrics</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable metricName;
+
+/**
+ <p>The metrics to include in the target tracking scaling policy, as a metric data query. This can include both raw metric and metric math expressions.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSAutoScalingTargetTrackingMetricDataQuery *> * _Nullable metrics;
 
 /**
  <p>The namespace of the metric.</p>
@@ -2004,6 +2054,52 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 /**
  
  */
+@interface AWSAutoScalingDescribeTrafficSourcesRequest : AWSRequest
+
+
+/**
+ <p>The name of the Auto Scaling group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable autoScalingGroupName;
+
+/**
+ <p>The maximum number of items to return with this call. The maximum value is <code>50</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxRecords;
+
+/**
+ <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The type of traffic source you are describing. Currently, the only valid value is <code>vpc-lattice</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficSourceType;
+
+@end
+
+/**
+ 
+ */
+@interface AWSAutoScalingDescribeTrafficSourcesResponse : AWSModel
+
+
+/**
+ <p>This string indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the <code>NextToken</code> value when requesting the next set of items. This value is null when there are no more items to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Information about the traffic sources.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSAutoScalingTrafficSourceState *> * _Nullable trafficSources;
+
+@end
+
+/**
+ 
+ */
 @interface AWSAutoScalingDescribeWarmPoolAnswer : AWSModel
 
 
@@ -2013,7 +2109,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSArray<AWSAutoScalingInstance *> * _Nullable instances;
 
 /**
- <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+ <p>This string indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the <code>NextToken</code> value when requesting the next set of items. This value is null when there are no more items to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -2150,6 +2246,32 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
  <p>The names of the load balancers. You can specify up to 10 load balancers.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable loadBalancerNames;
+
+@end
+
+/**
+ 
+ */
+@interface AWSAutoScalingDetachTrafficSourcesResultType : AWSModel
+
+
+@end
+
+/**
+ 
+ */
+@interface AWSAutoScalingDetachTrafficSourcesType : AWSRequest
+
+
+/**
+ <p>The name of the Auto Scaling group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable autoScalingGroupName;
+
+/**
+ <p>The unique identifiers of one or more traffic sources you are detaching. You can specify up to 10 traffic sources.</p><p>Currently, you must specify an Amazon Resource Name (ARN) for an existing VPC Lattice target group. When you detach a target group, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the target group using the <a>DescribeTrafficSources</a> API call. The instances continue to run.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSAutoScalingTrafficSourceIdentifier *> * _Nullable trafficSources;
 
 @end
 
@@ -2814,7 +2936,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable onDemandPercentageAboveBaseCapacity;
 
 /**
- <p>The allocation strategy to apply to your Spot Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.</p><p>The following lists the valid values:</p><dl><dt>capacity-optimized</dt><dd><p>Requests Spot Instances using pools that are optimally chosen based on the available Spot capacity. This strategy has the lowest risk of interruption. To give certain instance types a higher chance of launching first, use <code>capacity-optimized-prioritized</code>.</p></dd><dt>capacity-optimized-prioritized</dt><dd><p>You set the order of instance types for the launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling honors the instance type priorities on a best effort basis but optimizes for capacity first. Note that if the On-Demand allocation strategy is set to <code>prioritized</code>, the same priority is applied when fulfilling On-Demand capacity. This is not a valid value for Auto Scaling groups that specify <a>InstanceRequirements</a>.</p></dd><dt>lowest-price</dt><dd><p>Requests Spot Instances using the lowest priced pools within an Availability Zone, across the number of Spot pools that you specify for the <code>SpotInstancePools</code> property. To ensure that your desired capacity is met, you might receive Spot Instances from several pools. This is the default value, but it might lead to high interruption rates because this strategy only considers instance price and not available capacity.</p></dd><dt>price-capacity-optimized (recommended)</dt><dd><p>Amazon EC2 Auto Scaling identifies the pools with the highest capacity availability for the number of instances that are launching. This means that we will request Spot Instances from the pools that we believe have the lowest chance of interruption in the near term. Amazon EC2 Auto Scaling then requests Spot Instances from the lowest priced of these pools.</p></dd></dl>
+ <p>The allocation strategy to apply to your Spot Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.</p><p>The following lists the valid values:</p><dl><dt>capacity-optimized</dt><dd><p>Requests Spot Instances using pools that are optimally chosen based on the available Spot capacity. This strategy has the lowest risk of interruption. To give certain instance types a higher chance of launching first, use <code>capacity-optimized-prioritized</code>.</p></dd><dt>capacity-optimized-prioritized</dt><dd><p>You set the order of instance types for the launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling honors the instance type priorities on a best effort basis but optimizes for capacity first. Note that if the On-Demand allocation strategy is set to <code>prioritized</code>, the same priority is applied when fulfilling On-Demand capacity. This is not a valid value for Auto Scaling groups that specify <a>InstanceRequirements</a>.</p></dd><dt>lowest-price</dt><dd><p>Requests Spot Instances using the lowest priced pools within an Availability Zone, across the number of Spot pools that you specify for the <code>SpotInstancePools</code> property. To ensure that your desired capacity is met, you might receive Spot Instances from several pools. This is the default value, but it might lead to high interruption rates because this strategy only considers instance price and not available capacity.</p></dd><dt>price-capacity-optimized (recommended)</dt><dd><p>The price and capacity optimized allocation strategy looks at both price and capacity to select the Spot Instance pools that are the least likely to be interrupted and have the lowest possible price.</p></dd></dl>
  */
 @property (nonatomic, strong) NSString * _Nullable spotAllocationStrategy;
 
@@ -4555,6 +4677,64 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @end
 
 /**
+ <p>The metric data to return. Also defines whether this call is returning data for one metric only, or whether it is performing a math expression on the values of returned metric statistics to create a new time series. A time series is a series of data points, each of which is associated with a timestamp.</p>
+ Required parameters: [Id]
+ */
+@interface AWSAutoScalingTargetTrackingMetricDataQuery : AWSModel
+
+
+/**
+ <p>The math expression to perform on the returned data, if this object is performing a math expression. This expression can use the <code>Id</code> of the other metrics to refer to those metrics, and can also use the <code>Id</code> of other expressions to use the result of those expressions. </p><p>Conditional: Within each <code>TargetTrackingMetricDataQuery</code> object, you must specify either <code>Expression</code> or <code>MetricStat</code>, but not both.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable expression;
+
+/**
+ <p>A short name that identifies the object's results in the response. This name must be unique among all <code>TargetTrackingMetricDataQuery</code> objects specified for a single scaling policy. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscores. The first character must be a lowercase letter. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>A human-readable label for this metric or expression. This is especially useful if this is a math expression, so that you know what the value represents.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable label;
+
+/**
+ <p>Information about the metric data to return.</p><p>Conditional: Within each <code>TargetTrackingMetricDataQuery</code> object, you must specify either <code>Expression</code> or <code>MetricStat</code>, but not both.</p>
+ */
+@property (nonatomic, strong) AWSAutoScalingTargetTrackingMetricStat * _Nullable metricStat;
+
+/**
+ <p>Indicates whether to return the timestamps and raw data values of this metric. </p><p>If you use any math expressions, specify <code>true</code> for this value for only the final math expression that the metric specification is based on. You must specify <code>false</code> for <code>ReturnData</code> for all the other metrics and expressions used in the metric specification.</p><p>If you are only retrieving metrics and not performing any math expressions, do not specify anything for <code>ReturnData</code>. This sets it to its default (<code>true</code>).</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable returnData;
+
+@end
+
+/**
+ <p>This structure defines the CloudWatch metric to return, along with the statistic, period, and unit.</p><p>For more information about the CloudWatch terminology below, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch concepts</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+ Required parameters: [Metric, Stat]
+ */
+@interface AWSAutoScalingTargetTrackingMetricStat : AWSModel
+
+
+/**
+ <p>Represents a specific metric. </p>
+ */
+@property (nonatomic, strong) AWSAutoScalingMetric * _Nullable metric;
+
+/**
+ <p>The statistic to return. It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic">Statistics</a> in the <i>Amazon CloudWatch User Guide</i>.</p><p>The most commonly used metrics for scaling is <code>Average</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable stat;
+
+/**
+ <p>The unit to use for the returned data points. For a complete list of the units that CloudWatch supports, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">MetricDatum</a> data type in the <i>Amazon CloudWatch API Reference</i>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable unit;
+
+@end
+
+/**
  
  */
 @interface AWSAutoScalingTerminateInstanceInAutoScalingGroupType : AWSRequest
@@ -4587,6 +4767,37 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
  <p>The storage minimum in GB.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable min;
+
+@end
+
+/**
+ <p>Describes the identifier of a traffic source.</p><p>Currently, you must specify an Amazon Resource Name (ARN) for an existing VPC Lattice target group.</p>
+ */
+@interface AWSAutoScalingTrafficSourceIdentifier : AWSModel
+
+
+/**
+ <p>The unique identifier of the traffic source.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+@end
+
+/**
+ <p>Describes the state of a traffic source.</p>
+ */
+@interface AWSAutoScalingTrafficSourceState : AWSModel
+
+
+/**
+ <p>The following are the possible states for a VPC Lattice target group:</p><ul><li><p><code>Adding</code> - The Auto Scaling instances are being registered with the target group.</p></li><li><p><code>Added</code> - All Auto Scaling instances are registered with the target group.</p></li><li><p><code>InService</code> - At least one Auto Scaling instance passed the <code>VPC_LATTICE</code> health check.</p></li><li><p><code>Removing</code> - The Auto Scaling instances are being deregistered from the target group. If connection draining is enabled, VPC Lattice waits for in-flight requests to complete before deregistering the instances.</p></li><li><p><code>Removed</code> - All Auto Scaling instances are deregistered from the target group.</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable state;
+
+/**
+ <p>The unique identifier of the traffic source. Currently, this is the Amazon Resource Name (ARN) for a VPC Lattice target group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficSource;
 
 @end
 
@@ -4637,12 +4848,12 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSString * _Nullable desiredCapacityType;
 
 /**
- <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed Elastic Load Balancing or custom health check. This is useful if your instances do not immediately pass these health checks after they enter the <code>InService</code> state. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html">Set the health check grace period for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed health check. This is useful if your instances do not immediately pass their health checks after they enter the <code>InService</code> state. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html">Set the health check grace period for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable healthCheckGracePeriod;
 
 /**
- <p>The service to use for the health checks. The valid values are <code>EC2</code> and <code>ELB</code>. If you configure an Auto Scaling group to use <code>ELB</code> health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks.</p>
+ <p>Determines whether any additional health checks are performed on the instances in this group. Amazon EC2 health checks are always on.</p><p>The valid values are <code>EC2</code> (default), <code>ELB</code>, and <code>VPC_LATTICE</code>. The <code>VPC_LATTICE</code> health check type is reserved for use with VPC Lattice, which is in preview release and is subject to change.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable healthCheckType;
 
