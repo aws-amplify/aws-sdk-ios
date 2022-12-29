@@ -1,5 +1,9 @@
 ## Unreleased
 
+-Features for next release
+
+## 2.29.0
+
 ### Misc. Updates
 - **AWSAPIGateway**
   - Update cache control to disable caching by default. This can be overridden by setting the `Cache-Control` request header. (See [PR #4478](https://github.com/aws-amplify/aws-sdk-ios/pull/4478))
