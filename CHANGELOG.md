@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Bug Fixes
+
+- **AWSMobileclient**
+    - Fix an issue where keychain values are in an invalid state when migrating to a new device with iCloud backup. (See [PR #4480](https://github.com/aws-amplify/aws-sdk-ios/pull/4480))
+
+
 ### New features
 - **AWSTranscribeStreaming**
   - Add support for the following addtional language codes:
