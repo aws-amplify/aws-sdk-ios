@@ -1,6 +1,10 @@
+# AWS Mobile SDK for iOS CHANGELOG
 ## Unreleased
 
--Features for next release
+### Bug Fixes
+
+- **AWSMobileclient**
+    - Fix an issue where keychain values are in an invalid state when migrating to a new device with iCloud backup. (See [PR #4480](https://github.com/aws-amplify/aws-sdk-ios/pull/4480))
 
 ## 2.29.0
 
@@ -12,15 +16,7 @@
   - AWSConnect
   - Breaking change to AWSConnectParticipant
 
-# AWS Mobile SDK for iOS CHANGELOG
-
 ## 2.28.6
-
-### Bug Fixes
-
-- **AWSMobileclient**
-    - Fix an issue where keychain values are in an invalid state when migrating to a new device with iCloud backup. (See [PR #4480](https://github.com/aws-amplify/aws-sdk-ios/pull/4480))
-
 
 ### New features
 - **AWSTranscribeStreaming**
