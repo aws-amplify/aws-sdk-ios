@@ -274,31 +274,32 @@ final public class AWSMobileClient: _AWSMobileClient {
                 self.update(self)
                 self.internalCredentialsProvider?.setIdentityProviderManagerOnce(self)
                 self.registerConfigSignInProviders()
-                
-                if (self.internalCredentialsProvider?.identityId != nil) {
-                    if (federationProvider == .none) {
-                        currentUserState = .guest
-                        completionHandler(.guest, nil)
-                    } else {
-                        currentUserState = .signedIn
-                        completionHandler(.signedIn, nil)
-                    }
-                } else  if (self.cachedLoginsMap.count > 0) {
-                    currentUserState = .signedIn
-                    completionHandler(.signedIn, nil)
-                } else {
-                    currentUserState = .signedOut
-                    completionHandler(.signedOut, nil)
-                }
-            } else if self.cachedLoginsMap.count > 0 {
-                currentUserState = .signedIn
-                completionHandler(.signedIn, nil)
-            } else {
-                currentUserState = .signedOut
-                completionHandler(.signedOut, nil)
+
             }
+            let userState = determineIntialUserState()
+            if userState == .signedIn
+                && (federationProvider == .userPools || federationProvider == .hostedUI)
+                && self.username == nil {
+                self.signOut()
+                currentUserState = .signedOut
+            } else {
+                currentUserState = userState
+            }
+            completionHandler(currentUserState, nil)
             isInitialized = true
         }
+    }
+
+    private func determineIntialUserState() -> UserState {
+        if (self.cachedLoginsMap.count > 0) {
+            return .signedIn
+        }
+
+        if let credentialProvider = self.internalCredentialsProvider,
+           credentialProvider.identityId != nil {
+            return (federationProvider == .none) ? .guest : .signedIn
+        }
+        return .signedOut
     }
     
     /// Adds a listener who receives notifications on user state change.
