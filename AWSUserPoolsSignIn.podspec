@@ -18,5 +18,6 @@ Pod::Spec.new do |s|
    s.source_files = 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/**/*.{h,m}'
    s.public_header_files = 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/*.{h}'
    s.private_header_files = 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/UserPoolsUI/*.{h}'
+   s.public_header_files = 'AWSAuthSDK/Sources/AWSAuthUI/).{h}'
    s.resource_bundles = { 'AWSUserPoolsSignIn' => ['AWSAuthSDK/Sources/AWSUserPoolsSignIn/**/*.{storyboard}'] }
  end

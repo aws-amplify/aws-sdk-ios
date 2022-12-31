@@ -25,6 +25,14 @@
 #import <AWSAuthCore/AWSSignInManager.h>
 #import <AWSAuthCore/AWSUIConfiguration.h>
 
+
+#define NAVIGATION_BAR_HEIGHT 64
+
+static NSString *const SIGNIN_STORYBOARD = @"SignIn";
+static NSString *const SIGNIN_VIEW_CONTROLLER_IDENTIFIER = @"SignIn";;
+static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
+
+
 @interface AWSSignInManager()
     
 @property (nonatomic) BOOL pendingSignIn;
@@ -41,9 +49,14 @@
 @property (nonatomic, strong) NSString* sentTo;
 @property (nonatomic, strong) AWSFormTableCell *userNameRow;
 @property (nonatomic, strong) AWSFormTableCell *passwordRow;
+@property (nonatomic, strong) AWSFormTableCell *passwordConfirmRow;
 @property (nonatomic, strong) AWSFormTableCell *phoneNumberRow;
 @property (nonatomic, strong) AWSFormTableCell *emailRow;
 @property (nonatomic, strong) AWSFormTableDelegate *tableDelegate;
+@property (nonatomic) BOOL hidePhoneAndEmailRows;
+@property (weak, nonatomic) IBOutlet UIButton *signupButton;
+@property (weak, nonatomic) IBOutlet UIButton *signinButton;
+@property (nonatomic) CGPoint viewOrigin;
 
 @end
 
@@ -66,30 +79,25 @@ id<AWSUIConfiguration> config = nil;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.pool = [AWSCognitoIdentityUserPool defaultCognitoIdentityUserPool];
+    self.hidePhoneAndEmailRows = true;
     [self setUp];
 }
 
-// This is used to dismiss the keyboard, user just has to tap outside the
-// user name and password views and it will dismiss
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [touches anyObject];
-    if (touch.phase == UITouchPhaseBegan) {
-        [self.view endEditing:YES];
-    }
-
-    [super touchesBegan:touches withEvent:event];
-}
-
 - (void)setUp {
-    _userNameRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"User Name" type:InputTypeText];
+    _userNameRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"Email" type:InputTypeText];
     _passwordRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"Password" type:InputTypePassword];
+    _passwordConfirmRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"Confirm Password" type:InputTypePassword];
     _emailRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"Email" type:InputTypeText];
     _phoneNumberRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"Phone Number" type:InputTypeText];
     _tableDelegate = [AWSFormTableDelegate new];
     [self.tableDelegate addCell:self.userNameRow];
     [self.tableDelegate addCell:self.passwordRow];
-    [self.tableDelegate addCell:self.emailRow];
-    [self.tableDelegate addCell:self.phoneNumberRow];
+    if (self.hidePhoneAndEmailRows) {
+        [self.tableDelegate addCell:self.passwordConfirmRow];
+    } else {
+        [self.tableDelegate addCell:self.emailRow];
+        [self.tableDelegate addCell:self.phoneNumberRow];
+    }
     self.tableView.delegate = self.tableDelegate;
     self.tableView.dataSource = self.tableDelegate;
     [self.tableView reloadData];
@@ -115,6 +123,16 @@ id<AWSUIConfiguration> config = nil;
     [self.view insertSubview:backgroundImageView atIndex:0];
 }
 
+- (void)setUpLogo:(UIImage *)image {
+    if (image != nil) {
+//        self.logoView.image = image;
+//        self.logoView.contentMode = UIViewContentModeScaleAspectFit;
+//        [self.logoView setNeedsLayout];
+//        [self.view setNeedsLayout];
+//        [self.view layoutIfNeeded];
+    }
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([@"SignUpConfirmSegue" isEqualToString:segue.identifier]){
         UserPoolSignUpConfirmationViewController *signUpConfirmationViewController = segue.destinationViewController;
@@ -125,17 +143,36 @@ id<AWSUIConfiguration> config = nil;
     }
 }
 
+- (IBAction)onSignInButtonClicked:(id)sender {
+ 
+    // Dismisses the keyboard if open before transitioning to the new storyboard
+    [self.view endEditing:YES];
+    
+    // simply pop back to the sign-in view
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 - (IBAction)onSignUpClicked:(id)sender {
     
+    // Dismisses the keyboard if open before transitioning to the new storyboard
+    [self.view endEditing:YES];
+
     NSMutableArray * attributes = [NSMutableArray new];
     AWSCognitoIdentityUserAttributeType * phone = [AWSCognitoIdentityUserAttributeType new];
     phone.name = @"phone_number";
-    phone.value = [self.tableDelegate getValueForCell:self.phoneNumberRow forTableView:self.tableView];
+    if (self.hidePhoneAndEmailRows) {
+        phone.value = @"";
+    } else {
+        phone.value = [self.tableDelegate getValueForCell:self.phoneNumberRow forTableView:self.tableView];
+    }
     AWSCognitoIdentityUserAttributeType * email = [AWSCognitoIdentityUserAttributeType new];
     email.name = @"email";
-    email.value = [self.tableDelegate getValueForCell:self.emailRow forTableView:self.tableView];
-    
+    if (self.hidePhoneAndEmailRows) {
+        email.value = @"";
+    } else {
+        email.value = [self.tableDelegate getValueForCell:self.emailRow forTableView:self.tableView];
+    }
     if(![@"" isEqualToString:phone.value]){
         [attributes addObject:phone];
     }
@@ -145,11 +182,24 @@ id<AWSUIConfiguration> config = nil;
     
     NSString *userName = [self.tableDelegate getValueForCell:self.userNameRow forTableView:self.tableView];
     NSString *password = [self.tableDelegate getValueForCell:self.passwordRow forTableView:self.tableView];
+    NSString *passwordConfirm = [self.tableDelegate getValueForCell:self.passwordConfirmRow forTableView:self.tableView];
     if ([userName isEqualToString:@""] || [password isEqualToString:@""]) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Missing Information"
-                                                                                 message:@"Please enter a valid username and password."
+                                                                                 message:@"Please enter a valid email address and password."
                                                                           preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController
+                           animated:YES
+                         completion:nil];
+        return;
+    }
+    
+    if (![password isEqualToString:passwordConfirm]) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Password Mismatch"
+                                                                                 message:@"The passwords do not match."
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
         [alertController addAction:ok];
         [self presentViewController:alertController
                            animated:YES
@@ -163,7 +213,7 @@ id<AWSUIConfiguration> config = nil;
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Invalid format"
                                                                                      message:@"Phone number should begin with country code. E.g. +1992.."
                                                                               preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+            UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
             [alertController addAction:ok];
             [self presentViewController:alertController
                                animated:YES
@@ -180,10 +230,28 @@ id<AWSUIConfiguration> config = nil;
         AWSDDLogDebug(@"Successful signUp user: %@",task.result.user.username);
         dispatch_async(dispatch_get_main_queue(), ^{
             if(task.error){
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:task.error.userInfo[@"__type"]
-                                                                                         message:task.error.userInfo[@"message"]
+                
+                // replace poor AWS error messages with user-friendly versions
+                NSErrorUserInfoKey errorType = task.error.userInfo[@"__type"];
+                NSErrorUserInfoKey errorTitle = @"Sign Up";
+                NSErrorUserInfoKey errorMessage = task.error.userInfo[@"message"];
+                
+                if([errorType  isEqual: @"InvalidParameterException"]) {
+                    if ([errorMessage containsString:@"greater than or equal to 6"]) {
+                        errorMessage = @"Password must be at least 6 characters long.";
+                        errorTitle = @"Password Strength";
+                    } else if ([errorMessage containsString:@"Username should be an email"]) {
+                        errorMessage = @"Please enter a valid email address.";
+                    }
+                }
+                if([errorType  isEqual: @"UsernameExistsException"]) {
+                    errorTitle = @"Account Exists";
+                    errorMessage = @"There is already an account with that email address.";
+                }
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:errorTitle
+                                                                                         message:errorMessage
                                                                                   preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+                UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
                 [alertController addAction:ok];
                 [self presentViewController:alertController
                                    animated:YES
@@ -194,10 +262,15 @@ id<AWSUIConfiguration> config = nil;
             }
             else{
                 [AWSSignInManager sharedInstance].pendingSignIn = YES;
+                NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                [defaults setBool:YES forKey:@"userHasSignedIn"];
+                [defaults synchronize];
+
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Registration Complete"
-                                                                                         message:@"Registration was successful."
+                                                                                         message:@"Your LeakSentinel account has been created."
                                                                                   preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    NSLog(@"confirmation dialog %@", self.navigationController.viewControllers);
                 [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
                 }];
                 [alertController addAction:ok];
@@ -263,10 +336,10 @@ id<AWSUIConfiguration> config = nil;
 - (IBAction)onConfirmCode:(id)sender {
     NSString *confirmationCode = [self.tableDelegate getValueForCell:self.confirmationCodeRow forTableView:self.tableView];
     if ([confirmationCode isEqualToString:@""]) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Missing Information"
-                                                                                 message:@"Please enter a valid confirmation code."
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Missing Code"
+                                                                                 message:@"Please enter a valid verification code."
                                                                           preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
         [alertController addAction:ok];
         [self presentViewController:alertController
                            animated:YES
@@ -276,16 +349,29 @@ id<AWSUIConfiguration> config = nil;
     [[self.user confirmSignUp:confirmationCode forceAliasCreation:YES] continueWithBlock: ^id _Nullable(AWSTask<AWSCognitoIdentityUserConfirmSignUpResponse *> * _Nonnull task) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if(task.error){
-                if(task.error){
-                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:task.error.userInfo[@"__type"]
-                                                                                             message:task.error.userInfo[@"message"]
-                                                                                      preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
-                    [alertController addAction:ok];
-                    [self presentViewController:alertController
-                                       animated:YES
-                                     completion:nil];
+                
+                // replace poor AWS error messages with user-friendly versions
+                NSErrorUserInfoKey errorType = task.error.userInfo[@"__type"];
+                NSErrorUserInfoKey errorTitle = @"Verification Error";
+                NSErrorUserInfoKey errorMessage = task.error.userInfo[@"message"];
+
+                if([errorType  isEqual: @"CodeMismatchException"]) {
+                    if ([errorMessage containsString:@"Invalid verification code"]) {
+                        errorMessage = @"That is not a valid verification code. Please try again.";
+                    } else {
+                        errorMessage = @"There was a problem verifying your email address. Please try again.";
+                    }
                 }
+
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:errorTitle
+                                                                                         message:errorMessage
+                                                                                  preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                [alertController addAction:ok];
+                [self presentViewController:alertController
+                                   animated:YES
+                                 completion:nil];
+
             } else {
                 //return to initial screen
                 [AWSSignInManager sharedInstance].pendingSignIn = YES;
@@ -313,16 +399,16 @@ id<AWSUIConfiguration> config = nil;
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:task.error.userInfo[@"__type"]
                                                                                          message:task.error.userInfo[@"message"]
                                                                                   preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+                UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
                 [alertController addAction:ok];
                 [self presentViewController:alertController
                                    animated:YES
                                  completion:nil];
             }else {
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Code Resent"
-                                                                                         message:[NSString stringWithFormat:@"Code resent to: %@", task.result.codeDeliveryDetails.destination]
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"New Code Sent"
+                                                                                         message:[NSString stringWithFormat:@"A new verification code was sent to: %@", task.result.codeDeliveryDetails.destination]
                                                                                   preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+                UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
                 [alertController addAction:ok];
                 [self presentViewController:alertController
                                    animated:YES
