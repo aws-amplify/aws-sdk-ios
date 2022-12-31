@@ -29,6 +29,8 @@ import Foundation
     @objc public let primaryColor: UIColor?
     /// If set to true the sign up button is hidden from the UI.
     @objc public let disableSignUpButton: Bool
+    /// If set to true the "sign up" screen (and not the "sign in" screen) is shown
+    @objc public let startWithSignUpScreen: Bool
 
     /// Initializer for the drop-in UI configuration.
     @objc public init(canCancel: Bool = false,
@@ -36,13 +38,15 @@ import Foundation
                       backgroundColor: UIColor? = nil,
                       secondaryBackgroundColor: UIColor? = nil,
                       primaryColor: UIColor? = .systemBlue,
-                      disableSignUpButton: Bool = false) {
+                      disableSignUpButton: Bool = false,
+                      startWithSignUpScreen: Bool = false) {
         self.canCancel = canCancel
         self.logoImage = logoImage
         self.backgroundColor = backgroundColor
         self.secondaryBackgroundColor = secondaryBackgroundColor
         self.primaryColor = primaryColor
         self.disableSignUpButton = disableSignUpButton
+        self.startWithSignUpScreen = startWithSignUpScreen
     }
 
     public override convenience init() {
