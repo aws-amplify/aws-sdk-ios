@@ -24,20 +24,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z0I-A0-G5E">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="542"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="552"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wnI-Ji-1bZ">
                                                 <rect key="frame" x="8" y="0.0" width="359" height="0.0"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fzD-FE-MBR" userLabel="Logo View">
-                                                <rect key="frame" x="8" y="10" width="359" height="140"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="140" id="3vn-0d-Yuw"/>
-                                                </constraints>
-                                            </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zsL-1s-FiW" userLabel="Table Form View">
-                                                <rect key="frame" x="47.5" y="158" width="280" height="150"/>
+                                                <rect key="frame" x="47.5" y="168" width="280" height="150"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DZ0-AR-hXg">
                                                         <rect key="frame" x="4" y="4" width="271" height="142"/>
@@ -142,7 +136,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvq-sO-gkC" userLabel="Sign In Button">
-                                                <rect key="frame" x="47.5" y="318" width="280" height="40"/>
+                                                <rect key="frame" x="47.5" y="328" width="280" height="40"/>
                                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="280" id="PVD-Eo-OtV"/>
@@ -160,21 +154,21 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KvI-fx-xyX" userLabel="Sign Up Button">
-                                                <rect key="frame" x="8" y="368" width="175.5" height="28"/>
+                                                <rect key="frame" x="8" y="378" width="175.5" height="28"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <state key="normal" title="Create new account">
                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Udw-3n-fgk" userLabel="Forgot Password Button">
-                                                <rect key="frame" x="191.5" y="368" width="175.5" height="28"/>
+                                                <rect key="frame" x="191.5" y="378" width="175.5" height="28"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <state key="normal" title="Forgot your password?">
                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygS-Mb-Goc" userLabel="Provider View">
-                                                <rect key="frame" x="0.0" y="396" width="375" height="146"/>
+                                                <rect key="frame" x="0.0" y="406" width="375" height="146"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dUm-dJ-m84" userLabel="Left Horizontal Bar">
                                                         <rect key="frame" x="-16" y="8.5" width="145.5" height="1"/>
@@ -270,6 +264,12 @@
                                                     <constraint firstItem="t20-dr-8jX" firstAttribute="top" secondItem="Zac-Zg-duR" secondAttribute="bottom" constant="8" symbolic="YES" id="xf3-tm-zX1"/>
                                                 </constraints>
                                             </view>
+                                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leak_sentinel_logo_tall" translatesAutoresizingMaskIntoConstraints="NO" id="fzD-FE-MBR" userLabel="Logo View">
+                                                <rect key="frame" x="8" y="10" width="359" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="150" id="u51-pd-ixQ"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -321,7 +321,6 @@
                         <outlet property="contentView" destination="Z0I-A0-G5E" id="Ake-e2-3ol"/>
                         <outlet property="forgotPasswordButton" destination="Udw-3n-fgk" id="AN8-AS-74U"/>
                         <outlet property="logoView" destination="fzD-FE-MBR" id="Hcw-gX-fOl"/>
-                        <outlet property="logoViewHeight" destination="3vn-0d-Yuw" id="8wv-lR-e6n"/>
                         <outlet property="orSignInWithLabel" destination="jts-kO-RTL" id="Hmw-K4-qf2"/>
                         <outlet property="providerRow1" destination="Zac-Zg-duR" id="csi-5p-WlR"/>
                         <outlet property="providerRow2" destination="t20-dr-8jX" id="1qW-3y-RgT"/>
@@ -338,6 +337,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="leak_sentinel_logo_tall" width="200" height="150"/>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
