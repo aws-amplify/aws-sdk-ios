@@ -23,7 +23,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z0I-A0-G5E">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="672"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fzD-FE-MBR" userLabel="Logo View">
+                                    <imageView userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fzD-FE-MBR" userLabel="Logo View">
                                         <rect key="frame" x="47.5" y="0.0" width="280" height="280"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="280" id="BmY-Wm-Lyo"/>
@@ -34,7 +34,7 @@
                                         <rect key="frame" x="47.5" y="288" width="280" height="150"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DZ0-AR-hXg">
-                                                <rect key="frame" x="4" y="4" width="271" height="142"/>
+                                                <rect key="frame" x="4" y="2" width="271" height="142"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                                                 <prototypes>
