@@ -71,6 +71,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 /**
+ @property logoViewWidth
+ @brief Layout constraint for specifying the width of the logo view
+ **/
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoViewWidth;
+
+/**
  @property logoViewHeight
  @brief Layout constraint for specifying the height of the logo view
  **/
@@ -101,4 +107,5 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
 

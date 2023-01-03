@@ -33,8 +33,11 @@ static NSString *const SIGNIN_STORYBOARD = @"SignIn";
 static NSString *const SIGNIN_VIEW_CONTROLLER_IDENTIFIER = @"SignIn";;
 static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
 
-static NSInteger const SCALED_UP_LOGO_IMAGE_HEIGHT = 230;
-static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
+static NSInteger const SCALED_UP_LOGO_IMAGE_HEIGHT = 220;
+static NSInteger const SCALED_UP_LOGO_IMAGE_WIDTH = 220;
+
+static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 200;
+static NSInteger const SCALED_DOWN_LOGO_IMAGE_WIDTH = 200;
 
 @interface AWSSignInViewController ()
 
@@ -111,29 +114,31 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 #pragma mark - UIViewController
 
 
-- (void)keyboardDidShow:(NSNotification *)notification {
-    CGSize keyboardSize = ((NSValue *)[[notification userInfo]
-                                       valueForKey:UIKeyboardFrameBeginUserInfoKey]).CGRectValue.size;
-    
-    CGPoint buttonOrigin = self.signInButton.frame.origin;
-    CGRect visibleRect = self.view.frame;
-    
-    visibleRect.size.height -= keyboardSize.height;
-    
-    if (visibleRect.size.height < buttonOrigin.y) {
-        [self.view setFrame:CGRectMake(0,visibleRect.size.height - buttonOrigin.y, self.view.frame.size.width, self.view.frame.size.height)];
-    }
-}
-
-- (void)keyboardDidHide:(NSNotification *)notification {
-    [self.view setFrame:CGRectMake(0, NAVIGATION_BAR_HEIGHT ,self.view.frame.size.width,self.view.frame.size.height)];
-}
+//- (void)keyboardDidShow:(NSNotification *)notification {
+//    CGSize keyboardSize = ((NSValue *)[[notification userInfo]
+//                                       valueForKey:UIKeyboardFrameBeginUserInfoKey]).CGRectValue.size;
+//
+//    CGPoint buttonOrigin = self.signInButton.frame.origin;
+//    CGRect visibleRect = self.view.frame;
+//
+//    visibleRect.size.height -= keyboardSize.height;
+//
+//    if (visibleRect.size.height < buttonOrigin.y) {
+//        [self.view setFrame:CGRectMake(0,visibleRect.size.height - buttonOrigin.y, self.view.frame.size.width, self.view.frame.size.height)];
+//    }
+//}
+//
+//- (void)keyboardDidHide:(NSNotification *)notification {
+//    [self.view setFrame:CGRectMake(0, NAVIGATION_BAR_HEIGHT ,self.view.frame.size.width,self.view.frame.size.height)];
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     AWSDDLogDebug(@"Sign-In Loading...");
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
+    
+    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
     
     // set up the navigation controller
     [self setUpNavigationController];
@@ -309,6 +314,7 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
         } else {
             self.logoView.image = [AWSSignInViewController getImageFromBundle:BIG_IMAGE_NAME];
             self.logoViewHeight.constant = SCALED_UP_LOGO_IMAGE_HEIGHT;
+            self.logoViewWidth.constant = SCALED_UP_LOGO_IMAGE_WIDTH;
             [self.logoView setNeedsLayout];
             [self.view setNeedsLayout];
             [self.view layoutIfNeeded];
@@ -317,8 +323,10 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
         if (self.config.enableUserPoolsUI &&
             [self.config hasSignInButtonView]) {
             self.logoViewHeight.constant = SCALED_DOWN_LOGO_IMAGE_HEIGHT;
+            self.logoViewWidth.constant = SCALED_DOWN_LOGO_IMAGE_WIDTH;
         } else {
             self.logoViewHeight.constant = SCALED_UP_LOGO_IMAGE_HEIGHT;
+            self.logoViewWidth.constant = SCALED_UP_LOGO_IMAGE_WIDTH;
         }
         self.logoView.image = image;
         self.logoView.contentMode = UIViewContentModeScaleAspectFit;
