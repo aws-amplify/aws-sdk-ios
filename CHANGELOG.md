@@ -1,7 +1,10 @@
 # AWS Mobile SDK for iOS CHANGELOG
 ## Unreleased
 
--Features for next release
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSCloudWatchLogs
 
 ## 2.29.1
 
