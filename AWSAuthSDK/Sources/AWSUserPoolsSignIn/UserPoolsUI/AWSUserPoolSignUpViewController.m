@@ -104,6 +104,10 @@ id<AWSUIConfiguration> config = nil;
     [AWSAuthUIHelper setUpFormShadowForView:self.tableFormView];
     [self setUpBackground];
 
+    // set up logo
+    [self setUpLogo:self.config.logoImage ?: nil];
+    
+
     // setup button background
     [AWSAuthUIHelper applyPrimaryColorFromConfig:self.config
                                           toView:self.signUpButton];
@@ -125,11 +129,11 @@ id<AWSUIConfiguration> config = nil;
 
 - (void)setUpLogo:(UIImage *)image {
     if (image != nil) {
-//        self.logoView.image = image;
-//        self.logoView.contentMode = UIViewContentModeScaleAspectFit;
-//        [self.logoView setNeedsLayout];
-//        [self.view setNeedsLayout];
-//        [self.view layoutIfNeeded];
+        self.logoView.image = image;
+        self.logoView.contentMode = UIViewContentModeScaleAspectFit;
+        [self.logoView setNeedsLayout];
+        [self.view setNeedsLayout];
+        [self.view layoutIfNeeded];
     }
 }
 
