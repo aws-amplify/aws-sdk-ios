@@ -1,15 +1,10 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
+# AWS Mobile SDK for iOS CHANGELOG
+## Unreleased
 
 ### Misc. Updates
 
 - Model updates for the following services
----AWSCloudWatchLogs
-# AWS Mobile SDK for iOS CHANGELOG
-## Unreleased
-
--Features for next release
+  - AWSCloudWatchLogs
 
 ## 2.29.1
 
