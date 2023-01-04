@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -1547,7 +1547,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @property (nonatomic, strong) NSNumber * _Nullable lastEventTimestamp;
 
 /**
- <p>The ingestion time, expressed as the number of milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>.</p>
+ <p>The ingestion time, expressed as the number of milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code> The <code>lastIngestionTime</code> value updates on an eventual consistency basis. It typically updates in less than an hour after ingestion, but in rare situations might take longer.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable lastIngestionTime;
 
@@ -1562,7 +1562,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @property (nonatomic, strong) NSNumber * _Nullable storedBytes;
 
 /**
- <p>The sequence token.</p>
+ <p>The sequence token.</p><important><p>The sequence token is now ignored in <code>PutLogEvents</code> actions. <code>PutLogEvents</code> actions are always accepted regardless of receiving an invalid sequence token. You don't need to obtain <code>uploadSequenceToken</code> to use a <code>PutLogEvents</code> action.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable uploadSequenceToken;
 
@@ -1813,7 +1813,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @property (nonatomic, strong) NSString * _Nullable logStreamName;
 
 /**
- <p>The sequence token obtained from the response of the previous <code>PutLogEvents</code> call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html">DescribeLogStreams</a>. If you call <code>PutLogEvents</code> twice within a narrow time period using the same value for <code>sequenceToken</code>, both calls might be successful or one might be rejected.</p>
+ <p>The sequence token obtained from the response of the previous <code>PutLogEvents</code> call.</p><important><p>The <code>sequenceToken</code> parameter is now ignored in <code>PutLogEvents</code> actions. <code>PutLogEvents</code> actions are now accepted and never return <code>InvalidSequenceTokenException</code> or <code>DataAlreadyAcceptedException</code> even if the sequence token is not valid.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable sequenceToken;
 
@@ -1826,7 +1826,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 
 
 /**
- <p>The next sequence token.</p>
+ <p>The next sequence token.</p><important><p>This field has been deprecated.</p><p>The sequence token is now ignored in <code>PutLogEvents</code> actions. <code>PutLogEvents</code> actions are always accepted even if the sequence token is not valid. You can use parallel <code>PutLogEvents</code> actions on the same log stream and you do not need to wait for the response of a previous <code>PutLogEvents</code> action to obtain the <code>nextSequenceToken</code> value.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable nextSequenceToken;
 
