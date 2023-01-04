@@ -83,6 +83,19 @@ id<AWSUIConfiguration> config = nil;
     [self setUp];
 }
 
+// This is used to dismiss the keyboard, user just has to tap outside the
+// user name and password views and it will dismiss
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    if (touch.phase == UITouchPhaseBegan) {
+        [self.view endEditing:YES];
+    }
+    
+    [super touchesBegan:touches withEvent:event];
+}
+
+#pragma mark - Utility Methods
+
 - (void)setUp {
     _userNameRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"Email" type:InputTypeText];
     _passwordRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"Password" type:InputTypePassword];
