@@ -327,7 +327,7 @@ id<AWSUIConfiguration> config = nil;
 }
 
 - (void)setUp {
-    _userNameRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"User Name" staticText:self.user.username];
+    _userNameRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"Email" staticText:self.user.username];
     _confirmationCodeRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"Confirmation Code" type:InputTypeText];
     _tableDelegate = [AWSFormTableDelegate new];
     [self.tableDelegate addCell:self.userNameRow];

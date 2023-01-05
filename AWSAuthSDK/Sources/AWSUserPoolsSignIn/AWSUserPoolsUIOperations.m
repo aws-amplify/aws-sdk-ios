@@ -44,7 +44,7 @@ static NSString *const RESOURCES_BUNDLE = @"AWSUserPoolsSignIn.bundle";
 -(void)loginWithUserName:(NSString *)userName
                 password:(NSString *)password
     navigationController:(UINavigationController *)navController
-completionHandler:(nonnull void (^)(id _Nullable, NSError * _Nullable))completionHandler {
+       completionHandler:(nonnull void (^)(id _Nullable, NSError * _Nullable))completionHandler {
     self.userName = userName;
     self.password = password;
     self.completionHandler = completionHandler;
@@ -69,9 +69,22 @@ completionHandler:(nonnull void (^)(id _Nullable, NSError * _Nullable))completio
     AWSUserPoolSignUpViewController *viewController = (AWSUserPoolSignUpViewController *)[self getUserPoolsViewControllerWithIdentifier:USERPOOLS_SIGNUP_VIEW_CONTROLLER_IDENTIFIER];
     viewController.config = self.config;
     [navController pushViewController:viewController
-                                         animated:YES];
+                             animated:YES];
     
 }
+
+-(void)slideSignUpVCFromNavigationController:(UINavigationController *)navController {
+    AWSUserPoolSignUpViewController *viewController = (AWSUserPoolSignUpViewController *)[self getUserPoolsViewControllerWithIdentifier:USERPOOLS_SIGNUP_VIEW_CONTROLLER_IDENTIFIER];
+    viewController.config = self.config;
+    
+    [navController initWithRootViewController:viewController];
+    
+    // remove sign-in view controller from stack
+    //    NSLog(@"%@", navController.viewControllers);
+    //    [navController setViewControllers:@[navController.topViewController]];
+}
+
+
 
 -(void)pushForgotPasswordVCFromNavigationController:(UINavigationController *)navController {
     AWSUserPoolForgotPasswordViewController *viewController =
@@ -83,7 +96,7 @@ completionHandler:(nonnull void (^)(id _Nullable, NSError * _Nullable))completio
 
 - (UIViewController *)getUserPoolsViewControllerWithIdentifier:(NSString *)viewControllerIdentifier {
     return [AWSUserPoolsUIOperations getViewControllerWithName:viewControllerIdentifier
-                                                   storyboard:USERPOOLS_STORYBOARD];
+                                                    storyboard:USERPOOLS_STORYBOARD];
 }
 
 - (void)handleUserPoolSignInFlowStart {
@@ -96,27 +109,27 @@ completionHandler:(nonnull void (^)(id _Nullable, NSError * _Nullable))completio
     [[AWSSignInManager sharedInstance]
      loginWithSignInProviderKey:[signInProvider identityProviderName]
      completionHandler:^(id result, NSError *error) {
-         if (!error) {
-             dispatch_async(dispatch_get_main_queue(), ^{
-                 [[self.navigationController viewControllers].firstObject  dismissViewControllerAnimated:YES
-                                          completion:nil];
-                 if (self.completionHandler) {
-                     self.completionHandler(signInProvider, error);
-                 }
-             });
-         } else {
-             // in case of error, propogate the error back to customer, but do not dismiss sign in vc
-             if (self.completionHandler) {
-                 self.completionHandler(signInProvider, error);
-             }
-         }
-         
-         AWSDDLogDebug(@"result = %@, error = %@", result, error);
-     }];
+        if (!error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[self.navigationController viewControllers].firstObject  dismissViewControllerAnimated:YES
+                                                                                             completion:nil];
+                if (self.completionHandler) {
+                    self.completionHandler(signInProvider, error);
+                }
+            });
+        } else {
+            // in case of error, propogate the error back to customer, but do not dismiss sign in vc
+            if (self.completionHandler) {
+                self.completionHandler(signInProvider, error);
+            }
+        }
+        
+        AWSDDLogDebug(@"result = %@, error = %@", result, error);
+    }];
 }
 
 -(id<AWSCognitoIdentityNewPasswordRequired>) startNewPasswordRequired {
-
+    
     AWSUserPoolNewPasswordRequiredViewController *viewController = (AWSUserPoolNewPasswordRequiredViewController *)[self getUserPoolsViewControllerWithIdentifier:@"NewPasswordRequired"];
     viewController.config = self.config;
     dispatch_sync(dispatch_get_main_queue(), ^{
@@ -152,15 +165,22 @@ completionHandler:(nonnull void (^)(id _Nullable, NSError * _Nullable))completio
 -(void) didCompletePasswordAuthenticationStepWithError:(NSError*) error {
     if(error){
         dispatch_async(dispatch_get_main_queue(), ^{
+            NSString *originalTitle = error.userInfo[@"__type"];
+            NSString *originalMessage = error.userInfo[@"message"];
+            NSString *friendlyTitle = [self getUserFriendlyTitle:originalTitle
+                                                 originalMessage:originalMessage];
             
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:error.userInfo[@"__type"]
-                                                                                     message:error.userInfo[@"message"]
+            NSString *friendlyMessage = [self getUserFriendlyMessage:originalTitle
+                                                     originalMessage:originalMessage];
+            
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:friendlyTitle
+                                                                                     message:friendlyMessage
                                                                               preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Retry" style:UIAlertActionStyleDefault handler:nil];
             [alertController addAction:ok];
             [[self.navigationController viewControllers].firstObject presentViewController:alertController
-                                                                               animated:YES
-                                                                             completion:nil];
+                                                                                  animated:YES
+                                                                                completion:nil];
         });
     }
 }
@@ -193,4 +213,53 @@ completionHandler:(nonnull void (^)(id _Nullable, NSError * _Nullable))completio
                                      bundle:resourcesBundle];
 }
 
+static NSDictionary *userFriendlyTitleDictionary = nil;
+static NSDictionary *userFriendlyMessageDictionary = nil;
+
+-(NSString *)getUserFriendlyTitle:(NSString *)originalTitle
+                  originalMessage:(NSString *)originalMessage {
+    
+    if (userFriendlyTitleDictionary == nil) {
+        [self initializeErrorCodeDictionaries];
+    }
+    
+    // see if key is in our dictionary
+    if ([userFriendlyTitleDictionary objectForKey:originalTitle]) {
+        // yes, use it
+        NSString *value = userFriendlyTitleDictionary[originalTitle];
+        return value;
+    }
+    return originalTitle;
+}
+
+-(NSString *)getUserFriendlyMessage:(NSString *)originalTitle
+                    originalMessage:(NSString *)originalMessage {
+    
+    if (userFriendlyMessageDictionary == nil) {
+        [self initializeErrorCodeDictionaries];
+    }
+    
+    // see if key is in our dictionary
+    if ([userFriendlyMessageDictionary objectForKey:originalTitle]) {
+        // yes, use it
+        NSString *value = userFriendlyMessageDictionary[originalTitle];
+        return value;
+    }
+    return originalMessage;
+}
+
+-(void)initializeErrorCodeDictionaries {
+    userFriendlyTitleDictionary =  @{
+        @"UserNotFoundException" : @"Email Not Found",
+        @"InvalidParameterException" : @"No Email Address",
+        @"NotAuthorizedException" : @"Account Not Found"
+    };
+    userFriendlyMessageDictionary = @{
+        @"UserNotFoundException" : @"Sorry, we did not find an account with that email address.",
+        @"InvalidParameterException" : @"Please enter an email address.",
+        @"NotAuthorizedException" : @"Sorry, we did not find an acccount with that email address and password combination."
+    };
+}
+
 @end
+
