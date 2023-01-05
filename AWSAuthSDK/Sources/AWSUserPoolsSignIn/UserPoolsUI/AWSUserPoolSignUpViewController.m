@@ -265,6 +265,11 @@ id<AWSUIConfiguration> config = nil;
                     errorTitle = @"Account Exists";
                     errorMessage = @"There is already an account with that email address.";
                 }
+
+                if([errorType  isEqual: @"UsernameNotFoundException"]) {
+                    errorTitle = @"Email Not Found";
+                    errorMessage = @"Sorry, we couldn't find that email address.";
+                }
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:errorTitle
                                                                                          message:errorMessage
                                                                                   preferredStyle:UIAlertControllerStyleAlert];
@@ -280,7 +285,7 @@ id<AWSUIConfiguration> config = nil;
             else{
                 [AWSSignInManager sharedInstance].pendingSignIn = YES;
                 NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-                [defaults setBool:YES forKey:@"userHasSignedIn"];
+                [defaults setBool:YES forKey:@"hasSignedIn"];
                 [defaults synchronize];
 
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Registration Complete"

@@ -144,6 +144,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter the confirmation code and your new password" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCa-0T-Vfu">
                                 <rect key="frame" x="20" y="8" width="280" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wON-mn-kGn">
@@ -318,7 +319,7 @@
                                     <constraint firstAttribute="height" constant="225" id="zlD-WQ-1Wg"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please sign up for an account:" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZY-Hq-j6H" userLabel="Please Label">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please sign up for an account:" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZY-Hq-j6H" userLabel="Please Label">
                                 <rect key="frame" x="20" y="180" width="280" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="ZTJ-r8-Fff"/>
@@ -353,28 +354,32 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="onSignUpClicked:" destination="tBM-jZ-I7y" eventType="touchUpInside" id="CIF-Sp-AWE"/>
+                                    <action selector="onSignUpClicked:" destination="tBM-jZ-I7y" eventType="touchUpInside" id="kH1-Ee-l16"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fL-bI-wi2" userLabel="Sign In Button">
-                                <rect key="frame" x="50" y="509" width="220" height="28"/>
+                                <rect key="frame" x="46" y="509" width="228" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="I alreay have a LeakSentinel account">
+                                <state key="normal" title="I already have a LeakSentinel account">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="onSignInButtonClicked:" destination="tBM-jZ-I7y" eventType="touchUpInside" id="Hcl-8G-Swh"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Db4-um-TSC" firstAttribute="leading" secondItem="ynd-Ed-kPb" secondAttribute="leading" id="35k-rA-w8D"/>
+                            <constraint firstItem="eZY-Hq-j6H" firstAttribute="centerX" secondItem="Z83-6q-CAy" secondAttribute="centerX" id="6r2-rJ-eT4"/>
                             <constraint firstItem="8fL-bI-wi2" firstAttribute="top" secondItem="Db4-um-TSC" secondAttribute="bottom" constant="12" id="AD2-JW-1zs"/>
-                            <constraint firstItem="40c-8W-cgA" firstAttribute="top" secondItem="7hn-wh-vfF" secondAttribute="bottom" constant="-20" id="Bit-uw-GSu"/>
                             <constraint firstItem="Db4-um-TSC" firstAttribute="width" secondItem="ynd-Ed-kPb" secondAttribute="width" id="D7R-HJ-Mr2"/>
                             <constraint firstItem="Db4-um-TSC" firstAttribute="trailing" secondItem="ynd-Ed-kPb" secondAttribute="trailing" id="Gwn-5x-MHP"/>
                             <constraint firstItem="eZY-Hq-j6H" firstAttribute="top" secondItem="40c-8W-cgA" secondAttribute="bottom" constant="20" id="IKA-ST-m2G"/>
                             <constraint firstItem="Db4-um-TSC" firstAttribute="centerX" secondItem="ynd-Ed-kPb" secondAttribute="centerX" id="L1r-dP-bGy"/>
                             <constraint firstItem="40c-8W-cgA" firstAttribute="centerX" secondItem="Z83-6q-CAy" secondAttribute="centerX" id="OCK-BB-HPG"/>
                             <constraint firstItem="Db4-um-TSC" firstAttribute="centerX" secondItem="Z83-6q-CAy" secondAttribute="centerX" id="PWG-Vc-inN"/>
+                            <constraint firstItem="40c-8W-cgA" firstAttribute="top" secondItem="7hn-wh-vfF" secondAttribute="bottom" constant="-20" id="YjA-X3-C5H"/>
                             <constraint firstItem="ynd-Ed-kPb" firstAttribute="top" secondItem="eZY-Hq-j6H" secondAttribute="bottom" constant="2" id="aR7-Rh-Mtf" userLabel="Table Form View.top = Please Label.bottom"/>
                             <constraint firstItem="8fL-bI-wi2" firstAttribute="centerX" secondItem="Z83-6q-CAy" secondAttribute="centerX" id="gNl-AA-7II"/>
                             <constraint firstItem="Db4-um-TSC" firstAttribute="top" secondItem="ynd-Ed-kPb" secondAttribute="bottom" constant="10" id="m8K-n6-NXS"/>
@@ -384,7 +389,8 @@
                     <navigationItem key="navigationItem" id="kSJ-Ps-4Hc"/>
                     <connections>
                         <outlet property="logoView" destination="40c-8W-cgA" id="hu9-gv-kOG"/>
-                        <outlet property="signUpButton" destination="Db4-um-TSC" id="lyM-5i-WZQ"/>
+                        <outlet property="signinButton" destination="8fL-bI-wi2" id="Pu7-U0-Lva"/>
+                        <outlet property="signupButton" destination="Db4-um-TSC" id="yjg-sm-1L0"/>
                         <outlet property="tableFormView" destination="ynd-Ed-kPb" id="etq-aW-lWk"/>
                         <outlet property="tableView" destination="tlm-ET-L8c" id="lLm-sK-zAj"/>
                         <segue destination="oYn-kQ-Tog" kind="show" identifier="SignUpConfirmSegue" id="XMJ-lN-8F5"/>
@@ -615,7 +621,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="an4-FD-ddq">
-                                <rect key="frame" x="20" y="53" width="280" height="75"/>
+                                <rect key="frame" x="20" y="71" width="280" height="75"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eB4-yI-jcD">
                                         <rect key="frame" x="4" y="4" width="272" height="67"/>
@@ -720,13 +726,17 @@
                                     <constraint firstItem="eB4-yI-jcD" firstAttribute="centerX" secondItem="an4-FD-ddq" secondAttribute="centerX" id="tJg-S3-Q23"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your username to reset password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hM0-IG-47N">
-                                <rect key="frame" x="25.5" y="15" width="269" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your email address and we'll send you a one-time code to reset your password" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hM0-IG-47N">
+                                <rect key="frame" x="10" y="15" width="300" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="bjX-pY-wf1"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9P-Ga-w9L">
-                                <rect key="frame" x="20" y="138" width="280" height="40"/>
+                                <rect key="frame" x="20" y="156" width="280" height="40"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Hvb-L3-sdP"/>

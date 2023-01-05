@@ -73,6 +73,8 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_WIDTH = 200;
 
 -(void)pushSignUpVCFromNavigationController:(UINavigationController *)navController;
 
+-(void)slideSignUpVCFromNavigationController:(UINavigationController *)navController;
+
 -(void)pushForgotPasswordVCFromNavigationController:(UINavigationController *)navController;
 
 @end
@@ -159,6 +161,13 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_WIDTH = 200;
     if (self.config.font) {
         [self setUpFont];
     }
+
+    // if user has never signed in, go to sign up screen
+    BOOL hasSignedIn = [[NSUserDefaults standardUserDefaults] boolForKey:@"hasSignedIn"];
+    if (!hasSignedIn) {
+        [self doUserPoolSignUp];
+    }
+
 }
     
 - (void)viewWillAppear:(BOOL)animated {
@@ -534,6 +543,17 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_WIDTH = 200;
     AWSUserPoolsUIOperations *userPoolsOperations = [[awsUserPoolsUIOperations alloc] initWithAuthUIConfiguration:self.config];
     [userPoolsOperations pushSignUpVCFromNavigationController:self.navigationController];
 }
+
+- (void)doUserPoolSignUp {
+    
+    // Dismisses the keyboard if open before transitioning to the new storyboard
+    [self.view endEditing:YES];
+    
+    Class awsUserPoolsUIOperations = NSClassFromString(USERPOOLS_UI_OPERATIONS);
+    AWSUserPoolsUIOperations *userPoolsOperations = [[awsUserPoolsUIOperations alloc] initWithAuthUIConfiguration:self.config];
+    [userPoolsOperations slideSignUpVCFromNavigationController:self.navigationController];
+}
+
 
 - (void)handleUserPoolForgotPassword {
     

@@ -30,7 +30,21 @@
 
 - (void)onTap {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self showHeaderLabel:YES];
+       [UIView transitionWithView:self.placeHolderView
+                         duration:0.5
+                          options:UIViewAnimationOptionTransitionCrossDissolve
+                       animations:^{
+                           self.placeHolderView.hidden = YES;
+                           self.headerLabel.hidden = NO;
+                           self.inputBox.hidden = NO;
+                       } completion:nil];
+//        NSLog(@"The string is %@", self.headerLabel.text);
+        if ([self.headerLabel.text isEqualToString:@"EMAIL"]) {
+            self.inputBox.keyboardType = UIKeyboardTypeEmailAddress;
+        }
+        if ([self.headerLabel.text isEqualToString:@"CODE"]) {
+            self.inputBox.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+        }
         [self.inputBox becomeFirstResponder];
     });
 }
