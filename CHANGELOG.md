@@ -5,6 +5,7 @@
 
 - Model updates for the following services
   - AWSCloudWatchLogs
+  - AWSConnect
 
 ## 2.29.1
 
