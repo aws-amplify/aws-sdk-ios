@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -191,6 +191,12 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"API"] == NSOrderedSame) {
             return @(AWSConnectContactInitiationMethodApi);
         }
+        if ([value caseInsensitiveCompare:@"DISCONNECT"] == NSOrderedSame) {
+            return @(AWSConnectContactInitiationMethodDisconnect);
+        }
+        if ([value caseInsensitiveCompare:@"MONITOR"] == NSOrderedSame) {
+            return @(AWSConnectContactInitiationMethodMonitor);
+        }
         return @(AWSConnectContactInitiationMethodUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -206,6 +212,10 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"CALLBACK";
             case AWSConnectContactInitiationMethodApi:
                 return @"API";
+            case AWSConnectContactInitiationMethodDisconnect:
+                return @"DISCONNECT";
+            case AWSConnectContactInitiationMethodMonitor:
+                return @"MONITOR";
             default:
                 return nil;
         }
@@ -3543,6 +3553,12 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"API"] == NSOrderedSame) {
             return @(AWSConnectContactInitiationMethodApi);
         }
+        if ([value caseInsensitiveCompare:@"DISCONNECT"] == NSOrderedSame) {
+            return @(AWSConnectContactInitiationMethodDisconnect);
+        }
+        if ([value caseInsensitiveCompare:@"MONITOR"] == NSOrderedSame) {
+            return @(AWSConnectContactInitiationMethodMonitor);
+        }
         return @(AWSConnectContactInitiationMethodUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3558,6 +3574,10 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"CALLBACK";
             case AWSConnectContactInitiationMethodApi:
                 return @"API";
+            case AWSConnectContactInitiationMethodDisconnect:
+                return @"DISCONNECT";
+            case AWSConnectContactInitiationMethodMonitor:
+                return @"MONITOR";
             default:
                 return nil;
         }
