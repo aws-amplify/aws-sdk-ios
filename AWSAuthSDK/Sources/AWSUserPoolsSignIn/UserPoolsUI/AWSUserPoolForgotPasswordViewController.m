@@ -101,9 +101,9 @@
     NSString *userName = [self.tableDelegate getValueForCell:self.userNameRow forTableView:self.tableView];
     if ([userName isEqualToString:@""]) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"No Email Address"
-                                                                                 message:@"Please enter a valid username."
+                                                                                 message:@"Please enter an email address"
                                                                           preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
         [alertController addAction:ok];
         [self presentViewController:alertController
                            animated:YES
@@ -114,10 +114,19 @@
     [[self.user forgotPassword] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserForgotPasswordResponse *> * _Nonnull task) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if(task.error){
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:task.error.userInfo[@"__type"]
-                                                                                         message:task.error.userInfo[@"message"]
+
+                NSString *originalTitle = task.error.userInfo[@"__type"];
+                NSString *originalMessage = task.error.userInfo[@"message"];
+                NSString *friendlyTitle = [AWSUserPoolsUIOperations getUserFriendlyTitle:originalTitle
+                                                     originalMessage:originalMessage];
+                
+                NSString *friendlyMessage = [AWSUserPoolsUIOperations getUserFriendlyMessage:originalTitle
+                                                         originalMessage:originalMessage];
+
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:friendlyTitle
+                                                                                         message:friendlyMessage
                                                                                   preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+                UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
                 [alertController addAction:ok];
                 [self presentViewController:alertController
                                    animated:YES
@@ -189,9 +198,9 @@
     NSString *updatedPassword = [self.tableDelegate getValueForCell:self.updatedPasswordRow forTableView:self.tableView];
     if ([confirmationCode isEqualToString:@""] || [updatedPassword isEqualToString:@""]) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Missing Information"
-                                                                                 message:@"Please enter valid confirmation code and password values."
+                                                                                 message:@"Please enter the confirmation code and your new password ."
                                                                           preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
         [alertController addAction:ok];
         [self presentViewController:alertController
                            animated:YES
@@ -202,20 +211,28 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             if(task.error){
                 
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:task.error.userInfo[@"__type"]
-                                                                                         message:task.error.userInfo[@"message"]
+                NSString *originalTitle = task.error.userInfo[@"__type"];
+                NSString *originalMessage = task.error.userInfo[@"message"];
+                NSString *friendlyTitle = [AWSUserPoolsUIOperations getUserFriendlyTitle:originalTitle
+                                                     originalMessage:originalMessage];
+                
+                NSString *friendlyMessage = [AWSUserPoolsUIOperations getUserFriendlyMessage:originalTitle
+                                                         originalMessage:originalMessage];
+
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:friendlyTitle
+                                                                                         message:friendlyMessage
                                                                                   preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+                UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
                 [alertController addAction:ok];
                 [self presentViewController:alertController
                                    animated:YES
                                  completion:nil];
                 
             }else {
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Password Reset Complete"
-                                                                                         message:@"Password Reset was completed successfully."
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Password Reset"
+                                                                                         message:@"Your password has been reset."
                                                                                   preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 [self.navigationController popToRootViewControllerAnimated:YES];
                 }];
                 [alertController addAction:ok];

@@ -13,6 +13,7 @@
 // permissions and limitations under the License.
 //
 
+
 #import "AWSUserPoolsUIOperations.h"
 #import "AWSUserPoolSignUpViewController.h"
 #import "AWSUserPoolForgotPasswordViewController.h"
@@ -20,6 +21,7 @@
 #import "AWSuserPoolNewPasswordRequiredViewController.h"
 #import <AWSAuthCore/AWSUIConfiguration.h>
 #import <AWSAuthCore/AWSSignInManager.h>
+
 
 static NSString *const USERPOOLS_STORYBOARD = @"AWSUserPools";
 static NSString *const USERPOOLS_MFA_VIEW_CONTROLLER_IDENTIFIER = @"MFA";
@@ -36,7 +38,6 @@ static NSString *const RESOURCES_BUNDLE = @"AWSUserPoolsSignIn.bundle";
 @property (nonatomic, strong) AWSUserPoolMFAViewController* mfaViewController;
 @property (nonatomic, strong) NSString *userName;
 @property (nonatomic, strong) NSString *password;
-
 @end
 
 @implementation AWSUserPoolsUIOperations
@@ -65,12 +66,13 @@ static NSString *const RESOURCES_BUNDLE = @"AWSUserPoolsSignIn.bundle";
     return nil;
 }
 
--(void)pushSignUpVCFromNavigationController:(UINavigationController *)navController {
-    AWSUserPoolSignUpViewController *viewController = (AWSUserPoolSignUpViewController *)[self getUserPoolsViewControllerWithIdentifier:USERPOOLS_SIGNUP_VIEW_CONTROLLER_IDENTIFIER];
-    viewController.config = self.config;
-    [navController pushViewController:viewController
+-(void)pushSignUpVCFromNavigationControllerThenSendCode:navController userName:userName {
+    AWSUserPoolSignUpViewController *signUpViewController = (AWSUserPoolSignUpViewController *)[self getUserPoolsViewControllerWithIdentifier:USERPOOLS_SIGNUP_VIEW_CONTROLLER_IDENTIFIER];
+    signUpViewController.config = self.config;
+    signUpViewController.resendCode = true;
+    signUpViewController.userName = userName;
+    [navController pushViewController:signUpViewController
                              animated:YES];
-    
 }
 
 -(void)slideSignUpVCFromNavigationController:(UINavigationController *)navController {
@@ -167,20 +169,46 @@ static NSString *const RESOURCES_BUNDLE = @"AWSUserPoolsSignIn.bundle";
         dispatch_async(dispatch_get_main_queue(), ^{
             NSString *originalTitle = error.userInfo[@"__type"];
             NSString *originalMessage = error.userInfo[@"message"];
-            NSString *friendlyTitle = [self getUserFriendlyTitle:originalTitle
+            NSString *friendlyTitle = [AWSUserPoolsUIOperations getUserFriendlyTitle:originalTitle
                                                  originalMessage:originalMessage];
             
-            NSString *friendlyMessage = [self getUserFriendlyMessage:originalTitle
+            NSString *friendlyMessage = [AWSUserPoolsUIOperations getUserFriendlyMessage:originalTitle
                                                      originalMessage:originalMessage];
             
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:friendlyTitle
-                                                                                     message:friendlyMessage
-                                                                              preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Retry" style:UIAlertActionStyleDefault handler:nil];
-            [alertController addAction:ok];
-            [[self.navigationController viewControllers].firstObject presentViewController:alertController
-                                                                                  animated:YES
-                                                                                completion:nil];
+            // oddball case: user never confirmed account creation, so offer to send another confirmation code
+            if([originalTitle  isEqual: @"UserNotConfirmedException"]) {
+
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:friendlyTitle
+                                                                                         message:friendlyMessage
+                                                                                  preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *sendCode = [UIAlertAction actionWithTitle:@"Send Code" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    
+                    UIViewController *vc = [self.navigationController viewControllers].firstObject;
+                    UINavigationController *nav = vc.navigationController;
+                    [self pushSignUpVCFromNavigationControllerThenSendCode:nav userName:self.userName];
+
+                }];
+                [alertController addAction:sendCode];
+
+                UIAlertAction *noThanks = [UIAlertAction actionWithTitle:@"No Thanks" style:UIAlertActionStyleDefault handler:nil];
+                [alertController addAction:noThanks];
+
+                [[self.navigationController viewControllers].firstObject presentViewController:alertController
+                                                                                      animated:YES
+                                                                                    completion:nil];
+   
+            }
+            else
+            {
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:friendlyTitle
+                                                                                         message:friendlyMessage
+                                                                                  preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Retry" style:UIAlertActionStyleDefault handler:nil];
+                [alertController addAction:ok];
+                [[self.navigationController viewControllers].firstObject presentViewController:alertController
+                                                                                      animated:YES
+                                                                                    completion:nil];
+            }
         });
     }
 }
@@ -216,48 +244,85 @@ static NSString *const RESOURCES_BUNDLE = @"AWSUserPoolsSignIn.bundle";
 static NSDictionary *userFriendlyTitleDictionary = nil;
 static NSDictionary *userFriendlyMessageDictionary = nil;
 
--(NSString *)getUserFriendlyTitle:(NSString *)originalTitle
++ (NSString *)getUserFriendlyTitle:(NSString *)originalTitle
                   originalMessage:(NSString *)originalMessage {
     
     if (userFriendlyTitleDictionary == nil) {
         [self initializeErrorCodeDictionaries];
     }
+    NSString *friendlyTitle = originalTitle;
     
-    // see if key is in our dictionary
+    // see if title key is in our dictionary
     if ([userFriendlyTitleDictionary objectForKey:originalTitle]) {
-        // yes, use it
+        // yes, get it
         NSString *value = userFriendlyTitleDictionary[originalTitle];
-        return value;
+        
+        // if key is parameter error, need to look at message, too
+        if([originalTitle  isEqual: @"InvalidParameterException"]) {
+             if ([originalMessage containsString:@"greater than or equal to 6"]) {
+                 value = @"Invalid Password";
+             } else if ([originalMessage containsString:@"Username should be an email"]) {
+                 value = @"Account Error";
+             } else if ([originalMessage containsString:@"Cannot reset password for the user as there is no registered"]) {
+                value = @"Account Error";
+             }
+        }
+        friendlyTitle = value;
     }
-    return originalTitle;
+    return friendlyTitle;
 }
 
--(NSString *)getUserFriendlyMessage:(NSString *)originalTitle
++ (NSString *)getUserFriendlyMessage:(NSString *)originalTitle
                     originalMessage:(NSString *)originalMessage {
     
     if (userFriendlyMessageDictionary == nil) {
         [self initializeErrorCodeDictionaries];
     }
     
-    // see if key is in our dictionary
-    if ([userFriendlyMessageDictionary objectForKey:originalTitle]) {
-        // yes, use it
+    NSString *friendlyMessage = originalMessage;
+
+    // see if title key is in our dictionary
+    if ([userFriendlyTitleDictionary objectForKey:originalTitle]) {
+        // yes, get it
         NSString *value = userFriendlyMessageDictionary[originalTitle];
-        return value;
+        
+        // if key is parameter error, need to look at message, too
+        if([originalTitle  isEqual: @"InvalidParameterException"]) {
+            if ([originalMessage containsString:@"greater than or equal to 6"]) {
+                value = @"Invalid Password";
+            } else if ([originalMessage containsString:@"Username should be an email"]) {
+                value = @"User name should be an email address.";
+            } else if ([originalMessage containsString:@"Cannot reset password for the user as there is no registered"]) {
+               value = @"Cannot reset the password for this account because there is no verified email address associated with this account.";
+            } else {
+                value = @"Sorry, there was an error accessing your account. Please try again.";
+            }
+        }
+        friendlyMessage = value;
     }
-    return originalMessage;
+    return friendlyMessage;
 }
 
--(void)initializeErrorCodeDictionaries {
++ (void)initializeErrorCodeDictionaries {
     userFriendlyTitleDictionary =  @{
         @"UserNotFoundException" : @"Email Not Found",
         @"InvalidParameterException" : @"No Email Address",
-        @"NotAuthorizedException" : @"Account Not Found"
+        @"NotAuthorizedException" : @"Account Not Found",
+        @"CodeMismatchException" : @"Invalid Code",
+        @"LimitExceededException" : @"Too Many Attempts",
+        @"InvalidPasswordException" : @"Invalid Password",
+        @"UsernameExistsException" : @"Account Exists",
+        @"UserNotConfirmedException" : @"Account Error"
     };
     userFriendlyMessageDictionary = @{
         @"UserNotFoundException" : @"Sorry, we did not find an account with that email address.",
         @"InvalidParameterException" : @"Please enter an email address.",
-        @"NotAuthorizedException" : @"Sorry, we did not find an acccount with that email address and password combination."
+        @"NotAuthorizedException" : @"Sorry, we did not find an acccount with that email address and password combination.",
+        @"CodeMismatchException" : @"Sorry, that code is not correct. Please try again.",
+        @"LimitExceededException" : @"Sorry, you have exceeded the number of retries. Please wait for a while before trying again.",
+        @"InvalidPasswordException" : @"Your password must be at least six characters long.",
+        @"UsernameExistsException" : @"An account with that email address already exists.",
+        @"UserNotConfirmedException" : @"Sorry, that account’s email address was never confirmed.\n\nIf you like, we can send another confirmation code to that email address."
     };
 }
 

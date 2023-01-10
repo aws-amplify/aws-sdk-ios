@@ -55,6 +55,14 @@ NS_ASSUME_NONNULL_BEGIN
  **/
 -(void)pushForgotPasswordVCFromNavigationController:(UINavigationController *)navController;
 
++ (NSString *)getUserFriendlyTitle:(NSString *)originalTitle
+                   originalMessage:(NSString *)originalMessage;
+
++ (NSString *)getUserFriendlyMessage:(NSString *)originalTitle
+                     originalMessage:(NSString *)originalMessage;
+
++ (void)initializeErrorCodeDictionaries;
+
 @end
 
 NS_ASSUME_NONNULL_END

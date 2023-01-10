@@ -30,7 +30,7 @@ static NSString *const BIG_IMAGE_NAME = @"logo-aws-big";
 
 
 static NSString *const SIGNIN_STORYBOARD = @"SignIn";
-static NSString *const SIGNIN_VIEW_CONTROLLER_IDENTIFIER = @"SignIn";;
+static NSString *const SIGNIN_VIEW_CONTROLLER_IDENTIFIER = @"SignIn";
 static NSString *const USERPOOLS_UI_OPERATIONS = @"AWSUserPoolsUIOperations";
 
 static NSInteger const SCALED_UP_LOGO_IMAGE_HEIGHT = 220;
@@ -162,12 +162,11 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_WIDTH = 200;
         [self setUpFont];
     }
 
-    // if user has never signed in, go to sign up screen
     BOOL hasSignedIn = [[NSUserDefaults standardUserDefaults] boolForKey:@"hasSignedIn"];
     if (!hasSignedIn) {
         [self doUserPoolSignUp];
     }
-
+    
 }
     
 - (void)viewWillAppear:(BOOL)animated {
@@ -552,8 +551,12 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_WIDTH = 200;
     Class awsUserPoolsUIOperations = NSClassFromString(USERPOOLS_UI_OPERATIONS);
     AWSUserPoolsUIOperations *userPoolsOperations = [[awsUserPoolsUIOperations alloc] initWithAuthUIConfiguration:self.config];
     [userPoolsOperations slideSignUpVCFromNavigationController:self.navigationController];
+   
 }
 
+- (void) goToSignUpAndResendCode {
+    [self doUserPoolSignUp];
+}
 
 - (void)handleUserPoolForgotPassword {
     

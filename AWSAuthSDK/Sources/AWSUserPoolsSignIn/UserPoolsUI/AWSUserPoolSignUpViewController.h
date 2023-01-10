@@ -28,6 +28,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *signUpButton;
 @property (strong, nonatomic) id<AWSUIConfiguration> config;
 @property (weak, nonatomic) IBOutlet UIImageView *logoView;
+@property bool resendCode;
+@property NSString *userName;
+@property NSString *resendUserName;
+
 
 
 @end
@@ -39,7 +43,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *requestCodeButton;
 @property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 @property (strong, nonatomic) id<AWSUIConfiguration> config;
+@property bool resendCode;
+@property NSString *userName;
 
 @end
+
 
 NS_ASSUME_NONNULL_END

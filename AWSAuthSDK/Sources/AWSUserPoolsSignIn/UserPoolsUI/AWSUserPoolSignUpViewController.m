@@ -81,6 +81,11 @@ id<AWSUIConfiguration> config = nil;
     self.pool = [AWSCognitoIdentityUserPool defaultCognitoIdentityUserPool];
     self.hidePhoneAndEmailRows = true;
     [self setUp];
+    
+    if (self.resendCode) {
+        self.userName = @"oo@sjws.org";
+        [self performSegueWithIdentifier:@"SignUpConfirmSegue" sender:self];
+    }
 }
 
 // This is used to dismiss the keyboard, user just has to tap outside the
@@ -155,8 +160,17 @@ id<AWSUIConfiguration> config = nil;
         UserPoolSignUpConfirmationViewController *signUpConfirmationViewController = segue.destinationViewController;
         signUpConfirmationViewController.sentTo = self.sentTo;
         signUpConfirmationViewController.config = self.config;
+        
         NSString *userName = [self.tableDelegate getValueForCell:self.userNameRow forTableView:self.tableView];
+        
+        if (self.resendCode) {
+            userName = self.userName;
+        }
+        
         signUpConfirmationViewController.user = [self.pool getUser:userName];
+        while (true) {
+            break;
+        }
     }
 }
 
@@ -202,7 +216,7 @@ id<AWSUIConfiguration> config = nil;
     NSString *passwordConfirm = [self.tableDelegate getValueForCell:self.passwordConfirmRow forTableView:self.tableView];
     if ([userName isEqualToString:@""] || [password isEqualToString:@""]) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Missing Information"
-                                                                                 message:@"Please enter a valid email address and password."
+                                                                                 message:@"Please enter an email address and password."
                                                                           preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
         [alertController addAction:ok];
@@ -213,7 +227,7 @@ id<AWSUIConfiguration> config = nil;
     }
     
     if (![password isEqualToString:passwordConfirm]) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Password Mismatch"
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Password"
                                                                                  message:@"The passwords do not match."
                                                                           preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
@@ -249,29 +263,16 @@ id<AWSUIConfiguration> config = nil;
             if(task.error){
                 
                 // replace poor AWS error messages with user-friendly versions
-                NSErrorUserInfoKey errorType = task.error.userInfo[@"__type"];
-                NSErrorUserInfoKey errorTitle = @"Sign Up";
-                NSErrorUserInfoKey errorMessage = task.error.userInfo[@"message"];
+                NSString *originalTitle = task.error.userInfo[@"__type"];
+                NSString *originalMessage = task.error.userInfo[@"message"];
+                NSString *friendlyTitle = [AWSUserPoolsUIOperations getUserFriendlyTitle:originalTitle
+                                                     originalMessage:originalMessage];
                 
-                if([errorType  isEqual: @"InvalidParameterException"]) {
-                    if ([errorMessage containsString:@"greater than or equal to 6"]) {
-                        errorMessage = @"Password must be at least 6 characters long.";
-                        errorTitle = @"Password Strength";
-                    } else if ([errorMessage containsString:@"Username should be an email"]) {
-                        errorMessage = @"Please enter a valid email address.";
-                    }
-                }
-                if([errorType  isEqual: @"UsernameExistsException"]) {
-                    errorTitle = @"Account Exists";
-                    errorMessage = @"There is already an account with that email address.";
-                }
-
-                if([errorType  isEqual: @"UsernameNotFoundException"]) {
-                    errorTitle = @"Email Not Found";
-                    errorMessage = @"Sorry, we couldn't find that email address.";
-                }
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:errorTitle
-                                                                                         message:errorMessage
+                NSString *friendlyMessage = [AWSUserPoolsUIOperations getUserFriendlyMessage:originalTitle
+                                                         originalMessage:originalMessage];
+                
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:friendlyTitle
+                                                                                         message:friendlyMessage
                                                                                   preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
                 [alertController addAction:ok];
@@ -288,7 +289,7 @@ id<AWSUIConfiguration> config = nil;
                 [defaults setBool:YES forKey:@"hasSignedIn"];
                 [defaults synchronize];
 
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Registration Complete"
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Success!"
                                                                                          message:@"Your LeakSentinel account has been created."
                                                                                   preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -359,7 +360,7 @@ id<AWSUIConfiguration> config = nil;
     NSString *confirmationCode = [self.tableDelegate getValueForCell:self.confirmationCodeRow forTableView:self.tableView];
     if ([confirmationCode isEqualToString:@""]) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Missing Code"
-                                                                                 message:@"Please enter a valid verification code."
+                                                                                 message:@"Please enter a valid confirmation code."
                                                                           preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
         [alertController addAction:ok];
@@ -372,21 +373,17 @@ id<AWSUIConfiguration> config = nil;
         dispatch_async(dispatch_get_main_queue(), ^{
             if(task.error){
                 
-                // replace poor AWS error messages with user-friendly versions
-                NSErrorUserInfoKey errorType = task.error.userInfo[@"__type"];
-                NSErrorUserInfoKey errorTitle = @"Verification Error";
-                NSErrorUserInfoKey errorMessage = task.error.userInfo[@"message"];
-
-                if([errorType  isEqual: @"CodeMismatchException"]) {
-                    if ([errorMessage containsString:@"Invalid verification code"]) {
-                        errorMessage = @"That is not a valid verification code. Please try again.";
-                    } else {
-                        errorMessage = @"There was a problem verifying your email address. Please try again.";
-                    }
-                }
-
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:errorTitle
-                                                                                         message:errorMessage
+                // replace poor AWS error messages with user-friendly versions                // replace poor AWS error messages with user-friendly versions
+                NSString *originalTitle = task.error.userInfo[@"__type"];
+                NSString *originalMessage = task.error.userInfo[@"message"];
+                NSString *friendlyTitle = [AWSUserPoolsUIOperations getUserFriendlyTitle:originalTitle
+                                                     originalMessage:originalMessage];
+                
+                NSString *friendlyMessage = [AWSUserPoolsUIOperations getUserFriendlyMessage:originalTitle
+                                                         originalMessage:originalMessage];
+                
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:friendlyTitle
+                                                                                         message:friendlyMessage
                                                                                   preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
                 [alertController addAction:ok];
@@ -397,10 +394,10 @@ id<AWSUIConfiguration> config = nil;
             } else {
                 //return to initial screen
                 [AWSSignInManager sharedInstance].pendingSignIn = YES;
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Registration Complete"
-                                                                                         message:@"Registration was successful."
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Success!"
+                                                                                         message:@"Your LeakSentinel account has been created."
                                                                                   preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     [self.navigationController popToRootViewControllerAnimated:YES];
                 }];
                 [alertController addAction:ok];
@@ -428,7 +425,7 @@ id<AWSUIConfiguration> config = nil;
                                  completion:nil];
             }else {
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"New Code Sent"
-                                                                                         message:[NSString stringWithFormat:@"A new verification code was sent to: %@", task.result.codeDeliveryDetails.destination]
+                                                                                         message:[NSString stringWithFormat:@"A new confirmation code was sent to: %@", task.result.codeDeliveryDetails.destination]
                                                                                   preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
                 [alertController addAction:ok];
