@@ -536,6 +536,15 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please enter the code below to confirm your account." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpx-Bw-GDl">
+                                <rect key="frame" x="0.0" y="100" width="300" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Us1-ru-VBt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyM-ka-pB5">
                                 <rect key="frame" x="20" y="311" width="280" height="40"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
@@ -568,15 +577,6 @@
                                     <action selector="onResendConfirmationCode:" destination="oYn-kQ-Tog" eventType="touchUpInside" id="PzT-yY-pgi"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter the code to confirm your account." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpx-Bw-GDl">
-                                <rect key="frame" x="10" y="100" width="300" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="Us1-ru-VBt"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
@@ -589,13 +589,11 @@
                             <constraint firstItem="Wpx-Bw-GDl" firstAttribute="top" secondItem="PpT-bz-SXb" secondAttribute="bottom" constant="8" symbolic="YES" id="9RJ-CS-miU"/>
                             <constraint firstItem="JyM-ka-pB5" firstAttribute="leading" secondItem="uAg-Ox-Qjt" secondAttribute="leading" id="FMa-4E-FmL"/>
                             <constraint firstItem="RJJ-nm-kxN" firstAttribute="centerX" secondItem="JyM-ka-pB5" secondAttribute="centerX" id="Myp-Q6-WBX"/>
-                            <constraint firstAttribute="trailing" secondItem="Wpx-Bw-GDl" secondAttribute="trailing" constant="10" id="R2m-YV-d8b"/>
-                            <constraint firstItem="Wpx-Bw-GDl" firstAttribute="centerX" secondItem="bRf-kC-3Qf" secondAttribute="centerX" id="Rav-TY-ddj"/>
                             <constraint firstItem="xwZ-Mm-Vlg" firstAttribute="top" secondItem="jca-3G-Q5u" secondAttribute="bottom" id="a3c-bo-c4p"/>
                             <constraint firstItem="PpT-bz-SXb" firstAttribute="centerX" secondItem="xwZ-Mm-Vlg" secondAttribute="centerX" id="dfa-Jq-ddC"/>
                             <constraint firstItem="JyM-ka-pB5" firstAttribute="width" secondItem="uAg-Ox-Qjt" secondAttribute="width" id="fjX-2C-A3F"/>
                             <constraint firstItem="uAg-Ox-Qjt" firstAttribute="top" secondItem="Wpx-Bw-GDl" secondAttribute="bottom" constant="15" id="p0W-Sw-rL0"/>
-                            <constraint firstItem="Wpx-Bw-GDl" firstAttribute="leading" secondItem="bRf-kC-3Qf" secondAttribute="leading" constant="10" id="rrM-JH-nOu"/>
+                            <constraint firstItem="Wpx-Bw-GDl" firstAttribute="centerX" secondItem="PpT-bz-SXb" secondAttribute="centerX" id="rrM-JH-nOu"/>
                             <constraint firstItem="JyM-ka-pB5" firstAttribute="centerX" secondItem="PpT-bz-SXb" secondAttribute="centerX" id="tEs-fc-5IZ"/>
                             <constraint firstItem="PpT-bz-SXb" firstAttribute="top" secondItem="xwZ-Mm-Vlg" secondAttribute="top" constant="20" id="xt6-4H-Ahi"/>
                             <constraint firstItem="xwZ-Mm-Vlg" firstAttribute="trailing" secondItem="bRf-kC-3Qf" secondAttribute="trailingMargin" id="xwT-nw-48u"/>
