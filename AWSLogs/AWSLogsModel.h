@@ -640,7 +640,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @property (nonatomic, strong) NSNumber * _Nullable limit;
 
 /**
- <p>Specify either the name or ARN of the log group to view. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p><p>If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>, the action returns an <code>InvalidParameterException</code> error.</p>
+ <p>Specify either the name or ARN of the log group to view. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p><note><p> If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>, the action returns an <code>InvalidParameterException</code> error. </p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable logGroupIdentifier;
 
@@ -1076,7 +1076,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @property (nonatomic, strong) NSNumber * _Nullable limit;
 
 /**
- <p>Specify either the name or ARN of the log group to view log events from. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p><p>If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>, the action returns an <code>InvalidParameterException</code> error.</p>
+ <p>Specify either the name or ARN of the log group to view log events from. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p><note><p> If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>, the action returns an <code>InvalidParameterException</code> error. </p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable logGroupIdentifier;
 
@@ -1221,7 +1221,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @property (nonatomic, strong) NSNumber * _Nullable limit;
 
 /**
- <p>Specify either the name or ARN of the log group to view events from. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p><p> If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>, the action returns an <code>InvalidParameterException</code> error.</p>
+ <p>Specify either the name or ARN of the log group to view events from. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p><note><p> If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>, the action returns an <code>InvalidParameterException</code> error. </p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable logGroupIdentifier;
 
@@ -1287,12 +1287,12 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 
 
 /**
- <p>Specify either the name or ARN of the log group to view. If the log group is in a source account and you are using a monitoring account, you must specify the ARN.</p><p>If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>, the action returns an <code>InvalidParameterException</code> error.</p>
+ <p>Specify either the name or ARN of the log group to view. If the log group is in a source account and you are using a monitoring account, you must specify the ARN.</p><note><p> If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>, the action returns an <code>InvalidParameterException</code> error. </p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable logGroupIdentifier;
 
 /**
- <p>The name of the log group to search.</p><p>If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>, the action returns an <code>InvalidParameterException</code> error.</p>
+ <p>The name of the log group to search.</p><note><p> If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>, the action returns an <code>InvalidParameterException</code> error. </p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
 
