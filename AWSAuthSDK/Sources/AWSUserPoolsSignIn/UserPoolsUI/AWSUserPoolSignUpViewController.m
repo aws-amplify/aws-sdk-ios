@@ -281,11 +281,17 @@ id<AWSUIConfiguration> config = nil;
                                  completion:nil];
             }else if(task.result.user.confirmedStatus != AWSCognitoIdentityUserStatusConfirmed){
                 self.sentTo = task.result.codeDeliveryDetails.destination;
+                NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+                [defaults setBool:YES forKey:@"hasSignedIn"];
+                [defaults synchronize];
+
                 [self performSegueWithIdentifier:@"SignUpConfirmSegue" sender:sender];
             }
             else{
                 [AWSSignInManager sharedInstance].pendingSignIn = YES;
                 NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
                 [defaults setBool:YES forKey:@"hasSignedIn"];
                 [defaults synchronize];
 
@@ -404,6 +410,7 @@ id<AWSUIConfiguration> config = nil;
                 [self presentViewController:alertController
                                    animated:YES
                                  completion:nil];
+                
             }
         });
         return nil;
