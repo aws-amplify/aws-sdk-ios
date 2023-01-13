@@ -9,6 +9,8 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ---AWSLambda
 ---AWSCloudWatchLogs
 ---AWSLocation
+---AWSEC2
+---AWSConnect
 
 # AWS Mobile SDK for iOS CHANGELOG
 ## Unreleased
