@@ -843,6 +843,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDeleteContactFlowModuleRequest;
 @class AWSConnectDeleteContactFlowModuleResponse;
 @class AWSConnectDeleteContactFlowRequest;
+@class AWSConnectDeleteContactFlowResponse;
 @class AWSConnectDeleteHoursOfOperationRequest;
 @class AWSConnectDeleteInstanceRequest;
 @class AWSConnectDeleteIntegrationAssociationRequest;
@@ -1129,12 +1130,15 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectUpdateContactAttributesRequest;
 @class AWSConnectUpdateContactAttributesResponse;
 @class AWSConnectUpdateContactFlowContentRequest;
+@class AWSConnectUpdateContactFlowContentResponse;
 @class AWSConnectUpdateContactFlowMetadataRequest;
+@class AWSConnectUpdateContactFlowMetadataResponse;
 @class AWSConnectUpdateContactFlowModuleContentRequest;
 @class AWSConnectUpdateContactFlowModuleContentResponse;
 @class AWSConnectUpdateContactFlowModuleMetadataRequest;
 @class AWSConnectUpdateContactFlowModuleMetadataResponse;
 @class AWSConnectUpdateContactFlowNameRequest;
+@class AWSConnectUpdateContactFlowNameResponse;
 @class AWSConnectUpdateContactRequest;
 @class AWSConnectUpdateContactResponse;
 @class AWSConnectUpdateContactScheduleRequest;
@@ -3299,6 +3303,14 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDeleteContactFlowResponse : AWSModel
+
 
 @end
 
@@ -9739,6 +9751,14 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectUpdateContactFlowContentResponse : AWSModel
+
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectUpdateContactFlowMetadataRequest : AWSRequest
 
 
@@ -9766,6 +9786,14 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The name of the flow.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateContactFlowMetadataResponse : AWSModel
+
 
 @end
 
@@ -9866,6 +9894,14 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The name of the flow.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateContactFlowNameResponse : AWSModel
+
 
 @end
 

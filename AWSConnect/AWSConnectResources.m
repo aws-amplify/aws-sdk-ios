@@ -592,6 +592,7 @@
         \"requestUri\":\"/contact-flows/{InstanceId}/{ContactFlowId}\"\
       },\
       \"input\":{\"shape\":\"DeleteContactFlowRequest\"},\
+      \"output\":{\"shape\":\"DeleteContactFlowResponse\"},\
       \"errors\":[\
         {\"shape\":\"AccessDeniedException\"},\
         {\"shape\":\"InvalidRequestException\"},\
@@ -2403,6 +2404,7 @@
         \"requestUri\":\"/contact-flows/{InstanceId}/{ContactFlowId}/content\"\
       },\
       \"input\":{\"shape\":\"UpdateContactFlowContentRequest\"},\
+      \"output\":{\"shape\":\"UpdateContactFlowContentResponse\"},\
       \"errors\":[\
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"InvalidContactFlowException\"},\
@@ -2420,6 +2422,7 @@
         \"requestUri\":\"/contact-flows/{InstanceId}/{ContactFlowId}/metadata\"\
       },\
       \"input\":{\"shape\":\"UpdateContactFlowMetadataRequest\"},\
+      \"output\":{\"shape\":\"UpdateContactFlowMetadataResponse\"},\
       \"errors\":[\
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"InvalidParameterException\"},\
@@ -2474,6 +2477,7 @@
         \"requestUri\":\"/contact-flows/{InstanceId}/{ContactFlowId}/name\"\
       },\
       \"input\":{\"shape\":\"UpdateContactFlowNameRequest\"},\
+      \"output\":{\"shape\":\"UpdateContactFlowNameResponse\"},\
       \"errors\":[\
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"InvalidParameterException\"},\
@@ -5208,6 +5212,11 @@
           \"location\":\"uri\",\
           \"locationName\":\"ContactFlowId\"\
         }\
+      }\
+    },\
+    \"DeleteContactFlowResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
       }\
     },\
     \"DeleteHoursOfOperationRequest\":{\
@@ -12432,6 +12441,11 @@
         }\
       }\
     },\
+    \"UpdateContactFlowContentResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
     \"UpdateContactFlowMetadataRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -12463,6 +12477,11 @@
           \"shape\":\"ContactFlowState\",\
           \"documentation\":\"<p>The state of flow.</p>\"\
         }\
+      }\
+    },\
+    \"UpdateContactFlowMetadataResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
       }\
     },\
     \"UpdateContactFlowModuleContentRequest\":{\
@@ -12561,6 +12580,11 @@
           \"shape\":\"ContactFlowDescription\",\
           \"documentation\":\"<p>The description of the flow.</p>\"\
         }\
+      }\
+    },\
+    \"UpdateContactFlowNameResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
       }\
     },\
     \"UpdateContactRequest\":{\

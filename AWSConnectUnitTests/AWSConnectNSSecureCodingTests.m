@@ -100,6 +100,7 @@
 - (void) test_AWSConnectDeleteContactFlowModuleRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteContactFlowModuleResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteContactFlowRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDeleteContactFlowResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteHoursOfOperationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteInstanceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteIntegrationAssociationRequest API_AVAILABLE(ios(11));
@@ -386,12 +387,15 @@
 - (void) test_AWSConnectUpdateContactAttributesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateContactAttributesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateContactFlowContentRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUpdateContactFlowContentResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateContactFlowMetadataRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUpdateContactFlowMetadataResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateContactFlowModuleContentRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateContactFlowModuleContentResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateContactFlowModuleMetadataRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateContactFlowModuleMetadataResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateContactFlowNameRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUpdateContactFlowNameResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateContactRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateContactResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateContactScheduleRequest API_AVAILABLE(ios(11));
@@ -772,6 +776,10 @@
 
 - (void) test_AWSConnectDeleteContactFlowRequest {
     [self validateSecureCodingForClass:[AWSConnectDeleteContactFlowRequest class]];
+}
+
+- (void) test_AWSConnectDeleteContactFlowResponse {
+    [self validateSecureCodingForClass:[AWSConnectDeleteContactFlowResponse class]];
 }
 
 - (void) test_AWSConnectDeleteHoursOfOperationRequest {
@@ -1918,8 +1926,16 @@
     [self validateSecureCodingForClass:[AWSConnectUpdateContactFlowContentRequest class]];
 }
 
+- (void) test_AWSConnectUpdateContactFlowContentResponse {
+    [self validateSecureCodingForClass:[AWSConnectUpdateContactFlowContentResponse class]];
+}
+
 - (void) test_AWSConnectUpdateContactFlowMetadataRequest {
     [self validateSecureCodingForClass:[AWSConnectUpdateContactFlowMetadataRequest class]];
+}
+
+- (void) test_AWSConnectUpdateContactFlowMetadataResponse {
+    [self validateSecureCodingForClass:[AWSConnectUpdateContactFlowMetadataResponse class]];
 }
 
 - (void) test_AWSConnectUpdateContactFlowModuleContentRequest {
@@ -1940,6 +1956,10 @@
 
 - (void) test_AWSConnectUpdateContactFlowNameRequest {
     [self validateSecureCodingForClass:[AWSConnectUpdateContactFlowNameRequest class]];
+}
+
+- (void) test_AWSConnectUpdateContactFlowNameResponse {
+    [self validateSecureCodingForClass:[AWSConnectUpdateContactFlowNameResponse class]];
 }
 
 - (void) test_AWSConnectUpdateContactRequest {
