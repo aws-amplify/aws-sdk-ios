@@ -376,7 +376,8 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_WIDTH = 200;
 }
 
 - (void)setUpNavigationController {
-    UIColor *textColor = [AWSAuthUIHelper getTextColor:config];
+//    UIColor *textColor = [AWSAuthUIHelper getTextColor:config];
+    UIColor *textColor = UIColor.whiteColor;
 
     self.navigationController.navigationBar.topItem.title = @"Sign In";
     self.canCancel = self.config.canCancel;
