@@ -75,6 +75,14 @@ static NSString *const RESOURCES_BUNDLE = @"AWSUserPoolsSignIn.bundle";
                              animated:YES];
 }
 
+-(void)pushSignUpVCFromNavigationController:(UINavigationController *)navController {
+    AWSUserPoolSignUpViewController *viewController = (AWSUserPoolSignUpViewController *)[self getUserPoolsViewControllerWithIdentifier:USERPOOLS_SIGNUP_VIEW_CONTROLLER_IDENTIFIER];
+    viewController.config = self.config;
+    [navController pushViewController:viewController
+                             animated:YES];
+}
+
+
 -(void)slideSignUpVCFromNavigationController:(UINavigationController *)navController {
     AWSUserPoolSignUpViewController *viewController = (AWSUserPoolSignUpViewController *)[self getUserPoolsViewControllerWithIdentifier:USERPOOLS_SIGNUP_VIEW_CONTROLLER_IDENTIFIER];
     viewController.config = self.config;

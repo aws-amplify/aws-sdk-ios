@@ -532,7 +532,6 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_WIDTH = 200;
                          completionHandler:self.completionHandler];
 }
 
-
 - (void)handleUserPoolSignUp {
     
     // Dismisses the keyboard if open before transitioning to the new storyboard
