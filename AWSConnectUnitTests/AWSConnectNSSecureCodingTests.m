@@ -288,6 +288,7 @@
 - (void) test_AWSConnectParticipantDetails API_AVAILABLE(ios(11));
 - (void) test_AWSConnectParticipantTimerConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSConnectParticipantTimerValue API_AVAILABLE(ios(11));
+- (void) test_AWSConnectPersistentChat API_AVAILABLE(ios(11));
 - (void) test_AWSConnectPhoneNumberQuickConnectConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectPhoneNumberStatus API_AVAILABLE(ios(11));
 - (void) test_AWSConnectPhoneNumberSummary API_AVAILABLE(ios(11));
@@ -1528,6 +1529,10 @@
 
 - (void) test_AWSConnectParticipantTimerValue {
     [self validateSecureCodingForClass:[AWSConnectParticipantTimerValue class]];
+}
+
+- (void) test_AWSConnectPersistentChat {
+    [self validateSecureCodingForClass:[AWSConnectPersistentChat class]];
 }
 
 - (void) test_AWSConnectPhoneNumberQuickConnectConfig {
