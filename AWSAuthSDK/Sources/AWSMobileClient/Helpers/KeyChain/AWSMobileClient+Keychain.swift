@@ -99,4 +99,8 @@ extension AWSMobileClient {
             self.federationDisabled = true
         }
     }
+
+    internal func migrateToDeviceOnly() {
+        self.keychain.migrateToCurrentAccessibility()
+    }
 }

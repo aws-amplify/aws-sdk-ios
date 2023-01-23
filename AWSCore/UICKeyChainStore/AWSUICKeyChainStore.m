@@ -365,6 +365,20 @@ static NSString *_defaultService;
     return status == errSecSuccess;
 }
 
+- (BOOL)contains:(NSString *)key query:(NSDictionary *)query
+{
+    NSMutableDictionary *finalQuery = [self query];
+    if (query != nil && query.count > 0) {
+        for (key in query) {
+            finalQuery[key] = query[key];
+        }
+    }
+    finalQuery[(__bridge __strong id)kSecAttrAccount] = key;
+
+    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)finalQuery, NULL);
+    return status == errSecSuccess;
+}
+
 #pragma mark -
 
 - (NSString *)stringForKey:(id)key
@@ -931,6 +945,27 @@ static NSString *_defaultService;
     }
     
     return prettified.copy;
+}
+
+#pragma mark -
+
+- (void)migrateToCurrentAccessibility {
+    NSArray *items = [self allItems];
+    for (NSDictionary *item in items) {
+        CFComparisonResult result = CFStringCompare((CFStringRef)item[@"accessibility"],
+                                                    [self accessibilityObject], 0);
+        if (result == 0) {
+            continue;
+        }
+        NSString *key = item[@"key"];
+        NSObject *value = item[@"value"];
+        if ([value isKindOfClass:[NSString class]]) {
+            [self setString: (NSString *)value forKey:key];
+        } else {
+            [self setData: (NSData *)value forKey:key];
+        }
+    }
+
 }
 
 #pragma mark -

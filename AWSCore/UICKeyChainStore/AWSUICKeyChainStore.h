@@ -199,6 +199,8 @@ __OSX_AVAILABLE_STARTING(__MAC_10_10, __IPHONE_8_0);
 + (void)requestSharedWebCredentialForDomain:(nullable NSString *)domain account:(nullable NSString *)account completion:(nullable void (^)(NSArray UIC_CREDENTIAL_TYPE *credentials, NSError * __nullable error))completion;
 
 + (NSString *)generatePassword;
+
+- (void)migrateToCurrentAccessibility;
 #endif
 
 @end

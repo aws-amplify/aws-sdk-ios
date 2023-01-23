@@ -171,7 +171,7 @@ static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.A
         _userPoolConfiguration = userPoolConfiguration;
 
         _keychain = [AWSUICKeyChainStore keyChainStoreWithService:[NSString stringWithFormat:@"%@.%@", [NSBundle mainBundle].bundleIdentifier, [AWSCognitoIdentityUserPool class]]];
-        
+        [_keychain migrateToCurrentAccessibility];
         
         //If Pinpoint is setup, get the endpoint or create one.
         if(userPoolConfiguration.pinpointAppId) {
