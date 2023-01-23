@@ -268,6 +268,13 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
     AWSLambdaTracingModePassThrough,
 };
 
+typedef NS_ENUM(NSInteger, AWSLambdaUpdateRuntimeOn) {
+    AWSLambdaUpdateRuntimeOnUnknown,
+    AWSLambdaUpdateRuntimeOnAuto,
+    AWSLambdaUpdateRuntimeOnManual,
+    AWSLambdaUpdateRuntimeOnFunctionUpdate,
+};
+
 @class AWSLambdaAccountLimit;
 @class AWSLambdaAccountUsage;
 @class AWSLambdaAddLayerVersionPermissionRequest;
@@ -340,6 +347,8 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaGetPolicyResponse;
 @class AWSLambdaGetProvisionedConcurrencyConfigRequest;
 @class AWSLambdaGetProvisionedConcurrencyConfigResponse;
+@class AWSLambdaGetRuntimeManagementConfigRequest;
+@class AWSLambdaGetRuntimeManagementConfigResponse;
 @class AWSLambdaImageConfig;
 @class AWSLambdaImageConfigError;
 @class AWSLambdaImageConfigResponse;
@@ -388,8 +397,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaPutFunctionEventInvokeConfigRequest;
 @class AWSLambdaPutProvisionedConcurrencyConfigRequest;
 @class AWSLambdaPutProvisionedConcurrencyConfigResponse;
+@class AWSLambdaPutRuntimeManagementConfigRequest;
+@class AWSLambdaPutRuntimeManagementConfigResponse;
 @class AWSLambdaRemoveLayerVersionPermissionRequest;
 @class AWSLambdaRemovePermissionRequest;
+@class AWSLambdaRuntimeVersionConfig;
+@class AWSLambdaRuntimeVersionError;
 @class AWSLambdaScalingConfig;
 @class AWSLambdaSelfManagedEventSource;
 @class AWSLambdaSelfManagedKafkaEventSourceConfig;
@@ -464,7 +477,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaAddLayerVersionPermissionRequest : AWSRequest
 
@@ -507,7 +520,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaAddLayerVersionPermissionResponse : AWSModel
 
@@ -525,7 +538,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaAddPermissionRequest : AWSRequest
 
@@ -588,7 +601,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaAddPermissionResponse : AWSModel
 
@@ -601,7 +614,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- <p>Provides configuration information about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
+ <p>Provides configuration information about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.</p>
  */
 @interface AWSLambdaAliasConfiguration : AWSModel
 
@@ -731,7 +744,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaConcurrency : AWSModel
 
@@ -782,7 +795,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaCreateAliasRequest : AWSRequest
 
@@ -815,7 +828,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaCreateCodeSigningConfigRequest : AWSRequest
 
@@ -838,7 +851,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaCreateCodeSigningConfigResponse : AWSModel
 
@@ -851,7 +864,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaCreateEventSourceMappingRequest : AWSRequest
 
@@ -969,7 +982,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaCreateFunctionRequest : AWSRequest
 
@@ -1092,7 +1105,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaCreateFunctionUrlConfigRequest : AWSRequest
 
@@ -1120,7 +1133,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaCreateFunctionUrlConfigResponse : AWSModel
 
@@ -1166,7 +1179,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaDeleteAliasRequest : AWSRequest
 
@@ -1184,7 +1197,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaDeleteCodeSigningConfigRequest : AWSRequest
 
@@ -1197,7 +1210,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaDeleteCodeSigningConfigResponse : AWSModel
 
@@ -1205,7 +1218,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaDeleteEventSourceMappingRequest : AWSRequest
 
@@ -1218,7 +1231,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaDeleteFunctionCodeSigningConfigRequest : AWSRequest
 
@@ -1231,7 +1244,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaDeleteFunctionConcurrencyRequest : AWSRequest
 
@@ -1244,7 +1257,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaDeleteFunctionEventInvokeConfigRequest : AWSRequest
 
@@ -1262,7 +1275,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaDeleteFunctionRequest : AWSRequest
 
@@ -1280,7 +1293,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaDeleteFunctionUrlConfigRequest : AWSRequest
 
@@ -1298,7 +1311,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaDeleteLayerVersionRequest : AWSRequest
 
@@ -1316,7 +1329,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaDeleteProvisionedConcurrencyConfigRequest : AWSRequest
 
@@ -1785,6 +1798,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, assign) AWSLambdaRuntime runtime;
 
 /**
+ <p>The ARN of the runtime and any errors that occured.</p>
+ */
+@property (nonatomic, strong) AWSLambdaRuntimeVersionConfig * _Nullable runtimeVersionConfig;
+
+/**
  <p>The ARN of the signing job.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable signingJobArn;
@@ -1837,7 +1855,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaFunctionEventInvokeConfig : AWSModel
 
@@ -1909,7 +1927,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaGetAccountSettingsRequest : AWSRequest
 
@@ -1917,7 +1935,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaGetAccountSettingsResponse : AWSModel
 
@@ -1935,7 +1953,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaGetAliasRequest : AWSRequest
 
@@ -1953,7 +1971,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaGetCodeSigningConfigRequest : AWSRequest
 
@@ -1966,7 +1984,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaGetCodeSigningConfigResponse : AWSModel
 
@@ -1979,7 +1997,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaGetEventSourceMappingRequest : AWSRequest
 
@@ -1992,7 +2010,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaGetFunctionCodeSigningConfigRequest : AWSRequest
 
@@ -2005,7 +2023,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaGetFunctionCodeSigningConfigResponse : AWSModel
 
@@ -2023,7 +2041,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaGetFunctionConcurrencyRequest : AWSRequest
 
@@ -2036,7 +2054,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaGetFunctionConcurrencyResponse : AWSModel
 
@@ -2049,7 +2067,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaGetFunctionConfigurationRequest : AWSRequest
 
@@ -2067,7 +2085,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaGetFunctionEventInvokeConfigRequest : AWSRequest
 
@@ -2085,7 +2103,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaGetFunctionRequest : AWSRequest
 
@@ -2103,7 +2121,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaGetFunctionResponse : AWSModel
 
@@ -2131,7 +2149,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaGetFunctionUrlConfigRequest : AWSRequest
 
@@ -2149,7 +2167,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaGetFunctionUrlConfigResponse : AWSModel
 
@@ -2187,7 +2205,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaGetLayerVersionByArnRequest : AWSRequest
 
@@ -2200,7 +2218,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaGetLayerVersionPolicyRequest : AWSRequest
 
@@ -2218,7 +2236,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaGetLayerVersionPolicyResponse : AWSModel
 
@@ -2236,7 +2254,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaGetLayerVersionRequest : AWSRequest
 
@@ -2254,7 +2272,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaGetLayerVersionResponse : AWSModel
 
@@ -2307,7 +2325,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaGetPolicyRequest : AWSRequest
 
@@ -2325,7 +2343,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaGetPolicyResponse : AWSModel
 
@@ -2343,7 +2361,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaGetProvisionedConcurrencyConfigRequest : AWSRequest
 
@@ -2361,7 +2379,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaGetProvisionedConcurrencyConfigResponse : AWSModel
 
@@ -2395,6 +2413,42 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>For failed allocations, the reason that provisioned concurrency could not be allocated.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable statusReason;
+
+@end
+
+/**
+
+ */
+@interface AWSLambdaGetRuntimeManagementConfigRequest : AWSRequest
+
+
+/**
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionName;
+
+/**
+ <p>Specify a version of the function. This can be <code>$LATEST</code> or a published version number. If no value is specified, the configuration for the <code>$LATEST</code> version is returned.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable qualifier;
+
+@end
+
+/**
+
+ */
+@interface AWSLambdaGetRuntimeManagementConfigResponse : AWSModel
+
+
+/**
+ <p>The ARN of the runtime the function is configured to use. If the runtime update mode is <b>Manual</b>, the ARN is returned, otherwise <code>null</code> is returned.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable runtimeVersionArn;
+
+/**
+ <p>The current runtime update mode of the function.</p>
+ */
+@property (nonatomic, assign) AWSLambdaUpdateRuntimeOn updateRuntimeOn;
 
 @end
 
@@ -2458,7 +2512,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaInvocationRequest : AWSRequest
 
@@ -2496,7 +2550,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaInvocationResponse : AWSModel
 
@@ -2529,7 +2583,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaInvokeAsyncRequest : AWSRequest
 
@@ -2715,7 +2769,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaListAliasesRequest : AWSRequest
 
@@ -2743,7 +2797,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaListAliasesResponse : AWSModel
 
@@ -2761,7 +2815,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaListCodeSigningConfigsRequest : AWSRequest
 
@@ -2779,7 +2833,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaListCodeSigningConfigsResponse : AWSModel
 
@@ -2797,7 +2851,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaListEventSourceMappingsRequest : AWSRequest
 
@@ -2825,7 +2879,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaListEventSourceMappingsResponse : AWSModel
 
@@ -2843,7 +2897,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaListFunctionEventInvokeConfigsRequest : AWSRequest
 
@@ -2866,7 +2920,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaListFunctionEventInvokeConfigsResponse : AWSModel
 
@@ -2884,7 +2938,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaListFunctionUrlConfigsRequest : AWSRequest
 
@@ -2907,7 +2961,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaListFunctionUrlConfigsResponse : AWSModel
 
@@ -2925,7 +2979,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaListFunctionsByCodeSigningConfigRequest : AWSRequest
 
@@ -2948,7 +3002,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaListFunctionsByCodeSigningConfigResponse : AWSModel
 
@@ -2966,7 +3020,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaListFunctionsRequest : AWSRequest
 
@@ -3012,7 +3066,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaListLayerVersionsRequest : AWSRequest
 
@@ -3045,7 +3099,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaListLayerVersionsResponse : AWSModel
 
@@ -3063,7 +3117,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaListLayersRequest : AWSRequest
 
@@ -3091,7 +3145,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaListLayersResponse : AWSModel
 
@@ -3109,7 +3163,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaListProvisionedConcurrencyConfigsRequest : AWSRequest
 
@@ -3132,7 +3186,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaListProvisionedConcurrencyConfigsResponse : AWSModel
 
@@ -3150,7 +3204,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaListTagsRequest : AWSRequest
 
@@ -3163,7 +3217,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaListTagsResponse : AWSModel
 
@@ -3176,7 +3230,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaListVersionsByFunctionRequest : AWSRequest
 
@@ -3199,7 +3253,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaListVersionsByFunctionResponse : AWSModel
 
@@ -3286,7 +3340,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaPublishLayerVersionRequest : AWSRequest
 
@@ -3324,7 +3378,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaPublishLayerVersionResponse : AWSModel
 
@@ -3377,7 +3431,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaPublishVersionRequest : AWSRequest
 
@@ -3405,7 +3459,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaPutFunctionCodeSigningConfigRequest : AWSRequest
 
@@ -3423,7 +3477,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaPutFunctionCodeSigningConfigResponse : AWSModel
 
@@ -3441,7 +3495,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaPutFunctionConcurrencyRequest : AWSRequest
 
@@ -3459,7 +3513,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaPutFunctionEventInvokeConfigRequest : AWSRequest
 
@@ -3492,7 +3546,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaPutProvisionedConcurrencyConfigRequest : AWSRequest
 
@@ -3515,7 +3569,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaPutProvisionedConcurrencyConfigResponse : AWSModel
 
@@ -3553,7 +3607,58 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
+ */
+@interface AWSLambdaPutRuntimeManagementConfigRequest : AWSRequest
+
+
+/**
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionName;
+
+/**
+ <p>Specify a version of the function. This can be <code>$LATEST</code> or a published version number. If no value is specified, the configuration for the <code>$LATEST</code> version is returned.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable qualifier;
+
+/**
+ <p>The ARN of the runtime version you want the function to use.</p><note><p>This is only required if you're using the <b>Manual</b> runtime update mode.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable runtimeVersionArn;
+
+/**
+ <p>Specify the runtime update mode.</p><ul><li><p><b>Auto (default)</b> - Automatically update to the most recent and secure runtime version using a <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase">Two-phase runtime version rollout</a>. This is the best choice for most customers to ensure they always benefit from runtime updates.</p></li><li><p><b>Function update</b> - Lambda updates the runtime of your function to the most recent and secure runtime version when you update your function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.</p></li><li><p><b>Manual</b> - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incompatible with an existing function, this allows you to roll back your function to an earlier runtime version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-rollback">Roll back a runtime version</a>.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSLambdaUpdateRuntimeOn updateRuntimeOn;
+
+@end
+
+/**
+
+ */
+@interface AWSLambdaPutRuntimeManagementConfigResponse : AWSModel
+
+
+/**
+ <p>The ARN of the function</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionArn;
+
+/**
+ <p>The ARN of the runtime the function is configured to use. If the runtime update mode is <b>manual</b>, the ARN is returned, otherwise <code>null</code> is returned.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable runtimeVersionArn;
+
+/**
+ <p>The runtime update mode.</p>
+ */
+@property (nonatomic, assign) AWSLambdaUpdateRuntimeOn updateRuntimeOn;
+
+@end
+
+/**
+
  */
 @interface AWSLambdaRemoveLayerVersionPermissionRequest : AWSRequest
 
@@ -3581,7 +3686,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaRemovePermissionRequest : AWSRequest
 
@@ -3605,6 +3710,42 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>Statement ID of the permission to remove.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable statementId;
+
+@end
+
+/**
+ <p>The ARN of the runtime and any errors that occured.</p>
+ */
+@interface AWSLambdaRuntimeVersionConfig : AWSModel
+
+
+/**
+ <p>Error response when Lambda is unable to retrieve the runtime version for a function.</p>
+ */
+@property (nonatomic, strong) AWSLambdaRuntimeVersionError * _Nullable error;
+
+/**
+ <p>The ARN of the runtime version you want the function to use.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable runtimeVersionArn;
+
+@end
+
+/**
+ <p>Any error returned when the runtime version information for the function could not be retrieved.</p>
+ */
+@interface AWSLambdaRuntimeVersionError : AWSModel
+
+
+/**
+ <p>The error code.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable errorCode;
+
+/**
+ <p>The error message.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable message;
 
 @end
 
@@ -3697,7 +3838,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaTagResourceRequest : AWSRequest
 
@@ -3741,7 +3882,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaUntagResourceRequest : AWSRequest
 
@@ -3759,7 +3900,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaUpdateAliasRequest : AWSRequest
 
@@ -3797,7 +3938,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaUpdateCodeSigningConfigRequest : AWSRequest
 
@@ -3825,7 +3966,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaUpdateCodeSigningConfigResponse : AWSModel
 
@@ -3838,7 +3979,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaUpdateEventSourceMappingRequest : AWSRequest
 
@@ -3921,7 +4062,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaUpdateFunctionCodeRequest : AWSRequest
 
@@ -3979,7 +4120,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaUpdateFunctionConfigurationRequest : AWSRequest
 
@@ -4077,7 +4218,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaUpdateFunctionEventInvokeConfigRequest : AWSRequest
 
@@ -4110,7 +4251,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaUpdateFunctionUrlConfigRequest : AWSRequest
 
@@ -4138,7 +4279,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- 
+
  */
 @interface AWSLambdaUpdateFunctionUrlConfigResponse : AWSModel
 

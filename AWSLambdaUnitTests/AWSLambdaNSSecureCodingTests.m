@@ -91,6 +91,8 @@
 - (void) test_AWSLambdaGetPolicyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaGetProvisionedConcurrencyConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaGetProvisionedConcurrencyConfigResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaGetRuntimeManagementConfigRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaGetRuntimeManagementConfigResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaImageConfig API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaImageConfigError API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaImageConfigResponse API_AVAILABLE(ios(11));
@@ -139,8 +141,12 @@
 - (void) test_AWSLambdaPutFunctionEventInvokeConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaPutProvisionedConcurrencyConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaPutProvisionedConcurrencyConfigResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaPutRuntimeManagementConfigRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaPutRuntimeManagementConfigResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaRemoveLayerVersionPermissionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaRemovePermissionRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaRuntimeVersionConfig API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaRuntimeVersionError API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaScalingConfig API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaSelfManagedEventSource API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaSelfManagedKafkaEventSourceConfig API_AVAILABLE(ios(11));
@@ -455,6 +461,14 @@
     [self validateSecureCodingForClass:[AWSLambdaGetProvisionedConcurrencyConfigResponse class]];
 }
 
+- (void) test_AWSLambdaGetRuntimeManagementConfigRequest {
+    [self validateSecureCodingForClass:[AWSLambdaGetRuntimeManagementConfigRequest class]];
+}
+
+- (void) test_AWSLambdaGetRuntimeManagementConfigResponse {
+    [self validateSecureCodingForClass:[AWSLambdaGetRuntimeManagementConfigResponse class]];
+}
+
 - (void) test_AWSLambdaImageConfig {
     [self validateSecureCodingForClass:[AWSLambdaImageConfig class]];
 }
@@ -647,12 +661,28 @@
     [self validateSecureCodingForClass:[AWSLambdaPutProvisionedConcurrencyConfigResponse class]];
 }
 
+- (void) test_AWSLambdaPutRuntimeManagementConfigRequest {
+    [self validateSecureCodingForClass:[AWSLambdaPutRuntimeManagementConfigRequest class]];
+}
+
+- (void) test_AWSLambdaPutRuntimeManagementConfigResponse {
+    [self validateSecureCodingForClass:[AWSLambdaPutRuntimeManagementConfigResponse class]];
+}
+
 - (void) test_AWSLambdaRemoveLayerVersionPermissionRequest {
     [self validateSecureCodingForClass:[AWSLambdaRemoveLayerVersionPermissionRequest class]];
 }
 
 - (void) test_AWSLambdaRemovePermissionRequest {
     [self validateSecureCodingForClass:[AWSLambdaRemovePermissionRequest class]];
+}
+
+- (void) test_AWSLambdaRuntimeVersionConfig {
+    [self validateSecureCodingForClass:[AWSLambdaRuntimeVersionConfig class]];
+}
+
+- (void) test_AWSLambdaRuntimeVersionError {
+    [self validateSecureCodingForClass:[AWSLambdaRuntimeVersionError class]];
 }
 
 - (void) test_AWSLambdaScalingConfig {
