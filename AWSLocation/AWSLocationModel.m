@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -579,6 +579,12 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
         if ([value caseInsensitiveCompare:@"Walking"] == NSOrderedSame) {
             return @(AWSLocationTravelModeWalking);
         }
+        if ([value caseInsensitiveCompare:@"Bicycle"] == NSOrderedSame) {
+            return @(AWSLocationTravelModeBicycle);
+        }
+        if ([value caseInsensitiveCompare:@"Motorcycle"] == NSOrderedSame) {
+            return @(AWSLocationTravelModeMotorcycle);
+        }
         return @(AWSLocationTravelModeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -588,6 +594,10 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
                 return @"Truck";
             case AWSLocationTravelModeWalking:
                 return @"Walking";
+            case AWSLocationTravelModeBicycle:
+                return @"Bicycle";
+            case AWSLocationTravelModeMotorcycle:
+                return @"Motorcycle";
             default:
                 return nil;
         }
@@ -725,6 +735,12 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
         if ([value caseInsensitiveCompare:@"Walking"] == NSOrderedSame) {
             return @(AWSLocationTravelModeWalking);
         }
+        if ([value caseInsensitiveCompare:@"Bicycle"] == NSOrderedSame) {
+            return @(AWSLocationTravelModeBicycle);
+        }
+        if ([value caseInsensitiveCompare:@"Motorcycle"] == NSOrderedSame) {
+            return @(AWSLocationTravelModeMotorcycle);
+        }
         return @(AWSLocationTravelModeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -734,6 +750,10 @@ NSString *const AWSLocationErrorDomain = @"com.amazonaws.AWSLocationErrorDomain"
                 return @"Truck";
             case AWSLocationTravelModeWalking:
                 return @"Walking";
+            case AWSLocationTravelModeBicycle:
+                return @"Bicycle";
+            case AWSLocationTravelModeMotorcycle:
+                return @"Motorcycle";
             default:
                 return nil;
         }
