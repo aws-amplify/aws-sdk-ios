@@ -177,7 +177,7 @@ final public class AWSMobileClient: _AWSMobileClient {
     public func initialize(_ completionHandler: @escaping (UserState?, Error?) -> Void) {
         // Read awsconfiguration.json and set the credentials provider here
         initializationQueue.sync {
-            migrateToDeviceOnly()
+            self.keychain.migrateToCurrentAccessibility()
             if (isInitialized) {
                 completionHandler(self.currentUserState, nil)
                 return
