@@ -365,20 +365,6 @@ static NSString *_defaultService;
     return status == errSecSuccess;
 }
 
-- (BOOL)contains:(NSString *)key query:(NSDictionary *)query
-{
-    NSMutableDictionary *finalQuery = [self query];
-    if (query != nil && query.count > 0) {
-        for (key in query) {
-            finalQuery[key] = query[key];
-        }
-    }
-    finalQuery[(__bridge __strong id)kSecAttrAccount] = key;
-
-    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)finalQuery, NULL);
-    return status == errSecSuccess;
-}
-
 #pragma mark -
 
 - (NSString *)stringForKey:(id)key
