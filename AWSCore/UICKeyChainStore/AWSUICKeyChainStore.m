@@ -935,10 +935,6 @@ static NSString *_defaultService;
 
 #pragma mark -
 
-/// Migrate the existing items in keychain to the current accessibility
-///
-/// Invoke this method if you have changed the keychain accessibility but there are already existing keychain items
-/// stored with a different accessibility setting.
 - (void)migrateToCurrentAccessibility {
     NSArray *items = [self allItems];
     for (NSDictionary *item in items) {

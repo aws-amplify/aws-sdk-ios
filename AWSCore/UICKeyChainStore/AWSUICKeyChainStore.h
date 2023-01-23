@@ -200,8 +200,13 @@ __OSX_AVAILABLE_STARTING(__MAC_10_10, __IPHONE_8_0);
 
 + (NSString *)generatePassword;
 
-- (void)migrateToCurrentAccessibility;
 #endif
+
+/// Migrate the existing items in keychain to the current accessibility
+///
+/// Invoke this method if you have changed the keychain accessibility but there are already existing keychain items
+/// stored with a different accessibility setting.
+- (void)migrateToCurrentAccessibility;
 
 @end
 
