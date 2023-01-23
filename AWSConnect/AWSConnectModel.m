@@ -5465,6 +5465,14 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectDeleteContactFlowResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
 @implementation AWSConnectDeleteHoursOfOperationRequest
 
 + (BOOL)supportsSecureCoding {
@@ -16403,6 +16411,14 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectUpdateContactFlowContentResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
 @implementation AWSConnectUpdateContactFlowMetadataRequest
 
 + (BOOL)supportsSecureCoding {
@@ -16438,6 +16454,14 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSConnectUpdateContactFlowMetadataResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
 }
 
 @end
@@ -16526,6 +16550,14 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"instanceId" : @"InstanceId",
              @"name" : @"Name",
              };
+}
+
+@end
+
+@implementation AWSConnectUpdateContactFlowNameResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
 }
 
 @end
