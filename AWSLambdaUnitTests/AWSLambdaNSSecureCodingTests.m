@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -141,6 +141,7 @@
 - (void) test_AWSLambdaPutProvisionedConcurrencyConfigResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaRemoveLayerVersionPermissionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaRemovePermissionRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaScalingConfig API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaSelfManagedEventSource API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaSelfManagedKafkaEventSourceConfig API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaSnapStart API_AVAILABLE(ios(11));
@@ -652,6 +653,10 @@
 
 - (void) test_AWSLambdaRemovePermissionRequest {
     [self validateSecureCodingForClass:[AWSLambdaRemovePermissionRequest class]];
+}
+
+- (void) test_AWSLambdaScalingConfig {
+    [self validateSecureCodingForClass:[AWSLambdaScalingConfig class]];
 }
 
 - (void) test_AWSLambdaSelfManagedEventSource {

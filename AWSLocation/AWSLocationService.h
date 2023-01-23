@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -404,7 +404,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
  
  @param request A container for the necessary parameters to execute the CreateGeofenceCollection service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLocationCreateGeofenceCollectionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorConflict`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorThrottling`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLocationCreateGeofenceCollectionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorConflict`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorServiceQuotaExceeded`, `AWSLocationErrorThrottling`.
  
  @see AWSLocationCreateGeofenceCollectionRequest
  @see AWSLocationCreateGeofenceCollectionResponse
@@ -417,7 +417,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
  @param request A container for the necessary parameters to execute the CreateGeofenceCollection service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorConflict`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorThrottling`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorConflict`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorServiceQuotaExceeded`, `AWSLocationErrorThrottling`.
  
  @see AWSLocationCreateGeofenceCollectionRequest
  @see AWSLocationCreateGeofenceCollectionResponse
@@ -425,11 +425,11 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (void)createGeofenceCollection:(AWSLocationCreateGeofenceCollectionRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationCreateGeofenceCollectionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a map resource in your AWS account, which provides map tiles of different styles sourced from global location data providers.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you may only use HERE as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note>
+ <p>Creates a map resource in your AWS account, which provides map tiles of different styles sourced from global location data providers.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateMap service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLocationCreateMapResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorConflict`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorThrottling`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLocationCreateMapResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorConflict`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorServiceQuotaExceeded`, `AWSLocationErrorThrottling`.
  
  @see AWSLocationCreateMapRequest
  @see AWSLocationCreateMapResponse
@@ -437,12 +437,12 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (AWSTask<AWSLocationCreateMapResponse *> *)createMap:(AWSLocationCreateMapRequest *)request;
 
 /**
- <p>Creates a map resource in your AWS account, which provides map tiles of different styles sourced from global location data providers.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you may only use HERE as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note>
+ <p>Creates a map resource in your AWS account, which provides map tiles of different styles sourced from global location data providers.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateMap service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorConflict`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorThrottling`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorConflict`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorServiceQuotaExceeded`, `AWSLocationErrorThrottling`.
  
  @see AWSLocationCreateMapRequest
  @see AWSLocationCreateMapResponse
@@ -450,11 +450,11 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (void)createMap:(AWSLocationCreateMapRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationCreateMapResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you may only use HERE as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note>
+ <p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note>
  
  @param request A container for the necessary parameters to execute the CreatePlaceIndex service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLocationCreatePlaceIndexResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorConflict`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorThrottling`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLocationCreatePlaceIndexResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorConflict`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorServiceQuotaExceeded`, `AWSLocationErrorThrottling`.
  
  @see AWSLocationCreatePlaceIndexRequest
  @see AWSLocationCreatePlaceIndexResponse
@@ -462,12 +462,12 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (AWSTask<AWSLocationCreatePlaceIndexResponse *> *)createPlaceIndex:(AWSLocationCreatePlaceIndexRequest *)request;
 
 /**
- <p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you may only use HERE as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note>
+ <p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note>
  
  @param request A container for the necessary parameters to execute the CreatePlaceIndex service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorConflict`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorThrottling`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorConflict`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorServiceQuotaExceeded`, `AWSLocationErrorThrottling`.
  
  @see AWSLocationCreatePlaceIndexRequest
  @see AWSLocationCreatePlaceIndexResponse
@@ -475,11 +475,11 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (void)createPlaceIndex:(AWSLocationCreatePlaceIndexRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationCreatePlaceIndexResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a route calculator resource in your AWS account.</p><p>You can send requests to a route calculator resource to estimate travel time, distance, and get directions. A route calculator sources traffic and road network data from your chosen data provider.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you may only use HERE as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note>
+ <p>Creates a route calculator resource in your AWS account.</p><p>You can send requests to a route calculator resource to estimate travel time, distance, and get directions. A route calculator sources traffic and road network data from your chosen data provider.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateRouteCalculator service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLocationCreateRouteCalculatorResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorConflict`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorThrottling`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLocationCreateRouteCalculatorResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorConflict`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorServiceQuotaExceeded`, `AWSLocationErrorThrottling`.
  
  @see AWSLocationCreateRouteCalculatorRequest
  @see AWSLocationCreateRouteCalculatorResponse
@@ -487,12 +487,12 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (AWSTask<AWSLocationCreateRouteCalculatorResponse *> *)createRouteCalculator:(AWSLocationCreateRouteCalculatorRequest *)request;
 
 /**
- <p>Creates a route calculator resource in your AWS account.</p><p>You can send requests to a route calculator resource to estimate travel time, distance, and get directions. A route calculator sources traffic and road network data from your chosen data provider.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you may only use HERE as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note>
+ <p>Creates a route calculator resource in your AWS account.</p><p>You can send requests to a route calculator resource to estimate travel time, distance, and get directions. A route calculator sources traffic and road network data from your chosen data provider.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateRouteCalculator service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorConflict`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorThrottling`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLocationErrorDomain` domain and the following error code: `AWSLocationErrorInternalServer`, `AWSLocationErrorConflict`, `AWSLocationErrorAccessDenied`, `AWSLocationErrorValidation`, `AWSLocationErrorServiceQuotaExceeded`, `AWSLocationErrorThrottling`.
  
  @see AWSLocationCreateRouteCalculatorRequest
  @see AWSLocationCreateRouteCalculatorResponse
@@ -1325,7 +1325,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (void)searchPlaceIndexForText:(AWSLocationSearchPlaceIndexForTextRequest *)request completionHandler:(void (^ _Nullable)(AWSLocationSearchPlaceIndexForTextResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Assigns one or more tags (key-value pairs) to the specified Amazon Location Service resource.</p><pre><code> &lt;p&gt;Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values.&lt;/p&gt; &lt;p&gt;You can use the &lt;code&gt;TagResource&lt;/code&gt; operation with an Amazon Location Service resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the tags already associated with the resource. If you specify a tag key that's already associated with the resource, the new tag value that you specify replaces the previous value for that tag. &lt;/p&gt; &lt;p&gt;You can associate up to 50 tags with a resource.&lt;/p&gt; </code></pre>
+ <p>Assigns one or more tags (key-value pairs) to the specified Amazon Location Service resource.</p><p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values.</p><p>You can use the <code>TagResource</code> operation with an Amazon Location Service resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the tags already associated with the resource. If you specify a tag key that's already associated with the resource, the new tag value that you specify replaces the previous value for that tag. </p><p>You can associate up to 50 tags with a resource.</p>
  
  @param request A container for the necessary parameters to execute the TagResource service method.
 
@@ -1337,7 +1337,7 @@ FOUNDATION_EXPORT NSString *const AWSLocationSDKVersion;
 - (AWSTask<AWSLocationTagResourceResponse *> *)tagResource:(AWSLocationTagResourceRequest *)request;
 
 /**
- <p>Assigns one or more tags (key-value pairs) to the specified Amazon Location Service resource.</p><pre><code> &lt;p&gt;Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values.&lt;/p&gt; &lt;p&gt;You can use the &lt;code&gt;TagResource&lt;/code&gt; operation with an Amazon Location Service resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the tags already associated with the resource. If you specify a tag key that's already associated with the resource, the new tag value that you specify replaces the previous value for that tag. &lt;/p&gt; &lt;p&gt;You can associate up to 50 tags with a resource.&lt;/p&gt; </code></pre>
+ <p>Assigns one or more tags (key-value pairs) to the specified Amazon Location Service resource.</p><p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values.</p><p>You can use the <code>TagResource</code> operation with an Amazon Location Service resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the tags already associated with the resource. If you specify a tag key that's already associated with the resource, the new tag value that you specify replaces the previous value for that tag. </p><p>You can associate up to 50 tags with a resource.</p>
  
  @param request A container for the necessary parameters to execute the TagResource service method.
  @param completionHandler The completion handler to call when the load request is complete.

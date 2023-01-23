@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -89,6 +89,8 @@ typedef NS_ENUM(NSInteger, AWSLocationTravelMode) {
     AWSLocationTravelModeCar,
     AWSLocationTravelModeTruck,
     AWSLocationTravelModeWalking,
+    AWSLocationTravelModeBicycle,
+    AWSLocationTravelModeMotorcycle,
 };
 
 typedef NS_ENUM(NSInteger, AWSLocationValidationExceptionReason) {
@@ -724,7 +726,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, assign) AWSLocationDistanceUnit distanceUnit;
 
 /**
- <p>Specifies the mode of transport when calculating a route. Used in estimating the speed of travel and road compatibility.</p><p>The <code>TravelMode</code> you specify also determines how you specify route preferences: </p><ul><li><p>If traveling by <code>Car</code> use the <code>CarModeOptions</code> parameter.</p></li><li><p>If traveling by <code>Truck</code> use the <code>TruckModeOptions</code> parameter.</p></li></ul><p>Default Value: <code>Car</code></p>
+ <p>Specifies the mode of transport when calculating a route. Used in estimating the speed of travel and road compatibility.</p><p>The <code>TravelMode</code> you specify also determines how you specify route preferences: </p><ul><li><p>If traveling by <code>Car</code> use the <code>CarModeOptions</code> parameter.</p></li><li><p>If traveling by <code>Truck</code> use the <code>TruckModeOptions</code> parameter.</p></li></ul><note><p><code>Bicycle</code> or <code>Motorcycle</code> are only valid when using <code>Grab</code> as a data provider, and only within Southeast Asia.</p><p><code>Truck</code> is not available for Grab.</p><p>For more information about using Grab as a data provider, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a> in the <i>Amazon Location Service Developer Guide</i>.</p></note><p>Default Value: <code>Car</code></p>
  */
 @property (nonatomic, assign) AWSLocationTravelMode travelMode;
 
@@ -772,7 +774,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 
 
 /**
- <p>The data provider of traffic and road network data used to calculate the routes. Indicates one of the available providers:</p><ul><li><p><code>Esri</code></p></li><li><p><code>Here</code></p></li></ul><p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+ <p>The data provider of traffic and road network data used to calculate the routes. Indicates one of the available providers:</p><ul><li><p><code>Esri</code></p></li><li><p><code>Grab</code></p></li><li><p><code>Here</code></p></li></ul><p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable dataSource;
 
@@ -840,7 +842,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSNumber * _Nullable includeLegGeometry;
 
 /**
- <p>Specifies the mode of transport when calculating a route. Used in estimating the speed of travel and road compatibility. You can choose <code>Car</code>, <code>Truck</code>, or <code>Walking</code> as options for the <code>TravelMode</code>.</p><p>The <code>TravelMode</code> you specify also determines how you specify route preferences: </p><ul><li><p>If traveling by <code>Car</code> use the <code>CarModeOptions</code> parameter.</p></li><li><p>If traveling by <code>Truck</code> use the <code>TruckModeOptions</code> parameter.</p></li></ul><p>Default Value: <code>Car</code></p>
+ <p>Specifies the mode of transport when calculating a route. Used in estimating the speed of travel and road compatibility. You can choose <code>Car</code>, <code>Truck</code>, <code>Walking</code>, <code>Bicycle</code> or <code>Motorcycle</code> as options for the <code>TravelMode</code>.</p><note><p><code>Bicycle</code> and <code>Motorcycle</code> are only valid when using Grab as a data provider, and only within Southeast Asia.</p><p><code>Truck</code> is not available for Grab.</p><p>For more details on the using Grab for routing, including areas of coverage, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a> in the <i>Amazon Location Service Developer Guide</i>.</p></note><p>The <code>TravelMode</code> you specify also determines how you specify route preferences: </p><ul><li><p>If traveling by <code>Car</code> use the <code>CarModeOptions</code> parameter.</p></li><li><p>If traveling by <code>Truck</code> use the <code>TruckModeOptions</code> parameter.</p></li></ul><p>Default Value: <code>Car</code></p>
  */
 @property (nonatomic, assign) AWSLocationTravelMode travelMode;
 
@@ -883,7 +885,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 
 
 /**
- <p>The data provider of traffic and road network data used to calculate the route. Indicates one of the available providers:</p><ul><li><p><code>Esri</code></p></li><li><p><code>Here</code></p></li></ul><p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+ <p>The data provider of traffic and road network data used to calculate the route. Indicates one of the available providers:</p><ul><li><p><code>Esri</code></p></li><li><p><code>Grab</code></p></li><li><p><code>Here</code></p></li></ul><p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable dataSource;
 
@@ -1080,7 +1082,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 
 
 /**
- <p>Specifies the geospatial data provider for the new place index.</p><note><p>This field is case-sensitive. Enter the valid values as shown. For example, entering <code>HERE</code> returns an error.</p></note><p>Valid values include:</p><ul><li><p><code>Esri</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>'s coverage in your region of interest, see <a href="https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm">Esri details on geocoding coverage</a>.</p></li><li><p><code>Here</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE Technologies</a>' coverage in your region of interest, see <a href="https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html">HERE details on goecoding coverage</a>.</p><important><p>If you specify HERE Technologies (<code>Here</code>) as the data provider, you may not <a href="https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html">store results</a> for locations in Japan. For more information, see the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> for Amazon Location Service.</p></important></li></ul><p>For additional information , see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Data providers</a> on the <i>Amazon Location Service Developer Guide</i>.</p>
+ <p>Specifies the geospatial data provider for the new place index.</p><note><p>This field is case-sensitive. Enter the valid values as shown. For example, entering <code>HERE</code> returns an error.</p></note><p>Valid values include:</p><ul><li><p><code>Esri</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>'s coverage in your region of interest, see <a href="https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm">Esri details on geocoding coverage</a>.</p></li><li><p><code>Grab</code> – Grab provides place index functionality for Southeast Asia. For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a>' coverage, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area">GrabMaps countries and areas covered</a>.</p></li><li><p><code>Here</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE Technologies</a>' coverage in your region of interest, see <a href="https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html">HERE details on goecoding coverage</a>.</p><important><p>If you specify HERE Technologies (<code>Here</code>) as the data provider, you may not <a href="https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html">store results</a> for locations in Japan. For more information, see the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> for Amazon Location Service.</p></important></li></ul><p>For additional information , see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Data providers</a> on the <i>Amazon Location Service Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable dataSource;
 
@@ -1146,7 +1148,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSString * _Nullable calculatorName;
 
 /**
- <p>Specifies the data provider of traffic and road network data.</p><note><p>This field is case-sensitive. Enter the valid values as shown. For example, entering <code>HERE</code> returns an error. Route calculators that use Esri as a data source only calculate routes that are shorter than 400 km.</p></note><p>Valid values include:</p><ul><li><p><code>Esri</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>'s coverage in your region of interest, see <a href="https://doc.arcgis.com/en/arcgis-online/reference/network-coverage.htm">Esri details on street networks and traffic coverage</a>.</p></li><li><p><code>Here</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE Technologies</a>' coverage in your region of interest, see <a href="https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/car-routing.html">HERE car routing coverage</a> and <a href="https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/truck-routing.html">HERE truck routing coverage</a>.</p></li></ul><p>For additional information , see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Data providers</a> on the <i>Amazon Location Service Developer Guide</i>.</p>
+ <p>Specifies the data provider of traffic and road network data.</p><note><p>This field is case-sensitive. Enter the valid values as shown. For example, entering <code>HERE</code> returns an error.</p></note><p>Valid values include:</p><ul><li><p><code>Esri</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>'s coverage in your region of interest, see <a href="https://doc.arcgis.com/en/arcgis-online/reference/network-coverage.htm">Esri details on street networks and traffic coverage</a>.</p><p>Route calculators that use Esri as a data source only calculate routes that are shorter than 400 km.</p></li><li><p><code>Grab</code> – Grab provides routing functionality for Southeast Asia. For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a>' coverage, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area">GrabMaps countries and areas covered</a>.</p></li><li><p><code>Here</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE Technologies</a>' coverage in your region of interest, see <a href="https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/car-routing.html">HERE car routing coverage</a> and <a href="https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/truck-routing.html">HERE truck routing coverage</a>.</p></li></ul><p>For additional information , see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Data providers</a> on the <i>Amazon Location Service Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable dataSource;
 
@@ -1531,7 +1533,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSDate * _Nullable createTime;
 
 /**
- <p>The data provider of geospatial data. Values can be one of the following:</p><ul><li><p><code>Esri</code></p></li><li><p><code>Here</code></p></li></ul><p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+ <p>The data provider of geospatial data. Values can be one of the following:</p><ul><li><p><code>Esri</code></p></li><li><p><code>Grab</code></p></li><li><p><code>Here</code></p></li></ul><p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable dataSource;
 
@@ -1607,7 +1609,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSDate * _Nullable createTime;
 
 /**
- <p>The data provider of traffic and road network data. Indicates one of the available providers:</p><ul><li><p><code>Esri</code></p></li><li><p><code>Here</code></p></li></ul><p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+ <p>The data provider of traffic and road network data. Indicates one of the available providers:</p><ul><li><p><code>Esri</code></p></li><li><p><code>Grab</code></p></li><li><p><code>Here</code></p></li></ul><p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable dataSource;
 
@@ -1991,7 +1993,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 
 
 /**
- <p>A comma-separated list of fonts to load glyphs from in order of preference. For example, <code>Noto Sans Regular, Arial Unicode</code>.</p><p>Valid fonts stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a> styles: </p><ul><li><p>VectorEsriDarkGrayCanvas – <code>Ubuntu Medium Italic</code> | <code>Ubuntu Medium</code> | <code>Ubuntu Italic</code> | <code>Ubuntu Regular</code> | <code>Ubuntu Bold</code></p></li><li><p>VectorEsriLightGrayCanvas – <code>Ubuntu Italic</code> | <code>Ubuntu Regular</code> | <code>Ubuntu Light</code> | <code>Ubuntu Bold</code></p></li><li><p>VectorEsriTopographic – <code>Noto Sans Italic</code> | <code>Noto Sans Regular</code> | <code>Noto Sans Bold</code> | <code>Noto Serif Regular</code> | <code>Roboto Condensed Light Italic</code></p></li><li><p>VectorEsriStreets – <code>Arial Regular</code> | <code>Arial Italic</code> | <code>Arial Bold</code></p></li><li><p>VectorEsriNavigation – <code>Arial Regular</code> | <code>Arial Italic</code> | <code>Arial Bold</code></p></li></ul><p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE Technologies</a> styles:</p><ul><li><p>VectorHereContrast – <code>Fira GO Regular</code> | <code>Fira GO Bold</code></p></li><li><p>VectorHereExplore, VectorHereExploreTruck, HybridHereExploreSatellite – <code>Fira GO Italic</code> | <code>Fira GO Map</code> | <code>Fira GO Map Bold</code> | <code>Noto Sans CJK JP Bold</code> | <code>Noto Sans CJK JP Light</code> | <code>Noto Sans CJK JP Regular</code></p></li></ul><p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open Data (Preview)</a> styles:</p><ul><li><p>VectorOpenDataStandardLight – <code>Amazon Ember Regular,Noto Sans Regular</code> | <code>Amazon Ember Bold,Noto Sans Bold</code> | <code>Amazon Ember Medium,Noto Sans Medium</code> | <code>Amazon Ember Regular Italic,Noto Sans Italic</code> | <code>Amazon Ember Condensed RC Regular,Noto Sans Regular</code> | <code>Amazon Ember Condensed RC Bold,Noto Sans Bold</code></p></li></ul><note><p>The fonts used by <code>VectorOpenDataStandardLight</code> are combined fonts that use <code>Amazon Ember</code> for most glyphs but <code>Noto Sans</code> for glyphs unsupported by <code>Amazon Ember</code>.</p></note>
+ <p>A comma-separated list of fonts to load glyphs from in order of preference. For example, <code>Noto Sans Regular, Arial Unicode</code>.</p><p>Valid fonts stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a> styles: </p><ul><li><p>VectorEsriDarkGrayCanvas – <code>Ubuntu Medium Italic</code> | <code>Ubuntu Medium</code> | <code>Ubuntu Italic</code> | <code>Ubuntu Regular</code> | <code>Ubuntu Bold</code></p></li><li><p>VectorEsriLightGrayCanvas – <code>Ubuntu Italic</code> | <code>Ubuntu Regular</code> | <code>Ubuntu Light</code> | <code>Ubuntu Bold</code></p></li><li><p>VectorEsriTopographic – <code>Noto Sans Italic</code> | <code>Noto Sans Regular</code> | <code>Noto Sans Bold</code> | <code>Noto Serif Regular</code> | <code>Roboto Condensed Light Italic</code></p></li><li><p>VectorEsriStreets – <code>Arial Regular</code> | <code>Arial Italic</code> | <code>Arial Bold</code></p></li><li><p>VectorEsriNavigation – <code>Arial Regular</code> | <code>Arial Italic</code> | <code>Arial Bold</code></p></li></ul><p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE Technologies</a> styles:</p><ul><li><p>VectorHereContrast – <code>Fira GO Regular</code> | <code>Fira GO Bold</code></p></li><li><p>VectorHereExplore, VectorHereExploreTruck, HybridHereExploreSatellite – <code>Fira GO Italic</code> | <code>Fira GO Map</code> | <code>Fira GO Map Bold</code> | <code>Noto Sans CJK JP Bold</code> | <code>Noto Sans CJK JP Light</code> | <code>Noto Sans CJK JP Regular</code></p></li></ul><p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a> styles:</p><ul><li><p>VectorGrabStandardLight, VectorGrabStandardDark – <code>Noto Sans Regular</code> | <code>Noto Sans Medium</code> | <code>Noto Sans Bold</code></p></li></ul><p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open Data (Preview)</a> styles:</p><ul><li><p>VectorOpenDataStandardLight – <code>Amazon Ember Regular,Noto Sans Regular</code> | <code>Amazon Ember Bold,Noto Sans Bold</code> | <code>Amazon Ember Medium,Noto Sans Medium</code> | <code>Amazon Ember Regular Italic,Noto Sans Italic</code> | <code>Amazon Ember Condensed RC Regular,Noto Sans Regular</code> | <code>Amazon Ember Condensed RC Bold,Noto Sans Bold</code></p></li></ul><note><p>The fonts used by <code>VectorOpenDataStandardLight</code> are combined fonts that use <code>Amazon Ember</code> for most glyphs but <code>Noto Sans</code> for glyphs unsupported by <code>Amazon Ember</code>.</p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable fontStack;
 
@@ -2575,7 +2577,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSDate * _Nullable createTime;
 
 /**
- <p>The data provider of geospatial data. Values can be one of the following:</p><ul><li><p><code>Esri</code></p></li><li><p><code>Here</code></p></li></ul><p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+ <p>The data provider of geospatial data. Values can be one of the following:</p><ul><li><p><code>Esri</code></p></li><li><p><code>Grab</code></p></li><li><p><code>Here</code></p></li></ul><p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable dataSource;
 
@@ -2655,7 +2657,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSDate * _Nullable createTime;
 
 /**
- <p>The data provider of traffic and road network data. Indicates one of the available providers:</p><ul><li><p><code>Esri</code></p></li><li><p><code>Here</code></p></li></ul><p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+ <p>The data provider of traffic and road network data. Indicates one of the available providers:</p><ul><li><p><code>Esri</code></p></li><li><p><code>Grab</code></p></li><li><p><code>Here</code></p></li></ul><p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable dataSource;
 
@@ -2826,7 +2828,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 
 
 /**
- <p>Specifies the map style selected from an available data provider.</p><p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri map styles</a>:</p><ul><li><p><code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray Canvas map style. A vector basemap with a dark gray, neutral background with minimal colors, labels, and features that's designed to draw attention to your thematic content. </p></li><li><p><code>RasterEsriImagery</code> – The Esri Imagery map style. A raster basemap that provides one meter or better satellite and aerial imagery in many parts of the world and lower resolution satellite imagery worldwide. </p></li><li><p><code>VectorEsriLightGrayCanvas</code> – The Esri Light Gray Canvas map style, which provides a detailed vector basemap with a light gray, neutral background style with minimal colors, labels, and features that's designed to draw attention to your thematic content. </p></li><li><p><code>VectorEsriTopographic</code> – The Esri Light map style, which provides a detailed vector basemap with a classic Esri map style.</p></li><li><p><code>VectorEsriStreets</code> – The Esri World Streets map style, which provides a detailed vector basemap for the world symbolized with a classic Esri street map style. The vector tile layer is similar in content and style to the World Street Map raster map.</p></li><li><p><code>VectorEsriNavigation</code> – The Esri World Navigation map style, which provides a detailed basemap for the world symbolized with a custom navigation map style that's designed for use during the day in mobile devices.</p></li></ul><p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE Technologies map styles</a>:</p><ul><li><p><code>VectorHereContrast</code> – The HERE Contrast (Berlin) map style is a high contrast detailed base map of the world that blends 3D and 2D rendering.</p><note><p>The <code>VectorHereContrast</code> style has been renamed from <code>VectorHereBerlin</code>. <code>VectorHereBerlin</code> has been deprecated, but will continue to work in applications that use it.</p></note></li><li><p><code>VectorHereExplore</code> – A default HERE map style containing a neutral, global map and its features including roads, buildings, landmarks, and water features. It also now includes a fully designed map of Japan.</p></li><li><p><code>VectorHereExploreTruck</code> – A global map containing truck restrictions and attributes (e.g. width / height / HAZMAT) symbolized with highlighted segments and icons on top of HERE Explore to support use cases within transport and logistics.</p></li><li><p><code>RasterHereExploreSatellite</code> – A global map containing high resolution satellite imagery.</p></li><li><p><code>HybridHereExploreSatellite</code> – A global map displaying the road network, street names, and city labels over satellite imagery. This style will automatically retrieve both raster and vector tiles, and your charges will be based on total tiles retrieved.</p><note><p>Hybrid styles use both vector and raster tiles when rendering the map that you see. This means that more tiles are retrieved than when using either vector or raster tiles alone. Your charges will include all tiles retrieved.</p></note></li></ul><p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open Data (Preview) map styles</a>:</p><ul><li><p><code>VectorOpenDataStandardLight</code> – The Open Data Standard Light (preview) map style provides a detailed basemap for the world suitable for website and mobile application use. The map includes highways major roads, minor roads, railways, water features, cities, parks, landmarks, building footprints, and administrative boundaries.</p><important><p>Open Data maps is in preview. We may add, change, or remove features before announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html#open-data-preview">Open Data is in preview release</a>.</p></important></li></ul>
+ <p>Specifies the map style selected from an available data provider.</p><p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri map styles</a>:</p><ul><li><p><code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray Canvas map style. A vector basemap with a dark gray, neutral background with minimal colors, labels, and features that's designed to draw attention to your thematic content. </p></li><li><p><code>RasterEsriImagery</code> – The Esri Imagery map style. A raster basemap that provides one meter or better satellite and aerial imagery in many parts of the world and lower resolution satellite imagery worldwide. </p></li><li><p><code>VectorEsriLightGrayCanvas</code> – The Esri Light Gray Canvas map style, which provides a detailed vector basemap with a light gray, neutral background style with minimal colors, labels, and features that's designed to draw attention to your thematic content. </p></li><li><p><code>VectorEsriTopographic</code> – The Esri Light map style, which provides a detailed vector basemap with a classic Esri map style.</p></li><li><p><code>VectorEsriStreets</code> – The Esri World Streets map style, which provides a detailed vector basemap for the world symbolized with a classic Esri street map style. The vector tile layer is similar in content and style to the World Street Map raster map.</p></li><li><p><code>VectorEsriNavigation</code> – The Esri World Navigation map style, which provides a detailed basemap for the world symbolized with a custom navigation map style that's designed for use during the day in mobile devices.</p></li></ul><p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE Technologies map styles</a>:</p><ul><li><p><code>VectorHereContrast</code> – The HERE Contrast (Berlin) map style is a high contrast detailed base map of the world that blends 3D and 2D rendering.</p><note><p>The <code>VectorHereContrast</code> style has been renamed from <code>VectorHereBerlin</code>. <code>VectorHereBerlin</code> has been deprecated, but will continue to work in applications that use it.</p></note></li><li><p><code>VectorHereExplore</code> – A default HERE map style containing a neutral, global map and its features including roads, buildings, landmarks, and water features. It also now includes a fully designed map of Japan.</p></li><li><p><code>VectorHereExploreTruck</code> – A global map containing truck restrictions and attributes (e.g. width / height / HAZMAT) symbolized with highlighted segments and icons on top of HERE Explore to support use cases within transport and logistics.</p></li><li><p><code>RasterHereExploreSatellite</code> – A global map containing high resolution satellite imagery.</p></li><li><p><code>HybridHereExploreSatellite</code> – A global map displaying the road network, street names, and city labels over satellite imagery. This style will automatically retrieve both raster and vector tiles, and your charges will be based on total tiles retrieved.</p><note><p>Hybrid styles use both vector and raster tiles when rendering the map that you see. This means that more tiles are retrieved than when using either vector or raster tiles alone. Your charges will include all tiles retrieved.</p></note></li></ul><p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps map styles</a>:</p><ul><li><p><code>VectorGrabStandardLight</code> – The Grab Standard Light map style provides a basemap with detailed land use coloring, area names, roads, landmarks, and points of interest covering Southeast Asia.</p></li><li><p><code>VectorGrabStandardDark</code> – The Grab Standard Dark map style provides a dark variation of the standard basemap covering Southeast Asia.</p></li></ul><note><p>Grab provides maps only for countries in Southeast Asia, and is only available in the Asia Pacific (Singapore) Region (<code>ap-southeast-1</code>). For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area">GrabMaps countries and area covered</a>.</p></note><p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open Data (Preview) map styles</a>:</p><ul><li><p><code>VectorOpenDataStandardLight</code> – The Open Data Standard Light (preview) map style provides a detailed basemap for the world suitable for website and mobile application use. The map includes highways major roads, minor roads, railways, water features, cities, parks, landmarks, building footprints, and administrative boundaries.</p><important><p>Open Data maps is in preview. We may add, change, or remove features before announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html#open-data-preview">Open Data is in preview release</a>.</p></important></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable style;
 
@@ -2890,7 +2892,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSString * _Nullable street;
 
 /**
- <p>A country, or an area that's part of a larger region. For example, <code>Metro Vancouver</code>.</p>
+ <p>A county, or an area that's part of a larger region. For example, <code>Metro Vancouver</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable subRegion;
 
@@ -3044,7 +3046,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) AWSLocationPlace * _Nullable place;
 
 /**
- <p>The unique identifier of the place. You can use this with the <code>GetPlace</code> operation to find the place again later.</p><note><p>For <code>SearchPlaceIndexForPosition</code> operations, the <code>PlaceId</code> is returned only by place indexes that use HERE as a data provider.</p></note>
+ <p>The unique identifier of the place. You can use this with the <code>GetPlace</code> operation to find the place again later.</p><note><p>For <code>SearchPlaceIndexForPosition</code> operations, the <code>PlaceId</code> is returned only by place indexes that use HERE or Grab as a data provider.</p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable placeId;
 
@@ -3058,7 +3060,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 
 
 /**
- <p>The unique identifier of the place. You can use this with the <code>GetPlace</code> operation to find the place again later.</p><note><p>For <code>SearchPlaceIndexForSuggestions</code> operations, the <code>PlaceId</code> is returned by place indexes that use HERE or Esri as data providers.</p></note>
+ <p>The unique identifier of the place. You can use this with the <code>GetPlace</code> operation to find the place again later.</p><note><p>For <code>SearchPlaceIndexForSuggestions</code> operations, the <code>PlaceId</code> is returned by place indexes that use Esri, Grab, or HERE as data providers.</p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable placeId;
 
@@ -3087,12 +3089,12 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) AWSLocationPlace * _Nullable place;
 
 /**
- <p>The unique identifier of the place. You can use this with the <code>GetPlace</code> operation to find the place again later.</p><note><p>For <code>SearchPlaceIndexForText</code> operations, the <code>PlaceId</code> is returned only by place indexes that use HERE as a data provider.</p></note>
+ <p>The unique identifier of the place. You can use this with the <code>GetPlace</code> operation to find the place again later.</p><note><p>For <code>SearchPlaceIndexForText</code> operations, the <code>PlaceId</code> is returned only by place indexes that use HERE or Grab as a data provider.</p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable placeId;
 
 /**
- <p>The relative confidence in the match for a result among the results returned. For example, if more fields for an address match (including house number, street, city, country/region, and postal code), the relevance score is closer to 1.</p><p>Returned only when the partner selected is Esri.</p>
+ <p>The relative confidence in the match for a result among the results returned. For example, if more fields for an address match (including house number, street, city, country/region, and postal code), the relevance score is closer to 1.</p><p>Returned only when the partner selected is Esri or Grab.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable relevance;
 
@@ -3152,7 +3154,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 
 
 /**
- <p>The geospatial data provider attached to the place index resource specified in the request. Values can be one of the following:</p><ul><li><p>Esri</p></li><li><p>Here</p></li></ul><p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+ <p>The geospatial data provider attached to the place index resource specified in the request. Values can be one of the following:</p><ul><li><p>Esri</p></li><li><p>Grab</p></li><li><p>Here</p></li></ul><p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable dataSource;
 
@@ -3247,7 +3249,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSArray<NSNumber *> * _Nullable biasPosition;
 
 /**
- <p>The geospatial data provider attached to the place index resource specified in the request. Values can be one of the following:</p><ul><li><p>Esri</p></li><li><p>Here</p></li></ul><p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+ <p>The geospatial data provider attached to the place index resource specified in the request. Values can be one of the following:</p><ul><li><p>Esri</p></li><li><p>Grab</p></li><li><p>Here</p></li></ul><p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable dataSource;
 
@@ -3352,7 +3354,7 @@ typedef NS_ENUM(NSInteger, AWSLocationVehicleWeightUnit) {
 @property (nonatomic, strong) NSArray<NSNumber *> * _Nullable biasPosition;
 
 /**
- <p>The geospatial data provider attached to the place index resource specified in the request. Values can be one of the following:</p><ul><li><p>Esri</p></li><li><p>Here</p></li></ul><p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+ <p>The geospatial data provider attached to the place index resource specified in the request. Values can be one of the following:</p><ul><li><p>Esri</p></li><li><p>Grab</p></li><li><p>Here</p></li></ul><p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable dataSource;
 
