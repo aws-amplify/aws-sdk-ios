@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -391,6 +391,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"maximumRetryAttempts" : @"MaximumRetryAttempts",
              @"parallelizationFactor" : @"ParallelizationFactor",
              @"queues" : @"Queues",
+             @"scalingConfig" : @"ScalingConfig",
              @"selfManagedEventSource" : @"SelfManagedEventSource",
              @"selfManagedKafkaEventSourceConfig" : @"SelfManagedKafkaEventSourceConfig",
              @"sourceAccessConfigurations" : @"SourceAccessConfigurations",
@@ -411,6 +412,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)filterCriteriaJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaFilterCriteria class]];
+}
+
++ (NSValueTransformer *)scalingConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaScalingConfig class]];
 }
 
 + (NSValueTransformer *)selfManagedEventSourceJSONTransformer {
@@ -1066,6 +1071,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"maximumRetryAttempts" : @"MaximumRetryAttempts",
              @"parallelizationFactor" : @"ParallelizationFactor",
              @"queues" : @"Queues",
+             @"scalingConfig" : @"ScalingConfig",
              @"selfManagedEventSource" : @"SelfManagedEventSource",
              @"selfManagedKafkaEventSourceConfig" : @"SelfManagedKafkaEventSourceConfig",
              @"sourceAccessConfigurations" : @"SourceAccessConfigurations",
@@ -1097,6 +1103,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
++ (NSValueTransformer *)scalingConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaScalingConfig class]];
 }
 
 + (NSValueTransformer *)selfManagedEventSourceJSONTransformer {
@@ -3654,6 +3664,20 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 @end
 
+@implementation AWSLambdaScalingConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maximumConcurrency" : @"MaximumConcurrency",
+             };
+}
+
+@end
+
 @implementation AWSLambdaSelfManagedEventSource
 
 + (BOOL)supportsSecureCoding {
@@ -4025,6 +4049,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"maximumRecordAgeInSeconds" : @"MaximumRecordAgeInSeconds",
              @"maximumRetryAttempts" : @"MaximumRetryAttempts",
              @"parallelizationFactor" : @"ParallelizationFactor",
+             @"scalingConfig" : @"ScalingConfig",
              @"sourceAccessConfigurations" : @"SourceAccessConfigurations",
              @"tumblingWindowInSeconds" : @"TumblingWindowInSeconds",
              @"UUID" : @"UUID",
@@ -4037,6 +4062,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)filterCriteriaJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaFilterCriteria class]];
+}
+
++ (NSValueTransformer *)scalingConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaScalingConfig class]];
 }
 
 + (NSValueTransformer *)sourceAccessConfigurationsJSONTransformer {
