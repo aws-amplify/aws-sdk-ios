@@ -1428,10 +1428,11 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSConnect ConnectForKey:key] deleteContactFlow:[AWSConnectDeleteContactFlowRequest new] completionHandler:^(NSError * _Nullable error) {
+	[[AWSConnect ConnectForKey:key] deleteContactFlow:[AWSConnectDeleteContactFlowRequest new] completionHandler:^(AWSConnectDeleteContactFlowResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
         dispatch_semaphore_signal(semaphore);
     }];
 	
@@ -6589,10 +6590,11 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSConnect ConnectForKey:key] updateContactFlowContent:[AWSConnectUpdateContactFlowContentRequest new] completionHandler:^(NSError * _Nullable error) {
+	[[AWSConnect ConnectForKey:key] updateContactFlowContent:[AWSConnectUpdateContactFlowContentRequest new] completionHandler:^(AWSConnectUpdateContactFlowContentResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
         dispatch_semaphore_signal(semaphore);
     }];
 	
@@ -6636,10 +6638,11 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSConnect ConnectForKey:key] updateContactFlowMetadata:[AWSConnectUpdateContactFlowMetadataRequest new] completionHandler:^(NSError * _Nullable error) {
+	[[AWSConnect ConnectForKey:key] updateContactFlowMetadata:[AWSConnectUpdateContactFlowMetadataRequest new] completionHandler:^(AWSConnectUpdateContactFlowMetadataResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
         dispatch_semaphore_signal(semaphore);
     }];
 	
@@ -6779,10 +6782,11 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSConnect ConnectForKey:key] updateContactFlowName:[AWSConnectUpdateContactFlowNameRequest new] completionHandler:^(NSError * _Nullable error) {
+	[[AWSConnect ConnectForKey:key] updateContactFlowName:[AWSConnectUpdateContactFlowNameRequest new] completionHandler:^(AWSConnectUpdateContactFlowNameResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
         dispatch_semaphore_signal(semaphore);
     }];
 	
