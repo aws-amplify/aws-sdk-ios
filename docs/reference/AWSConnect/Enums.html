@@ -17,7 +17,7 @@
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSConnect 2.29.1 Docs</a> (75% documented)</p>
+        <p><a href="index.html">AWSConnect 2.30.0 Docs</a> (75% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSConnect.xml"><img src="img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -285,6 +285,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSConnectDeleteContactFlowRequest.html">AWSConnectDeleteContactFlowRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes.html#/c:objc(cs)AWSConnectDeleteContactFlowResponse">AWSConnectDeleteContactFlowResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSConnectDeleteHoursOfOperationRequest.html">AWSConnectDeleteHoursOfOperationRequest</a>
@@ -848,6 +851,9 @@
                 <a href="Classes/AWSConnectParticipantTimerValue.html">AWSConnectParticipantTimerValue</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSConnectPersistentChat.html">AWSConnectPersistentChat</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSConnectPhoneNumberQuickConnectConfig.html">AWSConnectPhoneNumberQuickConnectConfig</a>
               </li>
               <li class="nav-group-task">
@@ -1148,7 +1154,13 @@
                 <a href="Classes/AWSConnectUpdateContactFlowContentRequest.html">AWSConnectUpdateContactFlowContentRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes.html#/c:objc(cs)AWSConnectUpdateContactFlowContentResponse">AWSConnectUpdateContactFlowContentResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSConnectUpdateContactFlowMetadataRequest.html">AWSConnectUpdateContactFlowMetadataRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes.html#/c:objc(cs)AWSConnectUpdateContactFlowMetadataResponse">AWSConnectUpdateContactFlowMetadataResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSConnectUpdateContactFlowModuleContentRequest.html">AWSConnectUpdateContactFlowModuleContentRequest</a>
@@ -1164,6 +1176,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSConnectUpdateContactFlowNameRequest.html">AWSConnectUpdateContactFlowNameRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes.html#/c:objc(cs)AWSConnectUpdateContactFlowNameResponse">AWSConnectUpdateContactFlowNameResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSConnectUpdateContactRequest.html">AWSConnectUpdateContactRequest</a>
@@ -1465,6 +1480,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSConnectReferenceType.html">AWSConnectReferenceType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSConnectRehydrationType.html">AWSConnectRehydrationType</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSConnectResourceType.html">AWSConnectResourceType</a>
@@ -1962,6 +1980,8 @@
     <span class="n">AWSConnectContactInitiationMethodQueueTransfer</span><span class="p">,</span>
     <span class="n">AWSConnectContactInitiationMethodCallback</span><span class="p">,</span>
     <span class="n">AWSConnectContactInitiationMethodApi</span><span class="p">,</span>
+    <span class="n">AWSConnectContactInitiationMethodDisconnect</span><span class="p">,</span>
+    <span class="n">AWSConnectContactInitiationMethodMonitor</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                         </div>
@@ -3361,6 +3381,43 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@AWSConnectRehydrationType"></a>
+                    <a name="//apple_ref/objc/Enum/AWSConnectRehydrationType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSConnectRehydrationType">AWSConnectRehydrationType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSConnectRehydrationType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSConnectRehydrationType</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSConnectRehydrationTypeUnknown</span><span class="p">,</span>
+    <span class="n">AWSConnectRehydrationTypeEntirePastSession</span><span class="p">,</span>
+    <span class="n">AWSConnectRehydrationTypeFromSegment</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSConnectRehydrationType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@AWSConnectResourceType"></a>
                     <a name="//apple_ref/objc/Enum/AWSConnectResourceType" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@AWSConnectResourceType">AWSConnectResourceType</a>
@@ -4076,7 +4133,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-12-30)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-01-24)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

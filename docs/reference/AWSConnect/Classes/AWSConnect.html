@@ -17,7 +17,7 @@
     <a title="AWSConnect Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSConnect 2.29.1 Docs</a> (75% documented)</p>
+        <p><a href="../index.html">AWSConnect 2.30.0 Docs</a> (75% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSConnect.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -285,6 +285,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectDeleteContactFlowRequest.html">AWSConnectDeleteContactFlowRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectDeleteContactFlowResponse">AWSConnectDeleteContactFlowResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectDeleteHoursOfOperationRequest.html">AWSConnectDeleteHoursOfOperationRequest</a>
@@ -848,6 +851,9 @@
                 <a href="../Classes/AWSConnectParticipantTimerValue.html">AWSConnectParticipantTimerValue</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSConnectPersistentChat.html">AWSConnectPersistentChat</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSConnectPhoneNumberQuickConnectConfig.html">AWSConnectPhoneNumberQuickConnectConfig</a>
               </li>
               <li class="nav-group-task">
@@ -1148,7 +1154,13 @@
                 <a href="../Classes/AWSConnectUpdateContactFlowContentRequest.html">AWSConnectUpdateContactFlowContentRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactFlowContentResponse">AWSConnectUpdateContactFlowContentResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSConnectUpdateContactFlowMetadataRequest.html">AWSConnectUpdateContactFlowMetadataRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactFlowMetadataResponse">AWSConnectUpdateContactFlowMetadataResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectUpdateContactFlowModuleContentRequest.html">AWSConnectUpdateContactFlowModuleContentRequest</a>
@@ -1164,6 +1176,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectUpdateContactFlowNameRequest.html">AWSConnectUpdateContactFlowNameRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactFlowNameResponse">AWSConnectUpdateContactFlowNameResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectUpdateContactRequest.html">AWSConnectUpdateContactRequest</a>
@@ -1465,6 +1480,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSConnectReferenceType.html">AWSConnectReferenceType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectRehydrationType.html">AWSConnectRehydrationType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSConnectResourceType.html">AWSConnectResourceType</a>
@@ -5842,6 +5860,10 @@
     <p class="aside-title">See</p>
     <p>AWSConnectDeleteContactFlowRequest</p>
 
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectDeleteContactFlowResponse</p>
+
 </div>
 
                       </div>
@@ -5879,7 +5901,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorAccessDenied</code>, <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorInternalService</code>, <code>AWSConnectErrorThrottling</code>.</p>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSConnectDeleteContactFlowResponse">AWSConnectDeleteContactFlowResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorAccessDenied</code>, <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorInternalService</code>, <code>AWSConnectErrorThrottling</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -5902,6 +5924,10 @@
     <p class="aside-title">See</p>
     <p>AWSConnectDeleteContactFlowRequest</p>
 
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectDeleteContactFlowResponse</p>
+
 </div>
 
                       </div>
@@ -5911,12 +5937,13 @@
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">deleteContactFlow</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectDeleteContactFlowRequest.html">AWSConnectDeleteContactFlowRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
         <span class="nf">completionHandler</span><span class="p">:</span>
-            <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">completionHandler</span><span class="p">;</span></code></pre>
+            <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes.html#/c:objc(cs)AWSConnectDeleteContactFlowResponse">AWSConnectDeleteContactFlowResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                               <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteContactFlow</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDeleteContactFlowRequest.html">AWSConnectDeleteContactFlowRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteContactFlow</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDeleteContactFlowRequest.html">AWSConnectDeleteContactFlowRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectDeleteContactFlowResponse">AWSConnectDeleteContactFlowResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -5945,6 +5972,7 @@
                               <td>
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorAccessDenied</code>, <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorInternalService</code>, <code>AWSConnectErrorThrottling</code>.</p>
                                 </div>
                               </td>
@@ -21004,6 +21032,10 @@
     <p class="aside-title">See</p>
     <p>AWSConnectUpdateContactFlowContentRequest</p>
 
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectUpdateContactFlowContentResponse</p>
+
 </div>
 
                       </div>
@@ -21042,7 +21074,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidContactFlow</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactFlowContentResponse">AWSConnectUpdateContactFlowContentResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidContactFlow</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -21065,6 +21097,10 @@
     <p class="aside-title">See</p>
     <p>AWSConnectUpdateContactFlowContentRequest</p>
 
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectUpdateContactFlowContentResponse</p>
+
 </div>
 
                       </div>
@@ -21075,12 +21111,14 @@
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">updateContactFlowContent</span><span class="p">:</span>
             <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectUpdateContactFlowContentRequest.html">AWSConnectUpdateContactFlowContentRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
                <span class="nf">completionHandler</span><span class="p">:</span>
-                   <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">completionHandler</span><span class="p">;</span></code></pre>
+                   <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                       <span class="n"><a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactFlowContentResponse">AWSConnectUpdateContactFlowContentResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                       <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateContactFlowContent</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateContactFlowContentRequest.html">AWSConnectUpdateContactFlowContentRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateContactFlowContent</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateContactFlowContentRequest.html">AWSConnectUpdateContactFlowContentRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactFlowContentResponse">AWSConnectUpdateContactFlowContentResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -21109,6 +21147,7 @@
                               <td>
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidContactFlow</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
                                 </div>
                               </td>
@@ -21136,6 +21175,10 @@
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectUpdateContactFlowMetadataRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectUpdateContactFlowMetadataResponse</p>
 
 </div>
 
@@ -21175,7 +21218,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorDuplicateResource</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactFlowMetadataResponse">AWSConnectUpdateContactFlowMetadataResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorDuplicateResource</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -21198,6 +21241,10 @@
     <p class="aside-title">See</p>
     <p>AWSConnectUpdateContactFlowMetadataRequest</p>
 
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectUpdateContactFlowMetadataResponse</p>
+
 </div>
 
                       </div>
@@ -21208,12 +21255,14 @@
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">updateContactFlowMetadata</span><span class="p">:</span>
             <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectUpdateContactFlowMetadataRequest.html">AWSConnectUpdateContactFlowMetadataRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
                 <span class="nf">completionHandler</span><span class="p">:</span>
-                    <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">completionHandler</span><span class="p">;</span></code></pre>
+                    <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                        <span class="n"><a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactFlowMetadataResponse">AWSConnectUpdateContactFlowMetadataResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                        <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateContactFlowMetadata</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateContactFlowMetadataRequest.html">AWSConnectUpdateContactFlowMetadataRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateContactFlowMetadata</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateContactFlowMetadataRequest.html">AWSConnectUpdateContactFlowMetadataRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactFlowMetadataResponse">AWSConnectUpdateContactFlowMetadataResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -21242,6 +21291,7 @@
                               <td>
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorDuplicateResource</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
                                 </div>
                               </td>
@@ -21560,6 +21610,10 @@
     <p class="aside-title">See</p>
     <p>AWSConnectUpdateContactFlowNameRequest</p>
 
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectUpdateContactFlowNameResponse</p>
+
 </div>
 
                       </div>
@@ -21598,7 +21652,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorDuplicateResource</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactFlowNameResponse">AWSConnectUpdateContactFlowNameResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorDuplicateResource</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -21621,6 +21675,10 @@
     <p class="aside-title">See</p>
     <p>AWSConnectUpdateContactFlowNameRequest</p>
 
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectUpdateContactFlowNameResponse</p>
+
 </div>
 
                       </div>
@@ -21631,12 +21689,14 @@
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">updateContactFlowName</span><span class="p">:</span>
             <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectUpdateContactFlowNameRequest.html">AWSConnectUpdateContactFlowNameRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
             <span class="nf">completionHandler</span><span class="p">:</span>
-                <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">completionHandler</span><span class="p">;</span></code></pre>
+                <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                    <span class="n"><a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactFlowNameResponse">AWSConnectUpdateContactFlowNameResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                    <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateContactFlowName</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateContactFlowNameRequest.html">AWSConnectUpdateContactFlowNameRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateContactFlowName</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectUpdateContactFlowNameRequest.html">AWSConnectUpdateContactFlowNameRequest</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectUpdateContactFlowNameResponse">AWSConnectUpdateContactFlowNameResponse</a></span></code></pre>
 
                         </div>
                       </div>
@@ -21665,6 +21725,7 @@
                               <td>
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorDuplicateResource</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
                                 </div>
                               </td>
@@ -25452,7 +25513,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-12-30)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-01-24)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
