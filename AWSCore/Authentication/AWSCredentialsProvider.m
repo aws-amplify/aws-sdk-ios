@@ -417,7 +417,8 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 
     // initialize keychain - name spaced by app bundle and identity pool id
     _keychain = [AWSUICKeyChainStore keyChainStoreWithService:[NSString stringWithFormat:@"%@.%@.%@", [NSBundle mainBundle].bundleIdentifier, [AWSCognitoCredentialsProvider class], identityProvider.identityPoolId]];
-
+    [_keychain migrateToCurrentAccessibility];
+    
     // If the identity provider has an identity id, use it
     if (identityProvider.identityId) {
         _keychain[AWSCredentialsProviderKeychainIdentityId] = identityProvider.identityId;
