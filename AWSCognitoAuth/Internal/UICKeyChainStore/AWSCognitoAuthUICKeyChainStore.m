@@ -945,7 +945,7 @@ static NSString *_defaultService;
         NSObject *value = item[@"value"];
         if ([value isKindOfClass:[NSString class]]) {
             [self setString: (NSString *)value forKey:key];
-        } else {
+        } else if ([value isKindOfClass:[NSData class]]) {
             [self setData: (NSData *)value forKey:key];
         }
     }
