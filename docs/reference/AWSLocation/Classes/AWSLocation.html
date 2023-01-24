@@ -17,7 +17,7 @@
     <a title="AWSLocation Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLocation 2.29.1 Docs</a> (89% documented)</p>
+        <p><a href="../index.html">AWSLocation 2.30.0 Docs</a> (89% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLocation.xml"><img src="../img/dash.png" alt="Dash"/>Install in Dash</a></p>
         <div class="header-right">
@@ -2283,7 +2283,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSLocationCreateGeofenceCollectionResponse.html">AWSLocationCreateGeofenceCollectionResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorConflict</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSLocationCreateGeofenceCollectionResponse.html">AWSLocationCreateGeofenceCollectionResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorConflict</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorServiceQuotaExceeded</code>, <code>AWSLocationErrorThrottling</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -2357,7 +2357,7 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorConflict</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorConflict</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorServiceQuotaExceeded</code>, <code>AWSLocationErrorThrottling</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -2380,7 +2380,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Creates a map resource in your AWS account, which provides map tiles of different styles sourced from global location data providers.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you may only use HERE as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note></p>
+                        <p><p>Creates a map resource in your AWS account, which provides map tiles of different styles sourced from global location data providers.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCreateMapRequest</p>
@@ -2426,7 +2426,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSLocationCreateMapResponse.html">AWSLocationCreateMapResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorConflict</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSLocationCreateMapResponse.html">AWSLocationCreateMapResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorConflict</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorServiceQuotaExceeded</code>, <code>AWSLocationErrorThrottling</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -2444,7 +2444,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Creates a map resource in your AWS account, which provides map tiles of different styles sourced from global location data providers.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you may only use HERE as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note></p>
+                        <p><p>Creates a map resource in your AWS account, which provides map tiles of different styles sourced from global location data providers.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCreateMapRequest</p>
@@ -2498,7 +2498,7 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorConflict</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorConflict</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorServiceQuotaExceeded</code>, <code>AWSLocationErrorThrottling</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -2521,7 +2521,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you may only use HERE as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note></p>
+                        <p><p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCreatePlaceIndexRequest</p>
@@ -2567,7 +2567,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSLocationCreatePlaceIndexResponse.html">AWSLocationCreatePlaceIndexResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorConflict</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSLocationCreatePlaceIndexResponse.html">AWSLocationCreatePlaceIndexResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorConflict</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorServiceQuotaExceeded</code>, <code>AWSLocationErrorThrottling</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -2585,7 +2585,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you may only use HERE as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note></p>
+                        <p><p>Creates a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCreatePlaceIndexRequest</p>
@@ -2639,7 +2639,7 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorConflict</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorConflict</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorServiceQuotaExceeded</code>, <code>AWSLocationErrorThrottling</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -2662,7 +2662,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Creates a route calculator resource in your AWS account.</p><p>You can send requests to a route calculator resource to estimate travel time, distance, and get directions. A route calculator sources traffic and road network data from your chosen data provider.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you may only use HERE as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note></p>
+                        <p><p>Creates a route calculator resource in your AWS account.</p><p>You can send requests to a route calculator resource to estimate travel time, distance, and get directions. A route calculator sources traffic and road network data from your chosen data provider.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCreateRouteCalculatorRequest</p>
@@ -2709,7 +2709,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSLocationCreateRouteCalculatorResponse.html">AWSLocationCreateRouteCalculatorResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorConflict</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSLocationCreateRouteCalculatorResponse.html">AWSLocationCreateRouteCalculatorResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorConflict</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorServiceQuotaExceeded</code>, <code>AWSLocationErrorThrottling</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -2727,7 +2727,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Creates a route calculator resource in your AWS account.</p><p>You can send requests to a route calculator resource to estimate travel time, distance, and get directions. A route calculator sources traffic and road network data from your chosen data provider.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you may only use HERE as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note></p>
+                        <p><p>Creates a route calculator resource in your AWS account.</p><p>You can send requests to a route calculator resource to estimate travel time, distance, and get directions. A route calculator sources traffic and road network data from your chosen data provider.</p><note><p>If your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a> for more details.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCreateRouteCalculatorRequest</p>
@@ -2783,7 +2783,7 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorConflict</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorConflict</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorServiceQuotaExceeded</code>, <code>AWSLocationErrorThrottling</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -7506,7 +7506,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Assigns one or more tags (key-value pairs) to the specified Amazon Location Service resource.</p><pre><code> &lt;p&gt;Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values.&lt;/p&gt; &lt;p&gt;You can use the &lt;code&gt;TagResource&lt;/code&gt; operation with an Amazon Location Service resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the tags already associated with the resource. If you specify a tag key that&#39;s already associated with the resource, the new tag value that you specify replaces the previous value for that tag. &lt;/p&gt; &lt;p&gt;You can associate up to 50 tags with a resource.&lt;/p&gt; </code></pre></p>
+                        <p>Assigns one or more tags (key-value pairs) to the specified Amazon Location Service resource.</p><p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values.</p><p>You can use the <code>TagResource</code> operation with an Amazon Location Service resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the tags already associated with the resource. If you specify a tag key that&rsquo;s already associated with the resource, the new tag value that you specify replaces the previous value for that tag. </p><p>You can associate up to 50 tags with a resource.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationTagResourceRequest</p>
@@ -7570,7 +7570,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Assigns one or more tags (key-value pairs) to the specified Amazon Location Service resource.</p><pre><code> &lt;p&gt;Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values.&lt;/p&gt; &lt;p&gt;You can use the &lt;code&gt;TagResource&lt;/code&gt; operation with an Amazon Location Service resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the tags already associated with the resource. If you specify a tag key that&#39;s already associated with the resource, the new tag value that you specify replaces the previous value for that tag. &lt;/p&gt; &lt;p&gt;You can associate up to 50 tags with a resource.&lt;/p&gt; </code></pre></p>
+                        <p>Assigns one or more tags (key-value pairs) to the specified Amazon Location Service resource.</p><p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values.</p><p>You can use the <code>TagResource</code> operation with an Amazon Location Service resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the tags already associated with the resource. If you specify a tag key that&rsquo;s already associated with the resource, the new tag value that you specify replaces the previous value for that tag. </p><p>You can associate up to 50 tags with a resource.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationTagResourceRequest</p>
@@ -8491,7 +8491,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2022-12-30)</p>
+          <p>&copy; 2023 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external noopener">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2023-01-24)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
