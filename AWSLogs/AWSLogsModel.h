@@ -208,7 +208,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @class AWSLogsUntagResourceRequest;
 
 /**
- 
+
  */
 @interface AWSLogsAssociateKmsKeyRequest : AWSRequest
 
@@ -226,7 +226,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsCancelExportTaskRequest : AWSRequest
 
@@ -239,7 +239,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsCreateExportTaskRequest : AWSRequest
 
@@ -282,7 +282,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsCreateExportTaskResponse : AWSModel
 
@@ -295,7 +295,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsCreateLogGroupRequest : AWSRequest
 
@@ -318,7 +318,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsCreateLogStreamRequest : AWSRequest
 
@@ -336,7 +336,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDeleteDataProtectionPolicyRequest : AWSRequest
 
@@ -349,7 +349,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDeleteDestinationRequest : AWSRequest
 
@@ -362,7 +362,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDeleteLogGroupRequest : AWSRequest
 
@@ -375,7 +375,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDeleteLogStreamRequest : AWSRequest
 
@@ -393,7 +393,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDeleteMetricFilterRequest : AWSRequest
 
@@ -411,7 +411,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDeleteQueryDefinitionRequest : AWSRequest
 
@@ -424,7 +424,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDeleteQueryDefinitionResponse : AWSModel
 
@@ -437,7 +437,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDeleteResourcePolicyRequest : AWSRequest
 
@@ -450,7 +450,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDeleteRetentionPolicyRequest : AWSRequest
 
@@ -463,7 +463,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDeleteSubscriptionFilterRequest : AWSRequest
 
@@ -481,7 +481,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDescribeDestinationsRequest : AWSRequest
 
@@ -504,7 +504,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDescribeDestinationsResponse : AWSModel
 
@@ -522,7 +522,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDescribeExportTasksRequest : AWSRequest
 
@@ -550,7 +550,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDescribeExportTasksResponse : AWSModel
 
@@ -568,7 +568,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDescribeLogGroupsRequest : AWSRequest
 
@@ -606,7 +606,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDescribeLogGroupsResponse : AWSModel
 
@@ -624,7 +624,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDescribeLogStreamsRequest : AWSRequest
 
@@ -640,12 +640,12 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @property (nonatomic, strong) NSNumber * _Nullable limit;
 
 /**
- <p>Specify either the name or ARN of the log group to view. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p><p>If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>, the action returns an <code>InvalidParameterException</code> error.</p>
+ <p>Specify either the name or ARN of the log group to view. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p><note><p> You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both. </p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable logGroupIdentifier;
 
 /**
- <p>The name of the log group.</p><note><p> If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>, the action returns an <code>InvalidParameterException</code> error. </p></note>
+ <p>The name of the log group.</p><note><p> You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both. </p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
 
@@ -667,7 +667,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDescribeLogStreamsResponse : AWSModel
 
@@ -685,7 +685,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDescribeMetricFiltersRequest : AWSRequest
 
@@ -723,7 +723,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDescribeMetricFiltersResponse : AWSModel
 
@@ -741,7 +741,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDescribeQueriesRequest : AWSRequest
 
@@ -769,7 +769,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDescribeQueriesResponse : AWSModel
 
@@ -787,7 +787,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDescribeQueryDefinitionsRequest : AWSRequest
 
@@ -810,7 +810,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDescribeQueryDefinitionsResponse : AWSModel
 
@@ -828,7 +828,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDescribeResourcePoliciesRequest : AWSRequest
 
@@ -846,7 +846,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDescribeResourcePoliciesResponse : AWSModel
 
@@ -864,7 +864,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDescribeSubscriptionFiltersRequest : AWSRequest
 
@@ -892,7 +892,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDescribeSubscriptionFiltersResponse : AWSModel
 
@@ -948,7 +948,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsDisassociateKmsKeyRequest : AWSRequest
 
@@ -1050,7 +1050,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsFilterLogEventsRequest : AWSRequest
 
@@ -1076,12 +1076,12 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @property (nonatomic, strong) NSNumber * _Nullable limit;
 
 /**
- <p>Specify either the name or ARN of the log group to view log events from. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p><p>If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>, the action returns an <code>InvalidParameterException</code> error.</p>
+ <p>Specify either the name or ARN of the log group to view log events from. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p><note><p> You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both. </p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable logGroupIdentifier;
 
 /**
- <p>The name of the log group to search.</p><note><p> If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>, the action returns an <code>InvalidParameterException</code> error. </p></note>
+ <p>The name of the log group to search.</p><note><p> You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both. </p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
 
@@ -1113,7 +1113,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsFilterLogEventsResponse : AWSModel
 
@@ -1169,7 +1169,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsGetDataProtectionPolicyRequest : AWSRequest
 
@@ -1182,7 +1182,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsGetDataProtectionPolicyResponse : AWSModel
 
@@ -1205,7 +1205,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsGetLogEventsRequest : AWSRequest
 
@@ -1221,12 +1221,12 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @property (nonatomic, strong) NSNumber * _Nullable limit;
 
 /**
- <p>Specify either the name or ARN of the log group to view events from. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p><p> If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>, the action returns an <code>InvalidParameterException</code> error.</p>
+ <p>Specify either the name or ARN of the log group to view events from. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p><note><p> You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both. </p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable logGroupIdentifier;
 
 /**
- <p>The name of the log group.</p><note><p> If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>, the action returns an <code>InvalidParameterException</code> error. </p></note>
+ <p>The name of the log group.</p><note><p> You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both. </p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
 
@@ -1258,7 +1258,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsGetLogEventsResponse : AWSModel
 
@@ -1281,18 +1281,18 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsGetLogGroupFieldsRequest : AWSRequest
 
 
 /**
- <p>Specify either the name or ARN of the log group to view. If the log group is in a source account and you are using a monitoring account, you must specify the ARN.</p><p>If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>, the action returns an <code>InvalidParameterException</code> error.</p>
+ <p>Specify either the name or ARN of the log group to view. If the log group is in a source account and you are using a monitoring account, you must specify the ARN.</p><note><p> You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both. </p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable logGroupIdentifier;
 
 /**
- <p>The name of the log group to search.</p><p>If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>, the action returns an <code>InvalidParameterException</code> error.</p>
+ <p>The name of the log group to search.</p><note><p> You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both. </p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
 
@@ -1304,7 +1304,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsGetLogGroupFieldsResponse : AWSModel
 
@@ -1317,7 +1317,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsGetLogRecordRequest : AWSRequest
 
@@ -1335,7 +1335,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsGetLogRecordResponse : AWSModel
 
@@ -1348,7 +1348,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsGetQueryResultsRequest : AWSRequest
 
@@ -1361,7 +1361,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsGetQueryResultsResponse : AWSModel
 
@@ -1403,7 +1403,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsListTagsForResourceRequest : AWSRequest
 
@@ -1416,7 +1416,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsListTagsForResourceResponse : AWSModel
 
@@ -1429,7 +1429,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsListTagsLogGroupRequest : AWSRequest
 
@@ -1442,7 +1442,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsListTagsLogGroupResponse : AWSModel
 
@@ -1687,7 +1687,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsPutDataProtectionPolicyRequest : AWSRequest
 
@@ -1705,7 +1705,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsPutDataProtectionPolicyResponse : AWSModel
 
@@ -1728,7 +1728,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsPutDestinationPolicyRequest : AWSRequest
 
@@ -1751,7 +1751,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsPutDestinationRequest : AWSRequest
 
@@ -1779,7 +1779,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsPutDestinationResponse : AWSModel
 
@@ -1792,7 +1792,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsPutLogEventsRequest : AWSRequest
 
@@ -1820,7 +1820,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsPutLogEventsResponse : AWSModel
 
@@ -1838,7 +1838,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsPutMetricFilterRequest : AWSRequest
 
@@ -1866,7 +1866,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsPutQueryDefinitionRequest : AWSRequest
 
@@ -1894,7 +1894,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsPutQueryDefinitionResponse : AWSModel
 
@@ -1907,7 +1907,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsPutResourcePolicyRequest : AWSRequest
 
@@ -1925,7 +1925,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsPutResourcePolicyResponse : AWSModel
 
@@ -1938,7 +1938,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsPutRetentionPolicyRequest : AWSRequest
 
@@ -1956,7 +1956,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsPutSubscriptionFilterRequest : AWSRequest
 
@@ -2201,7 +2201,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsStartQueryRequest : AWSRequest
 
@@ -2244,7 +2244,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsStartQueryResponse : AWSModel
 
@@ -2257,7 +2257,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsStopQueryRequest : AWSRequest
 
@@ -2270,7 +2270,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsStopQueryResponse : AWSModel
 
@@ -2326,7 +2326,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsTagLogGroupRequest : AWSRequest
 
@@ -2344,7 +2344,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsTagResourceRequest : AWSRequest
 
@@ -2362,7 +2362,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsTestMetricFilterRequest : AWSRequest
 
@@ -2380,7 +2380,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsTestMetricFilterResponse : AWSModel
 
@@ -2393,7 +2393,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsUntagLogGroupRequest : AWSRequest
 
@@ -2411,7 +2411,7 @@ typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
 @end
 
 /**
- 
+
  */
 @interface AWSLogsUntagResourceRequest : AWSRequest
 
