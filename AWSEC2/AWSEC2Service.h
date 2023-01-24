@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 
 /**
- <fullname>Amazon Elastic Compute Cloud</fullname><p>Amazon Elastic Compute Cloud (Amazon EC2) provides secure and resizable computing capacity in the Amazon Web Services Cloud. Using Amazon EC2 eliminates the need to invest in hardware up front, so you can develop and deploy applications faster. Amazon Virtual Private Cloud (Amazon VPC) enables you to provision a logically isolated section of the Amazon Web Services Cloud where you can launch Amazon Web Services resources in a virtual network that you've defined. Amazon Elastic Block Store (Amazon EBS) provides block level storage volumes for use with EC2 instances. EBS volumes are highly available and reliable storage volumes that can be attached to any running instance and used like a hard drive.</p><p>To learn more, see the following resources:</p><ul><li><p>Amazon EC2: <a href="http://aws.amazon.com/ec2">AmazonEC2 product page</a>, <a href="http://aws.amazon.com/documentation/ec2">Amazon EC2 documentation</a></p></li><li><p>Amazon EBS: <a href="http://aws.amazon.com/ebs">Amazon EBS product page</a>, <a href="http://aws.amazon.com/documentation/ebs">Amazon EBS documentation</a></p></li><li><p>Amazon VPC: <a href="http://aws.amazon.com/vpc">Amazon VPC product page</a>, <a href="http://aws.amazon.com/documentation/vpc">Amazon VPC documentation</a></p></li><li><p>Amazon Web Services VPN: <a href="http://aws.amazon.com/vpn">Amazon Web Services VPN product page</a>, <a href="http://aws.amazon.com/documentation/vpn">Amazon Web Services VPN documentation</a></p></li></ul>
+ <fullname>Amazon Elastic Compute Cloud</fullname><p>Amazon Elastic Compute Cloud (Amazon EC2) provides secure and resizable computing capacity in the Amazon Web Services Cloud. Using Amazon EC2 eliminates the need to invest in hardware up front, so you can develop and deploy applications faster. Amazon Virtual Private Cloud (Amazon VPC) enables you to provision a logically isolated section of the Amazon Web Services Cloud where you can launch Amazon Web Services resources in a virtual network that you've defined. Amazon Elastic Block Store (Amazon EBS) provides block level storage volumes for use with EC2 instances. EBS volumes are highly available and reliable storage volumes that can be attached to any running instance and used like a hard drive.</p><p>To learn more, see the following resources:</p><ul><li><p>Amazon EC2: <a href="http://aws.amazon.com/ec2">Amazon EC2 product page</a>, <a href="https://docs.aws.amazon.com/ec2/index.html">Amazon EC2 documentation</a></p></li><li><p>Amazon EBS: <a href="http://aws.amazon.com/ebs">Amazon EBS product page</a>, <a href="https://docs.aws.amazon.com/ebs/index.html">Amazon EBS documentation</a></p></li><li><p>Amazon VPC: <a href="http://aws.amazon.com/vpc">Amazon VPC product page</a>, <a href="https://docs.aws.amazon.com/vpc/index.html">Amazon VPC documentation</a></p></li><li><p>VPN: <a href="http://aws.amazon.com/vpn">VPN product page</a>, <a href="https://docs.aws.amazon.com/vpn/index.html">VPN documentation</a></p></li></ul>
  */
 @interface AWSEC2 : AWSService
 
@@ -300,7 +300,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)acceptTransitGatewayVpcAttachment:(AWSEC2AcceptTransitGatewayVpcAttachmentRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AcceptTransitGatewayVpcAttachmentResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Accepts one or more interface VPC endpoint connection requests to your VPC endpoint service.</p>
+ <p>Accepts connection requests to your VPC endpoint service.</p>
  
  @param request A container for the necessary parameters to execute the AcceptVpcEndpointConnections service method.
 
@@ -312,7 +312,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2AcceptVpcEndpointConnectionsResult *> *)acceptVpcEndpointConnections:(AWSEC2AcceptVpcEndpointConnectionsRequest *)request;
 
 /**
- <p>Accepts one or more interface VPC endpoint connection requests to your VPC endpoint service.</p>
+ <p>Accepts connection requests to your VPC endpoint service.</p>
  
  @param request A container for the necessary parameters to execute the AcceptVpcEndpointConnections service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2660,7 +2660,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createStoreImageTask:(AWSEC2CreateStoreImageTaskRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateStoreImageTaskResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a subnet in a specified VPC.</p><p>You must specify an IPv4 CIDR block for the subnet. After you create a subnet, you can't change its CIDR block. The allowed block size is between a /16 netmask (65,536 IP addresses) and /28 netmask (16 IP addresses). The CIDR block must not overlap with the CIDR block of an existing subnet in the VPC.</p><p>If you've associated an IPv6 CIDR block with your VPC, you can create a subnet with an IPv6 CIDR block that uses a /64 prefix length. </p><important><p>Amazon Web Services reserves both the first four and the last IPv4 address in each subnet's CIDR block. They're not available for use.</p></important><p>If you add more than one subnet to a VPC, they're set up in a star topology with a logical router in the middle.</p><p>When you stop an instance in a subnet, it retains its private IPv4 address. It's therefore possible to have a subnet with no running instances (they're all stopped), but no remaining IP addresses available.</p><p>For more information about subnets, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Creates a subnet in the specified VPC. For an IPv4 only subnet, specify an IPv4 CIDR block. If the VPC has an IPv6 CIDR block, you can create an IPv6 only subnet or a dual stack subnet instead. For an IPv6 only subnet, specify an IPv6 CIDR block. For a dual stack subnet, specify both an IPv4 CIDR block and an IPv6 CIDR block.</p><p>A subnet CIDR block must not overlap the CIDR block of an existing subnet in the VPC. After you create a subnet, you can't change its CIDR block.</p><p>The allowed size for an IPv4 subnet is between a /28 netmask (16 IP addresses) and a /16 netmask (65,536 IP addresses). Amazon Web Services reserves both the first four and the last IPv4 address in each subnet's CIDR block. They're not available for your use.</p><p>If you've associated an IPv6 CIDR block with your VPC, you can associate an IPv6 CIDR block with a subnet when you create it. The allowed block size for an IPv6 subnet is a /64 netmask.</p><p>If you add more than one subnet to a VPC, they're set up in a star topology with a logical router in the middle.</p><p>When you stop an instance in a subnet, it retains its private IPv4 address. It's therefore possible to have a subnet with no running instances (they're all stopped), but no remaining IP addresses available.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html">Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateSubnet service method.
 
@@ -2672,7 +2672,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateSubnetResult *> *)createSubnet:(AWSEC2CreateSubnetRequest *)request;
 
 /**
- <p>Creates a subnet in a specified VPC.</p><p>You must specify an IPv4 CIDR block for the subnet. After you create a subnet, you can't change its CIDR block. The allowed block size is between a /16 netmask (65,536 IP addresses) and /28 netmask (16 IP addresses). The CIDR block must not overlap with the CIDR block of an existing subnet in the VPC.</p><p>If you've associated an IPv6 CIDR block with your VPC, you can create a subnet with an IPv6 CIDR block that uses a /64 prefix length. </p><important><p>Amazon Web Services reserves both the first four and the last IPv4 address in each subnet's CIDR block. They're not available for use.</p></important><p>If you add more than one subnet to a VPC, they're set up in a star topology with a logical router in the middle.</p><p>When you stop an instance in a subnet, it retains its private IPv4 address. It's therefore possible to have a subnet with no running instances (they're all stopped), but no remaining IP addresses available.</p><p>For more information about subnets, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Creates a subnet in the specified VPC. For an IPv4 only subnet, specify an IPv4 CIDR block. If the VPC has an IPv6 CIDR block, you can create an IPv6 only subnet or a dual stack subnet instead. For an IPv6 only subnet, specify an IPv6 CIDR block. For a dual stack subnet, specify both an IPv4 CIDR block and an IPv6 CIDR block.</p><p>A subnet CIDR block must not overlap the CIDR block of an existing subnet in the VPC. After you create a subnet, you can't change its CIDR block.</p><p>The allowed size for an IPv4 subnet is between a /28 netmask (16 IP addresses) and a /16 netmask (65,536 IP addresses). Amazon Web Services reserves both the first four and the last IPv4 address in each subnet's CIDR block. They're not available for your use.</p><p>If you've associated an IPv6 CIDR block with your VPC, you can associate an IPv6 CIDR block with a subnet when you create it. The allowed block size for an IPv6 subnet is a /64 netmask.</p><p>If you add more than one subnet to a VPC, they're set up in a star topology with a logical router in the middle.</p><p>When you stop an instance in a subnet, it retains its private IPv4 address. It's therefore possible to have a subnet with no running instances (they're all stopped), but no remaining IP addresses available.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html">Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateSubnet service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3232,7 +3232,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createVolume:(AWSEC2CreateVolumeRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2Volume * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a VPC with the specified IPv4 CIDR block. The smallest VPC you can create uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4 addresses). For more information about how large to make your VPC, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>).</p><p>By default, each instance you launch in the VPC has the default DHCP options, which include only a default DNS server that we provide (AmazonProvidedDNS). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP options sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>You can specify the instance tenancy value for the VPC when you create it. You can't change this value for the VPC after you create it. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Creates a VPC with the specified CIDR blocks. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html#vpc-cidr-blocks">VPC CIDR blocks</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>).</p><p>By default, each instance that you launch in the VPC has the default DHCP options, which include only a default DNS server that we provide (AmazonProvidedDNS). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP option sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>You can specify the instance tenancy value for the VPC when you create it. You can't change this value for the VPC after you create it. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateVpc service method.
 
@@ -3244,7 +3244,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateVpcResult *> *)createVpc:(AWSEC2CreateVpcRequest *)request;
 
 /**
- <p>Creates a VPC with the specified IPv4 CIDR block. The smallest VPC you can create uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4 addresses). For more information about how large to make your VPC, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>).</p><p>By default, each instance you launch in the VPC has the default DHCP options, which include only a default DNS server that we provide (AmazonProvidedDNS). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP options sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>You can specify the instance tenancy value for the VPC when you create it. You can't change this value for the VPC after you create it. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Creates a VPC with the specified CIDR blocks. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html#vpc-cidr-blocks">VPC CIDR blocks</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>).</p><p>By default, each instance that you launch in the VPC has the default DHCP options, which include only a default DNS server that we provide (AmazonProvidedDNS). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP option sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>You can specify the instance tenancy value for the VPC when you create it. You can't change this value for the VPC after you create it. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateVpc service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3307,7 +3307,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createVpcEndpointConnectionNotification:(AWSEC2CreateVpcEndpointConnectionNotificationRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateVpcEndpointConnectionNotificationResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts, IAM users, and IAM roles) can connect.</p><p>Before you create an endpoint service, you must create one of the following for your service:</p><ul><li><p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/">Network Load Balancer</a>. Service consumers connect to your service using an interface endpoint.</p></li><li><p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/">Gateway Load Balancer</a>. Service consumers connect to your service using a Gateway Load Balancer endpoint.</p></li></ul><p>If you set the private DNS name, you must prove that you own the private DNS domain name.</p><p>For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon Web Services PrivateLink Guide</a>.</p>
+ <p>Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts, users, and IAM roles) can connect.</p><p>Before you create an endpoint service, you must create one of the following for your service:</p><ul><li><p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/">Network Load Balancer</a>. Service consumers connect to your service using an interface endpoint.</p></li><li><p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/">Gateway Load Balancer</a>. Service consumers connect to your service using a Gateway Load Balancer endpoint.</p></li></ul><p>If you set the private DNS name, you must prove that you own the private DNS domain name.</p><p>For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon Web Services PrivateLink Guide</a>.</p>
  
  @param request A container for the necessary parameters to execute the CreateVpcEndpointServiceConfiguration service method.
 
@@ -3319,7 +3319,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateVpcEndpointServiceConfigurationResult *> *)createVpcEndpointServiceConfiguration:(AWSEC2CreateVpcEndpointServiceConfigurationRequest *)request;
 
 /**
- <p>Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts, IAM users, and IAM roles) can connect.</p><p>Before you create an endpoint service, you must create one of the following for your service:</p><ul><li><p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/">Network Load Balancer</a>. Service consumers connect to your service using an interface endpoint.</p></li><li><p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/">Gateway Load Balancer</a>. Service consumers connect to your service using a Gateway Load Balancer endpoint.</p></li></ul><p>If you set the private DNS name, you must prove that you own the private DNS domain name.</p><p>For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon Web Services PrivateLink Guide</a>.</p>
+ <p>Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts, users, and IAM roles) can connect.</p><p>Before you create an endpoint service, you must create one of the following for your service:</p><ul><li><p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/">Network Load Balancer</a>. Service consumers connect to your service using an interface endpoint.</p></li><li><p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/">Gateway Load Balancer</a>. Service consumers connect to your service using a Gateway Load Balancer endpoint.</p></li></ul><p>If you set the private DNS name, you must prove that you own the private DNS domain name.</p><p>For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon Web Services PrivateLink Guide</a>.</p>
  
  @param request A container for the necessary parameters to execute the CreateVpcEndpointServiceConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5003,7 +5003,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deleteVpc:(AWSEC2DeleteVpcRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes one or more VPC endpoint connection notifications.</p>
+ <p>Deletes the specified VPC endpoint connection notifications.</p>
  
  @param request A container for the necessary parameters to execute the DeleteVpcEndpointConnectionNotifications service method.
 
@@ -5015,7 +5015,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DeleteVpcEndpointConnectionNotificationsResult *> *)deleteVpcEndpointConnectionNotifications:(AWSEC2DeleteVpcEndpointConnectionNotificationsRequest *)request;
 
 /**
- <p>Deletes one or more VPC endpoint connection notifications.</p>
+ <p>Deletes the specified VPC endpoint connection notifications.</p>
  
  @param request A container for the necessary parameters to execute the DeleteVpcEndpointConnectionNotifications service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5028,7 +5028,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deleteVpcEndpointConnectionNotifications:(AWSEC2DeleteVpcEndpointConnectionNotificationsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteVpcEndpointConnectionNotificationsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes one or more VPC endpoint service configurations in your account. Before you delete the endpoint service configuration, you must reject any <code>Available</code> or <code>PendingAcceptance</code> interface endpoint connections that are attached to the service.</p>
+ <p>Deletes the specified VPC endpoint service configurations. Before you can delete an endpoint service configuration, you must reject any <code>Available</code> or <code>PendingAcceptance</code> interface endpoint connections that are attached to the service.</p>
  
  @param request A container for the necessary parameters to execute the DeleteVpcEndpointServiceConfigurations service method.
 
@@ -5040,7 +5040,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DeleteVpcEndpointServiceConfigurationsResult *> *)deleteVpcEndpointServiceConfigurations:(AWSEC2DeleteVpcEndpointServiceConfigurationsRequest *)request;
 
 /**
- <p>Deletes one or more VPC endpoint service configurations in your account. Before you delete the endpoint service configuration, you must reject any <code>Available</code> or <code>PendingAcceptance</code> interface endpoint connections that are attached to the service.</p>
+ <p>Deletes the specified VPC endpoint service configurations. Before you can delete an endpoint service configuration, you must reject any <code>Available</code> or <code>PendingAcceptance</code> interface endpoint connections that are attached to the service.</p>
  
  @param request A container for the necessary parameters to execute the DeleteVpcEndpointServiceConfigurations service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5053,7 +5053,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deleteVpcEndpointServiceConfigurations:(AWSEC2DeleteVpcEndpointServiceConfigurationsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteVpcEndpointServiceConfigurationsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes one or more specified VPC endpoints. You can delete any of the following types of VPC endpoints. </p><ul><li><p>Gateway endpoint,</p></li><li><p>Gateway Load Balancer endpoint,</p></li><li><p>Interface endpoint</p></li></ul><p>The following rules apply when you delete a VPC endpoint:</p><ul><li><p>When you delete a gateway endpoint, we delete the endpoint routes in the route tables that are associated with the endpoint.</p></li><li><p>When you delete a Gateway Load Balancer endpoint, we delete the endpoint network interfaces. </p><p>You can only delete Gateway Load Balancer endpoints when the routes that are associated with the endpoint are deleted.</p></li><li><p>When you delete an interface endpoint, we delete the endpoint network interfaces.</p></li></ul>
+ <p>Deletes the specified VPC endpoints.</p><p>When you delete a gateway endpoint, we delete the endpoint routes in the route tables for the endpoint.</p><p>When you delete a Gateway Load Balancer endpoint, we delete its endpoint network interfaces. You can only delete Gateway Load Balancer endpoints when the routes that are associated with the endpoint are deleted.</p><p>When you delete an interface endpoint, we delete its endpoint network interfaces.</p>
  
  @param request A container for the necessary parameters to execute the DeleteVpcEndpoints service method.
 
@@ -5065,7 +5065,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DeleteVpcEndpointsResult *> *)deleteVpcEndpoints:(AWSEC2DeleteVpcEndpointsRequest *)request;
 
 /**
- <p>Deletes one or more specified VPC endpoints. You can delete any of the following types of VPC endpoints. </p><ul><li><p>Gateway endpoint,</p></li><li><p>Gateway Load Balancer endpoint,</p></li><li><p>Interface endpoint</p></li></ul><p>The following rules apply when you delete a VPC endpoint:</p><ul><li><p>When you delete a gateway endpoint, we delete the endpoint routes in the route tables that are associated with the endpoint.</p></li><li><p>When you delete a Gateway Load Balancer endpoint, we delete the endpoint network interfaces. </p><p>You can only delete Gateway Load Balancer endpoints when the routes that are associated with the endpoint are deleted.</p></li><li><p>When you delete an interface endpoint, we delete the endpoint network interfaces.</p></li></ul>
+ <p>Deletes the specified VPC endpoints.</p><p>When you delete a gateway endpoint, we delete the endpoint routes in the route tables for the endpoint.</p><p>When you delete a Gateway Load Balancer endpoint, we delete its endpoint network interfaces. You can only delete Gateway Load Balancer endpoints when the routes that are associated with the endpoint are deleted.</p><p>When you delete an interface endpoint, we delete its endpoint network interfaces.</p>
  
  @param request A container for the necessary parameters to execute the DeleteVpcEndpoints service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -8766,7 +8766,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeVpcEndpointServices:(AWSEC2DescribeVpcEndpointServicesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeVpcEndpointServicesResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes one or more of your VPC endpoints.</p>
+ <p>Describes your VPC endpoints.</p>
  
  @param request A container for the necessary parameters to execute the DescribeVpcEndpoints service method.
 
@@ -8778,7 +8778,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeVpcEndpointsResult *> *)describeVpcEndpoints:(AWSEC2DescribeVpcEndpointsRequest *)request;
 
 /**
- <p>Describes one or more of your VPC endpoints.</p>
+ <p>Describes your VPC endpoints.</p>
  
  @param request A container for the necessary parameters to execute the DescribeVpcEndpoints service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -12640,7 +12640,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)modifyVpcEndpointServicePayerResponsibility:(AWSEC2ModifyVpcEndpointServicePayerResponsibilityRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyVpcEndpointServicePayerResponsibilityResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Modifies the permissions for your VPC endpoint service. You can add or remove permissions for service consumers (IAM users, IAM roles, and Amazon Web Services accounts) to connect to your endpoint service.</p><p>If you grant permissions to all principals, the service is public. Any users who know the name of a public service can send a request to attach an endpoint. If the service does not require manual approval, attachments are automatically approved.</p>
+ <p>Modifies the permissions for your VPC endpoint service. You can add or remove permissions for service consumers (Amazon Web Services accounts, users, and IAM roles) to connect to your endpoint service.</p><p>If you grant permissions to all principals, the service is public. Any users who know the name of a public service can send a request to attach an endpoint. If the service does not require manual approval, attachments are automatically approved.</p>
  
  @param request A container for the necessary parameters to execute the ModifyVpcEndpointServicePermissions service method.
 
@@ -12652,7 +12652,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2ModifyVpcEndpointServicePermissionsResult *> *)modifyVpcEndpointServicePermissions:(AWSEC2ModifyVpcEndpointServicePermissionsRequest *)request;
 
 /**
- <p>Modifies the permissions for your VPC endpoint service. You can add or remove permissions for service consumers (IAM users, IAM roles, and Amazon Web Services accounts) to connect to your endpoint service.</p><p>If you grant permissions to all principals, the service is public. Any users who know the name of a public service can send a request to attach an endpoint. If the service does not require manual approval, attachments are automatically approved.</p>
+ <p>Modifies the permissions for your VPC endpoint service. You can add or remove permissions for service consumers (Amazon Web Services accounts, users, and IAM roles) to connect to your endpoint service.</p><p>If you grant permissions to all principals, the service is public. Any users who know the name of a public service can send a request to attach an endpoint. If the service does not require manual approval, attachments are automatically approved.</p>
  
  @param request A container for the necessary parameters to execute the ModifyVpcEndpointServicePermissions service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -13237,7 +13237,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)rejectTransitGatewayVpcAttachment:(AWSEC2RejectTransitGatewayVpcAttachmentRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2RejectTransitGatewayVpcAttachmentResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Rejects one or more VPC endpoint connection requests to your VPC endpoint service.</p>
+ <p>Rejects VPC endpoint connection requests to your VPC endpoint service.</p>
  
  @param request A container for the necessary parameters to execute the RejectVpcEndpointConnections service method.
 
@@ -13249,7 +13249,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2RejectVpcEndpointConnectionsResult *> *)rejectVpcEndpointConnections:(AWSEC2RejectVpcEndpointConnectionsRequest *)request;
 
 /**
- <p>Rejects one or more VPC endpoint connection requests to your VPC endpoint service.</p>
+ <p>Rejects VPC endpoint connection requests to your VPC endpoint service.</p>
  
  @param request A container for the necessary parameters to execute the RejectVpcEndpointConnections service method.
  @param completionHandler The completion handler to call when the load request is complete.

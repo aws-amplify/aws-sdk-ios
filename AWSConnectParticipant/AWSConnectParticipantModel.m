@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -288,6 +288,7 @@ NSString *const AWSConnectParticipantErrorDomain = @"com.amazonaws.AWSConnectPar
 	return @{
              @"absoluteTime" : @"AbsoluteTime",
              @"attachments" : @"Attachments",
+             @"contactId" : @"ContactId",
              @"content" : @"Content",
              @"contentType" : @"ContentType",
              @"displayName" : @"DisplayName",
@@ -295,6 +296,7 @@ NSString *const AWSConnectParticipantErrorDomain = @"com.amazonaws.AWSConnectPar
              @"messageMetadata" : @"MessageMetadata",
              @"participantId" : @"ParticipantId",
              @"participantRole" : @"ParticipantRole",
+             @"relatedContactId" : @"RelatedContactId",
              @"types" : @"Type",
              };
 }

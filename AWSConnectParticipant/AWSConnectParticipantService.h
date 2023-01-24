@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -275,7 +275,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 - (void)getAttachment:(AWSConnectParticipantGetAttachmentRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectParticipantGetAttachmentResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Retrieves a transcript of the session, including details about any attachments. </p><note><p><code>ConnectionToken</code> is used for invoking this API instead of <code>ParticipantToken</code>.</p></note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
+ <p>Retrieves a transcript of the session, including details about any attachments. For information about accessing past chat contact transcripts for a persistent chat, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>. </p><note><p><code>ConnectionToken</code> is used for invoking this API instead of <code>ParticipantToken</code>.</p></note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
  
  @param request A container for the necessary parameters to execute the GetTranscript service method.
 
@@ -287,7 +287,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 - (AWSTask<AWSConnectParticipantGetTranscriptResponse *> *)getTranscript:(AWSConnectParticipantGetTranscriptRequest *)request;
 
 /**
- <p>Retrieves a transcript of the session, including details about any attachments. </p><note><p><code>ConnectionToken</code> is used for invoking this API instead of <code>ParticipantToken</code>.</p></note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
+ <p>Retrieves a transcript of the session, including details about any attachments. For information about accessing past chat contact transcripts for a persistent chat, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>. </p><note><p><code>ConnectionToken</code> is used for invoking this API instead of <code>ParticipantToken</code>.</p></note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
  
  @param request A container for the necessary parameters to execute the GetTranscript service method.
  @param completionHandler The completion handler to call when the load request is complete.
