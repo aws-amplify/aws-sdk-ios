@@ -607,6 +607,12 @@ typedef NS_ENUM(NSInteger, AWSConnectReferenceType) {
     AWSConnectReferenceTypeEmail,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectRehydrationType) {
+    AWSConnectRehydrationTypeUnknown,
+    AWSConnectRehydrationTypeEntirePastSession,
+    AWSConnectRehydrationTypeFromSegment,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectResourceType) {
     AWSConnectResourceTypeUnknown,
     AWSConnectResourceTypeContact,
@@ -1031,6 +1037,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectParticipantDetails;
 @class AWSConnectParticipantTimerConfiguration;
 @class AWSConnectParticipantTimerValue;
+@class AWSConnectPersistentChat;
 @class AWSConnectPhoneNumberQuickConnectConfig;
 @class AWSConnectPhoneNumberStatus;
 @class AWSConnectPhoneNumberSummary;
@@ -1922,6 +1929,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>If this contact was queued, this contains information about the queue. </p>
  */
 @property (nonatomic, strong) AWSConnectQueueInfo * _Nullable queueInfo;
+
+/**
+ <p>The contactId that is <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html#relatedcontactid">related</a> to this contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable relatedContactId;
 
 /**
  <p>The timestamp, in Unix epoch time format, at which to start running the inbound flow. </p>
@@ -7260,6 +7272,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>Enable persistent chats. For more information about enabling persistent chat, and for example use cases and how to configure for them, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>.</p>
+ */
+@interface AWSConnectPersistentChat : AWSModel
+
+
+/**
+ <p>The contactId that is used for rehydration depends on the rehydration type. RehydrationType is required for persistent chat. </p><ul><li><p><code>ENTIRE_PAST_SESSION</code>: Rehydrates a chat from the most recently terminated past chat contact of the specified past ended chat session. To use this type, provide the <code>initialContactId</code> of the past ended chat session in the <code>sourceContactId</code> field. In this type, Amazon Connect determines the most recent chat contact on the specified chat session that has ended, and uses it to start a persistent chat. </p></li><li><p><code>FROM_SEGMENT</code>: Rehydrates a chat from the past chat contact that is specified in the <code>sourceContactId</code> field. </p></li></ul><p>The actual contactId used for rehydration is provided in the response of this API. </p>
+ */
+@property (nonatomic, assign) AWSConnectRehydrationType rehydrationType;
+
+/**
+ <p>The contactId from which a persistent chat session must be started.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceContactId;
+
+@end
+
+/**
  <p>Contains information about a phone number for a quick connect.</p>
  Required parameters: [PhoneNumber]
  */
@@ -8852,6 +8882,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) AWSConnectParticipantDetails * _Nullable participantDetails;
 
 /**
+ <p>Enable persistent chats. For more information about enabling persistent chat, and for example use cases and how to configure for them, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>.</p>
+ */
+@property (nonatomic, strong) AWSConnectPersistentChat * _Nullable persistentChat;
+
+/**
  <p>The supported chat message content types. Content types must always contain <code>text/plain</code>. You can then put any other supported type in the list. For example, all the following lists are valid because they contain <code>text/plain</code>: <code>[text/plain, text/markdown, application/json]</code>, <code>[text/markdown, text/plain]</code>, <code>[text/plain, application/json]</code>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable supportedMessagingContentTypes;
@@ -8868,6 +8903,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The identifier of this contact within the Amazon Connect instance. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The contactId from which a persistent chat session is started. This field is populated only for persistent chats.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable continuedFromContactId;
 
 /**
  <p>The identifier for a chat participant. The participantId for a chat participant is the same throughout the chat lifecycle.</p>
