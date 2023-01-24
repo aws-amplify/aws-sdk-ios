@@ -1674,6 +1674,48 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 271,
+      "symbol": "AWSLambdaUpdateRuntimeOn",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 271,
+      "symbol": "AWSLambdaUpdateRuntimeOn",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 272,
+      "symbol": "AWSLambdaUpdateRuntimeOn.AWSLambdaUpdateRuntimeOnUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 273,
+      "symbol": "AWSLambdaUpdateRuntimeOn.AWSLambdaUpdateRuntimeOnAuto",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 274,
+      "symbol": "AWSLambdaUpdateRuntimeOn.AWSLambdaUpdateRuntimeOnManual",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 275,
+      "symbol": "AWSLambdaUpdateRuntimeOn.AWSLambdaUpdateRuntimeOnFunctionUpdate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaResources.h",
       "line": 18,
       "symbol": "AWSLambdaResources",
