@@ -1547,6 +1547,51 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeTRN1_2xlarge,
     AWSEC2InstanceTypeTRN1_32xlarge,
     AWSEC2InstanceTypeHPC6id_32xlarge,
+    AWSEC2InstanceTypeC6In_large,
+    AWSEC2InstanceTypeC6In_xlarge,
+    AWSEC2InstanceTypeC6In_2xlarge,
+    AWSEC2InstanceTypeC6In_4xlarge,
+    AWSEC2InstanceTypeC6In_8xlarge,
+    AWSEC2InstanceTypeC6In_12xlarge,
+    AWSEC2InstanceTypeC6In_16xlarge,
+    AWSEC2InstanceTypeC6In_24xlarge,
+    AWSEC2InstanceTypeC6In_32xlarge,
+    AWSEC2InstanceTypeM6In_large,
+    AWSEC2InstanceTypeM6In_xlarge,
+    AWSEC2InstanceTypeM6In_2xlarge,
+    AWSEC2InstanceTypeM6In_4xlarge,
+    AWSEC2InstanceTypeM6In_8xlarge,
+    AWSEC2InstanceTypeM6In_12xlarge,
+    AWSEC2InstanceTypeM6In_16xlarge,
+    AWSEC2InstanceTypeM6In_24xlarge,
+    AWSEC2InstanceTypeM6In_32xlarge,
+    AWSEC2InstanceTypeM6Idn_large,
+    AWSEC2InstanceTypeM6Idn_xlarge,
+    AWSEC2InstanceTypeM6Idn_2xlarge,
+    AWSEC2InstanceTypeM6Idn_4xlarge,
+    AWSEC2InstanceTypeM6Idn_8xlarge,
+    AWSEC2InstanceTypeM6Idn_12xlarge,
+    AWSEC2InstanceTypeM6Idn_16xlarge,
+    AWSEC2InstanceTypeM6Idn_24xlarge,
+    AWSEC2InstanceTypeM6Idn_32xlarge,
+    AWSEC2InstanceTypeR6In_large,
+    AWSEC2InstanceTypeR6In_xlarge,
+    AWSEC2InstanceTypeR6In_2xlarge,
+    AWSEC2InstanceTypeR6In_4xlarge,
+    AWSEC2InstanceTypeR6In_8xlarge,
+    AWSEC2InstanceTypeR6In_12xlarge,
+    AWSEC2InstanceTypeR6In_16xlarge,
+    AWSEC2InstanceTypeR6In_24xlarge,
+    AWSEC2InstanceTypeR6In_32xlarge,
+    AWSEC2InstanceTypeR6Idn_large,
+    AWSEC2InstanceTypeR6Idn_xlarge,
+    AWSEC2InstanceTypeR6Idn_2xlarge,
+    AWSEC2InstanceTypeR6Idn_4xlarge,
+    AWSEC2InstanceTypeR6Idn_8xlarge,
+    AWSEC2InstanceTypeR6Idn_12xlarge,
+    AWSEC2InstanceTypeR6Idn_16xlarge,
+    AWSEC2InstanceTypeR6Idn_24xlarge,
+    AWSEC2InstanceTypeR6Idn_32xlarge,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2InstanceTypeHypervisor) {
@@ -11037,6 +11082,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable launchTemplateName;
 
 /**
+ <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the AMI ID is displayed in the response for <code>imageID</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>Default: <code>false</code></p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable resolveAlias;
+
+/**
  <p>The version number of the launch template version on which to base the new version. The new version inherits the same launch parameters as the source version, except for parameters that you specify in <code>LaunchTemplateData</code>. Snapshots applied to the block device mapping are ignored when creating a new version unless they are explicitly included.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceVersion;
@@ -19793,6 +19843,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The token to request the next page of results.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the AMI ID is displayed in the response for <code>imageId</code>.</p><p>If <code>false</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>, the parameter is displayed in the response for <code>imageId</code>.</p><p> For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>Default: <code>false</code></p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable resolveAlias;
 
 /**
  <p>One or more versions of the launch template. Valid values depend on whether you are describing a specified launch template (by ID or name) or all launch templates in your account.</p><p>To describe one or more versions of a specified launch template, valid values are <code>$Latest</code>, <code>$Default</code>, and numbers.</p><p>To describe all launch templates in your account that are defined as the latest version, the valid value is <code>$Latest</code>. To describe all launch templates in your account that are defined as the default version, the valid value is <code>$Default</code>. You can specify <code>$Latest</code> and <code>$Default</code> in the same request. You cannot specify numbers.</p>
@@ -43581,7 +43636,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2LaunchTemplateIamInstanceProfileSpecificationRequest * _Nullable iamInstanceProfile;
 
 /**
- <p>The ID of the AMI.</p>
+ <p>The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.</p><p>Valid formats:</p><ul><li><p><code>ami-17characters00000</code></p></li><li><p><code>resolve:ssm:parameter-name</code></p></li><li><p><code>resolve:ssm:parameter-name:version-number</code></p></li><li><p><code>resolve:ssm:parameter-name:label</code></p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable imageId;
 
@@ -44687,7 +44742,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2LaunchTemplateIamInstanceProfileSpecification * _Nullable iamInstanceProfile;
 
 /**
- <p>The ID of the AMI that was used to launch the instance.</p>
+ <p>The ID of the AMI or a Systems Manager parameter. The Systems Manager parameter will resolve to the ID of the AMI at instance launch.</p><p>The value depends on what you specified in the request. The possible values are:</p><ul><li><p>If an AMI ID was specified in the request, then this is the AMI ID.</p></li><li><p>If a Systems Manager parameter was specified in the request, and <code>ResolveAlias</code> was configured as <code>true</code>, then this is the AMI ID that the parameter is mapped to in the Parameter Store.</p></li><li><p>If a Systems Manager parameter was specified in the request, and <code>ResolveAlias</code> was configured as <code>false</code>, then this is the parameter value.</p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable imageId;
 
