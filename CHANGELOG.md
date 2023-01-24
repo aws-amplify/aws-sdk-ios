@@ -4,6 +4,10 @@
 
 ### Misc. Updates
 
+- **Auth**
+  - Added migration of keychain to the current accessibility level set for different Auth SDK. This will enabled keychain items that are stored in different accessibility level to get fixed to the current accessibility. (See [PR #4516](https://github.com/aws-amplify/aws-sdk-ios/pull/4516))
+
+
 - Model updates for the following services
   -AWSCloudWatchLogs
   -AWSConnect
