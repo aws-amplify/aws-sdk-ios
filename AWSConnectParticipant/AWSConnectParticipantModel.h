@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -367,6 +367,11 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
 @property (nonatomic, strong) NSArray<AWSConnectParticipantAttachmentItem *> * _Nullable attachments;
 
 /**
+ <p>The contactId on which the transcript item was originally sent. This field is populated only when the transcript item is from the current chat session.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
  <p>The content of the message or event.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable content;
@@ -400,6 +405,11 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
  <p>The role of the sender. For example, is it a customer, agent, or system.</p>
  */
 @property (nonatomic, assign) AWSConnectParticipantParticipantRole participantRole;
+
+/**
+ <p>The contactId on which the transcript item was originally sent. This field is only populated for persistent chats when the transcript item is from the past chat session. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable relatedContactId;
 
 /**
  <p>Type of the item: message or event. </p>
