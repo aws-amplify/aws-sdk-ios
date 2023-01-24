@@ -938,7 +938,7 @@ static NSString *_defaultService;
     for (NSDictionary *item in items) {
         CFComparisonResult result = CFStringCompare((CFStringRef)item[@"accessibility"],
                                                     [self accessibilityObject], 0);
-        if (result == 0) {
+        if (result == kCFCompareEqualTo) {
             continue;
         }
         NSString *key = item[@"key"];
