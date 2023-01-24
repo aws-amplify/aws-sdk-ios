@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -391,6 +391,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"maximumRetryAttempts" : @"MaximumRetryAttempts",
              @"parallelizationFactor" : @"ParallelizationFactor",
              @"queues" : @"Queues",
+             @"scalingConfig" : @"ScalingConfig",
              @"selfManagedEventSource" : @"SelfManagedEventSource",
              @"selfManagedKafkaEventSourceConfig" : @"SelfManagedKafkaEventSourceConfig",
              @"sourceAccessConfigurations" : @"SourceAccessConfigurations",
@@ -411,6 +412,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)filterCriteriaJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaFilterCriteria class]];
+}
+
++ (NSValueTransformer *)scalingConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaScalingConfig class]];
 }
 
 + (NSValueTransformer *)selfManagedEventSourceJSONTransformer {
@@ -1066,6 +1071,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"maximumRetryAttempts" : @"MaximumRetryAttempts",
              @"parallelizationFactor" : @"ParallelizationFactor",
              @"queues" : @"Queues",
+             @"scalingConfig" : @"ScalingConfig",
              @"selfManagedEventSource" : @"SelfManagedEventSource",
              @"selfManagedKafkaEventSourceConfig" : @"SelfManagedKafkaEventSourceConfig",
              @"sourceAccessConfigurations" : @"SourceAccessConfigurations",
@@ -1097,6 +1103,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
++ (NSValueTransformer *)scalingConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaScalingConfig class]];
 }
 
 + (NSValueTransformer *)selfManagedEventSourceJSONTransformer {
@@ -1261,6 +1271,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"revisionId" : @"RevisionId",
              @"role" : @"Role",
              @"runtime" : @"Runtime",
+             @"runtimeVersionConfig" : @"RuntimeVersionConfig",
              @"signingJobArn" : @"SigningJobArn",
              @"signingProfileVersionArn" : @"SigningProfileVersionArn",
              @"snapStart" : @"SnapStart",
@@ -1610,6 +1621,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)runtimeVersionConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaRuntimeVersionConfig class]];
 }
 
 + (NSValueTransformer *)snapStartJSONTransformer {
@@ -2311,6 +2326,62 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"READY";
             case AWSLambdaProvisionedConcurrencyStatusEnumFailed:
                 return @"FAILED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSLambdaGetRuntimeManagementConfigRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"functionName" : @"FunctionName",
+             @"qualifier" : @"Qualifier",
+             };
+}
+
+@end
+
+@implementation AWSLambdaGetRuntimeManagementConfigResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"runtimeVersionArn" : @"RuntimeVersionArn",
+             @"updateRuntimeOn" : @"UpdateRuntimeOn",
+             };
+}
+
++ (NSValueTransformer *)updateRuntimeOnJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Auto"] == NSOrderedSame) {
+            return @(AWSLambdaUpdateRuntimeOnAuto);
+        }
+        if ([value caseInsensitiveCompare:@"Manual"] == NSOrderedSame) {
+            return @(AWSLambdaUpdateRuntimeOnManual);
+        }
+        if ([value caseInsensitiveCompare:@"FunctionUpdate"] == NSOrderedSame) {
+            return @(AWSLambdaUpdateRuntimeOnFunctionUpdate);
+        }
+        return @(AWSLambdaUpdateRuntimeOnUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaUpdateRuntimeOnAuto:
+                return @"Auto";
+            case AWSLambdaUpdateRuntimeOnManual:
+                return @"Manual";
+            case AWSLambdaUpdateRuntimeOnFunctionUpdate:
+                return @"FunctionUpdate";
             default:
                 return nil;
         }
@@ -3620,6 +3691,91 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 @end
 
+@implementation AWSLambdaPutRuntimeManagementConfigRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"functionName" : @"FunctionName",
+             @"qualifier" : @"Qualifier",
+             @"runtimeVersionArn" : @"RuntimeVersionArn",
+             @"updateRuntimeOn" : @"UpdateRuntimeOn",
+             };
+}
+
++ (NSValueTransformer *)updateRuntimeOnJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Auto"] == NSOrderedSame) {
+            return @(AWSLambdaUpdateRuntimeOnAuto);
+        }
+        if ([value caseInsensitiveCompare:@"Manual"] == NSOrderedSame) {
+            return @(AWSLambdaUpdateRuntimeOnManual);
+        }
+        if ([value caseInsensitiveCompare:@"FunctionUpdate"] == NSOrderedSame) {
+            return @(AWSLambdaUpdateRuntimeOnFunctionUpdate);
+        }
+        return @(AWSLambdaUpdateRuntimeOnUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaUpdateRuntimeOnAuto:
+                return @"Auto";
+            case AWSLambdaUpdateRuntimeOnManual:
+                return @"Manual";
+            case AWSLambdaUpdateRuntimeOnFunctionUpdate:
+                return @"FunctionUpdate";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSLambdaPutRuntimeManagementConfigResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"functionArn" : @"FunctionArn",
+             @"runtimeVersionArn" : @"RuntimeVersionArn",
+             @"updateRuntimeOn" : @"UpdateRuntimeOn",
+             };
+}
+
++ (NSValueTransformer *)updateRuntimeOnJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Auto"] == NSOrderedSame) {
+            return @(AWSLambdaUpdateRuntimeOnAuto);
+        }
+        if ([value caseInsensitiveCompare:@"Manual"] == NSOrderedSame) {
+            return @(AWSLambdaUpdateRuntimeOnManual);
+        }
+        if ([value caseInsensitiveCompare:@"FunctionUpdate"] == NSOrderedSame) {
+            return @(AWSLambdaUpdateRuntimeOnFunctionUpdate);
+        }
+        return @(AWSLambdaUpdateRuntimeOnUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaUpdateRuntimeOnAuto:
+                return @"Auto";
+            case AWSLambdaUpdateRuntimeOnManual:
+                return @"Manual";
+            case AWSLambdaUpdateRuntimeOnFunctionUpdate:
+                return @"FunctionUpdate";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSLambdaRemoveLayerVersionPermissionRequest
 
 + (BOOL)supportsSecureCoding {
@@ -3649,6 +3805,54 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"qualifier" : @"Qualifier",
              @"revisionId" : @"RevisionId",
              @"statementId" : @"StatementId",
+             };
+}
+
+@end
+
+@implementation AWSLambdaRuntimeVersionConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"error" : @"Error",
+             @"runtimeVersionArn" : @"RuntimeVersionArn",
+             };
+}
+
++ (NSValueTransformer *)errorJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaRuntimeVersionError class]];
+}
+
+@end
+
+@implementation AWSLambdaRuntimeVersionError
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"errorCode" : @"ErrorCode",
+             @"message" : @"Message",
+             };
+}
+
+@end
+
+@implementation AWSLambdaScalingConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maximumConcurrency" : @"MaximumConcurrency",
              };
 }
 
@@ -4025,6 +4229,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"maximumRecordAgeInSeconds" : @"MaximumRecordAgeInSeconds",
              @"maximumRetryAttempts" : @"MaximumRetryAttempts",
              @"parallelizationFactor" : @"ParallelizationFactor",
+             @"scalingConfig" : @"ScalingConfig",
              @"sourceAccessConfigurations" : @"SourceAccessConfigurations",
              @"tumblingWindowInSeconds" : @"TumblingWindowInSeconds",
              @"UUID" : @"UUID",
@@ -4037,6 +4242,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)filterCriteriaJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaFilterCriteria class]];
+}
+
++ (NSValueTransformer *)scalingConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaScalingConfig class]];
 }
 
 + (NSValueTransformer *)sourceAccessConfigurationsJSONTransformer {
