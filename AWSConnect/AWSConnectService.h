@@ -858,22 +858,25 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  
  @param request A container for the necessary parameters to execute the DeleteContactFlow service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorAccessDenied`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorThrottling`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectDeleteContactFlowResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorAccessDenied`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorThrottling`.
  
  @see AWSConnectDeleteContactFlowRequest
+ @see AWSConnectDeleteContactFlowResponse
  */
-- (AWSTask *)deleteContactFlow:(AWSConnectDeleteContactFlowRequest *)request;
+- (AWSTask<AWSConnectDeleteContactFlowResponse *> *)deleteContactFlow:(AWSConnectDeleteContactFlowRequest *)request;
 
 /**
  <p>Deletes a flow for the specified Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the DeleteContactFlow service method.
  @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
                           `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorAccessDenied`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorThrottling`.
  
  @see AWSConnectDeleteContactFlowRequest
+ @see AWSConnectDeleteContactFlowResponse
  */
-- (void)deleteContactFlow:(AWSConnectDeleteContactFlowRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+- (void)deleteContactFlow:(AWSConnectDeleteContactFlowRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDeleteContactFlowResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deletes the specified flow module.</p>
@@ -3489,44 +3492,50 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  
  @param request A container for the necessary parameters to execute the UpdateContactFlowContent service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidContactFlow`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectUpdateContactFlowContentResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidContactFlow`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
  
  @see AWSConnectUpdateContactFlowContentRequest
+ @see AWSConnectUpdateContactFlowContentResponse
  */
-- (AWSTask *)updateContactFlowContent:(AWSConnectUpdateContactFlowContentRequest *)request;
+- (AWSTask<AWSConnectUpdateContactFlowContentResponse *> *)updateContactFlowContent:(AWSConnectUpdateContactFlowContentRequest *)request;
 
 /**
  <p>Updates the specified flow.</p><p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect Flow language</a>.</p>
  
  @param request A container for the necessary parameters to execute the UpdateContactFlowContent service method.
  @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
                           `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidContactFlow`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
  
  @see AWSConnectUpdateContactFlowContentRequest
+ @see AWSConnectUpdateContactFlowContentResponse
  */
-- (void)updateContactFlowContent:(AWSConnectUpdateContactFlowContentRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+- (void)updateContactFlowContent:(AWSConnectUpdateContactFlowContentRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectUpdateContactFlowContentResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Updates metadata about specified flow.</p>
  
  @param request A container for the necessary parameters to execute the UpdateContactFlowMetadata service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorDuplicateResource`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectUpdateContactFlowMetadataResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorDuplicateResource`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
  
  @see AWSConnectUpdateContactFlowMetadataRequest
+ @see AWSConnectUpdateContactFlowMetadataResponse
  */
-- (AWSTask *)updateContactFlowMetadata:(AWSConnectUpdateContactFlowMetadataRequest *)request;
+- (AWSTask<AWSConnectUpdateContactFlowMetadataResponse *> *)updateContactFlowMetadata:(AWSConnectUpdateContactFlowMetadataRequest *)request;
 
 /**
  <p>Updates metadata about specified flow.</p>
  
  @param request A container for the necessary parameters to execute the UpdateContactFlowMetadata service method.
  @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
                           `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorDuplicateResource`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
  
  @see AWSConnectUpdateContactFlowMetadataRequest
+ @see AWSConnectUpdateContactFlowMetadataResponse
  */
-- (void)updateContactFlowMetadata:(AWSConnectUpdateContactFlowMetadataRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+- (void)updateContactFlowMetadata:(AWSConnectUpdateContactFlowMetadataRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectUpdateContactFlowMetadataResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Updates specified flow module for the specified Amazon Connect instance. </p>
@@ -3583,22 +3592,25 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  
  @param request A container for the necessary parameters to execute the UpdateContactFlowName service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorDuplicateResource`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectUpdateContactFlowNameResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorDuplicateResource`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
  
  @see AWSConnectUpdateContactFlowNameRequest
+ @see AWSConnectUpdateContactFlowNameResponse
  */
-- (AWSTask *)updateContactFlowName:(AWSConnectUpdateContactFlowNameRequest *)request;
+- (AWSTask<AWSConnectUpdateContactFlowNameResponse *> *)updateContactFlowName:(AWSConnectUpdateContactFlowNameRequest *)request;
 
 /**
  <p>The name of the flow.</p><p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect Flow language</a>.</p>
  
  @param request A container for the necessary parameters to execute the UpdateContactFlowName service method.
  @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
                           `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorDuplicateResource`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
  
  @see AWSConnectUpdateContactFlowNameRequest
+ @see AWSConnectUpdateContactFlowNameResponse
  */
-- (void)updateContactFlowName:(AWSConnectUpdateContactFlowNameRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+- (void)updateContactFlowName:(AWSConnectUpdateContactFlowNameRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectUpdateContactFlowNameResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Updates the scheduled time of a task contact that is already scheduled.</p>

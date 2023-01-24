@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -151,7 +151,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"ValidationException\"}\
       ],\
-      \"documentation\":\"<p>Retrieves a transcript of the session, including details about any attachments. </p> <note> <p> <code>ConnectionToken</code> is used for invoking this API instead of <code>ParticipantToken</code>.</p> </note> <p>The Amazon Connect Participant Service APIs do not use <a href=\\\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\\\">Signature Version 4 authentication</a>.</p>\"\
+      \"documentation\":\"<p>Retrieves a transcript of the session, including details about any attachments. For information about accessing past chat contact transcripts for a persistent chat, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html\\\">Enable persistent chat</a>. </p> <note> <p> <code>ConnectionToken</code> is used for invoking this API instead of <code>ParticipantToken</code>.</p> </note> <p>The Amazon Connect Participant Service APIs do not use <a href=\\\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\\\">Signature Version 4 authentication</a>.</p>\"\
     },\
     \"SendEvent\":{\
       \"name\":\"SendEvent\",\
@@ -586,6 +586,14 @@
         \"MessageMetadata\":{\
           \"shape\":\"MessageMetadata\",\
           \"documentation\":\"<p>The metadata related to the message. Currently this supports only information related to message receipts.</p>\"\
+        },\
+        \"RelatedContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The contactId on which the transcript item was originally sent. This field is only populated for persistent chats when the transcript item is from the past chat session. For more information, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html\\\">Enable persistent chat</a>.</p>\"\
+        },\
+        \"ContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The contactId on which the transcript item was originally sent. This field is populated only when the transcript item is from the current chat session.</p>\"\
         }\
       },\
       \"documentation\":\"<p>An item - message or event - that has been sent. </p>\"\

@@ -6,9 +6,13 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 
 - Model updates for the following services
 ---AWSConnectParticipant
----AWSConnect
+---AWSComprehend
+---AWSLambda
 ---AWSCloudWatchLogs
+---AWSLocation
 ---AWSEC2
+---AWSConnect
+
 # AWS Mobile SDK for iOS CHANGELOG
 ## Unreleased
 

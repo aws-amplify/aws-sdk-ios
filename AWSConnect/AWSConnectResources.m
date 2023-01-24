@@ -592,6 +592,7 @@
         \"requestUri\":\"/contact-flows/{InstanceId}/{ContactFlowId}\"\
       },\
       \"input\":{\"shape\":\"DeleteContactFlowRequest\"},\
+      \"output\":{\"shape\":\"DeleteContactFlowResponse\"},\
       \"errors\":[\
         {\"shape\":\"AccessDeniedException\"},\
         {\"shape\":\"InvalidRequestException\"},\
@@ -2403,6 +2404,7 @@
         \"requestUri\":\"/contact-flows/{InstanceId}/{ContactFlowId}/content\"\
       },\
       \"input\":{\"shape\":\"UpdateContactFlowContentRequest\"},\
+      \"output\":{\"shape\":\"UpdateContactFlowContentResponse\"},\
       \"errors\":[\
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"InvalidContactFlowException\"},\
@@ -2420,6 +2422,7 @@
         \"requestUri\":\"/contact-flows/{InstanceId}/{ContactFlowId}/metadata\"\
       },\
       \"input\":{\"shape\":\"UpdateContactFlowMetadataRequest\"},\
+      \"output\":{\"shape\":\"UpdateContactFlowMetadataResponse\"},\
       \"errors\":[\
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"InvalidParameterException\"},\
@@ -2474,6 +2477,7 @@
         \"requestUri\":\"/contact-flows/{InstanceId}/{ContactFlowId}/name\"\
       },\
       \"input\":{\"shape\":\"UpdateContactFlowNameRequest\"},\
+      \"output\":{\"shape\":\"UpdateContactFlowNameResponse\"},\
       \"errors\":[\
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"InvalidParameterException\"},\
@@ -3799,6 +3803,10 @@
         \"ScheduledTimestamp\":{\
           \"shape\":\"timestamp\",\
           \"documentation\":\"<p>The timestamp, in Unix epoch time format, at which to start running the inbound flow. </p>\"\
+        },\
+        \"RelatedContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The contactId that is <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html#relatedcontactid\\\">related</a> to this contact.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a contact.</p>\"\
@@ -5208,6 +5216,11 @@
           \"location\":\"uri\",\
           \"locationName\":\"ContactFlowId\"\
         }\
+      }\
+    },\
+    \"DeleteContactFlowResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
       }\
     },\
     \"DeleteHoursOfOperationRequest\":{\
@@ -9397,6 +9410,20 @@
       \"member\":{\"shape\":\"SecurityProfilePermission\"},\
       \"max\":500\
     },\
+    \"PersistentChat\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"RehydrationType\":{\
+          \"shape\":\"RehydrationType\",\
+          \"documentation\":\"<p>The contactId that is used for rehydration depends on the rehydration type. RehydrationType is required for persistent chat. </p> <ul> <li> <p> <code>ENTIRE_PAST_SESSION</code>: Rehydrates a chat from the most recently terminated past chat contact of the specified past ended chat session. To use this type, provide the <code>initialContactId</code> of the past ended chat session in the <code>sourceContactId</code> field. In this type, Amazon Connect determines the most recent chat contact on the specified chat session that has ended, and uses it to start a persistent chat. </p> </li> <li> <p> <code>FROM_SEGMENT</code>: Rehydrates a chat from the past chat contact that is specified in the <code>sourceContactId</code> field. </p> </li> </ul> <p>The actual contactId used for rehydration is provided in the response of this API. </p>\"\
+        },\
+        \"SourceContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The contactId from which a persistent chat session must be started.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Enable persistent chats. For more information about enabling persistent chat, and for example use cases and how to configure for them, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html\\\">Enable persistent chat</a>.</p>\"\
+    },\
     \"PhoneNumber\":{\
       \"type\":\"string\",\
       \"pattern\":\"\\\\\\\\+[1-9]\\\\\\\\d{1,14}$\"\
@@ -10287,6 +10314,13 @@
       \"type\":\"string\",\
       \"max\":4096,\
       \"min\":0\
+    },\
+    \"RehydrationType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"ENTIRE_PAST_SESSION\",\
+        \"FROM_SEGMENT\"\
+      ]\
     },\
     \"ReleasePhoneNumberRequest\":{\
       \"type\":\"structure\",\
@@ -11421,6 +11455,10 @@
         \"SupportedMessagingContentTypes\":{\
           \"shape\":\"SupportedMessagingContentTypes\",\
           \"documentation\":\"<p>The supported chat message content types. Content types must always contain <code>text/plain</code>. You can then put any other supported type in the list. For example, all the following lists are valid because they contain <code>text/plain</code>: <code>[text/plain, text/markdown, application/json]</code>, <code>[text/markdown, text/plain]</code>, <code>[text/plain, application/json]</code>.</p>\"\
+        },\
+        \"PersistentChat\":{\
+          \"shape\":\"PersistentChat\",\
+          \"documentation\":\"<p>Enable persistent chats. For more information about enabling persistent chat, and for example use cases and how to configure for them, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html\\\">Enable persistent chat</a>.</p>\"\
         }\
       }\
     },\
@@ -11438,6 +11476,10 @@
         \"ParticipantToken\":{\
           \"shape\":\"ParticipantToken\",\
           \"documentation\":\"<p>The token used by the chat participant to call <a href=\\\"https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html\\\">CreateParticipantConnection</a>. The participant token is valid for the lifetime of a chat participant.</p>\"\
+        },\
+        \"ContinuedFromContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The contactId from which a persistent chat session is started. This field is populated only for persistent chats.</p>\"\
         }\
       }\
     },\
@@ -12432,6 +12474,11 @@
         }\
       }\
     },\
+    \"UpdateContactFlowContentResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
     \"UpdateContactFlowMetadataRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -12463,6 +12510,11 @@
           \"shape\":\"ContactFlowState\",\
           \"documentation\":\"<p>The state of flow.</p>\"\
         }\
+      }\
+    },\
+    \"UpdateContactFlowMetadataResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
       }\
     },\
     \"UpdateContactFlowModuleContentRequest\":{\
@@ -12561,6 +12613,11 @@
           \"shape\":\"ContactFlowDescription\",\
           \"documentation\":\"<p>The description of the flow.</p>\"\
         }\
+      }\
+    },\
+    \"UpdateContactFlowNameResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
       }\
     },\
     \"UpdateContactRequest\":{\
