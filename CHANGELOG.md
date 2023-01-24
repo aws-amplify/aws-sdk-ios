@@ -2,6 +2,11 @@
 # AWS Mobile SDK for iOS CHANGELOG
 ## Unreleased
 
+### New features
+- **AWSCore**
+  - Support for `ap-southeast-4` - Asia Pacific (Melbourne) (see [AWS Regional Services List](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for a list of services supported in the region)
+
+
 ### Misc. Updates
 
 - **Auth**
