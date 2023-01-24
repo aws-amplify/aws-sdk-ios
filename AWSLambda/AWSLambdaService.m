@@ -1069,6 +1069,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSLambdaGetRuntimeManagementConfigResponse *> *)getRuntimeManagementConfig:(AWSLambdaGetRuntimeManagementConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/2021-07-20/functions/{FunctionName}/runtime-management-config"
+                  targetPrefix:@""
+                 operationName:@"GetRuntimeManagementConfig"
+                   outputClass:[AWSLambdaGetRuntimeManagementConfigResponse class]];
+}
+
+- (void)getRuntimeManagementConfig:(AWSLambdaGetRuntimeManagementConfigRequest *)request
+     completionHandler:(void (^)(AWSLambdaGetRuntimeManagementConfigResponse *response, NSError *error))completionHandler {
+    [[self getRuntimeManagementConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaGetRuntimeManagementConfigResponse *> * _Nonnull task) {
+        AWSLambdaGetRuntimeManagementConfigResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSLambdaInvocationResponse *> *)invoke:(AWSLambdaInvocationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1519,6 +1542,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLambdaPutProvisionedConcurrencyConfigResponse *response, NSError *error))completionHandler {
     [[self putProvisionedConcurrencyConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaPutProvisionedConcurrencyConfigResponse *> * _Nonnull task) {
         AWSLambdaPutProvisionedConcurrencyConfigResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaPutRuntimeManagementConfigResponse *> *)putRuntimeManagementConfig:(AWSLambdaPutRuntimeManagementConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/2021-07-20/functions/{FunctionName}/runtime-management-config"
+                  targetPrefix:@""
+                 operationName:@"PutRuntimeManagementConfig"
+                   outputClass:[AWSLambdaPutRuntimeManagementConfigResponse class]];
+}
+
+- (void)putRuntimeManagementConfig:(AWSLambdaPutRuntimeManagementConfigRequest *)request
+     completionHandler:(void (^)(AWSLambdaPutRuntimeManagementConfigResponse *response, NSError *error))completionHandler {
+    [[self putRuntimeManagementConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaPutRuntimeManagementConfigResponse *> * _Nonnull task) {
+        AWSLambdaPutRuntimeManagementConfigResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
