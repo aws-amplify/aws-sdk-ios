@@ -4,6 +4,10 @@
 
 -Features for next release
 
+## 2.30.1
+
+-Features for next release
+
 ## 2.30.0
 
 ### New features
